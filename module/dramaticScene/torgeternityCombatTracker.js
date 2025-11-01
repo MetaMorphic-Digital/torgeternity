@@ -82,7 +82,7 @@ export default class torgeternityCombatTracker extends foundry.applications.side
         .map(card => { return { name: card.name, img: card.img } }) ?? [];
     }
     context.turnTaken = combatant.turnTaken;
-    context.isWaiting = combatant.actor.hasStatusEffect('waiting');
+    context.isWaiting = combatant.actor?.hasStatusEffect('waiting');
     context.waitingImg = CONFIG.statusEffects.find(e => e.id === 'waiting')?.img;
     context.actorType = combatant.actor?.type;
     const dispositions = {
@@ -96,7 +96,7 @@ export default class torgeternityCombatTracker extends foundry.applications.side
     // Remove "active" class from combatants since we don't use it, 
     // and Foundry's core CSS causes it to mess up the card hover function.
     const css = context.css.split(" ").filter(cls => cls !== 'active');
-    css.push(dispositions[combatant.token.disposition]);
+    if (combatant.token?.disposition !== undefined) css.push(dispositions[combatant.token.disposition]);
     if (combatant.turnTaken) css.push(' turnDone');
     context.css = css.join(" ");
     return context;
