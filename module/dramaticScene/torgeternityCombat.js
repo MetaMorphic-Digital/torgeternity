@@ -78,8 +78,7 @@ export default class TorgCombat extends Combat {
 
     if (this.started) {
       const whoFirst = await this.getFlag('torgeternity', 'combatFirstDisposition');
-      const initiative = (combatant.token.disposition === whoFirst) ? 2 : 1;
-      combatant.update({ initiative });
+      combatant.update({ initiative: this.#getInitiative(combatant, whoFirst) });
 
       if (combatant.token.disposition === CONST.TOKEN_DISPOSITIONS.FRIENDLY && this.heroConflict === 'confused') {
         const hand = combatant.actor.getDefaultHand();
@@ -192,13 +191,16 @@ export default class TorgCombat extends Combat {
 
     const updates = [];
     for (const combatant of this.turns) {
-      const initiative = (combatant.token.disposition === whoFirst) ? 2 : 1;
-      updates.push({ _id: combatant.id, initiative });
+      updates.push({ _id: combatant.id, initiative: this.#getInitiative(combatant, whoFirst) });
     }
     if (updates.length) {
       await this.updateEmbeddedDocuments("Combatant", updates, { turnEvents: false });
       this.setupTurns();
     }
+  }
+
+  #getInitiative(combatant, whoFirst) {
+    return (!combatant.token || combatant.token.disposition === CONST.TOKEN_DISPOSITIONS.NEUTRAL) ? 1 : (combatant.token.disposition === whoFirst) ? 3 : 2;
   }
 
   get conflictLineText() {

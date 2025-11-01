@@ -19,8 +19,6 @@ export default class torgeternityCombatTracker extends foundry.applications.side
     classes: ['torgeternity', 'themed', 'theme-dark'],
     actions: {
       'toggleDramatic': torgeternityCombatTracker.#toggleDramatic,
-      'heroesFirst': torgeternityCombatTracker.#onHeroesFirst,
-      'villainsFirst': torgeternityCombatTracker.#onVillainsFirst,
       'hasPlayed': torgeternityCombatTracker.#onHasPlayed,
       'toggleWaiting': torgeternityCombatTracker.#onToggleWaiting,
       'dsrCounter': torgeternityCombatTracker.#incStage,
@@ -166,37 +164,6 @@ export default class torgeternityCombatTracker extends foundry.applications.side
     const combatant = this.viewed?.combatants.get(combatantId);
     if (!combatant) return;
     combatant.actor.toggleStatusEffect('waiting');
-  }
-  /**
- *
- */
-  static async #onVillainsFirst() {
-    if (!this.viewed) return;
-    this.firstFaction = 'villains';
-    this.secondFaction = 'heroes';
-    await this.viewed.resetAll();
-    const updates = [];
-    for (const combatant of this.viewed.turns) {
-      const initiative = (combatant.token.disposition === CONST.TOKEN_DISPOSITIONS.FRIENDLY) ? 1 : 2;
-      updates.push({ _id: combatant.id, initiative });
-    }
-    if (updates.length) this.viewed.updateEmbeddedDocuments("Combatant", updates, { turnEvents: false });
-  }
-
-  /**
-   *
-   */
-  static async #onHeroesFirst() {
-    if (!this.viewed) return;
-    await this.viewed.resetAll();
-    this.firstFaction = 'heroes';
-    this.secondFaction = 'villains';
-    const updates = [];
-    for (const combatant of this.viewed.turns) {
-      const initiative = (combatant.token.disposition === CONST.TOKEN_DISPOSITIONS.FRIENDLY) ? 2 : 1;
-      updates.push({ _id: combatant.id, initiative });
-    }
-    if (updates.length) this.viewed.updateEmbeddedDocuments("Combatant", updates, { turnEvents: false });
   }
 
   updateStage(document, force) {
