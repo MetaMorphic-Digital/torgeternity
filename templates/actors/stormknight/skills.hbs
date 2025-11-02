@@ -58,8 +58,8 @@
           data-value="{{content.value}}"
           data-unskilleduse="0"
           {{disabled (not @root.editable)}}
-          data-name="{{name}}"
-          data-isfav="{{content.isFav}}">
+          {{#if content.isFav}}data-isfav="true" {{/if}}
+          data-name="{{name}}">
           {{content.localName}}
         </a>
       </span>
