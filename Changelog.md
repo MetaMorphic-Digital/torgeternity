@@ -1,12 +1,19 @@
 # TORG Eternity Changelog
 
+## 13.12.2
+
+- Protect against undefined actor/token in the combat tracker (usually due to tokens where the Actor has been deleted).
+- Favourite flag on custom skills is honoured correctly.
+- Allow Vehicle sheets to be opened again (since they have no skills).
+- Put tokens with a neutral disposition at the end of the Combat Tracker (since they are neither Heroes or Villains).
+
 ## 13.12.1
 
 - Fix the blank skill names in the Combat and Interaction parts of the skills list.
 
 ## 13.12.0
 
-## Enhancements
+### Enhancements
 
 - Move Torg-specific **Active Effects** fields to their own Tab in the AE Config dialog.
 - **Show BD** separately from d20s in the chat result card (with infinity symbol instead of "6").
