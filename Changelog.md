@@ -3,7 +3,7 @@
 ## 13.12.2
 
 - Protect against undefined actor/token in the combat tracker (usually due to tokens where the Actor has been deleted).
-- Favourite flag on custom skills is honoured correctly.
+- Favourite flag on custom skills is honoured correctly (for Stormknights and Threats).
 - Allow Vehicle sheets to be opened again (since they have no skills).
 - Put tokens with a neutral disposition at the end of the Combat Tracker (since they are neither Heroes or Villains).
 
