@@ -19,8 +19,6 @@ export default class torgeternityCombatTracker extends foundry.applications.side
     classes: ['torgeternity', 'themed', 'theme-dark'],
     actions: {
       'toggleDramatic': torgeternityCombatTracker.#toggleDramatic,
-      'heroesFirst': torgeternityCombatTracker.#onHeroesFirst,
-      'villainsFirst': torgeternityCombatTracker.#onVillainsFirst,
       'hasPlayed': torgeternityCombatTracker.#onHasPlayed,
       'toggleWaiting': torgeternityCombatTracker.#onToggleWaiting,
       'dsrCounter': torgeternityCombatTracker.#incStage,
@@ -82,7 +80,7 @@ export default class torgeternityCombatTracker extends foundry.applications.side
         .map(card => { return { name: card.name, img: card.img } }) ?? [];
     }
     context.turnTaken = combatant.turnTaken;
-    context.isWaiting = combatant.actor.hasStatusEffect('waiting');
+    context.isWaiting = combatant.actor?.hasStatusEffect('waiting');
     context.waitingImg = CONFIG.statusEffects.find(e => e.id === 'waiting')?.img;
     context.actorType = combatant.actor?.type;
     const dispositions = {
@@ -96,7 +94,7 @@ export default class torgeternityCombatTracker extends foundry.applications.side
     // Remove "active" class from combatants since we don't use it, 
     // and Foundry's core CSS causes it to mess up the card hover function.
     const css = context.css.split(" ").filter(cls => cls !== 'active');
-    css.push(dispositions[combatant.token.disposition]);
+    if (combatant.token?.disposition !== undefined) css.push(dispositions[combatant.token.disposition]);
     if (combatant.turnTaken) css.push(' turnDone');
     context.css = css.join(" ");
     return context;
@@ -166,37 +164,6 @@ export default class torgeternityCombatTracker extends foundry.applications.side
     const combatant = this.viewed?.combatants.get(combatantId);
     if (!combatant) return;
     combatant.actor.toggleStatusEffect('waiting');
-  }
-  /**
- *
- */
-  static async #onVillainsFirst() {
-    if (!this.viewed) return;
-    this.firstFaction = 'villains';
-    this.secondFaction = 'heroes';
-    await this.viewed.resetAll();
-    const updates = [];
-    for (const combatant of this.viewed.turns) {
-      const initiative = (combatant.token.disposition === CONST.TOKEN_DISPOSITIONS.FRIENDLY) ? 1 : 2;
-      updates.push({ _id: combatant.id, initiative });
-    }
-    if (updates.length) this.viewed.updateEmbeddedDocuments("Combatant", updates, { turnEvents: false });
-  }
-
-  /**
-   *
-   */
-  static async #onHeroesFirst() {
-    if (!this.viewed) return;
-    await this.viewed.resetAll();
-    this.firstFaction = 'heroes';
-    this.secondFaction = 'villains';
-    const updates = [];
-    for (const combatant of this.viewed.turns) {
-      const initiative = (combatant.token.disposition === CONST.TOKEN_DISPOSITIONS.FRIENDLY) ? 2 : 1;
-      updates.push({ _id: combatant.id, initiative });
-    }
-    if (updates.length) this.viewed.updateEmbeddedDocuments("Combatant", updates, { turnEvents: false });
   }
 
   updateStage(document, force) {
