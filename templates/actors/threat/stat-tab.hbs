@@ -466,6 +466,7 @@
               <span class="inline-skill-item">
                 <a
                   class="skill-roll draggable" data-action="skillRoll"
+                  data-tooltip="torgeternity.sheetLabels.skillRollHint"
                   data-testtype="skill"
                   data-baseattribute="{{content.baseAttribute}}"
                   data-adds="{{content.adds}}"
@@ -473,7 +474,7 @@
                   data-unskilleduse="{{content.unskilledUse}}"
                   {{disabled (not @root.editable)}}
                   data-name="{{name}}">
-                  {{localize (concat 'torgeternity.skills.' name)}}
+                  {{content.localName}}
                 </a>
                 {{#if content.isFav}}
                   <a class="toggleFav checked" {{disabled (not @root.editable)}}> <i class="far fa-star"></i> </a>
@@ -486,6 +487,7 @@
             <span class="inline-skill-item">
               <a
                 class="skill-roll draggable" data-action="skillRoll"
+                data-tooltip="torgeternity.sheetLabels.skillRollHint"
                 data-testtype="skill"
                 data-customskill="true"
                 data-baseattribute="{{content.system.baseAttribute}}"
@@ -493,6 +495,7 @@
                 data-value="{{content.system.value}}"
                 data-unskilleduse="0"
                 {{disabled (not @root.editable)}}
+                {{#if content.system.isFav}}data-isfav="true" {{/if}}
                 data-name="{{content.name}}">
                 {{content.name}}
               </a>
