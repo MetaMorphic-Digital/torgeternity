@@ -627,6 +627,7 @@ dialog.torgeternity:not(.actor, .item) .window-content,
         gap: 10px;
         margin-bottom: 1em;
         position: relative;
+        padding-left: 0.5em;
 
         &:before {
           content: " ";
@@ -3548,7 +3549,7 @@ document-embed .generalHeader {
     img {
       flex: 0 0 64px;
       height: 64px;
-      margin-right: 6px;
+      margin: 0 1em 0 1em;
       border: none;
     }
 
