@@ -1,5 +1,9 @@
 # TORG Eternity Changelog
 
+## NEXT
+
+- Description field of **Vehicle Add-On Item Sheet** resizes to fit the window.
+
 ## 13.12.2
 
 - Protect against undefined actor/token in the combat tracker (usually due to tokens where the Actor has been deleted).
@@ -31,6 +35,7 @@
     - **Player Cosm** - the cosm of the player will determine which currency is used.
     - **Item Cosm** - the cosm of the item being purchased will determine which currency is used.
     - **Ask Player** - the player will be prompted with the Actor's available currencies, so that they can choose which currency to use.
+  - Hold down SHIFT while dragging to take the Item for free (without popping up the above dialog).
 
 ### Internal Improvements
 

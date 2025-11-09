@@ -3572,6 +3572,10 @@ document-embed .generalHeader {
     margin-bottom: 1em;
     column-gap: 0.5em;
     height: 100%;
+
+    & .full-width {
+      grid-column: 1/3;
+    }
   }
 
   .window-content .raceDescriptionHeadline {
