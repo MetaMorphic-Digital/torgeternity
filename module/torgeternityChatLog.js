@@ -133,7 +133,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
       canvas.scene.getFlag('torgeternity', 'cosm'),
       canvas.scene.getFlag('torgeternity', 'cosm2'),
     ];
-    const twoPossCosm = Object.keys(CONFIG.torgeternity.actionLawCosms);
+    const twoPossCosm = CONFIG.torgeternity.actionLawCosms;
     if (
       !(
         twoPossCosm.includes(currentCosms[0]) ||
