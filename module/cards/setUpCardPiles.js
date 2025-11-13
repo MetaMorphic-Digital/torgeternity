@@ -20,14 +20,7 @@ export async function setUpCardPiles() {
   const deckKeys = [
     'destinyDeck',
     'dramaDeck',
-    'coreEarth',
-    'aysle',
-    'cyberpapacy',
-    'livingLand',
-    'nileEmpire',
-    'orrorsh',
-    'panPacifica',
-    'tharkold',
+    ...Object.keys(CONFIG.torgeternity.cosmDecks)
   ];
 
   console.log(`Torg eternity system // setting up default card decks`);

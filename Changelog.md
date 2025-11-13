@@ -1,5 +1,19 @@
 # TORG Eternity Changelog
 
+## NEXT
+
+- Description field of **Vehicle Add-On Item Sheet** resizes to fit the window.
+- #549: **Custom Cosms** are getting closer to being possible:
+  - Search for `livingLand` in torgeternity.css, en.json and the *.js files to see what needs customising in your own code.
+  - The hook `torgSetupCosms(config)` can be used to modify the available cosms (config contains `CONFIG.torgeternity`)
+  - `CONFIG.torgeternity.cosmPossyIcons[cosm]` - full path to icon for scene icons
+  - `CONFIG.torgeternity.cosmPossyLargeIcons[cosm]` - full path to icon for Cosm Possibilties dialog
+  - You will need to set up the translations and CSS appropriately (e.g. search for livingLand in existing .css and lang/en.json files and copy accordingly)
+    - CSS: `#scene-navigation .cosm-card .{cosmname} {background-image: url('path to cosm tent') }`
+    - LANG: `torgeternity.cosmDecks.{cosm}`, `torgeternity.cosms.{cosm}`, `torgeternity.cosms.{cosm}PossLink`, `torgeternity.cosms.{cosm}PossLink2`
+  - Update game setting `('torgeternity', 'deckSetting')` with your own decks for your own realms (settings.js)
+  - Note that when dragging a Threat actor onto the scene, if the the token image path start with `systems/torgeternity/images/characters/threat` then it will get renamed to `threat-{cosm}`
+
 ## 13.12.2
 
 - Protect against undefined actor/token in the combat tracker (usually due to tokens where the Actor has been deleted).
@@ -31,6 +45,7 @@
     - **Player Cosm** - the cosm of the player will determine which currency is used.
     - **Item Cosm** - the cosm of the item being purchased will determine which currency is used.
     - **Ask Player** - the player will be prompted with the Actor's available currencies, so that they can choose which currency to use.
+  - Hold down SHIFT while dragging to take the Item for free (without popping up the above dialog).
 
 ### Internal Improvements
 
