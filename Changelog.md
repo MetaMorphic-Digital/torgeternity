@@ -1,6 +1,6 @@
 # TORG Eternity Changelog
 
-## NEXT
+## 13.13.0
 
 - Description field of **Vehicle Add-On Item Sheet** resizes to fit the window.
 - #549: **Custom Cosms** are getting closer to being possible:
