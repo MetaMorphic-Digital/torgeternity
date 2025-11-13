@@ -3,7 +3,7 @@
 ## NEXT
 
 - Description field of **Vehicle Add-On Item Sheet** resizes to fit the window.
-- **Custom Cosms** are getting closer to being possible:
+- #549: **Custom Cosms** are getting closer to being possible:
   - Search for `livingLand` in torgeternity.css, en.json and the *.js files to see what needs customising in your own code.
   - The hook `torgSetupCosms(config)` can be used to modify the available cosms (config contains `CONFIG.torgeternity`)
   - `CONFIG.torgeternity.cosmPossyIcons[cosm]` - full path to icon for scene icons
