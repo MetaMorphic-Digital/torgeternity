@@ -129,17 +129,13 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
 
     // check for Nile/Other/none cosm
     // if no, possibility style to grey
-    const currentCosms = [
-      canvas.scene.getFlag('torgeternity', 'cosm'),
-      canvas.scene.getFlag('torgeternity', 'cosm2'),
-    ];
-    const twoPossCosm = Object.keys(CONFIG.torgeternity.actionLawCosms);
+    const twoPossCosm = CONFIG.torgeternity.actionLawCosms;
     if (
       !(
-        twoPossCosm.includes(currentCosms[0]) ||
-        twoPossCosm.includes(currentCosms[1]) ||
-        currentCosms[0] === 'none' ||
-        currentCosms[0] === undefined
+        twoPossCosm.includes(canvas.scene.torg.cosm) ||
+        twoPossCosm.includes(canvas.scene.torg.cosm2) ||
+        canvas.scene.torg.cosm === 'none' ||
+        canvas.scene.torg.cosm === undefined
       )
     ) {
       test.possibilityStyle = 'disabled';

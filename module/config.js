@@ -14,16 +14,6 @@ torgeternity.cardTypes = {
   cosm: 'torgeternity.cardTypes.cosm',
 };
 
-torgeternity.cosmDecks = {
-  coreEarth: 'torgeternity.cosmDecks.coreEarth',
-  aysle: 'torgeternity.cosmDecks.aysle',
-  cyberpapacy: 'torgeternity.cosmDecks.cyberpapacy',
-  livingLand: 'torgeternity.cosmDecks.livingLand',
-  nileEmpire: 'torgeternity.cosmDecks.nileEmpire',
-  orrorsh: 'torgeternity.cosmDecks.orrorsh',
-  panPacifica: 'torgeternity.cosmDecks.panPacifica',
-  tharkold: 'torgeternity.cosmDecks.tharkold',
-};
 
 torgeternity.dramaConflicts = {
   none: 'torgeternity.drama.none',
@@ -59,18 +49,7 @@ torgeternity.attributeTypes = {
   strength: 'torgeternity.attributes.strength',
 };
 
-torgeternity.cosmTypes = {
-  none: 'torgeternity.cosms.none',
-  coreEarth: 'torgeternity.cosms.coreEarth',
-  livingLand: 'torgeternity.cosms.livingLand',
-  nileEmpire: 'torgeternity.cosms.nileEmpire',
-  aysle: 'torgeternity.cosms.aysle',
-  cyberpapacy: 'torgeternity.cosms.cyberpapacy',
-  tharkold: 'torgeternity.cosms.tharkold',
-  panPacifica: 'torgeternity.cosms.panPacifica',
-  orrorsh: 'torgeternity.cosms.orrorsh',
-  other: 'torgeternity.cosms.other',
-};
+
 
 torgeternity.zones = {
   pure: 'torgeternity.cosms.pure',
@@ -151,10 +130,27 @@ torgeternity.axiomByCosm = {
   },
 };
 
-torgeternity.actionLawCosms = {
-  nileEmpire: 'torgeternity.cosms.nileEmpire',
-  other: 'torgeternity.cosms.other',
-};
+torgeternity.actionLawCosms = ['nileEmpire', 'other'];
+
+torgeternity.cosmPossyIcons = {};
+torgeternity.cosmPossyLargeIcons = {};
+Object.keys(torgeternity.axiomByCosm).forEach(cosm => {
+  torgeternity.cosmPossyIcons[cosm] = `systems/torgeternity/images/possy${(cosm === 'coreEarth') ? 'token' : '_' + cosm}.webp`;
+  torgeternity.cosmPossyLargeIcons[cosm] = (cosm !== 'other') && `systems/torgeternity/images/cosm-icons/${cosm}.webp`;
+});
+
+Hooks.callAll('torgSetupCosms', torgeternity);
+
+torgeternity.cosmDecks = {};
+torgeternity.cosmTypes = { none: 'torgeternity.cosms.none' };
+
+Object.keys(torgeternity.axiomByCosm).forEach(cosm => {
+  torgeternity.cosmDecks[cosm] = `torgeternity.cosmDecks.${cosm}`;
+  torgeternity.cosmTypes[cosm] = `torgeternity.cosms.${cosm}`
+});
+// 'other' always goes last in cosmTypes (since they are in key-addition order in the Possibilities Popup)
+torgeternity.cosmTypes.other ??= 'torgeternity.cosms.other';
+torgeternity.cosmPossyIcons.other ??= `systems/torgeternity/images/possy_other.webp`;
 
 torgeternity.darknessModifiers = {
   none: 'torgeternity.sheetLabels.none',

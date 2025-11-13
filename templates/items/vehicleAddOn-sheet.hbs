@@ -1,14 +1,12 @@
 <section class="tab stats scrollable {{tab.cssClass}}" data-group="primary" data-tab="stats">
-  <div class="sheet-content" style="display:flex">
-    <div class="item-description">
+  <div class="sheet-content">
+    <div class="main-content full-width">
       <p class="item-data-label">
         {{localize "torgeternity.gear.short-description"}}&nbsp;
-        <input
-          name="system.short-description"
-          type="text"
+        <input name="system.short-description" type="text"
           value="{{item.system.short-description}}" />
       </p>
-      <prose-mirror toggled name="system.description" {{disabled (not @root.editable)}}
+      <prose-mirror toggled name="system.description" class="item-description" {{disabled (not @root.editable)}}
         value="{{ item.system.description }}">{{{ description }}}</prose-mirror>
     </div>
   </div>

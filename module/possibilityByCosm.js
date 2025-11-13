@@ -61,8 +61,8 @@ export class PossibilityByCosm extends foundry.applications.api.HandlebarsApplic
         name: game.i18n.localize(`torgeternity.cosms.${cosm}`),
         uuid: game.i18n.localize(`torgeternity.cosms.${cosm}PossLink`),
         hash: game.i18n.localize(`torgeternity.cosms.${cosm}PossLink2`),
-        icon: `systems/torgeternity/images/possy${(cosm === 'coreEarth') ? 'token' : '_' + cosm}.webp`,
-        largeIcon: (cosm !== 'other') && `systems/torgeternity/images/cosm-icons/${cosm}.webp`,
+        icon: CONFIG.torgeternity.cosmPossyIcons[cosm],
+        largeIcon: CONFIG.torgeternity.cosmPossyLargeIcons[cosm],
         actorField: `${cosm}Poss`
       }
     }
