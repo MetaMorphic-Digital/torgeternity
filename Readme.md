@@ -1,4 +1,4 @@
-![splash](mages/splash_new.webp)
+![splash](images/splash_new.webp)
 
 **The battle against the High Lords continues in the Official Torg Eternity system for Foundry VTT!**
 
