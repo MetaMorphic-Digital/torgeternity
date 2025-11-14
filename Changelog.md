@@ -3,6 +3,7 @@
 ## 13.13.2
 
 - Fix wrong image on French destiny card #5.
+- Sort Skills by localized name on SK and Threat sheets (custom skill still appear at the end on Threat sheets).
 
 ## 13.13.1
 
