@@ -1,5 +1,9 @@
 # TORG Eternity Changelog
 
+## 13.13.2
+
+- Fix wrong image on French destiny card #5.
+
 ## 13.13.1
 
 - Add Drama card details to the French Action deck.
