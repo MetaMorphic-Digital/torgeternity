@@ -3,6 +3,7 @@
 ## 13.13.1
 
 - Add Drama card details to the French Action deck.
+- Renamed internal slug of 'supernnaturalEvil' to the correct spelling of 'supernaturalEvil'
 
 ## 13.13.0
 
