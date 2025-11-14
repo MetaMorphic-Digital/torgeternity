@@ -23,9 +23,24 @@ The Foundry Torg Eternity system includes core archetypes, the Drama Deck, and c
 
 ## Now Available
 
-Torg Eternity Core Rules - a premium module containing a dizzying array of materials from the core release, including: the complete contents of the Torg Eternity Core Rulebook, all of the threats from the CRB, complete with avatar and token art, the Torg Eternity GM screen (which can be displayed and hidden at the touch of a button), all perks, items, weapons, eternity shards, spells, miracles, and psionic powers from the core release, and the Torg Eternity soundtrack!
+[Torg Eternity Core Rules](https://foundryvtt.com/packages/te001-core-rulebook) - a premium module containing a dizzying array of materials from the core release, including: the complete contents of the Torg Eternity Core Rulebook, all of the threats from the CRB, complete with avatar and token art, the Torg Eternity GM screen (which can be displayed and hidden at the touch of a button), all perks, items, weapons, eternity shards, spells, miracles, and psionic powers from the core release, and the Torg Eternity soundtrack!
+
+[Torg Eternity: The Living Land Sourcebook](https://foundryvtt.com/packages/te004-living-land)
+
+[Torg Eternity: Nile Empire Sourcebook](https://foundryvtt.com/packages/te006-nile-empire)
+
+[Torg Eternity: Aysle Sourcebook](https://foundryvtt.com/packages/te008-aysle)
+
+[Torg Eternity: The Cyberpapacy Sourcebook](https://foundryvtt.com/packages/te010-cyberpapacy)
+
+[Torg Eternity: Tharkold Sourcebook](https://foundryvtt.com/packages/te012-tharkold)
+
+[Torg Eternity: Orrorsh Sourcebook](https://foundryvtt.com/packages/te014-orrorsh)
+
+[Torg Eternity: Pan-Pacifica Sourcebook](https://foundryvtt.com/packages/te016-pan-pacifica)
 
 ## Also Available
 
-- Up the Creek, a free introductory adventure module. The full TE rule set is not needed to play this module. It comes with all the rules you need.
-- Hostel Takeover -a free one-shot adventure created by Torg Eternity designer Darrell Hayhurst, and originally published in Delphi Missions: Rising Storm
+- [Up the Creek](https://github.com/MetaMorphic-Digital/te002-up-the-creek), a free introductory adventure module. The full TE rule set is not needed to play this module. It comes with all the rules you need.
+
+- [Hostel Takeover](https://github.com/MetaMorphic-Digital/te003-hostel-takeover) _for Foundry 11_ - a free one-shot adventure created by Torg Eternity designer Darrell Hayhurst, and originally published in Delphi Missions: Rising Storm
