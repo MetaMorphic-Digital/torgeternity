@@ -578,7 +578,7 @@ torgeternity.defenseTraits = {
   'lightningDefense': 'torgeternity.traits.lightningDefense',
   'ignoreShock': 'torgeternity.traits.ignoreShock',
   'ignoreWounds': 'torgeternity.traits.ignoreWounds',
-  'supernnaturalEvil': 'torgeternity.traits.supernaturalEvil'
+  'supernaturalEvil': 'torgeternity.traits.supernaturalEvil'
 }
 
 torgeternity.meleeWeaponTraits = {
