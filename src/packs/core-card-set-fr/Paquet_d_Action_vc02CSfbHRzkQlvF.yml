@@ -25,17 +25,17 @@ cards:
     flags: {}
     value: null
     system:
-      approvedActions: ''
+      approvedActions: maneuver trick
       cosm: ''
-      dsrLine: ''
-      heroesConditionsDramatic: ''
+      dsrLine: AC
+      heroesConditionsDramatic: fatigued
       heroesConditionsStandard: ''
-      heroesFirstDramatic: true
+      heroesFirstDramatic: false
       heroesFirstStandard: true
-      number: ''
+      number: 1
       rule: ''
       villainsConditionsDramatic: ''
-      villainsConditionsStandard: ''
+      villainsConditionsStandard: fatigued
     width: null
     height: null
     _stats:
@@ -71,17 +71,17 @@ cards:
     flags: {}
     value: null
     system:
-      approvedActions: ''
+      approvedActions: maneuver taunt
       cosm: ''
-      dsrLine: ''
-      heroesConditionsDramatic: ''
+      dsrLine: ABD
+      heroesConditionsDramatic: surge
       heroesConditionsStandard: ''
       heroesFirstDramatic: true
-      heroesFirstStandard: true
-      number: ''
+      heroesFirstStandard: false
+      number: 2
       rule: ''
       villainsConditionsDramatic: ''
-      villainsConditionsStandard: ''
+      villainsConditionsStandard: stymied
     width: null
     height: null
     _stats:
@@ -117,17 +117,17 @@ cards:
     flags: {}
     value: null
     system:
-      approvedActions: ''
+      approvedActions: taunt trick
       cosm: ''
-      dsrLine: ''
-      heroesConditionsDramatic: ''
+      dsrLine: AB
+      heroesConditionsDramatic: surge
       heroesConditionsStandard: ''
-      heroesFirstDramatic: true
+      heroesFirstDramatic: false
       heroesFirstStandard: true
-      number: ''
+      number: 3
       rule: ''
       villainsConditionsDramatic: ''
-      villainsConditionsStandard: ''
+      villainsConditionsStandard: flurry
     width: null
     height: null
     _stats:
@@ -162,14 +162,14 @@ cards:
     sort: 3
     flags: {}
     system:
-      approvedActions: ''
+      approvedActions: maneuver trick
       cosm: ''
-      dsrLine: ''
-      heroesConditionsDramatic: ''
-      heroesConditionsStandard: ''
+      dsrLine: AC
+      heroesConditionsDramatic: fatigued
+      heroesConditionsStandard: surge
       heroesFirstDramatic: true
-      heroesFirstStandard: true
-      number: ''
+      heroesFirstStandard: false
+      number: 4
       rule: ''
       villainsConditionsDramatic: ''
       villainsConditionsStandard: ''
@@ -208,17 +208,17 @@ cards:
     sort: 4
     flags: {}
     system:
-      approvedActions: ''
+      approvedActions: trick
       cosm: ''
-      dsrLine: ''
+      dsrLine: AD
       heroesConditionsDramatic: ''
       heroesConditionsStandard: ''
-      heroesFirstDramatic: true
+      heroesFirstDramatic: false
       heroesFirstStandard: true
-      number: ''
+      number: 5
       rule: ''
-      villainsConditionsDramatic: ''
-      villainsConditionsStandard: ''
+      villainsConditionsDramatic: fatigued
+      villainsConditionsStandard: fatigued
     value: null
     width: null
     height: null
@@ -254,17 +254,17 @@ cards:
     sort: 5
     flags: {}
     system:
-      approvedActions: ''
+      approvedActions: taunt
       cosm: ''
-      dsrLine: ''
+      dsrLine: ABC
       heroesConditionsDramatic: ''
       heroesConditionsStandard: ''
-      heroesFirstDramatic: true
+      heroesFirstDramatic: false
       heroesFirstStandard: true
-      number: ''
+      number: 6
       rule: ''
-      villainsConditionsDramatic: ''
-      villainsConditionsStandard: ''
+      villainsConditionsDramatic: inspiration
+      villainsConditionsStandard: inspiration
     value: null
     width: null
     height: null
@@ -300,16 +300,16 @@ cards:
     sort: 6
     flags: {}
     system:
-      approvedActions: ''
+      approvedActions: maneuver
       cosm: ''
-      dsrLine: ''
+      dsrLine: BC
       heroesConditionsDramatic: ''
-      heroesConditionsStandard: ''
+      heroesConditionsStandard: fatigued
       heroesFirstDramatic: true
-      heroesFirstStandard: true
-      number: ''
+      heroesFirstStandard: false
+      number: 7
       rule: ''
-      villainsConditionsDramatic: ''
+      villainsConditionsDramatic: up
       villainsConditionsStandard: ''
     value: null
     width: null
@@ -346,17 +346,17 @@ cards:
     sort: 7
     flags: {}
     system:
-      approvedActions: ''
+      approvedActions: intimidate
       cosm: ''
-      dsrLine: ''
-      heroesConditionsDramatic: ''
+      dsrLine: BD
+      heroesConditionsDramatic: surge
       heroesConditionsStandard: ''
       heroesFirstDramatic: true
-      heroesFirstStandard: true
-      number: ''
+      heroesFirstStandard: false
+      number: 8
       rule: ''
       villainsConditionsDramatic: ''
-      villainsConditionsStandard: ''
+      villainsConditionsStandard: inspiration
     value: null
     width: null
     height: null
@@ -392,17 +392,17 @@ cards:
     sort: 8
     flags: {}
     system:
-      approvedActions: ''
+      approvedActions: taunt trick
       cosm: ''
-      dsrLine: ''
-      heroesConditionsDramatic: ''
+      dsrLine: BC
+      heroesConditionsDramatic: surge
       heroesConditionsStandard: ''
-      heroesFirstDramatic: true
+      heroesFirstDramatic: false
       heroesFirstStandard: true
-      number: ''
+      number: 9
       rule: ''
       villainsConditionsDramatic: ''
-      villainsConditionsStandard: ''
+      villainsConditionsStandard: fatigued
     value: null
     width: null
     height: null
@@ -438,14 +438,14 @@ cards:
     sort: 9
     flags: {}
     system:
-      approvedActions: ''
+      approvedActions: any
       cosm: ''
-      dsrLine: ''
-      heroesConditionsDramatic: ''
-      heroesConditionsStandard: ''
+      dsrLine: complication
+      heroesConditionsDramatic: stymied
+      heroesConditionsStandard: inspiration
       heroesFirstDramatic: true
-      heroesFirstStandard: true
-      number: ''
+      heroesFirstStandard: false
+      number: 10
       rule: ''
       villainsConditionsDramatic: ''
       villainsConditionsStandard: ''
@@ -484,16 +484,16 @@ cards:
     sort: 10
     flags: {}
     system:
-      approvedActions: ''
+      approvedActions: attack defend
       cosm: ''
-      dsrLine: ''
+      dsrLine: AB
       heroesConditionsDramatic: ''
-      heroesConditionsStandard: ''
-      heroesFirstDramatic: true
+      heroesConditionsStandard: fatigued
+      heroesFirstDramatic: false
       heroesFirstStandard: true
-      number: ''
+      number: 11
       rule: ''
-      villainsConditionsDramatic: ''
+      villainsConditionsDramatic: fatigued
       villainsConditionsStandard: ''
     value: null
     width: null
@@ -530,16 +530,16 @@ cards:
     sort: 11
     flags: {}
     system:
-      approvedActions: ''
+      approvedActions: multiAction
       cosm: ''
-      dsrLine: ''
+      dsrLine: ABCD
       heroesConditionsDramatic: ''
-      heroesConditionsStandard: ''
+      heroesConditionsStandard: up
       heroesFirstDramatic: true
-      heroesFirstStandard: true
-      number: ''
+      heroesFirstStandard: false
+      number: 12
       rule: ''
-      villainsConditionsDramatic: ''
+      villainsConditionsDramatic: flurry
       villainsConditionsStandard: ''
     value: null
     width: null
@@ -576,16 +576,16 @@ cards:
     sort: 12
     flags: {}
     system:
-      approvedActions: ''
+      approvedActions: intimidate taunt
       cosm: ''
-      dsrLine: ''
+      dsrLine: AD
       heroesConditionsDramatic: ''
-      heroesConditionsStandard: ''
-      heroesFirstDramatic: true
+      heroesConditionsStandard: up
+      heroesFirstDramatic: false
       heroesFirstStandard: true
-      number: ''
+      number: 13
       rule: ''
-      villainsConditionsDramatic: ''
+      villainsConditionsDramatic: fatigued
       villainsConditionsStandard: ''
     value: null
     width: null
@@ -622,17 +622,17 @@ cards:
     sort: 13
     flags: {}
     system:
-      approvedActions: ''
+      approvedActions: intimidate maneuver
       cosm: ''
-      dsrLine: ''
-      heroesConditionsDramatic: ''
+      dsrLine: ABC
+      heroesConditionsDramatic: fatigued
       heroesConditionsStandard: ''
       heroesFirstDramatic: true
-      heroesFirstStandard: true
-      number: ''
+      heroesFirstStandard: false
+      number: 14
       rule: ''
       villainsConditionsDramatic: ''
-      villainsConditionsStandard: ''
+      villainsConditionsStandard: setback
     value: null
     width: null
     height: null
@@ -668,14 +668,14 @@ cards:
     sort: 14
     flags: {}
     system:
-      approvedActions: ''
+      approvedActions: attack
       cosm: ''
-      dsrLine: ''
-      heroesConditionsDramatic: ''
-      heroesConditionsStandard: ''
-      heroesFirstDramatic: true
+      dsrLine: possibleSetback
+      heroesConditionsDramatic: confused
+      heroesConditionsStandard: surge
+      heroesFirstDramatic: false
       heroesFirstStandard: true
-      number: ''
+      number: 15
       rule: ''
       villainsConditionsDramatic: ''
       villainsConditionsStandard: ''
@@ -714,14 +714,14 @@ cards:
     sort: 15
     flags: {}
     system:
-      approvedActions: ''
+      approvedActions: multiAction
       cosm: ''
-      dsrLine: ''
-      heroesConditionsDramatic: ''
+      dsrLine: criticalProblem
+      heroesConditionsDramatic: inspiration
       heroesConditionsStandard: ''
       heroesFirstDramatic: true
-      heroesFirstStandard: true
-      number: ''
+      heroesFirstStandard: false
+      number: 16
       rule: ''
       villainsConditionsDramatic: ''
       villainsConditionsStandard: ''
@@ -760,17 +760,17 @@ cards:
     sort: 16
     flags: {}
     system:
-      approvedActions: ''
+      approvedActions: intimidate trick
       cosm: ''
-      dsrLine: ''
-      heroesConditionsDramatic: ''
+      dsrLine: ABD
+      heroesConditionsDramatic: confused
       heroesConditionsStandard: ''
-      heroesFirstDramatic: true
+      heroesFirstDramatic: false
       heroesFirstStandard: true
-      number: ''
+      number: 17
       rule: ''
       villainsConditionsDramatic: ''
-      villainsConditionsStandard: ''
+      villainsConditionsStandard: fatigued
     value: null
     width: null
     height: null
@@ -806,14 +806,14 @@ cards:
     sort: 17
     flags: {}
     system:
-      approvedActions: ''
+      approvedActions: intimidate taunt
       cosm: ''
-      dsrLine: ''
-      heroesConditionsDramatic: ''
-      heroesConditionsStandard: ''
+      dsrLine: AB
+      heroesConditionsDramatic: surge
+      heroesConditionsStandard: flurry
       heroesFirstDramatic: true
-      heroesFirstStandard: true
-      number: ''
+      heroesFirstStandard: false
+      number: 18
       rule: ''
       villainsConditionsDramatic: ''
       villainsConditionsStandard: ''
@@ -852,14 +852,14 @@ cards:
     sort: 18
     flags: {}
     system:
-      approvedActions: ''
+      approvedActions: attack trick
       cosm: ''
-      dsrLine: ''
-      heroesConditionsDramatic: ''
+      dsrLine: AC
+      heroesConditionsDramatic: flurry
       heroesConditionsStandard: ''
-      heroesFirstDramatic: true
+      heroesFirstDramatic: false
       heroesFirstStandard: true
-      number: ''
+      number: 19
       rule: ''
       villainsConditionsDramatic: ''
       villainsConditionsStandard: ''
@@ -898,16 +898,16 @@ cards:
     sort: 19
     flags: {}
     system:
-      approvedActions: ''
+      approvedActions: intimidate maneuver
       cosm: ''
-      dsrLine: ''
+      dsrLine: AD
       heroesConditionsDramatic: ''
       heroesConditionsStandard: ''
       heroesFirstDramatic: true
-      heroesFirstStandard: true
-      number: ''
+      heroesFirstStandard: false
+      number: 20
       rule: ''
-      villainsConditionsDramatic: ''
+      villainsConditionsDramatic: flurry
       villainsConditionsStandard: ''
     value: null
     width: null
@@ -944,16 +944,16 @@ cards:
     sort: 20
     flags: {}
     system:
-      approvedActions: ''
+      approvedActions: intimidate
       cosm: ''
-      dsrLine: ''
+      dsrLine: ABCD
       heroesConditionsDramatic: ''
-      heroesConditionsStandard: ''
+      heroesConditionsStandard: up
       heroesFirstDramatic: true
       heroesFirstStandard: true
-      number: ''
+      number: 21
       rule: ''
-      villainsConditionsDramatic: ''
+      villainsConditionsDramatic: setback
       villainsConditionsStandard: ''
     value: null
     width: null
@@ -990,14 +990,14 @@ cards:
     sort: 21
     flags: {}
     system:
-      approvedActions: ''
+      approvedActions: any
       cosm: ''
-      dsrLine: ''
+      dsrLine: ABC
       heroesConditionsDramatic: ''
-      heroesConditionsStandard: ''
+      heroesConditionsStandard: inspiration
       heroesFirstDramatic: true
       heroesFirstStandard: true
-      number: ''
+      number: 22
       rule: ''
       villainsConditionsDramatic: ''
       villainsConditionsStandard: ''
@@ -1036,17 +1036,17 @@ cards:
     sort: 22
     flags: {}
     system:
-      approvedActions: ''
+      approvedActions: maneuver
       cosm: ''
-      dsrLine: ''
+      dsrLine: ABD
       heroesConditionsDramatic: ''
       heroesConditionsStandard: ''
       heroesFirstDramatic: true
       heroesFirstStandard: true
-      number: ''
+      number: 23
       rule: ''
       villainsConditionsDramatic: ''
-      villainsConditionsStandard: ''
+      villainsConditionsStandard: setback
     value: null
     width: null
     height: null
@@ -1082,16 +1082,16 @@ cards:
     sort: 23
     flags: {}
     system:
-      approvedActions: ''
+      approvedActions: attack maneuver
       cosm: ''
-      dsrLine: ''
+      dsrLine: ABCD
       heroesConditionsDramatic: ''
       heroesConditionsStandard: ''
       heroesFirstDramatic: true
       heroesFirstStandard: true
-      number: ''
+      number: 24
       rule: ''
-      villainsConditionsDramatic: ''
+      villainsConditionsDramatic: setback
       villainsConditionsStandard: ''
     value: null
     width: null
@@ -1128,14 +1128,14 @@ cards:
     sort: 24
     flags: {}
     system:
-      approvedActions: ''
+      approvedActions: taunt
       cosm: ''
-      dsrLine: ''
-      heroesConditionsDramatic: ''
-      heroesConditionsStandard: ''
+      dsrLine: ABCD
+      heroesConditionsDramatic: up
+      heroesConditionsStandard: flurry
       heroesFirstDramatic: true
       heroesFirstStandard: true
-      number: ''
+      number: 25
       rule: ''
       villainsConditionsDramatic: ''
       villainsConditionsStandard: ''
@@ -1174,17 +1174,17 @@ cards:
     sort: 25
     flags: {}
     system:
-      approvedActions: ''
+      approvedActions: intimidate trick
       cosm: ''
-      dsrLine: ''
+      dsrLine: ABD
       heroesConditionsDramatic: ''
       heroesConditionsStandard: ''
       heroesFirstDramatic: true
       heroesFirstStandard: true
-      number: ''
+      number: 26
       rule: ''
-      villainsConditionsDramatic: ''
-      villainsConditionsStandard: ''
+      villainsConditionsDramatic: stymied
+      villainsConditionsStandard: fatigued
     value: null
     width: null
     height: null
@@ -1220,17 +1220,17 @@ cards:
     sort: 26
     flags: {}
     system:
-      approvedActions: ''
+      approvedActions: maneuver taunt
       cosm: ''
-      dsrLine: ''
-      heroesConditionsDramatic: ''
+      dsrLine: AB
+      heroesConditionsDramatic: inspiration
       heroesConditionsStandard: ''
       heroesFirstDramatic: true
       heroesFirstStandard: true
-      number: ''
+      number: 27
       rule: ''
       villainsConditionsDramatic: ''
-      villainsConditionsStandard: ''
+      villainsConditionsStandard: fatigued
     value: null
     width: null
     height: null
@@ -1266,14 +1266,14 @@ cards:
     sort: 27
     flags: {}
     system:
-      approvedActions: ''
+      approvedActions: attack intimidate
       cosm: ''
-      dsrLine: ''
-      heroesConditionsDramatic: ''
+      dsrLine: ABC
+      heroesConditionsDramatic: flurry
       heroesConditionsStandard: ''
       heroesFirstDramatic: true
       heroesFirstStandard: true
-      number: ''
+      number: 28
       rule: ''
       villainsConditionsDramatic: ''
       villainsConditionsStandard: ''
@@ -1312,17 +1312,17 @@ cards:
     sort: 28
     flags: {}
     system:
-      approvedActions: ''
+      approvedActions: attack taunt
       cosm: ''
-      dsrLine: ''
-      heroesConditionsDramatic: ''
+      dsrLine: AD
+      heroesConditionsDramatic: inspiration
       heroesConditionsStandard: ''
       heroesFirstDramatic: true
       heroesFirstStandard: true
-      number: ''
+      number: 29
       rule: ''
       villainsConditionsDramatic: ''
-      villainsConditionsStandard: ''
+      villainsConditionsStandard: stymied
     value: null
     width: null
     height: null
@@ -1358,14 +1358,14 @@ cards:
     sort: 29
     flags: {}
     system:
-      approvedActions: ''
+      approvedActions: trick
       cosm: ''
-      dsrLine: ''
+      dsrLine: AB
       heroesConditionsDramatic: ''
-      heroesConditionsStandard: ''
+      heroesConditionsStandard: flurry
       heroesFirstDramatic: true
       heroesFirstStandard: true
-      number: ''
+      number: 30
       rule: ''
       villainsConditionsDramatic: ''
       villainsConditionsStandard: ''
@@ -1404,14 +1404,14 @@ cards:
     sort: 30
     flags: {}
     system:
-      approvedActions: ''
+      approvedActions: defend
       cosm: ''
-      dsrLine: ''
-      heroesConditionsDramatic: ''
-      heroesConditionsStandard: ''
-      heroesFirstDramatic: true
-      heroesFirstStandard: true
-      number: ''
+      dsrLine: BD
+      heroesConditionsDramatic: surge
+      heroesConditionsStandard: fatigued
+      heroesFirstDramatic: false
+      heroesFirstStandard: false
+      number: 31
       rule: ''
       villainsConditionsDramatic: ''
       villainsConditionsStandard: ''
@@ -1450,16 +1450,16 @@ cards:
     sort: 31
     flags: {}
     system:
-      approvedActions: ''
+      approvedActions: defend maneuver
       cosm: ''
-      dsrLine: ''
+      dsrLine: AC
       heroesConditionsDramatic: ''
-      heroesConditionsStandard: ''
-      heroesFirstDramatic: true
-      heroesFirstStandard: true
-      number: ''
+      heroesConditionsStandard: surge
+      heroesFirstDramatic: false
+      heroesFirstStandard: false
+      number: 32
       rule: ''
-      villainsConditionsDramatic: ''
+      villainsConditionsDramatic: inspiration
       villainsConditionsStandard: ''
     value: null
     width: null
@@ -1496,14 +1496,14 @@ cards:
     sort: 32
     flags: {}
     system:
-      approvedActions: ''
+      approvedActions: defend taunt
       cosm: ''
-      dsrLine: ''
-      heroesConditionsDramatic: ''
+      dsrLine: complication
+      heroesConditionsDramatic: stymied
       heroesConditionsStandard: ''
-      heroesFirstDramatic: true
-      heroesFirstStandard: true
-      number: ''
+      heroesFirstDramatic: false
+      heroesFirstStandard: false
+      number: 33
       rule: ''
       villainsConditionsDramatic: ''
       villainsConditionsStandard: ''
@@ -1542,16 +1542,16 @@ cards:
     sort: 33
     flags: {}
     system:
-      approvedActions: ''
+      approvedActions: defend trick
       cosm: ''
-      dsrLine: ''
+      dsrLine: BC
       heroesConditionsDramatic: ''
-      heroesConditionsStandard: ''
-      heroesFirstDramatic: true
-      heroesFirstStandard: true
-      number: ''
+      heroesConditionsStandard: setback
+      heroesFirstDramatic: false
+      heroesFirstStandard: false
+      number: 34
       rule: ''
-      villainsConditionsDramatic: ''
+      villainsConditionsDramatic: inspiration
       villainsConditionsStandard: ''
     value: null
     width: null
@@ -1588,16 +1588,16 @@ cards:
     sort: 34
     flags: {}
     system:
-      approvedActions: ''
+      approvedActions: defend
       cosm: ''
-      dsrLine: ''
+      dsrLine: BD
       heroesConditionsDramatic: ''
       heroesConditionsStandard: ''
-      heroesFirstDramatic: true
-      heroesFirstStandard: true
-      number: ''
+      heroesFirstDramatic: false
+      heroesFirstStandard: false
+      number: 35
       rule: ''
-      villainsConditionsDramatic: ''
+      villainsConditionsDramatic: up
       villainsConditionsStandard: ''
     value: null
     width: null
@@ -1634,14 +1634,14 @@ cards:
     sort: 35
     flags: {}
     system:
-      approvedActions: ''
+      approvedActions: defend taunt
       cosm: ''
-      dsrLine: ''
-      heroesConditionsDramatic: ''
-      heroesConditionsStandard: ''
-      heroesFirstDramatic: true
-      heroesFirstStandard: true
-      number: ''
+      dsrLine: possibleSetback
+      heroesConditionsDramatic: confused
+      heroesConditionsStandard: stymied
+      heroesFirstDramatic: false
+      heroesFirstStandard: false
+      number: 36
       rule: ''
       villainsConditionsDramatic: ''
       villainsConditionsStandard: ''
@@ -1680,16 +1680,16 @@ cards:
     sort: 36
     flags: {}
     system:
-      approvedActions: ''
+      approvedActions: defend intimidate
       cosm: ''
-      dsrLine: ''
+      dsrLine: BC
       heroesConditionsDramatic: ''
-      heroesConditionsStandard: ''
-      heroesFirstDramatic: true
-      heroesFirstStandard: true
-      number: ''
+      heroesConditionsStandard: surge
+      heroesFirstDramatic: false
+      heroesFirstStandard: false
+      number: 37
       rule: ''
-      villainsConditionsDramatic: ''
+      villainsConditionsDramatic: up
       villainsConditionsStandard: ''
     value: null
     width: null
@@ -1717,7 +1717,7 @@ cards:
       img: null
     faces:
       - name: ''
-        img: systems/torgeternity/images/cards/drama/38.webp
+        img: systems/torgeternity/images/cards/drama/fr/38.webp
         text: ''
     face: 0
     drawn: false
@@ -1726,17 +1726,17 @@ cards:
     sort: 37
     flags: {}
     system:
-      approvedActions: ''
+      approvedActions: defend maneuver
       cosm: ''
-      dsrLine: ''
+      dsrLine: BD
       heroesConditionsDramatic: ''
       heroesConditionsStandard: ''
-      heroesFirstDramatic: true
-      heroesFirstStandard: true
-      number: ''
+      heroesFirstDramatic: false
+      heroesFirstStandard: false
+      number: 38
       rule: ''
-      villainsConditionsDramatic: ''
-      villainsConditionsStandard: ''
+      villainsConditionsDramatic: inspiration
+      villainsConditionsStandard: up
     value: null
     width: null
     height: null
@@ -1772,14 +1772,14 @@ cards:
     sort: 38
     flags: {}
     system:
-      approvedActions: ''
+      approvedActions: defend intimidate
       cosm: ''
-      dsrLine: ''
-      heroesConditionsDramatic: ''
-      heroesConditionsStandard: ''
-      heroesFirstDramatic: true
-      heroesFirstStandard: true
-      number: ''
+      dsrLine: AB
+      heroesConditionsDramatic: setback
+      heroesConditionsStandard: confused
+      heroesFirstDramatic: false
+      heroesFirstStandard: false
+      number: 39
       rule: ''
       villainsConditionsDramatic: ''
       villainsConditionsStandard: ''
@@ -1818,14 +1818,14 @@ cards:
     sort: 39
     flags: {}
     system:
-      approvedActions: ''
+      approvedActions: defend trick
       cosm: ''
-      dsrLine: ''
-      heroesConditionsDramatic: ''
-      heroesConditionsStandard: ''
-      heroesFirstDramatic: true
-      heroesFirstStandard: true
-      number: ''
+      dsrLine: criticalProblem
+      heroesConditionsDramatic: setback
+      heroesConditionsStandard: setback
+      heroesFirstDramatic: false
+      heroesFirstStandard: false
+      number: 40
       rule: ''
       villainsConditionsDramatic: ''
       villainsConditionsStandard: ''

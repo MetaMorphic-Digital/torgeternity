@@ -1,5 +1,9 @@
 # TORG Eternity Changelog
 
+## 13.13.1
+
+- Add Drama card details to the French Action deck.
+
 ## 13.13.0
 
 - Description field of **Vehicle Add-On Item Sheet** resizes to fit the window.
