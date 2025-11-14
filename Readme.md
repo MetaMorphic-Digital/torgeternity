@@ -1,3 +1,5 @@
+![splash](mages/splash_new.webp)
+
 **The battle against the High Lords continues in the Official Torg Eternity system for Foundry VTT!**
 
 In Torg Eternity, players take on the role of Storm Knights - powerful beings who can bend reality to their will - in their battle against invaders who are locked in a struggle to transform the Earth into competing alien realities.
