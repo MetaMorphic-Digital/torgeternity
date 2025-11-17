@@ -4,6 +4,7 @@
 
 - Fix wrong image on French destiny card #5.
 - Sort Skills by localized name on SK and Threat sheets (custom skill still appear at the end on Threat sheets).
+- Create `initConfig` so that the `torgSetupCosms` hook can be hooked on in modules before it is triggered.
 
 ## 13.13.1
 
