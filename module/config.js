@@ -135,8 +135,8 @@ export function initConfig() {
   torgeternity.cosmPossyIcons = {};
   torgeternity.cosmPossyLargeIcons = {};
   Object.keys(torgeternity.axiomByCosm).forEach(cosm => {
-    torgeternity.cosmPossyIcons[cosm] = `systems/torgeternity/images/possy${(cosm === 'coreEarth') ? 'token' : '_' + cosm}.webp`;
-    torgeternity.cosmPossyLargeIcons[cosm] = (cosm !== 'other') && `systems/torgeternity/images/cosm-icons/${cosm}.webp`;
+    torgeternity.cosmPossyIcons[cosm] = `systems/torgeternity/images/possy${(cosm === 'coreEarth') ? 'token' : '_' + cosm.toLowerCase()}.webp`;
+    torgeternity.cosmPossyLargeIcons[cosm] = (cosm !== 'other') && `systems/torgeternity/images/cosm-icons/${cosm.toLowerCase()}.webp`;
   });
 
   Hooks.callAll('torgSetupCosms', torgeternity);
