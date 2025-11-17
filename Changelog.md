@@ -1,5 +1,11 @@
 # TORG Eternity Changelog
 
+## 13.13.2
+
+- Fix wrong image on French destiny card #5.
+- Sort Skills by localized name on SK and Threat sheets (custom skill still appear at the end on Threat sheets).
+- Create `initConfig` so that the `torgSetupCosms` hook can be hooked on in modules before it is triggered.
+
 ## 13.13.1
 
 - Add Drama card details to the French Action deck.

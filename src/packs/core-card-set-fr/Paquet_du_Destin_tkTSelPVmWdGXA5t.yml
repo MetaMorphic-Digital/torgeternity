@@ -161,7 +161,7 @@ cards:
       img: null
     faces:
       - name: Willpower
-        img: systems/torgeternity/images/cards/destiny/05.webp
+        img: systems/torgeternity/images/cards/destiny/fr/05.webp
         text: ''
     face: 1
     drawn: false

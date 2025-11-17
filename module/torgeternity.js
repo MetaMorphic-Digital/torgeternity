@@ -1,5 +1,5 @@
 'use strict';
-import { torgeternity } from './config.js';
+import { initConfig, torgeternity } from './config.js';
 import TorgeternityChatLog from './torgeternityChatLog.js';
 import TorgeternityItem from './documents/item/torgeternityItem.js';
 import TorgeternityActor from './documents/actor/torgeternityActor.js';
@@ -54,6 +54,8 @@ const { DialogV2 } = foundry.applications.api;
 
 Hooks.once('init', async function () {
   console.log('torgeternity | Initializing Torg Eternity System');
+
+  initConfig();
 
   // -------global
   game.torgeternity = {

@@ -461,48 +461,48 @@
 
       <div class="threat-block">
         <span class="inline-skill-list">
-          {{#each document.system.skills as |content name|}}
-            {{#if content.isThreatSkill}}
+          {{#each skills as |skill|}}
+            {{#if skill.isThreatSkill}}
               <span class="inline-skill-item">
                 <a
                   class="skill-roll draggable" data-action="skillRoll"
                   data-tooltip="torgeternity.sheetLabels.skillRollHint"
                   data-testtype="skill"
-                  data-baseattribute="{{content.baseAttribute}}"
-                  data-adds="{{content.adds}}"
-                  data-value="{{content.value}}"
-                  data-unskilleduse="{{content.unskilledUse}}"
+                  data-baseattribute="{{skill.baseAttribute}}"
+                  data-adds="{{skill.adds}}"
+                  data-value="{{skill.value}}"
+                  data-unskilleduse="{{skill.unskilledUse}}"
                   {{disabled (not @root.editable)}}
-                  data-name="{{name}}">
-                  {{content.localName}}
+                  data-name="{{skill.id}}">
+                  {{skill.localName}}
                 </a>
-                {{#if content.isFav}}
+                {{#if skill.isFav}}
                   <a class="toggleFav checked" {{disabled (not @root.editable)}}> <i class="far fa-star"></i> </a>
                 {{/if}}
-                &nbsp;{{content.value}}
+                &nbsp;{{skill.value}}
               </span>
             {{/if}}
           {{/each}}
-          {{#each customSkill as |content name|}}
+          {{#each customSkill as |skill name|}}
             <span class="inline-skill-item">
               <a
                 class="skill-roll draggable" data-action="skillRoll"
                 data-tooltip="torgeternity.sheetLabels.skillRollHint"
                 data-testtype="skill"
                 data-customskill="true"
-                data-baseattribute="{{content.system.baseAttribute}}"
-                data-adds="{{content.system.adds}}"
-                data-value="{{content.system.value}}"
+                data-baseattribute="{{skill.system.baseAttribute}}"
+                data-adds="{{skill.system.adds}}"
+                data-value="{{skill.system.value}}"
                 data-unskilleduse="0"
                 {{disabled (not @root.editable)}}
-                {{#if content.system.isFav}}data-isfav="true" {{/if}}
-                data-name="{{content.name}}">
-                {{content.name}}
+                {{#if skill.system.isFav}}data-isfav="true" {{/if}}
+                data-name="{{skill.name}}">
+                {{skill.name}}
               </a>
-              {{#if content.system.isFav}}
+              {{#if skill.system.isFav}}
                 <a class="toggleFav checked" {{disabled (not @root.editable)}}> <i class="far fa-star"></i> </a>
               {{/if}}
-              &nbsp;{{content.system.value}}
+              &nbsp;{{skill.system.value}}
             </span>
           {{/each}}
         </span>
@@ -511,7 +511,7 @@
       <div class="threat-editor" id="threat-editor">
         {{#if document.system.editstate}}
           <div class="skill-list-edit">
-            {{#each document.system.skills as |skill key|}}
+            {{#each skills as |skill|}}
               <div class="skill-element-edit">
                 <span
                   style="position: relative"
@@ -521,13 +521,13 @@
                   data-adds="{{skill.adds}}"
                   data-value="{{skill.value}}"
                   data-unskilleduse="{{skill.unskilledUse}}"
-                  data-name="{{key}}"
+                  data-name="{{skill.id}}"
                   data-tooltip='{{localize "torgeternity.sheetLabels.toolTipClickToAdd"}}'>
-                  {{localize (concat "torgeternity.skills." key)}}
+                  {{skill.localName}}
                 </span>
                 <span class="inputsFav">
                   <input
-                    data-skill="{{key}}"
+                    data-skill="{{skill.id}}"
                     type="number"
                     class="small-input"
                     value="{{skill.value}}"
@@ -539,7 +539,7 @@
                   <input
                     class="favCheck"
                     type="checkbox"
-                    name="system.skills.{{key}}.isFav"
+                    name="system.skills.{{skill.id}}.isFav"
                     {{checked skill.isFav}}
                     data-dtype="Boolean" />
                 </span>
