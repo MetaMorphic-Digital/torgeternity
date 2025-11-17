@@ -1,10 +1,14 @@
 # TORG Eternity Changelog
 
+## 13.13.3
+
+- Fix issue with capitalization in generated filenames for Possibility token images.
+
 ## 13.13.2
 
 - Fix wrong image on French destiny card #5.
 - Sort Skills by localized name on SK and Threat sheets (custom skill still appear at the end on Threat sheets).
-- Create `initConfig` so that the `torgSetupCosms` hook can be hooked on in modules before it is triggered.
+- Delay creation of `torgeternity` so that the `torgSetupCosms` hook can be hooked on in modules before it is triggered.
 
 ## 13.13.1
 
