@@ -1,5 +1,9 @@
 # TORG Eternity Changelog
 
+## NEXT
+
+- Add dev files to support intellisense in Visual Studio Code.
+
 ## 13.13.3
 
 - Fix issue with capitalization in generated filenames for Possibility token images.

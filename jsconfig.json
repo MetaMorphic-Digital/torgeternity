@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "module": "ES2022",
+    "target": "ES2022",
+    "paths": {
+      "@client/*": [
+        "./foundry/client/*"
+      ],
+      "@common/*": [
+        "./foundry/common/*"
+      ]
+    },
+  },
+  "exclude": [
+    "node_modules",
+    "**/node_modules/*"
+  ],
+  "include": [
+    "module/torgeternity.js",
+    "foundry/client/client.mjs",
+    "foundry/client/global.d.mts",
+    "foundry/common/primitives/global.d.mts"
+  ],
+  "typeAcquisition": {
+    "include": [
+      "jquery"
+    ]
+  }
+}

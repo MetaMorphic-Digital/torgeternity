@@ -12,3 +12,7 @@ npm-debug.log*
 
 # packs files
 /packs/
+
+# Symlinks to Foundry
+foundry-config.yaml
+foundry
