@@ -1127,7 +1127,7 @@ dialog.torgeternity:not(.actor, .item) .window-content,
         flex-direction: column;
         justify-content: space-between;
 
-        li {
+        >li {
           display: flex;
           flex-direction: column;
           position: relative;
