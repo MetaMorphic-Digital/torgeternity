@@ -917,9 +917,6 @@ function individualDN(test, target) {
       const skill = target.skills[onTarget];
       return ((skill.value && skill.value !== '-') ? skill.value : target.attributes[skill.baseAttribute].value) + traitdefense;
     }
-    // Look for custom skill
-    const cust = target.items.find(it => it.type === 'customSkill' && it.name === onTarget);
-    if (cust) return cust.system.value;
   }
 
   switch (test.DNDescriptor) {

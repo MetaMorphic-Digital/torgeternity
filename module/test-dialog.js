@@ -2,6 +2,10 @@ import { renderSkillChat } from './torgchecks.js';
 import TorgeternityActor from './documents/actor/torgeternityActor.js';
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api
 
+function toCamelCase(from) {
+  return from.at(0).toLowerCase() + from.slice(1)
+}
+
 // Default values for all the fields in the dialog template
 const DEFAULT_TEST = {
   // difficulty-selector
@@ -358,7 +362,10 @@ export function oneTestTarget(token, applySize) {
       armor: actor.defenses.armor,
       defenseTraits: actor.defenseTraits,
       // then non-vehicle changes
-      skills: actor.system.skills,
+      skills: actor.items.filter(it => it.type === 'customSkill').reduce((acc, skill) => {
+        acc[toCamelCase(skill.name)] = { name: skill.name, ...skill.system };
+        return acc;
+      }, { ...actor.system.skills }),
       attributes: actor.system.attributes,
       vulnerableModifier: actor.statusModifiers.vulnerable,
       isConcentrating: actor.isConcentrating,
