@@ -64,6 +64,7 @@ export default class torgeternityCombatTracker extends foundry.applications.side
   async _prepareTrackerContext(context, options) {
     await super._prepareTrackerContext(context, options);
     if (!this.viewed) return;
+    this.viewed.updateCurrentDisposition();
     context.activeTurns = context.turns?.filter(c => !c.isWaiting) ?? [];
     context.waiting = context.turns?.filter(c => c.isWaiting) ?? [];
   }
@@ -80,7 +81,7 @@ export default class torgeternityCombatTracker extends foundry.applications.side
         .map(card => { return { name: card.name, img: card.img } }) ?? [];
     }
     context.turnTaken = combatant.turnTaken;
-    context.isWaiting = combatant.actor?.hasStatusEffect('waiting');
+    context.isWaiting = combatant.isWaiting;
     context.waitingImg = CONFIG.statusEffects.find(e => e.id === 'waiting')?.img;
     context.actorType = combatant.actor?.type;
     const dispositions = {
@@ -164,7 +165,7 @@ export default class torgeternityCombatTracker extends foundry.applications.side
     const combatant = this.viewed?.combatants.get(combatantId);
     if (!combatant) return;
     await combatant.actor.toggleStatusEffect('waiting');
-    this.viewed.updateCurrentDisposition();
+    combatant.token?.object?.renderFlags.set({ refreshTurnMarker: true });
   }
 
   updateStage(document, force) {

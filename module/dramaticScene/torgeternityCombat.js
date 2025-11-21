@@ -11,13 +11,6 @@ let firsttime;
 export default class TorgCombat extends Combat {
 
   #currentDisposition = CONST.TOKEN_DISPOSITIONS.SECRET;
-  torgInitialized;
-
-  /* The base Combat() class calls setupTurns, which means we can't call our own method in our override of that function */
-  constructor(data, options) {
-    super(data, options);
-    this.torgInitialized = true;
-  }
 
   /**
    * On deletion, remove all pooled cards from the hands of the stormknight actors in the combat.
@@ -441,8 +434,6 @@ export default class TorgCombat extends Combat {
    * General end-of-character turn processing
    */
   dramaEndOfTurn(combatant) {
-    this.updateCurrentDisposition();
-
     if (this.getFlag('torgeternity', FATIGUED_FACTION_FLAG) === this.getCombatantFaction(combatant)) {
       const actor = combatant.actor;
       if (!actor) return;
@@ -500,19 +491,13 @@ export default class TorgCombat extends Combat {
       return (ib - ia) || (a.id > b.id ? 1 : -1);
   }
 
-  // setupTurns is called from Combat() constructor, so this.updateCurrentDisposition is not fully created yet
-  setupTurns() {
-    const turns = super.setupTurns();
-    if (this.torgInitialized) this.updateCurrentDisposition();
-    return turns;
-  }
-
   updateCurrentDisposition() {
     // Find first combatant whose turn has NOT been taken (after sorting).
     const old = this.#currentDisposition;
     const firstNotTaken = this.turns?.find(combatant => !combatant.turnTaken && !combatant.isWaiting);
     this.#currentDisposition = firstNotTaken?.token.disposition ?? CONST.TOKEN_DISPOSITIONS.SECRET;
 
+    // Combat.updateTurnMarkers won't add new ones!
     if (this.#currentDisposition != old)
       for (const combatant of this.turns)
         combatant.token?.object?.renderFlags.set({ refreshTurnMarker: true });
