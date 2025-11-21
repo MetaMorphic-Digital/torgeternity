@@ -82,6 +82,13 @@ export default class torgeternityCombatTracker extends foundry.applications.side
     }
     context.turnTaken = combatant.turnTaken;
     context.isWaiting = combatant.isWaiting;
+    // There's no other place where we can update the Turn Marker when the Actor changes the waiting status
+    if (combatant.wasWaiting !== undefined && combatant.wasWaiting != context.isWaiting) {
+      console.log('wasWaiting', context.isWaiting);
+      combatant.token?.object?.renderFlags.set({ refreshTurnMarker: true });
+    }
+    combatant.wasWaiting = context.isWaiting;
+
     context.waitingImg = CONFIG.statusEffects.find(e => e.id === 'waiting')?.img;
     context.actorType = combatant.actor?.type;
     const dispositions = {
