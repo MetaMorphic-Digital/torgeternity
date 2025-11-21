@@ -2,6 +2,9 @@
 
 ## NEXT
 
+- **Token Turn Marker** is displayed on all tokens of the currently active faction which have not yet had their turn.
+  - Turn Markers are not displayed until the encounter is started (by the GM pressing "Begin Encounter").
+  - The turn markers are moved to the second faction when all the tokens of the faction going first have had their turn.
 - Add dev files to support intellisense in Visual Studio Code.
 
 ## 13.13.3
