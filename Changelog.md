@@ -6,6 +6,8 @@
   - Turn Markers are not displayed until the encounter is started (by the GM pressing "Begin Encounter").
   - The turn markers are moved to the second faction when all the tokens of the faction going first have had their turn.
   - Combatants which are WAITING do not get a turn marker.
+- Allow a **custom skill** to be dragged from an Actor's skill list to the Macro Hotbar.
+- Allow **numeric DN** to be specified (as the DNDescriptor) when calling `rollSkillMacro(skill,attribute,interactiveAttack,DNdescriptor)` which will be displayed as the first entry in the DN drop-down menu.
 - Add dev files to support intellisense in Visual Studio Code.
 
 ## 13.13.3

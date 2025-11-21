@@ -2,6 +2,9 @@
   <legend>{{localize "torgeternity.sheetLabels.dn"}}</legend>
   <div class="skill-check-options flexrow">
     <select id="difficulty" name="DNDescriptor" data-dtype="String">
+      {{#if numberDN}}
+        <option value="{{numberDN.value}}">{{numberDN.value}}</option>
+      {{/if}}
       {{selectOptions (ifThen test.targetPresent config.dnTypes config.dnTypesBasic) selected=test.DNDescriptor localize=true}}
     </select>
   </div>

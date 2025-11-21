@@ -574,7 +574,7 @@ async function createTorgEternityMacro(dropData, slot) {
 
     command = `game.torgeternity.rollSkillMacro("${dropName}", "${dropAttribute}", ${isInteractionAttack});`;
 
-    const locSkillName = (dropName !== dropAttribute) && game.i18n.localize('torgeternity.skills.' + dropName);
+    const locSkillName = dropData.data.customskill ? dropName : (dropName !== dropAttribute) && game.i18n.localize('torgeternity.skills.' + dropName);
     const locAttributeName = game.i18n.localize('torgeternity.attributes.' + dropAttribute);
 
     if (dropData.type === 'skill')
@@ -669,11 +669,15 @@ async function rollItemMacro(itemName) {
  * @returns {Promise}
  */
 async function rollSkillMacro(skillName, attributeName, isInteractionAttack, DNDescriptor) {
-  if (DNDescriptor && !Object.hasOwn(CONFIG.torgeternity.dnTypes, DNDescriptor)) {
+  if (DNDescriptor && !(
+    typeof DNDescriptor === 'number' ||
+    Number(DNDescriptor) != NaN ||
+    Object.hasOwn(CONFIG.torgeternity.dnTypes, DNDescriptor))) {
     ui.notifications.error('The DN-Descriptor is wrong. Exiting the macro.');
     return;
   }
 
+  let customSkill;
   const speaker = ChatMessage.getSpeaker();
   const actor = game.actors.get(speaker.actor) ?? game.actors.tokens[speaker.token];
   const isAttributeTest = skillName === attributeName;
@@ -686,6 +690,11 @@ async function rollSkillMacro(skillName, attributeName, isInteractionAttack, DND
       actor && Object.keys(actor.system.skills).includes(skillNameKey)
         ? actor.system.skills[skillNameKey]
         : null;
+    // Maybe a custom skill?
+    if (!skill) {
+      skill = actor.items.find(it => it.type === 'customSkill' && it.name === skillName)?.system;
+      if (skill) customSkill = true;
+    }
     if (!skill)
       return ui.notifications.warn(
         game.i18n.localize('torgeternity.notifications.noSkillNamed') + skillName
@@ -740,6 +749,7 @@ async function rollSkillMacro(skillName, attributeName, isInteractionAttack, DND
     darknessModifier: 0, // parseInt(actor.system.darknessModifier),
     type: 'skill',
     bdDamageSum: 0,
+    customSkill,
   };
 
   if (isUnarmed) {

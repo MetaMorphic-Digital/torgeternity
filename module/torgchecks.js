@@ -347,7 +347,9 @@ export async function renderSkillChat(test) {
     // Determine Outcome
     const testDifference = test.rollResult - test.DN;
 
-    test.actionTotalContent = `${game.i18n.localize('torgeternity.chatText.check.result.actionTotal')} ${test.rollResult} vs. ${test.DN} ${game.i18n.localize('torgeternity.dnTypes.' + test.DNDescriptor)}`;
+    // Handle numeric value in DNDescriptor
+    test.actionTotalContent = `${game.i18n.localize('torgeternity.chatText.check.result.actionTotal')} ${test.rollResult} vs. ${test.DN} `;
+    if (isNaN(Number(test.DNDescriptor))) test.actionTotalContent += game.i18n.localize('torgeternity.dnTypes.' + test.DNDescriptor);
 
     const useColorBlind = game.settings.get('torgeternity', 'useColorBlindnessColors');
     if (testDifference < 0) {
@@ -897,6 +899,10 @@ export function getTorgValue(myNumber) {
 
 function individualDN(test, target) {
 
+  if (typeof test.DNDescriptor === 'number') return test.DNDescriptor;
+  const num = Number(test.DNDescriptor);
+  if (!isNaN(num)) return num;
+
   if (test.DNDescriptor.startsWith('target')) {
     let onTarget = test.DNDescriptor.slice(6);
     onTarget = onTarget.at(0).toLowerCase() + onTarget.slice(1);
@@ -911,6 +917,9 @@ function individualDN(test, target) {
       const skill = target.skills[onTarget];
       return ((skill.value && skill.value !== '-') ? skill.value : target.attributes[skill.baseAttribute].value) + traitdefense;
     }
+    // Look for custom skill
+    const cust = target.items.find(it => it.type === 'customSkill' && it.name === onTarget);
+    if (cust) return cust.system.value;
   }
 
   switch (test.DNDescriptor) {
