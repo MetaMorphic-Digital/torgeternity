@@ -98,7 +98,7 @@ export default class TorgEternityToken extends foundry.canvas.placeables.Token {
     const markersEnabled = CONFIG.Combat.settings.turnMarker.enabled
       && (turnMarker.mode !== CONST.TOKEN_TURN_MARKER_MODES.DISABLED);
     const isTurn = this.combatant && game.combat.started &&
-      game.combat?.currentDisposition === this.document?.disposition && !this.combatant?.turnTaken;
+      game.combat?.currentDisposition === this.document?.disposition && !this.combatant.turnTaken && !this.combatant.isWaiting;
     const markerActive = markersEnabled && isTurn;
 
     // Activate a Turn Marker

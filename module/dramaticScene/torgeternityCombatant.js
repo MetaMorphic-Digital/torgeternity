@@ -21,6 +21,10 @@ export default class TorgCombatant extends Combatant {
     return this.getFlag('world', 'turnTaken');
   }
 
+  get isWaiting() {
+    return this.actor?.hasStatusEffect('waiting');
+  }
+
   async setTurnTaken(value) {
     if (value === this.turnTaken) return;
 

@@ -163,7 +163,8 @@ export default class torgeternityCombatTracker extends foundry.applications.side
     const { combatantId } = button.closest("[data-combatant-id]")?.dataset ?? {};
     const combatant = this.viewed?.combatants.get(combatantId);
     if (!combatant) return;
-    combatant.actor.toggleStatusEffect('waiting');
+    await combatant.actor.toggleStatusEffect('waiting');
+    this.viewed.updateCurrentDisposition();
   }
 
   updateStage(document, force) {

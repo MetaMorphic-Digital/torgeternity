@@ -441,7 +441,7 @@ export default class TorgCombat extends Combat {
    * General end-of-character turn processing
    */
   dramaEndOfTurn(combatant) {
-    this.#setCurrentDisposition();
+    this.updateCurrentDisposition();
 
     if (this.getFlag('torgeternity', FATIGUED_FACTION_FLAG) === this.getCombatantFaction(combatant)) {
       const actor = combatant.actor;
@@ -500,17 +500,17 @@ export default class TorgCombat extends Combat {
       return (ib - ia) || (a.id > b.id ? 1 : -1);
   }
 
-  // setupTurns is called from Combat() constructor, so this.#setCurrentDisposition is not fully created yet
+  // setupTurns is called from Combat() constructor, so this.updateCurrentDisposition is not fully created yet
   setupTurns() {
     const turns = super.setupTurns();
-    if (this.torgInitialized) this.#setCurrentDisposition();
+    if (this.torgInitialized) this.updateCurrentDisposition();
     return turns;
   }
 
-  #setCurrentDisposition() {
+  updateCurrentDisposition() {
     // Find first combatant whose turn has NOT been taken (after sorting).
     const old = this.#currentDisposition;
-    const firstNotTaken = this.turns?.find(combatant => !combatant.turnTaken);
+    const firstNotTaken = this.turns?.find(combatant => !combatant.turnTaken && !combatant.isWaiting);
     this.#currentDisposition = firstNotTaken?.token.disposition ?? CONST.TOKEN_DISPOSITIONS.SECRET;
 
     if (this.#currentDisposition != old)
