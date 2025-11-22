@@ -24,6 +24,7 @@ jobs:
           url: https://github.com/${{github.repository}}
           manifest: https://github.com/${{github.repository}}/releases/latest/download/system.json
           download: https://github.com/${{github.repository}}/releases/download/${{github.event.release.tag_name}}/torgeternity.zip
+          changelog: https://github.com/${{github.repository}}/releases/tag/${{github.event.release.tag_name}}
 
       # compile packs
       - name: compile packs
