@@ -899,11 +899,7 @@ export function getTorgValue(myNumber) {
 
 function individualDN(test, target) {
 
-  if (typeof test.DNDescriptor === 'number') return test.DNDescriptor;
-  const num = Number(test.DNDescriptor);
-  if (!isNaN(num)) return num;
-
-  if (test.DNDescriptor.startsWith('target')) {
+  if (typeof test.DNDescriptor === 'string' && test.DNDescriptor.startsWith('target')) {
     let onTarget = test.DNDescriptor.slice(6);
     onTarget = onTarget.at(0).toLowerCase() + onTarget.slice(1);
     let traitdefense = getExtraProtection(test.attackTraits, target.defenseTraits, 'Defense', 0);
@@ -920,6 +916,8 @@ function individualDN(test, target) {
   }
 
   switch (test.DNDescriptor) {
+    case 'fixedNumber':
+      return test.DNfixed ?? 0;
     // Simple DNs
     case 'veryEasy':
       return 6;

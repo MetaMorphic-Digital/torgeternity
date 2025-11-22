@@ -10,6 +10,7 @@ function toCamelCase(from) {
 const DEFAULT_TEST = {
   // difficulty-selector
   DNDescriptor: "standard",    // number or string
+  DNfixed: '',
   // bonus-selector
   bonus: null,      // null or number
   rollTotal: 0,   // 0 = force a manual dice roll
@@ -167,9 +168,6 @@ export class TestDialog extends HandlebarsApplicationMixin(ApplicationV2) {
     const myActor = fromUuidSync(this.test.actor)
     context.test.hasModifiers = false;
 
-    if (typeof this.test.DNDescriptor === 'number') {
-      context.numberDN = { value: this.test.DNDescriptor }
-    }
     // The wound penalties are never more than -3, regardless on how many wounds a token can suffer / have. CrB p. 117
     context.test.woundModifier = -Math.min(myActor.system.wounds.value ?? 0, 3);
 
@@ -242,6 +240,14 @@ export class TestDialog extends HandlebarsApplicationMixin(ApplicationV2) {
     switch (this.mode) {
       case 'create': options.parts = ['create', 'footer']; break;
       case 'update': options.parts = ['update', 'footer']; break;
+    }
+  }
+
+  _onChangeForm(config, event) {
+    super._onChangeForm(config, event);
+    if (event.target.name === 'DNDescriptor') {
+      const elem = this.form.querySelector('input#DNfixed');
+      if (elem) elem.style.display = (event.target.value === 'fixedNumber') ? 'block' : 'none';
     }
   }
 

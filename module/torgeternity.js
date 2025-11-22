@@ -669,10 +669,13 @@ async function rollItemMacro(itemName) {
  * @returns {Promise}
  */
 async function rollSkillMacro(skillName, attributeName, isInteractionAttack, DNDescriptor) {
-  if (DNDescriptor && !(
-    typeof DNDescriptor === 'number' ||
-    Number(DNDescriptor) != NaN ||
-    Object.hasOwn(CONFIG.torgeternity.dnTypes, DNDescriptor))) {
+  let fixedNumber = 0;
+  if (DNDescriptor && !isNaN(Number(DNDescriptor))) {
+    fixedNumber = Number(DNDescriptor);
+    DNDescriptor = 'fixedNumber';
+  }
+
+  if (DNDescriptor && !Object.hasOwn(CONFIG.torgeternity.dnTypes, DNDescriptor)) {
     ui.notifications.error('The DN-Descriptor is wrong. Exiting the macro.');
     return;
   }
@@ -691,7 +694,7 @@ async function rollSkillMacro(skillName, attributeName, isInteractionAttack, DND
         ? actor.system.skills[skillNameKey]
         : null;
     // Maybe a custom skill?
-    if (!skill) {
+    if (!skill && actor) {
       skill = actor.items.find(it => it.type === 'customSkill' && it.name === skillName)?.system;
       if (skill) customSkill = true;
     }
@@ -743,6 +746,7 @@ async function rollSkillMacro(skillName, attributeName, isInteractionAttack, DND
     skillValue: skillValue,
     isFav: skill.isFav,
     DNDescriptor: DNDescriptor ?? 'standard',
+    DNfixed: fixedNumber,
     unskilledUse: skill.unskilledUse,
     woundModifier: parseInt(-actor.system.wounds.value),
     stymiedModifier: actor.statusModifiers.stymied,

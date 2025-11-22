@@ -400,6 +400,7 @@
     "dnTypes": {
       "challenging": "Complexe (12)",
       "easy": "Facile (8)",
+      "fixedNumber": "Fixed Number",
       "hard": "Difficile (14)",
       "heroic": "Héroïque (18)",
       "highestSpeed": "Plus rapide participant du combat",
@@ -451,16 +452,6 @@
       "targetWaterVehicles": "Véhicules aquatiques ou Dextérité de la cible",
       "targetWillpower": "Volonté de la cible",
       "targetWillpowerMind": "Volonté ou Raison de la cible",
-      "veryEasy": "Très facile  (6)",
-      "veryHard": "Très difficile (16)"
-    },
-    "dnTypesBasic": {
-      "challenging": "Complexe (12)",
-      "easy": "Facile (8)",
-      "hard": "Difficile (14)",
-      "heroic": "Héroïque (18)",
-      "nearImpossible": "Presque impossible (20)",
-      "standard": "Normale (10)",
       "veryEasy": "Très facile  (6)",
       "veryHard": "Très difficile (16)"
     },

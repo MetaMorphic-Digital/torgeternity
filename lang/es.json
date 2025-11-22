@@ -400,6 +400,7 @@
     "dnTypes": {
       "challenging": "Desafiante (12)",
       "easy": "Fácil (8)",
+      "fixedNumber": "Fixed Number",
       "hard": "Difícil (14)",
       "heroic": "Heroica (18)",
       "highestSpeed": "El participante más rápido del tracker de combate",
@@ -451,16 +452,6 @@
       "targetWaterVehicles": "contra Vehículos acuáticos o Destreza",
       "targetWillpower": "contra Fuerza de voluntad o Espíritu",
       "targetWillpowerMind": "contra Fuerza de voluntad o Mente",
-      "veryEasy": "Muy Fácil (6)",
-      "veryHard": "Muy Difícil (16)"
-    },
-    "dnTypesBasic": {
-      "challenging": "Desafiante (12)",
-      "easy": "Fácil (8)",
-      "hard": "Difícil (14)",
-      "heroic": "Heroica (18)",
-      "nearImpossible": "Casi Imposible (20)",
-      "standard": "Estándar (10)",
       "veryEasy": "Muy Fácil (6)",
       "veryHard": "Muy Difícil (16)"
     },
