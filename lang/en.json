@@ -394,7 +394,7 @@
     "dnTypes": {
       "challenging": "Challenging (12)",
       "easy": "Easy (8)",
-      "fixedNumber": "Fixed Number",
+      "fixedNumber": "Set Difficulty Number",
       "hard": "Hard (14)",
       "heroic": "Heroic (18)",
       "highestSpeed": "Fastest Participant in Combat Tracker",

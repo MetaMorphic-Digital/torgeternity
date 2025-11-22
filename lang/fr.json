@@ -400,7 +400,7 @@
     "dnTypes": {
       "challenging": "Complexe (12)",
       "easy": "Facile (8)",
-      "fixedNumber": "Fixed Number",
+      "fixedNumber": "Choisir la difficulté",
       "hard": "Difficile (14)",
       "heroic": "Héroïque (18)",
       "highestSpeed": "Plus rapide participant du combat",
@@ -1299,7 +1299,7 @@
       "lightningDefense": "Défense vs Électricité"
     },
     "itemPurchase": {
-      "free": "No Cost",
+      "free": "Gratuit",
       "activeScene": "Scène active",
       "playerCosm": "Cosm du personnage",
       "itemCosm": "Cosm de l'objet",

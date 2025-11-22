@@ -400,7 +400,7 @@
     "dnTypes": {
       "challenging": "Anspruchsvoll (12)",
       "easy": "Einfach (8)",
-      "fixedNumber": "Fixed Number",
+      "fixedNumber": "Mindestwurf festlegen",
       "hard": "Schwer (14)",
       "heroic": "Heldenhaft (18)",
       "highestSpeed": "Schnellster Gegner in der Begegnung",

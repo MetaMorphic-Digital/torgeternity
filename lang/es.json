@@ -400,7 +400,7 @@
     "dnTypes": {
       "challenging": "Desafiante (12)",
       "easy": "Fácil (8)",
-      "fixedNumber": "Fixed Number",
+      "fixedNumber": "Introduce factor de dificultad",
       "hard": "Difícil (14)",
       "heroic": "Heroica (18)",
       "highestSpeed": "El participante más rápido del tracker de combate",

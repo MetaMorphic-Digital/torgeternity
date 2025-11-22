@@ -7,7 +7,9 @@
   - The turn markers are moved to the second faction when all the tokens of the faction going first have had their turn.
   - Combatants which are WAITING do not get a turn marker.
 - Allow a **custom skill** to be dragged from an Actor's skill list to the Macro Hotbar.
-- Allow **numeric DN** to be specified (as the DNDescriptor) when calling `rollSkillMacro(skill,attribute,interactiveAttack,DNdescriptor)` which will be displayed as the first entry in the DN drop-down menu.
+- Provide **Set Difficulty Number** as an option when setting the DN in the Test Dialog:
+  - A new number entry field will appear when this option is selected in the DN selector.
+  - Allow a numeric value to be passed in `DNDescriptor` when calling `rollSkillMacro(skill,attribute,interactiveAttack,DNdescriptor)`.
 - Add dev files to support intellisense in Visual Studio Code.
 
 ## 13.13.3
