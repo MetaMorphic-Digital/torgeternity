@@ -400,6 +400,7 @@
     "dnTypes": {
       "challenging": "Anspruchsvoll (12)",
       "easy": "Einfach (8)",
+      "fixedNumber": "Mindestwurf festlegen",
       "hard": "Schwer (14)",
       "heroic": "Heldenhaft (18)",
       "highestSpeed": "Schnellster Gegner in der Begegnung",
@@ -451,16 +452,6 @@
       "targetWaterVehicles": "Wasserfahrzeuge oder Geschicklichkeit des Ziels",
       "targetWillpower": "Willenskraft oder Geist des Ziels",
       "targetWillpowerMind": "Willenskraft oder Verstand des Ziels",
-      "veryEasy": "Sehr einfach (6)",
-      "veryHard": "Sehr schwer (16)"
-    },
-    "dnTypesBasic": {
-      "challenging": "Anspruchsvoll (12)",
-      "easy": "Einfach (8)",
-      "hard": "Schwer (14)",
-      "heroic": "Heldenhaft (18)",
-      "nearImpossible": "Fast unmöglich (20)",
-      "standard": "Standard (10)",
       "veryEasy": "Sehr einfach (6)",
       "veryHard": "Sehr schwer (16)"
     },

@@ -334,14 +334,16 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
    * @param event
    */
   _skillAttrDragStart(event) {
+    const data = event.target.dataset;
     const skillAttrData = {
-      type: event.target.dataset.testtype,
+      type: data.testtype,
       data: {
-        name: event.target.dataset.name,
-        attribute: event.target.dataset.baseattribute,
-        adds: Number(event.target.dataset.adds),
-        value: Number(event.target.dataset.value),
-        unskilledUse: event.target.dataset.unskilleduse,
+        name: data.customskill ? this.actor.items.get(data.name).name : data.name,
+        customskill: (data.customskill === 'true'),
+        attribute: data.baseattribute,
+        adds: Number(data.adds),
+        value: Number(data.value),
+        unskilledUse: data.unskilleduse,
         DNDescriptor: 'standard',
       },
     };

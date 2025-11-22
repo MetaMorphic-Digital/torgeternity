@@ -20,7 +20,8 @@
   },
   "scripts": {
     "build": "node ./tools/pullYMLtoLDB.mjs",
-    "extract": "node ./tools/pushLDBtoYML.mjs"
+    "extract": "node ./tools/pushLDBtoYML.mjs",
+    "createSymlinks": "node ./tools/create-symlinks.mjs"
   },
   "repository": {
     "type": "git",

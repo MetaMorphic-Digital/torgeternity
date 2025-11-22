@@ -64,6 +64,7 @@ export default class torgeternityCombatTracker extends foundry.applications.side
   async _prepareTrackerContext(context, options) {
     await super._prepareTrackerContext(context, options);
     if (!this.viewed) return;
+    this.viewed.updateCurrentDisposition();
     context.activeTurns = context.turns?.filter(c => !c.isWaiting) ?? [];
     context.waiting = context.turns?.filter(c => c.isWaiting) ?? [];
   }
@@ -80,7 +81,14 @@ export default class torgeternityCombatTracker extends foundry.applications.side
         .map(card => { return { name: card.name, img: card.img } }) ?? [];
     }
     context.turnTaken = combatant.turnTaken;
-    context.isWaiting = combatant.actor?.hasStatusEffect('waiting');
+    context.isWaiting = combatant.isWaiting;
+    // There's no other place where we can update the Turn Marker when the Actor changes the waiting status
+    if (combatant.wasWaiting !== undefined && combatant.wasWaiting != context.isWaiting) {
+      console.log('wasWaiting', context.isWaiting);
+      combatant.token?.object?.renderFlags.set({ refreshTurnMarker: true });
+    }
+    combatant.wasWaiting = context.isWaiting;
+
     context.waitingImg = CONFIG.statusEffects.find(e => e.id === 'waiting')?.img;
     context.actorType = combatant.actor?.type;
     const dispositions = {
@@ -163,7 +171,7 @@ export default class torgeternityCombatTracker extends foundry.applications.side
     const { combatantId } = button.closest("[data-combatant-id]")?.dataset ?? {};
     const combatant = this.viewed?.combatants.get(combatantId);
     if (!combatant) return;
-    combatant.actor.toggleStatusEffect('waiting');
+    await combatant.actor.toggleStatusEffect('waiting');
   }
 
   updateStage(document, force) {

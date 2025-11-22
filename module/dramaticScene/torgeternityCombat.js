@@ -10,6 +10,8 @@ let firsttime;
  */
 export default class TorgCombat extends Combat {
 
+  #currentDisposition = CONST.TOKEN_DISPOSITIONS.SECRET;
+
   /**
    * On deletion, remove all pooled cards from the hands of the stormknight actors in the combat.
    * @param {*} options 
@@ -97,6 +99,7 @@ export default class TorgCombat extends Combat {
       const hand = combatant.actor.getDefaultHand();
       if (hand) hand.setFlag('torgeternity', 'disablePlayCards', false)
     }
+    combatant.token?.object?.renderFlags.set({ refreshTurnMarker: true })
     return super._onExit(combatant);
   }
 
@@ -197,6 +200,8 @@ export default class TorgCombat extends Combat {
       await this.updateEmbeddedDocuments("Combatant", updates, { turnEvents: false });
       this.setupTurns();
     }
+    for (const combatant of this.turns)
+      combatant.token?.object?.renderFlags.set({ refreshTurnMarker: true });
   }
 
   #getInitiative(combatant, whoFirst) {
@@ -484,6 +489,22 @@ export default class TorgCombat extends Combat {
       return (a.name < b.name) ? -1 : 1;
     else
       return (ib - ia) || (a.id > b.id ? 1 : -1);
+  }
+
+  updateCurrentDisposition() {
+    // Find first combatant whose turn has NOT been taken (after sorting).
+    const old = this.#currentDisposition;
+    const firstNotTaken = this.turns?.find(combatant => !combatant.turnTaken && !combatant.isWaiting);
+    this.#currentDisposition = firstNotTaken?.token.disposition ?? CONST.TOKEN_DISPOSITIONS.SECRET;
+
+    // Combat.updateTurnMarkers won't add new ones!
+    if (this.#currentDisposition != old)
+      for (const combatant of this.turns)
+        combatant.token?.object?.renderFlags.set({ refreshTurnMarker: true });
+  }
+
+  get currentDisposition() {
+    return this.#currentDisposition;
   }
 
   static async _onClickContradiction(event) {

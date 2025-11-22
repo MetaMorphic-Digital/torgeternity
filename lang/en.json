@@ -394,6 +394,7 @@
     "dnTypes": {
       "challenging": "Challenging (12)",
       "easy": "Easy (8)",
+      "fixedNumber": "Set Difficulty Number",
       "hard": "Hard (14)",
       "heroic": "Heroic (18)",
       "highestSpeed": "Fastest Participant in Combat Tracker",
@@ -445,16 +446,6 @@
       "targetWaterVehicles": "Target water vehicles or Dexterity",
       "targetWillpower": "Target willpower or Spirit",
       "targetWillpowerMind": "Target willpower or Mind",
-      "veryEasy": "Very Easy (6)",
-      "veryHard": "Very Hard (16)"
-    },
-    "dnTypesBasic": {
-      "challenging": "Challenging (12)",
-      "easy": "Easy (8)",
-      "hard": "Hard (14)",
-      "heroic": "Heroic (18)",
-      "nearImpossible": "Near Impossible (20)",
-      "standard": "Standard (10)",
       "veryEasy": "Very Easy (6)",
       "veryHard": "Very Hard (16)"
     },

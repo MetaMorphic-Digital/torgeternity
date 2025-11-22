@@ -2,6 +2,9 @@
  *
  */
 export default class TorgCombatant extends Combatant {
+
+  // this.#turnTaken stored in flags, to avoid having to create a DataModel to store one extra boolean
+
   /**
    *
    * @param data
@@ -18,13 +21,20 @@ export default class TorgCombatant extends Combatant {
     return this.getFlag('world', 'turnTaken');
   }
 
+  get isWaiting() {
+    return this.actor?.hasStatusEffect('waiting');
+  }
+
   async setTurnTaken(value) {
+    if (value === this.turnTaken) return;
+
     await this.setFlag('world', 'turnTaken', value);
     if (value) {
       await this.actor.toggleStatusEffect('waiting', { active: false });
       await this.clearCurrentBonus();
-      return this.actor.decayEffects();
+      await this.actor.decayEffects();
     }
+    this.token?.object?.renderFlags.set({ refreshTurnMarker: true })
   }
 
   get currentBonus() {

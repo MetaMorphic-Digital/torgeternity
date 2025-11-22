@@ -210,6 +210,7 @@ export function initConfig() {
   };
 
   torgeternity.dnTypes = {
+    fixedNumber: 'torgeternity.dnTypes.fixedNumber',
     veryEasy: 'torgeternity.dnTypes.veryEasy',
     easy: 'torgeternity.dnTypes.easy',
     standard: 'torgeternity.dnTypes.standard',
@@ -271,6 +272,7 @@ export function initConfig() {
   };
 
   torgeternity.dnTypesBasic = {
+    fixedNumber: 'torgeternity.dnTypes.fixedNumber',
     veryEasy: 'torgeternity.dnTypes.veryEasy',
     easy: 'torgeternity.dnTypes.easy',
     standard: 'torgeternity.dnTypes.standard',

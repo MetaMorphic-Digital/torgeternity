@@ -57,3 +57,10 @@ jobs:
           artifacts: './system.json, ./torgeternity.zip'
           tag: ${{ github.event.release.tag_name }}
           body: ${{ github.event.release.body }}
+
+      # Update foundryvtt.com with the new release details
+      - name: Deploy Release
+        run: npx @ghost-fvtt/foundry-publish
+        env:
+          FVTT_TOKEN: ${{ secrets.FOUNDRY_KEY }}
+          FVTT_MANIFEST_PATH:  https://github.com/${{ github.repository }}/releases/download/${{ github.event.release.tag_name }}/system.json

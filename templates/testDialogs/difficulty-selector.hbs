@@ -4,5 +4,7 @@
     <select id="difficulty" name="DNDescriptor" data-dtype="String">
       {{selectOptions (ifThen test.targetPresent config.dnTypes config.dnTypesBasic) selected=test.DNDescriptor localize=true}}
     </select>
+    <input type="number" data-dtype="Number" id="DNfixed" name="DNfixed" value="{{test.DNfixed}}"
+      {{#unless (eq test.DNDescriptor "fixedNumber" ) }}style="display:none" {{/unless}} />
   </div>
 </fieldset>

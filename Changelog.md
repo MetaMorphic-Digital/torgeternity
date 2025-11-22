@@ -1,5 +1,17 @@
 # TORG Eternity Changelog
 
+## 13.14.0
+
+- **Token Turn Marker** is displayed on all tokens of the currently active faction which have not yet had their turn.
+  - Turn Markers are not displayed until the encounter is started (by the GM pressing "Begin Encounter").
+  - The turn markers are moved to the second faction when all the tokens of the faction going first have had their turn.
+  - Combatants which are WAITING do not get a turn marker.
+- Allow a **custom skill** to be dragged from an Actor's skill list to the Macro Hotbar.
+- Provide **Set Difficulty Number** as an option when setting the DN in the Test Dialog:
+  - A new number entry field will appear when this option is selected in the DN selector.
+  - Allow a numeric value to be passed in `DNDescriptor` when calling `rollSkillMacro(skill,attribute,interactiveAttack,DNdescriptor)`.
+- Add dev files to support intellisense in Visual Studio Code.
+
 ## 13.13.3
 
 - Fix issue with capitalization in generated filenames for Possibility token images.

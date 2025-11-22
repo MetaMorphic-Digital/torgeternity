@@ -347,7 +347,9 @@ export async function renderSkillChat(test) {
     // Determine Outcome
     const testDifference = test.rollResult - test.DN;
 
-    test.actionTotalContent = `${game.i18n.localize('torgeternity.chatText.check.result.actionTotal')} ${test.rollResult} vs. ${test.DN} ${game.i18n.localize('torgeternity.dnTypes.' + test.DNDescriptor)}`;
+    // Handle numeric value in DNDescriptor
+    test.actionTotalContent = `${game.i18n.localize('torgeternity.chatText.check.result.actionTotal')} ${test.rollResult} vs. ${test.DN} `;
+    if (isNaN(Number(test.DNDescriptor))) test.actionTotalContent += game.i18n.localize('torgeternity.dnTypes.' + test.DNDescriptor);
 
     const useColorBlind = game.settings.get('torgeternity', 'useColorBlindnessColors');
     if (testDifference < 0) {
@@ -897,7 +899,7 @@ export function getTorgValue(myNumber) {
 
 function individualDN(test, target) {
 
-  if (test.DNDescriptor.startsWith('target')) {
+  if (typeof test.DNDescriptor === 'string' && test.DNDescriptor.startsWith('target')) {
     let onTarget = test.DNDescriptor.slice(6);
     onTarget = onTarget.at(0).toLowerCase() + onTarget.slice(1);
     let traitdefense = getExtraProtection(test.attackTraits, target.defenseTraits, 'Defense', 0);
@@ -914,6 +916,8 @@ function individualDN(test, target) {
   }
 
   switch (test.DNDescriptor) {
+    case 'fixedNumber':
+      return test.DNfixed ?? 0;
     // Simple DNs
     case 'veryEasy':
       return 6;

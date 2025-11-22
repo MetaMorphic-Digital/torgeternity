@@ -87,4 +87,32 @@ export default class TorgEternityToken extends foundry.canvas.placeables.Token {
     // Update the displayed label
     label.replaceChildren(html);
   }
+
+  /* Change the logic for setting the isTurn flag */
+  _refreshTurnMarker() {
+
+    // Should a Turn Marker be active?
+    const { TokenTurnMarker } = foundry.canvas.placeables.tokens;
+
+    const { turnMarker } = this.document;
+    const markersEnabled = CONFIG.Combat.settings.turnMarker.enabled
+      && (turnMarker.mode !== CONST.TOKEN_TURN_MARKER_MODES.DISABLED);
+    const isTurn = this.combatant && game.combat.started &&
+      game.combat?.currentDisposition === this.document?.disposition && !this.combatant.turnTaken && !this.combatant.isWaiting;
+    const markerActive = markersEnabled && isTurn;
+
+    // Activate a Turn Marker
+    if (markerActive) {
+      if (!this.turnMarker) this.turnMarker = this.addChildAt(new TokenTurnMarker(this), 0);
+      canvas.tokens.turnMarkers.add(this);
+      this.turnMarker.draw();
+    }
+
+    // Remove a Turn Marker
+    else if (this.turnMarker) {
+      canvas.tokens.turnMarkers.delete(this);
+      this.turnMarker.destroy();
+      this.turnMarker = null;
+    }
+  }
 }
