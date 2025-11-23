@@ -3,6 +3,7 @@
 ## 13.14.2
 
 - Allow arbitrary numbers in `@Check` enricher.
+- Check for unskilled-use in the `@Check` enricher.
 
 ## 13.14.1
 

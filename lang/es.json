@@ -91,7 +91,6 @@
       "bonusDice": "DB",
       "chase": "Prueba de persecución",
       "check": {
-        "cantUseSkillRecquired": "No se puede usar sin al menos 1 adición en la habilidad requerida.",
         "cantUseUntrained": "No se puede usar sin entrenar (mínimo 1 adición).",
         "cantUseRealityWhileDisconnected": "No puedes usar la habilidad Realidad mientras estés Desconectado.",
         "interactionNeedTarget": "No se puede intentar una prueba de ataque de interacción sin un objetivo. Selecciona un objetivo e inténtalo de nuevo.",

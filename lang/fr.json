@@ -91,7 +91,6 @@
       "bonusDice": "DB",
       "chase": "Test de Poursuite",
       "check": {
-        "cantUseSkillRecquired": " ne peut pas être utilisé sans au moins un rang dans la compétence requise",
         "cantUseUntrained": " ne peut pas être utilisé sans être appris (au moins un rang).",
         "cantUseRealityWhileDisconnected": "Vous ne pouvez pas utiliser la compétence Réalité lorsque vous êtes Déconnecté.",
         "interactionNeedTarget": "Impossible d’effectuer une interaction offensive sans cible. Ciblez un token puis réessayez.",
