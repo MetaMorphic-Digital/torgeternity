@@ -140,6 +140,25 @@ function _onClickInlineCheck(event) {
       skillValue += Math.max(skill.value, attribute.value);
     const isInteractionAttack = (test.attack || interactionAttacks.includes(skillName));
 
+    // check if the skill is unskilled (adds are 0) and the test specifies unkilledUse === 'false' (Maybe parse this boolean?)
+    if (test.unskilledUse === 'false' && skill.adds === 0) {
+      foundry.applications.handlebars.renderTemplate(
+        './systems/torgeternity/templates/chat/skill-error-card.hbs',
+        {
+          message: game.i18n.localize('torgeternity.skills.' + skillName) + ' ' + game.i18n.localize('torgeternity.chatText.check.cantUseUntrained'),
+          actor: actor.uuid,
+          actorPic: actor.img,
+          actorName: actor.name,
+        }).then(content =>
+          ChatMessage.create({
+            speaker: ChatMessage.getSpeaker({ actor }),
+            owner: actor,
+            content: content
+          })
+        )
+      return;
+    }
+
     foundry.utils.mergeObject(test, {
       testType: isInteractionAttack ? 'interactionAttack' : 'skill',
       skillName: skillName,
