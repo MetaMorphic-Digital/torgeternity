@@ -4,6 +4,7 @@
 
 - Allow arbitrary numbers in `@Check` enricher.
 - Check for unskilled-use in the `@Check` enricher.
+- Add a new game setting "Disable Dynamic Token Ring on Import" which will use the classic Torg rings on actor tokens imported from compendiums.
 
 ## 13.14.1
 

@@ -760,6 +760,10 @@
         "label": "Default card deck configuration",
         "name": "Default card deck configuration"
       },
+      "disableDynamicRingOnImport": {
+        "hint": "Disables a configured Dynamic Token Ring when importing from a compendium",
+        "name": "Disable Dynamic Token Ring on Import"
+      },
       "defaultUserHand": {
         "hint": "Hand name for this user.",
         "name": "Default user cards hand name"

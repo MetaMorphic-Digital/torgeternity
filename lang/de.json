@@ -766,6 +766,10 @@
         "label": "Standard-Kartendeck-Konfiguration",
         "name": "Standard-Deckkonfiguration"
       },
+      "disableDynamicRingOnImport": {
+        "hint": "Disables a configured Dynamic Token Ring when importing from a compendium",
+        "name": "Disable Dynamic Token Ring on Import"
+      },
       "defaultUserHand": {
         "hint": "Kartenhand-Name für diesen Benutzer.",
         "name": "Standard-Benutzer Kartenhand"

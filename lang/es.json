@@ -766,6 +766,10 @@
         "label": "Configuración de mazo de cartas por defecto",
         "name": "Configuración de mazos de cartas por defecto"
       },
+      "disableDynamicRingOnImport": {
+        "hint": "Disables a configured Dynamic Token Ring when importing from a compendium",
+        "name": "Disable Dynamic Token Ring on Import"
+      },
       "defaultUserHand": {
         "hint": "Nombre de mano para este usuario.",
         "name": "Nombre de mano para usuario por defecto"
