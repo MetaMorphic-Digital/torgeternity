@@ -767,8 +767,8 @@
         "name": "Configuración de mazos de cartas por defecto"
       },
       "disableDynamicRingOnImport": {
-        "hint": "Disables a configured Dynamic Token Ring when importing from a compendium",
-        "name": "Disable Dynamic Token Ring on Import"
+        "hint": "Desactiva un anillo dinámico de ficha configurado al importar un actor de un compendio",
+        "name": "Desactivar anillo dinámico de ficha al importar"
       },
       "defaultUserHand": {
         "hint": "Nombre de mano para este usuario.",

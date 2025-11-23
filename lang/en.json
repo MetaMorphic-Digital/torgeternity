@@ -761,7 +761,7 @@
         "name": "Default card deck configuration"
       },
       "disableDynamicRingOnImport": {
-        "hint": "Disables a configured Dynamic Token Ring when importing from a compendium",
+        "hint": "Disables a configured Dynamic Token Ring when importing an Actor from a compendium",
         "name": "Disable Dynamic Token Ring on Import"
       },
       "defaultUserHand": {

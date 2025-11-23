@@ -767,8 +767,8 @@
         "name": "Configuration des paquets de cartes par défaut"
       },
       "disableDynamicRingOnImport": {
-        "hint": "Disables a configured Dynamic Token Ring when importing from a compendium",
-        "name": "Disable Dynamic Token Ring on Import"
+        "hint": "Désactive l'Anneau Dynamique du Token configuré sur un personnage lors de son import depuis un compendium",
+        "name": "Désactive l'Anneau Dynamique du Token à l'import"
       },
       "defaultUserHand": {
         "hint": "Tapez ici le nom de votre jeu de cartes par défaut ; ce jeu sera ouvert par défaut lorsque l'on clique sur l'outil 'main de carte'.",

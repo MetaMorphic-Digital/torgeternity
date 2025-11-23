@@ -767,8 +767,8 @@
         "name": "Standard-Deckkonfiguration"
       },
       "disableDynamicRingOnImport": {
-        "hint": "Disables a configured Dynamic Token Ring when importing from a compendium",
-        "name": "Disable Dynamic Token Ring on Import"
+        "hint": "Deaktiviert dynamische Figur-Ringe bei Akteuren, wenn sie aus einem Kompendium importiert werden.",
+        "name": "Deaktiviere Dynamische Figur-Ring bei Import"
       },
       "defaultUserHand": {
         "hint": "Kartenhand-Name für diesen Benutzer.",
