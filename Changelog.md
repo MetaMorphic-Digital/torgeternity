@@ -1,6 +1,10 @@
 # TORG Eternity Changelog
 
-## 13.14.0
+## 13.14.2
+
+- Allow arbitrary numbers in `@Check` enricher.
+
+## 13.14.1
 
 - **Token Turn Marker** is displayed on all tokens of the currently active faction which have not yet had their turn.
   - Turn Markers are not displayed until the encounter is started (by the GM pressing "Begin Encounter").

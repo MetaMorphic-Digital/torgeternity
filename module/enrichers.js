@@ -109,6 +109,10 @@ function _onClickInlineCheck(event) {
       "20": "nearImpossible",
     }
     test.dn = dnmap[test.dn] ?? test.dn;
+    if (!isNaN(Number(test.dn))) {
+      test.DNfixed = Number(test.dn);
+      test.dn = 'fixedNumber';
+    }
   } else
     test.dn = 'standard';
 
