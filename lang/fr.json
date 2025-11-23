@@ -91,7 +91,6 @@
       "bonusDice": "DB",
       "chase": "Test de Poursuite",
       "check": {
-        "cantUseSkillRecquired": " ne peut pas être utilisé sans au moins un rang dans la compétence requise",
         "cantUseUntrained": " ne peut pas être utilisé sans être appris (au moins un rang).",
         "cantUseRealityWhileDisconnected": "Vous ne pouvez pas utiliser la compétence Réalité lorsque vous êtes Déconnecté.",
         "interactionNeedTarget": "Impossible d’effectuer une interaction offensive sans cible. Ciblez un token puis réessayez.",
@@ -766,6 +765,10 @@
         "hint": "Configuration des paquets où piocher les différents type de cartes, ainsi que leurs défausses.",
         "label": "Configuration des paquets de cartes par défaut",
         "name": "Configuration des paquets de cartes par défaut"
+      },
+      "disableDynamicRingOnImport": {
+        "hint": "Désactive l'Anneau Dynamique du Token configuré sur un personnage lors de son import depuis un compendium",
+        "name": "Désactive l'Anneau Dynamique du Token à l'import"
       },
       "defaultUserHand": {
         "hint": "Tapez ici le nom de votre jeu de cartes par défaut ; ce jeu sera ouvert par défaut lorsque l'on clique sur l'outil 'main de carte'.",

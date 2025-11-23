@@ -91,7 +91,6 @@
       "bdTooltip": "Halte SHIFT um zwei BW zu würfeln und das bessere Ergebnis zu behalten",
       "chase": "Verfolgungsjagd-Probe",
       "check": {
-        "cantUseSkillRecquired": "Kann nicht ohne mindestens 1 Fertigkeitspunkt in der erforderlichen Fertigkeit verwendet werden.",
         "cantUseUntrained": "Kann nicht untrainiert verwendet werden (mindestens Fertigkeitswert 1)",
         "cantUseRealityWhileDisconnected": "Du kannst die Fähigkeit Realität nicht verwenden, so lange du abgekoppelt bist.",
         "interactionNeedTarget": "Der Interaktionsangriff kann ohne ausgewähltes Ziel nicht durchgeführt werden. Bitte Ziel auswählen und erneut versuchen.",
@@ -766,6 +765,10 @@
         "hint": "Konfiguriere hier die Standard-Decks, aus denen die Karten gezogen und abgelegt werden.",
         "label": "Standard-Kartendeck-Konfiguration",
         "name": "Standard-Deckkonfiguration"
+      },
+      "disableDynamicRingOnImport": {
+        "hint": "Deaktiviert dynamische Figur-Ringe bei Akteuren, wenn sie aus einem Kompendium importiert werden.",
+        "name": "Deaktiviere Dynamische Figur-Ring bei Import"
       },
       "defaultUserHand": {
         "hint": "Kartenhand-Name für diesen Benutzer.",

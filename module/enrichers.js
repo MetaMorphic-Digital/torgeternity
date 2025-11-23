@@ -1,5 +1,5 @@
 import { TestDialog } from './test-dialog.js';
-import { torgDamage, torgDamageModifiers } from './torgchecks.js';
+import { torgDamage, torgDamageModifiers, checkUnskilled } from './torgchecks.js';
 
 /**
  * INLINE CHECKS
@@ -109,6 +109,10 @@ function _onClickInlineCheck(event) {
       "20": "nearImpossible",
     }
     test.dn = dnmap[test.dn] ?? test.dn;
+    if (!isNaN(Number(test.dn))) {
+      test.DNfixed = Number(test.dn);
+      test.dn = 'fixedNumber';
+    }
   } else
     test.dn = 'standard';
 
@@ -139,6 +143,8 @@ function _onClickInlineCheck(event) {
     else if (actor.type === 'threat')
       skillValue += Math.max(skill.value, attribute.value);
     const isInteractionAttack = (test.attack || interactionAttacks.includes(skillName));
+
+    if (!test.unskilledUse && checkUnskilled(skill.value, skillName, actor)) return;
 
     foundry.utils.mergeObject(test, {
       testType: isInteractionAttack ? 'interactionAttack' : 'skill',

@@ -424,7 +424,8 @@
   },
   "primaryTokenAttribute": "wounds",
   "secondaryTokenAttribute": "shock",
-  "url": "https://github.com/gmmatt/torgeternity",
-  "manifest": "https://github.com/gmmatt/torgeternity/releases/latest/download/system.json",
-  "download": "https://github.com/gmmatt/torgeternity/releases/download/3.7.0/torgeternity.zip"
+  "url": "https://github.com/MetaMorphic-Digital/torgeternity",
+  "changelog": "https://github.com/MetaMorphic-Digital/torgeternity/releases/tag/3.7.0",
+  "manifest": "https://github.com/MetaMorphic-Digital/torgeternity/releases/latest/download/system.json",
+  "download": "https://github.com/MetaMorphic-Digital/torgeternity/releases/download/3.7.0/torgeternity.zip"
 }

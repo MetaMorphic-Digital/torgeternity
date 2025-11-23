@@ -85,7 +85,6 @@
       "bonusDice": "BD",
       "chase": "Chase Test",
       "check": {
-        "cantUseSkillRecquired": " cannot be used without at least 1 add in the required skill.",
         "cantUseUntrained": " cannot be used unless it is learned (at least 1 skill add).",
         "cantUseRealityWhileDisconnected": "You cannot use the reality skill as long as you are disconnected",
         "interactionNeedTarget": "Cannot attempt interaction attack test without a target. Select a target and try again.",
@@ -760,6 +759,10 @@
         "hint": "Configure the names that are used for your card decks and discard piles.",
         "label": "Default card deck configuration",
         "name": "Default card deck configuration"
+      },
+      "disableDynamicRingOnImport": {
+        "hint": "Disables a configured Dynamic Token Ring when importing an Actor from a compendium",
+        "name": "Disable Dynamic Token Ring on Import"
       },
       "defaultUserHand": {
         "hint": "Hand name for this user.",

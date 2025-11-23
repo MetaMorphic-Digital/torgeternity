@@ -244,6 +244,15 @@ export function registerTorgSettings() {
     default: true
   });
 
+  game.settings.register('torgeternity', 'disableDynamicRingOnImport', {
+    name: 'torgeternity.settingMenu.disableDynamicRingOnImport.name',
+    hint: 'torgeternity.settingMenu.disableDynamicRingOnImport.hint',
+    scope: 'world',
+    config: true,
+    type: Boolean,
+    default: false
+  });
+
   game.settings.register('torgeternity', 'showPiety', {
     name: 'torgeternity.settingMenu.showPiety.name',
     hint: 'torgeternity.settingMenu.showPiety.hint',

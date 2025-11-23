@@ -470,7 +470,12 @@ export default class TorgeternityActor extends foundry.documents.Actor {
     const allowed = await super._preCreate(data, options, user);
     if (allowed === false) return false;
 
-    if (foundry.utils.hasProperty(data, 'prototypeToken')) return;
+    if (foundry.utils.hasProperty(data, 'prototypeToken')) {
+      if (options.fromCompendium && game.settings.get('torgeternity', 'disableDynamicRingOnImport')) {
+        await this.updateSource({ "prototypeToken.ring.enabled": false });
+      }
+      return;
+    }
 
     switch (data.type) {
       case 'stormknight':

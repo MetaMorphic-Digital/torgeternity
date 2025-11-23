@@ -91,7 +91,6 @@
       "bonusDice": "DB",
       "chase": "Prueba de persecución",
       "check": {
-        "cantUseSkillRecquired": "No se puede usar sin al menos 1 adición en la habilidad requerida.",
         "cantUseUntrained": "No se puede usar sin entrenar (mínimo 1 adición).",
         "cantUseRealityWhileDisconnected": "No puedes usar la habilidad Realidad mientras estés Desconectado.",
         "interactionNeedTarget": "No se puede intentar una prueba de ataque de interacción sin un objetivo. Selecciona un objetivo e inténtalo de nuevo.",
@@ -766,6 +765,10 @@
         "hint": "Configurar los nombres que se usan para tus mazos de cartas y pilas de descartes.",
         "label": "Configuración de mazo de cartas por defecto",
         "name": "Configuración de mazos de cartas por defecto"
+      },
+      "disableDynamicRingOnImport": {
+        "hint": "Desactiva un anillo dinámico de ficha configurado al importar un actor de un compendio",
+        "name": "Desactivar anillo dinámico de ficha al importar"
       },
       "defaultUserHand": {
         "hint": "Nombre de mano para este usuario.",

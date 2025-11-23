@@ -1,6 +1,12 @@
 # TORG Eternity Changelog
 
-## 13.14.0
+## 13.14.2
+
+- Allow arbitrary numbers in `@Check` enricher.
+- Check for unskilled-use in the `@Check` enricher.
+- Add a new game setting "Disable Dynamic Token Ring on Import" which will disable the use of dynamic token ring in the prototype token when an Actor is imported from a compendium.
+
+## 13.14.1
 
 - **Token Turn Marker** is displayed on all tokens of the currently active faction which have not yet had their turn.
   - Turn Markers are not displayed until the encounter is started (by the GM pressing "Begin Encounter").
