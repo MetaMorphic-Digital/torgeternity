@@ -522,7 +522,7 @@ items:
           turns: null
           startRound: null
           startTurn: null
-        disabled: true
+        disabled: false
         img: icons/svg/aura.svg
         _id: dNOpZvaTUQrlMhFf
         type: base
@@ -548,7 +548,8 @@ items:
           coreVersion: '13.351'
           systemId: torgeternity
           systemVersion: 13.13.2
-          lastModifiedBy: null
+          lastModifiedBy: e1DB4TK9SbDuMDS3
+          modifiedTime: 1764001178080
         _key: >-
           !actors.items.effects!QsYmnq73AiR6BwhD.eItDWecF1ue7Hvp0.dNOpZvaTUQrlMhFf
       - name: Dragon Scales (Armor vs. Fire)
@@ -874,7 +875,7 @@ items:
       price: ''
       value: null
       bonus: 4
-      equipped: false
+      equipped: true
       maxDex: 8
       minStrength: 10
       notes: Fatigues 2, Full Body
@@ -896,7 +897,7 @@ items:
       systemId: torgeternity
       systemVersion: 13.13.2
       createdTime: 1763999117398
-      modifiedTime: 1763999117398
+      modifiedTime: 1764001029591
       lastModifiedBy: e1DB4TK9SbDuMDS3
     _id: kKfw6Od1PySvYsOs
     sort: 500000
@@ -920,7 +921,7 @@ items:
           turns: null
           startRound: null
           startTurn: null
-        disabled: true
+        disabled: false
         name: Maneuver Fav
         _id: qNNSmAnRkG0Ot2Yf
         changes:
@@ -929,7 +930,7 @@ items:
             value: 'true'
             priority: null
         description: ''
-        transfer: true
+        transfer: false
         statuses: []
         flags: {}
         tint: '#ffffff'
@@ -940,13 +941,15 @@ items:
           coreVersion: '13.351'
           systemId: torgeternity
           systemVersion: 13.13.2
-          lastModifiedBy: null
+          lastModifiedBy: e1DB4TK9SbDuMDS3
+          modifiedTime: 1764001100992
         img: icons/svg/aura.svg
         type: base
         system:
-          transferOnAttack: false
+          transferOnAttack: true
           applyIfAttackTrait: []
           applyIfDefendTrait: []
+          transferOnOutcome: 0
         sort: 0
         _key: >-
           !actors.items.effects!QsYmnq73AiR6BwhD.KKJPrdjO5sFkhZzF.qNNSmAnRkG0Ot2Yf
