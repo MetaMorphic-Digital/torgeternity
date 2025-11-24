@@ -3,7 +3,8 @@
 ## NEXT
 
 - Powers updated in `en` Archetypes.
-- Remove extra AE and set Possibilities to 3 on 'fr' Archetypes.
+- Update 'fr' Archetypes to match the effects available on 'en' archetypes.
+- Ward Enemy AEs changed to be applied to the target when the spell is cast.
 
 ## 13.14.2
 
