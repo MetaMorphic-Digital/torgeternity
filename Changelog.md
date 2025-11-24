@@ -1,5 +1,9 @@
 # TORG Eternity Changelog
 
+## NEXT
+
+- Powers updated in `en` Archetypes.
+
 ## 13.14.2
 
 - Allow arbitrary numbers in `@Check` enricher.
