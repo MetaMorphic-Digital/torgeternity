@@ -1,6 +1,6 @@
 # TORG Eternity Changelog
 
-## NEXT
+## 13.14.3
 
 - Powers updated in `en` Archetypes.
 - Update 'fr' Archetypes to match the effects available on 'en' archetypes.
