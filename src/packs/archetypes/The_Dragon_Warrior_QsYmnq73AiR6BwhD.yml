@@ -3,87 +3,6 @@ name: The Dragon Warrior
 type: stormknight
 img: systems/torgeternity/images/characters/Dragon_Warrior.Avatar.webp
 items:
-  - _id: U0CKtAHQmBDo9ZyF
-    name: Dragon Breath (weapon)
-    type: missileweapon
-    sort: 100000
-    flags:
-      core: {}
-    img: systems/torgeternity/images/icons/missile-weapon-icon.webp
-    effects: []
-    folder: null
-    system:
-      cosm: none
-      description: >-
-        <p>@UUID[Compendium.te001-core-rulebook.rules.pwneQ55M0nnDH0Us.JournalEntryPage.EhKa65cpHvodUl2L#explosives-and-area-effect-attacks]{Blast}</p><p>@UUID[Compendium.te001-core-rulebook.rules.pwneQ55M0nnDH0Us.JournalEntryPage.EhKa65cpHvodUl2L#fire]{Fire
-        damage}</p><p>Acquire this weapon when taking the Dragon Breath
-        enhancement for the
-        @UUID[Compendium.torgeternity.archetypes.Actor.QsYmnq73AiR6BwhD.Item.NTS9DWGhHsYfxJGC]{Dragon
-        Warrior} perk.</p>
-      price: '0'
-      techlevel: null
-      value: 0
-      ammo:
-        max: 3
-        value: 3
-      ap: 0
-      attackWith: missileWeapons
-      chatNote: ''
-      damage: 16
-      damageType: flat
-      equipped: true
-      minStrength: ''
-      notes: Fire, Small Blast
-      range: 10m
-      secondaryAxiom:
-        selected: none
-        value: null
-      traits:
-        - smallBlast
-    ownership:
-      default: 0
-    _stats:
-      systemId: torgeternity
-      systemVersion: 13.2.2
-      coreVersion: '13.346'
-      createdTime: null
-      modifiedTime: 1753599053487
-      lastModifiedBy: W32Zl65V9atvPk8o
-      compendiumSource: Item.njMZnZIEFvRkHHIS
-      duplicateSource: null
-      exportSource: null
-    _key: '!actors.items!QsYmnq73AiR6BwhD.U0CKtAHQmBDo9ZyF'
-  - _id: NTS6mLpRgHF7WkO4
-    name: Healing Potion
-    type: gear
-    sort: 1200000
-    flags:
-      core: {}
-    img: systems/torgeternity/images/icons/gear-icon.webp
-    effects: []
-    folder: null
-    system:
-      cosm: none
-      description: "<p>Drinking this thick, clear liquid heals one wound and restores a [[/r 1d6x6max5]]{BD} of shock.</p><p>\_</p><p>Found in <strong>Core Rules, Aysle Sourcebook</strong></p>"
-      price: '500'
-      techlevel: 12
-      value: 14
-      secondaryAxiom:
-        selected: magic
-        value: 13
-    ownership:
-      default: 0
-    _stats:
-      systemId: torgeternity
-      systemVersion: 12.2.0
-      coreVersion: '13.345'
-      createdTime: null
-      modifiedTime: 1722156163021
-      lastModifiedBy: 93AMwcGe6H37rcPA
-      compendiumSource: Item.sSWLrPCSi2G5jq6S
-      duplicateSource: null
-      exportSource: null
-    _key: '!actors.items!QsYmnq73AiR6BwhD.NTS6mLpRgHF7WkO4'
   - _id: vfqnqkIvFw372Nck
     name: Rope, 10 meters
     type: gear
@@ -115,342 +34,6 @@ items:
       duplicateSource: null
       exportSource: null
     _key: '!actors.items!QsYmnq73AiR6BwhD.vfqnqkIvFw372Nck'
-  - _id: vvOcq2YtdmDi6tiY
-    name: Great Axe
-    type: meleeweapon
-    img: systems/torgeternity/images/icons/axe-icon.webp
-    effects: []
-    folder: null
-    sort: 0
-    flags:
-      core: {}
-    system:
-      cosm: aysle
-      description: "<p>@UUID[Compendium.te001-core-rulebook.rules.pwneQ55M0nnDH0Us.JournalEntryPage.qKdamp4rrcX6TTt0#stagger:]{Stagger}</p>\n<p>@UUID[Compendium.te001-core-rulebook.rules.pwneQ55M0nnDH0Us.JournalEntryPage.qKdamp4rrcX6TTt0#two-handed:]{Two-Handed}</p>\n<p>@UUID[Compendium.te001-core-rulebook.rules.pwneQ55M0nnDH0Us.JournalEntryPage.qKdamp4rrcX6TTt0#unwieldy:]{Unwieldy}</p>\n<p>The most terrifying of the <q>barbarian</q> weapons is the great axe. The double-edged blade and wide arc cuts swaths through the wielder’s foes.</p>\n<p>\_</p>\n<p>Found in <strong>Core Rules</strong></p>"
-      price: '300'
-      techlevel: 10
-      value: 12
-      ap: 0
-      attackWith: meleeWeapons
-      bonus: 2
-      chatNote: ''
-      damage: 4
-      damageType: strengthPlus
-      equipped: true
-      notes: Stagger, Two Handed, Unwieldy
-      secondaryAxiom:
-        selected: none
-        value: null
-      minStrength: null
-      traits:
-        - stagger
-        - twoHanded
-        - unwieldy
-    ownership:
-      default: 0
-      A9LyAqagoJJU3gDH: 3
-      CtisFurQNe9h7ABb: 3
-    _stats:
-      systemId: torgeternity
-      systemVersion: 13.2.2
-      coreVersion: '13.346'
-      createdTime: 1693900634311
-      modifiedTime: 1753599043838
-      lastModifiedBy: W32Zl65V9atvPk8o
-      compendiumSource: Compendium.te001-core-rulebook.Items.N6G6v7wgDhnpsIiQ
-      duplicateSource: null
-      exportSource: null
-    _key: '!actors.items!QsYmnq73AiR6BwhD.vvOcq2YtdmDi6tiY'
-  - name: Dragon Warrior Armor
-    type: armor
-    img: systems/torgeternity/images/icons/armor-icon.webp
-    effects: []
-    folder: null
-    flags:
-      core: {}
-    system:
-      cosm: aysle
-      description: >-
-        <p>Provided by
-        @UUID[Compendium.torgeternity.archetypes.Actor.QsYmnq73AiR6BwhD.Item.NTS9DWGhHsYfxJGC]{Dragon
-        Warrior}
-        Perk</p><p>@UUID[Compendium.te001-core-rulebook.rules.pwneQ55M0nnDH0Us.JournalEntryPage.qKdamp4rrcX6TTt0#fatigues:]{Fatigues}</p><p>@UUID[Compendium.te001-core-rulebook.rules.pwneQ55M0nnDH0Us.JournalEntryPage.qKdamp4rrcX6TTt0#full-body/torso:]{Full
-        Body Armor}</p>
-      price: ''
-      techlevel: 12
-      value: null
-      bonus: 4
-      equipped: true
-      maxDex: 8
-      minStrength: 10
-      notes: Fatigues, Full Body
-      fatigue: 2
-      secondaryAxiom:
-        selected: none
-        value: null
-      traits:
-        - fatigues
-        - fullBody
-    _stats:
-      systemId: torgeternity
-      systemVersion: 13.2.2
-      coreVersion: '13.346'
-      createdTime: 1711551146690
-      modifiedTime: 1753599063119
-      lastModifiedBy: W32Zl65V9atvPk8o
-      compendiumSource: Compendium.te001-core-rulebook.Items.Item.kKfw6Od1PySvYsOs
-      duplicateSource: null
-      exportSource: null
-    _id: mi1BCKboWCKq3gqY
-    sort: 0
-    ownership:
-      default: 0
-      CtisFurQNe9h7ABb: 3
-    _key: '!actors.items!QsYmnq73AiR6BwhD.mi1BCKboWCKq3gqY'
-  - _id: NTS9DWGhHsYfxJGC
-    name: Dragon Warrior
-    type: perk
-    img: systems/torgeternity/images/icons/reality-icon.webp
-    effects:
-      - origin: Item.Pnm7y2vAqU8OZGTr
-        duration:
-          startTime: null
-          seconds: null
-          combat: null
-          rounds: null
-          turns: null
-          startRound: null
-          startTurn: null
-        disabled: false
-        name: Giant Strength (+2)
-        _id: JVEhl4LHM1292KmE
-        changes:
-          - key: system.attributes.strength.value
-            mode: 2
-            value: '2'
-            priority: null
-        description: ''
-        transfer: true
-        statuses: []
-        flags: {}
-        tint: '#ffffff'
-        _stats:
-          coreVersion: '13.345'
-          systemId: null
-          systemVersion: null
-          createdTime: null
-          modifiedTime: null
-          lastModifiedBy: null
-          compendiumSource: null
-          duplicateSource: null
-          exportSource: null
-        img: icons/svg/aura.svg
-        type: base
-        system: {}
-        sort: 0
-        _key: >-
-          !actors.items.effects!QsYmnq73AiR6BwhD.NTS9DWGhHsYfxJGC.JVEhl4LHM1292KmE
-    folder: null
-    sort: 100000
-    flags:
-      core: {}
-    system:
-      category: dwarf
-      cosm: aysle
-      description: "<p>Dragon Warriors are the last champions of the dwarves who were virtually annihilated in Aysle. As a final desperate measure, they built suits of powerful, arcane armor designed to slay Uthorion’s hated minions. Most knew they would perish in them.</p>\n<p>@UUID[Compendium.te001-core-rulebook.Items.Item.kKfw6Od1PySvYsOs]{Dragon Warrior Armor} contains incredible weapons, gadgets, and devices that transform the wearer into an engine of vengeance. It counts as Full Body armor, adds Armor +4, limits the wearer’s Dexterity to 8, and causes two extra points of shock any time @UUID[Compendium.te001-core-rulebook.rules.pwneQ55M0nnDH0Us.JournalEntryPage.EhKa65cpHvodUl2L#fatigued:]{fatigued} comes up on the Conflict Line.</p>\n<p>When Dragon Warrior is taken, the dwarf can choose one enhancement from the list below.</p>\n<p><strong>New Enhancements:</strong> This Perk may be taken more than once. Each time after the first it grants another one of the enhancements listed below. Unless it says otherwise, each enhancement may only be taken once.</p>\n<ul>\n<li><strong>Dart Thrower:</strong> A compartment on one of the dwarf’s forearms contains six deadly iron darts. Each dart deals 13 damage, range 10/20/40, may use a Short Burst (see @UUID[Compendium.te001-core-rulebook.rules.pwneQ55M0nnDH0Us.JournalEntryPage.EhKa65cpHvodUl2L#rapid-fire]{rapid fire}), and uses <em>missile weapons</em> to hit<br />Compartments in the armor hold 12 additional darts. Any dwarf who has this Perk knows how to make more from metal scraps. Assume the weapon and ammunition compartment are replenished between acts or whenever the Game Master feels the wearer has sufficient time to do so.<br />A second dart thrower may be placed on the dwarf’s\_<em style=\"font-family:var(--font-primary);font-size:var(--font-size-14)\">other</em><span style=\"font-family:var(--font-primary);font-size:var(--font-size-14)\"> arm by taking this enhancement a second time (as well as a second compartment).</span></li>\n</ul>\n<ul>\n<li><strong>Dragon Breath:</strong> One of the warrior’s bracers is lined with a long tube leading to a chamber of compressed fuel hidden on his back armor. When activated with missile weapons the tube spurts fire in a 10-meter-long stream as a @UUID[Compendium.te001-core-rulebook.rules.pwneQ55M0nnDH0Us.JournalEntryPage.EhKa65cpHvodUl2L#explosives-and-area-effect-attacks]{Small Blast}. Everything within the blast suffers 16 @UUID[Compendium.te001-core-rulebook.rules.pwneQ55M0nnDH0Us.JournalEntryPage.EhKa65cpHvodUl2L#fire]{Fire damage}. The chamber holds enough fuel for three individual blasts. The container magically recharges at the end of the scene or during a long break in the action of a few hours or more (Game Master’s discretion)</li>\n<li><strong>Dragon Claws:</strong> One of the gauntlets ends in a claw tipped with diamonds. The gauntlet uses <em>unarmed combat</em> to hit, and causes <em>Strength</em> +3, Armor Piercing 2 damage</li>\n<li><strong>Dragon Scales:</strong> The armor is enchanted with magical runes that grant it +10 Armor versus fire (instead of +4)</li>\n<li><strong>Giant Strength:</strong> A series of pneumatic compressors take in air and channel it to the dwarf’s arms. Along with cleverly placed levers along the inside of the armor, it increases his <em>Strength</em> by +2 for tests and determining damage. Toughness remains unaffected</li>\n<li><strong>Mad Jacks:</strong> Cylinders of magically compressed gas are hidden in compartments of the dwarf’s heavy boots. When activated, gouts of fire propel her into the air, allowing her to jump up to 10 meters vertically and 30 meters horizontally. If used in conjunction with an All-Out attack, the dwarf gains an additional +2 to his action total. Mad Jacks magically recharge once every 24 hours</li>\n<li><strong>Rune of Replenishment:</strong> The armor only deals one extra shock when Fatigue appears on the Conflict Line, and the wearer recovers an extra shock when Inspiration appears</li>\n</ul>\n<p>\_</p>\n<p>Found in <strong>Core Rules</strong></p>"
-      prerequisites: Strength 10+
-      generalContradiction: true
-      pulpPowers:
-        enhancement01:
-          description: >-
-            One of the warrior’s bracers is lined with a long tube leading to a
-            chamber of compressed fuel hidden on his back armor. When activated
-            with missile weapons the tube spurts fire in a 10-meter-long stream
-            as a Small Blast. Everything within the blast suffers 16 Fire
-            damage. The chamber holds enough fuel for three individual blasts.
-            The container magically recharges at the end of the scene or during
-            a long break in the action of a few hours or more (Game Master’s
-            discretion).
-          taken: true
-          title: Dragon Breath
-        enhancement02:
-          description: >-
-            One of the gauntlets ends in a claw tipped with diamonds. The
-            gauntlet uses unarmed combat to hit, and causes Strength +3, Armor
-            Piercing 2 damage
-
-            Dragon Scales: The armor is enchanted with magical runes that grant
-            it +10 Armor versus fire (instead of +4).
-          taken: false
-          title: Dragon Claws
-        enhancement03:
-          description: >-
-            A series of pneumatic compressors take in air and channel it to the
-            dwarf’s arms. Along with cleverly placed levers along the inside of
-            the armor, it increases his Strength by +2 for tests and determining
-            damage. Toughness remains unaffected.
-          taken: true
-          title: Giant Strength
-        enhancement04:
-          description: >-
-            Cylinders of magically compressed gas are hidden in compartments of
-            the dwarf’s heavy boots. When activated, gouts of fire propel her
-            into the air, allowing her to jump up to 10 meters vertically and 30
-            meters horizontally. If used in conjunction with an All-Out attack,
-            the dwarf gains an additional +2 to his action total. Mad Jacks
-            magically recharge once every 24 hours.
-          taken: false
-          title: Mad Jacks
-        enhancement05:
-          description: >-
-            The armor only deals one extra shock when Fatigue appears on the
-            Conflict Line, and the wearer recovers an extra shock when
-            Inspiration appears.
-          taken: false
-          title: Rune of Replenishment
-        enhancement06:
-          description: ''
-          taken: false
-          title: ''
-        enhancement07:
-          description: ''
-          taken: false
-          title: ''
-        enhancement08:
-          description: ''
-          taken: false
-          title: ''
-        enhancement09:
-          description: ''
-          taken: false
-          title: ''
-        enhancement10:
-          description: ''
-          taken: false
-          title: ''
-        enhancement11:
-          description: ''
-          taken: false
-          title: ''
-        enhancement12:
-          description: ''
-          taken: false
-          title: ''
-        enhancement13:
-          description: ''
-          taken: false
-          title: ''
-        enhancement14:
-          description: ''
-          taken: false
-          title: ''
-        enhancement15:
-          description: ''
-          taken: false
-          title: ''
-        enhancementNumber: 5
-        limitation01: ''
-        limitation02: ''
-        limitation03: ''
-        limitation04: ''
-        limitation05: ''
-        limitation06: ''
-        limitation07: ''
-        limitation08: ''
-        limitation09: ''
-        limitation10: ''
-        limitationNumber: 0
-      timestaken: '2'
-      secondaryAxiom:
-        selected: none
-        value: null
-    ownership:
-      default: 0
-      A9LyAqagoJJU3gDH: 3
-      CtisFurQNe9h7ABb: 3
-    _stats:
-      systemId: torgeternity
-      systemVersion: 12.2.0
-      coreVersion: '13.345'
-      createdTime: 1711551146835
-      modifiedTime: 1722152718080
-      lastModifiedBy: 93AMwcGe6H37rcPA
-      compendiumSource: Compendium.te001-core-rulebook.Items.Item.eItDWecF1ue7Hvp0
-      duplicateSource: null
-      exportSource: null
-    _key: '!actors.items!QsYmnq73AiR6BwhD.NTS9DWGhHsYfxJGC'
-  - _id: NKhj8CtGws6Adv8j
-    name: Caltrops
-    type: gear
-    img: systems/torgeternity/images/icons/gear-icon.webp
-    effects:
-      - origin: Compendium.te001-core-rulebook.Items.Item.KKJPrdjO5sFkhZzF
-        duration:
-          startTime: null
-          seconds: null
-          combat: null
-          rounds: null
-          turns: null
-          startRound: null
-          startTurn: null
-        disabled: true
-        name: Maneuver Fav
-        _id: qNNSmAnRkG0Ot2Yf
-        changes:
-          - key: system.skills.maneuver.isFav
-            mode: 5
-            value: '1'
-            priority: null
-        description: ''
-        transfer: true
-        statuses: []
-        flags: {}
-        tint: '#ffffff'
-        _stats:
-          compendiumSource: null
-          duplicateSource: null
-          coreVersion: '13.345'
-          systemId: torgeternity
-          systemVersion: 12.2.0
-          createdTime: null
-          modifiedTime: null
-          lastModifiedBy: null
-          exportSource: null
-        img: icons/svg/aura.svg
-        type: base
-        system: {}
-        sort: 0
-        _key: >-
-          !actors.items.effects!QsYmnq73AiR6BwhD.NKhj8CtGws6Adv8j.qNNSmAnRkG0Ot2Yf
-    folder: gjZiCPX5knOIpsHd
-    sort: 650000
-    flags:
-      core: {}
-    system:
-      cosm: aysle
-      description: "<p>A batch of scattered spikes that always land with a point upwards, designed to impale feet and tires. Once deployed as a simple action maneuver interactions become Favored around the spikes.</p>\n<p>\_</p>\n<p>Found in <strong>Core Rules</strong></p>"
-      price: '40'
-      techlevel: 14
-      value: 8
-      secondaryAxiom:
-        selected: none
-        value: null
-    ownership:
-      default: 0
-      A9LyAqagoJJU3gDH: 3
-      VAnYow5sWS9EJzo0: 3
-      93AMwcGe6H37rcPA: 3
-    _stats:
-      compendiumSource: Compendium.te001-core-rulebook.Items.Item.KKJPrdjO5sFkhZzF
-      duplicateSource: null
-      coreVersion: '13.345'
-      systemId: torgeternity
-      systemVersion: 12.2.0
-      createdTime: 1722357677030
-      modifiedTime: 1722357677030
-      lastModifiedBy: 93AMwcGe6H37rcPA
-      exportSource: null
-    _key: '!actors.items!QsYmnq73AiR6BwhD.NKhj8CtGws6Adv8j'
   - name: Dwarf
     type: race
     img: systems/torgeternity/images/icons/dwarf-icon.webp
@@ -924,6 +507,518 @@ items:
     effects: []
     folder: null
     _key: '!actors.items!QsYmnq73AiR6BwhD.Rmja4NJZMvFXuQm0'
+  - _id: eItDWecF1ue7Hvp0
+    name: Dragon Warrior
+    type: perk
+    img: systems/torgeternity/images/icons/reality-icon.webp
+    effects:
+      - name: Giant Strength
+        origin: Compendium.te001-core-rulebook.Items.Item.eItDWecF1ue7Hvp0
+        duration:
+          startTime: 0
+          combat: null
+          seconds: null
+          rounds: null
+          turns: null
+          startRound: null
+          startTurn: null
+        disabled: true
+        img: icons/svg/aura.svg
+        _id: dNOpZvaTUQrlMhFf
+        type: base
+        system:
+          transferOnAttack: false
+          applyIfAttackTrait: []
+          applyIfDefendTrait: []
+        changes:
+          - key: system.attributes.strength.value
+            mode: 2
+            value: '2'
+            priority: null
+        description: ''
+        tint: '#ffffff'
+        transfer: true
+        statuses: []
+        sort: 0
+        flags: {}
+        _stats:
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+          coreVersion: '13.351'
+          systemId: torgeternity
+          systemVersion: 13.13.2
+          lastModifiedBy: null
+        _key: >-
+          !actors.items.effects!QsYmnq73AiR6BwhD.eItDWecF1ue7Hvp0.dNOpZvaTUQrlMhFf
+      - name: Dragon Scales (Armor vs. Fire)
+        origin: Compendium.te001-core-rulebook.Items.Item.eItDWecF1ue7Hvp0
+        duration:
+          startTime: 0
+          combat: null
+          seconds: null
+          rounds: null
+          turns: null
+          startRound: null
+          startTurn: null
+        disabled: true
+        img: icons/svg/aura.svg
+        _id: GFVwedISXXsBSYXB
+        type: base
+        system:
+          transferOnAttack: false
+          applyIfAttackTrait: []
+          applyIfDefendTrait: []
+        changes:
+          - key: defenses.armor
+            mode: 2
+            value: '6'
+            priority: null
+        description: ''
+        tint: '#ffffff'
+        transfer: true
+        statuses: []
+        sort: 0
+        flags: {}
+        _stats:
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+          coreVersion: '13.351'
+          systemId: torgeternity
+          systemVersion: 13.13.2
+          lastModifiedBy: null
+        _key: >-
+          !actors.items.effects!QsYmnq73AiR6BwhD.eItDWecF1ue7Hvp0.GFVwedISXXsBSYXB
+    folder: 6DYpLRcVUTdBo01P
+    sort: 400000
+    flags:
+      core: {}
+    system:
+      category: dwarf
+      cosm: aysle
+      description: "<p>Dragon Warriors are the last champions of the dwarves who were virtually annihilated in Aysle. As a final desperate measure, they built suits of powerful, arcane armor designed to slay Uthorion’s hated minions. Most knew they would perish in them.</p><p>@UUID[Compendium.te001-core-rulebook.Items.Item.kKfw6Od1PySvYsOs]{Dragon Warrior Armor} contains incredible weapons, gadgets, and devices that transform the wearer into an engine of vengeance. It counts as Full Body armor, adds Armor +4, limits the wearer’s Dexterity to 8, and causes two extra points of shock any time @UUID[Compendium.te001-core-rulebook.rules.pwneQ55M0nnDH0Us.JournalEntryPage.EhKa65cpHvodUl2L#fatigued:]{fatigued} comes up on the Conflict Line.</p><p>When Dragon Warrior is taken, the dwarf can choose one enhancement from the list below.</p><p><strong>New Enhancements:</strong> This Perk may be taken more than once. Each time after the first it grants another one of the enhancements listed below. Unless it says otherwise, each enhancement may only be taken once.</p><ul><li><p><strong>@UUID[Compendium.te001-core-rulebook.Items.Item.H50jH4U07o3VQPIP]{Dart Thrower}:</strong> A compartment on one of the dwarf’s forearms contains six deadly iron darts. Each dart deals 13 damage, range 10/20/40, may use a @UUID[Compendium.te001-core-rulebook.rules.pwneQ55M0nnDH0Us.JournalEntryPage.qKdamp4rrcX6TTt0#short-burst:]{Short Burst}, and uses <em>missile weapons</em> to hit<br />@UUID[Compendium.te001-core-rulebook.Items.Item.FMuEU14QIeJz3EG1]{Compartments} in the armor hold 12 additional darts. Any dwarf who has this Perk knows how to make more from metal scraps. Assume the weapon and ammunition compartment are replenished between acts or whenever the Game Master feels the wearer has sufficient time to do so.<br />A second dart thrower may be placed on the dwarf’s\_<span style=\"font-family:var(--font-primary);font-size:var(--font-size-14)\">other</span><span style=\"font-family:var(--font-primary)\"> arm by taking this enhancement a second time (as well as a second compartment).</span></p></li></ul><ul><li><strong>@UUID[Compendium.te001-core-rulebook.Items.Item.ai2XQyTQKULhkmVz]{Dragon Breath}:</strong> One of the warrior’s bracers is lined with a long tube leading to a chamber of compressed fuel hidden on his back armor. When activated with missile weapons the tube spurts fire in a 10-meter-long stream as a @UUID[Compendium.te001-core-rulebook.rules.pwneQ55M0nnDH0Us.JournalEntryPage.EhKa65cpHvodUl2L#explosives-and-area-effect-attacks]{Small Blast}. Everything within the blast suffers 16 @UUID[Compendium.te001-core-rulebook.rules.pwneQ55M0nnDH0Us.JournalEntryPage.EhKa65cpHvodUl2L#fire]{Fire damage}. The chamber holds enough fuel for three individual blasts. The container magically recharges at the end of the scene or during a long break in the action of a few hours or more (Game Master’s discretion)</li><li><strong>@UUID[Compendium.te001-core-rulebook.Items.Item.Omp8wSKElAyzWbYA]{Dragon Claws}:</strong> One of the gauntlets ends in a claw tipped with diamonds. The gauntlet uses <em>unarmed combat</em> to hit, and causes <em>Strength</em> +3, Armor Piercing 2 damage.</li><li><strong>Dragon Scales:</strong> The armor is enchanted with magical runes that grant it +10 Armor versus fire (instead of +4).</li><li><strong>Giant Strength:</strong> A series of pneumatic compressors take in air and channel it to the dwarf’s arms. Along with cleverly placed levers along the inside of the armor, it increases his <em>Strength</em> by +2 for tests and determining damage. Toughness remains unaffected</li><li><strong>Mad Jacks:</strong> Cylinders of magically compressed gas are hidden in compartments of the dwarf’s heavy boots. When activated, gouts of fire propel her into the air, allowing her to jump up to 10 meters vertically and 30 meters horizontally. If used in conjunction with an All-Out attack, the dwarf gains an additional +2 to his action total. Mad Jacks magically recharge once every 24 hours</li><li><strong>Rune of Replenishment:</strong> The armor only deals one extra shock when Fatigue appears on the Conflict Line, and the wearer recovers an extra shock when Inspiration appears</li></ul><p>\_</p><p>Found in <strong>Core Rules</strong></p>"
+      prerequisites: >-
+        <p>@UUID[Compendium.te001-core-rulebook.Items.Item.2AQ87OBFRFvaPeuX]{Dwarf},
+        Strength 10+</p>
+      generalContradiction: true
+      pulpPowers:
+        enhancement01:
+          description: >-
+            A compartment on one of the dwarf’s forearms contains six deadly
+            iron darts. Each dart deals 13 damage, range 10/20/40, may use a
+            Short Burst, and uses missile weapons to hit
+
+            Compartments in the armor hold 12 additional darts. Any dwarf who
+            has this Perk knows how to make more from metal scraps. Assume the
+            weapon and ammunition compartment are replenished between acts or
+            whenever the Game Master feels the wearer has sufficient time to do
+            so.
+
+            A second dart thrower may be placed on the dwarf’s other arm by
+            taking this enhancement a second time (as well as a second
+            compartment).
+          taken: false
+          title: Dart Thrower
+        enhancement02:
+          description: >-
+            One of the warrior’s bracers is lined with a long tube leading to a
+            chamber of compressed fuel hidden on his back armor. When activated
+            with missile weapons the tube spurts fire in a 10-meter-long stream
+            as a Small Blast. Everything within the blast suffers 16 Fire
+            damage. The chamber holds enough fuel for three individual blasts.
+            The container magically recharges at the end of the scene or during
+            a long break in the action of a few hours or more (Game Master’s
+            discretion).
+          taken: false
+          title: Dragon Breath
+        enhancement03:
+          description: >-
+            One of the gauntlets ends in a claw tipped with diamonds. The
+            gauntlet uses unarmed combat to hit, and causes Strength +3, Armor
+            Piercing 2 damage
+          taken: false
+          title: Dragon Claws
+        enhancement04:
+          description: >-
+            The armor is enchanted with magical runes that grant it +10 Armor
+            versus fire (instead of +4).
+          taken: false
+          title: Dragon Scales
+        enhancement05:
+          description: >-
+            A series of pneumatic compressors take in air and channel it to the
+            dwarf’s arms. Along with cleverly placed levers along the inside of
+            the armor, it increases his Strength by +2 for tests and determining
+            damage. Toughness remains unaffected.
+          taken: false
+          title: Giant Strength
+        enhancement06:
+          description: >-
+            Cylinders of magically compressed gas are hidden in compartments of
+            the dwarf’s heavy boots. When activated, gouts of fire propel her
+            into the air, allowing her to jump up to 10 meters vertically and 30
+            meters horizontally. If used in conjunction with an All-Out attack,
+            the dwarf gains an additional +2 to his action total. Mad Jacks
+            magically recharge once every 24 hours.
+          taken: false
+          title: Mad Jacks
+        enhancement07:
+          description: >-
+            The armor only deals one extra shock when Fatigue appears on the
+            Conflict Line, and the wearer recovers an extra shock when
+            Inspiration appears.
+          taken: false
+          title: Rune of Replenishment
+        enhancement08:
+          description: ''
+          taken: false
+          title: ''
+        enhancement09:
+          description: ''
+          taken: false
+          title: ''
+        enhancement10:
+          description: ''
+          taken: false
+          title: ''
+        enhancement11:
+          description: ''
+          taken: false
+          title: ''
+        enhancement12:
+          description: ''
+          taken: false
+          title: ''
+        enhancement13:
+          description: ''
+          taken: false
+          title: ''
+        enhancement14:
+          description: ''
+          taken: false
+          title: ''
+        enhancement15:
+          description: ''
+          taken: false
+          title: ''
+        enhancementNumber: 7
+        limitation01: ''
+        limitation02: ''
+        limitation03: ''
+        limitation04: ''
+        limitation05: ''
+        limitation06: ''
+        limitation07: ''
+        limitation08: ''
+        limitation09: ''
+        limitation10: ''
+        limitationNumber: 0
+      timestaken: ''
+      traits: []
+      axioms:
+        magic: 0
+        social: 0
+        spirit: 0
+        tech: 0
+      secondaryAxiom: none
+      transferenceID: eItDWecF1ue7Hvp0
+    ownership:
+      default: 0
+      A9LyAqagoJJU3gDH: 3
+      VAnYow5sWS9EJzo0: 3
+      e1DB4TK9SbDuMDS3: 3
+    _stats:
+      compendiumSource: Compendium.te001-core-rulebook.Items.Item.eItDWecF1ue7Hvp0
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
+      createdTime: 1763999051578
+      modifiedTime: 1763999051578
+      lastModifiedBy: e1DB4TK9SbDuMDS3
+    _key: '!actors.items!QsYmnq73AiR6BwhD.eItDWecF1ue7Hvp0'
+  - _id: N6G6v7wgDhnpsIiQ
+    name: Great Axe
+    type: meleeweapon
+    img: systems/torgeternity/images/icons/axe-icon.webp
+    effects: []
+    folder: 7NXnzBhfBblRKfgO
+    sort: 200000
+    flags:
+      core: {}
+    system:
+      cosm: aysle
+      description: "<p>@UUID[Compendium.te001-core-rulebook.rules.pwneQ55M0nnDH0Us.JournalEntryPage.qKdamp4rrcX6TTt0#stagger:]{Stagger}</p>\n<p>@UUID[Compendium.te001-core-rulebook.rules.pwneQ55M0nnDH0Us.JournalEntryPage.qKdamp4rrcX6TTt0#two-handed:]{Two-Handed}</p>\n<p>@UUID[Compendium.te001-core-rulebook.rules.pwneQ55M0nnDH0Us.JournalEntryPage.qKdamp4rrcX6TTt0#unwieldy:]{Unwieldy}</p>\n<p>The most terrifying of the <q>barbarian</q> weapons is the great axe. The double-edged blade and wide arc cuts swaths through the wielder’s foes.</p>\n<p>\_</p>\n<p>Found in <strong>Core Rules</strong></p>"
+      price: '300'
+      value: 12
+      ap: 0
+      attackWith: meleeWeapons
+      bonus: 2
+      chatNote: ''
+      damage: 4
+      damageType: strengthPlus
+      equipped: true
+      notes: Stagger, Two Handed, Unwieldy
+      traits:
+        - stagger
+        - twoHanded
+        - unwieldy
+      axioms:
+        tech: 10
+        magic: 0
+        social: 0
+        spirit: 0
+      secondaryAxiom: none
+      minStrength: null
+    ownership:
+      default: 0
+      A9LyAqagoJJU3gDH: 3
+      VAnYow5sWS9EJzo0: 3
+      e1DB4TK9SbDuMDS3: 3
+    _stats:
+      compendiumSource: Compendium.te001-core-rulebook.Items.Item.N6G6v7wgDhnpsIiQ
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
+      createdTime: 1763999075301
+      modifiedTime: 1763999077464
+      lastModifiedBy: e1DB4TK9SbDuMDS3
+    _key: '!actors.items!QsYmnq73AiR6BwhD.N6G6v7wgDhnpsIiQ'
+  - name: Dragon Breath
+    type: missileweapon
+    img: systems/torgeternity/images/icons/missile-weapon-icon.webp
+    effects: []
+    folder: 6DYpLRcVUTdBo01P
+    flags:
+      core: {}
+    system:
+      cosm: aysle
+      description: >-
+        <p>@UUID[Compendium.te001-core-rulebook.Items.Item.eItDWecF1ue7Hvp0]{Dragon
+        Warrior}-Enhancement</p><p>One of the warrior’s bracers is lined with a
+        long tube leading to a chamber of compressed fuel hidden on his back
+        armor. When activated with missile weapons the tube spurts fire in a
+        10-meter-long stream as a
+        @UUID[Compendium.te001-core-rulebook.rules.pwneQ55M0nnDH0Us.JournalEntryPage.EhKa65cpHvodUl2L#explosives-and-area-effect-attacks]{Small
+        Blast}. Everything within the blast suffers 16
+        @UUID[Compendium.te001-core-rulebook.rules.pwneQ55M0nnDH0Us.JournalEntryPage.EhKa65cpHvodUl2L#fire]{Fire
+        damage}. The chamber holds enough fuel for three individual blasts. The
+        container magically recharges at the end of the scene or during a long
+        break in the action of a few hours or more (Game Master’s
+        discretion).</p>
+      price: ''
+      value: null
+      ammo:
+        max: 3
+        value: 3
+      ap: 0
+      attackWith: missileWeapons
+      chatNote: ''
+      damage: 16
+      damageType: flat
+      equipped: false
+      minStrength: null
+      notes: Small Blast, Fire
+      range: 10m
+      secondaryAxiom: none
+      traits:
+        - fireDamage
+        - smallBlast
+      axioms:
+        tech: 0
+        magic: 0
+        social: 0
+        spirit: 0
+      bonus: 2
+      loadedAmmo: null
+      gunner: null
+      gunnerFixedSkill: 0
+    ownership:
+      default: 0
+      A9LyAqagoJJU3gDH: 3
+      VAnYow5sWS9EJzo0: 3
+      93AMwcGe6H37rcPA: 3
+      e1DB4TK9SbDuMDS3: 3
+    _stats:
+      compendiumSource: Compendium.te001-core-rulebook.Items.Item.ai2XQyTQKULhkmVz
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
+      createdTime: 1763999108819
+      modifiedTime: 1763999108819
+      lastModifiedBy: e1DB4TK9SbDuMDS3
+    _id: ai2XQyTQKULhkmVz
+    sort: 575000
+    _key: '!actors.items!QsYmnq73AiR6BwhD.ai2XQyTQKULhkmVz'
+  - name: Dragon Warrior Armor
+    type: armor
+    img: systems/torgeternity/images/icons/armor-icon.webp
+    effects: []
+    folder: 6DYpLRcVUTdBo01P
+    flags:
+      core: {}
+    system:
+      cosm: aysle
+      description: >-
+        <p>Provided by
+        @UUID[Compendium.te001-core-rulebook.Items.Item.eItDWecF1ue7Hvp0]{Dragon
+        Warrior}
+        Perk</p><p>@UUID[Compendium.te001-core-rulebook.rules.pwneQ55M0nnDH0Us.JournalEntryPage.qKdamp4rrcX6TTt0#fatigues:]{Fatigues}</p><p>@UUID[Compendium.te001-core-rulebook.rules.pwneQ55M0nnDH0Us.JournalEntryPage.qKdamp4rrcX6TTt0#full-body/torso:]{Full
+        Body Armor}</p>
+      price: ''
+      value: null
+      bonus: 4
+      equipped: false
+      maxDex: 8
+      minStrength: 10
+      notes: Fatigues 2, Full Body
+      fatigue: 2
+      traits:
+        - fatigues
+        - fullBody
+      axioms:
+        tech: 12
+        magic: 0
+        social: 0
+        spirit: 0
+      secondaryAxiom: none
+    _stats:
+      compendiumSource: Compendium.te001-core-rulebook.Items.Item.kKfw6Od1PySvYsOs
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
+      createdTime: 1763999117398
+      modifiedTime: 1763999117398
+      lastModifiedBy: e1DB4TK9SbDuMDS3
+    _id: kKfw6Od1PySvYsOs
+    sort: 500000
+    ownership:
+      default: 0
+      CtisFurQNe9h7ABb: 3
+      VAnYow5sWS9EJzo0: 3
+      e1DB4TK9SbDuMDS3: 3
+    _key: '!actors.items!QsYmnq73AiR6BwhD.kKfw6Od1PySvYsOs'
+  - _id: KKJPrdjO5sFkhZzF
+    name: Caltrops
+    type: gear
+    img: systems/torgeternity/images/icons/gear-icon.webp
+    effects:
+      - origin: Compendium.te001-core-rulebook.Items.Item.KKJPrdjO5sFkhZzF
+        duration:
+          startTime: 0
+          seconds: null
+          combat: null
+          rounds: null
+          turns: null
+          startRound: null
+          startTurn: null
+        disabled: true
+        name: Maneuver Fav
+        _id: qNNSmAnRkG0Ot2Yf
+        changes:
+          - key: system.skills.maneuver.isFav
+            mode: 5
+            value: 'true'
+            priority: null
+        description: ''
+        transfer: true
+        statuses: []
+        flags: {}
+        tint: '#ffffff'
+        _stats:
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+          coreVersion: '13.351'
+          systemId: torgeternity
+          systemVersion: 13.13.2
+          lastModifiedBy: null
+        img: icons/svg/aura.svg
+        type: base
+        system:
+          transferOnAttack: false
+          applyIfAttackTrait: []
+          applyIfDefendTrait: []
+        sort: 0
+        _key: >-
+          !actors.items.effects!QsYmnq73AiR6BwhD.KKJPrdjO5sFkhZzF.qNNSmAnRkG0Ot2Yf
+    folder: nON1HNtaPxNzlwuV
+    sort: 200000
+    flags:
+      core: {}
+    system:
+      cosm: aysle
+      description: "<p>A batch of scattered spikes that always land with a point upwards, designed to impale feet and tires. Once deployed as a simple action maneuver interactions become Favored around the spikes.</p>\n<p>\_</p>\n<p>Found in <strong>Core Rules</strong></p>"
+      price: '40'
+      value: 8
+      axioms:
+        tech: 14
+        magic: 0
+        social: 0
+        spirit: 0
+      traits: []
+      secondaryAxiom: none
+    ownership:
+      default: 0
+      A9LyAqagoJJU3gDH: 3
+      VAnYow5sWS9EJzo0: 3
+      e1DB4TK9SbDuMDS3: 3
+    _stats:
+      compendiumSource: Compendium.te001-core-rulebook.Items.Item.KKJPrdjO5sFkhZzF
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
+      createdTime: 1763999125364
+      modifiedTime: 1763999125364
+      lastModifiedBy: e1DB4TK9SbDuMDS3
+    _key: '!actors.items!QsYmnq73AiR6BwhD.KKJPrdjO5sFkhZzF'
+  - _id: cyc4yMjoj7ve1Tj5
+    name: Healing Potion
+    type: gear
+    img: systems/torgeternity/images/icons/gear-icon.webp
+    effects: []
+    folder: nON1HNtaPxNzlwuV
+    sort: 600000
+    flags:
+      core: {}
+    system:
+      cosm: aysle
+      description: "<p>Drinking this thick, clear liquid heals one wound and restores [[/r 1d6x6max5]]{1 BD} of shock.</p><p>\_</p><p>Also found in Aysle Sourcebook Module</p>"
+      price: '500'
+      value: 13
+      secondaryAxiom: magic
+      axioms:
+        tech: 12
+        magic: 13
+        social: 0
+        spirit: 0
+      traits: []
+    ownership:
+      default: 0
+      A9LyAqagoJJU3gDH: 3
+      VAnYow5sWS9EJzo0: 3
+      e1DB4TK9SbDuMDS3: 3
+    _stats:
+      compendiumSource: Compendium.te001-core-rulebook.Items.Item.cyc4yMjoj7ve1Tj5
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
+      createdTime: 1763999169238
+      modifiedTime: 1763999169238
+      lastModifiedBy: e1DB4TK9SbDuMDS3
+    _key: '!actors.items!QsYmnq73AiR6BwhD.cyc4yMjoj7ve1Tj5'
 effects: []
 folder: null
 sort: 100001
@@ -1383,4 +1478,3 @@ _stats:
   duplicateSource: null
   exportSource: null
 _key: '!actors!QsYmnq73AiR6BwhD'
-

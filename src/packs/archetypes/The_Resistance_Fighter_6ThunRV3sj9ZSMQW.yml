@@ -497,52 +497,6 @@ items:
     _id: kTd6nbSynTup5qkZ
     sort: 3400000
     _key: '!actors.items!6ThunRV3sj9ZSMQW.kTd6nbSynTup5qkZ'
-  - _id: nFGTz9tIc1q3JMvQ
-    name: Energize
-    type: psionicpower
-    img: systems/torgeternity/images/icons/psionicpower.webp
-    effects: []
-    folder: null
-    sort: 100000
-    flags:
-      core: {}
-    system:
-      ap: 0
-      applyArmor: false
-      applySize: false
-      axiom: 20
-      castingtime: 1 action
-      damage: 0
-      description: "<p>The psi builds up psychic energy and channels it through his nervous system, granting him increased <em>Strength</em> and <em>Dexterity</em> for the Duration of the power.</p><p>This ability is highly taxing, however. As soon as the power ends, the psi suffers 2 Shock\_and a −2 penalty to <em>Strength</em> and <em>Dexterity</em> for the next minute.</p><p>A Standard success increases <em>Strength</em> and <em>Dexterity</em> by +1.</p><p>@UUID[Compendium.torgeternity.macros.Macro.sZsA7sBGVaCJTzz0]{Buff!}</p><p>\_</p><p>Found in <strong>Core Rules</strong></p>"
-      dn: challenging
-      dnType: ''
-      duration: 3 rounds
-      good: Strength and Dexterity increase +2
-      isAttack: false
-      modifier: ''
-      outstanding: >-
-        Strength and Dexterity increase +2 and the psionicist doesn’t suffer a
-        penalty after the duration ends
-      range: Self
-      skill: kinesis
-      skilllevel: '10'
-      targetDefense: ''
-    ownership:
-      default: 0
-      A9LyAqagoJJU3gDH: 3
-      CtisFurQNe9h7ABb: 3
-      93AMwcGe6H37rcPA: 3
-    _stats:
-      compendiumSource: Compendium.te001-core-rulebook.Items.E1aOVDM9yrPzXa4p
-      duplicateSource: null
-      coreVersion: '13.345'
-      systemId: torgeternity
-      systemVersion: 12.2.0
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      exportSource: null
-    _key: '!actors.items!6ThunRV3sj9ZSMQW.nFGTz9tIc1q3JMvQ'
   - _id: jVVPxqxbRFvMFqHr
     name: Telekinetic Barrier
     type: psionicpower
@@ -747,6 +701,63 @@ items:
       modifiedTime: 1758491118723
       lastModifiedBy: l8SVzn2293lAwvMC
     _key: '!actors.items!6ThunRV3sj9ZSMQW.Uv3ApXgF1UfEH3ay'
+  - _id: E1aOVDM9yrPzXa4p
+    name: Energize
+    type: psionicpower
+    img: systems/torgeternity/images/icons/psionicpower.webp
+    effects: []
+    folder: wIBvih51ExXi4v7e
+    sort: 50000
+    flags:
+      core: {}
+    system:
+      ap: 0
+      applyArmor: false
+      applySize: false
+      castingtime: 1 action
+      damage: null
+      description: "<p>The psi builds up psychic energy and channels it through his nervous system, granting him increased <em>Strength</em> and <em>Dexterity</em> for the Duration of the power.</p><p>This ability is highly taxing, however. As soon as the power ends, the psi suffers 2 Shock\_and a −2 penalty to <em>Strength</em> and <em>Dexterity</em> for the next minute.</p><p>A Standard success increases <em>Strength</em> and <em>Dexterity</em> by +1.</p><p>@Buff[strength=+1|dexterity=+1|duration=3]{Energize: +1 on Str+Dex}</p><p>After use @Buff[strength=-2|dexterity=-2|duration=6]{Energize: Penalty on Str+Dex}</p><p>\_</p><p>Found in <strong>Core Rules</strong></p>"
+      dn: challenging
+      dnType: ''
+      duration: 3 rounds
+      good: |-
+        Strength and Dexterity increase +2
+        @Buff[strength=+2|dexterity=+2|duration=3]{Energize: +2 on Str+Dex}
+      isAttack: false
+      modifier: ''
+      outstanding: >-
+        Strength and Dexterity increase +2 and the psionicist doesn’t suffer a
+        penalty after the duration ends
+
+        @Buff[strength=+2|dexterity=+2|duration=3]{Energize: +2 on Str+Dex}
+      range: Self
+      skill: kinesis
+      skilllevel: '10'
+      targetDefense: ''
+      axioms:
+        social: 20
+        magic: 0
+        spirit: 0
+        tech: 0
+      cosm: none
+      traits: []
+      requiresConcentration: false
+    ownership:
+      default: 0
+      A9LyAqagoJJU3gDH: 3
+      VAnYow5sWS9EJzo0: 3
+      e1DB4TK9SbDuMDS3: 3
+    _stats:
+      compendiumSource: Compendium.te001-core-rulebook.Items.Item.E1aOVDM9yrPzXa4p
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
+      createdTime: 1763999567779
+      modifiedTime: 1763999619475
+      lastModifiedBy: e1DB4TK9SbDuMDS3
+    _key: '!actors.items!6ThunRV3sj9ZSMQW.E1aOVDM9yrPzXa4p'
 effects: []
 folder: null
 sort: 100001
@@ -1288,4 +1299,3 @@ _stats:
   duplicateSource: null
   exportSource: null
 _key: '!actors!6ThunRV3sj9ZSMQW'
-
