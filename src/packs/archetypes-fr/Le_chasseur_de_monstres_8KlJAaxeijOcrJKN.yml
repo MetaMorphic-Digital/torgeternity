@@ -320,16 +320,16 @@ items:
       maxDex: 10
       minStrength: null
       notes: Fatigue
-      fatigue: 0
+      fatigue: 1
     ownership:
       default: 0
     _stats:
       systemId: torgeternity
-      systemVersion: 13.10.0
-      coreVersion: '13.348'
+      systemVersion: 13.13.2
+      coreVersion: '13.351'
       createdTime: null
-      modifiedTime: 1758493495731
-      lastModifiedBy: l8SVzn2293lAwvMC
+      modifiedTime: 1764002474239
+      lastModifiedBy: e1DB4TK9SbDuMDS3
       compendiumSource: Item.Lr8qGqk2VWGODo7S
       duplicateSource: null
       exportSource: null
@@ -568,48 +568,7 @@ items:
       modifiedTime: 1758491119221
       lastModifiedBy: l8SVzn2293lAwvMC
     _key: '!actors.items!8KlJAaxeijOcrJKN.hQZcOgojBbDcCCfe'
-effects:
-  - _id: 4CnECaHDlW4TJfe7
-    flags: {}
-    changes:
-      - key: system.other.armor
-        value: '2'
-        mode: 2
-        priority: null
-      - key: system.other.toughness
-        value: '2'
-        mode: 2
-        priority: null
-    disabled: true
-    duration:
-      startTime: 0
-      startRound: 0
-      startTurn: 0
-      seconds: null
-      combat: null
-      rounds: null
-      turns: null
-    origin: Actor.jvm80YhOFmKEp0Zy.Item.RUsXW2vMzlcDbzM4
-    tint: '#ffffff'
-    transfer: true
-    name: Armor +2
-    description: ''
-    statuses: []
-    _stats:
-      coreVersion: '13.348'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: 1758493503464
-      lastModifiedBy: l8SVzn2293lAwvMC
-      compendiumSource: null
-      duplicateSource: null
-      exportSource: null
-    img: icons/svg/aura.svg
-    type: base
-    system: {}
-    sort: 0
-    _key: '!actors.effects!8KlJAaxeijOcrJKN.4CnECaHDlW4TJfe7'
+effects: []
 folder: null
 sort: 100001
 flags: {}

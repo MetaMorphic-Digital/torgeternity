@@ -501,48 +501,7 @@ items:
       modifiedTime: 1758491119582
       lastModifiedBy: l8SVzn2293lAwvMC
     _key: '!actors.items!sPLt8RBL1hieic6p.YQoorToSdQKjoWmk'
-effects:
-  - _id: zNxpmtLv3HaujTQW
-    flags: {}
-    changes:
-      - key: system.other.armor
-        mode: 2
-        value: '1'
-        priority: null
-      - key: system.other.toughness
-        mode: 2
-        value: '1'
-        priority: null
-    disabled: true
-    duration:
-      startTime: 0
-      seconds: null
-      combat: null
-      rounds: null
-      turns: null
-      startRound: null
-      startTurn: null
-    origin: Actor.0B2u2NMhtriuOQ8b.Item.J9Nx3xa1SuyivqJt
-    tint: '#ffffff'
-    transfer: true
-    name: +1 Armure
-    description: ''
-    statuses: []
-    _stats:
-      coreVersion: '13.348'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: 1758493405724
-      lastModifiedBy: l8SVzn2293lAwvMC
-      compendiumSource: null
-      duplicateSource: null
-      exportSource: null
-    img: icons/svg/aura.svg
-    type: base
-    system: {}
-    sort: 0
-    _key: '!actors.effects!sPLt8RBL1hieic6p.zNxpmtLv3HaujTQW'
+effects: []
 folder: null
 sort: 100001
 flags: {}
