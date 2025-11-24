@@ -162,6 +162,49 @@ items:
         sort: 0
         _key: >-
           !actors.items.effects!REeNzywr6VElHSWZ.RpNrke9ubLEc5xWb.dXpzXzrjw9UvaNpT
+      - name: Intimidation Favored
+        origin: >-
+          Compendium.torgeternity.archetypes-fr.Actor.REeNzywr6VElHSWZ.Item.RpNrke9ubLEc5xWb
+        duration:
+          startTime: null
+          combat: null
+          seconds: null
+          rounds: null
+          turns: null
+          startRound: null
+          startTurn: null
+        disabled: false
+        img: icons/svg/aura.svg
+        _id: aKFqWU0yqrNoandT
+        type: base
+        system:
+          transferOnAttack: false
+          applyIfAttackTrait: []
+          applyIfDefendTrait: []
+          transferOnOutcome: 0
+        changes:
+          - key: system.skills.intimidation.isFav
+            mode: 2
+            value: 'true'
+            priority: null
+        description: ''
+        tint: '#ffffff'
+        transfer: true
+        statuses: []
+        sort: 0
+        flags: {}
+        _stats:
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+          coreVersion: '13.351'
+          systemId: torgeternity
+          systemVersion: 13.13.2
+          createdTime: 1764003198980
+          modifiedTime: 1764003216445
+          lastModifiedBy: e1DB4TK9SbDuMDS3
+        _key: >-
+          !actors.items.effects!REeNzywr6VElHSWZ.RpNrke9ubLEc5xWb.aKFqWU0yqrNoandT
     folder: null
     system:
       category: pulpPowers

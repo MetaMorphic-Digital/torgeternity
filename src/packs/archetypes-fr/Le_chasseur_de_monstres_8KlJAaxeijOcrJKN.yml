@@ -134,7 +134,50 @@ items:
     flags:
       core: {}
     img: systems/torgeternity/images/icons/gear-icon.webp
-    effects: []
+    effects:
+      - name: Maneuver Fav
+        origin: >-
+          Compendium.torgeternity.archetypes-fr.Actor.8KlJAaxeijOcrJKN.Item.UTEYkvqTcKLhFHtX
+        duration:
+          startTime: null
+          combat: null
+          seconds: null
+          rounds: null
+          turns: null
+          startRound: null
+          startTurn: null
+        disabled: false
+        img: icons/svg/aura.svg
+        _id: YLtzgGhIrk6mjI4E
+        type: base
+        system:
+          transferOnAttack: true
+          applyIfAttackTrait: []
+          applyIfDefendTrait: []
+          transferOnOutcome: 0
+        changes:
+          - key: system.skills.maneuver.isFav
+            mode: 5
+            value: 'true'
+            priority: null
+        description: ''
+        tint: '#ffffff'
+        transfer: false
+        statuses: []
+        sort: 0
+        flags: {}
+        _stats:
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+          coreVersion: '13.351'
+          systemId: torgeternity
+          systemVersion: 13.13.2
+          createdTime: 1764004060497
+          modifiedTime: 1764004126500
+          lastModifiedBy: e1DB4TK9SbDuMDS3
+        _key: >-
+          !actors.items.effects!8KlJAaxeijOcrJKN.UTEYkvqTcKLhFHtX.YLtzgGhIrk6mjI4E
     folder: null
     system:
       cosm: Orrorsh

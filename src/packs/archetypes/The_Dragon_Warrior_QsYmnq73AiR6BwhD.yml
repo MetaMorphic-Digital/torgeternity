@@ -570,6 +570,7 @@ items:
           transferOnAttack: false
           applyIfAttackTrait: []
           applyIfDefendTrait: []
+          transferOnOutcome: 0
         changes:
           - key: defenses.armor
             mode: 2
@@ -588,7 +589,8 @@ items:
           coreVersion: '13.351'
           systemId: torgeternity
           systemVersion: 13.13.2
-          lastModifiedBy: null
+          lastModifiedBy: e1DB4TK9SbDuMDS3
+          modifiedTime: 1764003328994
         _key: >-
           !actors.items.effects!QsYmnq73AiR6BwhD.eItDWecF1ue7Hvp0.GFVwedISXXsBSYXB
     folder: 6DYpLRcVUTdBo01P

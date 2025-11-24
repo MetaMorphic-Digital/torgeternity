@@ -290,7 +290,8 @@ items:
         img: icons/svg/aura.svg
         _id: 050BsL6MF5PErpeT
         type: base
-        system: {}
+        system:
+          transferOnOutcome: 0
         changes:
           - key: ystem.skills.unarmedCombat.isFav
             mode: 5
@@ -305,12 +306,12 @@ items:
         _stats:
           compendiumSource: null
           duplicateSource: null
-          coreVersion: '13.345'
+          coreVersion: '13.351'
           systemId: torgeternity
-          systemVersion: 12.2.0
+          systemVersion: 13.13.2
           createdTime: null
-          modifiedTime: null
-          lastModifiedBy: null
+          modifiedTime: 1764003760400
+          lastModifiedBy: e1DB4TK9SbDuMDS3
           exportSource: null
         _key: >-
           !actors.items.effects!hcdhRCs56U5JrAl4.yAe9TWoKpqHEnno9.050BsL6MF5PErpeT

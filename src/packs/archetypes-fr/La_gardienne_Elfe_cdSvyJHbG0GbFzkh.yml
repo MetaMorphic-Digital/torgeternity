@@ -10,7 +10,54 @@ items:
     flags:
       core: {}
     img: systems/torgeternity/images/icons/reality-icon.webp
-    effects: []
+    effects:
+      - name: Stealth/Tracking Favored
+        origin: >-
+          Compendium.torgeternity.archetypes-fr.Actor.cdSvyJHbG0GbFzkh.Item.q33jbisDvFLOCyfH
+        duration:
+          startTime: null
+          combat: null
+          seconds: null
+          rounds: null
+          turns: null
+          startRound: null
+          startTurn: null
+        disabled: false
+        img: icons/svg/aura.svg
+        _id: S9PtI7vgiNUGzwSF
+        type: base
+        system:
+          transferOnAttack: false
+          applyIfAttackTrait: []
+          applyIfDefendTrait: []
+          transferOnOutcome: 0
+        changes:
+          - key: system.skills.stealth.isFav
+            mode: 5
+            value: 'true'
+            priority: null
+          - key: system.skills.tracking.isFav
+            mode: 5
+            value: 'true'
+            priority: null
+        description: ''
+        tint: '#ffffff'
+        transfer: true
+        statuses: []
+        sort: 0
+        flags: {}
+        _stats:
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+          coreVersion: '13.351'
+          systemId: torgeternity
+          systemVersion: 13.13.2
+          createdTime: 1764003930526
+          modifiedTime: 1764003954681
+          lastModifiedBy: e1DB4TK9SbDuMDS3
+        _key: >-
+          !actors.items.effects!cdSvyJHbG0GbFzkh.q33jbisDvFLOCyfH.S9PtI7vgiNUGzwSF
     folder: null
     system:
       category: elf
@@ -848,7 +895,47 @@ items:
       modifiedTime: 1758491119521
       lastModifiedBy: l8SVzn2293lAwvMC
     _key: '!actors.items!cdSvyJHbG0GbFzkh.i5pjyJX601Lh6KM5'
-effects: []
+effects:
+  - name: Dexterity is Favored
+    origin: Compendium.torgeternity.archetypes-fr.Actor.cdSvyJHbG0GbFzkh
+    duration:
+      startTime: 0
+      combat: null
+      seconds: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    disabled: false
+    img: icons/svg/aura.svg
+    _id: p3rSEpHZEGW6Fc9a
+    type: base
+    system:
+      transferOnAttack: false
+      applyIfAttackTrait: []
+      applyIfDefendTrait: []
+    changes:
+      - key: system.attributes.dexterityIsFav
+        mode: 5
+        value: 'true'
+        priority: null
+    description: ''
+    tint: '#ffffff'
+    transfer: false
+    statuses: []
+    sort: 0
+    flags: {}
+    _stats:
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
+      createdTime: 1764003970351
+      modifiedTime: 1764003998607
+      lastModifiedBy: e1DB4TK9SbDuMDS3
+    _key: '!actors.effects!cdSvyJHbG0GbFzkh.p3rSEpHZEGW6Fc9a'
 folder: null
 sort: 100001
 flags: {}
