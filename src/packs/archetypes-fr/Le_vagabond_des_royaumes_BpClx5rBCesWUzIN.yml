@@ -558,48 +558,7 @@ items:
       modifiedTime: 1758491119322
       lastModifiedBy: l8SVzn2293lAwvMC
     _key: '!actors.items!BpClx5rBCesWUzIN.k4qzTZV4hihR1LmC'
-effects:
-  - _id: pklu4BLFg7hviXaT
-    flags: {}
-    changes:
-      - key: system.other.armor
-        mode: 2
-        value: '1'
-        priority: null
-      - key: system.other.toughness
-        mode: 2
-        value: '1'
-        priority: null
-    disabled: true
-    duration:
-      startTime: 0
-      seconds: null
-      combat: null
-      rounds: null
-      turns: null
-      startRound: null
-      startTurn: null
-    origin: Actor.HoTJjMNPZ1dmNnqZ.Item.2p6hVKXGKxFiYmjT
-    tint: '#ffffff'
-    transfer: true
-    name: Armure +1
-    description: ''
-    statuses: []
-    _stats:
-      coreVersion: '13.348'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: 1758493623906
-      lastModifiedBy: l8SVzn2293lAwvMC
-      compendiumSource: null
-      duplicateSource: null
-      exportSource: null
-    img: icons/svg/aura.svg
-    type: base
-    system: {}
-    sort: 0
-    _key: '!actors.effects!BpClx5rBCesWUzIN.pklu4BLFg7hviXaT'
+effects: []
 folder: null
 sort: 100001
 flags: {}
@@ -623,7 +582,7 @@ system:
       base: 8
   other:
     cosm: coreEarth
-    possibilities: 0
+    possibilities: 4
   skills:
     airVehicles:
       baseAttribute: dexterity
@@ -1136,13 +1095,12 @@ prototypeToken:
   movementAction: null
 _stats:
   systemId: torgeternity
-  systemVersion: 3.8.1
-  coreVersion: '13.348'
+  systemVersion: 13.13.2
+  coreVersion: '13.351'
   createdTime: 1716827809233
-  modifiedTime: 1758530198273
-  lastModifiedBy: BMvGTGfheqDXarjN
+  modifiedTime: 1764001517390
+  lastModifiedBy: e1DB4TK9SbDuMDS3
   compendiumSource: null
   duplicateSource: null
   exportSource: null
 _key: '!actors!BpClx5rBCesWUzIN'
-

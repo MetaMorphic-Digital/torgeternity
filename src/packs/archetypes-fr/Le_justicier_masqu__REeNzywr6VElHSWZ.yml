@@ -586,7 +586,7 @@ system:
       base: 8
   other:
     cosm: nileEmpire
-    possibilities: 0
+    possibilities: 3
   skills:
     airVehicles:
       baseAttribute: dexterity
@@ -1129,14 +1129,13 @@ prototypeToken:
   movementAction: null
 _stats:
   systemId: torgeternity
-  systemVersion: 3.8.1
-  coreVersion: '13.348'
+  systemVersion: 13.13.2
+  coreVersion: '13.351'
   createdTime: 1716827809436
-  modifiedTime: 1758530160844
-  lastModifiedBy: BMvGTGfheqDXarjN
+  modifiedTime: 1764001568064
+  lastModifiedBy: e1DB4TK9SbDuMDS3
   compendiumSource: null
   duplicateSource: null
   exportSource: null
 effects: []
 _key: '!actors!REeNzywr6VElHSWZ'
-

@@ -715,89 +715,7 @@ items:
       modifiedTime: 1758491119188
       lastModifiedBy: l8SVzn2293lAwvMC
     _key: '!actors.items!6ThunRV3sj9ZSMQW.KlCPFk1qWVHG8kGN'
-effects:
-  - _id: fD9gcuFeLzY5eA8Z
-    flags: {}
-    changes:
-      - key: system.other.toughness
-        mode: 2
-        value: '1'
-        priority: null
-      - key: system.other.armor
-        mode: 2
-        value: '1'
-        priority: null
-    disabled: false
-    duration:
-      startTime: 0
-      seconds: null
-      combat: null
-      rounds: null
-      turns: null
-      startRound: null
-      startTurn: null
-    origin: Actor.BhuC9vKlc8lfD982.Item.t3n2NL6Htq5sswMD
-    tint: '#ffffff'
-    transfer: true
-    name: armure +1
-    description: ''
-    statuses: []
-    _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-      exportSource: null
-    img: icons/svg/aura.svg
-    type: base
-    system: {}
-    sort: 0
-    _key: '!actors.effects!6ThunRV3sj9ZSMQW.fD9gcuFeLzY5eA8Z'
-  - _id: sukPdeJg9HzjO7xo
-    flags: {}
-    changes:
-      - key: system.other.toughness
-        mode: 2
-        value: '3'
-        priority: null
-      - key: system.other.armor
-        mode: 2
-        value: '3'
-        priority: null
-    disabled: false
-    duration:
-      startTime: 0
-      seconds: null
-      combat: null
-      rounds: null
-      turns: null
-      startRound: null
-      startTurn: null
-    origin: Actor.BhuC9vKlc8lfD982.Item.T5GcUNDAOu00TRze
-    tint: '#ffffff'
-    transfer: true
-    name: armure +3
-    description: ''
-    statuses: []
-    _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-      exportSource: null
-    img: icons/svg/aura.svg
-    type: base
-    system: {}
-    sort: 0
-    _key: '!actors.effects!6ThunRV3sj9ZSMQW.sukPdeJg9HzjO7xo'
+effects: []
 folder: null
 sort: 100001
 flags: {}
@@ -821,7 +739,7 @@ system:
       base: 7
   other:
     cosm: tharkold
-    possibilities: 0
+    possibilities: 3
   skills:
     airVehicles:
       baseAttribute: dexterity
@@ -1242,7 +1160,7 @@ system:
       <p class="MsoNormal">□ (3 PX) R&eacute;alit&eacute; +3</p>
     race: human
     sizeBonus: normal
-  editstate: true
+  editstate: false
 ownership:
   default: 0
   A9LyAqagoJJU3gDH: 3
@@ -1330,13 +1248,12 @@ prototypeToken:
   movementAction: null
 _stats:
   systemId: torgeternity
-  systemVersion: 3.8.1
-  coreVersion: '13.348'
+  systemVersion: 13.13.2
+  coreVersion: '13.351'
   createdTime: 1716827809021
-  modifiedTime: 1758530096925
-  lastModifiedBy: BMvGTGfheqDXarjN
+  modifiedTime: 1764001542411
+  lastModifiedBy: e1DB4TK9SbDuMDS3
   compendiumSource: null
   duplicateSource: null
   exportSource: null
 _key: '!actors!6ThunRV3sj9ZSMQW'
-

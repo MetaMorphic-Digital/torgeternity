@@ -3,6 +3,7 @@
 ## NEXT
 
 - Powers updated in `en` Archetypes.
+- Remove extra AE and set Possibilities to 3 on 'fr' Archetypes.
 
 ## 13.14.2
 

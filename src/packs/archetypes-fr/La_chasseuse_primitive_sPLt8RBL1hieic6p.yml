@@ -566,7 +566,7 @@ system:
       base: 10
   other:
     cosm: livingLand
-    possibilities: 0
+    possibilities: 3
   skills:
     airVehicles:
       baseAttribute: dexterity
@@ -1074,13 +1074,12 @@ prototypeToken:
   movementAction: null
 _stats:
   systemId: torgeternity
-  systemVersion: 3.8.1
-  coreVersion: '13.348'
+  systemVersion: 13.13.2
+  coreVersion: '13.351'
   createdTime: 1716827809787
-  modifiedTime: 1758530080651
-  lastModifiedBy: BMvGTGfheqDXarjN
+  modifiedTime: 1764001534213
+  lastModifiedBy: e1DB4TK9SbDuMDS3
   compendiumSource: null
   duplicateSource: null
   exportSource: null
 _key: '!actors!sPLt8RBL1hieic6p'
-

@@ -614,85 +614,7 @@ items:
       modifiedTime: 1758491119423
       lastModifiedBy: l8SVzn2293lAwvMC
     _key: '!actors.items!QsYmnq73AiR6BwhD.LKxM2YXkNPmaj31J'
-effects:
-  - _id: xcPZLZIBGvMvU25Z
-    flags: {}
-    changes:
-      - key: system.attributes.strength.value
-        mode: 2
-        value: '2'
-        priority: null
-    disabled: false
-    duration:
-      startTime: 0
-      seconds: null
-      combat: null
-      rounds: null
-      turns: null
-      startRound: null
-      startTurn: null
-    origin: Actor.ZAjg9c3hJQtwFKOa.Item.W80yHGyLWk5wrLJW
-    tint: '#ffffff'
-    transfer: true
-    name: Force de géant (+2)
-    description: ''
-    statuses: []
-    _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-      exportSource: null
-    img: icons/svg/aura.svg
-    type: base
-    system: {}
-    sort: 0
-    _key: '!actors.effects!QsYmnq73AiR6BwhD.xcPZLZIBGvMvU25Z'
-  - _id: faY4cFOXcFgttCeH
-    flags: {}
-    changes:
-      - key: system.other.armor
-        mode: 2
-        value: '4'
-        priority: null
-      - key: system.other.toughness
-        mode: 2
-        value: '4'
-        priority: null
-    disabled: true
-    duration:
-      startTime: 0
-      seconds: null
-      combat: null
-      rounds: null
-      turns: null
-      startRound: null
-      startTurn: null
-    origin: Actor.ZAjg9c3hJQtwFKOa.Item.RDjcmGM0lIqKpHUO
-    tint: '#ffffff'
-    transfer: true
-    name: Armure (+4)
-    description: ''
-    statuses: []
-    _stats:
-      coreVersion: '13.348'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: 1758493542000
-      lastModifiedBy: l8SVzn2293lAwvMC
-      compendiumSource: null
-      duplicateSource: null
-      exportSource: null
-    img: icons/svg/aura.svg
-    type: base
-    system: {}
-    sort: 0
-    _key: '!actors.effects!QsYmnq73AiR6BwhD.faY4cFOXcFgttCeH'
+effects: []
 folder: null
 sort: 100001
 flags:
@@ -1242,4 +1164,3 @@ _stats:
   duplicateSource: null
   exportSource: null
 _key: '!actors!QsYmnq73AiR6BwhD'
-

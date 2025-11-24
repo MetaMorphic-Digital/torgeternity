@@ -613,7 +613,7 @@ system:
       base: 6
   other:
     cosm: cyberpapacy
-    possibilities: 0
+    possibilities: 3
   skills:
     airVehicles:
       baseAttribute: dexterity
@@ -939,7 +939,7 @@ system:
     unspent: 0
     earned: 0
   axioms:
-    magic: 15
+    magic: 14
     social: 18
     spirit: 16
     tech: 26
@@ -1131,13 +1131,12 @@ prototypeToken:
   movementAction: null
 _stats:
   systemId: torgeternity
-  systemVersion: 3.8.1
-  coreVersion: '13.348'
+  systemVersion: 13.13.2
+  coreVersion: '13.351'
   createdTime: 1716827809277
-  modifiedTime: 1758530107102
-  lastModifiedBy: BMvGTGfheqDXarjN
+  modifiedTime: 1764001546001
+  lastModifiedBy: e1DB4TK9SbDuMDS3
   compendiumSource: null
   duplicateSource: null
   exportSource: null
 _key: '!actors!CefD0chJeL6NrRVJ'
-
