@@ -1,5 +1,11 @@
 # TORG Eternity Changelog
 
+## 13.14.3
+
+- Powers updated in `en` Archetypes.
+- Update 'fr' Archetypes to match the effects available on 'en' archetypes.
+- Ward Enemy AEs changed to be applied to the target when the spell is cast.
+
 ## 13.14.2
 
 - Allow arbitrary numbers in `@Check` enricher.

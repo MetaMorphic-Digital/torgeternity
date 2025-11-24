@@ -375,16 +375,16 @@ items:
       maxDex: 10
       minStrength: null
       notes: disponible grâce à l'atout "ION GUSOKU"
-      fatigue: 0
+      fatigue: 1
     ownership:
       default: 0
     _stats:
       systemId: torgeternity
-      systemVersion: 13.10.0
-      coreVersion: '13.348'
+      systemVersion: 13.13.2
+      coreVersion: '13.351'
       createdTime: null
-      modifiedTime: 1758493603604
-      lastModifiedBy: l8SVzn2293lAwvMC
+      modifiedTime: 1764002500744
+      lastModifiedBy: e1DB4TK9SbDuMDS3
       compendiumSource: Item.DYmLw9hKYR8HEw4V
       duplicateSource: null
       exportSource: null
@@ -523,48 +523,7 @@ items:
       modifiedTime: 1758491119394
       lastModifiedBy: l8SVzn2293lAwvMC
     _key: '!actors.items!QVpKuacd4LKfpJOy.BiMMDksBM9tbqL7R'
-effects:
-  - _id: fnTQB8GZ8ORoh6VK
-    flags: {}
-    changes:
-      - key: system.other.toughness
-        mode: 2
-        value: '4'
-        priority: null
-      - key: system.other.armor
-        mode: 2
-        value: '4'
-        priority: null
-    disabled: true
-    duration:
-      startTime: 0
-      seconds: null
-      combat: null
-      rounds: null
-      turns: null
-      startRound: null
-      startTurn: null
-    origin: Actor.mdpEDmHHNs8n0Mi4.Item.6vIlsRdE93ELD2MV
-    tint: '#ffffff'
-    transfer: true
-    name: Armure +4
-    description: ''
-    statuses: []
-    _stats:
-      coreVersion: '13.348'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: 1758493610402
-      lastModifiedBy: l8SVzn2293lAwvMC
-      compendiumSource: null
-      duplicateSource: null
-      exportSource: null
-    img: icons/svg/aura.svg
-    type: base
-    system: {}
-    sort: 0
-    _key: '!actors.effects!QVpKuacd4LKfpJOy.fnTQB8GZ8ORoh6VK'
+effects: []
 folder: null
 sort: 100001
 flags: {}
@@ -588,7 +547,7 @@ system:
       base: 9
   other:
     cosm: panPacifica
-    possibilities: 0
+    possibilities: 3
   skills:
     airVehicles:
       baseAttribute: dexterity
@@ -1099,13 +1058,12 @@ prototypeToken:
   movementAction: null
 _stats:
   systemId: torgeternity
-  systemVersion: 3.8.1
-  coreVersion: '13.348'
+  systemVersion: 13.13.2
+  coreVersion: '13.351'
   createdTime: 1716827809333
-  modifiedTime: 1758530189780
-  lastModifiedBy: BMvGTGfheqDXarjN
+  modifiedTime: 1764001579550
+  lastModifiedBy: e1DB4TK9SbDuMDS3
   compendiumSource: null
   duplicateSource: null
   exportSource: null
 _key: '!actors!QVpKuacd4LKfpJOy'
-

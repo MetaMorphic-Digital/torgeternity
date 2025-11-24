@@ -3,314 +3,53 @@ name: The Cyberwitch
 type: stormknight
 img: systems/torgeternity/images/characters/Cyberwitch.Avatar.webp
 items:
-  - _id: SFdVeSet2JXoY01t
-    name: Sunglasses
-    type: gear
-    sort: 2200000
-    flags:
-      core: {}
-    img: systems/torgeternity/images/icons/gear-icon.webp
-    effects: []
-    folder: null
+  - name: Human
+    type: race
+    img: systems/torgeternity/images/icons/human-icon.webp
     system:
-      cosm: nileEmpire
-      description: ''
-      price: '10'
-      techlevel: 20
-      value: 5
-      secondaryAxiom:
-        selected: none
-        value: null
+      name: ''
+      description: >-
+        <img class="charimg" src="modules/te001-core-rulebook/images/aidan.webp"
+        /><p>Most characters in the Possibility Wars are humans from Core Earth
+        or one of the seven
+        cosms.</p><p>@UUID[Compendium.te001-core-rulebook.rules.JournalEntry.1uWZq6PSVddE1KQs.JournalEntryPage.QGtiReSKzXZa2Tkn#human]{Human
+        Perks}</p>
+      attributeMaximum:
+        charisma: 13
+        dexterity: 13
+        mind: 13
+        spirit: 13
+        strength: 13
+      perksData: []
+      size: normal
+      darkvision: false
+      customAttackData: []
+    effects: []
+    folder: TwzEDO2AmeaaSwtn
     ownership:
       default: 0
+      d8YcfsxBOP7RAazk: 3
+    flags: {}
     _stats:
-      systemId: torgeternity
-      systemVersion: 12.2.0
-      coreVersion: '13.345'
-      createdTime: null
-      modifiedTime: 1722154587766
-      lastModifiedBy: 93AMwcGe6H37rcPA
-      compendiumSource: Item.Wi4lFW6mtBCZS8EY
-      duplicateSource: null
-      exportSource: null
-    _key: '!actors.items!CefD0chJeL6NrRVJ.SFdVeSet2JXoY01t'
-  - _id: hAArbMfImIilyKBK
-    name: GWI GodMeeter
-    type: firearm
-    img: systems/torgeternity/images/icons/firearm-icon.webp
-    effects: []
-    folder: null
-    sort: 0
-    flags:
-      core: {}
-    system:
-      cosm: cyberpapacy
-      description: "<p>The most common sidearm in use by the Church Police. It’s a high caliber and very loud firearm. Like other GWI weapons it has a limited artificial intelligence built in—not to assist with firing but to disable functions and preach at miscreants if the weapon falls into the wrong hands. The gun is also capable of selecting between different types of ammunition by vocal command if more than one type is loaded.</p>\n<p>\_</p>\n<p>Found in <strong>Core Rules</strong></p>"
-      price: '450'
-      techlevel: 26
-      value: 13
-      ammo:
-        max: 25
-        value: 25
-      ap: 0
-      attackWith: fireCombat
-      chatNote: ''
-      damage: 15
-      damageType: flat
-      equipped: true
-      notes: ''
-      range: 10 / 25 / 40
-      secondaryAxiom:
-        selected: none
-        value: null
-    ownership:
-      default: 0
-      A9LyAqagoJJU3gDH: 3
-      CtisFurQNe9h7ABb: 3
-    _stats:
-      systemId: torgeternity
-      systemVersion: 12.2.0
-      coreVersion: '13.345'
-      createdTime: 1693900431785
-      modifiedTime: 1722108680119
-      lastModifiedBy: 93AMwcGe6H37rcPA
-      compendiumSource: Compendium.te001-core-rulebook.Items.pBPp45py3ynKoMI1
-      duplicateSource: null
-      exportSource: null
-    _key: '!actors.items!CefD0chJeL6NrRVJ.hAArbMfImIilyKBK'
-  - _id: ptj1Hps6YOKo6uRC
-    name: Hexxer MK II
-    type: implant
-    img: systems/torgeternity/images/icons/cyberware-icon.webp
-    effects: []
-    folder: null
-    sort: 0
-    flags:
-      core: {}
-    system:
-      cosm: cyberpapacy
-      description: "<p>An upgrade to the hexxer stores the energy from Backlash and allows the warlock or witch to actually <em>use</em> it in powering her own spells.</p><p>After a spellcaster suffers Backlash, the hexxer MK II works like a MK I above, negating half the shock from a failed spell. In addition, the amount of shock negated is automatically applied as a bonus on the character’s next spellcasting test. The energy dissipates after one minute (six rounds), so it must be used within that time frame or the bonus is lost.</p>\n<p>updated in Cyberpapacy Sourcebook</p>\n<p>\_</p>\n<p>Found in <strong>Core Rules, Cyberpapacy Sourcebook</strong></p>"
-      price: 10K
-      techlevel: 26
-      value: 20
-      notes: ''
-      secondaryAxiom:
-        selected: none
-        value: null
-    ownership:
-      default: 0
-      A9LyAqagoJJU3gDH: 3
-      CtisFurQNe9h7ABb: 3
-    _stats:
-      systemId: torgeternity
-      systemVersion: 12.2.0
-      coreVersion: '13.345'
-      createdTime: 1693900468752
-      modifiedTime: 1722154648375
-      lastModifiedBy: 93AMwcGe6H37rcPA
-      compendiumSource: Compendium.te001-core-rulebook.Items.ThXFhhCEysLaKu33
-      duplicateSource: null
-      exportSource: null
-    _key: '!actors.items!CefD0chJeL6NrRVJ.ptj1Hps6YOKo6uRC'
-  - _id: qscZR782i9ypoNW4
-    name: Scrambler
-    type: spell
-    img: systems/torgeternity/images/icons/spell-icon.webp
-    effects: []
-    folder: null
-    sort: 675000
-    flags:
-      core: {}
-    system:
-      ap: 0
-      applyArmor: false
-      applySize: false
-      axiom: 9
-      castingtime: 1 action
-      damage: 0
-      description: "<p>Used primarily in the watchdog regime of the Cyberpapacy, <em>scrambler</em> obscures everyone in the affected area from all security and surveillance systems.</p>\n<p>Captured video and voices become blurry and unidentifiable to such devices, and targeting bonuses from smart ammunition and augmented reality HUDs are negated.</p>\n<p>\_</p>\n<p>Found in <strong>Core Rules</strong></p>"
-      dn: standard
-      dnType: ''
-      duration: 10 minutes
-      good: The Range is increased to a 100-meter radius
-      isAttack: false
-      modifier: ''
-      outstanding: >-
-        The caster’s video and voice are completely erased and the duration
-        increases to an last hour
-      range: 50 meters radius
-      skill: alteration
-      skilllevel: '10'
-      targetDefense: ''
-    ownership:
-      default: 0
-      A9LyAqagoJJU3gDH: 3
-      CtisFurQNe9h7ABb: 3
-    _stats:
-      systemId: torgeternity
-      systemVersion: 3.1.1
-      coreVersion: '13.345'
-      createdTime: 1693900486816
-      modifiedTime: 1693900486816
-      lastModifiedBy: CtisFurQNe9h7ABb
-      compendiumSource: Compendium.te001-core-rulebook.Items.CJz3Fe0Ld1tsBRYc
-      duplicateSource: null
-      exportSource: null
-    _key: '!actors.items!CefD0chJeL6NrRVJ.qscZR782i9ypoNW4'
-  - _id: MXjTP0iOJzjmjAP2
-    name: IriMesh Clothing
-    type: armor
-    img: systems/torgeternity/images/icons/armor-icon.webp
-    effects: []
-    folder: null
-    sort: 40100000
-    flags:
-      core: {}
-    system:
-      cosm: panPacifica
-      description: "<p>A light textile woven by nano-machines. IriMesh looks and feels similar to silk, but with even more tensile strength. IriMesh can be worn at elegant banquets without looking out of place, and doesn’t raise security concerns at checkpoints.</p>\n<p>\_</p>\n<p>Found in <strong>Core Rules</strong></p>"
-      price: '250'
-      techlevel: 24
-      value: 12
-      bonus: 2
-      equipped: true
-      maxDex: null
-      minStrength: null
-      notes: ''
-      fatigue: null
-      secondaryAxiom:
-        selected: none
-        value: null
-    ownership:
-      default: 0
-      A9LyAqagoJJU3gDH: 3
-      CtisFurQNe9h7ABb: 3
-    _stats:
-      systemId: torgeternity
-      systemVersion: 12.2.0
-      coreVersion: '13.345'
-      createdTime: 1711551146882
-      modifiedTime: 1722154620846
-      lastModifiedBy: 93AMwcGe6H37rcPA
-      compendiumSource: Compendium.te001-core-rulebook.Items.Item.iqqKO58UXvYX0BOU
-      duplicateSource: null
-      exportSource: null
-    _key: '!actors.items!CefD0chJeL6NrRVJ.MXjTP0iOJzjmjAP2'
-  - _id: 8N90vcxtBELt25E3
-    name: Spellcaster
-    type: perk
-    img: systems/torgeternity/images/icons/reality-icon.webp
-    effects: []
-    folder: null
-    sort: 54800000
-    flags:
-      core: {}
-    system:
-      category: spellcraft
-      cosm: other
-      description: "<p><strong>Cosms:</strong> Aysle, Core Earth, Cyberpapacy, Nile Empire, Orrorsh, Tharkold</p><p>Those who delve into the arcane arts go by many names — mage, wizard, witch, or warlock to name a few. Regardless of their particular background, all can cast spells using any of the four primary types of magical skill — <em>alteration</em>, <em>apportation</em>, <em>conjuration</em>, or <em>divination magic</em>.</p><p>When this Perk is taken, the mage may choose any three spells from her cosm’s @UUID[Compendium.te001-core-rulebook.rules.JournalEntry.pwneQ55M0nnDH0Us.JournalEntryPage.PjteC3KQ7SI4gobV#available-spells]{Spell List} for which she meets the minimum skill.</p><p>The Core Earth Magic supplement provide some expanded @UUID[Compendium.te001-core-rulebook.rules.JournalEntry.VuPeUtSmf98Gws42.JournalEntryPage.aWRVocNcmjkxV1tL#available-spells]{Spell Lists}.</p><p>Spell details are explained in @UUID[Compendium.te001-core-rulebook.rules.pwneQ55M0nnDH0Us.JournalEntryPage.PjteC3KQ7SI4gobV]{Magic}.</p><p><strong>New Spells:</strong> This Perk may be taken more than once. Each time after the first, the character learns one additional spell.</p><p>\_</p><p>Found in <strong>Core Rules</strong></p>"
-      prerequisites: At least one add in alteration, apportation, conjuration, or divination
-      generalContradiction: false
-      pulpPowers:
-        enhancement01:
-          description: ''
-          taken: false
-          title: ''
-        enhancement02:
-          description: ''
-          taken: false
-          title: ''
-        enhancement03:
-          description: ''
-          taken: false
-          title: ''
-        enhancement04:
-          description: ''
-          taken: false
-          title: ''
-        enhancement05:
-          description: ''
-          taken: false
-          title: ''
-        enhancement06:
-          description: ''
-          taken: false
-          title: ''
-        enhancement07:
-          description: ''
-          taken: false
-          title: ''
-        enhancement08:
-          description: ''
-          taken: false
-          title: ''
-        enhancement09:
-          description: ''
-          taken: false
-          title: ''
-        enhancement10:
-          description: ''
-          taken: false
-          title: ''
-        enhancement11:
-          description: ''
-          taken: false
-          title: ''
-        enhancement12:
-          description: ''
-          taken: false
-          title: ''
-        enhancement13:
-          description: ''
-          taken: false
-          title: ''
-        enhancement14:
-          description: ''
-          taken: false
-          title: ''
-        enhancement15:
-          description: ''
-          taken: false
-          title: ''
-        enhancementNumber: 0
-        limitation01: ''
-        limitation02: ''
-        limitation03: ''
-        limitation04: ''
-        limitation05: ''
-        limitation06: ''
-        limitation07: ''
-        limitation08: ''
-        limitation09: ''
-        limitation10: ''
-        limitationNumber: 0
-      timestaken: ''
-      secondaryAxiom:
-        selected: none
-        value: null
-    ownership:
-      default: 0
-      A9LyAqagoJJU3gDH: 3
-      VAnYow5sWS9EJzo0: 3
-      93AMwcGe6H37rcPA: 3
-    _stats:
-      compendiumSource: Compendium.te001-core-rulebook.Items.Item.veILcJaF0ucF9xAA
+      compendiumSource: Compendium.te001-core-rulebook.Items.Item.xu2Vjk8W6NDhkSTv
       duplicateSource: null
       coreVersion: '13.345'
       systemId: torgeternity
-      systemVersion: 12.2.0
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      systemVersion: 12.3.0
+      createdTime: 1729582088910
+      modifiedTime: 1729582088910
+      lastModifiedBy: d8YcfsxBOP7RAazk
       exportSource: null
-    _key: '!actors.items!CefD0chJeL6NrRVJ.8N90vcxtBELt25E3'
-  - _id: w5jnKX7ZPYxR0WDO
+    _id: v3OyE4fW0R7CVm8h
+    sort: 100000
+    _key: '!actors.items!CefD0chJeL6NrRVJ.v3OyE4fW0R7CVm8h'
+  - _id: 8LBHAgahJO6xorta
     name: Cyberware Implants
     type: perk
     img: systems/torgeternity/images/icons/reality-icon.webp
     effects: []
-    folder: null
-    sort: 13100000
+    folder: whSPRz0OAIjrx9MT
+    sort: 100000
     flags:
       core: {}
     system:
@@ -393,46 +132,365 @@ items:
         limitation10: ''
         limitationNumber: 0
       timestaken: ''
-      secondaryAxiom:
-        selected: none
-        value: null
+      traits: []
+      axioms:
+        magic: 0
+        social: 0
+        spirit: 0
+        tech: 0
+      secondaryAxiom: none
+      transferenceID: 8LBHAgahJO6xorta
     ownership:
       default: 0
       A9LyAqagoJJU3gDH: 3
       VAnYow5sWS9EJzo0: 3
-      93AMwcGe6H37rcPA: 3
+      e1DB4TK9SbDuMDS3: 3
     _stats:
       compendiumSource: Compendium.te001-core-rulebook.Items.Item.8LBHAgahJO6xorta
       duplicateSource: null
-      coreVersion: '13.345'
-      systemId: torgeternity
-      systemVersion: 12.2.0
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
       exportSource: null
-    _key: '!actors.items!CefD0chJeL6NrRVJ.w5jnKX7ZPYxR0WDO'
-  - _id: XuKxoZ61AaEax8wH
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
+      createdTime: 1763998929394
+      modifiedTime: 1763998929394
+      lastModifiedBy: e1DB4TK9SbDuMDS3
+    _key: '!actors.items!CefD0chJeL6NrRVJ.8LBHAgahJO6xorta'
+  - _id: veILcJaF0ucF9xAA
+    name: Spellcaster
+    type: perk
+    img: systems/torgeternity/images/icons/reality-icon.webp
+    effects: []
+    folder: LQI4H56O0jtjk4Ww
+    sort: 1100000
+    flags:
+      core: {}
+    system:
+      category: spellcraft
+      cosm: other
+      description: "<p><strong>Cosms:</strong> Aysle, Core Earth, Cyberpapacy, Nile Empire, Orrorsh, Tharkold</p><p>Those who delve into the arcane arts go by many names - mage, wizard, witch, or warlock to name a few. Regardless of their particular background, all can cast spells using any of the four primary types of magical skill - <em>alteration</em>, <em>apportation</em>, <em>conjuration</em>, or <em>divination magic</em>.</p><p>When this Perk is taken, the mage may choose any three spells from her cosm’s @UUID[Compendium.te001-core-rulebook.rules.JournalEntry.pwneQ55M0nnDH0Us.JournalEntryPage.PjteC3KQ7SI4gobV#available-spells]{Spell List} for which she meets the minimum skill.</p><p>The Core Earth Magic supplement provide some expanded @UUID[Compendium.te001-core-rulebook.rules.JournalEntry.VuPeUtSmf98Gws42.JournalEntryPage.aWRVocNcmjkxV1tL#available-spells]{Spell Lists}.</p><p>Spell details are explained in @UUID[Compendium.te001-core-rulebook.rules.pwneQ55M0nnDH0Us.JournalEntryPage.PjteC3KQ7SI4gobV]{Magic}.</p><p><strong>New Spells:</strong> This Perk may be taken more than once. Each time after the first, the character learns one additional spell.</p><p>\_</p><p>Found in <strong>Core Rules</strong></p>"
+      prerequisites: At least one add in alteration, apportation, conjuration, or divination
+      generalContradiction: false
+      pulpPowers:
+        enhancement01:
+          description: ''
+          taken: false
+          title: ''
+        enhancement02:
+          description: ''
+          taken: false
+          title: ''
+        enhancement03:
+          description: ''
+          taken: false
+          title: ''
+        enhancement04:
+          description: ''
+          taken: false
+          title: ''
+        enhancement05:
+          description: ''
+          taken: false
+          title: ''
+        enhancement06:
+          description: ''
+          taken: false
+          title: ''
+        enhancement07:
+          description: ''
+          taken: false
+          title: ''
+        enhancement08:
+          description: ''
+          taken: false
+          title: ''
+        enhancement09:
+          description: ''
+          taken: false
+          title: ''
+        enhancement10:
+          description: ''
+          taken: false
+          title: ''
+        enhancement11:
+          description: ''
+          taken: false
+          title: ''
+        enhancement12:
+          description: ''
+          taken: false
+          title: ''
+        enhancement13:
+          description: ''
+          taken: false
+          title: ''
+        enhancement14:
+          description: ''
+          taken: false
+          title: ''
+        enhancement15:
+          description: ''
+          taken: false
+          title: ''
+        enhancementNumber: 0
+        limitation01: ''
+        limitation02: ''
+        limitation03: ''
+        limitation04: ''
+        limitation05: ''
+        limitation06: ''
+        limitation07: ''
+        limitation08: ''
+        limitation09: ''
+        limitation10: ''
+        limitationNumber: 0
+      timestaken: ''
+      traits: []
+      axioms:
+        magic: 0
+        social: 0
+        spirit: 0
+        tech: 0
+      secondaryAxiom: none
+      transferenceID: veILcJaF0ucF9xAA
+    ownership:
+      default: 0
+      A9LyAqagoJJU3gDH: 3
+      VAnYow5sWS9EJzo0: 3
+      e1DB4TK9SbDuMDS3: 3
+    _stats:
+      compendiumSource: Compendium.te001-core-rulebook.Items.Item.veILcJaF0ucF9xAA
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
+      createdTime: 1763998942258
+      modifiedTime: 1763998942258
+      lastModifiedBy: e1DB4TK9SbDuMDS3
+    _key: '!actors.items!CefD0chJeL6NrRVJ.veILcJaF0ucF9xAA'
+  - _id: pBPp45py3ynKoMI1
+    name: GWI GodMeeter
+    type: firearm
+    img: systems/torgeternity/images/icons/firearm-icon.webp
+    effects: []
+    folder: QP3Dbnq9X2JssAJT
+    sort: 400000
+    flags:
+      core: {}
+    system:
+      cosm: cyberpapacy
+      description: "<p>@UUID[Compendium.te001-core-rulebook.rules.JournalEntry.pwneQ55M0nnDH0Us.JournalEntryPage.EhKa65cpHvodUl2L#firearms-in-melee]{Pistol}</p><p>The most common sidearm in use by the Church Police. It’s a high caliber and very loud firearm. Like other GWI weapons it has a limited artificial intelligence built in - not to assist with firing but to disable functions and preach at miscreants if the weapon falls into the wrong hands. The gun is also capable of selecting between different types of ammunition by vocal command if more than one type is loaded.</p><p>\_Also found in Cyberpapacy Sourcebook Module</p>"
+      price: '450'
+      value: 13
+      ammo:
+        max: 25
+        value: 25
+      ap: 0
+      attackWith: fireCombat
+      chatNote: ''
+      damage: 15
+      damageType: flat
+      equipped: true
+      notes: ''
+      range: 10 / 25 / 40
+      traits:
+        - pistol
+      axioms:
+        tech: 26
+        magic: 0
+        social: 0
+        spirit: 0
+      secondaryAxiom: none
+      bonus: 2
+      minStrength: null
+      loadedAmmo: null
+      gunner: null
+      gunnerFixedSkill: 0
+    ownership:
+      default: 0
+      A9LyAqagoJJU3gDH: 3
+      VAnYow5sWS9EJzo0: 3
+      e1DB4TK9SbDuMDS3: 3
+    _stats:
+      compendiumSource: Compendium.te001-core-rulebook.Items.Item.pBPp45py3ynKoMI1
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
+      createdTime: 1763998963241
+      modifiedTime: 1763998977370
+      lastModifiedBy: e1DB4TK9SbDuMDS3
+    _key: '!actors.items!CefD0chJeL6NrRVJ.pBPp45py3ynKoMI1'
+  - _id: iqqKO58UXvYX0BOU
+    name: IriMesh Clothing
+    type: armor
+    img: systems/torgeternity/images/icons/armor-icon.webp
+    effects: []
+    folder: utvPvtukeqhvUBWN
+    sort: 100000
+    flags:
+      core: {}
+    system:
+      cosm: panPacifica
+      description: "<p>A light textile woven by nano-machines. IriMesh looks and feels similar to silk, but with even more tensile strength. IriMesh can be worn at elegant banquets without looking out of place, and doesn’t raise security concerns at checkpoints.</p>\n<p>\_</p>\n<p>Found in <strong>Core Rules</strong></p>"
+      price: '250'
+      value: 12
+      bonus: 2
+      equipped: true
+      maxDex: null
+      minStrength: null
+      notes: ''
+      fatigue: null
+      axioms:
+        tech: 24
+        magic: 0
+        social: 0
+        spirit: 0
+      traits: []
+      secondaryAxiom: none
+    ownership:
+      default: 0
+      A9LyAqagoJJU3gDH: 3
+      VAnYow5sWS9EJzo0: 3
+      e1DB4TK9SbDuMDS3: 3
+    _stats:
+      compendiumSource: Compendium.te001-core-rulebook.Items.Item.iqqKO58UXvYX0BOU
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
+      createdTime: 1763998973586
+      modifiedTime: 1763998975022
+      lastModifiedBy: e1DB4TK9SbDuMDS3
+    _key: '!actors.items!CefD0chJeL6NrRVJ.iqqKO58UXvYX0BOU'
+  - _id: lmrP9mPgvki7BNrL
+    name: Sunglasses
+    type: gear
+    img: systems/torgeternity/images/icons/gear-icon.webp
+    effects: []
+    folder: YsJfoHS7Zn1p2HGR
+    sort: 1100000
+    flags:
+      core: {}
+    system:
+      cosm: nileEmpire
+      description: <p>Found in <strong>Core Rules</strong></p>
+      price: '25'
+      value: 7
+      axioms:
+        tech: 20
+        magic: 0
+        social: 0
+        spirit: 0
+      traits: []
+      secondaryAxiom: none
+    ownership:
+      default: 0
+      A9LyAqagoJJU3gDH: 3
+      VAnYow5sWS9EJzo0: 3
+      e1DB4TK9SbDuMDS3: 3
+    _stats:
+      compendiumSource: Compendium.te001-core-rulebook.Items.Item.lmrP9mPgvki7BNrL
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
+      createdTime: 1763998987011
+      modifiedTime: 1763998987011
+      lastModifiedBy: e1DB4TK9SbDuMDS3
+    _key: '!actors.items!CefD0chJeL6NrRVJ.lmrP9mPgvki7BNrL'
+  - _id: ThXFhhCEysLaKu33
+    name: Hexxer MK II
+    type: implant
+    img: systems/torgeternity/images/icons/cyberware-icon.webp
+    effects: []
+    folder: RAxVzK08QIZxH5Xs
+    sort: 1100000
+    flags:
+      core: {}
+    system:
+      cosm: cyberpapacy
+      description: >-
+        <p>An upgrade to the hexxer stores the energy from Backlash and allows
+        the warlock or witch to actually <em>use</em> it in powering her own
+        spells.</p><p>After a spellcaster suffers Backlash, the hexxer MK II
+        works like a MK I (see
+        @UUID[Compendium.te001-core-rulebook.Items.Item.Eauy7JaAHfymzpUm]{Hexxer
+        MK I}), negating half the shock from a failed spell. In addition, the
+        amount of shock negated is automatically applied as a bonus on the
+        character’s next spellcasting test. The energy dissipates after one
+        minute (six rounds), so it must be used within that time frame or the
+        bonus is lost.</p><p>Also found in Cyberpapacy Sourcebook Module</p>
+      price: '10000'
+      value: 20
+      notes: Ignored Shock becomes a casting bonus, requires Hexxer MK I
+      implantType: cyberware
+      axioms:
+        tech: 26
+        magic: 0
+        social: 0
+        spirit: 0
+      traits: []
+      secondaryAxiom: none
+    ownership:
+      default: 0
+      A9LyAqagoJJU3gDH: 3
+      VAnYow5sWS9EJzo0: 3
+      e1DB4TK9SbDuMDS3: 3
+    _stats:
+      compendiumSource: Compendium.te001-core-rulebook.Items.Item.ThXFhhCEysLaKu33
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
+      createdTime: 1763998999790
+      modifiedTime: 1763998999790
+      lastModifiedBy: e1DB4TK9SbDuMDS3
+    _key: '!actors.items!CefD0chJeL6NrRVJ.ThXFhhCEysLaKu33'
+  - _id: 864xQmuyAFxvr1yc
     name: Diminish
     type: spell
     img: systems/torgeternity/images/icons/spell-icon.webp
     effects: []
-    folder: gjZiCPX5knOIpsHd
-    sort: 406250
+    folder: O9ZyApkryPZ4Xe7G
+    sort: 700000
     flags:
       core: {}
     system:
       ap: 0
       applyArmor: false
       applySize: false
-      axiom: 10
       castingtime: 1 action
-      damage: 0
-      description: "<p><em>Diminish</em> reduces one of the opponent’s attributes (chosen when the spell is cast) and related skills by −2. Separate castings may affect multiple attributes.</p><p>Spellcasters mime an action related to the affected attribute while casting—sneering to reduce <em>Spirit</em>, pretending to stumble if reducing <em>Dexterity</em>, etc.</p><p>Reducing <em>Strength</em> or <em>Spirit</em> does <em>not</em> reduce Toughness or Shock.</p><p>@UUID[Compendium.torgeternity.macros.Macro.sZsA7sBGVaCJTzz0]{Buff!}</p><p>\_</p><p>Found in <strong>Core Rules</strong></p>"
+      damage: null
+      description: >-
+        <p><em>Diminish</em> reduces one of the opponent’s attributes (chosen
+        when the spell is cast) and related skills by −2. Separate castings may
+        affect multiple attributes.</p><p>Spellcasters mime an action related to
+        the affected attribute while casting—sneering to reduce <em>Spirit</em>,
+        pretending to stumble if reducing <em>Dexterity</em>,
+        etc.</p><p>Reducing <em>Strength</em> or <em>Spirit</em> does
+        <em>not</em> reduce Toughness or
+        Shock.</p><p>@Buff[charisma=-2|duration=3]{Diminish: -2
+        Char}</p><p>@Buff[dexterity=-2|duration=3]{Diminish: -2
+        Dex}</p><p>@Buff[mind=-2|duration=3]{Diminish: -2
+        Mind}</p><p>@Buff[spirit=-2|duration=3]{Diminish: -2
+        Spirit}</p><p>@Buff[strength=-2|duration=3]{Diminish: -2
+        Str}</p><p></p><p>Found in <strong>Core Rules</strong></p>
       dn: targetWillpower
       dnType: ''
       duration: 3 rounds
-      good: The penalty is increased to −4
+      good: >-
+        <p>The penalty is increased to
+        −4</p><p>@Buff[charisma=-4|duration=3]{Diminish: -4
+        Char}</p><p>@Buff[dexterity=-4|duration=3]{Diminish: -4
+        Dex}</p><p>@Buff[mind=-4|duration=3]{Diminish: -4
+        Mind}</p><p>@Buff[spirit=-4|duration=3]{Diminish: -4
+        Spirit}</p><p>@Buff[strength=-4|duration=3]{Diminish: -4 Str}</p>
       isAttack: false
       modifier: ''
       outstanding: >-
@@ -442,105 +500,163 @@ items:
       skill: alteration
       skilllevel: '12'
       targetDefense: ''
+      axioms:
+        magic: 10
+        social: 0
+        spirit: 0
+        tech: 0
+      cosm: none
+      traits: []
+      requiresConcentration: false
     ownership:
       default: 0
       A9LyAqagoJJU3gDH: 3
-      CtisFurQNe9h7ABb: 3
-      93AMwcGe6H37rcPA: 3
+      VAnYow5sWS9EJzo0: 3
+      e1DB4TK9SbDuMDS3: 3
     _stats:
-      compendiumSource: Compendium.te001-core-rulebook.Items.864xQmuyAFxvr1yc
+      compendiumSource: Compendium.te001-core-rulebook.Items.Item.864xQmuyAFxvr1yc
       duplicateSource: null
-      coreVersion: '13.345'
-      systemId: torgeternity
-      systemVersion: 12.2.0
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
       exportSource: null
-    _key: '!actors.items!CefD0chJeL6NrRVJ.XuKxoZ61AaEax8wH'
-  - name: Enhance
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
+      createdTime: 1763999012718
+      modifiedTime: 1763999012718
+      lastModifiedBy: e1DB4TK9SbDuMDS3
+    _key: '!actors.items!CefD0chJeL6NrRVJ.864xQmuyAFxvr1yc'
+  - _id: wFtHQvjizwV4c8U5
+    name: Enhance
     type: spell
     img: systems/torgeternity/images/icons/spell-icon.webp
     effects: []
-    folder: gjZiCPX5knOIpsHd
+    folder: O9ZyApkryPZ4Xe7G
+    sort: 1100000
     flags:
       core: {}
     system:
       ap: 0
       applyArmor: false
       applySize: false
-      axiom: 10
       castingtime: 1 action
-      damage: 0
-      description: "<p>This spell enhances a single attribute of the caster or an ally by +1. Multiple allies may be enhanced at the same time so long as all are within range and the caster uses the Multi-Target option. The DN is the attribute to be affected—the better someone’s ability, the harder it is to improve on it. Different attributes may be increased with separate castings.</p><p>If the caster increases <em>Strength</em> or <em>Spirit</em>, it does <em>not</em> increase Toughness or Shock. Mages pantomime some aspect of the attribute to be increased while casting—cracking their knuckles to improve <em>Dexterity</em>, flexing their muscles to enhance <em>Strength</em>, and so on.</p><p>@UUID[Compendium.torgeternity.macros.Macro.sZsA7sBGVaCJTzz0]{Buff!}</p><p>\_</p><p>Found in <strong>Core Rules</strong></p>"
+      damage: null
+      description: >-
+        <p>This spell enhances a single attribute of the caster or an ally by
+        +1. Multiple allies may be enhanced at the same time so long as all are
+        within range and the caster uses the Multi-Target option. The DN is the
+        attribute to be affected - the better someone’s ability, the harder it
+        is to improve on it. Different attributes may be increased with separate
+        castings.</p><p><strong>Change DN attribute before rolling the
+        test!</strong></p><p>If the caster increases <em>Strength</em> or
+        <em>Spirit</em>, it does <em>not</em> increase Toughness or Shock. Mages
+        pantomime some aspect of the attribute to be increased while casting -
+        cracking their knuckles to improve <em>Dexterity</em>, flexing their
+        muscles to enhance <em>Strength</em>, and so
+        on.</p><p>@Buff[charisma=+1|duration=3]{Enhance: +1
+        Cha}</p><p>@Buff[dexterity=+1|duration=3]{Enhance: +1
+        Dex}</p><p>@Buff[mind=+1|duration=3]{Enhance: +1
+        Mind}</p><p>@Buff[spirit=+1|duration=3]{Enhance: +1
+        Spirit}</p><p>@Buff[strength=+1|duration=3]{Enhance: +1
+        Str}</p><p></p><p>Found in <strong>Core Rules</strong></p>
       dn: targetCharisma
       dnType: ''
       duration: 3 rounds
-      good: The attribute is enhanced by +2
+      good: >-
+        <p>The attribute is enhanced by
+        +2</p><p>@Buff[charisma=+2|duration=3]{Enhance: +2
+        Cha}</p><p>@Buff[dexterity=+2|duration=3]{Enhance: +2
+        Dex}</p><p>@Buff[mind=+2|duration=3]{Enhance: +2
+        Mind}</p><p>@Buff[spirit=+2|duration=3]{Enhance: +2
+        Spirit}</p><p>@Buff[strength=+2|duration=3]{Enhance: +2 Str}</p>
       isAttack: false
       modifier: ''
-      outstanding: The attribute is enhanced by +3
+      outstanding: >-
+        <p>The attribute is enhanced by
+        +3</p><p>@Buff[charisma=+3|duration=3]{Enhance: +3
+        Cha}</p><p>@Buff[dexterity=+3|duration=3]{Enhance: +3
+        Dex}</p><p>@Buff[mind=+3|duration=3]{Enhance: +3
+        Mind}</p><p>@Buff[spirit=+3|duration=3]{Enhance: +3
+        Spirit}</p><p>@Buff[strength=+3|duration=3]{Enhance: +3 Str}</p>
       range: 40 meters
       skill: alteration
       skilllevel: '12'
       targetDefense: ''
+      axioms:
+        magic: 10
+        social: 0
+        spirit: 0
+        tech: 0
+      cosm: none
+      traits: []
+      requiresConcentration: false
     ownership:
       default: 0
-      CtisFurQNe9h7ABb: 3
-      93AMwcGe6H37rcPA: 3
+      A9LyAqagoJJU3gDH: 3
+      VAnYow5sWS9EJzo0: 3
+      e1DB4TK9SbDuMDS3: 3
     _stats:
       compendiumSource: Compendium.te001-core-rulebook.Items.Item.wFtHQvjizwV4c8U5
       duplicateSource: null
-      coreVersion: '13.345'
-      systemId: torgeternity
-      systemVersion: 12.2.0
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
       exportSource: null
-    _id: EPad9pMZNZO483aP
-    sort: 575000
-    _key: '!actors.items!CefD0chJeL6NrRVJ.EPad9pMZNZO483aP'
-  - name: Human
-    type: race
-    img: systems/torgeternity/images/icons/human-icon.webp
-    system:
-      name: ''
-      description: >-
-        <img class="charimg" src="modules/te001-core-rulebook/images/aidan.webp"
-        /><p>Most characters in the Possibility Wars are humans from Core Earth
-        or one of the seven
-        cosms.</p><p>@UUID[Compendium.te001-core-rulebook.rules.JournalEntry.1uWZq6PSVddE1KQs.JournalEntryPage.QGtiReSKzXZa2Tkn#human]{Human
-        Perks}</p>
-      attributeMaximum:
-        charisma: 13
-        dexterity: 13
-        mind: 13
-        spirit: 13
-        strength: 13
-      perksData: []
-      size: normal
-      darkvision: false
-      customAttackData: []
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
+      createdTime: 1763999022725
+      modifiedTime: 1763999022725
+      lastModifiedBy: e1DB4TK9SbDuMDS3
+    _key: '!actors.items!CefD0chJeL6NrRVJ.wFtHQvjizwV4c8U5'
+  - _id: CJz3Fe0Ld1tsBRYc
+    name: Scrambler
+    type: spell
+    img: systems/torgeternity/images/icons/spell-icon.webp
     effects: []
-    folder: TwzEDO2AmeaaSwtn
+    folder: O9ZyApkryPZ4Xe7G
+    sort: 2900000
+    flags:
+      core: {}
+    system:
+      ap: 0
+      applyArmor: false
+      applySize: false
+      castingtime: 1 action
+      damage: null
+      description: "<p>Used primarily in the watchdog regime of the Cyberpapacy, <em>scrambler</em> obscures everyone in the affected area from all security and surveillance systems.</p>\n<p>Captured video and voices become blurry and unidentifiable to such devices, and targeting bonuses from smart ammunition and augmented reality HUDs are negated.</p>\n<p>\_</p>\n<p>Found in <strong>Core Rules</strong></p>"
+      dn: standard
+      dnType: ''
+      duration: 10 minutes
+      good: The Range is increased to a 100-meter radius
+      isAttack: false
+      modifier: ''
+      outstanding: >-
+        The caster’s video and voice are completely erased and the duration
+        increases to an last hour
+      range: 50 meters radius
+      skill: alteration
+      skilllevel: '10'
+      targetDefense: ''
+      axioms:
+        magic: 9
+        social: 0
+        spirit: 0
+        tech: 0
+      cosm: none
+      traits: []
+      requiresConcentration: false
     ownership:
       default: 0
-      d8YcfsxBOP7RAazk: 3
-    flags: {}
+      A9LyAqagoJJU3gDH: 3
+      VAnYow5sWS9EJzo0: 3
+      e1DB4TK9SbDuMDS3: 3
     _stats:
-      compendiumSource: Compendium.te001-core-rulebook.Items.Item.xu2Vjk8W6NDhkSTv
+      compendiumSource: Compendium.te001-core-rulebook.Items.Item.CJz3Fe0Ld1tsBRYc
       duplicateSource: null
-      coreVersion: '13.345'
-      systemId: torgeternity
-      systemVersion: 12.3.0
-      createdTime: 1729582088910
-      modifiedTime: 1729582088910
-      lastModifiedBy: d8YcfsxBOP7RAazk
       exportSource: null
-    _id: v3OyE4fW0R7CVm8h
-    sort: 100000
-    _key: '!actors.items!CefD0chJeL6NrRVJ.v3OyE4fW0R7CVm8h'
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
+      createdTime: 1763999031079
+      modifiedTime: 1763999031079
+      lastModifiedBy: e1DB4TK9SbDuMDS3
+    _key: '!actors.items!CefD0chJeL6NrRVJ.CJz3Fe0Ld1tsBRYc'
 effects: []
 folder: null
 sort: 100001
@@ -998,4 +1114,3 @@ _stats:
   duplicateSource: null
   exportSource: null
 _key: '!actors!CefD0chJeL6NrRVJ'
-

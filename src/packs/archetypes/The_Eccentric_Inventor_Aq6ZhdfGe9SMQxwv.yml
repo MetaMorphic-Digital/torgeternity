@@ -3,268 +3,6 @@ name: The Eccentric Inventor
 type: stormknight
 img: systems/torgeternity/images/characters/Eccentric_Inventor.Avatar.webp
 items:
-  - _id: E6JiAtIrHBIrc4Hp
-    name: Electro-Ray
-    type: firearm
-    sort: 400001
-    flags:
-      core: {}
-    img: systems/torgeternity/images/icons/firearm-icon.webp
-    effects: []
-    folder: null
-    system:
-      cosm: none
-      description: >-
-        <p>If energy weapons test is a Mishap device stops functioning for the
-        scene.</p>
-      price: '0'
-      techlevel: 20
-      value: 0
-      ammo:
-        max: 5
-        value: 5
-      ap: 0
-      attackWith: energyWeapons
-      chatNote: +2 damage if target wet or +4 if soaked
-      damage: 15
-      damageType: ''
-      equipped: true
-      notes: Requires Electro-Ray perk, Replinishes 1 ammo per round
-      range: 10/25/50
-      secondaryAxiom:
-        selected: none
-        value: null
-    ownership:
-      default: 0
-    _stats:
-      systemId: torgeternity
-      systemVersion: 13.2.2
-      coreVersion: '13.346'
-      createdTime: null
-      modifiedTime: 1753599074606
-      lastModifiedBy: W32Zl65V9atvPk8o
-      compendiumSource: Item.W8ZARSxZdHHv4JZN
-      duplicateSource: null
-      exportSource: null
-    _key: '!actors.items!Aq6ZhdfGe9SMQxwv.E6JiAtIrHBIrc4Hp'
-  - _id: el7ijfFcwh1cCRcR
-    name: Electro-Ray
-    type: perk
-    img: systems/torgeternity/images/icons/reality-icon.webp
-    effects: []
-    folder: null
-    sort: 0
-    flags:
-      core: {}
-    system:
-      category: pulpPowers
-      cosm: nileEmpire
-      description: "<p>The hero can fire a powerful bolt of electricity at a target. It has a maximum range of 10/25/50 meters and causes 13 damage. The ray contains five shots, and regenerates one shot each round. Attacking with the Ray uses <em>energy weapons</em>.</p>\n<p><strong>Dangerous When Wet:</strong> Increase the damage by +2 in light rain or if the target is standing in a puddle, and +4 in heavy rain or if the target is in water up to his ankles or higher.</p>\n<p>\_</p>\n<p>Found in <strong>Core Rules</strong></p>"
-      prerequisites: ''
-      generalContradiction: true
-      pulpPowers:
-        enhancement01:
-          description: The damage is increased to 15.
-          taken: true
-          title: Damage
-        enhancement02:
-          description: >-
-            The character may use the Short Burst option when using his
-            Electro-Ray.
-          taken: false
-          title: Rapid Fire
-        enhancement03:
-          description: The power now holds 10 shots.
-          taken: false
-          title: Shots
-        enhancement04:
-          description: The ray gun affects everyone in a Small Blast Radius.
-          taken: false
-          title: Small Blast Radius
-        enhancement05:
-          description: ''
-          taken: false
-          title: ''
-        enhancement06:
-          description: ''
-          taken: false
-          title: ''
-        enhancement07:
-          description: ''
-          taken: false
-          title: ''
-        enhancement08:
-          description: ''
-          taken: false
-          title: ''
-        enhancement09:
-          description: ''
-          taken: false
-          title: ''
-        enhancement10:
-          description: ''
-          taken: false
-          title: ''
-        enhancement11:
-          description: ''
-          taken: false
-          title: ''
-        enhancement12:
-          description: ''
-          taken: false
-          title: ''
-        enhancement13:
-          description: ''
-          taken: false
-          title: ''
-        enhancement14:
-          description: ''
-          taken: false
-          title: ''
-        enhancement15:
-          description: ''
-          taken: false
-          title: ''
-        enhancementNumber: 4
-        limitation01: >-
-          If energy weapons test is a Mishap device stops functioning for the
-          scene.
-        limitation02: ''
-        limitation03: ''
-        limitation04: ''
-        limitation05: ''
-        limitation06: ''
-        limitation07: ''
-        limitation08: ''
-        limitation09: ''
-        limitation10: ''
-        limitationNumber: 1
-      timestaken: '1'
-      secondaryAxiom:
-        selected: none
-        value: null
-    ownership:
-      default: 0
-      A9LyAqagoJJU3gDH: 3
-      CtisFurQNe9h7ABb: 3
-    _stats:
-      systemId: torgeternity
-      systemVersion: 12.2.0
-      coreVersion: '13.345'
-      createdTime: 1693901087967
-      modifiedTime: 1722152785951
-      lastModifiedBy: 93AMwcGe6H37rcPA
-      compendiumSource: Compendium.te001-core-rulebook.Items.OMSbysWG7R7kHKnY
-      duplicateSource: null
-      exportSource: null
-    _key: '!actors.items!Aq6ZhdfGe9SMQxwv.el7ijfFcwh1cCRcR'
-  - _id: uk7sK6sWfxJIbulc
-    name: Force Field
-    type: perk
-    img: systems/torgeternity/images/icons/reality-icon.webp
-    effects: []
-    folder: null
-    sort: 0
-    flags:
-      core: {}
-    system:
-      category: pulpPowers
-      cosm: nileEmpire
-      description: "<p>A shield of invisible energy surrounds the hero.</p>\n<p>The force field has three <q>charges.</q> Each time the hero suffers a wound, the field expends a charge to block the wound and 2 shock.</p>\n<p>The field recharges at the rate of one charge per hour.</p>\n<p>\_</p>\n<p>Found in <strong>Core Rules</strong></p>"
-      prerequisites: ''
-      generalContradiction: true
-      pulpPowers:
-        enhancement01:
-          description: The field has 5 charges.
-          taken: true
-          title: Power
-        enhancement02:
-          description: The field regains a charge every 10 minutes.
-          taken: false
-          title: Recharge
-        enhancement03:
-          description: The field can be used to protect an adjacent ally.
-          taken: false
-          title: Size
-        enhancement04:
-          description: ''
-          taken: false
-          title: ''
-        enhancement05:
-          description: ''
-          taken: false
-          title: ''
-        enhancement06:
-          description: ''
-          taken: false
-          title: ''
-        enhancement07:
-          description: ''
-          taken: false
-          title: ''
-        enhancement08:
-          description: ''
-          taken: false
-          title: ''
-        enhancement09:
-          description: ''
-          taken: false
-          title: ''
-        enhancement10:
-          description: ''
-          taken: false
-          title: ''
-        enhancement11:
-          description: ''
-          taken: false
-          title: ''
-        enhancement12:
-          description: ''
-          taken: false
-          title: ''
-        enhancement13:
-          description: ''
-          taken: false
-          title: ''
-        enhancement14:
-          description: ''
-          taken: false
-          title: ''
-        enhancement15:
-          description: ''
-          taken: false
-          title: ''
-        enhancementNumber: 3
-        limitation01: Device must be activated as a simple action.
-        limitation02: ''
-        limitation03: ''
-        limitation04: ''
-        limitation05: ''
-        limitation06: ''
-        limitation07: ''
-        limitation08: ''
-        limitation09: ''
-        limitation10: ''
-        limitationNumber: 1
-      timestaken: '1'
-      secondaryAxiom:
-        selected: none
-        value: null
-    ownership:
-      default: 0
-      A9LyAqagoJJU3gDH: 3
-      CtisFurQNe9h7ABb: 3
-    _stats:
-      systemId: torgeternity
-      systemVersion: 12.2.0
-      coreVersion: '13.345'
-      createdTime: 1693901168472
-      modifiedTime: 1722152797064
-      lastModifiedBy: 93AMwcGe6H37rcPA
-      compendiumSource: Compendium.te001-core-rulebook.Items.r3NzZGyQ04yQNJXc
-      duplicateSource: null
-      exportSource: null
-    _key: '!actors.items!Aq6ZhdfGe9SMQxwv.uk7sK6sWfxJIbulc'
   - _id: NWapUa2jcALYy3AO
     name: Flashlight
     type: gear
@@ -650,6 +388,295 @@ items:
     _id: WxWrR6snWWc7GRAE
     sort: 100000
     _key: '!actors.items!Aq6ZhdfGe9SMQxwv.WxWrR6snWWc7GRAE'
+  - _id: OMSbysWG7R7kHKnY
+    name: Electro-Ray
+    type: perk
+    img: systems/torgeternity/images/icons/reality-icon.webp
+    effects: []
+    folder: Xgj1s09b34m8ucU7
+    sort: 100000
+    flags:
+      core: {}
+    system:
+      category: pulpPowers
+      cosm: nileEmpire
+      description: >-
+        <p>The hero can fire a powerful bolt of electricity at a target. It has
+        a maximum range of 10/25/50 meters and causes 13 damage. The ray
+        contains five shots, and regenerates one shot each round. Attacking with
+        the Ray uses <em>energy weapons</em>.</p><p><strong>Dangerous When
+        Wet:</strong> Increase the damage by +2 in light rain or if the target
+        is standing in a puddle, and +4 in heavy rain or if the target is in
+        water up to his ankles or higher.</p><p>Use
+        @UUID[Compendium.te001-core-rulebook.Items.Item.lhw0rxhSj8M6FEVL]{Electro-Ray}</p><p>Found
+        in <strong>Core Rules</strong></p>
+      prerequisites: ''
+      generalContradiction: true
+      pulpPowers:
+        enhancement01:
+          description: The damage is increased to 15.
+          taken: false
+          title: Damage
+        enhancement02:
+          description: >-
+            The character may use the Short Burst option when using his
+            Electro-Ray.
+          taken: false
+          title: Rapid Fire
+        enhancement03:
+          description: The power now holds 10 shots.
+          taken: false
+          title: Shots
+        enhancement04:
+          description: The ray gun affects everyone in a Small Blast Radius.
+          taken: false
+          title: Small Blast Radius
+        enhancement05:
+          description: ''
+          taken: false
+          title: ''
+        enhancement06:
+          description: ''
+          taken: false
+          title: ''
+        enhancement07:
+          description: ''
+          taken: false
+          title: ''
+        enhancement08:
+          description: ''
+          taken: false
+          title: ''
+        enhancement09:
+          description: ''
+          taken: false
+          title: ''
+        enhancement10:
+          description: ''
+          taken: false
+          title: ''
+        enhancement11:
+          description: ''
+          taken: false
+          title: ''
+        enhancement12:
+          description: ''
+          taken: false
+          title: ''
+        enhancement13:
+          description: ''
+          taken: false
+          title: ''
+        enhancement14:
+          description: ''
+          taken: false
+          title: ''
+        enhancement15:
+          description: ''
+          taken: false
+          title: ''
+        enhancementNumber: 4
+        limitation01: ''
+        limitation02: ''
+        limitation03: ''
+        limitation04: ''
+        limitation05: ''
+        limitation06: ''
+        limitation07: ''
+        limitation08: ''
+        limitation09: ''
+        limitation10: ''
+        limitationNumber: 0
+      timestaken: ''
+      traits: []
+      axioms:
+        magic: 0
+        social: 0
+        spirit: 0
+        tech: 0
+      secondaryAxiom: none
+      transferenceID: OMSbysWG7R7kHKnY
+    ownership:
+      default: 0
+      A9LyAqagoJJU3gDH: 3
+      VAnYow5sWS9EJzo0: 3
+      e1DB4TK9SbDuMDS3: 3
+    _stats:
+      compendiumSource: Compendium.te001-core-rulebook.Items.Item.OMSbysWG7R7kHKnY
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
+      createdTime: 1763999219103
+      modifiedTime: 1763999219103
+      lastModifiedBy: e1DB4TK9SbDuMDS3
+    _key: '!actors.items!Aq6ZhdfGe9SMQxwv.OMSbysWG7R7kHKnY'
+  - name: Electro-Ray
+    type: firearm
+    flags:
+      core: {}
+    img: systems/torgeternity/images/icons/firearm-icon.webp
+    effects: []
+    folder: Xgj1s09b34m8ucU7
+    system:
+      cosm: nileEmpire
+      description: "<p>Aquired by @UUID[Compendium.te001-core-rulebook.Items.Item.OMSbysWG7R7kHKnY]{Electro-Ray}</p><p>The hero can fire a powerful bolt of electricity at a target. It has a maximum range of 10/25/50 meters and causes 13 damage. The ray contains five shots, and regenerates one shot each round. Attacking with the Ray uses <em>energy weapons</em>.</p><p><strong>Dangerous When Wet:</strong> Increase the damage by +2 in light rain or if the target is standing in a puddle, and +4 in heavy rain or if the target is in water up to his ankles or higher.</p><p>\_</p><p>Found in <strong>Core Rules</strong></p>"
+      price: ''
+      value: null
+      ammo:
+        max: 5
+        value: 5
+      ap: 0
+      attackWith: energyWeapons
+      chatNote: +2 damage if target wet or +4 if soaked
+      damage: 13
+      damageType: ''
+      equipped: true
+      notes: Replinishes 1 ammo per round
+      range: 10 / 25 / 50
+      secondaryAxiom: none
+      traits: []
+      bonus: 2
+      minStrength: null
+      gunner: null
+      axioms:
+        tech: 20
+        magic: 0
+        social: 0
+        spirit: 0
+      loadedAmmo: null
+      gunnerFixedSkill: 0
+    _stats:
+      compendiumSource: Compendium.te001-core-rulebook.Items.Item.lhw0rxhSj8M6FEVL
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
+      createdTime: 1763999225240
+      modifiedTime: 1763999225240
+      lastModifiedBy: e1DB4TK9SbDuMDS3
+    ownership:
+      default: 0
+      W32Zl65V9atvPk8o: 3
+      e1DB4TK9SbDuMDS3: 3
+    _id: lhw0rxhSj8M6FEVL
+    sort: 0
+    _key: '!actors.items!Aq6ZhdfGe9SMQxwv.lhw0rxhSj8M6FEVL'
+  - _id: r3NzZGyQ04yQNJXc
+    name: Force Field
+    type: perk
+    img: systems/torgeternity/images/icons/reality-icon.webp
+    effects: []
+    folder: Xgj1s09b34m8ucU7
+    sort: 300000
+    flags:
+      core: {}
+    system:
+      category: pulpPowers
+      cosm: nileEmpire
+      description: "<p>A shield of invisible energy surrounds the hero.</p>\n<p>The force field has three <q>charges.</q> Each time the hero suffers a wound, the field expends a charge to block the wound and 2 shock.</p>\n<p>The field recharges at the rate of one charge per hour.</p>\n<p>\_</p>\n<p>Found in <strong>Core Rules</strong></p>"
+      prerequisites: ''
+      generalContradiction: true
+      pulpPowers:
+        enhancement01:
+          description: The field has 5 charges.
+          taken: false
+          title: Power
+        enhancement02:
+          description: The field regains a charge every 10 minutes.
+          taken: false
+          title: Recharge
+        enhancement03:
+          description: The field can be used to protect an adjacent ally.
+          taken: false
+          title: Size
+        enhancement04:
+          description: ''
+          taken: false
+          title: ''
+        enhancement05:
+          description: ''
+          taken: false
+          title: ''
+        enhancement06:
+          description: ''
+          taken: false
+          title: ''
+        enhancement07:
+          description: ''
+          taken: false
+          title: ''
+        enhancement08:
+          description: ''
+          taken: false
+          title: ''
+        enhancement09:
+          description: ''
+          taken: false
+          title: ''
+        enhancement10:
+          description: ''
+          taken: false
+          title: ''
+        enhancement11:
+          description: ''
+          taken: false
+          title: ''
+        enhancement12:
+          description: ''
+          taken: false
+          title: ''
+        enhancement13:
+          description: ''
+          taken: false
+          title: ''
+        enhancement14:
+          description: ''
+          taken: false
+          title: ''
+        enhancement15:
+          description: ''
+          taken: false
+          title: ''
+        enhancementNumber: 3
+        limitation01: ''
+        limitation02: ''
+        limitation03: ''
+        limitation04: ''
+        limitation05: ''
+        limitation06: ''
+        limitation07: ''
+        limitation08: ''
+        limitation09: ''
+        limitation10: ''
+        limitationNumber: 0
+      timestaken: ''
+      traits: []
+      axioms:
+        magic: 0
+        social: 0
+        spirit: 0
+        tech: 0
+      secondaryAxiom: none
+      transferenceID: r3NzZGyQ04yQNJXc
+    ownership:
+      default: 0
+      A9LyAqagoJJU3gDH: 3
+      VAnYow5sWS9EJzo0: 3
+      e1DB4TK9SbDuMDS3: 3
+    _stats:
+      compendiumSource: Compendium.te001-core-rulebook.Items.Item.r3NzZGyQ04yQNJXc
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
+      createdTime: 1763999236345
+      modifiedTime: 1763999236345
+      lastModifiedBy: e1DB4TK9SbDuMDS3
+    _key: '!actors.items!Aq6ZhdfGe9SMQxwv.r3NzZGyQ04yQNJXc'
 effects: []
 folder: null
 sort: 100001
@@ -1187,4 +1214,3 @@ _stats:
   duplicateSource: null
   exportSource: null
 _key: '!actors!Aq6ZhdfGe9SMQxwv'
-

@@ -529,7 +529,7 @@ items:
           turns: null
           startRound: null
           startTurn: null
-        disabled: true
+        disabled: false
         name: Maneuver Fav
         _id: qNNSmAnRkG0Ot2Yf
         changes:
@@ -538,23 +538,25 @@ items:
             value: '1'
             priority: null
         description: ''
-        transfer: true
+        transfer: false
         statuses: []
         flags: {}
         tint: '#ffffff'
         _stats:
           compendiumSource: null
           duplicateSource: null
-          coreVersion: '13.345'
+          coreVersion: '13.351'
           systemId: torgeternity
-          systemVersion: 12.2.0
+          systemVersion: 13.13.2
           createdTime: null
-          modifiedTime: null
-          lastModifiedBy: null
+          modifiedTime: 1764004051270
+          lastModifiedBy: e1DB4TK9SbDuMDS3
           exportSource: null
         img: icons/svg/aura.svg
         type: base
-        system: {}
+        system:
+          transferOnAttack: true
+          transferOnOutcome: 0
         sort: 0
         _key: >-
           !actors.items.effects!8KlJAaxeijOcrJKN.0reE7AXEREP0lHJD.qNNSmAnRkG0Ot2Yf
@@ -1172,4 +1174,3 @@ _stats:
   duplicateSource: null
   exportSource: null
 _key: '!actors!8KlJAaxeijOcrJKN'
-

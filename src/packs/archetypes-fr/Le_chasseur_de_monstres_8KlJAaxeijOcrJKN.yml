@@ -134,7 +134,50 @@ items:
     flags:
       core: {}
     img: systems/torgeternity/images/icons/gear-icon.webp
-    effects: []
+    effects:
+      - name: Maneuver Fav
+        origin: >-
+          Compendium.torgeternity.archetypes-fr.Actor.8KlJAaxeijOcrJKN.Item.UTEYkvqTcKLhFHtX
+        duration:
+          startTime: null
+          combat: null
+          seconds: null
+          rounds: null
+          turns: null
+          startRound: null
+          startTurn: null
+        disabled: false
+        img: icons/svg/aura.svg
+        _id: YLtzgGhIrk6mjI4E
+        type: base
+        system:
+          transferOnAttack: true
+          applyIfAttackTrait: []
+          applyIfDefendTrait: []
+          transferOnOutcome: 0
+        changes:
+          - key: system.skills.maneuver.isFav
+            mode: 5
+            value: 'true'
+            priority: null
+        description: ''
+        tint: '#ffffff'
+        transfer: false
+        statuses: []
+        sort: 0
+        flags: {}
+        _stats:
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+          coreVersion: '13.351'
+          systemId: torgeternity
+          systemVersion: 13.13.2
+          createdTime: 1764004060497
+          modifiedTime: 1764004126500
+          lastModifiedBy: e1DB4TK9SbDuMDS3
+        _key: >-
+          !actors.items.effects!8KlJAaxeijOcrJKN.UTEYkvqTcKLhFHtX.YLtzgGhIrk6mjI4E
     folder: null
     system:
       cosm: Orrorsh
@@ -320,16 +363,16 @@ items:
       maxDex: 10
       minStrength: null
       notes: Fatigue
-      fatigue: 0
+      fatigue: 1
     ownership:
       default: 0
     _stats:
       systemId: torgeternity
-      systemVersion: 13.10.0
-      coreVersion: '13.348'
+      systemVersion: 13.13.2
+      coreVersion: '13.351'
       createdTime: null
-      modifiedTime: 1758493495731
-      lastModifiedBy: l8SVzn2293lAwvMC
+      modifiedTime: 1764002474239
+      lastModifiedBy: e1DB4TK9SbDuMDS3
       compendiumSource: Item.Lr8qGqk2VWGODo7S
       duplicateSource: null
       exportSource: null
@@ -568,48 +611,7 @@ items:
       modifiedTime: 1758491119221
       lastModifiedBy: l8SVzn2293lAwvMC
     _key: '!actors.items!8KlJAaxeijOcrJKN.hQZcOgojBbDcCCfe'
-effects:
-  - _id: 4CnECaHDlW4TJfe7
-    flags: {}
-    changes:
-      - key: system.other.armor
-        value: '2'
-        mode: 2
-        priority: null
-      - key: system.other.toughness
-        value: '2'
-        mode: 2
-        priority: null
-    disabled: true
-    duration:
-      startTime: 0
-      startRound: 0
-      startTurn: 0
-      seconds: null
-      combat: null
-      rounds: null
-      turns: null
-    origin: Actor.jvm80YhOFmKEp0Zy.Item.RUsXW2vMzlcDbzM4
-    tint: '#ffffff'
-    transfer: true
-    name: Armor +2
-    description: ''
-    statuses: []
-    _stats:
-      coreVersion: '13.348'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: 1758493503464
-      lastModifiedBy: l8SVzn2293lAwvMC
-      compendiumSource: null
-      duplicateSource: null
-      exportSource: null
-    img: icons/svg/aura.svg
-    type: base
-    system: {}
-    sort: 0
-    _key: '!actors.effects!8KlJAaxeijOcrJKN.4CnECaHDlW4TJfe7'
+effects: []
 folder: null
 sort: 100001
 flags: {}
@@ -633,7 +635,7 @@ system:
       base: 8
   other:
     cosm: orrorsh
-    possibilities: 0
+    possibilities: 3
   skills:
     airVehicles:
       baseAttribute: dexterity
@@ -1165,13 +1167,12 @@ prototypeToken:
   movementAction: null
 _stats:
   systemId: torgeternity
-  systemVersion: 3.8.1
-  coreVersion: '13.348'
+  systemVersion: 13.13.2
+  coreVersion: '13.351'
   createdTime: 1716827809076
-  modifiedTime: 1758530125206
-  lastModifiedBy: BMvGTGfheqDXarjN
+  modifiedTime: 1764001552348
+  lastModifiedBy: e1DB4TK9SbDuMDS3
   compendiumSource: null
   duplicateSource: null
   exportSource: null
 _key: '!actors!8KlJAaxeijOcrJKN'
-

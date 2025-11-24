@@ -399,16 +399,16 @@ items:
       maxDex: 10
       minStrength: null
       notes: Torse, Fatigues
-      fatigue: 0
+      fatigue: 1
     ownership:
       default: 0
     _stats:
       systemId: torgeternity
-      systemVersion: 13.10.0
-      coreVersion: '13.348'
+      systemVersion: 13.13.2
+      coreVersion: '13.351'
       createdTime: null
-      modifiedTime: 1758493517708
-      lastModifiedBy: l8SVzn2293lAwvMC
+      modifiedTime: 1764002415773
+      lastModifiedBy: e1DB4TK9SbDuMDS3
       compendiumSource: Item.hRA2cLvVL3HWJxlu
       duplicateSource: null
       exportSource: null
@@ -572,48 +572,7 @@ items:
       modifiedTime: 1758491119555
       lastModifiedBy: l8SVzn2293lAwvMC
     _key: '!actors.items!non4XwpfJLE9GiST.zlCFLaObdqm1Pt1P'
-effects:
-  - _id: G3bURQ2VTFKNrIcf
-    flags: {}
-    changes:
-      - key: system.other.armor
-        mode: 2
-        value: '4'
-        priority: null
-      - key: system.other.toughness
-        mode: 2
-        value: '4'
-        priority: null
-    disabled: true
-    duration:
-      startTime: 0
-      seconds: null
-      combat: null
-      rounds: null
-      turns: null
-      startRound: null
-      startTurn: null
-    origin: Actor.SZAUvb28VxAD8Xw8.Item.RUMcCWACZRv1vpoO
-    tint: '#ffffff'
-    transfer: true
-    name: +4 armure
-    description: ''
-    statuses: []
-    _stats:
-      coreVersion: '13.348'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: 1758493525949
-      lastModifiedBy: l8SVzn2293lAwvMC
-      compendiumSource: null
-      duplicateSource: null
-      exportSource: null
-    img: icons/svg/shield.svg
-    type: base
-    system: {}
-    sort: 0
-    _key: '!actors.effects!non4XwpfJLE9GiST.G3bURQ2VTFKNrIcf'
+effects: []
 folder: null
 sort: 100001
 flags: {}
@@ -637,7 +596,7 @@ system:
       base: 8
   other:
     cosm: coreEarth
-    possibilities: 0
+    possibilities: 3
   skills:
     airVehicles:
       baseAttribute: dexterity
@@ -1152,13 +1111,12 @@ prototypeToken:
   movementAction: null
 _stats:
   systemId: torgeternity
-  systemVersion: 3.8.1
-  coreVersion: '13.348'
+  systemVersion: 13.13.2
+  coreVersion: '13.351'
   createdTime: 1716827809742
-  modifiedTime: 1758530141625
-  lastModifiedBy: BMvGTGfheqDXarjN
+  modifiedTime: 1764001558214
+  lastModifiedBy: e1DB4TK9SbDuMDS3
   compendiumSource: null
   duplicateSource: null
   exportSource: null
 _key: '!actors!non4XwpfJLE9GiST'
-

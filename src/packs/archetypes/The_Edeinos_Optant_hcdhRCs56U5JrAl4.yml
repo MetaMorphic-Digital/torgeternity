@@ -122,52 +122,6 @@ items:
       duplicateSource: null
       exportSource: null
     _key: '!actors.items!hcdhRCs56U5JrAl4.bVioii8rx0LCXrcH'
-  - _id: Xc2qo0WjOqwKb1qy
-    name: Ward Enemy
-    type: miracle
-    img: systems/torgeternity/images/icons/miracles-icon.webp
-    effects: []
-    folder: null
-    sort: 0
-    flags:
-      core: {}
-    system:
-      ap: 0
-      applyArmor: false
-      applySize: false
-      axiom: 8
-      castingtime: 1 action
-      damage: 0
-      description: "<p><em>Ward enemy</em> protects the faithful from supernatural beings that prey on or seek to harm humanity.</p>\n<p>To cast, the invoker must brandish a holy symbol, recite prayers, or otherwise clearly call on the source of his power, making him an obvious target for the taunts of spirits, demons, or other antagonists likely to be affected.</p>\n<p>While the ward is active, all allies within five meters add +1 to their defenses versus @UUID[Compendium.te001-core-rulebook.rules.pwneQ55M0nnDH0Us.JournalEntryPage.Pu4XsglS98BqDRgX#supernatural-evil]{supernaturally evil} creatures and their attacks. The bonus counts toward both physical and interaction defenses.</p>\n<p><strong>Special:</strong> This miracle may be attempted without the Miracles Perk if the <em>faith</em> prerequisite is met.</p>\n<p>In the Cyberpapacy faith, witches and other spellcasters are considered supernatural enemies of the faith. In addition to supernaturally evil creatures, the ward enemy miracle invoked by a worshiper of the Cyberpapacy functions against any character with any Spellcaster Perk or spellcasting Special Ability.</p>\n<p>\_</p>\n<p>Found in <strong>Core Rules</strong></p>"
-      dn: standard
-      dnType: ''
-      duration: Concentration
-      good: Those protected add +2 to all defenses
-      isAttack: false
-      modifier: ''
-      outstanding: >-
-        As the Good result, and supernaturally evil creatures who fail an attack
-        against any of the protected individuals are Stymied
-      range: 5 meter radius
-      skill: faith
-      skilllevel: '8'
-      targetDefense: ''
-      requiresConcentration: true
-    ownership:
-      default: 0
-      A9LyAqagoJJU3gDH: 3
-      CtisFurQNe9h7ABb: 3
-    _stats:
-      systemId: torgeternity
-      systemVersion: 13.8.1
-      coreVersion: '13.348'
-      createdTime: 1693909685043
-      modifiedTime: 1756563923369
-      lastModifiedBy: l8SVzn2293lAwvMC
-      compendiumSource: Compendium.te001-core-rulebook.Items.u8AtVmCMnPyP3Ewx
-      duplicateSource: null
-      exportSource: null
-    _key: '!actors.items!hcdhRCs56U5JrAl4.Xc2qo0WjOqwKb1qy'
   - _id: gjqT8qHAzPDsvKBD
     name: Hrockt Root Armor
     type: armor
@@ -336,7 +290,8 @@ items:
         img: icons/svg/aura.svg
         _id: 050BsL6MF5PErpeT
         type: base
-        system: {}
+        system:
+          transferOnOutcome: 0
         changes:
           - key: ystem.skills.unarmedCombat.isFav
             mode: 5
@@ -351,12 +306,12 @@ items:
         _stats:
           compendiumSource: null
           duplicateSource: null
-          coreVersion: '13.345'
+          coreVersion: '13.351'
           systemId: torgeternity
-          systemVersion: 12.2.0
+          systemVersion: 13.13.2
           createdTime: null
-          modifiedTime: null
-          lastModifiedBy: null
+          modifiedTime: 1764003760400
+          lastModifiedBy: e1DB4TK9SbDuMDS3
           exportSource: null
         _key: >-
           !actors.items.effects!hcdhRCs56U5JrAl4.yAe9TWoKpqHEnno9.050BsL6MF5PErpeT
@@ -895,6 +850,189 @@ items:
     effects: []
     folder: null
     _key: '!actors.items!hcdhRCs56U5JrAl4.99I93QMkOyDEUng1'
+  - _id: u8AtVmCMnPyP3Ewx
+    name: Ward Enemy
+    type: miracle
+    img: systems/torgeternity/images/icons/miracles-icon.webp
+    effects:
+      - name: Defense +1 vs. S.Evil
+        origin: Compendium.te001-core-rulebook.Items.Item.u8AtVmCMnPyP3Ewx
+        duration:
+          startTime: 0
+          combat: null
+          seconds: null
+          rounds: null
+          turns: null
+          startRound: null
+          startTurn: null
+        disabled: true
+        img: icons/svg/aura.svg
+        _id: GSvs51kXblsK9vbL
+        type: base
+        system:
+          transferOnAttack: false
+          applyIfAttackTrait: []
+          applyIfDefendTrait:
+            - supernaturalEvil
+          transferOnOutcome: 0
+        changes:
+          - key: defenses.dodge.mod
+            mode: 2
+            value: '1'
+            priority: null
+          - key: defenses.meleeWeapons.mod
+            mode: 2
+            value: '1'
+            priority: null
+          - key: defenses.unarmedCombat.mod
+            mode: 2
+            value: '1'
+            priority: null
+          - key: defenses.intimidation.mod
+            mode: 2
+            value: '1'
+            priority: null
+          - key: defenses.maneuver.mod
+            mode: 2
+            value: '1'
+            priority: null
+          - key: defenses.taunt.mod
+            mode: 2
+            value: '1'
+            priority: null
+          - key: defenses.trick.mod
+            mode: 2
+            value: '1'
+            priority: null
+        description: ''
+        tint: '#ffffff'
+        transfer: true
+        statuses: []
+        sort: 0
+        flags: {}
+        _stats:
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+          coreVersion: '13.351'
+          systemId: torgeternity
+          systemVersion: 13.13.2
+          lastModifiedBy: e1DB4TK9SbDuMDS3
+          modifiedTime: 1763999444302
+        _key: >-
+          !actors.items.effects!hcdhRCs56U5JrAl4.u8AtVmCMnPyP3Ewx.GSvs51kXblsK9vbL
+      - name: Defense +2 vs. S.Evil
+        origin: Compendium.te001-core-rulebook.Items.Item.u8AtVmCMnPyP3Ewx
+        duration:
+          startTime: 0
+          combat: null
+          seconds: null
+          rounds: null
+          turns: null
+          startRound: null
+          startTurn: null
+        disabled: true
+        img: icons/svg/aura.svg
+        _id: 1sFNCaYPVnPw3WR5
+        type: base
+        system:
+          transferOnAttack: false
+          applyIfAttackTrait: []
+          applyIfDefendTrait: []
+        changes:
+          - key: defenses.dodge.mod
+            mode: 2
+            value: '2'
+            priority: null
+          - key: defenses.meleeWeapons.mod
+            mode: 2
+            value: '2'
+            priority: null
+          - key: defenses.unarmedCombat.mod
+            mode: 2
+            value: '2'
+            priority: null
+          - key: defenses.intimidation.mod
+            mode: 2
+            value: '2'
+            priority: null
+          - key: defenses.maneuver.mod
+            mode: 2
+            value: '2'
+            priority: null
+          - key: defenses.taunt.mod
+            mode: 2
+            value: '2'
+            priority: null
+          - key: defenses.trick.mod
+            mode: 2
+            value: '2'
+            priority: null
+        description: ''
+        tint: '#ffffff'
+        transfer: true
+        statuses: []
+        sort: 0
+        flags: {}
+        _stats:
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+          coreVersion: '13.351'
+          systemId: torgeternity
+          systemVersion: 13.13.2
+          lastModifiedBy: null
+        _key: >-
+          !actors.items.effects!hcdhRCs56U5JrAl4.u8AtVmCMnPyP3Ewx.1sFNCaYPVnPw3WR5
+    folder: 1nWuSow2h5hzSie4
+    sort: 2300000
+    flags:
+      core: {}
+    system:
+      ap: 0
+      applyArmor: false
+      applySize: false
+      castingtime: 1 action
+      damage: null
+      description: "<p><em>Ward enemy</em> protects the faithful from supernatural beings that prey on or seek to harm humanity.</p>\n<p>To cast, the invoker must brandish a holy symbol, recite prayers, or otherwise clearly call on the source of his power, making him an obvious target for the taunts of spirits, demons, or other antagonists likely to be affected.</p>\n<p>While the ward is active, all allies within five meters add +1 to their defenses versus @UUID[Compendium.te001-core-rulebook.rules.pwneQ55M0nnDH0Us.JournalEntryPage.Pu4XsglS98BqDRgX#supernatural-evil]{supernaturally evil} creatures and their attacks. The bonus counts toward both physical and interaction defenses.</p>\n<p><strong>Special:</strong> This miracle may be attempted without the Miracles Perk if the <em>faith</em> prerequisite is met.</p>\n<p>In the Cyberpapacy faith, witches and other spellcasters are considered supernatural enemies of the faith. In addition to supernaturally evil creatures, the ward enemy miracle invoked by a worshiper of the Cyberpapacy functions against any character with any Spellcaster Perk or spellcasting Special Ability.</p>\n<p>\_</p>\n<p>Found in <strong>Core Rules</strong></p>"
+      dn: standard
+      dnType: ''
+      duration: Concentration
+      good: Those protected add +2 to all defenses
+      isAttack: false
+      modifier: ''
+      outstanding: >-
+        <p>As the Good result, and supernaturally evil creatures who fail an
+        attack against any of the protected individuals are
+        @Condition[stymied]</p>
+      range: 5 meter radius
+      skill: faith
+      skilllevel: '8'
+      targetDefense: ''
+      axioms:
+        spirit: 8
+        magic: 0
+        social: 0
+        tech: 0
+      cosm: none
+      traits: []
+      requiresConcentration: false
+    ownership:
+      default: 0
+      A9LyAqagoJJU3gDH: 3
+      VAnYow5sWS9EJzo0: 3
+      e1DB4TK9SbDuMDS3: 3
+    _stats:
+      compendiumSource: Compendium.te001-core-rulebook.Items.Item.u8AtVmCMnPyP3Ewx
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
+      createdTime: 1763999423518
+      modifiedTime: 1763999423518
+      lastModifiedBy: e1DB4TK9SbDuMDS3
+    _key: '!actors.items!hcdhRCs56U5JrAl4.u8AtVmCMnPyP3Ewx'
 effects: []
 folder: null
 sort: 100001
@@ -1432,4 +1570,3 @@ _stats:
   duplicateSource: null
   exportSource: null
 _key: '!actors!hcdhRCs56U5JrAl4'
-
