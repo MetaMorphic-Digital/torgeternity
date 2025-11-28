@@ -81,6 +81,7 @@
     },
     "chatText": {
       "actionTotal": "Probenergebnis",
+      "applyEffect": "Apply Effect: {name}",
       "attack": "Angriff",
       "attributeTestLabel": "Attribut",
       "baseDamage": "Grundschaden",

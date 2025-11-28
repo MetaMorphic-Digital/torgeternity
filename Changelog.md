@@ -1,5 +1,13 @@
 # TORG Eternity Changelog
 
+## NEXT
+
+- When posting an Item to chat, if the Item has any Active Effects on it (which are NOT transferred to the owner) then the chat card will provide buttons to allow each of the effects to be applied to the currently targeted token(s).
+
+### Translation Keys
+
+"chatText.applyEffect": "Apply Effect: {name}"
+
 ## 13.14.3
 
 - Powers updated in `en` Archetypes.

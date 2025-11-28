@@ -75,6 +75,7 @@
     },
     "chatText": {
       "actionTotal": "Action Total",
+      "applyEffect": "Apply Effect: {name}",
       "attack": "Attack",
       "attributeTestLabel": "Attribute",
       "baseDamage": "Base Damage",

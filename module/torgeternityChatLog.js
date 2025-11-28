@@ -26,6 +26,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
       'soakDam': TorgeternityChatLog.#soakDamage,
       'applySoak': TorgeternityChatLog.#applySoak,
       'applyEffects': TorgeternityChatLog.#applyEffects,
+      'applyItemEffect': TorgeternityChatLog.#applyItemEffect,
       'applyStymied': TorgeternityChatLog.#applyStymied,
       'applyVulnerable': TorgeternityChatLog.#applyTargetVulnerable,
       'applyActorVulnerable': TorgeternityChatLog.#applyActorVulnerable,
@@ -476,6 +477,16 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
 
     if (effects.length)
       target.createEmbeddedDocuments('ActiveEffect', effects);
+  }
+
+  static async #applyItemEffect(event, button) {
+    event.preventDefault();
+    const origEffect = fromUuidSync(button.dataset.uuid, { strict: false });
+    if (!origEffect) return;
+    const effect = origEffect.toObject();
+    effect.disabled = false;
+    for (const token of game.user.targets)
+      token.document.actor.createEmbeddedDocuments('ActiveEffect', [effect]);
   }
 
   static async #applyStymied(event, button) {
