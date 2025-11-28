@@ -803,6 +803,10 @@
         "hint": "Si está marcado, siempre se mostrarán todos los detalles de las pruebas.",
         "name": "Mostrar detalles en las pruebas"
       },
+      "showEffectsPanel": {
+        "hint": "If checked, displays a list of effects on the currently selected token.",
+        "name": "Show Effects Panel"
+      },
       "welcome": {
         "hint": "Activo: se mostrará el mensaje de bienvenida después de cargar el mundo.",
         "name": "Mostrar mensaje de bienvenida"

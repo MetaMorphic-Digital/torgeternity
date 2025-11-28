@@ -3,10 +3,17 @@
 ## NEXT
 
 - When posting an Item to chat, if the Item has any Active Effects on it (which are NOT transferred to the owner) then the chat card will provide buttons to allow each of the effects to be applied to the currently targeted token(s).
+- Game System option to display a list of effects on the currently selected token.
+  - Hover over the effect in the list to view the name of the effect.
+  - A clock is displayed in the tooltip for temporary effects.
+  - Disabled effects are not displayed in the panel.
+  - Left click on an effect to open the editor for that effect.
+  - Right click on an effect to delete it from the actor (or disable if on an item owned by the actor).
 
 ### Translation Keys
 
 "chatText.applyEffect": "Apply Effect: {name}"
+"settingMenu.showEffectsPanel"
 
 ## 13.14.3
 

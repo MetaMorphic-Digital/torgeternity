@@ -803,6 +803,10 @@
         "hint": "Wenn dies angehakt ist, werden die Details eines Wurfs immer angezeigt.",
         "name": "Zeige immer die Details eines Wurfs"
       },
+      "showEffectsPanel": {
+        "hint": "If checked, displays a list of effects on the currently selected token.",
+        "name": "Show Effects Panel"
+      },
       "welcome": {
         "hint": "Wenn ausgewählt, erscheint beim Laden die Willkommensnachricht",
         "name": "Willkommensnachricht anzeigen"

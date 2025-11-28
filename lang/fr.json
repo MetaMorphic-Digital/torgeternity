@@ -803,6 +803,10 @@
         "hint": "Si coché, les détails des tests seront affichés par défaut.",
         "name": "Montrer les détails des tests"
       },
+      "showEffectsPanel": {
+        "hint": "If checked, displays a list of effects on the currently selected token.",
+        "name": "Show Effects Panel"
+      },
       "welcome": {
         "hint": "Si sélectionné, le message de bienvenue apparaîtra au chargement",
         "name": "Afficher le message de bienvenue"

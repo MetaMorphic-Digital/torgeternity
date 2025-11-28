@@ -797,6 +797,10 @@
         "hint": "If checked, the details of checks will always be shown.",
         "name": "Show Details in checks"
       },
+      "showEffectsPanel": {
+        "hint": "If checked, displays a list of effects on the currently selected token.",
+        "name": "Show Effects Panel"
+      },
       "welcome": {
         "hint": "If checked, the welcome message will pop up after your world loads.",
         "name": "Display the Welcome Message"

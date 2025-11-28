@@ -49,6 +49,7 @@ import InitEnrichers from './enrichers.js';
 import { initHideCompendium } from './hideCompendium.js';
 import DeckSettingMenu from './cards/cardSettingMenu.js';
 import activateSocketListeners from './sockets.js';
+import EffectsPanel from './effectsPanel.js';
 
 const { DialogV2 } = foundry.applications.api;
 
@@ -337,6 +338,9 @@ Hooks.once('setup', async function () {
     if (pack.metadata.type === 'Actor' || pack.metadata.type === 'Item')
       await pack.getIndex();
   }
+
+  if (game.settings.get('torgeternity', 'showEffectsPanel'))
+    new EffectsPanel();
 });
 
 Hooks.once('diceSoNiceReady', (dice3d) => {
