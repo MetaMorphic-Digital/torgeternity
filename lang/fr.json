@@ -807,6 +807,10 @@
         "hint": "If checked, displays a list of effects on the currently selected token.",
         "name": "Show Effects Panel"
       },
+      "effectsPanelOnlyTemporary": {
+        "hint": "If checked, the Effects Panel will only show temporary effects (passive effects will not be displayed).",
+        "name": "Only Show Temporary Effects"
+      },
       "welcome": {
         "hint": "Si sélectionné, le message de bienvenue apparaîtra au chargement",
         "name": "Afficher le message de bienvenue"
@@ -999,6 +1003,7 @@
       "miracle": "Miracle",
       "miracles": "Miracles",
       "missileWeapons": "Armes de jet",
+      "mod": "Mod",
       "modifyDamage": "Vous povez modifier les dommages appliqués ici.",
       "modifyShocks": "Points de Choc ajustés",
       "modifyWounds": "Blessures ajustées",

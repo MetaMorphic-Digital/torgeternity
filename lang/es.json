@@ -807,6 +807,10 @@
         "hint": "If checked, displays a list of effects on the currently selected token.",
         "name": "Show Effects Panel"
       },
+      "effectsPanelOnlyTemporary": {
+        "hint": "If checked, the Effects Panel will only show temporary effects (passive effects will not be displayed).",
+        "name": "Only Show Temporary Effects"
+      },
       "welcome": {
         "hint": "Activo: se mostrará el mensaje de bienvenida después de cargar el mundo.",
         "name": "Mostrar mensaje de bienvenida"
@@ -999,6 +1003,7 @@
       "miracle": "Milagro",
       "miracles": "Milagros",
       "missileWeapons": "Armas Proyectil",
+      "mod": "Mod",
       "modifyDamage": "Puedes modificar el daño aquí.",
       "modifyShocks": "Nuevo Shock",
       "modifyWounds": "Nuevas Heridas",

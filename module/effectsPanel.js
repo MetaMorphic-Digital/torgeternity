@@ -52,7 +52,7 @@ export default class EffectsPanel extends HandlebarsApplicationMixin(Application
       this.#actor = actor;
     }
 
-    context.effects = actor?.appliedEffects;
+    context.effects = game.settings.get('torgeternity', 'effectsPanelOnlyTemporary') ? actor?.temporaryEffects : actor?.appliedEffects;
     return context;
   }
 
