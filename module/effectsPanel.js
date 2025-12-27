@@ -9,6 +9,10 @@ export default class EffectsPanel extends HandlebarsApplicationMixin(Application
   constructor(options) {
     super(options);
     EffectsPanel.panel = this;
+    // Only one occurrence of this class is possible,
+    // so only register hooks when first constructed.
+    Hooks.on('controlToken', EffectsPanel.onControlToken);
+    Hooks.on('collapseSidebar', EffectsPanel.onCollapseSidebar);
   }
 
   static DEFAULT_OPTIONS = {
@@ -96,6 +100,3 @@ export default class EffectsPanel extends HandlebarsApplicationMixin(Application
     if (EffectsPanel.panel.rendered) EffectsPanel.panel.render();
   }
 }
-
-Hooks.on('controlToken', EffectsPanel.onControlToken);
-Hooks.on('collapseSidebar', EffectsPanel.onCollapseSidebar);
