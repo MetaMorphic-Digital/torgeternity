@@ -9,6 +9,7 @@
   - Disabled effects are not displayed in the panel.
   - Left click on an effect to open the editor for that effect.
   - Right click on an effect to delete it from the actor (or disable if on an item owned by the actor).
+- Fixes #632: The 'modifier' field of powers is now stored as a Number not a String.
 
 ### Translation Keys
 
