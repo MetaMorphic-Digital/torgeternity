@@ -195,6 +195,7 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
     context.items = Array.from(context.document.items);
     context.showPiety = game.settings.get('torgeternity', 'showPiety');
     context.items.sort((a, b) => (a.sort || 0) - (b.sort || 0));
+    context.editAttributes = this.actor.flags.torgeternity?.editAttributes ?? false;
 
     context.meleeweapons = context.items.filter(item => item.type === 'meleeweapon');
     context.currency = context.items.filter(item => item.type === 'currency');

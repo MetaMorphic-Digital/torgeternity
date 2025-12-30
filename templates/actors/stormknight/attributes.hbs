@@ -6,7 +6,7 @@
       <i class="fas fa-edit"></i>
     </a>
   {{/if}}
-  {{#if document.flags.torgeternity.editAttributes}}
+  {{#if editAttributes}}
     <h5>{{localize "torgeternity.sheetLabels.alterAttributes"}}</h5>
   {{/if}}
 </div>
@@ -27,7 +27,7 @@
       {{localize "torgeternity.attributes.charisma"}}
     </a>
 
-    {{#if document.flags.torgeternity.editAttributes}}
+    {{#if editAttributes}}
       <a
         class="increaseAttribute" data-action="increaseAttribute"
         data-concernedAttribute="charisma"
@@ -43,17 +43,14 @@
       type="number"
       class="attributeValueField"
       data-baseAttributeInput="charisma"
-      {{#if document.flags.torgeternity.editAttributes}}
+      {{#if editAttributes}}
       value='{{document.system.attributes.charisma.base}}'
       {{else}}
       value='{{document.system.attributes.charisma.value}}'
       {{/if}}
       data-dtype="Number"
-      {{#if document.flags.torgeternity.editAttributes}}
-      {{else}}
-      readonly="true"
-      {{/if}} />
-    {{#if document.flags.torgeternity.editAttributes}}
+      {{#unless editAttributes}} readonly="true" {{/unless}} />
+    {{#if editAttributes}}
       <a class="decreaseAttribute" data-action="decreaseAttribute"
         data-concernedAttribute="charisma">
         <i class="fa-solid fa-minus changeAttributeSubstract"></i>
@@ -80,7 +77,7 @@
       data-unskilledUse="1">
       {{localize "torgeternity.attributes.dexterity"}}
     </a>
-    {{#if document.flags.torgeternity.editAttributes}}
+    {{#if editAttributes}}
       <a
         class="increaseAttribute" data-action="increaseAttribute"
         data-concernedAttribute="dexterity"
@@ -96,17 +93,15 @@
       type="number"
       class="attributeValueField"
       data-baseAttributeInput="dexterity"
-      {{#if document.flags.torgeternity.editAttributes}}
+      {{#if editAttributes}}
       value='{{document.system.attributes.dexterity.base}}'
       {{else}}
       value='{{document.system.attributes.dexterity.value}}'
       {{/if}}
       data-dtype="Number"
-      {{#if document.flags.torgeternity.editAttributes}}{{else}}
-      readonly="true"
-      {{/if}} />
+      {{#unless editAttributes}} readonly="true" {{/unless}} />
 
-    {{#if document.flags.torgeternity.editAttributes}}
+    {{#if editAttributes}}
       <a class="decreaseAttribute" data-action="decreaseAttribute"
         data-concernedAttribute="dexterity">
         <i class="fa-solid fa-minus changeAttributeSubstract"></i>
@@ -132,7 +127,7 @@
       data-unskilledUse="1">
       {{localize "torgeternity.attributes.mind"}}
     </a>
-    {{#if document.flags.torgeternity.editAttributes}}
+    {{#if editAttributes}}
       <a
         class="increaseAttribute" data-action="increaseAttribute"
         data-concernedAttribute="mind"
@@ -148,17 +143,15 @@
       type="number"
       class="attributeValueField"
       data-baseAttributeInput="mind"
-      {{#if document.flags.torgeternity.editAttributes}}
+      {{#if editAttributes}}
       value='{{document.system.attributes.mind.base}}'
       {{else}}
       value='{{document.system.attributes.mind.value}}'
       {{/if}}
       data-dtype="Number"
-      {{#if document.flags.torgeternity.editAttributes}}{{else}}
-      readonly="true"
-      {{/if}} />
+      {{#unless editAttributes}} readonly="true" {{/unless}} />
 
-    {{#if document.flags.torgeternity.editAttributes}}
+    {{#if editAttributes}}
       <a class="decreaseAttribute" data-action="decreaseAttribute"
         data-concernedAttribute="mind">
         <i class="fa-solid fa-minus changeAttributeSubstract"></i>
@@ -184,7 +177,7 @@
       data-unskilledUse="1">
       {{localize "torgeternity.attributes.spirit"}}
     </a>
-    {{#if document.flags.torgeternity.editAttributes}}
+    {{#if editAttributes}}
       <a
         class="increaseAttribute" data-action="increaseAttribute"
         data-concernedAttribute="spirit"
@@ -200,16 +193,14 @@
       type="number"
       class="attributeValueField"
       data-baseAttributeInput="spirit"
-      {{#if document.flags.torgeternity.editAttributes}}
+      {{#if editAttributes}}
       value='{{document.system.attributes.spirit.base}}'
       {{else}}
       value='{{document.system.attributes.spirit.value}}'
       {{/if}}
       data-dtype="Number"
-      {{#if document.flags.torgeternity.editAttributes}}{{else}}
-      readonly="true"
-      {{/if}} />
-    {{#if document.flags.torgeternity.editAttributes}}
+      {{#unless editAttributes}} readonly="true" {{/unless}} />
+    {{#if editAttributes}}
       <a class="decreaseAttribute" data-action="decreaseAttribute"
         data-concernedAttribute="spirit">
         <i class="fa-solid fa-minus changeAttributeSubstract"></i>
@@ -236,7 +227,7 @@
       data-unskilledUse="1">
       {{localize "torgeternity.attributes.strength"}}
     </a>
-    {{#if document.flags.torgeternity.editAttributes}}
+    {{#if editAttributes}}
       <a
         class="increaseAttribute" data-action="increaseAttribute"
         data-concernedAttribute="strength"
@@ -252,16 +243,14 @@
       type="number"
       class="attributeValueField"
       data-baseAttributeInput="strength"
-      {{#if document.flags.torgeternity.editAttributes}}
+      {{#if editAttributes}}
       value='{{document.system.attributes.strength.base}}'
       {{else}}
       value='{{document.system.attributes.strength.value}}'
       {{/if}}
       data-dtype="Number"
-      {{#if document.flags.torgeternity.editAttributes}}{{else}}
-      readonly="true"
-      {{/if}} />
-    {{#if document.flags.torgeternity.editAttributes}}
+      {{#unless editAttributes}} readonly="true" {{/unless}} />
+    {{#if editAttributes}}
       <a class="decreaseAttribute" data-action="decreaseAttribute"
         data-concernedAttribute="strength">
         <i class="fa-solid fa-minus changeAttributeSubstract"></i>
