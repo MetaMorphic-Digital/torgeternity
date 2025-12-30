@@ -804,12 +804,12 @@
         "name": "Mostrar detalles en las pruebas"
       },
       "showEffectsPanel": {
-        "hint": "If checked, displays a list of effects on the currently selected token.",
-        "name": "Show Effects Panel"
+        "hint": "Si está activado, muestra una lista de efectos en la ficha seleccionada.",
+        "name": "Mostrar panel de efectos"
       },
       "effectsPanelOnlyTemporary": {
-        "hint": "If checked, the Effects Panel will only show temporary effects (passive effects will not be displayed).",
-        "name": "Only Show Temporary Effects"
+        "hint": "Si está activado, el panel de efectos solo mostrará los efectos temporales (los efectos pasivos no aparecerán).",
+        "name": "Mostrar solo efectos temporales"
       },
       "welcome": {
         "hint": "Activo: se mostrará el mensaje de bienvenida después de cargar el mundo.",
