@@ -2,7 +2,15 @@
   {{#each effects}}
     {{#if active}}
       <div class="effect">
-        <img src="{{img}}" data-tooltip="{{name}}{{#if isTemporary}} &#x1F551;{{/if}}"
+        <img src="{{img}}"
+          data-tooltip-html="<p class='title'>{{name}}
+          {{#if isTemporary}}
+          <span class='temporary'>&#x1F551;</span>
+    {{/if}}</p>
+    {{#if description}}
+      <hr>
+      <section class='description'>{{description}}</section>
+    {{/if}}"
           data-tooltip-direction="LEFT" data-action="clickEffect" data-uuid="{{uuid}}" />
       </div>
     {{/if}}
