@@ -3,11 +3,11 @@
 ## NEXT
 
 - When posting an Item to chat, if the Item has any Active Effects on it (which are NOT transferred to the owner) then the chat card will provide buttons to allow each of the effects to be applied to the currently targeted token(s).
-- Game System option to display a list of effects on the currently selected token.
-  - Hover over the effect in the list to view the name of the effect.
+- Game System option to display a **list of effects** on the currently selected token.
   - A game setting is provided to show passive effects as well as temporary effects (by default they are not shown).
-  - Left click on an effect to open the editor for that effect.
-  - Right click on an effect to delete it from the actor (or disable if on an item owned by the actor).
+  - _Hover_ over the effect in the list to view the name of the effect.
+  - _Left click_ on an effect to open the editor for that effect.
+  - _Right click_ on an effect to delete it from the actor (or disable if on an item owned by the actor).
 - Fixes #632: The 'modifier' field of powers is now stored as a Number not a String.
 - Fixes #631: Having an Active Effect modify the 'adds' of a skill will now be handled properly when edits are made in the Actor sheet.
 
