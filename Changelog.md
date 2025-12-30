@@ -9,6 +9,7 @@
   - Left click on an effect to open the editor for that effect.
   - Right click on an effect to delete it from the actor (or disable if on an item owned by the actor).
 - Fixes #632: The 'modifier' field of powers is now stored as a Number not a String.
+- Fixes #631: Having an Active Effect modify the 'adds' of a skill will now be handled properly when edits are made in the Actor sheet.
 
 ### Translation Keys
 

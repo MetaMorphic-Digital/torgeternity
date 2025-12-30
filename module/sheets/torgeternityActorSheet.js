@@ -608,6 +608,18 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
       const updates = Object.entries(submitted.items).map(([itemid, fields]) => { return { _id: itemid, ...fields } });
       await this.actor.updateEmbeddedDocuments('Item', updates);
     }
+    // TODO: Ignore Active Effects on the skill 'adds' values
+    if (submitted.system?.skills) {
+      for (const skill of Object.keys(submitted.system.skills)) {
+        if (Object.hasOwn(submitted.system.skills[skill], "adds")) {
+          const AEchange = this.actor.system.skills[skill].adds - this.actor._source.system.skills[skill].adds;
+          if (AEchange) {
+            formData.object[`system.skills.${skill}.adds`] = submitted.system.skills[skill].adds - AEchange;
+          }
+        }
+      }
+    }
+
     // Now normal ActorSheet form.handler
     return foundry.applications.api.DocumentSheetV2.DEFAULT_OPTIONS.form.handler.call(this, event, form, formData, options);
   }
