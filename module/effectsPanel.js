@@ -12,7 +12,14 @@ export default class EffectsPanel extends HandlebarsApplicationMixin(Application
     // Only one occurrence of this class is possible,
     // so only register hooks when first constructed.
     Hooks.on('controlToken', EffectsPanel.onControlToken);
-    Hooks.on('collapseSidebar', EffectsPanel.onCollapseSidebar);
+
+    new ResizeObserver((entries) => {
+      if (!EffectsPanel.panel.rendered) return;
+      for (const entry of entries) {
+        const rect = entry.target.getBoundingClientRect();
+        EffectsPanel.panel.setPosition({ left: rect.left - 64, top: rect.top + 10 });
+      }
+    }).observe(foundry.ui.sidebar.element);
   }
 
   static DEFAULT_OPTIONS = {
