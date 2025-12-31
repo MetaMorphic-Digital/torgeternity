@@ -1,6 +1,6 @@
 # TORG Eternity Changelog
 
-## 13.5.0
+## 13.15.0
 
 - **Apply Effects from Chat**: When posting an Item to chat, if the Item has any Active Effects on it (which are NOT transferred to the owner) then the chat card will provide buttons to allow each of the effects to be applied to the currently targeted token(s).
 - Game System option to display a **Effects Panel** for the currently selected token:
