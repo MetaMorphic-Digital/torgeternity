@@ -4545,3 +4545,21 @@ div.chooseCurrency {
     filter: brightness(0.7);
   }
 }
+
+div.torgeternity.effects-panel {
+  position: absolute;
+
+  div.effectsPanel {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    row-gap: 5px;
+
+    div.effect img {
+      width: 36px;
+      height: 36px;
+      border: 1px solid;
+      border-radius: 10%;
+    }
+  }
+}

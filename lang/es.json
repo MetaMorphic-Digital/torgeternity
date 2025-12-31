@@ -81,6 +81,7 @@
     },
     "chatText": {
       "actionTotal": "Total de acción",
+      "applyEffect": "Aplicar efecto: {name}",
       "attack": "Ataque",
       "attributeTestLabel": "Atributo",
       "baseDamage": "Daño Base",
@@ -802,6 +803,14 @@
         "hint": "Si está marcado, siempre se mostrarán todos los detalles de las pruebas.",
         "name": "Mostrar detalles en las pruebas"
       },
+      "showEffectsPanel": {
+        "hint": "Si está activado, muestra una lista de efectos en la ficha seleccionada.",
+        "name": "Mostrar panel de efectos"
+      },
+      "effectsPanelOnlyTemporary": {
+        "hint": "Si está activado, el panel de efectos solo mostrará los efectos temporales (los efectos pasivos no aparecerán).",
+        "name": "Mostrar solo efectos temporales"
+      },
       "welcome": {
         "hint": "Activo: se mostrará el mensaje de bienvenida después de cargar el mundo.",
         "name": "Mostrar mensaje de bienvenida"
@@ -994,6 +1003,7 @@
       "miracle": "Milagro",
       "miracles": "Milagros",
       "missileWeapons": "Armas Proyectil",
+      "mod": "Mod",
       "modifyDamage": "Puedes modificar el daño aquí.",
       "modifyShocks": "Nuevo Shock",
       "modifyWounds": "Nuevas Heridas",

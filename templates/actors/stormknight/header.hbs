@@ -15,11 +15,11 @@
       <p class="raceSpanHeader">{{localize "torgeternity.sheetLabels.race"}}</p>
       <p
         style="grid-column: 1/
-          {{#if (and document.flags.torgeternity.editAttributes (ne document.system.details.race (localize 'torgeternity.sheetLabels.noRace')))}}2{{else}}3{{/if}}"
+          {{#if (and editAttributes (ne document.system.details.race (localize 'torgeternity.sheetLabels.noRace')))}}2{{else}}3{{/if}}"
         class="raceSpanRace">
         {{document.system.details.race}}
       </p>
-      {{#if (and document.flags.torgeternity.editAttributes (ne document.system.details.race (localize 'torgeternity.sheetLabels.noRace')))}}
+      {{#if (and editAttributes (ne document.system.details.race (localize 'torgeternity.sheetLabels.noRace')))}}
         <a class="deleteRaceButton" data-action="deleteRace"
           data-tooltip="{{localize 'torgeternity.iconeTitles.deleteRace'}}"><i
             class="fas fa-trash"></i></a>

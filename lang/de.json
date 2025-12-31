@@ -81,6 +81,7 @@
     },
     "chatText": {
       "actionTotal": "Probenergebnis",
+      "applyEffect": "Effekt zuweisen: {name}",
       "attack": "Angriff",
       "attributeTestLabel": "Attribut",
       "baseDamage": "Grundschaden",
@@ -802,6 +803,14 @@
         "hint": "Wenn dies angehakt ist, werden die Details eines Wurfs immer angezeigt.",
         "name": "Zeige immer die Details eines Wurfs"
       },
+      "showEffectsPanel": {
+        "hint": "Wenn diese Option aktiviert ist, wird eine Liste der Effekte für das ausgewählte Token angezeigt.",
+        "name": "Zeige Effekt-Liste"
+      },
+      "effectsPanelOnlyTemporary": {
+        "hint": "Wenn diese Option aktiviert ist, werden in der Effekt-Liste nur Vorrübergehende Effekte angezeigt (Passive Effekte werden nicht angezeigt).",
+        "name": "Zeige nur Vorrübergehende Effekte"
+      },
       "welcome": {
         "hint": "Wenn ausgewählt, erscheint beim Laden die Willkommensnachricht",
         "name": "Willkommensnachricht anzeigen"
@@ -994,6 +1003,7 @@
       "miracle": "Wunder",
       "miracles": "Wunder",
       "missileWeapons": "Projektilwaffen",
+      "mod": "Mod",
       "modifyDamage": "Du kannst hier den Schaden anpassen.",
       "modifyShocks": "Neuer Schock",
       "modifyWounds": "Neue Wunden",
@@ -1077,7 +1087,7 @@
       "targetOptions": "Optionen des Ziels",
       "targets": "Ziele",
       "tech": "Tech",
-      "tempEffects": "Vorrübergenede Effekte",
+      "tempEffects": "Vorrübergehende Effekte",
       "threat": "Bedrohung",
       "titleDescription": "Titel/Beschreibung",
       "toggleSkillDisplay": "Klicke hierauf, um die Anzeige der Fertigkeiten umzuschalten",

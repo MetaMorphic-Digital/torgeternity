@@ -81,6 +81,7 @@
     },
     "chatText": {
       "actionTotal": "Total d'action",
+      "applyEffect": "Appliquer l'effet: {name}",
       "attack": "Attaque",
       "attributeTestLabel": "Valeur d'attribut",
       "baseDamage": "Dommages de base",
@@ -802,6 +803,14 @@
         "hint": "Si coché, les détails des tests seront affichés par défaut.",
         "name": "Montrer les détails des tests"
       },
+      "showEffectsPanel": {
+        "hint": "Si coché, affiche une liste des effets en cours sur le token sélectionné.",
+        "name": "Afficher le panneau des effets"
+      },
+      "effectsPanelOnlyTemporary": {
+        "hint": "Si coché, le panneau des effets ne montrera que les effets temporaires (effets passifs cachés).",
+        "name": "N'afficher que les effets temporaires"
+      },
       "welcome": {
         "hint": "Si sélectionné, le message de bienvenue apparaîtra au chargement",
         "name": "Afficher le message de bienvenue"
@@ -994,6 +1003,7 @@
       "miracle": "Miracle",
       "miracles": "Miracles",
       "missileWeapons": "Armes de jet",
+      "mod": "Mod",
       "modifyDamage": "Vous povez modifier les dommages appliqués ici.",
       "modifyShocks": "Points de Choc ajustés",
       "modifyWounds": "Blessures ajustées",

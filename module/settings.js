@@ -253,6 +253,25 @@ export function registerTorgSettings() {
     default: false
   });
 
+  game.settings.register('torgeternity', 'showEffectsPanel', {
+    name: 'torgeternity.settingMenu.showEffectsPanel.name',
+    hint: 'torgeternity.settingMenu.showEffectsPanel.hint',
+    scope: 'world',
+    config: true,
+    type: Boolean,
+    default: true,
+    requiresReload: true,
+  });
+
+  game.settings.register('torgeternity', 'effectsPanelOnlyTemporary', {
+    name: 'torgeternity.settingMenu.effectsPanelOnlyTemporary.name',
+    hint: 'torgeternity.settingMenu.effectsPanelOnlyTemporary.hint',
+    scope: 'world',
+    config: true,
+    type: Boolean,
+    default: true,
+  });
+
   game.settings.register('torgeternity', 'showPiety', {
     name: 'torgeternity.settingMenu.showPiety.name',
     hint: 'torgeternity.settingMenu.showPiety.hint',

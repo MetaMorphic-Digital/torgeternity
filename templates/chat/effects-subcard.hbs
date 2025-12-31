@@ -1,0 +1,10 @@
+{{#if effects}}
+  <div class="item-effects">
+    {{#each effects}}
+      {{#unless transfer}}
+        <a class="button" data-uuid="{{uuid}}"
+          data-action="applyItemEffect">{{localize 'torgeternity.chatText.applyEffect' name=name}}</a>
+      {{/unless}}
+    {{/each}}
+  </div>
+{{/if}}

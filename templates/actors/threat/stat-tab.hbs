@@ -11,150 +11,54 @@
               <i class="fas fa-edit"></i>
             </a>
           {{/if}}
-          {{#if document.flags.torgeternity.editAttributes}}
+          {{#if editAttributes}}
             <h5>{{localize "torgeternity.sheetLabels.alterAttributes"}}</h5>
           {{/if}}
         </div>
 
         <div class="threat-edit attribut-list-edit">
-          <span>
-            <a
-              class="skill-roll draggable" data-action="skillRoll"
-              data-testType="attribute"
-              data-value="{{document.system.attributes.charisma.value}}"
-              data-name="charisma"
-              data-baseAttribute="charisma"
-              data-adds="0"
-              {{disabled (not @root.editable)}}
-              data-unskilledUse="1">
-              {{localize 'torgeternity.attributes.charisma'}}
-            </a>
-            {{#if document.flags.torgeternity.editAttributes}}
-              <a class="decreaseAttribute" data-action="decreaseAttribute" data-concernedAttribute="charisma">
-                <i class="fa-solid fa-minus changeAttributeSubstract"></i>
+
+          {{#*inline "oneAttribute" attrName attrValue}}
+            <span>
+              <a
+                class="skill-roll draggable" data-action="skillRoll"
+                data-testType="attribute"
+                data-value="{{concat 'document.system.attributes.' attrName '.value'}}"
+                data-name="{{attrName}}"
+                data-baseAttribute="{{attrName}}"
+                data-adds="0"
+                {{disabled (not @root.editable)}}
+                data-unskilledUse="1">
+                {{localize (concat 'torgeternity.attributes.' attrName)}}
               </a>
-            {{/if}} <input name='system.attributes.charisma.value' type='number'
-              class="attributeValueField" data-baseAttributeInput="charisma" {{#if
-              document.flags.torgeternity.editAttributes}}
-              value='{{document.system.attributes.charisma.base}}' {{else}}
-              value='{{document.system.attributes.charisma.value}}' {{/if}} data-dtype='Number'
-              class='small-input' {{#if document.flags.torgeternity.editAttributes}} {{else}} readonly="true"
-              {{/if}} /> {{#if document.flags.torgeternity.editAttributes}}
-              <a class="increaseAttribute" data-action="increaseAttribute" data-concernedAttribute="charisma">
-                <i class="fa-solid fa-plus changeAttributeAdd"></i>
-              </a>
-            {{/if}}
-          </span>
-          <span>
-            <a
-              class="skill-roll draggable" data-action="skillRoll"
-              data-testType="attribute"
-              data-value="{{document.system.attributes.dexterity.value}}"
-              data-name="dexterity"
-              data-baseAttribute="dexterity"
-              data-adds="0"
-              {{disabled (not @root.editable)}}
-              data-unskilledUse="1">
-              {{localize 'torgeternity.attributes.dexterity'}}
-            </a>
-            {{#if document.flags.torgeternity.editAttributes}}
-              <a class="decreaseAttribute" data-action="decreaseAttribute" data-concernedAttribute="dexterity">
-                <i class="fa-solid fa-minus changeAttributeSubstract"></i>
-              </a>
-            {{/if}} <input name='system.attributes.dexterity.value' type='number'
-              class="attributeValueField" data-baseAttributeInput="dexterity" {{#if
-              document.flags.torgeternity.editAttributes}}
-              value='{{document.system.attributes.dexterity.base}}' {{else}}
-              value='{{document.system.attributes.dexterity.value}}' {{/if}} data-dtype='Number'
-              class='small-input' {{#if document.flags.torgeternity.editAttributes}}{{else}} readonly="true"
-              {{/if}} /> {{#if document.flags.torgeternity.editAttributes}}
-              <a class="increaseAttribute" data-action="increaseAttribute" data-concernedAttribute="dexterity">
-                <i class="fa-solid fa-plus changeAttributeAdd"></i>
-              </a>
-            {{/if}}
-          </span>
-          <span>
-            <a
-              class="skill-roll draggable" data-action="skillRoll"
-              data-testType="attribute"
-              data-value="{{document.system.attributes.mind.value}}"
-              data-name="mind"
-              data-baseAttribute="mind"
-              data-adds="0"
-              {{disabled (not @root.editable)}}
-              data-unskilledUse="1">
-              {{localize 'torgeternity.attributes.mind'}}
-            </a>
-            {{#if document.flags.torgeternity.editAttributes}}
-              <a class="decreaseAttribute" data-action="decreaseAttribute" data-concernedAttribute="mind">
-                <i class="fa-solid fa-minus changeAttributeSubstract"></i>
-              </a>
-            {{/if}} <input name='system.attributes.mind.value' type='number'
-              class="attributeValueField" data-baseAttributeInput="mind" {{#if
-              document.flags.torgeternity.editAttributes}} value='{{document.system.attributes.mind.base}}'
-              {{else}} value='{{document.system.attributes.mind.value}}' {{/if}} data-dtype='Number'
-              class='small-input' {{#if document.flags.torgeternity.editAttributes}} {{else}}readonly="true"
-              {{/if}} /> {{#if document.flags.torgeternity.editAttributes}}
-              <a class="increaseAttribute" data-action="increaseAttribute" data-concernedAttribute="mind">
-                <i class="fa-solid fa-plus changeAttributeAdd"></i>
-              </a>
-            {{/if}}
-          </span>
-          <span>
-            <a
-              class="skill-roll draggable" data-action="skillRoll"
-              data-testType="attribute"
-              data-value="{{document.system.attributes.spirit.value}}"
-              data-name="spirit"
-              data-baseAttribute="spirit"
-              data-adds="0"
-              {{disabled (not @root.editable)}}
-              data-unskilledUse="1">
-              {{localize 'torgeternity.attributes.spirit'}}
-            </a>
-            {{#if document.flags.torgeternity.editAttributes}}
-              <a class="decreaseAttribute" data-action="decreaseAttribute" data-concernedAttribute="spirit">
-                <i class="fa-solid fa-minus changeAttributeSubstract"></i>
-              </a>
-            {{/if}} <input name='system.attributes.spirit.value' type='number'
-              class="attributeValueField" data-baseAttributeInput="spirit" {{#if
-              document.flags.torgeternity.editAttributes}} value='{{document.system.attributes.spirit.base}}'
-              {{else}} value='{{document.system.attributes.spirit.value}}' {{/if}} data-dtype='Number'
-              class='small-input' {{#if document.flags.torgeternity.editAttributes}} {{else}} readonly="true"
-              {{/if}} /> {{#if document.flags.torgeternity.editAttributes}}
-              <a class="increaseAttribute" data-action="increaseAttribute" data-concernedAttribute="spirit">
-                <i class="fa-solid fa-plus changeAttributeAdd"></i>
-              </a>
-            {{/if}}
-          </span>
-          <span>
-            <a
-              class="skill-roll draggable" data-action="skillRoll"
-              data-testType="attribute"
-              data-value="{{document.system.attributes.strength.value}}"
-              data-name="strength"
-              data-baseAttribute="strength"
-              data-adds="0"
-              {{disabled (not @root.editable)}}
-              data-unskilledUse="1">
-              {{localize 'torgeternity.attributes.strength'}}
-            </a>
-            {{#if document.flags.torgeternity.editAttributes}}
-              <a class="decreaseAttribute" data-action="decreaseAttribute" data-concernedAttribute="strength">
-                <i class="fa-solid fa-minus changeAttributeSubstract"></i>
-              </a>
-            {{/if}} <input name='system.attributes.strength.value' type='number'
-              class="attributeValueField" data-baseAttributeInput="strength" {{#if
-              document.flags.torgeternity.editAttributes}}
-              value='{{document.system.attributes.strength.base}}' {{else}}
-              value='{{document.system.attributes.strength.value}}' {{/if}} data-dtype='Number'
-              class='small-input' {{#if document.flags.torgeternity.editAttributes}} {{else}} readonly="true"
-              {{/if}} /> {{#if document.flags.torgeternity.editAttributes}}
-              <a class="increaseAttribute" data-action="increaseAttribute" data-concernedAttribute="strength">
-                <i class="fa-solid fa-plus changeAttributeAdd"></i>
-              </a>
-            {{/if}}
-          </span>
+              {{#if @root.editAttributes}}
+                <a class="decreaseAttribute" data-action="decreaseAttribute"
+                  data-concernedAttribute="{{attrName}}">
+                  <i class="fa-solid fa-minus changeAttributeSubstract"></i>
+                </a>
+              {{/if}}
+              <input name={{concat 'system.attributes.' attrName '.value' }}
+                type='number'
+                class="attributeValueField"
+                data-baseAttributeInput="{{attrName}}"
+                value="{{ifThen @root.editAttributes attrValue.base attrValue.value}}"
+                data-dtype='Number'
+                class='small-input'
+                {{#unless @root.editAttributes}} readonly="true" {{/unless}} />
+              {{#if @root.editAttributes}}
+                <a class="increaseAttribute" data-action="increaseAttribute"
+                  data-concernedAttribute="{{attrName}}">
+                  <i class="fa-solid fa-plus changeAttributeAdd"></i>
+                </a>
+              {{/if}}
+            </span>
+          {{/inline}}
+
+          {{> oneAttribute attrName="charisma"  attrValue=document.system.attributes.charisma}}
+          {{> oneAttribute attrName="dexterity" attrValue=document.system.attributes.dexterity}}
+          {{> oneAttribute attrName="mind"      attrValue=document.system.attributes.mind}}
+          {{> oneAttribute attrName="spirit"    attrValue=document.system.attributes.spirit}}
+          {{> oneAttribute attrName="strength"  attrValue=document.system.attributes.strength}}
         </div>
       </div>
     </div>

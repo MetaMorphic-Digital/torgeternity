@@ -75,6 +75,7 @@
     },
     "chatText": {
       "actionTotal": "Action Total",
+      "applyEffect": "Apply Effect: {name}",
       "attack": "Attack",
       "attributeTestLabel": "Attribute",
       "baseDamage": "Base Damage",
@@ -796,6 +797,14 @@
         "hint": "If checked, the details of checks will always be shown.",
         "name": "Show Details in checks"
       },
+      "showEffectsPanel": {
+        "hint": "If checked, displays a list of effects on the currently selected token.",
+        "name": "Show Effects Panel"
+      },
+      "effectsPanelOnlyTemporary": {
+        "hint": "If checked, the Effects Panel will only show temporary effects (passive effects will not be displayed).",
+        "name": "Only Show Temporary Effects"
+      },
       "welcome": {
         "hint": "If checked, the welcome message will pop up after your world loads.",
         "name": "Display the Welcome Message"
@@ -988,6 +997,7 @@
       "miracle": "Miracle",
       "miracles": "Miracles",
       "missileWeapons": "Missile Weapons",
+      "mod": "Mod",
       "modifyDamage": "You can modify the damages here.",
       "modifyShocks": "New Shocks",
       "modifyWounds": "New Wounds",
