@@ -11,20 +11,6 @@
 - Fixes #632: The 'modifier' field of powers is now stored as a Number not a String.
 - Fixes #631: Having an Active Effect modify the 'adds' of a skill will now be handled properly when edits are made in the Actor sheet.
 
-### Translation Keys
-
-"chatText.applyEffect": "Apply Effect: {name}"
-```json
-      "showEffectsPanel": {
-        "hint": "If checked, displays a list of effects on the currently selected token.",
-        "name": "Show Effects Panel"
-      },
-      "effectsPanelOnlyTemporary": {
-        "hint": "If checked, the Effects Panel will only show temporary effects (passive effects will not be displayed).",
-        "name": "Only Show Temporary Effects"
-      },
-```
-
 ## 13.14.3
 
 - Powers updated in `en` Archetypes.

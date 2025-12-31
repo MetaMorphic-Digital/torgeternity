@@ -81,7 +81,7 @@
     },
     "chatText": {
       "actionTotal": "Total d'action",
-      "applyEffect": "Apply Effect: {name}",
+      "applyEffect": "Appliquer l'effet: {name}",
       "attack": "Attaque",
       "attributeTestLabel": "Valeur d'attribut",
       "baseDamage": "Dommages de base",
@@ -804,12 +804,12 @@
         "name": "Montrer les détails des tests"
       },
       "showEffectsPanel": {
-        "hint": "If checked, displays a list of effects on the currently selected token.",
-        "name": "Show Effects Panel"
+        "hint": "Si coché, affiche une liste des effets en cours sur le token sélectionné.",
+        "name": "Afficher le panneau des effets"
       },
       "effectsPanelOnlyTemporary": {
-        "hint": "If checked, the Effects Panel will only show temporary effects (passive effects will not be displayed).",
-        "name": "Only Show Temporary Effects"
+        "hint": "Si coché, le panneau des effets ne montrera que les effets temporaires (effets passifs cachés).",
+        "name": "N'afficher que les effets temporaires"
       },
       "welcome": {
         "hint": "Si sélectionné, le message de bienvenue apparaîtra au chargement",
