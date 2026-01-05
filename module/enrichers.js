@@ -321,9 +321,9 @@ function InlineBuffEnricher(match, options) {
     const parts = [];
     for (const [k, v] of Object.entries(dataset)) {
       if (k.startsWith('skill'))
-        parts.push(k.slice(5) + ` (${v})`);
+        parts.push(guessLabel(k.slice(5)) + ` (${v})`);
       else if (k.startsWith('attribute'))
-        parts.push(k.slice(9) + ` (${v})`);
+        parts.push(guessLabel(k.slice(9)) + ` (${v})`);
     }
     return parts.join(', ');
   }
