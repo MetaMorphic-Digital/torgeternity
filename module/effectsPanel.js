@@ -12,6 +12,7 @@ export default class EffectsPanel extends HandlebarsApplicationMixin(Application
     // Only one occurrence of this class is possible,
     // so only register hooks when first constructed.
     Hooks.on('controlToken', EffectsPanel.onControlToken);
+    Hooks.on('refreshToken', EffectsPanel.onRefreshToken);
 
     new ResizeObserver((entries) => {
       if (!EffectsPanel.panel.rendered) return;
@@ -101,6 +102,11 @@ export default class EffectsPanel extends HandlebarsApplicationMixin(Application
       EffectsPanel.panel.render({ force: true });
     else if (EffectsPanel.panel.rendered)
       EffectsPanel.panel.render();
+  }
+
+  static onRefreshToken(token, flags) {
+    if (EffectsPanel.panel.#actor === token.actor && flags.refreshEffects && EffectsPanel.panel.rendered)
+      EffectsPanel.panel.render({ force: true });
   }
 
   static onCollapseSidebar(collapsed) {
