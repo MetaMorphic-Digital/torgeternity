@@ -2,8 +2,22 @@
 
 ## NEXT
 
+- Adds a game setting (default enabled) to automatically calculate the Darkness Penalty for a token based on the current lighting situation at the token's location on the active scene.
+  - There are sliders in the scene configuration dialog to specify the darkness level used to determine Dim, Dark, Pitch Black separately for each scene.
+  - The calculation is done on the ACTIVE scene (not the current scene).
+  - The calculation is done by the active GM (so if no GM is logged in the automation does not occur).
+  - The calculation accounts for:
+    - Scene's global illumination value
+    - Regions with an "Adjust Darkness Level" behavior
+    - Light and Dark sources on the scene (either directly placed or via tokens)
+    - Darkness sources always override any other level of lighting (setting Pitch Black)
+- TODO: Active Effects can modify `statusModifiers.darkness` to affect the penalty applied by the darkness level (the maximum level is 0).
+
+### Bug Fixes
+
 - Fixes #635: Skills and Attributes which appear in `@Buff` enrichers are now localized when the default label is created.
 - Ensure Effects Panel is updated when the effects on the selected actor change.
+
 
 ## 13.15.0
 

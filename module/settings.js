@@ -253,6 +253,15 @@ export function registerTorgSettings() {
     default: false
   });
 
+  game.settings.register('torgeternity', 'autoDarknessPenalty', {
+    name: 'torgeternity.settingMenu.autoDarknessPenalty.name',
+    hint: 'torgeternity.settingMenu.autoDarknessPenalty.hint',
+    scope: 'world',
+    config: true,
+    type: Boolean,
+    default: true
+  });
+
   game.settings.register('torgeternity', 'showEffectsPanel', {
     name: 'torgeternity.settingMenu.showEffectsPanel.name',
     hint: 'torgeternity.settingMenu.showEffectsPanel.hint',

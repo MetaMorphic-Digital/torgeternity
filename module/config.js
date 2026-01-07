@@ -155,7 +155,7 @@ export function initConfig() {
   torgeternity.darknessModifiers = {
     none: 'torgeternity.sheetLabels.none',
     dim: 'torgeternity.darknessModifiers.dim',
-    diark: 'torgeternity.darknessModifiers.dark',
+    dark: 'torgeternity.darknessModifiers.dark',
     pitchBlack: 'torgeternity.darknessModifiers.pitchBlack',
   };
 

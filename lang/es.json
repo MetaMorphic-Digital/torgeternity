@@ -750,6 +750,10 @@
         "hint": "Activo: se muestra un efecto de animación en las tarjetas del chat. AVISO: Esto fuerza que la aplicación se vuelva a cargar.",
         "name": "Animación de tarjetas del chat"
       },
+      "autoDarknessPenalty": {
+        "hint": "If checked, the darkness penalty on a token will be set automatically based on the scene's darkness level, regions with adjust darkness level and light/dark sources.",
+        "name": "Automatic Darkness Penalties"
+      },
       "useColorBlindnessColors": {
         "hint": "Si está marcado, el juego usa tonos rojos y verdes aptos para daltónicos.",
         "name": "Usar tonos aptos para daltónicos"
@@ -1388,6 +1392,26 @@
       "macroHub": {
         "buttonTitle": "MacroHub",
         "title": "Central de macros de Torg Eternity"
+      }
+    }
+  },
+  "SCENE.FIELDS": {
+    "flags.torgeternity": {
+      "dimLightThreshold": {
+        "name": "Dim Light Threshold",
+        "hint": "A darkness threshold between 0.05 and 0.9. When the Scene darkness level exceeds this threshold Global Illumination is considered at least to be Dim Light when determining Darkness penalties."
+      },
+      "darkThreshold": {
+        "name": "Dark Threshold",
+        "hint": "A darkness threshold between 0.1 and 0.95. When the Scene darkness level exceeds this threshold Global Illumination is considered at least to be Darkness when determining Darkness penalties."
+      }
+    },
+    "environment": {
+      "globalLight": {
+        "darkness.max": {
+          "label": "Pitch Black Threshold",
+          "hint": "A darkness threshold between 0.15 and 1. When the Scene darkness level exceeds this threshold Global Illumination is disabled and considered to be Pitch Black when determining Darkness penalties."
+        }
       }
     }
   }
