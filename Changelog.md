@@ -11,7 +11,8 @@
     - Regions with an "Adjust Darkness Level" behavior
     - Light and Dark sources on the scene (either directly placed or via tokens)
     - Darkness sources always override any other level of lighting (setting Pitch Black)
-- TODO: Active Effects can modify `statusModifiers.darkness` to affect the penalty applied by the darkness level (the maximum level is 0).
+- Active Effects can modify `statusModifiers.*` fields to affect the bonus/penalty applied to those modifiers (concentrating, darkness, stymied, vulnerable, waiting):
+  - Limits are applied so that the 0 boundary isn't crossed (stymied/darkness/concentrating/waiting <= 0; vulnerable >= 0);
 
 ### Bug Fixes
 

@@ -98,14 +98,19 @@ export default class TorgeternityActor extends foundry.documents.Actor {
     super.prepareDerivedData();
     // Here Effects are applied, whatever follow cannot be directly affected by Effects
 
-    // apply status effects
-    this.statusModifiers = {
-      stymied: this.statuses.has('veryStymied') ? -4 : this.statuses.has('stymied') ? -2 : 0,
-      vulnerable: this.statuses.has('veryVulnerable') ? 4 : this.statuses.has('vulnerable') ? 2 : 0,
-      darkness: this.statuses.has('pitchBlack') ? -6 : this.statuses.has('dark') ? -4 : this.statuses.has('dim') ? -2 : 0,
-      waiting: this.statuses.has('waiting') ? -2 : 0,
-      concentrating: this.appliedEffects.filter(ef => ef.statuses.has('concentrating')).length * -2,
-    };
+    // apply status effects (note that base values of 0 might have been modified by Active Effects)
+    this.statusModifiers.stymied += this.statuses.has('veryStymied') ? -4 : this.statuses.has('stymied') ? -2 : 0;
+    this.statusModifiers.vulnerable += this.statuses.has('veryVulnerable') ? 4 : this.statuses.has('vulnerable') ? 2 : 0;
+    this.statusModifiers.darkness += this.statuses.has('pitchBlack') ? -6 : this.statuses.has('dark') ? -4 : this.statuses.has('dim') ? -2 : 0;
+    this.statusModifiers.waiting += this.statuses.has('waiting') ? -2 : 0;
+    this.statusModifiers.concentrating += this.appliedEffects.filter(ef => ef.statuses.has('concentrating')).length * -2;
+
+    // Place limits on the modifiers (can't cross the 0 boundary)
+    if (this.statusModifiers.stymied > 0) this.statusModifiers.stymied = 0;
+    if (this.statusModifiers.darkness > 0) this.statusModifiers.darkness = 0;
+    if (this.statusModifiers.waiting > 0) this.statusModifiers.waiting = 0;
+    if (this.statusModifiers.concentrating > 0) this.statusModifiers.concentrating = 0;
+    if (this.statusModifiers.vulnerable < 0) this.statusModifiers.vulnerable = 0;
 
     // Skillsets
     if (this.type !== 'vehicle') {
