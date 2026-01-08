@@ -5,6 +5,7 @@
 - Adds a game setting (default enabled) to automatically calculate the Darkness Penalty for a token based on the current lighting situation at the token's location on the active scene.
   - There are sliders in the scene configuration dialog to specify the darkness level used to determine Dim, Dark, Pitch Black separately for each scene.
   - The calculation is done on the ACTIVE scene (not the current scene).
+  - The ACTIVE scene must have vision enabled.
   - The calculation is done by the active GM (so if no GM is logged in the automation does not occur).
   - The calculation accounts for:
     - Scene's global illumination value
@@ -13,6 +14,9 @@
     - Darkness sources always override any other level of lighting (setting Pitch Black)
 - Active Effects can modify `statusModifiers.*` fields to affect the bonus/penalty applied to those modifiers (concentrating, darkness, stymied, vulnerable, waiting):
   - Limits are applied so that the 0 boundary isn't crossed (stymied/darkness/concentrating/waiting <= 0; vulnerable >= 0);
+
+- Translations by Durak (French), Teotimus (Spanish), Helmut (German)
+- Darkness Penalty code originally based on the SWADE Illuminator module by kristianserrano.
 
 ### Bug Fixes
 
