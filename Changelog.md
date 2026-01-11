@@ -2,6 +2,7 @@
 
 ## NEXT
 
+- **Darkness Modifier** of the TARGET(s) is used in the attack test, not the darkness modifier of the attacker.
 - Adds a game setting (default enabled) to **automatically calculate the Darkness Penalty** for a token based on the current lighting situation at the token's location on the active scene.
   - There are sliders in the scene configuration dialog to specify the darkness level used to determine Dim, Dark, Pitch Black separately for each scene.
   - The calculation is done on the ACTIVE scene (not the current scene).
@@ -12,8 +13,6 @@
     - Regions with an "Adjust Darkness Level" behavior
     - Light and Dark sources on the scene (either directly placed or via tokens)
     - Darkness sources always override any other level of lighting (setting Pitch Black)
-- **Darkness Modifier** of the TARGET(s) is used in a check test, not the darkness modifier of the attacker.
-  - Limits are applied so that the 0 boundary isn't crossed (stymied/darkness/concentrating/waiting <= 0; vulnerable >= 0);
 - Add **card numbers** to all cards in the core card decks.
 
 ### Internal
