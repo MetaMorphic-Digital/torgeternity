@@ -46,8 +46,8 @@ cards:
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    _key: '!cards.cards!cBTPvBrPQpFTkUcm.0WVfvJaPEz0ZuKYG'
     cards: []
+    _key: '!cards.cards!cBTPvBrPQpFTkUcm.0WVfvJaPEz0ZuKYG'
   - _id: ZPz9kK6OppYm4oRU
     name: There's Always Hope
     description: ''
@@ -85,8 +85,8 @@ cards:
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    _key: '!cards.cards!cBTPvBrPQpFTkUcm.ZPz9kK6OppYm4oRU'
     cards: []
+    _key: '!cards.cards!cBTPvBrPQpFTkUcm.ZPz9kK6OppYm4oRU'
   - _id: UpVhy5K6093c3CvT
     name: Seize the Day
     description: ''
@@ -124,8 +124,8 @@ cards:
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    _key: '!cards.cards!cBTPvBrPQpFTkUcm.UpVhy5K6093c3CvT'
     cards: []
+    _key: '!cards.cards!cBTPvBrPQpFTkUcm.UpVhy5K6093c3CvT'
   - _id: fcvACYbD2h5kDW2Y
     name: Go for Broke
     description: ''
@@ -163,8 +163,8 @@ cards:
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    _key: '!cards.cards!cBTPvBrPQpFTkUcm.fcvACYbD2h5kDW2Y'
     cards: []
+    _key: '!cards.cards!cBTPvBrPQpFTkUcm.fcvACYbD2h5kDW2Y'
   - _id: uSS8yEHAIQWvSjZ0
     name: Lucky Break
     description: ''
@@ -200,8 +200,8 @@ cards:
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    _key: '!cards.cards!cBTPvBrPQpFTkUcm.uSS8yEHAIQWvSjZ0'
     cards: []
+    _key: '!cards.cards!cBTPvBrPQpFTkUcm.uSS8yEHAIQWvSjZ0'
   - name: Spurred On!
     type: cosm
     _id: HoOsTszTLXIcowdF
@@ -237,8 +237,8 @@ cards:
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    _key: '!cards.cards!cBTPvBrPQpFTkUcm.HoOsTszTLXIcowdF'
     cards: []
+    _key: '!cards.cards!cBTPvBrPQpFTkUcm.HoOsTszTLXIcowdF'
   - name: Keep Fighting
     type: cosm
     _id: zbI1sS7f9Xmz8zf8
@@ -274,8 +274,8 @@ cards:
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    _key: '!cards.cards!cBTPvBrPQpFTkUcm.zbI1sS7f9Xmz8zf8'
     cards: []
+    _key: '!cards.cards!cBTPvBrPQpFTkUcm.zbI1sS7f9Xmz8zf8'
   - name: Rousing Speech
     type: cosm
     _id: 4hmBO9qVdBjL0mx2
@@ -311,8 +311,8 @@ cards:
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    _key: '!cards.cards!cBTPvBrPQpFTkUcm.4hmBO9qVdBjL0mx2'
     cards: []
+    _key: '!cards.cards!cBTPvBrPQpFTkUcm.4hmBO9qVdBjL0mx2'
   - name: The Law of Hope
     type: cosm
     _id: UdBW5DzxAqp9rFMO
@@ -348,8 +348,8 @@ cards:
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    _key: '!cards.cards!cBTPvBrPQpFTkUcm.UdBW5DzxAqp9rFMO'
     cards: []
+    _key: '!cards.cards!cBTPvBrPQpFTkUcm.UdBW5DzxAqp9rFMO'
   - name: Welcome to our World!
     type: cosm
     _id: dNfYifYx4O4G1yjQ
@@ -385,8 +385,8 @@ cards:
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    _key: '!cards.cards!cBTPvBrPQpFTkUcm.dNfYifYx4O4G1yjQ'
     cards: []
+    _key: '!cards.cards!cBTPvBrPQpFTkUcm.dNfYifYx4O4G1yjQ'
 rotation: 0
 displayCount: false
 folder: null

@@ -2,7 +2,7 @@
 
 ## NEXT
 
-- Adds a game setting (default enabled) to automatically calculate the Darkness Penalty for a token based on the current lighting situation at the token's location on the active scene.
+- Adds a game setting (default enabled) to **automatically calculate the Darkness Penalty** for a token based on the current lighting situation at the token's location on the active scene.
   - There are sliders in the scene configuration dialog to specify the darkness level used to determine Dim, Dark, Pitch Black separately for each scene.
   - The calculation is done on the ACTIVE scene (not the current scene).
   - The ACTIVE scene must have vision enabled.
@@ -14,7 +14,7 @@
     - Darkness sources always override any other level of lighting (setting Pitch Black)
 - Active Effects can modify `statusModifiers.*` fields to affect the bonus/penalty applied to those modifiers (concentrating, darkness, stymied, vulnerable, waiting):
   - Limits are applied so that the 0 boundary isn't crossed (stymied/darkness/concentrating/waiting <= 0; vulnerable >= 0);
-- Add card numbers to all cards in the core card decks.
+- Add **card numbers** to all cards in the core card decks.
 
 ### Internal
 - Remove `card.system.number` from all Cards, storing the value in `card.value` instead.

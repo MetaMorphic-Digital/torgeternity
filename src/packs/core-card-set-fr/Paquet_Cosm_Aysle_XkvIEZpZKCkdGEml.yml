@@ -39,8 +39,8 @@ cards:
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    _key: '!cards.cards!XkvIEZpZKCkdGEml.V92ENh3FeUuXB0O2'
     cards: []
+    _key: '!cards.cards!XkvIEZpZKCkdGEml.V92ENh3FeUuXB0O2'
   - _id: worViS0nbQn3JFV5
     name: Affronte-moi !
     description: ''
@@ -76,8 +76,8 @@ cards:
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    _key: '!cards.cards!XkvIEZpZKCkdGEml.worViS0nbQn3JFV5'
     cards: []
+    _key: '!cards.cards!XkvIEZpZKCkdGEml.worViS0nbQn3JFV5'
   - _id: itVWq7suxbDVzlza
     name: Piège !
     description: ''
@@ -113,8 +113,8 @@ cards:
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    _key: '!cards.cards!XkvIEZpZKCkdGEml.itVWq7suxbDVzlza'
     cards: []
+    _key: '!cards.cards!XkvIEZpZKCkdGEml.itVWq7suxbDVzlza'
   - _id: kSjP0qUnsHtVQydl
     name: Intrigue de cour
     description: ''
@@ -150,8 +150,8 @@ cards:
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    _key: '!cards.cards!XkvIEZpZKCkdGEml.kSjP0qUnsHtVQydl'
     cards: []
+    _key: '!cards.cards!XkvIEZpZKCkdGEml.kSjP0qUnsHtVQydl'
   - _id: GuNB26Cjvq5FHnII
     name: Amour courtois
     description: ''
@@ -187,8 +187,8 @@ cards:
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    _key: '!cards.cards!XkvIEZpZKCkdGEml.GuNB26Cjvq5FHnII'
     cards: []
+    _key: '!cards.cards!XkvIEZpZKCkdGEml.GuNB26Cjvq5FHnII'
   - _id: ULs4YpiVGHrgEy27
     name: Monstre errant
     description: ''
@@ -224,8 +224,8 @@ cards:
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    _key: '!cards.cards!XkvIEZpZKCkdGEml.ULs4YpiVGHrgEy27'
     cards: []
+    _key: '!cards.cards!XkvIEZpZKCkdGEml.ULs4YpiVGHrgEy27'
   - _id: 17RCEUL00WfQEaLu
     name: Magie instable
     description: ''
@@ -261,8 +261,8 @@ cards:
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    _key: '!cards.cards!XkvIEZpZKCkdGEml.17RCEUL00WfQEaLu'
     cards: []
+    _key: '!cards.cards!XkvIEZpZKCkdGEml.17RCEUL00WfQEaLu'
   - _id: shxkzow9YHop8mFL
     name: Fais-lui les poches !
     description: ''
@@ -298,8 +298,8 @@ cards:
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    _key: '!cards.cards!XkvIEZpZKCkdGEml.shxkzow9YHop8mFL'
     cards: []
+    _key: '!cards.cards!XkvIEZpZKCkdGEml.shxkzow9YHop8mFL'
   - _id: ypuHPV67TwKTmoLr
     name: Afflux de Mana
     description: ''
@@ -335,8 +335,8 @@ cards:
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    _key: '!cards.cards!XkvIEZpZKCkdGEml.ypuHPV67TwKTmoLr'
     cards: []
+    _key: '!cards.cards!XkvIEZpZKCkdGEml.ypuHPV67TwKTmoLr'
   - _id: fqlrwKeSVND6OKWx
     name: Qui trouve garde
     description: ''
@@ -372,8 +372,8 @@ cards:
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    _key: '!cards.cards!XkvIEZpZKCkdGEml.fqlrwKeSVND6OKWx'
     cards: []
+    _key: '!cards.cards!XkvIEZpZKCkdGEml.fqlrwKeSVND6OKWx'
 rotation: 0
 displayCount: false
 folder: null

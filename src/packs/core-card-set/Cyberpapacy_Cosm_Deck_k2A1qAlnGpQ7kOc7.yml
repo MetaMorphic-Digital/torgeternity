@@ -39,8 +39,8 @@ cards:
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    _key: '!cards.cards!k2A1qAlnGpQ7kOc7.2DeODQNFt6KtEFMm'
     cards: []
+    _key: '!cards.cards!k2A1qAlnGpQ7kOc7.2DeODQNFt6KtEFMm'
   - _id: SNFQYKMPTX2DP3pC
     name: La Resistance!
     description: ''
@@ -76,8 +76,8 @@ cards:
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    _key: '!cards.cards!k2A1qAlnGpQ7kOc7.SNFQYKMPTX2DP3pC'
     cards: []
+    _key: '!cards.cards!k2A1qAlnGpQ7kOc7.SNFQYKMPTX2DP3pC'
   - _id: UssUDcZcdrZrNXPM
     name: Conjunction
     description: ''
@@ -113,8 +113,8 @@ cards:
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    _key: '!cards.cards!k2A1qAlnGpQ7kOc7.UssUDcZcdrZrNXPM'
     cards: []
+    _key: '!cards.cards!k2A1qAlnGpQ7kOc7.UssUDcZcdrZrNXPM'
   - _id: EzgLH63xoI4ROWI8
     name: Heretical Magic
     description: ''
@@ -150,8 +150,8 @@ cards:
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    _key: '!cards.cards!k2A1qAlnGpQ7kOc7.EzgLH63xoI4ROWI8'
     cards: []
+    _key: '!cards.cards!k2A1qAlnGpQ7kOc7.EzgLH63xoI4ROWI8'
   - _id: kw9a8veXConCLoFx
     name: Malreaux's Wrath
     description: ''
@@ -187,8 +187,8 @@ cards:
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    _key: '!cards.cards!k2A1qAlnGpQ7kOc7.kw9a8veXConCLoFx'
     cards: []
+    _key: '!cards.cards!k2A1qAlnGpQ7kOc7.kw9a8veXConCLoFx'
   - _id: NVPYP7H5iZROVUgy
     name: Heightened Paranoia
     description: ''
@@ -224,8 +224,8 @@ cards:
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    _key: '!cards.cards!k2A1qAlnGpQ7kOc7.NVPYP7H5iZROVUgy'
     cards: []
+    _key: '!cards.cards!k2A1qAlnGpQ7kOc7.NVPYP7H5iZROVUgy'
   - _id: aOUteYYPd1RitQas
     name: Denounced
     description: ''
@@ -261,8 +261,8 @@ cards:
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    _key: '!cards.cards!k2A1qAlnGpQ7kOc7.aOUteYYPd1RitQas'
     cards: []
+    _key: '!cards.cards!k2A1qAlnGpQ7kOc7.aOUteYYPd1RitQas'
   - _id: dUqJQHdmTORPKrSl
     name: Wanted
     description: ''
@@ -298,8 +298,8 @@ cards:
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    _key: '!cards.cards!k2A1qAlnGpQ7kOc7.dUqJQHdmTORPKrSl'
     cards: []
+    _key: '!cards.cards!k2A1qAlnGpQ7kOc7.dUqJQHdmTORPKrSl'
   - _id: n6N0ODr5vg6W6FFb
     name: Mandatory Upgrade
     description: ''
@@ -335,8 +335,8 @@ cards:
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    _key: '!cards.cards!k2A1qAlnGpQ7kOc7.n6N0ODr5vg6W6FFb'
     cards: []
+    _key: '!cards.cards!k2A1qAlnGpQ7kOc7.n6N0ODr5vg6W6FFb'
   - _id: IMAaRpqQ3FGT95EO
     name: Rage
     description: ''
@@ -372,8 +372,8 @@ cards:
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    _key: '!cards.cards!k2A1qAlnGpQ7kOc7.IMAaRpqQ3FGT95EO'
     cards: []
+    _key: '!cards.cards!k2A1qAlnGpQ7kOc7.IMAaRpqQ3FGT95EO'
 rotation: 0
 displayCount: false
 folder: null

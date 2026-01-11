@@ -39,8 +39,8 @@ cards:
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    _key: '!cards.cards!zt7zadfXvHzLp4Xd.NjMFOSDhuMFl0iJh'
     cards: []
+    _key: '!cards.cards!zt7zadfXvHzLp4Xd.NjMFOSDhuMFl0iJh'
   - _id: lLcqSYVKLd0H7bxT
     name: La Résistance !
     description: ''
@@ -76,8 +76,8 @@ cards:
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    _key: '!cards.cards!zt7zadfXvHzLp4Xd.lLcqSYVKLd0H7bxT'
     cards: []
+    _key: '!cards.cards!zt7zadfXvHzLp4Xd.lLcqSYVKLd0H7bxT'
   - _id: tK3DDkMkLvlL96a4
     name: Conjunction
     description: ''
@@ -113,8 +113,8 @@ cards:
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    _key: '!cards.cards!zt7zadfXvHzLp4Xd.tK3DDkMkLvlL96a4'
     cards: []
+    _key: '!cards.cards!zt7zadfXvHzLp4Xd.tK3DDkMkLvlL96a4'
   - _id: 02E1CVWWPbveXslC
     name: Magie hérétique
     description: ''
@@ -150,8 +150,8 @@ cards:
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    _key: '!cards.cards!zt7zadfXvHzLp4Xd.02E1CVWWPbveXslC'
     cards: []
+    _key: '!cards.cards!zt7zadfXvHzLp4Xd.02E1CVWWPbveXslC'
   - _id: qsAxiVcYA0ybDmRz
     name: La fureur de Malraux
     description: ''
@@ -187,8 +187,8 @@ cards:
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    _key: '!cards.cards!zt7zadfXvHzLp4Xd.qsAxiVcYA0ybDmRz'
     cards: []
+    _key: '!cards.cards!zt7zadfXvHzLp4Xd.qsAxiVcYA0ybDmRz'
   - _id: TJZ83NeE6JEQixJj
     name: Paranoïa exacerbée
     description: ''
@@ -224,8 +224,8 @@ cards:
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    _key: '!cards.cards!zt7zadfXvHzLp4Xd.TJZ83NeE6JEQixJj'
     cards: []
+    _key: '!cards.cards!zt7zadfXvHzLp4Xd.TJZ83NeE6JEQixJj'
   - _id: kRmt9YLxSuhQmcLh
     name: Dénonciation
     description: ''
@@ -261,8 +261,8 @@ cards:
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    _key: '!cards.cards!zt7zadfXvHzLp4Xd.kRmt9YLxSuhQmcLh'
     cards: []
+    _key: '!cards.cards!zt7zadfXvHzLp4Xd.kRmt9YLxSuhQmcLh'
   - _id: BZDOkEh7srPTsQPC
     name: Avis de recherche
     description: ''
@@ -298,8 +298,8 @@ cards:
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    _key: '!cards.cards!zt7zadfXvHzLp4Xd.BZDOkEh7srPTsQPC'
     cards: []
+    _key: '!cards.cards!zt7zadfXvHzLp4Xd.BZDOkEh7srPTsQPC'
   - _id: pfg9gbHGZGKsE7a3
     name: Mise à jour impérative
     description: ''
@@ -335,8 +335,8 @@ cards:
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    _key: '!cards.cards!zt7zadfXvHzLp4Xd.pfg9gbHGZGKsE7a3'
     cards: []
+    _key: '!cards.cards!zt7zadfXvHzLp4Xd.pfg9gbHGZGKsE7a3'
   - _id: U9v0fSceNBGzj0Na
     name: Rage
     description: ''
@@ -372,8 +372,8 @@ cards:
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    _key: '!cards.cards!zt7zadfXvHzLp4Xd.U9v0fSceNBGzj0Na'
     cards: []
+    _key: '!cards.cards!zt7zadfXvHzLp4Xd.U9v0fSceNBGzj0Na'
 rotation: 0
 displayCount: false
 folder: null

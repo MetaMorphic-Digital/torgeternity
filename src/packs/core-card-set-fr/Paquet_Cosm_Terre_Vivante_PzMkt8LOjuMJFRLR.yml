@@ -39,8 +39,8 @@ cards:
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    _key: '!cards.cards!PzMkt8LOjuMJFRLR.yXpebbsqyp1jPL3g'
     cards: []
+    _key: '!cards.cards!PzMkt8LOjuMJFRLR.yXpebbsqyp1jPL3g'
   - _id: wGJSQ33Tw0ZtGqdD
     name: Loi de la déterioration
     description: ''
@@ -76,8 +76,8 @@ cards:
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    _key: '!cards.cards!PzMkt8LOjuMJFRLR.wGJSQ33Tw0ZtGqdD'
     cards: []
+    _key: '!cards.cards!PzMkt8LOjuMJFRLR.wGJSQ33Tw0ZtGqdD'
   - _id: 057taQFfsqZqS4Xp
     name: La meilleur défense
     description: ''
@@ -113,8 +113,8 @@ cards:
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    _key: '!cards.cards!PzMkt8LOjuMJFRLR.057taQFfsqZqS4Xp'
     cards: []
+    _key: '!cards.cards!PzMkt8LOjuMJFRLR.057taQFfsqZqS4Xp'
   - _id: 65P54L8dMo57MRnj
     name: La survie du plus fort
     description: ''
@@ -150,8 +150,8 @@ cards:
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    _key: '!cards.cards!PzMkt8LOjuMJFRLR.65P54L8dMo57MRnj'
     cards: []
+    _key: '!cards.cards!PzMkt8LOjuMJFRLR.65P54L8dMo57MRnj'
   - _id: IV6qehYN0D98qJmc
     name: Les périls de la Terre Vivante
     description: ''
@@ -187,8 +187,8 @@ cards:
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    _key: '!cards.cards!PzMkt8LOjuMJFRLR.IV6qehYN0D98qJmc'
     cards: []
+    _key: '!cards.cards!PzMkt8LOjuMJFRLR.IV6qehYN0D98qJmc'
   - _id: dhe5In9O3pc8AMG0
     name: La brume dense
     description: ''
@@ -224,8 +224,8 @@ cards:
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    _key: '!cards.cards!PzMkt8LOjuMJFRLR.dhe5In9O3pc8AMG0'
     cards: []
+    _key: '!cards.cards!PzMkt8LOjuMJFRLR.dhe5In9O3pc8AMG0'
   - _id: y2Ao2iMhixIlVCtm
     name: La loi de la vie
     description: ''
@@ -261,8 +261,8 @@ cards:
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    _key: '!cards.cards!PzMkt8LOjuMJFRLR.y2Ao2iMhixIlVCtm'
     cards: []
+    _key: '!cards.cards!PzMkt8LOjuMJFRLR.y2Ao2iMhixIlVCtm'
   - _id: r0Ot6dnGBJuiOKE7
     name: Instincts primitifs
     description: ''
@@ -298,8 +298,8 @@ cards:
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    _key: '!cards.cards!PzMkt8LOjuMJFRLR.r0Ot6dnGBJuiOKE7'
     cards: []
+    _key: '!cards.cards!PzMkt8LOjuMJFRLR.r0Ot6dnGBJuiOKE7'
   - _id: Pel2Eai3JdUMgH3s
     name: Trésor perdu
     description: ''
@@ -335,8 +335,8 @@ cards:
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    _key: '!cards.cards!PzMkt8LOjuMJFRLR.Pel2Eai3JdUMgH3s'
     cards: []
+    _key: '!cards.cards!PzMkt8LOjuMJFRLR.Pel2Eai3JdUMgH3s'
   - _id: 5UUYuIZnQOUY9MZ7
     name: La loi de la déterioration
     description: ''
@@ -372,8 +372,8 @@ cards:
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    _key: '!cards.cards!PzMkt8LOjuMJFRLR.5UUYuIZnQOUY9MZ7'
     cards: []
+    _key: '!cards.cards!PzMkt8LOjuMJFRLR.5UUYuIZnQOUY9MZ7'
 rotation: 0
 displayCount: false
 folder: null
