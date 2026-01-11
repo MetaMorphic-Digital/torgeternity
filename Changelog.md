@@ -14,7 +14,10 @@
     - Darkness sources always override any other level of lighting (setting Pitch Black)
 - Active Effects can modify `statusModifiers.*` fields to affect the bonus/penalty applied to those modifiers (concentrating, darkness, stymied, vulnerable, waiting):
   - Limits are applied so that the 0 boundary isn't crossed (stymied/darkness/concentrating/waiting <= 0; vulnerable >= 0);
+- Add card numbers to all cards in the core card decks.
 
+### Internal
+- Remove `card.system.number` from all Cards, storing the value in `card.value` instead.
 - Translations by Durak (French), Teotimus (Spanish), Helmut (German)
 - Darkness Penalty code originally based on the SWADE Illuminator module by kristianserrano.
 

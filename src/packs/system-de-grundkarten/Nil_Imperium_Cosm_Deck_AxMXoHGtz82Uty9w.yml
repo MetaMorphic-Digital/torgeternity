@@ -27,20 +27,21 @@ cards:
     flags: {}
     system:
       cosm: none
-      number: null
-    value: null
+      number: 1
+    value: 1
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
-      systemVersion: 13.2.2
-      lastModifiedBy: null
+      systemVersion: 13.13.2
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
+      modifiedTime: 1768152437633
     _key: '!cards.cards!AxMXoHGtz82Uty9w.LhQpMt0FtTJccDV0'
+    cards: []
   - _id: NkU4QxNX4B86IGFr
     name: Im Kreuzfeuer
     description: ''
@@ -63,20 +64,21 @@ cards:
     flags: {}
     system:
       cosm: none
-      number: null
-    value: null
+      number: 2
+    value: 2
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
-      systemVersion: 13.2.2
-      lastModifiedBy: null
+      systemVersion: 13.13.2
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
+      modifiedTime: 1768152437633
     _key: '!cards.cards!AxMXoHGtz82Uty9w.NkU4QxNX4B86IGFr'
+    cards: []
   - _id: AVmVDtSDIJ6fiY9C
     name: Gefangen!
     description: ''
@@ -99,20 +101,21 @@ cards:
     flags: {}
     system:
       cosm: none
-      number: null
-    value: null
+      number: 3
+    value: 3
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
-      systemVersion: 13.2.2
-      lastModifiedBy: null
+      systemVersion: 13.13.2
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
+      modifiedTime: 1768152437633
     _key: '!cards.cards!AxMXoHGtz82Uty9w.AVmVDtSDIJ6fiY9C'
+    cards: []
   - _id: LrYHaa5WDYhOhu21
     name: In die Verlängerung
     description: ''
@@ -135,20 +138,21 @@ cards:
     flags: {}
     system:
       cosm: none
-      number: null
-    value: null
+      number: 4
+    value: 4
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
-      systemVersion: 13.2.2
-      lastModifiedBy: null
+      systemVersion: 13.13.2
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
+      modifiedTime: 1768152437633
     _key: '!cards.cards!AxMXoHGtz82Uty9w.LrYHaa5WDYhOhu21'
+    cards: []
   - _id: PrL7h9APHfI4NMhU
     name: Plötzlich...
     description: ''
@@ -171,20 +175,21 @@ cards:
     flags: {}
     system:
       cosm: none
-      number: null
-    value: null
+      number: 5
+    value: 5
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
-      systemVersion: 13.2.2
-      lastModifiedBy: null
+      systemVersion: 13.13.2
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
+      modifiedTime: 1768152437633
     _key: '!cards.cards!AxMXoHGtz82Uty9w.PrL7h9APHfI4NMhU'
+    cards: []
   - _id: U2sdVdn9JCdU0rPd
     name: Dramatische Offenbarung
     description: ''
@@ -207,20 +212,21 @@ cards:
     flags: {}
     system:
       cosm: none
-      number: null
-    value: null
+      number: 6
+    value: 6
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
-      systemVersion: 13.2.2
-      lastModifiedBy: null
+      systemVersion: 13.13.2
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
+      modifiedTime: 1768152437633
     _key: '!cards.cards!AxMXoHGtz82Uty9w.U2sdVdn9JCdU0rPd'
+    cards: []
   - _id: dOWBVGbrwEtSLy5O
     name: Vorzeitiger Rückzug
     description: ''
@@ -243,20 +249,21 @@ cards:
     flags: {}
     system:
       cosm: none
-      number: null
-    value: null
+      number: 7
+    value: 7
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
-      systemVersion: 13.2.2
-      lastModifiedBy: null
+      systemVersion: 13.13.2
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
+      modifiedTime: 1768152437633
     _key: '!cards.cards!AxMXoHGtz82Uty9w.dOWBVGbrwEtSLy5O'
+    cards: []
   - _id: QbabcJBkENdLwTWa
     name: Triumphierende Rede
     description: ''
@@ -279,20 +286,21 @@ cards:
     flags: {}
     system:
       cosm: none
-      number: null
-    value: null
+      number: 8
+    value: 8
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
-      systemVersion: 13.2.2
-      lastModifiedBy: null
+      systemVersion: 13.13.2
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
+      modifiedTime: 1768152437633
     _key: '!cards.cards!AxMXoHGtz82Uty9w.QbabcJBkENdLwTWa'
+    cards: []
   - _id: OoRm9HGExGwizDdQ
     name: Unvermeidbare Rückkehr
     description: ''
@@ -315,20 +323,21 @@ cards:
     flags: {}
     system:
       cosm: none
-      number: null
-    value: null
+      number: 9
+    value: 9
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
-      systemVersion: 13.2.2
-      lastModifiedBy: null
+      systemVersion: 13.13.2
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
+      modifiedTime: 1768152437633
     _key: '!cards.cards!AxMXoHGtz82Uty9w.OoRm9HGExGwizDdQ'
+    cards: []
   - _id: J6IJmxvpzInhxtPG
     name: Gesetz der Action
     description: ''
@@ -351,20 +360,21 @@ cards:
     flags: {}
     system:
       cosm: none
-      number: null
-    value: null
+      number: 10
+    value: 10
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
-      systemVersion: 13.2.2
-      lastModifiedBy: null
+      systemVersion: 13.13.2
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
+      modifiedTime: 1768152437633
     _key: '!cards.cards!AxMXoHGtz82Uty9w.J6IJmxvpzInhxtPG'
+    cards: []
 rotation: 0
 displayCount: false
 folder: null
@@ -382,11 +392,11 @@ width: null
 height: null
 _stats:
   systemId: torgeternity
-  systemVersion: 13.2.2
-  coreVersion: '13.346'
+  systemVersion: 13.15.0
+  coreVersion: '13.351'
   createdTime: 1716827812048
-  modifiedTime: 1753598355970
-  lastModifiedBy: W32Zl65V9atvPk8o
+  modifiedTime: 1768153369234
+  lastModifiedBy: BMvGTGfheqDXarjN
   compendiumSource: Cards.VPYV2jqR3aAc2Mzj
   duplicateSource: null
   exportSource: null

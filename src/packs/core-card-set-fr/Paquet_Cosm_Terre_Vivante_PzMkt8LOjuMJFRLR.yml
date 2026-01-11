@@ -17,7 +17,7 @@ cards:
       - name: Dino Attack!
         img: systems/torgeternity/images/cards/cosm/living-land/fr/01.webp
         text: ''
-    face: 1
+    face: 0
     drawn: false
     origin: pv0VdyaTRNSwjiGi
     rotation: 0
@@ -25,22 +25,22 @@ cards:
     flags: {}
     system:
       cosm: ''
-      number: ''
-    value: null
+      number: 1
+    value: 1
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437553
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!PzMkt8LOjuMJFRLR.yXpebbsqyp1jPL3g'
+    cards: []
   - _id: wGJSQ33Tw0ZtGqdD
     name: Loi de la déterioration
     description: ''
@@ -54,7 +54,7 @@ cards:
       - name: The Law of Decay
         img: systems/torgeternity/images/cards/cosm/living-land/fr/02.webp
         text: ''
-    face: 1
+    face: 0
     drawn: false
     origin: pv0VdyaTRNSwjiGi
     rotation: 0
@@ -62,22 +62,22 @@ cards:
     flags: {}
     system:
       cosm: ''
-      number: ''
-    value: null
+      number: 2
+    value: 2
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437553
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!PzMkt8LOjuMJFRLR.wGJSQ33Tw0ZtGqdD'
+    cards: []
   - _id: 057taQFfsqZqS4Xp
     name: La meilleur défense
     description: ''
@@ -91,7 +91,7 @@ cards:
       - name: The Best Defense
         img: systems/torgeternity/images/cards/cosm/living-land/fr/03.webp
         text: ''
-    face: 1
+    face: 0
     drawn: false
     origin: pv0VdyaTRNSwjiGi
     rotation: 0
@@ -99,22 +99,22 @@ cards:
     flags: {}
     system:
       cosm: ''
-      number: ''
-    value: null
+      number: 3
+    value: 3
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437553
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!PzMkt8LOjuMJFRLR.057taQFfsqZqS4Xp'
+    cards: []
   - _id: 65P54L8dMo57MRnj
     name: La survie du plus fort
     description: ''
@@ -128,7 +128,7 @@ cards:
       - name: Survival of the Fittest
         img: systems/torgeternity/images/cards/cosm/living-land/fr/04.webp
         text: ''
-    face: 1
+    face: 0
     drawn: false
     origin: pv0VdyaTRNSwjiGi
     rotation: 0
@@ -136,22 +136,22 @@ cards:
     flags: {}
     system:
       cosm: ''
-      number: ''
-    value: null
+      number: 4
+    value: 4
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437553
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!PzMkt8LOjuMJFRLR.65P54L8dMo57MRnj'
+    cards: []
   - _id: IV6qehYN0D98qJmc
     name: Les périls de la Terre Vivante
     description: ''
@@ -165,7 +165,7 @@ cards:
       - name: Perils of the Living Land
         img: systems/torgeternity/images/cards/cosm/living-land/fr/05.webp
         text: ''
-    face: 1
+    face: 0
     drawn: false
     origin: pv0VdyaTRNSwjiGi
     rotation: 0
@@ -173,22 +173,22 @@ cards:
     flags: {}
     system:
       cosm: ''
-      number: ''
-    value: null
+      number: 5
+    value: 5
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437553
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!PzMkt8LOjuMJFRLR.IV6qehYN0D98qJmc'
+    cards: []
   - _id: dhe5In9O3pc8AMG0
     name: La brume dense
     description: ''
@@ -210,22 +210,22 @@ cards:
     flags: {}
     system:
       cosm: ''
-      number: ''
-    value: null
+      number: 6
+    value: 6
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437553
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!PzMkt8LOjuMJFRLR.dhe5In9O3pc8AMG0'
+    cards: []
   - _id: y2Ao2iMhixIlVCtm
     name: La loi de la vie
     description: ''
@@ -239,7 +239,7 @@ cards:
       - name: The Law of Life
         img: systems/torgeternity/images/cards/cosm/living-land/fr/07.webp
         text: ''
-    face: 1
+    face: 0
     drawn: false
     origin: pv0VdyaTRNSwjiGi
     rotation: 0
@@ -247,22 +247,22 @@ cards:
     flags: {}
     system:
       cosm: ''
-      number: ''
-    value: null
+      number: 7
+    value: 7
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437553
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!PzMkt8LOjuMJFRLR.y2Ao2iMhixIlVCtm'
+    cards: []
   - _id: r0Ot6dnGBJuiOKE7
     name: Instincts primitifs
     description: ''
@@ -276,30 +276,30 @@ cards:
       - name: Primal Instincts
         img: systems/torgeternity/images/cards/cosm/living-land/fr/08.webp
         text: ''
-    face: 1
+    face: 0
     drawn: false
     origin: pv0VdyaTRNSwjiGi
     rotation: 0
     sort: 7
     flags: {}
-    value: null
+    value: 8
     system:
       cosm: ''
-      number: ''
+      number: 8
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437553
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!PzMkt8LOjuMJFRLR.r0Ot6dnGBJuiOKE7'
+    cards: []
   - _id: Pel2Eai3JdUMgH3s
     name: Trésor perdu
     description: ''
@@ -313,7 +313,7 @@ cards:
       - name: Lost Treasure
         img: systems/torgeternity/images/cards/cosm/living-land/fr/09.webp
         text: ''
-    face: 1
+    face: 0
     drawn: false
     origin: pv0VdyaTRNSwjiGi
     rotation: 0
@@ -321,22 +321,22 @@ cards:
     flags: {}
     system:
       cosm: ''
-      number: ''
-    value: null
+      number: 9
+    value: 9
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437553
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!PzMkt8LOjuMJFRLR.Pel2Eai3JdUMgH3s'
+    cards: []
   - _id: 5UUYuIZnQOUY9MZ7
     name: La loi de la déterioration
     description: ''
@@ -350,7 +350,7 @@ cards:
       - name: The Law of Decay
         img: systems/torgeternity/images/cards/cosm/living-land/fr/10.webp
         text: ''
-    face: 1
+    face: 0
     drawn: false
     origin: pv0VdyaTRNSwjiGi
     rotation: 0
@@ -358,22 +358,22 @@ cards:
     flags: {}
     system:
       cosm: ''
-      number: ''
-    value: null
+      number: 10
+    value: 10
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437553
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!PzMkt8LOjuMJFRLR.5UUYuIZnQOUY9MZ7'
+    cards: []
 rotation: 0
 displayCount: false
 folder: null
@@ -390,11 +390,11 @@ width: null
 height: null
 _stats:
   systemId: torgeternity
-  systemVersion: 3.8.1
-  coreVersion: '13.345'
+  systemVersion: 13.15.0
+  coreVersion: '13.351'
   createdTime: 1716827810474
-  modifiedTime: 1716827810474
-  lastModifiedBy: VAnYow5sWS9EJzo0
+  modifiedTime: 1768153369196
+  lastModifiedBy: BMvGTGfheqDXarjN
   compendiumSource: Cards.4b8BekWDWpSWF961
   duplicateSource: null
   exportSource:

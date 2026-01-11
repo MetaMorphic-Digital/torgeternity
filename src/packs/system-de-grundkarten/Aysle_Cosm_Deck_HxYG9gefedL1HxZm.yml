@@ -26,20 +26,21 @@ cards:
     flags: {}
     system:
       cosm: none
-      number: null
-    value: null
+      number: 1
+    value: 1
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
-      systemVersion: 13.2.2
-      lastModifiedBy: null
+      systemVersion: 13.13.2
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
+      modifiedTime: 1768152437638
     _key: '!cards.cards!HxYG9gefedL1HxZm.5vdo4xW8oNs8h94d'
+    cards: []
   - _id: ayXeWRBNnlh5B5CK
     name: Stell dich mir!
     description: ''
@@ -61,20 +62,21 @@ cards:
     flags: {}
     system:
       cosm: none
-      number: null
-    value: null
+      number: 2
+    value: 2
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
-      systemVersion: 13.2.2
-      lastModifiedBy: null
+      systemVersion: 13.13.2
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
+      modifiedTime: 1768152437638
     _key: '!cards.cards!HxYG9gefedL1HxZm.ayXeWRBNnlh5B5CK'
+    cards: []
   - _id: i4QHlwRbteVtML9j
     name: Falle!
     description: ''
@@ -96,20 +98,21 @@ cards:
     flags: {}
     system:
       cosm: none
-      number: null
-    value: null
+      number: 3
+    value: 3
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
-      systemVersion: 13.2.2
-      lastModifiedBy: null
+      systemVersion: 13.13.2
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
+      modifiedTime: 1768152437638
     _key: '!cards.cards!HxYG9gefedL1HxZm.i4QHlwRbteVtML9j'
+    cards: []
   - _id: QLMFW3VrgGQLFZYh
     name: Intrige bei Hofe
     description: ''
@@ -131,20 +134,21 @@ cards:
     flags: {}
     system:
       cosm: none
-      number: null
-    value: null
+      number: 4
+    value: 4
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
-      systemVersion: 13.2.2
-      lastModifiedBy: null
+      systemVersion: 13.13.2
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
+      modifiedTime: 1768152437638
     _key: '!cards.cards!HxYG9gefedL1HxZm.QLMFW3VrgGQLFZYh'
+    cards: []
   - _id: tV8sJiGa0zRgG5j9
     name: Minne
     description: ''
@@ -166,20 +170,21 @@ cards:
     flags: {}
     system:
       cosm: none
-      number: null
-    value: null
+      number: 5
+    value: 5
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
-      systemVersion: 13.2.2
-      lastModifiedBy: null
+      systemVersion: 13.13.2
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
+      modifiedTime: 1768152437638
     _key: '!cards.cards!HxYG9gefedL1HxZm.tV8sJiGa0zRgG5j9'
+    cards: []
   - _id: IO9Ymeo4BiSrQxHi
     name: Wütendes Monster
     description: ''
@@ -201,20 +206,21 @@ cards:
     flags: {}
     system:
       cosm: none
-      number: null
-    value: null
+      number: 6
+    value: 6
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
-      systemVersion: 13.2.2
-      lastModifiedBy: null
+      systemVersion: 13.13.2
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
+      modifiedTime: 1768152437638
     _key: '!cards.cards!HxYG9gefedL1HxZm.IO9Ymeo4BiSrQxHi'
+    cards: []
   - _id: NxqI1Tjk9IU75wb6
     name: Launenhafte Magie
     description: ''
@@ -236,20 +242,21 @@ cards:
     flags: {}
     system:
       cosm: none
-      number: null
-    value: null
+      number: 7
+    value: 7
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
-      systemVersion: 13.2.2
-      lastModifiedBy: null
+      systemVersion: 13.13.2
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
+      modifiedTime: 1768152437638
     _key: '!cards.cards!HxYG9gefedL1HxZm.NxqI1Tjk9IU75wb6'
+    cards: []
   - _id: WNr19wHAHV8RTvdB
     name: Plündert die Leiche!
     description: ''
@@ -271,20 +278,21 @@ cards:
     flags: {}
     system:
       cosm: none
-      number: null
-    value: null
+      number: 8
+    value: 8
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
-      systemVersion: 13.2.2
-      lastModifiedBy: null
+      systemVersion: 13.13.2
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
+      modifiedTime: 1768152437638
     _key: '!cards.cards!HxYG9gefedL1HxZm.WNr19wHAHV8RTvdB'
+    cards: []
   - _id: LcyIug15Af5LQB1u
     name: Manawelle
     description: ''
@@ -306,20 +314,21 @@ cards:
     flags: {}
     system:
       cosm: none
-      number: null
-    value: null
+      number: 9
+    value: 9
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
-      systemVersion: 13.2.2
-      lastModifiedBy: null
+      systemVersion: 13.13.2
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
+      modifiedTime: 1768152437638
     _key: '!cards.cards!HxYG9gefedL1HxZm.LcyIug15Af5LQB1u'
+    cards: []
   - _id: uxXF7E6jn2wqWdqI
     name: Finderlohn
     description: ''
@@ -341,20 +350,21 @@ cards:
     flags: {}
     system:
       cosm: none
-      number: null
-    value: null
+      number: 10
+    value: 10
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
-      systemVersion: 13.2.2
-      lastModifiedBy: null
+      systemVersion: 13.13.2
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
+      modifiedTime: 1768152437638
     _key: '!cards.cards!HxYG9gefedL1HxZm.uxXF7E6jn2wqWdqI'
+    cards: []
 rotation: 0
 displayCount: false
 folder: null
@@ -372,11 +382,11 @@ width: null
 height: null
 _stats:
   systemId: torgeternity
-  systemVersion: 13.2.2
-  coreVersion: '13.346'
+  systemVersion: 13.15.0
+  coreVersion: '13.351'
   createdTime: 1716827812079
-  modifiedTime: 1753598362583
-  lastModifiedBy: W32Zl65V9atvPk8o
+  modifiedTime: 1768153369235
+  lastModifiedBy: BMvGTGfheqDXarjN
   compendiumSource: Cards.ZnUPWPvCJNMdUHmm
   duplicateSource: null
   exportSource: null

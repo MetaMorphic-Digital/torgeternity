@@ -33,21 +33,21 @@ cards:
     value: 6
     system:
       cosm: ''
-      number: ''
+      number: 6
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768149133919
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!cBTPvBrPQpFTkUcm.0WVfvJaPEz0ZuKYG'
+    cards: []
   - _id: ZPz9kK6OppYm4oRU
     name: There's Always Hope
     description: ''
@@ -72,21 +72,21 @@ cards:
     value: 7
     system:
       cosm: ''
-      number: ''
+      number: 7
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768149140093
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!cBTPvBrPQpFTkUcm.ZPz9kK6OppYm4oRU'
+    cards: []
   - _id: UpVhy5K6093c3CvT
     name: Seize the Day
     description: ''
@@ -111,21 +111,21 @@ cards:
     value: 8
     system:
       cosm: ''
-      number: ''
+      number: 8
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768149144851
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!cBTPvBrPQpFTkUcm.UpVhy5K6093c3CvT'
+    cards: []
   - _id: fcvACYbD2h5kDW2Y
     name: Go for Broke
     description: ''
@@ -150,21 +150,21 @@ cards:
     value: 9
     system:
       cosm: ''
-      number: ''
+      number: 9
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768149146942
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!cBTPvBrPQpFTkUcm.fcvACYbD2h5kDW2Y'
+    cards: []
   - _id: uSS8yEHAIQWvSjZ0
     name: Lucky Break
     description: ''
@@ -187,30 +187,30 @@ cards:
     value: 10
     system:
       cosm: ''
-      number: ''
+      number: 10
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768149152688
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!cBTPvBrPQpFTkUcm.uSS8yEHAIQWvSjZ0'
+    cards: []
   - name: Spurred On!
     type: cosm
     _id: HoOsTszTLXIcowdF
     description: ''
     system:
       cosm: ''
-      number: ''
+      number: 1
     suit: ''
-    value: null
+    value: 1
     back:
       name: ''
       text: ''
@@ -228,26 +228,26 @@ cards:
     sort: 0
     flags: {}
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437520
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!cBTPvBrPQpFTkUcm.HoOsTszTLXIcowdF'
+    cards: []
   - name: Keep Fighting
     type: cosm
     _id: zbI1sS7f9Xmz8zf8
     description: ''
     system:
       cosm: ''
-      number: ''
+      number: 2
     suit: ''
-    value: null
+    value: 2
     back:
       name: ''
       text: ''
@@ -265,26 +265,26 @@ cards:
     sort: 0
     flags: {}
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437520
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!cBTPvBrPQpFTkUcm.zbI1sS7f9Xmz8zf8'
+    cards: []
   - name: Rousing Speech
     type: cosm
     _id: 4hmBO9qVdBjL0mx2
     description: ''
     system:
       cosm: ''
-      number: ''
+      number: 3
     suit: ''
-    value: null
+    value: 3
     back:
       name: ''
       text: ''
@@ -302,26 +302,26 @@ cards:
     sort: 0
     flags: {}
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437520
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!cBTPvBrPQpFTkUcm.4hmBO9qVdBjL0mx2'
+    cards: []
   - name: The Law of Hope
     type: cosm
     _id: UdBW5DzxAqp9rFMO
     description: ''
     system:
       cosm: ''
-      number: ''
+      number: 4
     suit: ''
-    value: null
+    value: 4
     back:
       name: ''
       text: ''
@@ -339,26 +339,26 @@ cards:
     sort: 0
     flags: {}
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437520
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!cBTPvBrPQpFTkUcm.UdBW5DzxAqp9rFMO'
+    cards: []
   - name: Welcome to our World!
     type: cosm
     _id: dNfYifYx4O4G1yjQ
     description: ''
     system:
       cosm: ''
-      number: ''
+      number: 5
     suit: ''
-    value: null
+    value: 5
     back:
       name: ''
       text: ''
@@ -376,17 +376,17 @@ cards:
     sort: 0
     flags: {}
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437520
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!cBTPvBrPQpFTkUcm.dNfYifYx4O4G1yjQ'
+    cards: []
 rotation: 0
 displayCount: false
 folder: null
@@ -404,11 +404,11 @@ width: null
 height: null
 _stats:
   systemId: torgeternity
-  systemVersion: 3.8.1
-  coreVersion: '13.345'
+  systemVersion: 13.15.0
+  coreVersion: '13.351'
   createdTime: 1716827808705
-  modifiedTime: 1716827808705
-  lastModifiedBy: VAnYow5sWS9EJzo0
+  modifiedTime: 1768153369159
+  lastModifiedBy: BMvGTGfheqDXarjN
   compendiumSource: Cards.oMOBBSZVVgrH9Dde
   duplicateSource: null
   exportSource:

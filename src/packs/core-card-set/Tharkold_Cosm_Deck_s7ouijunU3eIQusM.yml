@@ -25,22 +25,22 @@ cards:
     flags: {}
     system:
       cosm: ''
-      number: ''
-    value: null
+      number: 1
+    value: 1
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437537
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!s7ouijunU3eIQusM.W4AdIP1xqG51LEdq'
+    cards: []
   - _id: esj9pAtH1uPb694y
     name: Supremacy
     description: ''
@@ -62,22 +62,22 @@ cards:
     flags: {}
     system:
       cosm: ''
-      number: ''
-    value: null
+      number: 2
+    value: 2
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437537
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!s7ouijunU3eIQusM.esj9pAtH1uPb694y'
+    cards: []
   - _id: YJUGEVWMomWgsrgk
     name: Scourge
     description: ''
@@ -97,24 +97,24 @@ cards:
     rotation: 0
     sort: 2
     flags: {}
-    value: null
+    value: 3
     system:
       cosm: ''
-      number: ''
+      number: 3
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437537
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!s7ouijunU3eIQusM.YJUGEVWMomWgsrgk'
+    cards: []
   - _id: mXXKFfkA0PwrdMlV
     name: Irradiated
     description: ''
@@ -136,22 +136,22 @@ cards:
     flags: {}
     system:
       cosm: ''
-      number: ''
-    value: null
+      number: 4
+    value: 4
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437537
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!s7ouijunU3eIQusM.mXXKFfkA0PwrdMlV'
+    cards: []
   - _id: MxzN7pgGhm8F7plq
     name: Cyberpsychosis
     description: ''
@@ -173,22 +173,22 @@ cards:
     flags: {}
     system:
       cosm: ''
-      number: ''
-    value: null
+      number: 5
+    value: 5
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437537
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!s7ouijunU3eIQusM.MxzN7pgGhm8F7plq'
+    cards: []
   - _id: Et0loqCd2Ym45y3G
     name: Kneel!
     description: ''
@@ -210,22 +210,22 @@ cards:
     flags: {}
     system:
       cosm: ''
-      number: ''
-    value: null
+      number: 6
+    value: 6
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437537
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!s7ouijunU3eIQusM.Et0loqCd2Ym45y3G'
+    cards: []
   - _id: 2zsidlt6MR8xXaNo
     name: You Work for Me Now
     description: ''
@@ -247,22 +247,22 @@ cards:
     flags: {}
     system:
       cosm: ''
-      number: ''
-    value: null
+      number: 7
+    value: 7
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437537
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!s7ouijunU3eIQusM.2zsidlt6MR8xXaNo'
+    cards: []
   - _id: TWcuyienPhY1GLBq
     name: Enraged
     description: ''
@@ -282,24 +282,24 @@ cards:
     rotation: 0
     sort: 7
     flags: {}
-    value: null
+    value: 8
     system:
       cosm: ''
-      number: ''
+      number: 8
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437537
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!s7ouijunU3eIQusM.TWcuyienPhY1GLBq'
+    cards: []
   - _id: PiMch37BpTuNaicP
     name: Salvage!
     description: ''
@@ -321,22 +321,22 @@ cards:
     flags: {}
     system:
       cosm: ''
-      number: ''
-    value: null
+      number: 9
+    value: 9
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437537
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!s7ouijunU3eIQusM.PiMch37BpTuNaicP'
+    cards: []
   - _id: dGuoUQ6kFvISej47
     name: Torturous Visions
     description: ''
@@ -358,22 +358,22 @@ cards:
     flags: {}
     system:
       cosm: ''
-      number: ''
-    value: null
+      number: 10
+    value: 10
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437537
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!s7ouijunU3eIQusM.dGuoUQ6kFvISej47'
+    cards: []
 rotation: 0
 displayCount: false
 folder: null
@@ -391,11 +391,11 @@ width: null
 height: null
 _stats:
   systemId: torgeternity
-  systemVersion: 3.8.1
-  coreVersion: '13.345'
+  systemVersion: 13.15.0
+  coreVersion: '13.351'
   createdTime: 1716827808829
-  modifiedTime: 1716827808829
-  lastModifiedBy: VAnYow5sWS9EJzo0
+  modifiedTime: 1768153369161
+  lastModifiedBy: BMvGTGfheqDXarjN
   compendiumSource: Cards.4b8BekWDWpSWF961
   duplicateSource: null
   exportSource:

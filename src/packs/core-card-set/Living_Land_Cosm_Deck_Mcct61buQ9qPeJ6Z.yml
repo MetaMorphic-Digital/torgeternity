@@ -25,22 +25,22 @@ cards:
     flags: {}
     system:
       cosm: ''
-      number: ''
-    value: null
+      number: 1
+    value: 1
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437504
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!Mcct61buQ9qPeJ6Z.aBTk5iY69BuB3gA8'
+    cards: []
   - _id: cFo0NGc5S8PYqfef
     name: The Law of Decay
     description: ''
@@ -62,22 +62,22 @@ cards:
     flags: {}
     system:
       cosm: ''
-      number: ''
-    value: null
+      number: 2
+    value: 2
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437504
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!Mcct61buQ9qPeJ6Z.cFo0NGc5S8PYqfef'
+    cards: []
   - _id: aCR3hwFKzZ6vAjZi
     name: The Best Defense
     description: ''
@@ -99,22 +99,22 @@ cards:
     flags: {}
     system:
       cosm: ''
-      number: ''
-    value: null
+      number: 3
+    value: 3
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437504
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!Mcct61buQ9qPeJ6Z.aCR3hwFKzZ6vAjZi'
+    cards: []
   - _id: Ad5LtrrjMzecOkAj
     name: Survival of the Fittest
     description: ''
@@ -136,22 +136,22 @@ cards:
     flags: {}
     system:
       cosm: ''
-      number: ''
-    value: null
+      number: 4
+    value: 4
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437504
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!Mcct61buQ9qPeJ6Z.Ad5LtrrjMzecOkAj'
+    cards: []
   - _id: dtGywaiJN9nNgIxW
     name: Perils of the Living Land
     description: ''
@@ -173,22 +173,22 @@ cards:
     flags: {}
     system:
       cosm: ''
-      number: ''
-    value: null
+      number: 5
+    value: 5
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437504
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!Mcct61buQ9qPeJ6Z.dtGywaiJN9nNgIxW'
+    cards: []
   - _id: n2b1pgyrXaJUyQqb
     name: The Deep Mist
     description: ''
@@ -210,22 +210,22 @@ cards:
     flags: {}
     system:
       cosm: ''
-      number: ''
-    value: null
+      number: 6
+    value: 6
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437504
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!Mcct61buQ9qPeJ6Z.n2b1pgyrXaJUyQqb'
+    cards: []
   - _id: 1Kc80KPMm7Itda5D
     name: The Law of Life
     description: ''
@@ -247,22 +247,22 @@ cards:
     flags: {}
     system:
       cosm: ''
-      number: ''
-    value: null
+      number: 7
+    value: 7
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437504
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!Mcct61buQ9qPeJ6Z.1Kc80KPMm7Itda5D'
+    cards: []
   - _id: ReYOiljNtVLqZE1V
     name: Primal Instincts
     description: ''
@@ -282,24 +282,24 @@ cards:
     rotation: 0
     sort: 7
     flags: {}
-    value: null
+    value: 8
     system:
       cosm: ''
-      number: ''
+      number: 8
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437504
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!Mcct61buQ9qPeJ6Z.ReYOiljNtVLqZE1V'
+    cards: []
   - _id: BTbYcz71rD4IfJ1a
     name: Lost Treasure
     description: ''
@@ -321,22 +321,22 @@ cards:
     flags: {}
     system:
       cosm: ''
-      number: ''
-    value: null
+      number: 9
+    value: 9
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437504
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!Mcct61buQ9qPeJ6Z.BTbYcz71rD4IfJ1a'
+    cards: []
   - _id: 0LscVrRTzQVQ9w07
     name: The Law of Decay
     description: ''
@@ -358,22 +358,22 @@ cards:
     flags: {}
     system:
       cosm: ''
-      number: ''
-    value: null
+      number: 10
+    value: 10
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437504
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!Mcct61buQ9qPeJ6Z.0LscVrRTzQVQ9w07'
+    cards: []
 rotation: 0
 displayCount: false
 folder: null
@@ -391,11 +391,11 @@ width: null
 height: null
 _stats:
   systemId: torgeternity
-  systemVersion: 3.8.1
-  coreVersion: '13.345'
+  systemVersion: 13.15.0
+  coreVersion: '13.351'
   createdTime: 1716827808579
-  modifiedTime: 1716827808579
-  lastModifiedBy: VAnYow5sWS9EJzo0
+  modifiedTime: 1768153369157
+  lastModifiedBy: BMvGTGfheqDXarjN
   compendiumSource: Cards.4b8BekWDWpSWF961
   duplicateSource: null
   exportSource:

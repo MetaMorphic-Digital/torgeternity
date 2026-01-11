@@ -17,7 +17,7 @@ cards:
       - name: God in the Machine
         img: systems/torgeternity/images/cards/cosm/cyberpapacy/fr/01.webp
         text: ''
-    face: 1
+    face: 0
     drawn: false
     origin: CYMTR5keKGmNOjkN
     rotation: 0
@@ -25,22 +25,22 @@ cards:
     flags: {}
     system:
       cosm: ''
-      number: ''
-    value: null
+      number: 1
+    value: 1
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437622
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!zt7zadfXvHzLp4Xd.NjMFOSDhuMFl0iJh'
+    cards: []
   - _id: lLcqSYVKLd0H7bxT
     name: La Résistance !
     description: ''
@@ -54,7 +54,7 @@ cards:
       - name: La Resistance!
         img: systems/torgeternity/images/cards/cosm/cyberpapacy/fr/02.webp
         text: ''
-    face: 1
+    face: 0
     drawn: false
     origin: CYMTR5keKGmNOjkN
     rotation: 0
@@ -62,22 +62,22 @@ cards:
     flags: {}
     system:
       cosm: ''
-      number: ''
-    value: null
+      number: 2
+    value: 2
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437622
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!zt7zadfXvHzLp4Xd.lLcqSYVKLd0H7bxT'
+    cards: []
   - _id: tK3DDkMkLvlL96a4
     name: Conjunction
     description: ''
@@ -91,7 +91,7 @@ cards:
       - name: Conjunction
         img: systems/torgeternity/images/cards/cosm/cyberpapacy/fr/03.webp
         text: ''
-    face: 1
+    face: 0
     drawn: false
     origin: CYMTR5keKGmNOjkN
     rotation: 0
@@ -99,22 +99,22 @@ cards:
     flags: {}
     system:
       cosm: ''
-      number: ''
-    value: null
+      number: 3
+    value: 3
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437622
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!zt7zadfXvHzLp4Xd.tK3DDkMkLvlL96a4'
+    cards: []
   - _id: 02E1CVWWPbveXslC
     name: Magie hérétique
     description: ''
@@ -128,7 +128,7 @@ cards:
       - name: Heretical Magic
         img: systems/torgeternity/images/cards/cosm/cyberpapacy/fr/04.webp
         text: ''
-    face: 1
+    face: 0
     drawn: false
     origin: CYMTR5keKGmNOjkN
     rotation: 0
@@ -136,22 +136,22 @@ cards:
     flags: {}
     system:
       cosm: ''
-      number: ''
-    value: null
+      number: 4
+    value: 4
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437622
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!zt7zadfXvHzLp4Xd.02E1CVWWPbveXslC'
+    cards: []
   - _id: qsAxiVcYA0ybDmRz
     name: La fureur de Malraux
     description: ''
@@ -165,7 +165,7 @@ cards:
       - name: Malreaux's Wrath
         img: systems/torgeternity/images/cards/cosm/cyberpapacy/fr/05.webp
         text: ''
-    face: 1
+    face: 0
     drawn: false
     origin: CYMTR5keKGmNOjkN
     rotation: 0
@@ -173,22 +173,22 @@ cards:
     flags: {}
     system:
       cosm: ''
-      number: ''
-    value: null
+      number: 5
+    value: 5
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437622
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!zt7zadfXvHzLp4Xd.qsAxiVcYA0ybDmRz'
+    cards: []
   - _id: TJZ83NeE6JEQixJj
     name: Paranoïa exacerbée
     description: ''
@@ -210,22 +210,22 @@ cards:
     flags: {}
     system:
       cosm: ''
-      number: ''
-    value: null
+      number: 6
+    value: 6
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437622
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!zt7zadfXvHzLp4Xd.TJZ83NeE6JEQixJj'
+    cards: []
   - _id: kRmt9YLxSuhQmcLh
     name: Dénonciation
     description: ''
@@ -239,7 +239,7 @@ cards:
       - name: Denounced
         img: systems/torgeternity/images/cards/cosm/cyberpapacy/fr/07.webp
         text: ''
-    face: 1
+    face: 0
     drawn: false
     origin: CYMTR5keKGmNOjkN
     rotation: 0
@@ -247,22 +247,22 @@ cards:
     flags: {}
     system:
       cosm: ''
-      number: ''
-    value: null
+      number: 7
+    value: 7
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437622
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!zt7zadfXvHzLp4Xd.kRmt9YLxSuhQmcLh'
+    cards: []
   - _id: BZDOkEh7srPTsQPC
     name: Avis de recherche
     description: ''
@@ -276,7 +276,7 @@ cards:
       - name: Wanted
         img: systems/torgeternity/images/cards/cosm/cyberpapacy/fr/08.webp
         text: ''
-    face: 1
+    face: 0
     drawn: false
     origin: CYMTR5keKGmNOjkN
     rotation: 0
@@ -284,22 +284,22 @@ cards:
     flags: {}
     system:
       cosm: ''
-      number: ''
-    value: null
+      number: 8
+    value: 8
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437622
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!zt7zadfXvHzLp4Xd.BZDOkEh7srPTsQPC'
+    cards: []
   - _id: pfg9gbHGZGKsE7a3
     name: Mise à jour impérative
     description: ''
@@ -313,7 +313,7 @@ cards:
       - name: Mandatory Upgrade
         img: systems/torgeternity/images/cards/cosm/cyberpapacy/fr/09.webp
         text: ''
-    face: 1
+    face: 0
     drawn: false
     origin: CYMTR5keKGmNOjkN
     rotation: 0
@@ -321,22 +321,22 @@ cards:
     flags: {}
     system:
       cosm: ''
-      number: ''
-    value: null
+      number: 9
+    value: 9
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437622
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!zt7zadfXvHzLp4Xd.pfg9gbHGZGKsE7a3'
+    cards: []
   - _id: U9v0fSceNBGzj0Na
     name: Rage
     description: ''
@@ -350,7 +350,7 @@ cards:
       - name: Rage
         img: systems/torgeternity/images/cards/cosm/cyberpapacy/fr/10.webp
         text: ''
-    face: 1
+    face: 0
     drawn: false
     origin: CYMTR5keKGmNOjkN
     rotation: 0
@@ -358,22 +358,22 @@ cards:
     flags: {}
     system:
       cosm: ''
-      number: ''
-    value: null
+      number: 10
+    value: 10
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437622
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!zt7zadfXvHzLp4Xd.U9v0fSceNBGzj0Na'
+    cards: []
 rotation: 0
 displayCount: false
 folder: null
@@ -390,11 +390,11 @@ width: null
 height: null
 _stats:
   systemId: torgeternity
-  systemVersion: 3.8.1
-  coreVersion: '13.345'
+  systemVersion: 13.15.0
+  coreVersion: '13.351'
   createdTime: 1716827810771
-  modifiedTime: 1716827810771
-  lastModifiedBy: VAnYow5sWS9EJzo0
+  modifiedTime: 1768153369201
+  lastModifiedBy: BMvGTGfheqDXarjN
   compendiumSource: Cards.4b8BekWDWpSWF961
   duplicateSource: null
   exportSource:

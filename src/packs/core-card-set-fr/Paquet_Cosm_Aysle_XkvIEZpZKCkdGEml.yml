@@ -17,7 +17,7 @@ cards:
       - name: Look What I Found!
         img: systems/torgeternity/images/cards/cosm/aysle/fr/01.webp
         text: ''
-    face: 1
+    face: 0
     drawn: false
     origin: 4b8BekWDWpSWF961
     rotation: 0
@@ -25,22 +25,22 @@ cards:
     flags: {}
     system:
       cosm: ''
-      number: ''
-    value: null
+      number: 1
+    value: 1
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437570
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!XkvIEZpZKCkdGEml.V92ENh3FeUuXB0O2'
+    cards: []
   - _id: worViS0nbQn3JFV5
     name: Affronte-moi !
     description: ''
@@ -54,7 +54,7 @@ cards:
       - name: Face Me!
         img: systems/torgeternity/images/cards/cosm/aysle/fr/02.webp
         text: ''
-    face: 1
+    face: 0
     drawn: false
     origin: 4b8BekWDWpSWF961
     rotation: 0
@@ -62,22 +62,22 @@ cards:
     flags: {}
     system:
       cosm: ''
-      number: ''
-    value: null
+      number: 2
+    value: 2
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437570
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!XkvIEZpZKCkdGEml.worViS0nbQn3JFV5'
+    cards: []
   - _id: itVWq7suxbDVzlza
     name: Piège !
     description: ''
@@ -91,7 +91,7 @@ cards:
       - name: Trap!
         img: systems/torgeternity/images/cards/cosm/aysle/fr/03.webp
         text: ''
-    face: 1
+    face: 0
     drawn: false
     origin: 4b8BekWDWpSWF961
     rotation: 0
@@ -99,22 +99,22 @@ cards:
     flags: {}
     system:
       cosm: ''
-      number: ''
-    value: null
+      number: 3
+    value: 3
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437570
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!XkvIEZpZKCkdGEml.itVWq7suxbDVzlza'
+    cards: []
   - _id: kSjP0qUnsHtVQydl
     name: Intrigue de cour
     description: ''
@@ -128,7 +128,7 @@ cards:
       - name: Courtly Intrigue
         img: systems/torgeternity/images/cards/cosm/aysle/fr/04.webp
         text: ''
-    face: 1
+    face: 0
     drawn: false
     origin: 4b8BekWDWpSWF961
     rotation: 0
@@ -136,22 +136,22 @@ cards:
     flags: {}
     system:
       cosm: ''
-      number: ''
-    value: null
+      number: 4
+    value: 4
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437570
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!XkvIEZpZKCkdGEml.kSjP0qUnsHtVQydl'
+    cards: []
   - _id: GuNB26Cjvq5FHnII
     name: Amour courtois
     description: ''
@@ -165,7 +165,7 @@ cards:
       - name: Courtly Romance
         img: systems/torgeternity/images/cards/cosm/aysle/fr/05.webp
         text: ''
-    face: 1
+    face: 0
     drawn: false
     origin: 4b8BekWDWpSWF961
     rotation: 0
@@ -173,22 +173,22 @@ cards:
     flags: {}
     system:
       cosm: ''
-      number: ''
-    value: null
+      number: 5
+    value: 5
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437570
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!XkvIEZpZKCkdGEml.GuNB26Cjvq5FHnII'
+    cards: []
   - _id: ULs4YpiVGHrgEy27
     name: Monstre errant
     description: ''
@@ -202,7 +202,7 @@ cards:
       - name: Wandering Monster
         img: systems/torgeternity/images/cards/cosm/aysle/fr/06.webp
         text: ''
-    face: 1
+    face: 0
     drawn: false
     origin: 4b8BekWDWpSWF961
     rotation: 0
@@ -210,22 +210,22 @@ cards:
     flags: {}
     system:
       cosm: ''
-      number: ''
-    value: null
+      number: 6
+    value: 6
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437570
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!XkvIEZpZKCkdGEml.ULs4YpiVGHrgEy27'
+    cards: []
   - _id: 17RCEUL00WfQEaLu
     name: Magie instable
     description: ''
@@ -239,7 +239,7 @@ cards:
       - name: Fickle Magic
         img: systems/torgeternity/images/cards/cosm/aysle/fr/07.webp
         text: ''
-    face: 1
+    face: 0
     drawn: false
     origin: 4b8BekWDWpSWF961
     rotation: 0
@@ -247,22 +247,22 @@ cards:
     flags: {}
     system:
       cosm: ''
-      number: ''
-    value: null
+      number: 7
+    value: 7
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437570
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!XkvIEZpZKCkdGEml.17RCEUL00WfQEaLu'
+    cards: []
   - _id: shxkzow9YHop8mFL
     name: Fais-lui les poches !
     description: ''
@@ -276,7 +276,7 @@ cards:
       - name: Loot the Body!
         img: systems/torgeternity/images/cards/cosm/aysle/fr/08.webp
         text: ''
-    face: 1
+    face: 0
     drawn: false
     origin: 4b8BekWDWpSWF961
     rotation: 0
@@ -284,22 +284,22 @@ cards:
     flags: {}
     system:
       cosm: ''
-      number: ''
-    value: null
+      number: 8
+    value: 8
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437570
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!XkvIEZpZKCkdGEml.shxkzow9YHop8mFL'
+    cards: []
   - _id: ypuHPV67TwKTmoLr
     name: Afflux de Mana
     description: ''
@@ -313,7 +313,7 @@ cards:
       - name: Mana Surge
         img: systems/torgeternity/images/cards/cosm/aysle/fr/09.webp
         text: ''
-    face: 1
+    face: 0
     drawn: false
     origin: 4b8BekWDWpSWF961
     rotation: 0
@@ -321,22 +321,22 @@ cards:
     flags: {}
     system:
       cosm: ''
-      number: ''
-    value: null
+      number: 9
+    value: 9
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437570
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!XkvIEZpZKCkdGEml.ypuHPV67TwKTmoLr'
+    cards: []
   - _id: fqlrwKeSVND6OKWx
     name: Qui trouve garde
     description: ''
@@ -350,7 +350,7 @@ cards:
       - name: Finders Keepers
         img: systems/torgeternity/images/cards/cosm/aysle/fr/10.webp
         text: ''
-    face: 1
+    face: 0
     drawn: false
     origin: 4b8BekWDWpSWF961
     rotation: 0
@@ -358,22 +358,22 @@ cards:
     flags: {}
     system:
       cosm: ''
-      number: ''
-    value: null
+      number: 10
+    value: 10
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437570
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!XkvIEZpZKCkdGEml.fqlrwKeSVND6OKWx'
+    cards: []
 rotation: 0
 displayCount: false
 folder: null
@@ -390,11 +390,11 @@ width: null
 height: null
 _stats:
   systemId: torgeternity
-  systemVersion: 3.8.1
-  coreVersion: '13.345'
+  systemVersion: 13.15.0
+  coreVersion: '13.351'
   createdTime: 1716827810561
-  modifiedTime: 1716827810561
-  lastModifiedBy: VAnYow5sWS9EJzo0
+  modifiedTime: 1768153369199
+  lastModifiedBy: BMvGTGfheqDXarjN
   compendiumSource: Cards.4b8BekWDWpSWF961
   duplicateSource: null
   exportSource:

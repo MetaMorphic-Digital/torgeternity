@@ -27,20 +27,21 @@ cards:
     flags: {}
     system:
       cosm: none
-      number: null
-    value: null
+      number: 1
+    value: 1
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
-      systemVersion: 13.2.2
-      lastModifiedBy: null
+      systemVersion: 13.13.2
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
+      modifiedTime: 1768152437646
     _key: '!cards.cards!MMWqppyG8SYX0ciu.dkI7xt1TOs3ei4CT'
+    cards: []
   - _id: yo7zIZDedGL6M7l4
     name: Weiterkämpfen
     description: ''
@@ -63,20 +64,21 @@ cards:
     flags: {}
     system:
       cosm: none
-      number: null
-    value: null
+      number: 2
+    value: 2
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
-      systemVersion: 13.2.2
-      lastModifiedBy: null
+      systemVersion: 13.13.2
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
+      modifiedTime: 1768152437646
     _key: '!cards.cards!MMWqppyG8SYX0ciu.yo7zIZDedGL6M7l4'
+    cards: []
   - _id: TxWmy4g47GiZowIF
     name: Inspirierende Rede
     description: ''
@@ -99,20 +101,21 @@ cards:
     flags: {}
     system:
       cosm: none
-      number: null
-    value: null
+      number: 3
+    value: 3
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
-      systemVersion: 13.2.2
-      lastModifiedBy: null
+      systemVersion: 13.13.2
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
+      modifiedTime: 1768152437646
     _key: '!cards.cards!MMWqppyG8SYX0ciu.TxWmy4g47GiZowIF'
+    cards: []
   - _id: 5x24eHVbEek56BAx
     name: Gesetz der Hoffnung
     description: ''
@@ -135,20 +138,21 @@ cards:
     flags: {}
     system:
       cosm: none
-      number: null
-    value: null
+      number: 4
+    value: 4
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
-      systemVersion: 13.2.2
-      lastModifiedBy: null
+      systemVersion: 13.13.2
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
+      modifiedTime: 1768152437646
     _key: '!cards.cards!MMWqppyG8SYX0ciu.5x24eHVbEek56BAx'
+    cards: []
   - _id: 0z6TXqIhqN6V8M6b
     name: Willkommen auf der Erde!
     description: ''
@@ -171,20 +175,21 @@ cards:
     flags: {}
     system:
       cosm: none
-      number: null
-    value: null
+      number: 5
+    value: 5
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
-      systemVersion: 13.2.2
-      lastModifiedBy: null
+      systemVersion: 13.13.2
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
+      modifiedTime: 1768152437646
     _key: '!cards.cards!MMWqppyG8SYX0ciu.0z6TXqIhqN6V8M6b'
+    cards: []
   - _id: 7o9TLjbKCx22NtPv
     name: Eskalation!
     description: ''
@@ -207,20 +212,21 @@ cards:
     flags: {}
     system:
       cosm: none
-      number: null
-    value: null
+      number: 6
+    value: 6
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
-      systemVersion: 13.2.2
-      lastModifiedBy: null
+      systemVersion: 13.13.2
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
+      modifiedTime: 1768152437646
     _key: '!cards.cards!MMWqppyG8SYX0ciu.7o9TLjbKCx22NtPv'
+    cards: []
   - _id: ecaeB4uEiZexr6UJ
     name: Es gibt immer Hoffnung
     description: ''
@@ -243,20 +249,21 @@ cards:
     flags: {}
     system:
       cosm: none
-      number: null
-    value: null
+      number: 7
+    value: 7
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
-      systemVersion: 13.2.2
-      lastModifiedBy: null
+      systemVersion: 13.13.2
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
+      modifiedTime: 1768152437646
     _key: '!cards.cards!MMWqppyG8SYX0ciu.ecaeB4uEiZexr6UJ'
+    cards: []
   - _id: jRX3c2PvrcgtLfOJ
     name: Nutze den Tag!
     description: ''
@@ -279,20 +286,21 @@ cards:
     flags: {}
     system:
       cosm: none
-      number: null
-    value: null
+      number: 8
+    value: 8
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
-      systemVersion: 13.2.2
-      lastModifiedBy: null
+      systemVersion: 13.13.2
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
+      modifiedTime: 1768152437646
     _key: '!cards.cards!MMWqppyG8SYX0ciu.jRX3c2PvrcgtLfOJ'
+    cards: []
   - _id: 2RO6VwcOJdRyPRYu
     name: Aufbäumen
     description: ''
@@ -315,20 +323,21 @@ cards:
     flags: {}
     system:
       cosm: none
-      number: null
-    value: null
+      number: 9
+    value: 9
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
-      systemVersion: 13.2.2
-      lastModifiedBy: null
+      systemVersion: 13.13.2
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
+      modifiedTime: 1768152437646
     _key: '!cards.cards!MMWqppyG8SYX0ciu.2RO6VwcOJdRyPRYu'
+    cards: []
   - _id: KVH9DBEe2oELf4DB
     name: Glückliche Fügung
     description: ''
@@ -351,20 +360,21 @@ cards:
     flags: {}
     system:
       cosm: none
-      number: null
-    value: null
+      number: 10
+    value: 10
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
-      systemVersion: 13.2.2
-      lastModifiedBy: null
+      systemVersion: 13.13.2
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
+      modifiedTime: 1768152437646
     _key: '!cards.cards!MMWqppyG8SYX0ciu.KVH9DBEe2oELf4DB'
+    cards: []
 rotation: 0
 displayCount: false
 folder: null
@@ -382,11 +392,11 @@ width: null
 height: null
 _stats:
   systemId: torgeternity
-  systemVersion: 13.2.2
-  coreVersion: '13.346'
+  systemVersion: 13.15.0
+  coreVersion: '13.351'
   createdTime: 1716827812181
-  modifiedTime: 1753598366633
-  lastModifiedBy: W32Zl65V9atvPk8o
+  modifiedTime: 1768153369235
+  lastModifiedBy: BMvGTGfheqDXarjN
   compendiumSource: Cards.CjBKZB7BtLzhKOiJ
   duplicateSource: null
   exportSource: null

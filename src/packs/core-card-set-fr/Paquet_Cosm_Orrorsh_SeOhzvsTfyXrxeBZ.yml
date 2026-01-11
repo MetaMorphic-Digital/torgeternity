@@ -17,7 +17,7 @@ cards:
       - name: Damned
         img: systems/torgeternity/images/cards/cosm/orrorsh/fr/01.webp
         text: ''
-    face: 1
+    face: 0
     drawn: false
     origin: 7rhA82uDSE499m1h
     rotation: 0
@@ -25,22 +25,22 @@ cards:
     flags: {}
     system:
       cosm: ''
-      number: ''
-    value: null
+      number: 1
+    value: 1
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437564
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!SeOhzvsTfyXrxeBZ.MbIP6M5ZN76tPgK1'
+    cards: []
   - _id: vPjFCenX7YA47a0y
     name: Tentation
     description: ''
@@ -54,7 +54,7 @@ cards:
       - name: Temptation
         img: systems/torgeternity/images/cards/cosm/orrorsh/fr/02.webp
         text: ''
-    face: 1
+    face: 0
     drawn: false
     origin: 7rhA82uDSE499m1h
     rotation: 0
@@ -62,22 +62,22 @@ cards:
     flags: {}
     system:
       cosm: ''
-      number: ''
-    value: null
+      number: 2
+    value: 2
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437564
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!SeOhzvsTfyXrxeBZ.vPjFCenX7YA47a0y'
+    cards: []
   - _id: StH31BuXmfe4Gciw
     name: Sombres présages
     description: ''
@@ -91,7 +91,7 @@ cards:
       - name: Ominous Portents
         img: systems/torgeternity/images/cards/cosm/orrorsh/fr/03.webp
         text: ''
-    face: 1
+    face: 0
     drawn: false
     origin: 7rhA82uDSE499m1h
     rotation: 0
@@ -99,22 +99,22 @@ cards:
     flags: {}
     system:
       cosm: ''
-      number: ''
-    value: null
+      number: 3
+    value: 3
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437564
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!SeOhzvsTfyXrxeBZ.StH31BuXmfe4Gciw'
+    cards: []
   - _id: 0tI6fakMwD37t9hO
     name: Frayeur
     description: ''
@@ -128,7 +128,7 @@ cards:
       - name: Jump Scare
         img: systems/torgeternity/images/cards/cosm/orrorsh/fr/04.webp
         text: ''
-    face: 1
+    face: 0
     drawn: false
     origin: 7rhA82uDSE499m1h
     rotation: 0
@@ -136,22 +136,22 @@ cards:
     flags: {}
     system:
       cosm: ''
-      number: ''
-    value: null
+      number: 4
+    value: 4
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437564
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!SeOhzvsTfyXrxeBZ.0tI6fakMwD37t9hO'
+    cards: []
   - _id: JWkw8880Vlmhb3a4
     name: Marqué par la mort
     description: ''
@@ -165,7 +165,7 @@ cards:
       - name: Marked for Death
         img: systems/torgeternity/images/cards/cosm/orrorsh/fr/05.webp
         text: ''
-    face: 1
+    face: 0
     drawn: false
     origin: 7rhA82uDSE499m1h
     rotation: 0
@@ -173,22 +173,22 @@ cards:
     flags: {}
     system:
       cosm: ''
-      number: ''
-    value: null
+      number: 5
+    value: 5
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437564
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!SeOhzvsTfyXrxeBZ.JWkw8880Vlmhb3a4'
+    cards: []
   - _id: ytvLIKYiinf1ZVzH
     name: Le crépuscule ?!
     description: ''
@@ -202,7 +202,7 @@ cards:
       - name: Sunset?!
         img: systems/torgeternity/images/cards/cosm/orrorsh/fr/06.webp
         text: ''
-    face: 1
+    face: 0
     drawn: false
     origin: 7rhA82uDSE499m1h
     rotation: 0
@@ -210,22 +210,22 @@ cards:
     flags: {}
     system:
       cosm: ''
-      number: ''
-    value: null
+      number: 6
+    value: 6
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437564
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!SeOhzvsTfyXrxeBZ.ytvLIKYiinf1ZVzH'
+    cards: []
   - _id: BJh0TPgGjqB3blz5
     name: Sinistres secrets
     description: ''
@@ -239,7 +239,7 @@ cards:
       - name: Sinister Secrets
         img: systems/torgeternity/images/cards/cosm/orrorsh/fr/07.webp
         text: ''
-    face: 1
+    face: 0
     drawn: false
     origin: 7rhA82uDSE499m1h
     rotation: 0
@@ -247,22 +247,22 @@ cards:
     flags: {}
     system:
       cosm: ''
-      number: ''
-    value: null
+      number: 7
+    value: 7
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437564
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!SeOhzvsTfyXrxeBZ.BJh0TPgGjqB3blz5'
+    cards: []
   - _id: CYBBCXgPGP51yNJY
     name: Intérêt malsain
     description: ''
@@ -276,7 +276,7 @@ cards:
       - name: Unholy Interest
         img: systems/torgeternity/images/cards/cosm/orrorsh/fr/08.webp
         text: ''
-    face: 1
+    face: 0
     drawn: false
     origin: 7rhA82uDSE499m1h
     rotation: 0
@@ -284,22 +284,22 @@ cards:
     flags: {}
     system:
       cosm: ''
-      number: ''
-    value: null
+      number: 8
+    value: 8
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437564
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!SeOhzvsTfyXrxeBZ.CYBBCXgPGP51yNJY'
+    cards: []
   - _id: gG20OfyDxmBsWDoQ
     name: Stigmate de terreur
     description: ''
@@ -313,7 +313,7 @@ cards:
       - name: Mark of Terror
         img: systems/torgeternity/images/cards/cosm/orrorsh/fr/09.webp
         text: ''
-    face: 1
+    face: 0
     drawn: false
     origin: 7rhA82uDSE499m1h
     rotation: 0
@@ -321,22 +321,22 @@ cards:
     flags: {}
     system:
       cosm: ''
-      number: ''
-    value: null
+      number: 9
+    value: 9
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437564
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!SeOhzvsTfyXrxeBZ.gG20OfyDxmBsWDoQ'
+    cards: []
   - _id: mm6BJEmXVGn6ANlR
     name: Extinction des feux !
     description: ''
@@ -350,7 +350,7 @@ cards:
       - name: Lights Out!
         img: systems/torgeternity/images/cards/cosm/orrorsh/fr/10.webp
         text: ''
-    face: 1
+    face: 0
     drawn: false
     origin: 7rhA82uDSE499m1h
     rotation: 0
@@ -358,22 +358,22 @@ cards:
     flags: {}
     system:
       cosm: ''
-      number: ''
-    value: null
+      number: 10
+    value: 10
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437564
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!SeOhzvsTfyXrxeBZ.mm6BJEmXVGn6ANlR'
+    cards: []
 rotation: 0
 displayCount: false
 folder: null
@@ -390,11 +390,11 @@ width: null
 height: null
 _stats:
   systemId: torgeternity
-  systemVersion: 3.8.1
-  coreVersion: '13.345'
+  systemVersion: 13.15.0
+  coreVersion: '13.351'
   createdTime: 1716827810528
-  modifiedTime: 1716827810528
-  lastModifiedBy: VAnYow5sWS9EJzo0
+  modifiedTime: 1768153369198
+  lastModifiedBy: BMvGTGfheqDXarjN
   compendiumSource: Cards.7rhA82uDSE499m1h
   duplicateSource: null
   exportSource:

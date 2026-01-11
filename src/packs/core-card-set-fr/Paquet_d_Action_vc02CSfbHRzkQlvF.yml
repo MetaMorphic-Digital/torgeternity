@@ -23,7 +23,7 @@ cards:
     rotation: 0
     sort: 0
     flags: {}
-    value: null
+    value: 1
     system:
       approvedActions: maneuver trick
       cosm: ''
@@ -39,17 +39,17 @@ cards:
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!vc02CSfbHRzkQlvF.zlP0JtYGwdnLgMho'
+    cards: []
   - _id: RLQZsH4n0pzw7dFu
     name: Vous remarquez un point faible!
     description: ''
@@ -69,7 +69,7 @@ cards:
     rotation: 0
     sort: 1
     flags: {}
-    value: null
+    value: 2
     system:
       approvedActions: maneuver taunt
       cosm: ''
@@ -85,17 +85,17 @@ cards:
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!vc02CSfbHRzkQlvF.RLQZsH4n0pzw7dFu'
+    cards: []
   - _id: JwMZG1c7f0qfAPOo
     name: Vous êtes repoussés !
     description: ''
@@ -115,7 +115,7 @@ cards:
     rotation: 0
     sort: 2
     flags: {}
-    value: null
+    value: 3
     system:
       approvedActions: taunt trick
       cosm: ''
@@ -131,17 +131,17 @@ cards:
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!vc02CSfbHRzkQlvF.JwMZG1c7f0qfAPOo'
+    cards: []
   - _id: BEJGHnX33a7ZzifP
     name: Vous cherchez un avantage
     description: ''
@@ -173,21 +173,21 @@ cards:
       rule: ''
       villainsConditionsDramatic: ''
       villainsConditionsStandard: ''
-    value: null
+    value: 4
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!vc02CSfbHRzkQlvF.BEJGHnX33a7ZzifP'
+    cards: []
   - _id: P6ZjMN7cT3rkll4l
     name: Ils hésitent !
     description: ''
@@ -219,21 +219,21 @@ cards:
       rule: ''
       villainsConditionsDramatic: fatigued
       villainsConditionsStandard: fatigued
-    value: null
+    value: 5
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!vc02CSfbHRzkQlvF.P6ZjMN7cT3rkll4l'
+    cards: []
   - _id: acBFgZu8m73c8mcy
     name: Ils se regroupent !
     description: ''
@@ -265,21 +265,21 @@ cards:
       rule: ''
       villainsConditionsDramatic: inspiration
       villainsConditionsStandard: inspiration
-    value: null
+    value: 6
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!vc02CSfbHRzkQlvF.acBFgZu8m73c8mcy'
+    cards: []
   - _id: SS1sdAsIvyo6oU3E
     name: Ils frappent !
     description: ''
@@ -311,21 +311,21 @@ cards:
       rule: ''
       villainsConditionsDramatic: up
       villainsConditionsStandard: ''
-    value: null
+    value: 7
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!vc02CSfbHRzkQlvF.SS1sdAsIvyo6oU3E'
+    cards: []
   - _id: BxNgOQEpnJEE7Tas
     name: Ca devient dur !
     description: ''
@@ -357,21 +357,21 @@ cards:
       rule: ''
       villainsConditionsDramatic: ''
       villainsConditionsStandard: inspiration
-    value: null
+    value: 8
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!vc02CSfbHRzkQlvF.BxNgOQEpnJEE7Tas'
+    cards: []
   - _id: h23wNi8VU4Tlgf5X
     name: Cette vieille rengaine !
     description: ''
@@ -403,21 +403,21 @@ cards:
       rule: ''
       villainsConditionsDramatic: ''
       villainsConditionsStandard: fatigued
-    value: null
+    value: 9
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!vc02CSfbHRzkQlvF.h23wNi8VU4Tlgf5X'
+    cards: []
   - _id: 0RdYSSdNAjJHQ8vM
     name: Je n'y suis pas encore !
     description: ''
@@ -449,21 +449,21 @@ cards:
       rule: ''
       villainsConditionsDramatic: ''
       villainsConditionsStandard: ''
-    value: null
+    value: 10
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!vc02CSfbHRzkQlvF.0RdYSSdNAjJHQ8vM'
+    cards: []
   - _id: 8jtMQf5sILOwxGAB
     name: Vous attaquez avec prudence !
     description: ''
@@ -495,21 +495,21 @@ cards:
       rule: ''
       villainsConditionsDramatic: fatigued
       villainsConditionsStandard: ''
-    value: null
+    value: 11
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!vc02CSfbHRzkQlvF.8jtMQf5sILOwxGAB'
+    cards: []
   - _id: i0a4Xgmk984qdICm
     name: Le rythme s'accélère !
     description: ''
@@ -541,21 +541,21 @@ cards:
       rule: ''
       villainsConditionsDramatic: flurry
       villainsConditionsStandard: ''
-    value: null
+    value: 12
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!vc02CSfbHRzkQlvF.i0a4Xgmk984qdICm'
+    cards: []
   - _id: aVVVRXij9sC0dLDk
     name: On a le dessus !
     description: ''
@@ -587,21 +587,21 @@ cards:
       rule: ''
       villainsConditionsDramatic: fatigued
       villainsConditionsStandard: ''
-    value: null
+    value: 13
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!vc02CSfbHRzkQlvF.aVVVRXij9sC0dLDk'
+    cards: []
   - _id: 1XadYnNZ8KvY8h61
     name: Pas comme ça !
     description: ''
@@ -633,21 +633,21 @@ cards:
       rule: ''
       villainsConditionsDramatic: ''
       villainsConditionsStandard: setback
-    value: null
+    value: 14
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!vc02CSfbHRzkQlvF.1XadYnNZ8KvY8h61'
+    cards: []
   - _id: 4ZhSiQspSdKhvdWQ
     name: Attention !
     description: ''
@@ -679,21 +679,21 @@ cards:
       rule: ''
       villainsConditionsDramatic: ''
       villainsConditionsStandard: ''
-    value: null
+    value: 15
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!vc02CSfbHRzkQlvF.4ZhSiQspSdKhvdWQ'
+    cards: []
   - _id: f4JVZdZRK39FkYlq
     name: Jamais simple !
     description: ''
@@ -725,21 +725,21 @@ cards:
       rule: ''
       villainsConditionsDramatic: ''
       villainsConditionsStandard: ''
-    value: null
+    value: 16
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!vc02CSfbHRzkQlvF.f4JVZdZRK39FkYlq'
+    cards: []
   - _id: COZUvwjMmgKifj8i
     name: Vous ne pourrez pas m'arrêter !
     description: ''
@@ -771,21 +771,21 @@ cards:
       rule: ''
       villainsConditionsDramatic: ''
       villainsConditionsStandard: fatigued
-    value: null
+    value: 17
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!vc02CSfbHRzkQlvF.COZUvwjMmgKifj8i'
+    cards: []
   - _id: dk8ARxchDuOHDBUg
     name: Sous le feu !
     description: ''
@@ -817,21 +817,21 @@ cards:
       rule: ''
       villainsConditionsDramatic: ''
       villainsConditionsStandard: ''
-    value: null
+    value: 18
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!vc02CSfbHRzkQlvF.dk8ARxchDuOHDBUg'
+    cards: []
   - _id: PP3P1zhfqXfoogKz
     name: Il est temps d'agir !
     description: ''
@@ -863,21 +863,21 @@ cards:
       rule: ''
       villainsConditionsDramatic: ''
       villainsConditionsStandard: ''
-    value: null
+    value: 19
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!vc02CSfbHRzkQlvF.PP3P1zhfqXfoogKz'
+    cards: []
   - _id: G7LwQaHS3dEReNL5
     name: Ils arrivent !
     description: ''
@@ -909,21 +909,21 @@ cards:
       rule: ''
       villainsConditionsDramatic: flurry
       villainsConditionsStandard: ''
-    value: null
+    value: 20
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!vc02CSfbHRzkQlvF.G7LwQaHS3dEReNL5'
+    cards: []
   - _id: jovhQvUY9SlQPOua
     name: Ils s'enfuuient !
     description: ''
@@ -955,21 +955,21 @@ cards:
       rule: ''
       villainsConditionsDramatic: setback
       villainsConditionsStandard: ''
-    value: null
+    value: 21
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!vc02CSfbHRzkQlvF.jovhQvUY9SlQPOua'
+    cards: []
   - _id: v7KxwMHfq87Qri0J
     name: De retour !
     description: ''
@@ -1001,21 +1001,21 @@ cards:
       rule: ''
       villainsConditionsDramatic: ''
       villainsConditionsStandard: ''
-    value: null
+    value: 22
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!vc02CSfbHRzkQlvF.v7KxwMHfq87Qri0J'
+    cards: []
   - _id: ggBIqvUgIT1q4cYL
     name: La victoire est proche !
     description: ''
@@ -1047,21 +1047,21 @@ cards:
       rule: ''
       villainsConditionsDramatic: ''
       villainsConditionsStandard: setback
-    value: null
+    value: 23
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!vc02CSfbHRzkQlvF.ggBIqvUgIT1q4cYL'
+    cards: []
   - _id: pgcJvIiaiC2IKaq3
     name: Passez à l'action !
     description: ''
@@ -1093,21 +1093,21 @@ cards:
       rule: ''
       villainsConditionsDramatic: setback
       villainsConditionsStandard: ''
-    value: null
+    value: 24
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!vc02CSfbHRzkQlvF.pgcJvIiaiC2IKaq3'
+    cards: []
   - _id: xfR2G9Ak7CM7Fxga
     name: Une percée !
     description: ''
@@ -1139,21 +1139,21 @@ cards:
       rule: ''
       villainsConditionsDramatic: ''
       villainsConditionsStandard: ''
-    value: null
+    value: 25
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!vc02CSfbHRzkQlvF.xfR2G9Ak7CM7Fxga'
+    cards: []
   - _id: R1dmKE5LHB4eanxE
     name: Malédiction !
     description: ''
@@ -1185,21 +1185,21 @@ cards:
       rule: ''
       villainsConditionsDramatic: stymied
       villainsConditionsStandard: fatigued
-    value: null
+    value: 26
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!vc02CSfbHRzkQlvF.R1dmKE5LHB4eanxE'
+    cards: []
   - _id: gsXXUC8tl9j71YBI
     name: Renversement !
     description: ''
@@ -1231,21 +1231,21 @@ cards:
       rule: ''
       villainsConditionsDramatic: ''
       villainsConditionsStandard: fatigued
-    value: null
+    value: 27
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!vc02CSfbHRzkQlvF.gsXXUC8tl9j71YBI'
+    cards: []
   - _id: Klbtg20oVr9EMgQd
     name: A eux d'encaisser !
     description: ''
@@ -1277,21 +1277,21 @@ cards:
       rule: ''
       villainsConditionsDramatic: ''
       villainsConditionsStandard: ''
-    value: null
+    value: 28
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!vc02CSfbHRzkQlvF.Klbtg20oVr9EMgQd'
+    cards: []
   - _id: DT9yLb2970IqucbA
     name: Un répit bienvenu !
     description: ''
@@ -1323,21 +1323,21 @@ cards:
       rule: ''
       villainsConditionsDramatic: ''
       villainsConditionsStandard: stymied
-    value: null
+    value: 29
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!vc02CSfbHRzkQlvF.DT9yLb2970IqucbA'
+    cards: []
   - _id: 9DrIG3KMiYZqGcSN
     name: Epreuve de force !
     description: ''
@@ -1369,21 +1369,21 @@ cards:
       rule: ''
       villainsConditionsDramatic: ''
       villainsConditionsStandard: ''
-    value: null
+    value: 30
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!vc02CSfbHRzkQlvF.9DrIG3KMiYZqGcSN'
+    cards: []
   - _id: t68Ew2sIfak0JUCB
     name: Vous cédez du terrain !
     description: ''
@@ -1415,21 +1415,21 @@ cards:
       rule: ''
       villainsConditionsDramatic: ''
       villainsConditionsStandard: ''
-    value: null
+    value: 31
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!vc02CSfbHRzkQlvF.t68Ew2sIfak0JUCB'
+    cards: []
   - _id: 2263w2glJMIvjpb6
     name: Vous reculez !
     description: ''
@@ -1461,21 +1461,21 @@ cards:
       rule: ''
       villainsConditionsDramatic: inspiration
       villainsConditionsStandard: ''
-    value: null
+    value: 32
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!vc02CSfbHRzkQlvF.2263w2glJMIvjpb6'
+    cards: []
   - _id: 11uM8Y0R1LcBRLtE
     name: Tu es à moi maintenant !
     description: ''
@@ -1507,21 +1507,21 @@ cards:
       rule: ''
       villainsConditionsDramatic: ''
       villainsConditionsStandard: ''
-    value: null
+    value: 33
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!vc02CSfbHRzkQlvF.11uM8Y0R1LcBRLtE'
+    cards: []
   - _id: rMjKXbpw3xaYrQaQ
     name: La victoire est à moi !
     description: ''
@@ -1553,21 +1553,21 @@ cards:
       rule: ''
       villainsConditionsDramatic: inspiration
       villainsConditionsStandard: ''
-    value: null
+    value: 34
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!vc02CSfbHRzkQlvF.rMjKXbpw3xaYrQaQ'
+    cards: []
   - _id: WAMfXajvCk9y2KlD
     name: Mon triomphe est inéluctable !
     description: ''
@@ -1599,21 +1599,21 @@ cards:
       rule: ''
       villainsConditionsDramatic: up
       villainsConditionsStandard: ''
-    value: null
+    value: 35
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!vc02CSfbHRzkQlvF.WAMfXajvCk9y2KlD'
+    cards: []
   - _id: yanSmq77BpQiVi37
     name: Torg !
     description: ''
@@ -1645,21 +1645,21 @@ cards:
       rule: ''
       villainsConditionsDramatic: ''
       villainsConditionsStandard: ''
-    value: null
+    value: 36
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!vc02CSfbHRzkQlvF.yanSmq77BpQiVi37'
+    cards: []
   - _id: eWMVhU2RM392W4Vg
     name: Oh Non !
     description: ''
@@ -1691,21 +1691,21 @@ cards:
       rule: ''
       villainsConditionsDramatic: up
       villainsConditionsStandard: ''
-    value: null
+    value: 37
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!vc02CSfbHRzkQlvF.eWMVhU2RM392W4Vg'
+    cards: []
   - _id: VC8m1gXet94Pp5Km
     name: Fuyez !
     description: ''
@@ -1737,21 +1737,21 @@ cards:
       rule: ''
       villainsConditionsDramatic: inspiration
       villainsConditionsStandard: up
-    value: null
+    value: 38
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!vc02CSfbHRzkQlvF.VC8m1gXet94Pp5Km'
+    cards: []
   - _id: gZeuc41X6wrzD006
     name: Quand soudain ...
     description: ''
@@ -1783,21 +1783,21 @@ cards:
       rule: ''
       villainsConditionsDramatic: ''
       villainsConditionsStandard: ''
-    value: null
+    value: 39
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!vc02CSfbHRzkQlvF.gZeuc41X6wrzD006'
+    cards: []
   - _id: SZW4mMU9S2MsUoZ5
     name: Oh Oh!
     description: ''
@@ -1829,21 +1829,21 @@ cards:
       rule: ''
       villainsConditionsDramatic: ''
       villainsConditionsStandard: ''
-    value: null
+    value: 40
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!vc02CSfbHRzkQlvF.SZW4mMU9S2MsUoZ5'
+    cards: []
 rotation: 0
 displayCount: false
 folder: null
@@ -1860,11 +1860,11 @@ width: null
 height: null
 _stats:
   systemId: torgeternity
-  systemVersion: 3.8.1
-  coreVersion: '13.345'
+  systemVersion: 13.15.0
+  coreVersion: '13.351'
   createdTime: 1716827810726
-  modifiedTime: 1716827810726
-  lastModifiedBy: VAnYow5sWS9EJzo0
+  modifiedTime: 1768153369200
+  lastModifiedBy: BMvGTGfheqDXarjN
   compendiumSource: Cards.5eH9MbgstDaSvEi9
   duplicateSource: null
   exportSource:

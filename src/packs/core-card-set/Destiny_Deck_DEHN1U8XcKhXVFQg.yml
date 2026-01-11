@@ -27,21 +27,21 @@ cards:
         sheetClass: ''
     value: 1
     system:
-      number: ''
+      number: 1
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768149619782
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!DEHN1U8XcKhXVFQg.2uah8CYkX7MWpFBb'
+    cards: []
   - _id: yB6GxWgS2fGpvaQj
     name: Adrenaline
     description: ''
@@ -63,21 +63,21 @@ cards:
     flags: {}
     value: 2
     system:
-      number: ''
+      number: 2
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768149555231
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!DEHN1U8XcKhXVFQg.yB6GxWgS2fGpvaQj'
+    cards: []
   - _id: MfwUyQk6UvqqwEgw
     name: Adrenaline
     description: ''
@@ -99,21 +99,21 @@ cards:
     flags: {}
     value: 3
     system:
-      number: ''
+      number: 3
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768149706554
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!DEHN1U8XcKhXVFQg.MfwUyQk6UvqqwEgw'
+    cards: []
   - _id: nj5jtxFv3k0XxCzZ
     name: Adrenaline
     description: ''
@@ -135,21 +135,21 @@ cards:
     flags: {}
     value: 4
     system:
-      number: ''
+      number: 4
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768149687649
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!DEHN1U8XcKhXVFQg.nj5jtxFv3k0XxCzZ'
+    cards: []
   - _id: PsvV9DXPOTOeDQOp
     name: Willpower
     description: ''
@@ -171,21 +171,21 @@ cards:
     flags: {}
     value: 5
     system:
-      number: ''
+      number: 5
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768149546681
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!DEHN1U8XcKhXVFQg.PsvV9DXPOTOeDQOp'
+    cards: []
   - _id: trrM4np4AsEDnFuK
     name: Willpower
     description: ''
@@ -207,21 +207,21 @@ cards:
     flags: {}
     value: 6
     system:
-      number: ''
+      number: 6
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768149458933
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!DEHN1U8XcKhXVFQg.trrM4np4AsEDnFuK'
+    cards: []
   - _id: HH4DN1Gm6UeU35RW
     name: Willpower
     description: ''
@@ -243,21 +243,21 @@ cards:
     flags: {}
     value: 7
     system:
-      number: ''
+      number: 7
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768149594614
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!DEHN1U8XcKhXVFQg.HH4DN1Gm6UeU35RW'
+    cards: []
   - _id: q67OPvE9t0qTEsMf
     name: Willpower
     description: ''
@@ -279,21 +279,21 @@ cards:
     flags: {}
     value: 8
     system:
-      number: ''
+      number: 8
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768149639570
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!DEHN1U8XcKhXVFQg.q67OPvE9t0qTEsMf'
+    cards: []
   - _id: P1uXQm9C2IxqFMCR
     name: Alertness
     description: ''
@@ -315,21 +315,21 @@ cards:
     flags: {}
     value: 9
     system:
-      number: ''
+      number: 9
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768149486249
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!DEHN1U8XcKhXVFQg.P1uXQm9C2IxqFMCR'
+    cards: []
   - _id: iTtFloqyBbEGijL3
     name: Alertness
     description: ''
@@ -351,21 +351,21 @@ cards:
     flags: {}
     value: 10
     system:
-      number: ''
+      number: 10
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768149481800
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!DEHN1U8XcKhXVFQg.iTtFloqyBbEGijL3'
+    cards: []
   - _id: PFjElsFLJ1uc8EHy
     name: Martyr
     description: ''
@@ -386,22 +386,22 @@ cards:
     sort: 4500000
     flags: {}
     system:
-      number: ''
-    value: null
+      number: 11
+    value: 11
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437492
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!DEHN1U8XcKhXVFQg.PFjElsFLJ1uc8EHy'
+    cards: []
   - _id: 1t6gYJL6gUnQ3GfT
     name: Action
     description: ''
@@ -422,22 +422,22 @@ cards:
     sort: 2900000
     flags: {}
     system:
-      number: ''
-    value: null
+      number: 12
+    value: 12
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437492
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!DEHN1U8XcKhXVFQg.1t6gYJL6gUnQ3GfT'
+    cards: []
   - _id: qhHxaxPdX0GQTdsC
     name: Action
     description: ''
@@ -458,22 +458,22 @@ cards:
     sort: 5500000
     flags: {}
     system:
-      number: ''
-    value: null
+      number: 13
+    value: 13
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437492
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!DEHN1U8XcKhXVFQg.qhHxaxPdX0GQTdsC'
+    cards: []
   - _id: U5Muo3Ty9jW0lg06
     name: Action
     description: ''
@@ -494,22 +494,22 @@ cards:
     sort: 3800000
     flags: {}
     system:
-      number: ''
-    value: null
+      number: 14
+    value: 14
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437492
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!DEHN1U8XcKhXVFQg.U5Muo3Ty9jW0lg06'
+    cards: []
   - _id: QUgutjw90w3tdjGE
     name: Action
     description: ''
@@ -530,22 +530,22 @@ cards:
     sort: 1900000
     flags: {}
     system:
-      number: ''
-    value: null
+      number: 15
+    value: 15
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437492
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!DEHN1U8XcKhXVFQg.QUgutjw90w3tdjGE'
+    cards: []
   - _id: oWAgDQGdJL8f7ahT
     name: Flurry
     description: ''
@@ -566,22 +566,22 @@ cards:
     sort: 2200000
     flags: {}
     system:
-      number: ''
-    value: null
+      number: 16
+    value: 16
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437492
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!DEHN1U8XcKhXVFQg.oWAgDQGdJL8f7ahT'
+    cards: []
   - _id: eYN2qxcLyVH9at1c
     name: Flurry
     description: ''
@@ -602,22 +602,22 @@ cards:
     sort: 3200000
     flags: {}
     system:
-      number: ''
-    value: null
+      number: 17
+    value: 17
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437492
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!DEHN1U8XcKhXVFQg.eYN2qxcLyVH9at1c'
+    cards: []
   - _id: LITlLacl164Gh57G
     name: Master Plan
     description: ''
@@ -638,22 +638,22 @@ cards:
     sort: 3900000
     flags: {}
     system:
-      number: ''
-    value: null
+      number: 18
+    value: 18
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437492
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!DEHN1U8XcKhXVFQg.LITlLacl164Gh57G'
+    cards: []
   - _id: 0WP5G6eRGoaPWMKV
     name: Master Plan
     description: ''
@@ -674,22 +674,22 @@ cards:
     sort: 3400000
     flags: {}
     system:
-      number: ''
-    value: null
+      number: 19
+    value: 19
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437492
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!DEHN1U8XcKhXVFQg.0WP5G6eRGoaPWMKV'
+    cards: []
   - _id: 5HNvuDMjJjmTz4UB
     name: Inspire
     description: ''
@@ -710,22 +710,22 @@ cards:
     sort: 4800000
     flags: {}
     system:
-      number: ''
-    value: null
+      number: 20
+    value: 20
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437492
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!DEHN1U8XcKhXVFQg.5HNvuDMjJjmTz4UB'
+    cards: []
   - _id: D1WqYn4i5FrbHxzX
     name: Seize Initiative
     description: ''
@@ -746,22 +746,22 @@ cards:
     sort: 4200000
     flags: {}
     system:
-      number: ''
-    value: null
+      number: 21
+    value: 21
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437492
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!DEHN1U8XcKhXVFQg.D1WqYn4i5FrbHxzX'
+    cards: []
   - _id: 0WtEkS1txWNQ2Fw7
     name: Seize Initiative
     description: ''
@@ -782,22 +782,22 @@ cards:
     sort: 500000
     flags: {}
     system:
-      number: ''
-    value: null
+      number: 22
+    value: 22
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437492
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!DEHN1U8XcKhXVFQg.0WtEkS1txWNQ2Fw7'
+    cards: []
   - _id: LTR3QHo4eIdSzjUf
     name: Hero
     description: ''
@@ -818,22 +818,22 @@ cards:
     sort: 1700000
     flags: {}
     system:
-      number: ''
-    value: null
+      number: 23
+    value: 23
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437492
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!DEHN1U8XcKhXVFQg.LTR3QHo4eIdSzjUf'
+    cards: []
   - _id: Pg7LGfyiEG3y8Rju
     name: Hero
     description: ''
@@ -854,22 +854,22 @@ cards:
     sort: 5300000
     flags: {}
     system:
-      number: ''
-    value: null
+      number: 24
+    value: 24
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437492
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!DEHN1U8XcKhXVFQg.Pg7LGfyiEG3y8Rju'
+    cards: []
   - _id: ESCKSk4VveaifHE1
     name: Hero
     description: ''
@@ -890,22 +890,22 @@ cards:
     sort: 4300000
     flags: {}
     system:
-      number: ''
-    value: null
+      number: 25
+    value: 25
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437492
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!DEHN1U8XcKhXVFQg.ESCKSk4VveaifHE1'
+    cards: []
   - _id: FBhwG949Nw71nJCQ
     name: Hero
     description: ''
@@ -926,22 +926,22 @@ cards:
     sort: 1100000
     flags: {}
     system:
-      number: ''
-    value: null
+      number: 26
+    value: 26
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437492
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!DEHN1U8XcKhXVFQg.FBhwG949Nw71nJCQ'
+    cards: []
   - _id: WBfGBlUnzyOXqNOa
     name: Opponent Fails
     description: ''
@@ -962,22 +962,22 @@ cards:
     sort: 1000000
     flags: {}
     system:
-      number: ''
-    value: null
+      number: 27
+    value: 27
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437492
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!DEHN1U8XcKhXVFQg.WBfGBlUnzyOXqNOa'
+    cards: []
   - _id: ilM20uoQXaUQPkTS
     name: Opponent Fails
     description: ''
@@ -998,22 +998,22 @@ cards:
     sort: 2400000
     flags: {}
     system:
-      number: ''
-    value: null
+      number: 28
+    value: 28
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437492
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!DEHN1U8XcKhXVFQg.ilM20uoQXaUQPkTS'
+    cards: []
   - _id: 26K4rGNpzL423XPo
     name: Rally
     description: ''
@@ -1034,22 +1034,22 @@ cards:
     sort: 1600000
     flags: {}
     system:
-      number: ''
-    value: null
+      number: 29
+    value: 29
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437492
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!DEHN1U8XcKhXVFQg.26K4rGNpzL423XPo'
+    cards: []
   - _id: 2fq6MgWl5j0Mrzes
     name: Second Chance
     description: ''
@@ -1070,22 +1070,22 @@ cards:
     sort: 2000000
     flags: {}
     system:
-      number: ''
-    value: null
+      number: 30
+    value: 30
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437492
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!DEHN1U8XcKhXVFQg.2fq6MgWl5j0Mrzes'
+    cards: []
   - _id: dLluc8DLuvm8VC0A
     name: Second Chance
     description: ''
@@ -1106,22 +1106,22 @@ cards:
     sort: 3100000
     flags: {}
     system:
-      number: ''
-    value: null
+      number: 31
+    value: 31
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437492
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!DEHN1U8XcKhXVFQg.dLluc8DLuvm8VC0A'
+    cards: []
   - _id: Duqd9b3M3LbF0up0
     name: Second Chance
     description: ''
@@ -1142,22 +1142,22 @@ cards:
     sort: 300000
     flags: {}
     system:
-      number: ''
-    value: null
+      number: 32
+    value: 32
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437492
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!DEHN1U8XcKhXVFQg.Duqd9b3M3LbF0up0'
+    cards: []
   - _id: Xthgvhwysj0n9PIr
     name: Connection
     description: ''
@@ -1178,22 +1178,22 @@ cards:
     sort: 2800000
     flags: {}
     system:
-      number: ''
-    value: null
+      number: 33
+    value: 33
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437492
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!DEHN1U8XcKhXVFQg.Xthgvhwysj0n9PIr'
+    cards: []
   - _id: wjAmQNLBdl6UP4J5
     name: Idea
     description: ''
@@ -1214,22 +1214,22 @@ cards:
     sort: 3500000
     flags: {}
     system:
-      number: ''
-    value: null
+      number: 34
+    value: 34
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437492
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!DEHN1U8XcKhXVFQg.wjAmQNLBdl6UP4J5'
+    cards: []
   - _id: IEVdLfA6hsT17xzh
     name: Attuned
     description: ''
@@ -1250,22 +1250,22 @@ cards:
     sort: -200000
     flags: {}
     system:
-      number: ''
-    value: null
+      number: 35
+    value: 35
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437492
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!DEHN1U8XcKhXVFQg.IEVdLfA6hsT17xzh'
+    cards: []
   - _id: s1VppuNsG5J3TrEs
     name: Glory
     description: ''
@@ -1286,22 +1286,22 @@ cards:
     sort: 5700000
     flags: {}
     system:
-      number: ''
-    value: null
+      number: 36
+    value: 36
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437492
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!DEHN1U8XcKhXVFQg.s1VppuNsG5J3TrEs'
+    cards: []
   - _id: y7QHjdb3ke1e2qCn
     name: Glory
     description: ''
@@ -1322,22 +1322,22 @@ cards:
     sort: 3700000
     flags: {}
     system:
-      number: ''
-    value: null
+      number: 37
+    value: 37
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437492
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!DEHN1U8XcKhXVFQg.y7QHjdb3ke1e2qCn'
+    cards: []
   - _id: BVq2PIOe7x4sPCIR
     name: Glory
     description: ''
@@ -1358,22 +1358,22 @@ cards:
     sort: 2600000
     flags: {}
     system:
-      number: ''
-    value: null
+      number: 38
+    value: 38
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437492
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!DEHN1U8XcKhXVFQg.BVq2PIOe7x4sPCIR'
+    cards: []
   - _id: wkzzirxCkKz4PPYC
     name: Glory
     description: ''
@@ -1394,22 +1394,22 @@ cards:
     sort: 2300000
     flags: {}
     system:
-      number: ''
-    value: null
+      number: 39
+    value: 39
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437492
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!DEHN1U8XcKhXVFQg.wkzzirxCkKz4PPYC'
+    cards: []
   - _id: 983B9GvZ0yhhf6UX
     name: Coup de Grace
     description: ''
@@ -1430,22 +1430,22 @@ cards:
     sort: 800000
     flags: {}
     system:
-      number: ''
-    value: null
+      number: 40
+    value: 40
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437492
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!DEHN1U8XcKhXVFQg.983B9GvZ0yhhf6UX'
+    cards: []
   - _id: Xj3k2wfOU196P3NK
     name: Coup de Grace
     description: ''
@@ -1466,22 +1466,22 @@ cards:
     sort: 5100000
     flags: {}
     system:
-      number: ''
-    value: null
+      number: 41
+    value: 41
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437492
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!DEHN1U8XcKhXVFQg.Xj3k2wfOU196P3NK'
+    cards: []
   - _id: zTTsaABlq74a7MNn
     name: Coup de Grace
     description: ''
@@ -1502,22 +1502,22 @@ cards:
     sort: 1500000
     flags: {}
     system:
-      number: ''
-    value: null
+      number: 42
+    value: 42
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437492
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!DEHN1U8XcKhXVFQg.zTTsaABlq74a7MNn'
+    cards: []
   - _id: q5Xy7L9Uk7ZwE7Gm
     name: Coup de Grace
     description: ''
@@ -1538,22 +1538,22 @@ cards:
     sort: 5200000
     flags: {}
     system:
-      number: ''
-    value: null
+      number: 43
+    value: 43
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437492
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!DEHN1U8XcKhXVFQg.q5Xy7L9Uk7ZwE7Gm'
+    cards: []
   - _id: HQGOu7kzFsI1kZtp
     name: Romance
     description: ''
@@ -1574,22 +1574,22 @@ cards:
     sort: 5800000
     flags: {}
     system:
-      number: ''
-    value: null
+      number: 44
+    value: 44
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437492
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!DEHN1U8XcKhXVFQg.HQGOu7kzFsI1kZtp'
+    cards: []
   - _id: g0aF2WXcpmjCC8mN
     name: Nemesis
     description: ''
@@ -1610,22 +1610,22 @@ cards:
     sort: 400000
     flags: {}
     system:
-      number: ''
-    value: null
+      number: 45
+    value: 45
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437492
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!DEHN1U8XcKhXVFQg.g0aF2WXcpmjCC8mN'
+    cards: []
   - _id: kRXWMeWPGzytbyte
     name: Drama
     description: ''
@@ -1646,22 +1646,22 @@ cards:
     sort: 700000
     flags: {}
     system:
-      number: ''
-    value: null
+      number: 46
+    value: 46
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437492
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!DEHN1U8XcKhXVFQg.kRXWMeWPGzytbyte'
+    cards: []
   - _id: UXzFF0SF3qQDlEqE
     name: Drama
     description: ''
@@ -1682,22 +1682,22 @@ cards:
     sort: 4400000
     flags: {}
     system:
-      number: ''
-    value: null
+      number: 47
+    value: 47
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437492
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!DEHN1U8XcKhXVFQg.UXzFF0SF3qQDlEqE'
+    cards: []
   - _id: 2EmhXYHHAdrvRVoz
     name: Drama
     description: ''
@@ -1718,22 +1718,22 @@ cards:
     sort: 5000000
     flags: {}
     system:
-      number: ''
-    value: null
+      number: 48
+    value: 48
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437492
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!DEHN1U8XcKhXVFQg.2EmhXYHHAdrvRVoz'
+    cards: []
   - _id: huNTAd1issZA2nXS
     name: Drama
     description: ''
@@ -1754,22 +1754,22 @@ cards:
     sort: 4700000
     flags: {}
     system:
-      number: ''
-    value: null
+      number: 49
+    value: 49
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437492
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!DEHN1U8XcKhXVFQg.huNTAd1issZA2nXS'
+    cards: []
   - _id: WNfeB7Tn5ADgyrKt
     name: Leadership
     description: ''
@@ -1790,22 +1790,22 @@ cards:
     sort: 1200000
     flags: {}
     system:
-      number: ''
-    value: null
+      number: 50
+    value: 50
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437492
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!DEHN1U8XcKhXVFQg.WNfeB7Tn5ADgyrKt'
+    cards: []
   - _id: gROOwOBtzWvi7Ip6
     name: Leadership
     description: ''
@@ -1826,22 +1826,22 @@ cards:
     sort: 5900000
     flags: {}
     system:
-      number: ''
-    value: null
+      number: 51
+    value: 51
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437492
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!DEHN1U8XcKhXVFQg.gROOwOBtzWvi7Ip6'
+    cards: []
   - _id: pcr1i9mTnNmVvdQb
     name: Supporter
     description: ''
@@ -1862,22 +1862,22 @@ cards:
     sort: 600000
     flags: {}
     system:
-      number: ''
-    value: null
+      number: 52
+    value: 52
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437492
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!DEHN1U8XcKhXVFQg.pcr1i9mTnNmVvdQb'
+    cards: []
   - _id: C0QUnAJme6JNXUfQ
     name: Supporter
     description: ''
@@ -1898,22 +1898,22 @@ cards:
     sort: 4900000
     flags: {}
     system:
-      number: ''
-    value: null
+      number: 53
+    value: 53
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437492
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!DEHN1U8XcKhXVFQg.C0QUnAJme6JNXUfQ'
+    cards: []
   - _id: 96yG4IGw0sGW6gy3
     name: Supporter
     description: ''
@@ -1934,22 +1934,22 @@ cards:
     sort: -100000
     flags: {}
     system:
-      number: ''
-    value: null
+      number: 54
+    value: 54
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437492
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!DEHN1U8XcKhXVFQg.96yG4IGw0sGW6gy3'
+    cards: []
   - _id: ZQ5qJ9kRAOgt89Fg
     name: Supporter
     description: ''
@@ -1970,22 +1970,22 @@ cards:
     sort: 2100000
     flags: {}
     system:
-      number: ''
-    value: null
+      number: 55
+    value: 55
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437492
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!DEHN1U8XcKhXVFQg.ZQ5qJ9kRAOgt89Fg'
+    cards: []
   - _id: 0LXWoTrBG1kDKrzK
     name: Second Wind
     description: ''
@@ -2006,22 +2006,22 @@ cards:
     sort: 5400000
     flags: {}
     system:
-      number: ''
-    value: null
+      number: 56
+    value: 56
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437492
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!DEHN1U8XcKhXVFQg.0LXWoTrBG1kDKrzK'
+    cards: []
   - _id: uqmDwi3SiqKpTP1H
     name: Second Wind
     description: ''
@@ -2042,22 +2042,22 @@ cards:
     sort: 3000000
     flags: {}
     system:
-      number: ''
-    value: null
+      number: 57
+    value: 57
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437492
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!DEHN1U8XcKhXVFQg.uqmDwi3SiqKpTP1H'
+    cards: []
   - _id: 0Y2T43zG8nrJko21
     name: Transfer
     description: ''
@@ -2078,22 +2078,22 @@ cards:
     sort: 3300000
     flags: {}
     system:
-      number: ''
-    value: null
+      number: 58
+    value: 58
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437492
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!DEHN1U8XcKhXVFQg.0Y2T43zG8nrJko21'
+    cards: []
   - _id: hQ4ttcTprTkSwHkw
     name: Reality Surge
     description: ''
@@ -2114,22 +2114,22 @@ cards:
     sort: 4000000
     flags: {}
     system:
-      number: ''
-    value: null
+      number: 59
+    value: 59
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437492
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!DEHN1U8XcKhXVFQg.hQ4ttcTprTkSwHkw'
+    cards: []
   - _id: o88Ji13RWWxYqKDS
     name: Maelstrom
     description: ''
@@ -2150,22 +2150,22 @@ cards:
     sort: 1800000
     flags: {}
     system:
-      number: ''
-    value: null
+      number: 60
+    value: 60
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437492
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
     _key: '!cards.cards!DEHN1U8XcKhXVFQg.o88Ji13RWWxYqKDS'
+    cards: []
 rotation: 0
 displayCount: false
 folder: null
@@ -2183,11 +2183,11 @@ width: null
 height: null
 _stats:
   systemId: torgeternity
-  systemVersion: 3.8.1
-  coreVersion: '13.345'
+  systemVersion: 13.15.0
+  coreVersion: '13.351'
   createdTime: 1716827808521
-  modifiedTime: 1716827808521
-  lastModifiedBy: VAnYow5sWS9EJzo0
+  modifiedTime: 1768153369156
+  lastModifiedBy: BMvGTGfheqDXarjN
   compendiumSource: Cards.Xx9CCRsurDadGaCi
   duplicateSource: null
   exportSource:

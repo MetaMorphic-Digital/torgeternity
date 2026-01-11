@@ -27,20 +27,21 @@ cards:
     flags: {}
     system:
       cosm: none
-      number: null
-    value: null
+      number: 1
+    value: 1
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
-      systemVersion: 13.2.2
-      lastModifiedBy: null
+      systemVersion: 13.13.2
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
+      modifiedTime: 1768152437676
     _key: '!cards.cards!g6wtTLMoBanxDudo.QyFeRt1wrbrowKGo'
+    cards: []
   - _id: J5gxredIOpXkDTsv
     name: Gesetz des Verfalls
     description: ''
@@ -63,20 +64,21 @@ cards:
     flags: {}
     system:
       cosm: none
-      number: null
-    value: null
+      number: 2
+    value: 2
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
-      systemVersion: 13.2.2
-      lastModifiedBy: null
+      systemVersion: 13.13.2
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
+      modifiedTime: 1768152437676
     _key: '!cards.cards!g6wtTLMoBanxDudo.J5gxredIOpXkDTsv'
+    cards: []
   - _id: uA8N0ZLM5WtVa2cb
     name: Die beste Verteidigung
     description: ''
@@ -99,20 +101,21 @@ cards:
     flags: {}
     system:
       cosm: none
-      number: null
-    value: null
+      number: 3
+    value: 3
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
-      systemVersion: 13.2.2
-      lastModifiedBy: null
+      systemVersion: 13.13.2
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
+      modifiedTime: 1768152437676
     _key: '!cards.cards!g6wtTLMoBanxDudo.uA8N0ZLM5WtVa2cb'
+    cards: []
   - _id: fs6Vhn03UcjNOtd3
     name: Überleben des Tüchtigsten
     description: ''
@@ -135,20 +138,21 @@ cards:
     flags: {}
     system:
       cosm: none
-      number: null
-    value: null
+      number: 4
+    value: 4
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
-      systemVersion: 13.2.2
-      lastModifiedBy: null
+      systemVersion: 13.13.2
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
+      modifiedTime: 1768152437676
     _key: '!cards.cards!g6wtTLMoBanxDudo.fs6Vhn03UcjNOtd3'
+    cards: []
   - _id: akklt17PLqcIjMUJ
     name: Gefahren des Landes
     description: ''
@@ -171,20 +175,21 @@ cards:
     flags: {}
     system:
       cosm: none
-      number: null
-    value: null
+      number: 5
+    value: 5
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
-      systemVersion: 13.2.2
-      lastModifiedBy: null
+      systemVersion: 13.13.2
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
+      modifiedTime: 1768152437676
     _key: '!cards.cards!g6wtTLMoBanxDudo.akklt17PLqcIjMUJ'
+    cards: []
   - _id: GTqKBhhwkUtUTep2
     name: Der tiefe Nebel
     description: ''
@@ -207,20 +212,21 @@ cards:
     flags: {}
     system:
       cosm: none
-      number: null
-    value: null
+      number: 6
+    value: 6
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
-      systemVersion: 13.2.2
-      lastModifiedBy: null
+      systemVersion: 13.13.2
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
+      modifiedTime: 1768152437676
     _key: '!cards.cards!g6wtTLMoBanxDudo.GTqKBhhwkUtUTep2'
+    cards: []
   - _id: BJ8F7FeH22SUFEUW
     name: Gesetz des Lebens
     description: ''
@@ -243,20 +249,21 @@ cards:
     flags: {}
     system:
       cosm: none
-      number: null
-    value: null
+      number: 7
+    value: 7
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
-      systemVersion: 13.2.2
-      lastModifiedBy: null
+      systemVersion: 13.13.2
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
+      modifiedTime: 1768152437676
     _key: '!cards.cards!g6wtTLMoBanxDudo.BJ8F7FeH22SUFEUW'
+    cards: []
   - _id: scCUOlCEf59b01wz
     name: Urinstinkte
     description: ''
@@ -279,20 +286,21 @@ cards:
     flags: {}
     system:
       cosm: none
-      number: null
-    value: null
+      number: 8
+    value: 8
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
-      systemVersion: 13.2.2
-      lastModifiedBy: null
+      systemVersion: 13.13.2
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
+      modifiedTime: 1768152437676
     _key: '!cards.cards!g6wtTLMoBanxDudo.scCUOlCEf59b01wz'
+    cards: []
   - _id: 1Nc2OcDCEeBUU7Z2
     name: Verlorene Schätze
     description: ''
@@ -315,20 +323,21 @@ cards:
     flags: {}
     system:
       cosm: none
-      number: null
-    value: null
+      number: 9
+    value: 9
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
-      systemVersion: 13.2.2
-      lastModifiedBy: null
+      systemVersion: 13.13.2
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
+      modifiedTime: 1768152437676
     _key: '!cards.cards!g6wtTLMoBanxDudo.1Nc2OcDCEeBUU7Z2'
+    cards: []
   - _id: GNU1bsdkIJ6I4N5C
     name: Gesetz des Verfalls
     description: ''
@@ -351,20 +360,21 @@ cards:
     flags: {}
     system:
       cosm: none
-      number: null
-    value: null
+      number: 10
+    value: 10
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
-      systemVersion: 13.2.2
-      lastModifiedBy: null
+      systemVersion: 13.13.2
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-    cards: []
+      modifiedTime: 1768152437676
     _key: '!cards.cards!g6wtTLMoBanxDudo.GNU1bsdkIJ6I4N5C'
+    cards: []
 rotation: 0
 displayCount: false
 folder: null
@@ -382,11 +392,11 @@ width: null
 height: null
 _stats:
   systemId: torgeternity
-  systemVersion: 13.2.2
-  coreVersion: '13.346'
+  systemVersion: 13.15.0
+  coreVersion: '13.351'
   createdTime: 1716827812320
-  modifiedTime: 1753598371148
-  lastModifiedBy: W32Zl65V9atvPk8o
+  modifiedTime: 1768153369237
+  lastModifiedBy: BMvGTGfheqDXarjN
   compendiumSource: Cards.xDKnUQ4micom96hn
   duplicateSource: null
   exportSource: null
