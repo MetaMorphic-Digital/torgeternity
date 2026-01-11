@@ -8,6 +8,7 @@
     </a>
     <strong class="card-name">{{localize "CARD.FIELDS.face.label"}}</strong>
     <span class="card-type">{{localize "DOCUMENT.FIELDS.type.label"}}</span>
+    <span class="card-number">{{localize "CARD.FIELDS.number.label"}}</span>
     <span class="card-drawn">{{localize "CARD.FIELDS.drawn.label"}}</span>
     <div class="card-controls">
       <a class="card-control" data-tooltip="{{localize 'CARDS.ACTIONS.Create'}}"
@@ -36,6 +37,7 @@
         </span>
         <strong class="card-name">{{card.name}}</strong>
         <span class="card-type">{{card.typeLoc}}</span>
+        <span class="card-number">{{card.value}}</span>
         <div class="card-drawn">
           <input type="checkbox" class="card-value" {{checked card.drawn}} disabled>
         </div>

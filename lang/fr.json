@@ -1414,5 +1414,8 @@
         }
       }
     }
+  },
+  "CARD.FIELDS": {
+    "number.label": "Nombre"
   }
 }

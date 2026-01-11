@@ -9,7 +9,6 @@ export class DestinyCardData extends foundry.abstract.TypeDataModel {
    */
   static defineSchema() {
     return {
-      number: new fields.NumberField({ initial: 1, integer: true }),
       pooled: new fields.BooleanField({ initial: false, label: 'torgeternity.dramaCard.pooled' }),
     };
   }

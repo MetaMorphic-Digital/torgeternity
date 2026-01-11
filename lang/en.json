@@ -1408,5 +1408,8 @@
         }
       }
     }
+  },
+  "CARD.FIELDS": {
+    "number.label": "Number"
   }
 }
