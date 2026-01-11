@@ -20,6 +20,9 @@ export class torgeternityCard extends Card {
       source.system.pooled = source.flags.torgeternity.pooled;
       delete source.flags.torgeternity.pooled;
     }
+    if (!source.value && source.system?.number) {
+      source.value = source.system.number;
+    }
     return super.migrateData(source);
   }
 }
