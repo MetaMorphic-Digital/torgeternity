@@ -66,6 +66,7 @@ export async function renderSkillChat(test) {
     if (!target.dummyTarget) test.target = target;
     test.sizeModifier = target.sizeModifier;
     test.vulnerableModifier = target.vulnerableModifier;
+    test.darknessModifier = target.darknessModifier;
 
     //
     // Check to see if we already have a chat title from a chat card roll. If not, Set title for Chat Message in test.chatTitle //
@@ -196,7 +197,10 @@ export async function renderSkillChat(test) {
     let modifiers = [];
     test.modifiers = 0;
     test.modifierText = '';
-    if (test.testTtype === 'soak') test.vulnerableModifier = 0;
+    if (test.testTtype === 'soak') {
+      test.vulnerableModifier = 0;
+      test.darknessModifier = 0;
+    }
 
     if (test.woundModifier < 0) {
       modifiers.push(modifierString('torgeternity.chatText.check.modifier.wounds', test.woundModifier));

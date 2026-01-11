@@ -49,6 +49,7 @@ const DEFAULT_TEST = {
   stymiedModifier: 0,
   darknessModifier: 0,
   waitingModifier: 0,
+  vulnerableModifier: 0,
   woundModifier: 0,
   sizeModifier: 0,
   speedModifier: 0,
@@ -213,10 +214,12 @@ export class TestDialog extends HandlebarsApplicationMixin(ApplicationV2) {
       context.test.targetAll = targets.map(token => oneTestTarget(token, this.test.applySize));
       context.test.sizeModifier = Math.max(...context.test.targetAll.map(target => target.sizeModifier));
       context.test.vulnerableModifier = Math.max(...context.test.targetAll.map(target => target.vulnerableModifier));
+      context.test.darknessModifier = Math.min(...context.test.targetAll.map(target => target.darknessModifier));
     } else {
       context.test.targetAll = [];
       context.test.sizeModifier = 0;
       context.test.vulnerableModifier = 0;
+      context.test.darknessModifier = 0;
     }
 
     context.test.hasModifiers =
@@ -374,6 +377,7 @@ export function oneTestTarget(token, applySize) {
       }, { ...actor.system.skills }),
       attributes: actor.system.attributes,
       vulnerableModifier: actor.statusModifiers.vulnerable,
+      darknessModifier: actor.statusModifiers.darkness,
       isConcentrating: actor.isConcentrating,
       defenses: {
         dodge: actor.defenses.dodge.value,
