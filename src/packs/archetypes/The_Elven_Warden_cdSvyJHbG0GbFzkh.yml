@@ -519,113 +519,6 @@ items:
         spirit: 14
         strength: 11
       perksData:
-        - name: Darkvision (Elf)
-          type: perk
-          img: systems/torgeternity/images/icons/reality-icon.webp
-          system:
-            category: racial
-            cosm: none
-            description: >-
-              <p>Elves ignore up to four points of
-              @UUID[Compendium.te001-core-rulebook.rules.pwneQ55M0nnDH0Us.JournalEntryPage.EhKa65cpHvodUl2L#darkness]{Darkness
-              Penalties.}</p>
-            prerequisites: >-
-              <p>@UUID[Compendium.te001-core-rulebook.Items.Item.ntqopmBBhU5nzwGn]{Elf}</p><p></p>
-            generalContradiction: false
-            pulpPowers:
-              enhancement01:
-                description: ''
-                taken: false
-                title: ''
-              enhancement02:
-                description: ''
-                taken: false
-                title: ''
-              enhancement03:
-                description: ''
-                taken: false
-                title: ''
-              enhancement04:
-                description: ''
-                taken: false
-                title: ''
-              enhancement05:
-                description: ''
-                taken: false
-                title: ''
-              enhancement06:
-                description: ''
-                taken: false
-                title: ''
-              enhancement07:
-                description: ''
-                taken: false
-                title: ''
-              enhancement08:
-                description: ''
-                taken: false
-                title: ''
-              enhancement09:
-                description: ''
-                taken: false
-                title: ''
-              enhancement10:
-                description: ''
-                taken: false
-                title: ''
-              enhancement11:
-                description: ''
-                taken: false
-                title: ''
-              enhancement12:
-                description: ''
-                taken: false
-                title: ''
-              enhancement13:
-                description: ''
-                taken: false
-                title: ''
-              enhancement14:
-                description: ''
-                taken: false
-                title: ''
-              enhancement15:
-                description: ''
-                taken: false
-                title: ''
-              enhancementNumber: 0
-              limitation01: ''
-              limitation02: ''
-              limitation03: ''
-              limitation04: ''
-              limitation05: ''
-              limitation06: ''
-              limitation07: ''
-              limitation08: ''
-              limitation09: ''
-              limitation10: ''
-              limitationNumber: 0
-            timestaken: ''
-            secondaryAxiom:
-              selected: none
-              value: null
-            transferenceID: 5iDUft2dYlcGRzdY
-          sort: 500000
-          ownership:
-            default: 0
-            aSTzyuIvqyDaFHwy: 3
-            VAnYow5sWS9EJzo0: 3
-          flags:
-            core: {}
-          _stats:
-            coreVersion: '12.331'
-            systemId: torgeternity
-            systemVersion: 12.3.0
-            createdTime: 1711551146882
-            modifiedTime: 1729581956703
-            lastModifiedBy: d8YcfsxBOP7RAazk
-            compendiumSource: null
-            duplicateSource: null
         - name: Graceful (Elf)
           type: perk
           img: systems/torgeternity/images/icons/reality-icon.webp
@@ -849,141 +742,191 @@ items:
             lastModifiedBy: d8YcfsxBOP7RAazk
             compendiumSource: null
             duplicateSource: null
+        - _id: kudemKEaPXn5iP80
+          name: Darkvision (Elf)
+          type: perk
+          img: systems/torgeternity/images/icons/reality-icon.webp
+          effects:
+            - name: Darkvision
+              origin: Compendium.te001-core-rulebook.Items.Item.kudemKEaPXn5iP80
+              duration:
+                startTime: null
+                combat: null
+                seconds: null
+                rounds: null
+                turns: null
+                startRound: null
+                startTurn: null
+              disabled: false
+              img: icons/svg/aura.svg
+              _id: nn8uN284NEPXARMj
+              type: base
+              system:
+                transferOnAttack: false
+                applyIfAttackTrait: []
+                applyIfDefendTrait: []
+                transferOnOutcome: 0
+              changes:
+                - key: targetModifiers.darkness
+                  mode: 2
+                  value: '4'
+                  priority: null
+              description: ''
+              tint: '#ffffff'
+              transfer: true
+              statuses: []
+              sort: 0
+              flags: {}
+              _stats:
+                compendiumSource: null
+                duplicateSource: null
+                exportSource: null
+                coreVersion: '13.351'
+                systemId: torgeternity
+                systemVersion: 13.15.0
+                createdTime: 1768218122723
+                modifiedTime: 1768218136608
+                lastModifiedBy: BMvGTGfheqDXarjN
+          folder: JH8fiVIGH83UaPBa
+          sort: 500000
+          flags:
+            core: {}
+          system:
+            category: racial
+            cosm: none
+            description: >-
+              <p>Elves ignore up to four points of
+              @UUID[Compendium.te001-core-rulebook.rules.pwneQ55M0nnDH0Us.JournalEntryPage.EhKa65cpHvodUl2L#darkness]{Darkness
+              Penalties.}</p>
+            prerequisites: >-
+              <p>@UUID[Compendium.te001-core-rulebook.Items.Item.ntqopmBBhU5nzwGn]{Elf}</p><p></p>
+            generalContradiction: false
+            pulpPowers:
+              enhancement01:
+                description: ''
+                taken: false
+                title: ''
+              enhancement02:
+                description: ''
+                taken: false
+                title: ''
+              enhancement03:
+                description: ''
+                taken: false
+                title: ''
+              enhancement04:
+                description: ''
+                taken: false
+                title: ''
+              enhancement05:
+                description: ''
+                taken: false
+                title: ''
+              enhancement06:
+                description: ''
+                taken: false
+                title: ''
+              enhancement07:
+                description: ''
+                taken: false
+                title: ''
+              enhancement08:
+                description: ''
+                taken: false
+                title: ''
+              enhancement09:
+                description: ''
+                taken: false
+                title: ''
+              enhancement10:
+                description: ''
+                taken: false
+                title: ''
+              enhancement11:
+                description: ''
+                taken: false
+                title: ''
+              enhancement12:
+                description: ''
+                taken: false
+                title: ''
+              enhancement13:
+                description: ''
+                taken: false
+                title: ''
+              enhancement14:
+                description: ''
+                taken: false
+                title: ''
+              enhancement15:
+                description: ''
+                taken: false
+                title: ''
+              enhancementNumber: 0
+              limitation01: ''
+              limitation02: ''
+              limitation03: ''
+              limitation04: ''
+              limitation05: ''
+              limitation06: ''
+              limitation07: ''
+              limitation08: ''
+              limitation09: ''
+              limitation10: ''
+              limitationNumber: 0
+            timestaken: ''
+            secondaryAxiom: none
+            transferenceID: 5iDUft2dYlcGRzdY
+            traits: []
+            axioms:
+              magic: 0
+              social: 0
+              spirit: 0
+              tech: 0
+          ownership:
+            default: 0
+            aSTzyuIvqyDaFHwy: 3
+            VAnYow5sWS9EJzo0: 3
+          _stats:
+            systemId: torgeternity
+            systemVersion: 12.3.0
+            coreVersion: '13.341'
+            createdTime: 1711551146882
+            modifiedTime: 1729581956703
+            lastModifiedBy: d8YcfsxBOP7RAazk
+            compendiumSource: null
+            duplicateSource: null
+            exportSource: null
       darkvision: true
       size: normal
       customAttackData: []
+      cosm: none
+      traits: []
+      axioms:
+        magic: 0
+        social: 0
+        spirit: 0
+        tech: 0
     effects: []
     folder: TwzEDO2AmeaaSwtn
     ownership:
       default: 0
       d8YcfsxBOP7RAazk: 3
+      BMvGTGfheqDXarjN: 3
     flags: {}
-    _stats:
-      compendiumSource: Compendium.te001-core-rulebook.Items.Item.ntqopmBBhU5nzwGn
-      duplicateSource: null
-      coreVersion: '13.345'
-      systemId: torgeternity
-      systemVersion: 12.3.0
-      createdTime: 1729582166779
-      modifiedTime: 1729582166779
-      lastModifiedBy: d8YcfsxBOP7RAazk
-      exportSource: null
-    _id: DtJdgrfeaXuwXG8K
-    sort: 275000
-    _key: '!actors.items!cdSvyJHbG0GbFzkh.DtJdgrfeaXuwXG8K'
-  - name: Darkvision (Elf)
-    type: perk
-    img: systems/torgeternity/images/icons/reality-icon.webp
-    system:
-      category: racial
-      cosm: none
-      description: >-
-        <p>Elves ignore up to four points of
-        @UUID[Compendium.te001-core-rulebook.rules.pwneQ55M0nnDH0Us.JournalEntryPage.EhKa65cpHvodUl2L#darkness]{Darkness
-        Penalties.}</p>
-      prerequisites: >-
-        <p>@UUID[Compendium.te001-core-rulebook.Items.Item.ntqopmBBhU5nzwGn]{Elf}</p><p></p>
-      generalContradiction: false
-      pulpPowers:
-        enhancement01:
-          description: ''
-          taken: false
-          title: ''
-        enhancement02:
-          description: ''
-          taken: false
-          title: ''
-        enhancement03:
-          description: ''
-          taken: false
-          title: ''
-        enhancement04:
-          description: ''
-          taken: false
-          title: ''
-        enhancement05:
-          description: ''
-          taken: false
-          title: ''
-        enhancement06:
-          description: ''
-          taken: false
-          title: ''
-        enhancement07:
-          description: ''
-          taken: false
-          title: ''
-        enhancement08:
-          description: ''
-          taken: false
-          title: ''
-        enhancement09:
-          description: ''
-          taken: false
-          title: ''
-        enhancement10:
-          description: ''
-          taken: false
-          title: ''
-        enhancement11:
-          description: ''
-          taken: false
-          title: ''
-        enhancement12:
-          description: ''
-          taken: false
-          title: ''
-        enhancement13:
-          description: ''
-          taken: false
-          title: ''
-        enhancement14:
-          description: ''
-          taken: false
-          title: ''
-        enhancement15:
-          description: ''
-          taken: false
-          title: ''
-        enhancementNumber: 0
-        limitation01: ''
-        limitation02: ''
-        limitation03: ''
-        limitation04: ''
-        limitation05: ''
-        limitation06: ''
-        limitation07: ''
-        limitation08: ''
-        limitation09: ''
-        limitation10: ''
-        limitationNumber: 0
-      timestaken: ''
-      secondaryAxiom:
-        selected: none
-        value: null
-      transferenceID: lwq2I5tEFyCBeDmL
-    sort: 500000
-    ownership:
-      default: 0
-      aSTzyuIvqyDaFHwy: 3
-      VAnYow5sWS9EJzo0: 3
-      d8YcfsxBOP7RAazk: 3
-    flags:
-      core: {}
     _stats:
       compendiumSource: null
       duplicateSource: null
-      coreVersion: '13.345'
-      systemId: torgeternity
-      systemVersion: 12.3.0
-      createdTime: 1729582166798
-      modifiedTime: 1729582166904
-      lastModifiedBy: d8YcfsxBOP7RAazk
       exportSource: null
-    _id: lwq2I5tEFyCBeDmL
-    effects: []
-    folder: null
-    _key: '!actors.items!cdSvyJHbG0GbFzkh.lwq2I5tEFyCBeDmL'
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.15.0
+      createdTime: 1768218267616
+      modifiedTime: 1768218267616
+      lastModifiedBy: BMvGTGfheqDXarjN
+    _id: tajZ4FnOXR87irYN
+    sort: 275000
+    _key: '!actors.items!cdSvyJHbG0GbFzkh.tajZ4FnOXR87irYN'
   - name: Graceful (Elf)
     type: perk
     img: systems/torgeternity/images/icons/reality-icon.webp
@@ -1074,32 +1017,36 @@ items:
         limitation10: ''
         limitationNumber: 0
       timestaken: ''
-      secondaryAxiom:
-        selected: none
-        value: null
-      transferenceID: ru0BFpRazwilktPG
+      secondaryAxiom: none
+      transferenceID: tajZ4FnOXR87irYN
+      traits: []
+      axioms:
+        magic: 0
+        social: 0
+        spirit: 0
+        tech: 0
     sort: 600000
     ownership:
       default: 0
       aSTzyuIvqyDaFHwy: 3
       VAnYow5sWS9EJzo0: 3
-      d8YcfsxBOP7RAazk: 3
+      BMvGTGfheqDXarjN: 3
     flags:
       core: {}
     _stats:
       compendiumSource: null
       duplicateSource: null
-      coreVersion: '13.345'
-      systemId: torgeternity
-      systemVersion: 12.3.0
-      createdTime: 1729582166798
-      modifiedTime: 1729582166906
-      lastModifiedBy: d8YcfsxBOP7RAazk
       exportSource: null
-    _id: ru0BFpRazwilktPG
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.15.0
+      createdTime: 1768218267616
+      modifiedTime: 1768218267638
+      lastModifiedBy: BMvGTGfheqDXarjN
+    _id: XpxmerzLMvgf2jRC
     effects: []
     folder: null
-    _key: '!actors.items!cdSvyJHbG0GbFzkh.ru0BFpRazwilktPG'
+    _key: '!actors.items!cdSvyJHbG0GbFzkh.XpxmerzLMvgf2jRC'
   - name: Magical Affinity (Elf)
     type: perk
     img: systems/torgeternity/images/icons/reality-icon.webp
@@ -1192,32 +1139,193 @@ items:
         limitation10: ''
         limitationNumber: 0
       timestaken: ''
-      secondaryAxiom:
-        selected: magic
-        value: 12
-      transferenceID: nmHMp4N1KLo9RdnC
+      secondaryAxiom: magic
+      transferenceID: tajZ4FnOXR87irYN
+      axioms:
+        magic: 12
+        social: 0
+        spirit: 0
+        tech: 0
+      traits: []
     sort: 700000
     ownership:
       default: 0
       aSTzyuIvqyDaFHwy: 3
       VAnYow5sWS9EJzo0: 3
-      d8YcfsxBOP7RAazk: 3
+      BMvGTGfheqDXarjN: 3
     flags:
       core: {}
     _stats:
       compendiumSource: null
       duplicateSource: null
-      coreVersion: '13.345'
-      systemId: torgeternity
-      systemVersion: 12.3.0
-      createdTime: 1729582166798
-      modifiedTime: 1729582166908
-      lastModifiedBy: d8YcfsxBOP7RAazk
       exportSource: null
-    _id: nmHMp4N1KLo9RdnC
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.15.0
+      createdTime: 1768218267616
+      modifiedTime: 1768218267645
+      lastModifiedBy: BMvGTGfheqDXarjN
+    _id: nxWQNnXERiErrNfB
     effects: []
     folder: null
-    _key: '!actors.items!cdSvyJHbG0GbFzkh.nmHMp4N1KLo9RdnC'
+    _key: '!actors.items!cdSvyJHbG0GbFzkh.nxWQNnXERiErrNfB'
+  - _id: RcxFdGFN5eJTFOr7
+    name: Darkvision (Elf)
+    type: perk
+    img: systems/torgeternity/images/icons/reality-icon.webp
+    effects:
+      - name: Darkvision
+        origin: Compendium.te001-core-rulebook.Items.Item.kudemKEaPXn5iP80
+        duration:
+          startTime: 590
+          combat: null
+          seconds: null
+          rounds: null
+          turns: null
+          startRound: null
+          startTurn: null
+        disabled: false
+        img: icons/svg/aura.svg
+        _id: nn8uN284NEPXARMj
+        type: base
+        system:
+          transferOnAttack: false
+          applyIfAttackTrait: []
+          applyIfDefendTrait: []
+          transferOnOutcome: 0
+        changes:
+          - key: targetModifiers.darkness
+            mode: 2
+            value: '4'
+            priority: null
+        description: ''
+        tint: '#ffffff'
+        transfer: true
+        statuses: []
+        sort: 0
+        flags: {}
+        _stats:
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+          coreVersion: '13.351'
+          systemId: torgeternity
+          systemVersion: 13.15.0
+          lastModifiedBy: null
+        _key: >-
+          !actors.items.effects!cdSvyJHbG0GbFzkh.RcxFdGFN5eJTFOr7.nn8uN284NEPXARMj
+    folder: JH8fiVIGH83UaPBa
+    sort: 500000
+    flags:
+      core: {}
+    system:
+      category: racial
+      cosm: none
+      description: >-
+        <p>Elves ignore up to four points of
+        @UUID[Compendium.te001-core-rulebook.rules.pwneQ55M0nnDH0Us.JournalEntryPage.EhKa65cpHvodUl2L#darkness]{Darkness
+        Penalties.}</p>
+      prerequisites: >-
+        <p>@UUID[Compendium.te001-core-rulebook.Items.Item.ntqopmBBhU5nzwGn]{Elf}</p><p></p>
+      generalContradiction: false
+      pulpPowers:
+        enhancement01:
+          description: ''
+          taken: false
+          title: ''
+        enhancement02:
+          description: ''
+          taken: false
+          title: ''
+        enhancement03:
+          description: ''
+          taken: false
+          title: ''
+        enhancement04:
+          description: ''
+          taken: false
+          title: ''
+        enhancement05:
+          description: ''
+          taken: false
+          title: ''
+        enhancement06:
+          description: ''
+          taken: false
+          title: ''
+        enhancement07:
+          description: ''
+          taken: false
+          title: ''
+        enhancement08:
+          description: ''
+          taken: false
+          title: ''
+        enhancement09:
+          description: ''
+          taken: false
+          title: ''
+        enhancement10:
+          description: ''
+          taken: false
+          title: ''
+        enhancement11:
+          description: ''
+          taken: false
+          title: ''
+        enhancement12:
+          description: ''
+          taken: false
+          title: ''
+        enhancement13:
+          description: ''
+          taken: false
+          title: ''
+        enhancement14:
+          description: ''
+          taken: false
+          title: ''
+        enhancement15:
+          description: ''
+          taken: false
+          title: ''
+        enhancementNumber: 0
+        limitation01: ''
+        limitation02: ''
+        limitation03: ''
+        limitation04: ''
+        limitation05: ''
+        limitation06: ''
+        limitation07: ''
+        limitation08: ''
+        limitation09: ''
+        limitation10: ''
+        limitationNumber: 0
+      timestaken: ''
+      secondaryAxiom: none
+      transferenceID: tajZ4FnOXR87irYN
+      traits: []
+      axioms:
+        magic: 0
+        social: 0
+        spirit: 0
+        tech: 0
+    ownership:
+      default: 0
+      aSTzyuIvqyDaFHwy: 3
+      VAnYow5sWS9EJzo0: 3
+      BMvGTGfheqDXarjN: 3
+    _stats:
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.15.0
+      createdTime: 1768218267616
+      modifiedTime: 1768218267650
+      lastModifiedBy: BMvGTGfheqDXarjN
+    _key: '!actors.items!cdSvyJHbG0GbFzkh.RcxFdGFN5eJTFOr7'
 effects:
   - origin: Actor.cdSvyJHbG0GbFzkh.Item.yUrDm5bnBMSFn1e9
     duration:
@@ -1790,11 +1898,11 @@ prototypeToken:
   movementAction: null
 _stats:
   systemId: torgeternity
-  systemVersion: 12.3.0
-  coreVersion: '13.348'
+  systemVersion: 13.15.0
+  coreVersion: '13.351'
   createdTime: 1693910130714
-  modifiedTime: 1758529166704
-  lastModifiedBy: l8SVzn2293lAwvMC
+  modifiedTime: 1768218268794
+  lastModifiedBy: BMvGTGfheqDXarjN
   compendiumSource: null
   duplicateSource: null
   exportSource: null

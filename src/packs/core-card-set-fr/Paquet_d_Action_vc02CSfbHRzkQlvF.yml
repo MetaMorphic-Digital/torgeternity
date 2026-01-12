@@ -23,7 +23,7 @@ cards:
     rotation: 0
     sort: 0
     flags: {}
-    value: null
+    value: 1
     system:
       approvedActions: maneuver trick
       cosm: ''
@@ -39,12 +39,12 @@ cards:
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
@@ -69,7 +69,7 @@ cards:
     rotation: 0
     sort: 1
     flags: {}
-    value: null
+    value: 2
     system:
       approvedActions: maneuver taunt
       cosm: ''
@@ -85,12 +85,12 @@ cards:
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
@@ -115,7 +115,7 @@ cards:
     rotation: 0
     sort: 2
     flags: {}
-    value: null
+    value: 3
     system:
       approvedActions: taunt trick
       cosm: ''
@@ -131,12 +131,12 @@ cards:
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
@@ -173,16 +173,16 @@ cards:
       rule: ''
       villainsConditionsDramatic: ''
       villainsConditionsStandard: ''
-    value: null
+    value: 4
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
@@ -219,16 +219,16 @@ cards:
       rule: ''
       villainsConditionsDramatic: fatigued
       villainsConditionsStandard: fatigued
-    value: null
+    value: 5
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
@@ -265,16 +265,16 @@ cards:
       rule: ''
       villainsConditionsDramatic: inspiration
       villainsConditionsStandard: inspiration
-    value: null
+    value: 6
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
@@ -311,16 +311,16 @@ cards:
       rule: ''
       villainsConditionsDramatic: up
       villainsConditionsStandard: ''
-    value: null
+    value: 7
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
@@ -357,16 +357,16 @@ cards:
       rule: ''
       villainsConditionsDramatic: ''
       villainsConditionsStandard: inspiration
-    value: null
+    value: 8
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
@@ -403,16 +403,16 @@ cards:
       rule: ''
       villainsConditionsDramatic: ''
       villainsConditionsStandard: fatigued
-    value: null
+    value: 9
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
@@ -449,16 +449,16 @@ cards:
       rule: ''
       villainsConditionsDramatic: ''
       villainsConditionsStandard: ''
-    value: null
+    value: 10
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
@@ -495,16 +495,16 @@ cards:
       rule: ''
       villainsConditionsDramatic: fatigued
       villainsConditionsStandard: ''
-    value: null
+    value: 11
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
@@ -541,16 +541,16 @@ cards:
       rule: ''
       villainsConditionsDramatic: flurry
       villainsConditionsStandard: ''
-    value: null
+    value: 12
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
@@ -587,16 +587,16 @@ cards:
       rule: ''
       villainsConditionsDramatic: fatigued
       villainsConditionsStandard: ''
-    value: null
+    value: 13
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
@@ -633,16 +633,16 @@ cards:
       rule: ''
       villainsConditionsDramatic: ''
       villainsConditionsStandard: setback
-    value: null
+    value: 14
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
@@ -679,16 +679,16 @@ cards:
       rule: ''
       villainsConditionsDramatic: ''
       villainsConditionsStandard: ''
-    value: null
+    value: 15
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
@@ -725,16 +725,16 @@ cards:
       rule: ''
       villainsConditionsDramatic: ''
       villainsConditionsStandard: ''
-    value: null
+    value: 16
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
@@ -771,16 +771,16 @@ cards:
       rule: ''
       villainsConditionsDramatic: ''
       villainsConditionsStandard: fatigued
-    value: null
+    value: 17
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
@@ -817,16 +817,16 @@ cards:
       rule: ''
       villainsConditionsDramatic: ''
       villainsConditionsStandard: ''
-    value: null
+    value: 18
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
@@ -863,16 +863,16 @@ cards:
       rule: ''
       villainsConditionsDramatic: ''
       villainsConditionsStandard: ''
-    value: null
+    value: 19
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
@@ -909,16 +909,16 @@ cards:
       rule: ''
       villainsConditionsDramatic: flurry
       villainsConditionsStandard: ''
-    value: null
+    value: 20
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
@@ -955,16 +955,16 @@ cards:
       rule: ''
       villainsConditionsDramatic: setback
       villainsConditionsStandard: ''
-    value: null
+    value: 21
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
@@ -1001,16 +1001,16 @@ cards:
       rule: ''
       villainsConditionsDramatic: ''
       villainsConditionsStandard: ''
-    value: null
+    value: 22
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
@@ -1047,16 +1047,16 @@ cards:
       rule: ''
       villainsConditionsDramatic: ''
       villainsConditionsStandard: setback
-    value: null
+    value: 23
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
@@ -1093,16 +1093,16 @@ cards:
       rule: ''
       villainsConditionsDramatic: setback
       villainsConditionsStandard: ''
-    value: null
+    value: 24
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
@@ -1139,16 +1139,16 @@ cards:
       rule: ''
       villainsConditionsDramatic: ''
       villainsConditionsStandard: ''
-    value: null
+    value: 25
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
@@ -1185,16 +1185,16 @@ cards:
       rule: ''
       villainsConditionsDramatic: stymied
       villainsConditionsStandard: fatigued
-    value: null
+    value: 26
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
@@ -1231,16 +1231,16 @@ cards:
       rule: ''
       villainsConditionsDramatic: ''
       villainsConditionsStandard: fatigued
-    value: null
+    value: 27
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
@@ -1277,16 +1277,16 @@ cards:
       rule: ''
       villainsConditionsDramatic: ''
       villainsConditionsStandard: ''
-    value: null
+    value: 28
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
@@ -1323,16 +1323,16 @@ cards:
       rule: ''
       villainsConditionsDramatic: ''
       villainsConditionsStandard: stymied
-    value: null
+    value: 29
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
@@ -1369,16 +1369,16 @@ cards:
       rule: ''
       villainsConditionsDramatic: ''
       villainsConditionsStandard: ''
-    value: null
+    value: 30
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
@@ -1415,16 +1415,16 @@ cards:
       rule: ''
       villainsConditionsDramatic: ''
       villainsConditionsStandard: ''
-    value: null
+    value: 31
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
@@ -1461,16 +1461,16 @@ cards:
       rule: ''
       villainsConditionsDramatic: inspiration
       villainsConditionsStandard: ''
-    value: null
+    value: 32
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
@@ -1507,16 +1507,16 @@ cards:
       rule: ''
       villainsConditionsDramatic: ''
       villainsConditionsStandard: ''
-    value: null
+    value: 33
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
@@ -1553,16 +1553,16 @@ cards:
       rule: ''
       villainsConditionsDramatic: inspiration
       villainsConditionsStandard: ''
-    value: null
+    value: 34
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
@@ -1599,16 +1599,16 @@ cards:
       rule: ''
       villainsConditionsDramatic: up
       villainsConditionsStandard: ''
-    value: null
+    value: 35
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
@@ -1645,16 +1645,16 @@ cards:
       rule: ''
       villainsConditionsDramatic: ''
       villainsConditionsStandard: ''
-    value: null
+    value: 36
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
@@ -1691,16 +1691,16 @@ cards:
       rule: ''
       villainsConditionsDramatic: up
       villainsConditionsStandard: ''
-    value: null
+    value: 37
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
@@ -1737,16 +1737,16 @@ cards:
       rule: ''
       villainsConditionsDramatic: inspiration
       villainsConditionsStandard: up
-    value: null
+    value: 38
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
@@ -1783,16 +1783,16 @@ cards:
       rule: ''
       villainsConditionsDramatic: ''
       villainsConditionsStandard: ''
-    value: null
+    value: 39
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
@@ -1829,16 +1829,16 @@ cards:
       rule: ''
       villainsConditionsDramatic: ''
       villainsConditionsStandard: ''
-    value: null
+    value: 40
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: null
       systemVersion: null
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768152437603
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
@@ -1860,11 +1860,11 @@ width: null
 height: null
 _stats:
   systemId: torgeternity
-  systemVersion: 3.8.1
-  coreVersion: '13.345'
+  systemVersion: 13.15.0
+  coreVersion: '13.351'
   createdTime: 1716827810726
-  modifiedTime: 1716827810726
-  lastModifiedBy: VAnYow5sWS9EJzo0
+  modifiedTime: 1768153369200
+  lastModifiedBy: BMvGTGfheqDXarjN
   compendiumSource: Cards.5eH9MbgstDaSvEi9
   duplicateSource: null
   exportSource:

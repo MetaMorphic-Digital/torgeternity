@@ -744,6 +744,10 @@
         "hint": "If checked, enable chat card animations. Changing this setting will reload the app",
         "name": "Chat Card Animation"
       },
+      "autoDarknessPenalty": {
+        "hint": "If checked, the darkness penalty on a token will be set automatically based on the scene's darkness level, regions with adjust darkness level and light/dark sources.",
+        "name": "Automatic Darkness Penalties"
+      },
       "useColorBlindnessColors": {
         "hint": "If activated, the game uses daltonistism friendly red and green colors.",
         "name": "Use daltonism (colorblind)- friendly colors"
@@ -1384,5 +1388,28 @@
         "title": "The Torg Eternity Macro Hub"
       }
     }
+  },
+  "SCENE.FIELDS": {
+    "flags.torgeternity": {
+      "dimLightThreshold": {
+        "name": "Dim Light Threshold",
+        "hint": "A darkness threshold between 0.05 and 0.9. When the Scene darkness level exceeds this threshold Global Illumination is considered at least to be Dim Light when determining Darkness penalties."
+      },
+      "darkThreshold": {
+        "name": "Dark Threshold",
+        "hint": "A darkness threshold between 0.1 and 0.95. When the Scene darkness level exceeds this threshold Global Illumination is considered at least to be Darkness when determining Darkness penalties."
+      }
+    },
+    "environment": {
+      "globalLight": {
+        "darkness.max": {
+          "label": "Pitch Black Threshold",
+          "hint": "A darkness threshold between 0.15 and 1. When the Scene darkness level exceeds this threshold Global Illumination is disabled and considered to be Pitch Black when determining Darkness penalties."
+        }
+      }
+    }
+  },
+  "CARD.FIELDS": {
+    "number.label": "Number"
   }
 }

@@ -750,6 +750,10 @@
         "hint": "Si sélectionné, les messages de la discussion apparaîtront avec une animation. Changer ce paramètre rafraîchira le navigateur ou l'application.",
         "name": "Animation des messages de la discussion"
       },
+      "autoDarknessPenalty": {
+        "hint": "Si coché, la pénalité de luminosité des tokens sera automatiquement ajustée par le paramètre 'Niveau d'obscurité' d'une scène, par l'ajustement paramétré d'une Région, et par les sources de lumière/obscurité configurées.",
+        "name": "Pénalités automatiques de luminosité"
+      },
       "useColorBlindnessColors": {
         "hint": "Si sélectionné, le système utilise des couleurs rouge et verte plus adaptées à des personnes atteinte de daltonisme.",
         "name": "Utilise des couleurs plus adaptées au daltonisme"
@@ -1390,5 +1394,28 @@
         "title": "Répertoire Macro Torg Eternity"
       }
     }
+  },
+  "SCENE.FIELDS": {
+    "flags.torgeternity": {
+      "dimLightThreshold": {
+        "name": "Palier de Pénombre",
+        "hint": "Un niveau d'obscurité entre 0,05 and 0,9. Quand le niveau d'obscurité dépasse ce seuil, l'Illumination Globale considére que l'état 'Pénombre' est appliqué comme pénalité de luminosité."
+      },
+      "darkThreshold": {
+        "name": "Palier de Sombre",
+        "hint": "Un niveau d'obscurité entre 0,1 and 0,95, supérieur au palier de Pénombre. Quand le niveau d'obscurité dépasse ce seuil, l'Illumination Globale considére que l'état 'Sombre' est appliqué comme pénalité de luminosité."
+      }
+    },
+    "environment": {
+      "globalLight": {
+        "darkness.max": {
+          "label": "Palier de Noir complet",
+          "hint": "Un niveau d'obscurité entre 0,15 and 1, supérieur au palier de Sombre. Quand le niveau d'obscurité dépasse ce seuil, l'Illumination Globale considére que l'état 'Noir complet' est appliqué comme pénalité de luminosité."
+        }
+      }
+    }
+  },
+  "CARD.FIELDS": {
+    "number.label": "Nombre"
   }
 }

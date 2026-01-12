@@ -443,73 +443,6 @@ items:
       duplicateSource: null
       exportSource: null
     _key: '!actors.items!QsYmnq73AiR6BwhD.sDhCWgxPaBzw0M2R'
-  - _id: W80yHGyLWk5wrLJW
-    name: Giant Strength
-    type: enhancement
-    sort: 500001
-    flags:
-      core: {}
-    img: systems/torgeternity/images/icons/enhancement.webp
-    effects:
-      - _id: 07KQJUY5nlOb5K7Q
-        flags: {}
-        changes:
-          - key: system.attributes.strength.value
-            value: '2'
-            mode: 2
-            priority: null
-        disabled: false
-        duration:
-          startTime: null
-          seconds: null
-          combat: null
-          rounds: null
-          turns: null
-          startRound: null
-          startTurn: null
-        origin: Item.q3wDWkbSqbWYKVNB
-        tint: '#ffffff'
-        transfer: true
-        name: Giant Strength
-        description: ''
-        statuses: []
-        _stats:
-          coreVersion: '13.345'
-          systemId: null
-          systemVersion: null
-          createdTime: null
-          modifiedTime: null
-          lastModifiedBy: null
-          compendiumSource: null
-          duplicateSource: null
-          exportSource: null
-        img: icons/svg/aura.svg
-        type: base
-        system: {}
-        sort: 0
-        _key: >-
-          !actors.items.effects!QsYmnq73AiR6BwhD.W80yHGyLWk5wrLJW.07KQJUY5nlOb5K7Q
-    folder: null
-    system:
-      perk: Dragon Warrior
-      description: >-
-        <p>A series of pneumatic compressors take in air and channel it to the
-        dwarf&rsquo;s arms. Along with cleverly placed levers along the inside
-        of the armor, it increases his Strength by +2 for tests and determining
-        damage. Toughness remains unaffected.</p>
-    ownership:
-      default: 0
-    _stats:
-      systemId: null
-      systemVersion: null
-      coreVersion: '13.345'
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: Item.q3wDWkbSqbWYKVNB
-      duplicateSource: null
-      exportSource: null
-    _key: '!actors.items!QsYmnq73AiR6BwhD.W80yHGyLWk5wrLJW'
   - _id: w5ZFXzswpME4OajM
     name: Vision nocturne
     type: perk
@@ -517,7 +450,50 @@ items:
     flags:
       core: {}
     img: systems/torgeternity/images/icons/reality-icon.webp
-    effects: []
+    effects:
+      - name: Vision nocturne
+        origin: >-
+          Compendium.torgeternity.archetypes-fr.Actor.QsYmnq73AiR6BwhD.Item.w5ZFXzswpME4OajM
+        duration:
+          startTime: null
+          combat: null
+          seconds: null
+          rounds: null
+          turns: null
+          startRound: null
+          startTurn: null
+        disabled: false
+        img: icons/svg/aura.svg
+        _id: sdvX18K7AfNKSOKi
+        type: base
+        system:
+          transferOnAttack: false
+          applyIfAttackTrait: []
+          applyIfDefendTrait: []
+          transferOnOutcome: 0
+        changes:
+          - key: targetModifiers.darkness
+            mode: 2
+            value: '4'
+            priority: null
+        description: ''
+        tint: '#ffffff'
+        transfer: true
+        statuses: []
+        sort: 0
+        flags: {}
+        _stats:
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+          coreVersion: '13.351'
+          systemId: torgeternity
+          systemVersion: 13.15.0
+          createdTime: 1768219099687
+          modifiedTime: 1768219113187
+          lastModifiedBy: BMvGTGfheqDXarjN
+        _key: >-
+          !actors.items.effects!QsYmnq73AiR6BwhD.w5ZFXzswpME4OajM.sdvX18K7AfNKSOKi
     folder: null
     system:
       category: dwarf

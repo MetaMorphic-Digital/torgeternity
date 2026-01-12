@@ -750,6 +750,10 @@
         "hint": "Wenn ausgewählt, wird die Einblendung der Chatfenster animiert.",
         "name": "Animation der Chat-Fenster"
       },
+      "autoDarknessPenalty": {
+        "hint": "If checked, the darkness penalty on a token will be set automatically based on the scene's darkness level, regions with adjust darkness level and light/dark sources.",
+        "name": "Automatic Darkness Penalties"
+      },
       "useColorBlindnessColors": {
         "hint": "Wenn angehakt, werden Achromatismus- freundliche (AKA Farbblindheit) rote und grüne Farben genutzt.",
         "name": "Farben für Achromatismus (rot-grün-Schwäche)"
@@ -1390,5 +1394,28 @@
         "title": "Der Torg Eternity Macro-Hub"
       }
     }
+  },
+  "SCENE.FIELDS": {
+    "flags.torgeternity": {
+      "dimLightThreshold": {
+        "name": "Dim Light Threshold",
+        "hint": "A darkness threshold between 0.05 and 0.9. When the Scene darkness level exceeds this threshold Global Illumination is considered at least to be Dim Light when determining Darkness penalties."
+      },
+      "darkThreshold": {
+        "name": "Dark Threshold",
+        "hint": "A darkness threshold between 0.1 and 0.95. When the Scene darkness level exceeds this threshold Global Illumination is considered at least to be Darkness when determining Darkness penalties."
+      }
+    },
+    "environment": {
+      "globalLight": {
+        "darkness.max": {
+          "label": "Pitch Black Threshold",
+          "hint": "A darkness threshold between 0.15 and 1. When the Scene darkness level exceeds this threshold Global Illumination is disabled and considered to be Pitch Black when determining Darkness penalties."
+        }
+      }
+    }
+  },
+  "CARD.FIELDS": {
+    "number.label": "Nummer"
   }
 }

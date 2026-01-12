@@ -8,9 +8,9 @@ export default class torgeternitySceneConfig extends foundry.applications.sheets
   static PARTS = {
     tabs: { template: "templates/generic/tab-navigation.hbs" },
     basics: { template: "templates/scene/config/basics.hbs" },
-    cosm: { template: `systems/torgeternity/templates/scenes/scenes-config.hbs` },
+    cosm: { template: `systems/torgeternity/templates/scenes/scenes-cosm.hbs` },
     grid: { template: "templates/scene/config/grid.hbs" },
-    lighting: { template: "templates/scene/config/lighting.hbs", scrollable: [""] },
+    lighting: { template: "systems/torgeternity/templates/scenes/scenes-lighting.hbs", scrollable: [""] },
     ambience: { template: "templates/scene/config/ambience.hbs", scrollable: ["div.tab[data-tab=environment]"] },
     footer: { template: "templates/generic/form-footer.hbs" }
   };
@@ -37,6 +37,30 @@ export default class torgeternitySceneConfig extends foundry.applications.sheets
     }
   }
 
+  static torgFields;
+
+  async _prepareContext(options) {
+    const context = await super._prepareContext(options);
+    const fields = foundry.data.fields;
+
+    if (!this.torgFields)
+      this.torgFields = new fields.SchemaField({
+        dimLightThreshold: new fields.AlphaField({
+          initial: 0.05, min: 0.05, max: 0.9,
+          label: game.i18n.localize("SCENE.FIELDS.flags.torgeternity.dimLightThreshold.name"),
+          hint: game.i18n.localize("SCENE.FIELDS.flags.torgeternity.dimLightThreshold.hint"),
+        }),
+        darkThreshold: new fields.AlphaField({
+          initial: 0.9, min: 0.1, max: 0.95,
+          label: game.i18n.localize("SCENE.FIELDS.flags.torgeternity.darkThreshold.name"),
+          hint: game.i18n.localize("SCENE.FIELDS.flags.torgeternity.darkThreshold.hint"),
+        }),
+      })
+
+    context.flagFields = this.torgFields;
+    return context;
+  }
+
   async _preparePartContext(partId, context, options) {
     const partContext = await super._preparePartContext(partId, context, options);
     switch (partId) {
@@ -50,9 +74,60 @@ export default class torgeternitySceneConfig extends foundry.applications.sheets
 
   _onChangeForm(formConfig, event) {
     super._onChangeForm(formConfig, event);
-    if (event.type === 'change' && event.target.name === 'flags.torgeternity.zone') {
-      const elem = this.element.querySelector('div.cosm-secondary');
-      if (elem) elem.style.display = (event.target.value === 'pure') ? 'none' : '';
+    if (event.type !== 'change') return;
+    switch (event.target.name) {
+      case 'flags.torgeternity.zone': {
+        const elem = this.element.querySelector('div.cosm-secondary');
+        if (elem) elem.style.display = (event.target.value === 'pure') ? 'none' : '';
+        break;
+      }
+      case 'flags.torgeternity.dimLightThreshold':
+      case 'flags.torgeternity.darkThreshold':
+      case 'environment.globalLight.darkness.max': {
+
+        function makeChange(rangePicker, changedValue) {
+          for (const rangeInput of rangePicker.querySelectorAll('input')) {
+            rangeInput.value = changedValue;
+          }
+
+          const rangeInput = rangePicker.querySelector('input');
+          const name = rangePicker.name;
+          const value = changedValue;
+          const max = Number(rangeInput.max);
+          const min = Number(rangeInput.min);
+          const step = Number(rangeInput.step);
+          const id = rangePicker.id;
+          rangePicker.replaceWith(foundry.applications.elements.HTMLRangePickerElement.create({ name, value, step, max, min, id }));
+          const replacementRangePicker = html.querySelector(`range-picker[name="${name}"]`);
+          replacementRangePicker.addEventListener('change', (event) => adjustThresholds(event));
+          replacementRangePicker.dispatchEvent(new Event('change', { bubbles: true }));
+        }
+
+        const step = Number(event.target.getAttribute('step'));
+        // Get the input's new value
+        const newValue = Number(event.target._value);
+        // Get the range pickers
+        const html = this.element;
+        const dimLightRangePicker = html.querySelector(`range-picker[name="flags.torgeternity.dimLightThreshold"]`);
+        const darkRangePicker = html.querySelector(`range-picker[name="flags.torgeternity.darkThreshold"]`);
+        const pitchDarknessRangePicker = html.querySelector(`range-picker[name="environment.globalLight.darkness.max"]`);
+        // Get the current values from each threshold setting
+        const dimLightValue = Number(dimLightRangePicker.querySelector('input').value);
+        const darkValue = Number(darkRangePicker.querySelector('input').value);
+        const pitchDarknessValue = Number(pitchDarknessRangePicker.querySelector('input').value);
+        const newHigherValue = Math.round((newValue + step) * 20) / 20;
+        const newLowerValue = Math.round((newValue - step) * 20) / 20;
+
+        if (event.target.name.includes('dimLightThreshold')) {
+          if (darkValue <= newValue) makeChange(darkRangePicker, newHigherValue);
+        } else if (event.target.name.includes('darkThreshold')) {
+          if (pitchDarknessValue <= newValue) makeChange(pitchDarknessRangePicker, newHigherValue);
+          if (dimLightValue >= newValue) makeChange(dimLightRangePicker, newLowerValue);
+        } else if (event.target.name.includes('environment.globalLight')) {
+          if (darkValue >= newValue) makeChange(darkRangePicker, newLowerValue);
+        }
+        break;
+      }
     }
   }
 }

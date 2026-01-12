@@ -26,16 +26,16 @@ cards:
     value: 1
     system:
       cosm: ''
-      number: ''
+      number: 1
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768150967121
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
@@ -60,7 +60,7 @@ cards:
 
 
           All Storm Knights gain one Possibility from her heroic sentiment.
-    face: 1
+    face: 0
     drawn: false
     origin: cBTPvBrPQpFTkUcm
     rotation: 0
@@ -69,16 +69,16 @@ cards:
     value: 2
     system:
       cosm: ''
-      number: ''
+      number: 2
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768151223738
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
@@ -102,7 +102,7 @@ cards:
 
 
           The speaker and everyone who can hear gains two Possibilities
-    face: 1
+    face: 0
     drawn: false
     origin: cBTPvBrPQpFTkUcm
     rotation: 0
@@ -111,16 +111,16 @@ cards:
     value: 3
     system:
       cosm: ''
-      number: ''
+      number: 3
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768151224908
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
@@ -141,7 +141,7 @@ cards:
         text: >-
           Play at any time. Any Storm Knight who wishes may immediately refresh
           his Possibilities.
-    face: 1
+    face: 0
     drawn: false
     origin: cBTPvBrPQpFTkUcm
     rotation: 0
@@ -150,16 +150,16 @@ cards:
     value: 4
     system:
       cosm: ''
-      number: ''
+      number: 4
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768151225697
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
@@ -180,7 +180,7 @@ cards:
         text: >-
           Play on a reality-rated foe. The target must make an immediate Near
           Impossible (DN 20) reality roll or be disconnected.
-    face: 1
+    face: 0
     drawn: false
     origin: cBTPvBrPQpFTkUcm
     rotation: 0
@@ -189,16 +189,16 @@ cards:
     value: 5
     system:
       cosm: ''
-      number: ''
+      number: 5
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768151226277
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
@@ -224,7 +224,7 @@ cards:
           All Storm Knights gain one to three Possibilities after the
           adversaries are dealt with, depending on the strength of the forces
           who appeared.
-    face: 1
+    face: 0
     drawn: false
     origin: cBTPvBrPQpFTkUcm
     rotation: 0
@@ -233,16 +233,16 @@ cards:
     value: 6
     system:
       cosm: ''
-      number: ''
+      number: 6
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768151227189
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
@@ -263,7 +263,7 @@ cards:
         text: >-
           All tests related to a Dramatic Skill Resolution are Favored for the
           rest of the scene.
-    face: 1
+    face: 0
     drawn: false
     origin: cBTPvBrPQpFTkUcm
     rotation: 0
@@ -272,16 +272,16 @@ cards:
     value: 7
     system:
       cosm: ''
-      number: ''
+      number: 7
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768151227988
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
@@ -302,7 +302,7 @@ cards:
         text: >-
           Play when a new Drama card is revealed. Swap the Conflict lines for
           the Heroes and Villains (including Initiative).
-    face: 1
+    face: 0
     drawn: false
     origin: cBTPvBrPQpFTkUcm
     rotation: 0
@@ -311,16 +311,16 @@ cards:
     value: 8
     system:
       cosm: ''
-      number: ''
+      number: 8
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768151228709
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
@@ -341,7 +341,7 @@ cards:
         text: >-
           All Storm Knights may ignore up to 4 points of penalties this round
           for any and all actions.
-    face: 1
+    face: 0
     drawn: false
     origin: cBTPvBrPQpFTkUcm
     rotation: 0
@@ -350,16 +350,16 @@ cards:
     value: 9
     system:
       cosm: ''
-      number: ''
+      number: 9
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768151229277
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
@@ -378,7 +378,7 @@ cards:
       - name: Lucky Break
         img: systems/torgeternity/images/cards/cosm/core-earth/fr/10.webp
         text: Play to negate all Wounds and Shock from a single attack.
-    face: 1
+    face: 0
     drawn: false
     origin: cBTPvBrPQpFTkUcm
     rotation: 0
@@ -387,16 +387,16 @@ cards:
     value: 10
     system:
       cosm: ''
-      number: ''
+      number: 10
     width: null
     height: null
     _stats:
-      coreVersion: '13.345'
-      systemId: null
-      systemVersion: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.13.2
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1768151230208
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
@@ -418,11 +418,11 @@ width: null
 height: null
 _stats:
   systemId: torgeternity
-  systemVersion: 3.8.1
-  coreVersion: '13.345'
+  systemVersion: 13.15.0
+  coreVersion: '13.351'
   createdTime: 1716827810443
-  modifiedTime: 1716827810443
-  lastModifiedBy: VAnYow5sWS9EJzo0
+  modifiedTime: 1768153369196
+  lastModifiedBy: BMvGTGfheqDXarjN
   compendiumSource: Cards.oMOBBSZVVgrH9Dde
   duplicateSource: null
   exportSource:

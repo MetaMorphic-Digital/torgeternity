@@ -1,6 +1,35 @@
 # TORG Eternity Changelog
 
-## 13.5.0
+## 13.16.0
+
+- **Darkness Modifier** of the TARGET(s) is used in the attack test, not the darkness modifier of the attacker.
+  - Add new `targetModifiers.darkness` property to Actors so that Darkvision (and similar abilities) can be implemented (set the AE to have `4` as the value, to reduce the darkness penalty by a maximum of 4).
+  - Game System archetypes (dragon warrior, elven warden) updated to have the AE for Darkvision (EN, DE, FR).
+- Adds a game setting (default enabled) to **automatically calculate the Darkness Penalty** for a token based on the current lighting situation at the token's location on the active scene.
+  - There are sliders in the scene configuration dialog to specify the darkness level used to determine Dim, Dark, Pitch Black separately for each scene.
+  - The calculation is done on the ACTIVE scene (not the current scene).
+  - The ACTIVE scene must have vision enabled.
+  - The calculation is done by the active GM (so if no GM is logged in the automation does not occur).
+  - The calculation accounts for:
+    - Scene's global illumination value
+    - Regions with an "Adjust Darkness Level" behavior
+    - Light and Dark sources on the scene (either directly placed or via tokens)
+    - Darkness sources always override any other level of lighting (setting Pitch Black)
+- Add **card numbers** to all cards in the core card decks.
+  - When viewing a deck, the sorting by number or shuffle order now works.
+
+### Internal
+- Remove `card.system.number` from all Cards, storing the value in `card.value` instead.
+- Translations by Durak (French), Teotimus (Spanish), Helmut (German)
+- Darkness Penalty code originally based on the SWADE Illuminator module by kristianserrano.
+
+### Bug Fixes
+
+- Fixes #635: Skills and Attributes which appear in `@Buff` enrichers are now localized when the default label is created.
+- Ensure Effects Panel is updated when the effects on the selected actor change.
+- Fixes #637: Hide "convert to rollable" if the item is not editable.
+
+## 13.15.0
 
 - **Apply Effects from Chat**: When posting an Item to chat, if the Item has any Active Effects on it (which are NOT transferred to the owner) then the chat card will provide buttons to allow each of the effects to be applied to the currently targeted token(s).
 - Game System option to display a **Effects Panel** for the currently selected token:

@@ -750,6 +750,10 @@
         "hint": "Activo: se muestra un efecto de animación en las tarjetas del chat. AVISO: Esto fuerza que la aplicación se vuelva a cargar.",
         "name": "Animación de tarjetas del chat"
       },
+      "autoDarknessPenalty": {
+        "hint": "Si está activado, la penalización por oscuridad de una ficha se calculará automáticamente en base al nivel de oscuridad de una escena, sus regiones con ajuste de nivel de oscuridad y las fuentes de luz/oscuridad.",
+        "name": "Penalizaciones automáticas por oscuridad"
+      },
       "useColorBlindnessColors": {
         "hint": "Si está marcado, el juego usa tonos rojos y verdes aptos para daltónicos.",
         "name": "Usar tonos aptos para daltónicos"
@@ -1390,5 +1394,28 @@
         "title": "Central de macros de Torg Eternity"
       }
     }
+  },
+  "SCENE.FIELDS": {
+    "flags.torgeternity": {
+      "dimLightThreshold": {
+        "name": "Umbral de luz tenue",
+        "hint": "Un umbral de oscuridad entre 0,05 y 0,9. Cuando el nivel de oscuridad de la escena supera este umbral, se considera que la iluminación global es al menos de luz tenue a la hora de determinar las penalizaciones por oscuridad."
+      },
+      "darkThreshold": {
+        "name": "Umbral de oscuridad",
+        "hint": "Un umbral de oscuridad entre 0,1 y 0,95. Cuando el nivel de oscuridad de la escena supera este umbral, se considera que la iluminación global es al menos de oscuridad a la hora de determinar las penalizaciones por oscuridad."
+      }
+    },
+    "environment": {
+      "globalLight": {
+        "darkness.max": {
+          "label": "Umbral de negrura total",
+          "hint": "Un umbral de oscuridad entre 0,15 y 1. Cuando el nivel de oscuridad de la escena supera este umbral, se considera que la iluminación global es de negrura total a la hora de determinar las penalizaciones por oscuridad."
+        }
+      }
+    }
+  },
+  "CARD.FIELDS": {
+    "number.label": "Número"
   }
 }

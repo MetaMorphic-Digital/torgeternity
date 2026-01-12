@@ -1,0 +1,18 @@
+<div class="tab scrollable{{#if tab.active}} active{{/if}}" data-group="{{tab.group}}" data-tab="{{tab.id}}">
+  {{formGroup fields.tokenVision value=source.tokenVision rootId=rootId}}
+  <fieldset>
+    {{formGroup fogFields.exploration value=source.fog.exploration rootId=rootId}}
+    {{formGroup fogFields.overlay value=source.fog.overlay rootId=rootId}}
+    {{formGroup fogFields.colors.fields.unexplored value=source.fog.colors.unexplored placeholder="#000000" rootId=rootId}}
+    {{formGroup fogFields.colors.fields.explored value=source.fog.colors.explored placeholder="#000000" rootId=rootId}}
+  </fieldset>
+  <fieldset>
+    {{formGroup environmentFields.globalLight.fields.enabled value=globalLight.enabled rootId=rootId}}
+    {{formGroup flagFields.fields.dimLightThreshold name="flags.torgeternity.dimLightThreshold" value=source.flags.torgeternity.dimLightThreshold step=0.05 classes="slim" rootId=rootId}}
+    {{formGroup flagFields.fields.darkThreshold name="flags.torgeternity.darkThreshold" value=source.flags.torgeternity.darkThreshold step=0.05 classes="slim" rootId=rootId}}
+    {{formGroup environmentFields.globalLight.fields.darkness.fields.max value=globalLight.darkness.max min=0.15 step=0.05 classes="slim" rootId=rootId}}
+    {{formGroup environmentFields.darknessLevel value=source.environment.darknessLevel classes="slim" step=0.05
+            disabled=source.environment.darknessLock rootId=rootId}}
+    {{formGroup environmentFields.darknessLock value=source.environment.darknessLock rootId=rootId}}
+  </fieldset>
+</div>

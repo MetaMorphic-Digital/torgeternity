@@ -31,21 +31,22 @@ cards:
       heroesConditionsStandard: none
       heroesFirstDramatic: false
       heroesFirstStandard: true
-      number: null
+      number: 1
       rule: ''
       villainsConditionsDramatic: none
       villainsConditionsStandard: fatigued
-    value: null
+    value: 1
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
-      systemVersion: 13.2.2
-      lastModifiedBy: null
+      systemVersion: 13.13.2
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
+      modifiedTime: 1768152437656
     cards: []
     _key: '!cards.cards!QtmEUT5o3MBuwmfJ.PRFUgLUcVM0Pdshn'
   - _id: c0BnygFadJHETzlF
@@ -79,17 +80,18 @@ cards:
       rule: ''
       villainsConditionsDramatic: none
       villainsConditionsStandard: stymied
-    value: null
+    value: 2
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
       systemVersion: 13.2.2
-      lastModifiedBy: null
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
+      modifiedTime: 1768152437656
     cards: []
     _key: '!cards.cards!QtmEUT5o3MBuwmfJ.c0BnygFadJHETzlF'
   - _id: KMdRaROs511HLZGp
@@ -123,17 +125,18 @@ cards:
       rule: ''
       villainsConditionsDramatic: none
       villainsConditionsStandard: flurry
-    value: null
+    value: 3
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
       systemVersion: 13.2.2
-      lastModifiedBy: null
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
+      modifiedTime: 1768152437656
     cards: []
     _key: '!cards.cards!QtmEUT5o3MBuwmfJ.KMdRaROs511HLZGp'
   - _id: V8ObERekDM1nyGeo
@@ -167,17 +170,18 @@ cards:
       rule: ''
       villainsConditionsDramatic: none
       villainsConditionsStandard: none
-    value: null
+    value: 4
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
       systemVersion: 13.2.2
-      lastModifiedBy: null
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
+      modifiedTime: 1768152437656
     cards: []
     _key: '!cards.cards!QtmEUT5o3MBuwmfJ.V8ObERekDM1nyGeo'
   - _id: gtbWcB5smaXvOf3S
@@ -211,17 +215,18 @@ cards:
       rule: ''
       villainsConditionsDramatic: fatigued
       villainsConditionsStandard: fatigued
-    value: null
+    value: 5
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
       systemVersion: 13.2.2
-      lastModifiedBy: null
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
+      modifiedTime: 1768152437656
     cards: []
     _key: '!cards.cards!QtmEUT5o3MBuwmfJ.gtbWcB5smaXvOf3S'
   - _id: 7aYTudcxexUOwEqE
@@ -255,17 +260,18 @@ cards:
       rule: ''
       villainsConditionsDramatic: inspiration
       villainsConditionsStandard: inspiration
-    value: null
+    value: 6
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
       systemVersion: 13.2.2
-      lastModifiedBy: null
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
+      modifiedTime: 1768152437656
     cards: []
     _key: '!cards.cards!QtmEUT5o3MBuwmfJ.7aYTudcxexUOwEqE'
   - _id: R6uTDmyZao080e70
@@ -299,17 +305,18 @@ cards:
       rule: ''
       villainsConditionsDramatic: up
       villainsConditionsStandard: none
-    value: null
+    value: 7
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
       systemVersion: 13.2.2
-      lastModifiedBy: null
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
+      modifiedTime: 1768152437656
     cards: []
     _key: '!cards.cards!QtmEUT5o3MBuwmfJ.R6uTDmyZao080e70'
   - _id: Xkfr1yfLXiRsbGVd
@@ -343,17 +350,18 @@ cards:
       rule: ''
       villainsConditionsDramatic: none
       villainsConditionsStandard: inspiration
-    value: null
+    value: 8
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
       systemVersion: 13.2.2
-      lastModifiedBy: null
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
+      modifiedTime: 1768152437656
     cards: []
     _key: '!cards.cards!QtmEUT5o3MBuwmfJ.Xkfr1yfLXiRsbGVd'
   - _id: nWjeKXx6w0fflWKb
@@ -387,17 +395,18 @@ cards:
       rule: ''
       villainsConditionsDramatic: none
       villainsConditionsStandard: fatigued
-    value: null
+    value: 9
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
       systemVersion: 13.2.2
-      lastModifiedBy: null
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
+      modifiedTime: 1768152437656
     cards: []
     _key: '!cards.cards!QtmEUT5o3MBuwmfJ.nWjeKXx6w0fflWKb'
   - _id: Ur9sLYBu8Pa2ZUVj
@@ -431,17 +440,18 @@ cards:
       rule: ''
       villainsConditionsDramatic: none
       villainsConditionsStandard: none
-    value: null
+    value: 10
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
       systemVersion: 13.2.2
-      lastModifiedBy: null
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
+      modifiedTime: 1768152437656
     cards: []
     _key: '!cards.cards!QtmEUT5o3MBuwmfJ.Ur9sLYBu8Pa2ZUVj'
   - _id: 23m1nP5g9a3avIRG
@@ -475,17 +485,18 @@ cards:
       rule: ''
       villainsConditionsDramatic: fatigued
       villainsConditionsStandard: none
-    value: null
+    value: 11
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
       systemVersion: 13.2.2
-      lastModifiedBy: null
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
+      modifiedTime: 1768152437656
     cards: []
     _key: '!cards.cards!QtmEUT5o3MBuwmfJ.23m1nP5g9a3avIRG'
   - _id: hdzmvjqYMI051HzW
@@ -519,17 +530,18 @@ cards:
       rule: ''
       villainsConditionsDramatic: flurry
       villainsConditionsStandard: none
-    value: null
+    value: 12
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
       systemVersion: 13.2.2
-      lastModifiedBy: null
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
+      modifiedTime: 1768152437656
     cards: []
     _key: '!cards.cards!QtmEUT5o3MBuwmfJ.hdzmvjqYMI051HzW'
   - _id: pyvpw2C1KAiXru87
@@ -563,17 +575,18 @@ cards:
       rule: ''
       villainsConditionsDramatic: fatigued
       villainsConditionsStandard: none
-    value: null
+    value: 13
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
       systemVersion: 13.2.2
-      lastModifiedBy: null
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
+      modifiedTime: 1768152437656
     cards: []
     _key: '!cards.cards!QtmEUT5o3MBuwmfJ.pyvpw2C1KAiXru87'
   - _id: VHBEKc4zhjEKwZor
@@ -607,17 +620,18 @@ cards:
       rule: ''
       villainsConditionsDramatic: none
       villainsConditionsStandard: setback
-    value: null
+    value: 14
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
       systemVersion: 13.2.2
-      lastModifiedBy: null
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
+      modifiedTime: 1768152437656
     cards: []
     _key: '!cards.cards!QtmEUT5o3MBuwmfJ.VHBEKc4zhjEKwZor'
   - _id: 3opGIE8nvA9VNT4n
@@ -651,17 +665,18 @@ cards:
       rule: ''
       villainsConditionsDramatic: none
       villainsConditionsStandard: none
-    value: null
+    value: 15
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
       systemVersion: 13.2.2
-      lastModifiedBy: null
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
+      modifiedTime: 1768152437656
     cards: []
     _key: '!cards.cards!QtmEUT5o3MBuwmfJ.3opGIE8nvA9VNT4n'
   - _id: x6xkz34SB8bga46F
@@ -695,17 +710,18 @@ cards:
       rule: ''
       villainsConditionsDramatic: none
       villainsConditionsStandard: none
-    value: null
+    value: 16
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
       systemVersion: 13.2.2
-      lastModifiedBy: null
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
+      modifiedTime: 1768152437656
     cards: []
     _key: '!cards.cards!QtmEUT5o3MBuwmfJ.x6xkz34SB8bga46F'
   - _id: n0dhucUlO7h6rzs0
@@ -739,17 +755,18 @@ cards:
       rule: ''
       villainsConditionsDramatic: none
       villainsConditionsStandard: fatigued
-    value: null
+    value: 17
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
       systemVersion: 13.2.2
-      lastModifiedBy: null
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
+      modifiedTime: 1768152437656
     cards: []
     _key: '!cards.cards!QtmEUT5o3MBuwmfJ.n0dhucUlO7h6rzs0'
   - _id: nIkYciouMAYuSChC
@@ -783,17 +800,18 @@ cards:
       rule: ''
       villainsConditionsDramatic: none
       villainsConditionsStandard: none
-    value: null
+    value: 18
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
       systemVersion: 13.2.2
-      lastModifiedBy: null
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
+      modifiedTime: 1768152437656
     cards: []
     _key: '!cards.cards!QtmEUT5o3MBuwmfJ.nIkYciouMAYuSChC'
   - _id: ijDDeywEV87t5H4L
@@ -827,17 +845,18 @@ cards:
       rule: ''
       villainsConditionsDramatic: none
       villainsConditionsStandard: none
-    value: null
+    value: 19
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
       systemVersion: 13.2.2
-      lastModifiedBy: null
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
+      modifiedTime: 1768152437656
     cards: []
     _key: '!cards.cards!QtmEUT5o3MBuwmfJ.ijDDeywEV87t5H4L'
   - _id: DKm0aXjfRuenvZiB
@@ -871,17 +890,18 @@ cards:
       rule: ''
       villainsConditionsDramatic: flurry
       villainsConditionsStandard: none
-    value: null
+    value: 20
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
       systemVersion: 13.2.2
-      lastModifiedBy: null
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
+      modifiedTime: 1768152437656
     cards: []
     _key: '!cards.cards!QtmEUT5o3MBuwmfJ.DKm0aXjfRuenvZiB'
   - _id: uvTq3QJzY4JoAPBc
@@ -915,17 +935,18 @@ cards:
       rule: ''
       villainsConditionsDramatic: setback
       villainsConditionsStandard: none
-    value: null
+    value: 21
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
       systemVersion: 13.2.2
-      lastModifiedBy: null
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
+      modifiedTime: 1768152437656
     cards: []
     _key: '!cards.cards!QtmEUT5o3MBuwmfJ.uvTq3QJzY4JoAPBc'
   - _id: 7pwz6qlT8n5NFbUe
@@ -959,17 +980,18 @@ cards:
       rule: ''
       villainsConditionsDramatic: none
       villainsConditionsStandard: none
-    value: null
+    value: 22
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
       systemVersion: 13.2.2
-      lastModifiedBy: null
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
+      modifiedTime: 1768152437656
     cards: []
     _key: '!cards.cards!QtmEUT5o3MBuwmfJ.7pwz6qlT8n5NFbUe'
   - _id: bvbBU0hK7W6r4iU5
@@ -1003,17 +1025,18 @@ cards:
       rule: ''
       villainsConditionsDramatic: none
       villainsConditionsStandard: setback
-    value: null
+    value: 23
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
       systemVersion: 13.2.2
-      lastModifiedBy: null
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
+      modifiedTime: 1768152437656
     cards: []
     _key: '!cards.cards!QtmEUT5o3MBuwmfJ.bvbBU0hK7W6r4iU5'
   - _id: zDNWtSC9716A8vDS
@@ -1047,17 +1070,18 @@ cards:
       rule: ''
       villainsConditionsDramatic: setback
       villainsConditionsStandard: none
-    value: null
+    value: 24
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
       systemVersion: 13.2.2
-      lastModifiedBy: null
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
+      modifiedTime: 1768152437656
     cards: []
     _key: '!cards.cards!QtmEUT5o3MBuwmfJ.zDNWtSC9716A8vDS'
   - _id: b5u7XfEUxuoQjVdo
@@ -1091,17 +1115,18 @@ cards:
       rule: ''
       villainsConditionsDramatic: none
       villainsConditionsStandard: none
-    value: null
+    value: 25
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
       systemVersion: 13.2.2
-      lastModifiedBy: null
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
+      modifiedTime: 1768152437656
     cards: []
     _key: '!cards.cards!QtmEUT5o3MBuwmfJ.b5u7XfEUxuoQjVdo'
   - _id: HB0DRcw9ZoMGG25R
@@ -1135,17 +1160,18 @@ cards:
       rule: ''
       villainsConditionsDramatic: stymied
       villainsConditionsStandard: fatigued
-    value: null
+    value: 26
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
       systemVersion: 13.2.2
-      lastModifiedBy: null
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
+      modifiedTime: 1768152437656
     cards: []
     _key: '!cards.cards!QtmEUT5o3MBuwmfJ.HB0DRcw9ZoMGG25R'
   - _id: ObMh228lA48Kxbdu
@@ -1179,17 +1205,18 @@ cards:
       rule: ''
       villainsConditionsDramatic: none
       villainsConditionsStandard: fatigued
-    value: null
+    value: 27
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
       systemVersion: 13.2.2
-      lastModifiedBy: null
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
+      modifiedTime: 1768152437656
     cards: []
     _key: '!cards.cards!QtmEUT5o3MBuwmfJ.ObMh228lA48Kxbdu'
   - _id: XMHqSCWzFSB0kqvu
@@ -1223,17 +1250,18 @@ cards:
       rule: ''
       villainsConditionsDramatic: none
       villainsConditionsStandard: none
-    value: null
+    value: 28
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
       systemVersion: 13.2.2
-      lastModifiedBy: null
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
+      modifiedTime: 1768152437656
     cards: []
     _key: '!cards.cards!QtmEUT5o3MBuwmfJ.XMHqSCWzFSB0kqvu'
   - _id: IIf2Q5qNnm8d5PhZ
@@ -1267,17 +1295,18 @@ cards:
       rule: ''
       villainsConditionsDramatic: none
       villainsConditionsStandard: stymied
-    value: null
+    value: 29
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
       systemVersion: 13.2.2
-      lastModifiedBy: null
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
+      modifiedTime: 1768152437656
     cards: []
     _key: '!cards.cards!QtmEUT5o3MBuwmfJ.IIf2Q5qNnm8d5PhZ'
   - _id: U7izONxHyhbYc6GC
@@ -1311,17 +1340,18 @@ cards:
       rule: ''
       villainsConditionsDramatic: none
       villainsConditionsStandard: none
-    value: null
+    value: 30
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
       systemVersion: 13.2.2
-      lastModifiedBy: null
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
+      modifiedTime: 1768152437656
     cards: []
     _key: '!cards.cards!QtmEUT5o3MBuwmfJ.U7izONxHyhbYc6GC'
   - _id: P2BljniKPo4Vx88J
@@ -1355,17 +1385,18 @@ cards:
       rule: ''
       villainsConditionsDramatic: none
       villainsConditionsStandard: none
-    value: null
+    value: 31
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
       systemVersion: 13.2.2
-      lastModifiedBy: null
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
+      modifiedTime: 1768152437656
     cards: []
     _key: '!cards.cards!QtmEUT5o3MBuwmfJ.P2BljniKPo4Vx88J'
   - _id: x3dCyR8uhPANP7AB
@@ -1399,17 +1430,18 @@ cards:
       rule: ''
       villainsConditionsDramatic: inspiration
       villainsConditionsStandard: none
-    value: null
+    value: 32
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
       systemVersion: 13.2.2
-      lastModifiedBy: null
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
+      modifiedTime: 1768152437656
     cards: []
     _key: '!cards.cards!QtmEUT5o3MBuwmfJ.x3dCyR8uhPANP7AB'
   - _id: WMhnRyyIsw9rS0Xp
@@ -1443,17 +1475,18 @@ cards:
       rule: ''
       villainsConditionsDramatic: none
       villainsConditionsStandard: none
-    value: null
+    value: 33
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
       systemVersion: 13.2.2
-      lastModifiedBy: null
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
+      modifiedTime: 1768152437656
     cards: []
     _key: '!cards.cards!QtmEUT5o3MBuwmfJ.WMhnRyyIsw9rS0Xp'
   - _id: fVsxcILYZQq0ELSv
@@ -1487,17 +1520,18 @@ cards:
       rule: ''
       villainsConditionsDramatic: inspiration
       villainsConditionsStandard: none
-    value: null
+    value: 34
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
       systemVersion: 13.2.2
-      lastModifiedBy: null
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
+      modifiedTime: 1768152437656
     cards: []
     _key: '!cards.cards!QtmEUT5o3MBuwmfJ.fVsxcILYZQq0ELSv'
   - _id: 7JuouW9nltCwjfsK
@@ -1531,17 +1565,18 @@ cards:
       rule: ''
       villainsConditionsDramatic: up
       villainsConditionsStandard: none
-    value: null
+    value: 35
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
       systemVersion: 13.2.2
-      lastModifiedBy: null
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
+      modifiedTime: 1768152437656
     cards: []
     _key: '!cards.cards!QtmEUT5o3MBuwmfJ.7JuouW9nltCwjfsK'
   - _id: 7JNXK1VqQuzBfuG4
@@ -1575,17 +1610,18 @@ cards:
       rule: ''
       villainsConditionsDramatic: none
       villainsConditionsStandard: none
-    value: null
+    value: 36
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
       systemVersion: 13.2.2
-      lastModifiedBy: null
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
+      modifiedTime: 1768152437656
     cards: []
     _key: '!cards.cards!QtmEUT5o3MBuwmfJ.7JNXK1VqQuzBfuG4'
   - _id: F2uowS46e830oOmm
@@ -1619,17 +1655,18 @@ cards:
       rule: ''
       villainsConditionsDramatic: up
       villainsConditionsStandard: none
-    value: null
+    value: 37
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
       systemVersion: 13.2.2
-      lastModifiedBy: null
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
+      modifiedTime: 1768152437656
     cards: []
     _key: '!cards.cards!QtmEUT5o3MBuwmfJ.F2uowS46e830oOmm'
   - _id: t56wa8rNlgzcDUpf
@@ -1663,17 +1700,18 @@ cards:
       rule: ''
       villainsConditionsDramatic: inspiration
       villainsConditionsStandard: up
-    value: null
+    value: 38
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
       systemVersion: 13.2.2
-      lastModifiedBy: null
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
+      modifiedTime: 1768152437656
     cards: []
     _key: '!cards.cards!QtmEUT5o3MBuwmfJ.t56wa8rNlgzcDUpf'
   - _id: baI97eGxutp176uI
@@ -1707,17 +1745,18 @@ cards:
       rule: ''
       villainsConditionsDramatic: none
       villainsConditionsStandard: none
-    value: null
+    value: 39
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
       systemVersion: 13.2.2
-      lastModifiedBy: null
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
+      modifiedTime: 1768152437656
     cards: []
     _key: '!cards.cards!QtmEUT5o3MBuwmfJ.baI97eGxutp176uI'
   - _id: 9gdpcYbkTyCaFbkD
@@ -1747,21 +1786,22 @@ cards:
       heroesConditionsStandard: setback
       heroesFirstDramatic: false
       heroesFirstStandard: false
-      number: null
+      number: 40
       rule: ''
       villainsConditionsDramatic: none
       villainsConditionsStandard: none
-    value: null
+    value: 40
     width: null
     height: null
     _stats:
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
-      systemVersion: 13.2.2
-      lastModifiedBy: null
+      systemVersion: 13.13.2
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
+      modifiedTime: 1768152437656
     cards: []
     _key: '!cards.cards!QtmEUT5o3MBuwmfJ.9gdpcYbkTyCaFbkD'
 rotation: 0
@@ -1781,11 +1821,11 @@ width: null
 height: null
 _stats:
   systemId: torgeternity
-  systemVersion: 13.2.2
-  coreVersion: '13.346'
+  systemVersion: 13.15.0
+  coreVersion: '13.351'
   createdTime: 1716827812222
-  modifiedTime: 1753598355970
-  lastModifiedBy: W32Zl65V9atvPk8o
+  modifiedTime: 1768153369236
+  lastModifiedBy: BMvGTGfheqDXarjN
   compendiumSource: Cards.cmBgKk32JInJOXmg
   duplicateSource: null
   exportSource: null

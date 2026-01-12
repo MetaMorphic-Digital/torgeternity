@@ -528,111 +528,6 @@ items:
         spirit: 13
         strength: 14
       perksData:
-        - name: Dunkelsicht (Zwerg)
-          type: perk
-          img: systems/torgeternity/images/icons/reality-icon.webp
-          system:
-            category: racial
-            cosm: none
-            description: >-
-              <p>Zwerge ignorieren bis zu 4 Punkte an
-              @UUID[Compendium.te001-core-rulebook.grw-de-grw.Qlx6yGF0Mmo6Xzrv.JournalEntryPage.41rZYYhaMC2T260D#dunkelheit]{Dunkelheitsmalussen}.</p>
-            prerequisites: >-
-              <p>@UUID[Compendium.te001-core-rulebook.grw-de-vorzuverb.Item.TP04HlJ05QTMTtbk]{Zwerg}</p>
-            generalContradiction: false
-            pulpPowers:
-              enhancement01:
-                description: ''
-                taken: false
-                title: ''
-              enhancement02:
-                description: ''
-                taken: false
-                title: ''
-              enhancement03:
-                description: ''
-                taken: false
-                title: ''
-              enhancement04:
-                description: ''
-                taken: false
-                title: ''
-              enhancement05:
-                description: ''
-                taken: false
-                title: ''
-              enhancement06:
-                description: ''
-                taken: false
-                title: ''
-              enhancement07:
-                description: ''
-                taken: false
-                title: ''
-              enhancement08:
-                description: ''
-                taken: false
-                title: ''
-              enhancement09:
-                description: ''
-                taken: false
-                title: ''
-              enhancement10:
-                description: ''
-                taken: false
-                title: ''
-              enhancement11:
-                description: ''
-                taken: false
-                title: ''
-              enhancement12:
-                description: ''
-                taken: false
-                title: ''
-              enhancement13:
-                description: ''
-                taken: false
-                title: ''
-              enhancement14:
-                description: ''
-                taken: false
-                title: ''
-              enhancement15:
-                description: ''
-                taken: false
-                title: ''
-              enhancementNumber: 0
-              limitation01: ''
-              limitation02: ''
-              limitation03: ''
-              limitation04: ''
-              limitation05: ''
-              limitation06: ''
-              limitation07: ''
-              limitation08: ''
-              limitation09: ''
-              limitation10: ''
-              limitationNumber: 0
-            timestaken: ''
-            secondaryAxiom:
-              selected: none
-              value: null
-            transferenceID: ZatdKThAEeXYAA9r
-          sort: 200000
-          ownership:
-            default: 0
-            9Q0XnqFwko7hRlvL: 3
-            VAnYow5sWS9EJzo0: 3
-          flags: {}
-          _stats:
-            coreVersion: '12.331'
-            systemId: torgeternity
-            systemVersion: 12.3.0
-            createdTime: 1716871247560
-            modifiedTime: 1729596613380
-            lastModifiedBy: d8YcfsxBOP7RAazk
-            compendiumSource: null
-            duplicateSource: null
         - name: Größe (Zwerg)
           type: perk
           img: systems/torgeternity/images/icons/reality-icon.webp
@@ -739,139 +634,190 @@ items:
             lastModifiedBy: d8YcfsxBOP7RAazk
             compendiumSource: null
             duplicateSource: null
+        - _id: ZatdKThAEeXYAA9r
+          name: Dunkelsicht (Zwerg)
+          type: perk
+          img: systems/torgeternity/images/icons/reality-icon.webp
+          effects:
+            - name: Dunkelsicht
+              origin: >-
+                Compendium.te001-core-rulebook.grw-de-vorzuverb.Item.ZatdKThAEeXYAA9r
+              duration:
+                startTime: null
+                combat: null
+                seconds: null
+                rounds: null
+                turns: null
+                startRound: null
+                startTurn: null
+              disabled: false
+              img: icons/svg/aura.svg
+              _id: VYPmk5fqyqurFKB4
+              type: base
+              system:
+                transferOnAttack: false
+                applyIfAttackTrait: []
+                applyIfDefendTrait: []
+                transferOnOutcome: 0
+              changes:
+                - key: targetModifiers.darkness
+                  mode: 2
+                  value: '4'
+                  priority: null
+              description: ''
+              tint: '#ffffff'
+              transfer: true
+              statuses: []
+              sort: 0
+              flags: {}
+              _stats:
+                compendiumSource: null
+                duplicateSource: null
+                exportSource: null
+                coreVersion: '13.351'
+                systemId: torgeternity
+                systemVersion: 13.15.0
+                createdTime: 1768218481325
+                modifiedTime: 1768218494918
+                lastModifiedBy: BMvGTGfheqDXarjN
+          folder: icqFu6DFcYQQKoSN
+          sort: 200000
+          flags: {}
+          system:
+            category: racial
+            cosm: none
+            description: >-
+              <p>Zwerge ignorieren bis zu 4 Punkte an
+              @UUID[Compendium.te001-core-rulebook.grw-de-grw.Qlx6yGF0Mmo6Xzrv.JournalEntryPage.41rZYYhaMC2T260D#dunkelheit]{Dunkelheitsmalussen}.</p>
+            prerequisites: >-
+              <p>@UUID[Compendium.te001-core-rulebook.grw-de-vorzuverb.Item.TP04HlJ05QTMTtbk]{Zwerg}</p>
+            generalContradiction: false
+            pulpPowers:
+              enhancement01:
+                description: ''
+                taken: false
+                title: ''
+              enhancement02:
+                description: ''
+                taken: false
+                title: ''
+              enhancement03:
+                description: ''
+                taken: false
+                title: ''
+              enhancement04:
+                description: ''
+                taken: false
+                title: ''
+              enhancement05:
+                description: ''
+                taken: false
+                title: ''
+              enhancement06:
+                description: ''
+                taken: false
+                title: ''
+              enhancement07:
+                description: ''
+                taken: false
+                title: ''
+              enhancement08:
+                description: ''
+                taken: false
+                title: ''
+              enhancement09:
+                description: ''
+                taken: false
+                title: ''
+              enhancement10:
+                description: ''
+                taken: false
+                title: ''
+              enhancement11:
+                description: ''
+                taken: false
+                title: ''
+              enhancement12:
+                description: ''
+                taken: false
+                title: ''
+              enhancement13:
+                description: ''
+                taken: false
+                title: ''
+              enhancement14:
+                description: ''
+                taken: false
+                title: ''
+              enhancement15:
+                description: ''
+                taken: false
+                title: ''
+              enhancementNumber: 0
+              limitation01: ''
+              limitation02: ''
+              limitation03: ''
+              limitation04: ''
+              limitation05: ''
+              limitation06: ''
+              limitation07: ''
+              limitation08: ''
+              limitation09: ''
+              limitation10: ''
+              limitationNumber: 0
+            timestaken: ''
+            secondaryAxiom: none
+            transferenceID: ZatdKThAEeXYAA9r
+            traits: []
+            axioms:
+              magic: 0
+              social: 0
+              spirit: 0
+              tech: 0
+          ownership:
+            default: 0
+            9Q0XnqFwko7hRlvL: 3
+            VAnYow5sWS9EJzo0: 3
+          _stats:
+            systemId: torgeternity
+            systemVersion: 12.3.0
+            coreVersion: '13.341'
+            createdTime: 1716871247560
+            modifiedTime: 1729596613380
+            lastModifiedBy: d8YcfsxBOP7RAazk
+            compendiumSource: null
+            duplicateSource: null
+            exportSource: null
       darkvision: true
       size: normal
       customAttackData: []
+      cosm: none
+      traits: []
+      axioms:
+        magic: 0
+        social: 0
+        spirit: 0
+        tech: 0
     effects: []
     folder: GM4GiQo3OB1a9yUY
     flags: {}
     _stats:
-      compendiumSource: Compendium.te001-core-rulebook.grw-de-vorzuverb.Item.TP04HlJ05QTMTtbk
+      compendiumSource: null
       duplicateSource: null
-      coreVersion: '13.345'
-      systemId: torgeternity
-      systemVersion: 12.3.0
-      createdTime: 1729599444064
-      modifiedTime: 1729599444064
-      lastModifiedBy: d8YcfsxBOP7RAazk
       exportSource: null
-    _id: 5j1GA3FpLKg3r7p5
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.15.0
+      createdTime: 1768218570117
+      modifiedTime: 1768218570117
+      lastModifiedBy: BMvGTGfheqDXarjN
+    _id: Ubu2EEYbjphu5MS1
     sort: 400000
     ownership:
       default: 0
       d8YcfsxBOP7RAazk: 3
-    _key: '!actors.items!4maHTlnkLTHmuYpB.5j1GA3FpLKg3r7p5'
-  - name: Dunkelsicht (Zwerg)
-    type: perk
-    img: systems/torgeternity/images/icons/reality-icon.webp
-    system:
-      category: racial
-      cosm: none
-      description: >-
-        <p>Zwerge ignorieren bis zu 4 Punkte an
-        @UUID[Compendium.te001-core-rulebook.grw-de-grw.Qlx6yGF0Mmo6Xzrv.JournalEntryPage.41rZYYhaMC2T260D#dunkelheit]{Dunkelheitsmalussen}.</p>
-      prerequisites: >-
-        <p>@UUID[Compendium.te001-core-rulebook.grw-de-vorzuverb.Item.TP04HlJ05QTMTtbk]{Zwerg}</p>
-      generalContradiction: false
-      pulpPowers:
-        enhancement01:
-          description: ''
-          taken: false
-          title: ''
-        enhancement02:
-          description: ''
-          taken: false
-          title: ''
-        enhancement03:
-          description: ''
-          taken: false
-          title: ''
-        enhancement04:
-          description: ''
-          taken: false
-          title: ''
-        enhancement05:
-          description: ''
-          taken: false
-          title: ''
-        enhancement06:
-          description: ''
-          taken: false
-          title: ''
-        enhancement07:
-          description: ''
-          taken: false
-          title: ''
-        enhancement08:
-          description: ''
-          taken: false
-          title: ''
-        enhancement09:
-          description: ''
-          taken: false
-          title: ''
-        enhancement10:
-          description: ''
-          taken: false
-          title: ''
-        enhancement11:
-          description: ''
-          taken: false
-          title: ''
-        enhancement12:
-          description: ''
-          taken: false
-          title: ''
-        enhancement13:
-          description: ''
-          taken: false
-          title: ''
-        enhancement14:
-          description: ''
-          taken: false
-          title: ''
-        enhancement15:
-          description: ''
-          taken: false
-          title: ''
-        enhancementNumber: 0
-        limitation01: ''
-        limitation02: ''
-        limitation03: ''
-        limitation04: ''
-        limitation05: ''
-        limitation06: ''
-        limitation07: ''
-        limitation08: ''
-        limitation09: ''
-        limitation10: ''
-        limitationNumber: 0
-      timestaken: ''
-      secondaryAxiom:
-        selected: none
-        value: null
-      transferenceID: 8A2SzMClG97Gi68S
-    sort: 200000
-    ownership:
-      default: 0
-      9Q0XnqFwko7hRlvL: 3
-      VAnYow5sWS9EJzo0: 3
-      d8YcfsxBOP7RAazk: 3
-    flags: {}
-    _stats:
-      compendiumSource: null
-      duplicateSource: null
-      coreVersion: '13.345'
-      systemId: torgeternity
-      systemVersion: 12.3.0
-      createdTime: 1729599444069
-      modifiedTime: 1729599444145
-      lastModifiedBy: d8YcfsxBOP7RAazk
-      exportSource: null
-    _id: 8A2SzMClG97Gi68S
-    effects: []
-    folder: null
-    _key: '!actors.items!4maHTlnkLTHmuYpB.8A2SzMClG97Gi68S'
+      BMvGTGfheqDXarjN: 3
+    _key: '!actors.items!4maHTlnkLTHmuYpB.Ubu2EEYbjphu5MS1'
   - name: Größe (Zwerg)
     type: perk
     img: systems/torgeternity/images/icons/reality-icon.webp
@@ -959,37 +905,198 @@ items:
         limitation10: ''
         limitationNumber: 0
       timestaken: ''
-      secondaryAxiom:
-        selected: none
-        value: null
-      transferenceID: gkeZPqeruKfC0DVZ
+      secondaryAxiom: none
+      transferenceID: Ubu2EEYbjphu5MS1
+      traits: []
+      axioms:
+        magic: 0
+        social: 0
+        spirit: 0
+        tech: 0
     sort: 125000
     ownership:
       default: 0
       9Q0XnqFwko7hRlvL: 3
       VAnYow5sWS9EJzo0: 3
-      d8YcfsxBOP7RAazk: 3
+      BMvGTGfheqDXarjN: 3
     flags: {}
     _stats:
       compendiumSource: null
       duplicateSource: null
-      coreVersion: '13.345'
-      systemId: torgeternity
-      systemVersion: 12.3.0
-      createdTime: 1729599444069
-      modifiedTime: 1729599444147
-      lastModifiedBy: d8YcfsxBOP7RAazk
       exportSource: null
-    _id: gkeZPqeruKfC0DVZ
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.15.0
+      createdTime: 1768218570117
+      modifiedTime: 1768218570136
+      lastModifiedBy: BMvGTGfheqDXarjN
+    _id: hA0shX2hAtY0AHjO
     effects: []
     folder: null
-    _key: '!actors.items!4maHTlnkLTHmuYpB.gkeZPqeruKfC0DVZ'
+    _key: '!actors.items!4maHTlnkLTHmuYpB.hA0shX2hAtY0AHjO'
+  - _id: YiMjiR1RpwRIBq0c
+    name: Dunkelsicht (Zwerg)
+    type: perk
+    img: systems/torgeternity/images/icons/reality-icon.webp
+    effects:
+      - name: Dunkelsicht
+        origin: Compendium.te001-core-rulebook.grw-de-vorzuverb.Item.ZatdKThAEeXYAA9r
+        duration:
+          startTime: 590
+          combat: null
+          seconds: null
+          rounds: null
+          turns: null
+          startRound: null
+          startTurn: null
+        disabled: false
+        img: icons/svg/aura.svg
+        _id: VYPmk5fqyqurFKB4
+        type: base
+        system:
+          transferOnAttack: false
+          applyIfAttackTrait: []
+          applyIfDefendTrait: []
+          transferOnOutcome: 0
+        changes:
+          - key: targetModifiers.darkness
+            mode: 2
+            value: '4'
+            priority: null
+        description: ''
+        tint: '#ffffff'
+        transfer: true
+        statuses: []
+        sort: 0
+        flags: {}
+        _stats:
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+          coreVersion: '13.351'
+          systemId: torgeternity
+          systemVersion: 13.15.0
+          lastModifiedBy: null
+        _key: >-
+          !actors.items.effects!4maHTlnkLTHmuYpB.YiMjiR1RpwRIBq0c.VYPmk5fqyqurFKB4
+    folder: icqFu6DFcYQQKoSN
+    sort: 200000
+    flags: {}
+    system:
+      category: racial
+      cosm: none
+      description: >-
+        <p>Zwerge ignorieren bis zu 4 Punkte an
+        @UUID[Compendium.te001-core-rulebook.grw-de-grw.Qlx6yGF0Mmo6Xzrv.JournalEntryPage.41rZYYhaMC2T260D#dunkelheit]{Dunkelheitsmalussen}.</p>
+      prerequisites: >-
+        <p>@UUID[Compendium.te001-core-rulebook.grw-de-vorzuverb.Item.TP04HlJ05QTMTtbk]{Zwerg}</p>
+      generalContradiction: false
+      pulpPowers:
+        enhancement01:
+          description: ''
+          taken: false
+          title: ''
+        enhancement02:
+          description: ''
+          taken: false
+          title: ''
+        enhancement03:
+          description: ''
+          taken: false
+          title: ''
+        enhancement04:
+          description: ''
+          taken: false
+          title: ''
+        enhancement05:
+          description: ''
+          taken: false
+          title: ''
+        enhancement06:
+          description: ''
+          taken: false
+          title: ''
+        enhancement07:
+          description: ''
+          taken: false
+          title: ''
+        enhancement08:
+          description: ''
+          taken: false
+          title: ''
+        enhancement09:
+          description: ''
+          taken: false
+          title: ''
+        enhancement10:
+          description: ''
+          taken: false
+          title: ''
+        enhancement11:
+          description: ''
+          taken: false
+          title: ''
+        enhancement12:
+          description: ''
+          taken: false
+          title: ''
+        enhancement13:
+          description: ''
+          taken: false
+          title: ''
+        enhancement14:
+          description: ''
+          taken: false
+          title: ''
+        enhancement15:
+          description: ''
+          taken: false
+          title: ''
+        enhancementNumber: 0
+        limitation01: ''
+        limitation02: ''
+        limitation03: ''
+        limitation04: ''
+        limitation05: ''
+        limitation06: ''
+        limitation07: ''
+        limitation08: ''
+        limitation09: ''
+        limitation10: ''
+        limitationNumber: 0
+      timestaken: ''
+      secondaryAxiom: none
+      transferenceID: Ubu2EEYbjphu5MS1
+      traits: []
+      axioms:
+        magic: 0
+        social: 0
+        spirit: 0
+        tech: 0
+    ownership:
+      default: 0
+      9Q0XnqFwko7hRlvL: 3
+      VAnYow5sWS9EJzo0: 3
+      BMvGTGfheqDXarjN: 3
+    _stats:
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.15.0
+      createdTime: 1768218570117
+      modifiedTime: 1768218570141
+      lastModifiedBy: BMvGTGfheqDXarjN
+    _key: '!actors.items!4maHTlnkLTHmuYpB.YiMjiR1RpwRIBq0c'
 effects: []
 folder: null
 sort: 0
 flags:
   core:
     sheetClass: torgeternity.torgeternityActorSheet
+  torgeternity:
+    editAttributes: false
 system:
   shock:
     max: 8
@@ -1432,10 +1539,10 @@ prototypeToken:
   movementAction: null
 _stats:
   systemId: torgeternity
-  systemVersion: 12.2.0
-  coreVersion: '13.348'
+  systemVersion: 13.15.0
+  coreVersion: '13.351'
   createdTime: 1694866052812
-  modifiedTime: 1758529966827
+  modifiedTime: 1768218571226
   lastModifiedBy: BMvGTGfheqDXarjN
   compendiumSource: Compendium.torgeternity.archetypes.QsYmnq73AiR6BwhD
   duplicateSource: null
