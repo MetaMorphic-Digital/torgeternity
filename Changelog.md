@@ -27,6 +27,7 @@
 
 - Fixes #635: Skills and Attributes which appear in `@Buff` enrichers are now localized when the default label is created.
 - Ensure Effects Panel is updated when the effects on the selected actor change.
+- Fixes #637: Hide "convert to rollable" if the item is not editable.
 
 ## 13.15.0
 
