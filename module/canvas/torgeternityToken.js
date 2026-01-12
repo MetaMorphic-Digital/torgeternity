@@ -25,7 +25,7 @@ export default class TorgEternityToken extends foundry.canvas.placeables.Token {
 
   async updateDarknessStatus() {
     const actor = this.actor;
-    if (!this.actor || !this.scene) return;
+    if (!this.actor || !this.scene?.tokenVision) return;
     const darkness = this.scene.getTokenDarknessPenalty(this);
     //console.log(`${this.name}: new darkness state = ${darkness}`)
 

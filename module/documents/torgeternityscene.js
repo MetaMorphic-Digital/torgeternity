@@ -68,7 +68,7 @@ export default class TorgeternityScene extends foundry.documents.Scene {
    * @returns either null or one of the keys from CONFIG.torgeternity.darknessModifiers (none, dim, dark, pitchBlack)
    */
   getTokenDarknessPenalty(token) {
-    if (!token) return null;
+    if (!token || !game.scenes.current?.tokenVision) return null;
 
     // Get the scene's thresholds for Dim Light, Darkness, and Pitch Dark (Global Illumination Threshold in FVTT terms).
     const pitchBlackLevel = game.scenes.current.environment.globalLight.darkness.max;
