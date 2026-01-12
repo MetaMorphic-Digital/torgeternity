@@ -64,9 +64,9 @@ export async function renderSkillChat(test) {
   let first = true;
   for (const target of test.targetAll) {
     if (!target.dummyTarget) test.target = target;
-    test.sizeModifier = target.sizeModifier;
-    test.vulnerableModifier = target.vulnerableModifier;
-    test.darknessModifier = Math.min(0, target.darknessModifier + (test.targetDarknessModifier ?? 0));
+    test.sizeModifier = target.sizeModifier ?? 0;
+    test.vulnerableModifier = target.vulnerableModifier ?? 0;
+    test.darknessModifier = Math.min(0, (target.darknessModifier ?? 0) + (test.targetDarknessModifier ?? 0));
 
     //
     // Check to see if we already have a chat title from a chat card roll. If not, Set title for Chat Message in test.chatTitle //
@@ -197,7 +197,7 @@ export async function renderSkillChat(test) {
     let modifiers = [];
     test.modifiers = 0;
     test.modifierText = '';
-    if (test.testTtype === 'soak') {
+    if (test.testType === 'soak') {
       test.vulnerableModifier = 0;
       test.darknessModifier = 0;
     }

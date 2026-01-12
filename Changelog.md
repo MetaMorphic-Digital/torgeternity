@@ -1,5 +1,9 @@
 # TORG Eternity Changelog
 
+## 13.16.1
+
+- Fix an error in skill checks when no target has been selected.
+
 ## 13.16.0
 
 - **Darkness Modifier** of the TARGET(s) is used in the attack test, not the darkness modifier of the attacker.
