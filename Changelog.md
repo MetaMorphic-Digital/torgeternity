@@ -4,6 +4,7 @@
 
 - **Darkness Modifier** of the TARGET(s) is used in the attack test, not the darkness modifier of the attacker.
   - Add new `targetModifiers.darkness` property to Actors so that Darkvision (and similar abilities) can be implemented (set the AE to have `4` as the value, to reduce the darkness penalty by a maximum of 4).
+  - Game System archetypes (dragon warrior, elven warden) updated to have the AE for Darkvision (EN, DE, FR).
 - Adds a game setting (default enabled) to **automatically calculate the Darkness Penalty** for a token based on the current lighting situation at the token's location on the active scene.
   - There are sliders in the scene configuration dialog to specify the darkness level used to determine Dim, Dark, Pitch Black separately for each scene.
   - The calculation is done on the ACTIVE scene (not the current scene).
