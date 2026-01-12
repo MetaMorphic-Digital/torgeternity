@@ -173,8 +173,9 @@ export class TestDialog extends HandlebarsApplicationMixin(ApplicationV2) {
     context.test.woundModifier = -Math.min(myActor.system.wounds.value ?? 0, 3);
 
     context.test.stymiedModifier = myActor.statusModifiers.stymied;
-    context.test.darknessModifier = myActor.statusModifiers.darkness;
     context.test.waitingModifier = myActor.statusModifiers.waiting;
+    context.test.targetDarknessModifier = myActor.targetModifiers.darkness;
+
     // Concentrating modifier applies in Concentration Checks and specific skills
     if (context.test.isConcentrationCheck ||
       CONFIG.torgeternity.concentrationSkills.includes(context.test.skillName)) {
@@ -214,7 +215,7 @@ export class TestDialog extends HandlebarsApplicationMixin(ApplicationV2) {
       context.test.targetAll = targets.map(token => oneTestTarget(token, this.test.applySize));
       context.test.sizeModifier = Math.max(...context.test.targetAll.map(target => target.sizeModifier));
       context.test.vulnerableModifier = Math.max(...context.test.targetAll.map(target => target.vulnerableModifier));
-      context.test.darknessModifier = Math.min(...context.test.targetAll.map(target => target.darknessModifier));
+      context.test.darknessModifier = Math.min(0, Math.min(...context.test.targetAll.map(target => target.darknessModifier)) + context.test.targetDarknessModifier);
     } else {
       context.test.targetAll = [];
       context.test.sizeModifier = 0;

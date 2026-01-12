@@ -66,7 +66,7 @@ export async function renderSkillChat(test) {
     if (!target.dummyTarget) test.target = target;
     test.sizeModifier = target.sizeModifier;
     test.vulnerableModifier = target.vulnerableModifier;
-    test.darknessModifier = target.darknessModifier;
+    test.darknessModifier = Math.min(0, target.darknessModifier + (test.targetDarknessModifier ?? 0));
 
     //
     // Check to see if we already have a chat title from a chat card roll. If not, Set title for Chat Message in test.chatTitle //

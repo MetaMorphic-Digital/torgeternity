@@ -89,6 +89,11 @@ export default class TorgeternityActor extends foundry.documents.Actor {
       waiting: 0,
       concentrating: 0,
     };
+
+    this.targetModifiers = {
+      darkness: 0,
+    };
+
   }
 
   /**
