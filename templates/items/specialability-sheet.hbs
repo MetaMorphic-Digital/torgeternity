@@ -1,7 +1,9 @@
 <section class="tab stats scrollable {{tab.cssClass}}" data-group="primary" data-tab="stats">
   <div class="sheet-content">
     <div>
-      <a class="convert-rsa" data-action="convertRsa" data-item-id="{{item.id}}">Convert to Rollable</a>
+      {{#if @root.editable}}
+        <a class="convert-rsa" data-action="convertRsa" data-item-id="{{item.id}}">Convert to Rollable</a>
+      {{/if}}
     </div>
     <div class="main-content">
       <prose-mirror toggled name="system.description" class="item-description" {{disabled (not
