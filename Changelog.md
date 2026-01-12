@@ -1,6 +1,6 @@
 # TORG Eternity Changelog
 
-## NEXT
+## 13.16.0
 
 - **Darkness Modifier** of the TARGET(s) is used in the attack test, not the darkness modifier of the attacker.
   - Add new `targetModifiers.darkness` property to Actors so that Darkvision (and similar abilities) can be implemented (set the AE to have `4` as the value, to reduce the darkness penalty by a maximum of 4).
@@ -16,6 +16,7 @@
     - Light and Dark sources on the scene (either directly placed or via tokens)
     - Darkness sources always override any other level of lighting (setting Pitch Black)
 - Add **card numbers** to all cards in the core card decks.
+  - When viewing a deck, the sorting by number or shuffle order now works.
 
 ### Internal
 - Remove `card.system.number` from all Cards, storing the value in `card.value` instead.
@@ -26,7 +27,6 @@
 
 - Fixes #635: Skills and Attributes which appear in `@Buff` enrichers are now localized when the default label is created.
 - Ensure Effects Panel is updated when the effects on the selected actor change.
-
 
 ## 13.15.0
 
