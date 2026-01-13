@@ -72,6 +72,12 @@ export default class torgeternitySceneConfig extends foundry.applications.sheets
     return partContext;
   }
 
+  /**
+   * Ensure all sliders remain within valid ranges based on the slider being moved
+   * @param {*} formConfig 
+   * @param {*} event 
+   * @returns 
+   */
   _onChangeForm(formConfig, event) {
     super._onChangeForm(formConfig, event);
     if (event.type !== 'change') return;
@@ -84,25 +90,6 @@ export default class torgeternitySceneConfig extends foundry.applications.sheets
       case 'flags.torgeternity.dimLightThreshold':
       case 'flags.torgeternity.darkThreshold':
       case 'environment.globalLight.darkness.max': {
-
-        function makeChange(rangePicker, changedValue) {
-          for (const rangeInput of rangePicker.querySelectorAll('input')) {
-            rangeInput.value = changedValue;
-          }
-
-          const rangeInput = rangePicker.querySelector('input');
-          const name = rangePicker.name;
-          const value = changedValue;
-          const max = Number(rangeInput.max);
-          const min = Number(rangeInput.min);
-          const step = Number(rangeInput.step);
-          const id = rangePicker.id;
-          rangePicker.replaceWith(foundry.applications.elements.HTMLRangePickerElement.create({ name, value, step, max, min, id }));
-          const replacementRangePicker = html.querySelector(`range-picker[name="${name}"]`);
-          replacementRangePicker.addEventListener('change', (event) => adjustThresholds(event));
-          replacementRangePicker.dispatchEvent(new Event('change', { bubbles: true }));
-        }
-
         const step = Number(event.target.getAttribute('step'));
         // Get the input's new value
         const newValue = Number(event.target._value);
@@ -119,12 +106,12 @@ export default class torgeternitySceneConfig extends foundry.applications.sheets
         const newLowerValue = Math.round((newValue - step) * 20) / 20;
 
         if (event.target.name.includes('dimLightThreshold')) {
-          if (darkValue <= newValue) makeChange(darkRangePicker, newHigherValue);
+          if (darkValue <= newValue) darkRangePicker.value = newHigherValue;
         } else if (event.target.name.includes('darkThreshold')) {
-          if (pitchDarknessValue <= newValue) makeChange(pitchDarknessRangePicker, newHigherValue);
-          if (dimLightValue >= newValue) makeChange(dimLightRangePicker, newLowerValue);
+          if (pitchDarknessValue <= newValue) pitchDarknessRangePicker.value = newHigherValue;
+          if (dimLightValue >= newValue) dimLightRangePicker.value = newLowerValue;
         } else if (event.target.name.includes('environment.globalLight')) {
-          if (darkValue >= newValue) makeChange(darkRangePicker, newLowerValue);
+          if (darkValue >= newValue) darkRangePicker.value = newLowerValue;
         }
         break;
       }
