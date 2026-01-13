@@ -99,9 +99,9 @@ export default class TorgeternityScene extends foundry.documents.Scene {
     }
 
     let sceneLevel =
-      (pointDarknessLevel > pitchBlackLevel) ? 'pitchBlack' :
-        (pointDarknessLevel > darkLevel) ? 'dark' :
-          (pointDarknessLevel > dimLevel) ? 'dim' :
+      (pointDarknessLevel >= pitchBlackLevel) ? 'pitchBlack' :
+        (pointDarknessLevel >= darkLevel) ? 'dark' :
+          (pointDarknessLevel >= dimLevel) ? 'dim' :
             null;
 
     //console.log('scene darkness: ', sceneLevel);

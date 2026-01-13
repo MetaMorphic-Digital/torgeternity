@@ -1,5 +1,9 @@
 # TORG Eternity Changelog
 
+## NEXT
+
+- Minor adjustment to darkness level calculation (using ">=" instead of ">") so that pitchBlack slider set to 1 (rather than 0.95) sets pitchBlack when the scene darkness level is 1.
+
 ## 13.16.1
 
 - Fix an error in skill checks when no target has been selected.
