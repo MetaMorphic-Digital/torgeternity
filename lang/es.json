@@ -1404,14 +1404,10 @@
       "darkThreshold": {
         "name": "Umbral de oscuridad",
         "hint": "Un umbral de oscuridad entre 0,1 y 0,95. Cuando el nivel de oscuridad de la escena supera este umbral, se considera que la iluminación global es al menos de oscuridad a la hora de determinar las penalizaciones por oscuridad."
-      }
-    },
-    "environment": {
-      "globalLight": {
-        "darkness.max": {
-          "label": "Umbral de negrura total",
-          "hint": "Un umbral de oscuridad entre 0,15 y 1. Cuando el nivel de oscuridad de la escena supera este umbral, se considera que la iluminación global es de negrura total a la hora de determinar las penalizaciones por oscuridad."
-        }
+      },
+      "pitchBlackThreshold": {
+        "label": "Umbral de negrura total",
+        "hint": "Un umbral de oscuridad entre 0,15 y 1. Cuando el nivel de oscuridad de la escena supera este umbral, se considera que la iluminación global es de negrura total a la hora de determinar las penalizaciones por oscuridad."
       }
     }
   },

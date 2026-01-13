@@ -68,6 +68,9 @@ export default class torgeternitySceneConfig extends foundry.applications.sheets
         partContext.zones = torgeternity.zones;
         partContext.cosmTypes = torgeternity.cosmTypes;
         break;
+      case "lighting":
+        context.torgDarkness = game.settings.get('torgeternity', 'autoDarknessPenalty');
+        break;
     }
     return partContext;
   }
