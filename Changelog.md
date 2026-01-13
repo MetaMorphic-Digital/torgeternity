@@ -1,5 +1,9 @@
 # TORG Eternity Changelog
 
+## NEXT
+
+- Hide the various Torg-specific darkness level slider in the Scene Config when "Automatic Darkness Penalties" is disabled.
+
 ## 13.16.2
 
 - Minor adjustment to darkness level calculation (using ">=" instead of ">") so that pitchBlack slider set to 1 (rather than 0.95) sets pitchBlack when the scene darkness level is 1.
