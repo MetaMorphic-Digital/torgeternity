@@ -12,13 +12,13 @@ export default class TorgeternityScene extends foundry.documents.Scene {
         'flags.torgeternity.cosm': 'none',
         'flags.torgeternity.cosm2': 'none',
         'flags.torgeternity.zone': 'pure',
-        'flags.torgeternity.dimThreshold': 0.2,
+        'flags.torgeternity.dimLightThreshold': 0.2,
         'flags.torgeternity.darkThreshold': 0.7,
       })
     }
-    else if (!data.flags?.torgeternity.dimThreshold) {
+    else if (!data.flags?.torgeternity.dimLightThreshold) {
       this.updateSource({
-        'flags.torgeternity.dimThreshold': 0.2,
+        'flags.torgeternity.dimLightThreshold': 0.2,
         'flags.torgeternity.darkThreshold': 0.7,
       })
     }
@@ -72,7 +72,7 @@ export default class TorgeternityScene extends foundry.documents.Scene {
 
     // Get the scene's thresholds for Dim Light, Darkness, and Pitch Dark (Global Illumination Threshold in FVTT terms).
     const pitchBlackLevel = game.scenes.current.environment.globalLight.darkness.max;
-    const dimLevel = Number(game.scenes.current.flags?.torgeternity?.dimThreshold ?? 0);
+    const dimLevel = Number(game.scenes.current.flags?.torgeternity?.dimLightThreshold ?? 0);
     const darkLevel = Number(game.scenes.current.flags?.torgeternity?.darkThreshold ?? 0);
 
     // Get scene darkness level at the given point (ignoring light sources).
@@ -99,9 +99,9 @@ export default class TorgeternityScene extends foundry.documents.Scene {
     }
 
     let sceneLevel =
-      (pointDarknessLevel > pitchBlackLevel) ? 'pitchBlack' :
-        (pointDarknessLevel > darkLevel) ? 'dark' :
-          (pointDarknessLevel > dimLevel) ? 'dim' :
+      (pointDarknessLevel >= pitchBlackLevel) ? 'pitchBlack' :
+        (pointDarknessLevel >= darkLevel) ? 'dark' :
+          (pointDarknessLevel >= dimLevel) ? 'dim' :
             null;
 
     //console.log('scene darkness: ', sceneLevel);

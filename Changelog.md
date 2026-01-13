@@ -1,5 +1,10 @@
 # TORG Eternity Changelog
 
+## 13.16.2
+
+- Minor adjustment to darkness level calculation (using ">=" instead of ">") so that pitchBlack slider set to 1 (rather than 0.95) sets pitchBlack when the scene darkness level is 1.
+- Fix bug which prevented a Darkness Level brighter than the Dim Light Threshold left the tokens in dim light.
+
 ## 13.16.1
 
 - Fix an error in skill checks when no target has been selected.
