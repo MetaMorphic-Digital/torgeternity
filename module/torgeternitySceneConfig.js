@@ -121,3 +121,32 @@ export default class torgeternitySceneConfig extends foundry.applications.sheets
     }
   }
 }
+
+
+
+Hooks.on('getSceneControlButtons', controls => {
+  controls.lighting.tools.dim = {
+    name: "dim",
+    order: 2.3,
+    title: "CONTROLS.LightDim",
+    icon: "fa-solid fa-cloud-sun",
+    visible: !canvas.scene?.environment.darknessLock,
+    onChange: () => canvas.scene.update(
+      { environment: { darknessLevel: canvas.scene.flags.torgeternity.dimLightThreshold } },
+      { animateDarkness: 3000 /*ms*/ }
+    ),
+    button: true,
+  };
+  controls.lighting.tools.dark = {
+    name: "dark",
+    order: 2.7,
+    title: "CONTROLS.LightDark",
+    icon: "fa-solid fa-cloud-moon",
+    visible: !canvas.scene?.environment.darknessLock,
+    onChange: () => canvas.scene.update(
+      { environment: { darknessLevel: canvas.scene.flags.torgeternity.darkThreshold } },
+      { animateDarkness: 3000 /*ms*/ }
+    ),
+    button: true,
+  };
+})

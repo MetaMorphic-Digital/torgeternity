@@ -3,6 +3,11 @@
 ## NEXT
 
 - Hide the various Torg-specific darkness level slider in the Scene Config when "Automatic Darkness Penalties" is disabled.
+- Add "Transition to Dim Light" and "Transition to Dark" buttons in the Lighting controls menu.
+
+### TRANSLATIONS
+
+- CONTROLS.LightDim, CONTROLS.LightDark, CONTROLS.LightNight
 
 ## 13.16.2
 

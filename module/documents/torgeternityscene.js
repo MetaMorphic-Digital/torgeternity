@@ -142,5 +142,4 @@ export default class TorgeternityScene extends foundry.documents.Scene {
 
     return sceneLevel;
   }
-
 }

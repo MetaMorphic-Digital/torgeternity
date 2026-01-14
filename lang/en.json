@@ -1407,5 +1407,10 @@
   },
   "CARD.FIELDS": {
     "number.label": "Number"
+  },
+  "CONTROLS": {
+    "LightDim": "Transition to Dim Light",
+    "LightDark": "Transition to Dark",
+    "LightNight": "Transition to Pitch Black"
   }
 }
