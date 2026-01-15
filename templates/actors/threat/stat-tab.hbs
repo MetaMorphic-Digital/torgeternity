@@ -23,7 +23,7 @@
               <a
                 class="skill-roll draggable" data-action="skillRoll"
                 data-testType="attribute"
-                data-value="{{concat 'document.system.attributes.' attrName '.value'}}"
+                data-value="{{attrValue.value}}"
                 data-name="{{attrName}}"
                 data-baseAttribute="{{attrName}}"
                 data-adds="0"
@@ -37,7 +37,7 @@
                   <i class="fa-solid fa-minus changeAttributeSubstract"></i>
                 </a>
               {{/if}}
-              <input name={{concat 'system.attributes.' attrName '.value' }}
+              <input name="{{concat 'system.attributes.' attrName '.value' }}"
                 type='number'
                 class="attributeValueField"
                 data-baseAttributeInput="{{attrName}}"
