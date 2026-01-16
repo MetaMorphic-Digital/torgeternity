@@ -1,5 +1,13 @@
 # TORG Eternity Changelog
 
+## 13.16.3
+
+- Hide the various Torg-specific darkness level slider in the Scene Config when **Automatic Darkness Penalties** is disabled.
+- Add **Transition to Dim Light** and **Transition to Dark** buttons in the Lighting controls menu.
+- Fix bug that was preventing **rolling attribute checks on Threats**.
+- Setting the **max ammo** requirement of a weapon to 0 (or blank) will indicate that the weapon has infinite ammo (or does not use ammo).
+- When determining **ammo usage**, the number of targets is based on either the number of targeted tokens, or else the number of targets selected in the multi-target penalty.
+
 ## 13.16.2
 
 - Minor adjustment to darkness level calculation (using ">=" instead of ">") so that pitchBlack slider set to 1 (rather than 0.95) sets pitchBlack when the scene darkness level is 1.

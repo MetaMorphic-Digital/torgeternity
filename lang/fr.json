@@ -1404,18 +1404,19 @@
       "darkThreshold": {
         "name": "Palier de Sombre",
         "hint": "Un niveau d'obscurité entre 0,1 and 0,95, supérieur au palier de Pénombre. Quand le niveau d'obscurité dépasse ce seuil, l'Illumination Globale considére que l'état 'Sombre' est appliqué comme pénalité de luminosité."
-      }
-    },
-    "environment": {
-      "globalLight": {
-        "darkness.max": {
-          "label": "Palier de Noir complet",
-          "hint": "Un niveau d'obscurité entre 0,15 and 1, supérieur au palier de Sombre. Quand le niveau d'obscurité dépasse ce seuil, l'Illumination Globale considére que l'état 'Noir complet' est appliqué comme pénalité de luminosité."
-        }
+      },
+      "pitchBlackThreshold": {
+        "label": "Palier de Noir complet",
+        "hint": "Un niveau d'obscurité entre 0,15 and 1, supérieur au palier de Sombre. Quand le niveau d'obscurité dépasse ce seuil, l'Illumination Globale considére que l'état 'Noir complet' est appliqué comme pénalité de luminosité."
       }
     }
   },
   "CARD.FIELDS": {
     "number.label": "Nombre"
+  },
+  "CONTROLS": {
+    "LightDim": "Transition vers Pénombre",
+    "LightDark": "Transition vers Pénombre",
+    "LightNight": "Transition vers Noir complet"
   }
 }

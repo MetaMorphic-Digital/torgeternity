@@ -174,7 +174,7 @@
       "modifiers": "Modifiers",
       "noAmmo": "Failed to fire your weapon, no bullets left.",
       "noAmmoPosessing": "You do not have any ammunitions in your inventory. Failed to proceed.",
-      "notSufficientAmmo": "You do not have a sufficent amount of bullets in your weapon to use this burst attack, this test cannot be performed.",
+      "notSufficientAmmo": "You do not have sufficent ammunition in your weapon for the numbers of targets and chosen burst, this test cannot be performed.",
       "reloaded": "You have reloaded your weapon {a}.",
       "ammoLabel": "Bullets left",
       "notes": "Notes",
@@ -1398,18 +1398,19 @@
       "darkThreshold": {
         "name": "Dark Threshold",
         "hint": "A darkness threshold between 0.1 and 0.95. When the Scene darkness level exceeds this threshold Global Illumination is considered at least to be Darkness when determining Darkness penalties."
-      }
-    },
-    "environment": {
-      "globalLight": {
-        "darkness.max": {
-          "label": "Pitch Black Threshold",
-          "hint": "A darkness threshold between 0.15 and 1. When the Scene darkness level exceeds this threshold Global Illumination is disabled and considered to be Pitch Black when determining Darkness penalties."
-        }
+      },
+      "pitchBlackThreshold": {
+        "label": "Pitch Black Threshold",
+        "hint": "A darkness threshold between 0.15 and 1. When the Scene darkness level exceeds this threshold Global Illumination is disabled and considered to be Pitch Black when determining Darkness penalties."
       }
     }
   },
   "CARD.FIELDS": {
     "number.label": "Number"
+  },
+  "CONTROLS": {
+    "LightDim": "Transition to Dim Light",
+    "LightDark": "Transition to Dark",
+    "LightNight": "Transition to Pitch Black"
   }
 }

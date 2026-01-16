@@ -8,9 +8,14 @@
   </fieldset>
   <fieldset>
     {{formGroup environmentFields.globalLight.fields.enabled value=globalLight.enabled rootId=rootId}}
-    {{formGroup flagFields.fields.dimLightThreshold name="flags.torgeternity.dimLightThreshold" value=source.flags.torgeternity.dimLightThreshold step=0.05 classes="slim" rootId=rootId}}
-    {{formGroup flagFields.fields.darkThreshold name="flags.torgeternity.darkThreshold" value=source.flags.torgeternity.darkThreshold step=0.05 classes="slim" rootId=rootId}}
-    {{formGroup environmentFields.globalLight.fields.darkness.fields.max value=globalLight.darkness.max min=0.15 step=0.05 classes="slim" rootId=rootId}}
+    {{#if torgDarkness}}
+      {{formGroup flagFields.fields.dimLightThreshold name="flags.torgeternity.dimLightThreshold" value=source.flags.torgeternity.dimLightThreshold step=0.05 classes="slim" rootId=rootId}}
+      {{formGroup flagFields.fields.darkThreshold name="flags.torgeternity.darkThreshold" value=source.flags.torgeternity.darkThreshold step=0.05 classes="slim" rootId=rootId}}
+      {{formGroup environmentFields.globalLight.fields.darkness.fields.max value=globalLight.darkness.max min=0.15 step=0.05 classes="slim" rootId=rootId 
+      label="SCENE.FIELDS.flags.torgeternity.pitchBlackThreshold.label" hint="SCENE.FIELDS.flags.torgeternity.pitchBlackThreshold.hint" localize=true}}
+    {{else}}
+      {{formGroup environmentFields.globalLight.fields.darkness.fields.max value=globalLight.darkness.max min=0.15 step=0.05 classes="slim" rootId=rootId}}
+    {{/if}}
     {{formGroup environmentFields.darknessLevel value=source.environment.darknessLevel classes="slim" step=0.05
             disabled=source.environment.darknessLock rootId=rootId}}
     {{formGroup environmentFields.darknessLock value=source.environment.darknessLock rootId=rootId}}

@@ -105,15 +105,6 @@ export default class TorgeternityItem extends foundry.documents.Item {
     }
     return super.migrateData(source);
   }
-  /**
-   * Getter for a weapon that might have ammo or not (meelee weapons don't have ammo)
-   *  @returns true/false
-   */
-  get weaponWithAmmo() {
-    return this.type === 'firearm' || this.type === 'heavyweapon' || this.type === 'missileweapon'
-      ? true
-      : false;
-  }
 
   async _preCreate(data, options, user) {
     const allowed = await super._preCreate(data, options, user);
@@ -264,12 +255,21 @@ export default class TorgeternityItem extends foundry.documents.Item {
   }
 
   /**
+   * Getter for a weapon that might have finite ammo or not (meelee weapons don't have ammo)
+   *  @returns true/false
+   */
+  get weaponWithAmmo() {
+    if (!this.system?.ammo?.max) return false;
+    return !game.settings.get('torgeternity', 'ignoreAmmo');
+  }
+
+  /**
    * Does the weapon have ammo?
    *
    * @returns {boolean} Does the weapon have ammo? True/False
    */
   get hasAmmo() {
-    return this.system?.ammo.value > 0 ? true : false;
+    return this.system?.ammo.value > 0;
   }
 
   /**
@@ -281,9 +281,9 @@ export default class TorgeternityItem extends foundry.documents.Item {
    */
   hasSufficientAmmo(burstModifier, targets = 1) {
     const currentAmmo = this.system.ammo.value;
-    const bulletAmount = this._estimateBulletLoss(burstModifier);
+    const bulletAmount = this.#estimateBulletLoss(burstModifier);
 
-    return currentAmmo < bulletAmount * targets ? false : true;
+    return currentAmmo >= bulletAmount * targets;
   }
 
   /**
@@ -296,7 +296,7 @@ export default class TorgeternityItem extends foundry.documents.Item {
     const currentAmmo = this.system.ammo.value;
 
     await this.update({
-      'system.ammo.value': currentAmmo - this._estimateBulletLoss(burstModifier) * targets,
+      'system.ammo.value': currentAmmo - this.#estimateBulletLoss(burstModifier) * targets,
     });
   }
 
@@ -306,7 +306,7 @@ export default class TorgeternityItem extends foundry.documents.Item {
    * @param {number} burstModifier The modifier of the burst (on no burst, this will be 0 per Standard)
    * @returns {number} The amount of bullets that are used
    */
-  _estimateBulletLoss(burstModifier) {
+  #estimateBulletLoss(burstModifier) {
     switch (burstModifier) {
       case 2: return 3;
       case 4: return 7;

@@ -22,6 +22,7 @@ export default class TorgeternityScene extends foundry.documents.Scene {
         'flags.torgeternity.darkThreshold': 0.7,
       })
     }
+    return allowed;
   }
 
   prepareDerivedData() {
@@ -141,5 +142,4 @@ export default class TorgeternityScene extends foundry.documents.Scene {
 
     return sceneLevel;
   }
-
 }

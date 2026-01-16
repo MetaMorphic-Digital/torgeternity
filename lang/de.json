@@ -1404,18 +1404,20 @@
       "darkThreshold": {
         "name": "Dark Threshold",
         "hint": "A darkness threshold between 0.1 and 0.95. When the Scene darkness level exceeds this threshold Global Illumination is considered at least to be Darkness when determining Darkness penalties."
-      }
-    },
-    "environment": {
-      "globalLight": {
-        "darkness.max": {
-          "label": "Pitch Black Threshold",
-          "hint": "A darkness threshold between 0.15 and 1. When the Scene darkness level exceeds this threshold Global Illumination is disabled and considered to be Pitch Black when determining Darkness penalties."
-        }
+      },
+      "pitchBlackThreshold": {
+        "label": "Pitch Black Threshold",
+        "hint": "A darkness threshold between 0.15 and 1. When the Scene darkness level exceeds this threshold Global Illumination is disabled and considered to be Pitch Black when determining Darkness penalties."
       }
     }
   },
   "CARD.FIELDS": {
     "number.label": "Nummer"
+  },
+  "CONTROLS": {
+    "LightDay": "Übergang zu taghellen Lichtverhältnissen",
+    "LightDim": "Übergang zu dämmrigen Lichtverhältnissen",
+    "LightDark": "Übergang zu dunklen Lichtverhältnissen",
+    "LightNight": "Übergang zu pechschwarzer Dunkelheit"
   }
 }
