@@ -1415,8 +1415,8 @@
     "number.label": "Número"
   },
   "CONTROLS": {
-    "LightDim": "Transition to Dim Light",
-    "LightDark": "Transition to Dark",
-    "LightNight": "Transition to Pitch Black"
+    "LightDim": "Transición a luz tenue",
+    "LightDark": "Transición a oscuridad",
+    "LightNight": "Transición a negrura total"
   }
 }

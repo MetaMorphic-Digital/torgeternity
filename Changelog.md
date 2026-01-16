@@ -1,9 +1,10 @@
 # TORG Eternity Changelog
 
-## NEXT
+## 13.16.3
 
 - Hide the various Torg-specific darkness level slider in the Scene Config when "Automatic Darkness Penalties" is disabled.
 - Add "Transition to Dim Light" and "Transition to Dark" buttons in the Lighting controls menu.
+- Fix bug that was preventing rolling attribute checks on Threats.
 
 ### TRANSLATIONS
 
