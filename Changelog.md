@@ -8,10 +8,6 @@
 - Setting the **max ammo** requirement of a weapon to 0 (or blank) will indicate that the weapon has infinite ammo (or does not use ammo).
 - When determining **ammo usage**, the number of targets is based on either the number of targeted tokens, or else the number of targets selected in the multi-target penalty.
 
-### TRANSLATIONS
-
-- CONTROLS.LightDim, CONTROLS.LightDark, CONTROLS.LightNight
-
 ## 13.16.2
 
 - Minor adjustment to darkness level calculation (using ">=" instead of ">") so that pitchBlack slider set to 1 (rather than 0.95) sets pitchBlack when the scene darkness level is 1.
