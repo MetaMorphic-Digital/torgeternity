@@ -287,8 +287,7 @@ export class TestDialog extends HandlebarsApplicationMixin(ApplicationV2) {
         const myItem = this.test.itemId ? myActor.items.get(this.test.itemId) : null;
         if (
           myItem?.weaponWithAmmo &&
-          this.test.burstModifier > 0 &&
-          !myItem.hasSufficientAmmo(this.test.burstModifier, this.test?.targetAll.length)
+          !myItem.hasSufficientAmmo(this.test.burstModifier, this.test?.targetAll.length || (1 - this.test.targetsModifier / 2))
         ) {
           ui.notifications.warn(game.i18n.localize('torgeternity.chatText.notSufficientAmmo'));
           return;

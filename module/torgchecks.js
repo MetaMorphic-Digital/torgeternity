@@ -55,7 +55,7 @@ export async function renderSkillChat(test) {
   const testItem = test.itemId ? testActor.items.get(test.itemId) : null;
 
   // Handle ammo, if not opt-out. First, check if there is enough ammo, then reduce it.
-  if (testItem?.weaponWithAmmo && !game.settings.get('torgeternity', 'ignoreAmmo')) {
+  if (testItem?.weaponWithAmmo) {
     await testItem.reduceAmmo(test.burstModifier, test.targetAll?.length);
     test.ammoCount = testItem.system.ammo.value;
   }
@@ -982,7 +982,7 @@ export async function rollAttack(actor, item) {
   let skillData;
   let attributes;
 
-  if (item?.weaponWithAmmo && !item.hasAmmo && !game.settings.get('torgeternity', 'ignoreAmmo')) {
+  if (item?.weaponWithAmmo && !item.hasAmmo) {
     ui.notifications.warn(game.i18n.localize('torgeternity.chatText.noAmmo'));
     return;
   }

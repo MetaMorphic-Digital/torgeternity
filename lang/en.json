@@ -174,7 +174,7 @@
       "modifiers": "Modifiers",
       "noAmmo": "Failed to fire your weapon, no bullets left.",
       "noAmmoPosessing": "You do not have any ammunitions in your inventory. Failed to proceed.",
-      "notSufficientAmmo": "You do not have a sufficent amount of bullets in your weapon to use this burst attack, this test cannot be performed.",
+      "notSufficientAmmo": "You do not have sufficent ammunition in your weapon for the numbers of targets and chosen burst, this test cannot be performed.",
       "reloaded": "You have reloaded your weapon {a}.",
       "ammoLabel": "Bullets left",
       "notes": "Notes",
