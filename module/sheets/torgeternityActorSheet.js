@@ -24,7 +24,7 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
     },
     position: {
       width: 770,
-      height: 860,
+      height: 768,
     },
     form: {
       submitOnChange: true,

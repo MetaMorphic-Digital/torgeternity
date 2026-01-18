@@ -1,5 +1,12 @@
 # TORG Eternity Changelog
 
+## NEXT
+
+- Reword message when insufficient ammunition (not just bullets) is available based on number of targets or selected burst.
+- Set default height of SK sheet to 768, to match the minimum height expected by Foundry.
+
+TRANSLATIONS: required
+
 ## 13.16.3
 
 - Hide the various Torg-specific darkness level slider in the Scene Config when **Automatic Darkness Penalties** is disabled.
