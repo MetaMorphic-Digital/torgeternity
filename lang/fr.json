@@ -179,7 +179,7 @@
       "notPermittedDSR": "Prochain RDT {step} non autorisé par la carte d'Action",
       "modifiers": "Modificateurs",
       "noAmmo": "Le chargeur de votre arme est vide, vous ne pouvez pas faire feu.",
-      "noAmmoPosessing": "Pas de munitions dans votre inventaire. Rechargement impossible.",
+      "noSpareAmmo": "Pas de munitions dans votre inventaire. Rechargement impossible.",
       "notSufficientAmmo": "Votre chargeur ne contient pas la quantité de munitions suffisantes pour effectuer ce tir 'en rafale', ce tir n'est pas possible.",
       "reloaded": "Vous avez rechargé votre arme {a}.",
       "ammoLabel": "Balles restantes",

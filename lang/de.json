@@ -179,7 +179,7 @@
       "notPermittedDSR": "Dramakarte erlaubt den DPA-Schritt {step} nicht.",
       "modifiers": "Modifikator",
       "noAmmo": "Waffe nicht abgefeuert, keine Kugeln mehr übrig.",
-      "noAmmoPosessing": "Du hast keine Munition in deinem Inventar. Nachladen nicht möglich.",
+      "noSpareAmmo": "Du hast keine Munition in deinem Inventar. Nachladen nicht möglich.",
       "notSufficientAmmo": "Du hast nicht genügend Kugeln in deiner Waffe, um diesen Feuerstoß zu verwenden, daher kann diese Probe nicht durchgeführt werden.",
       "reloaded": "Du hast deine Waffe {a} nachgeladen.",
       "ammoLabel": "Kugeln übrig",

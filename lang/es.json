@@ -179,7 +179,7 @@
       "notPermittedDSR": "La carta de Drama no permite el paso {step} de la RDH",
       "modifiers": "Modificadores",
       "noAmmo": "No puedes disparar tu arma, no le quedan balas.",
-      "noAmmoPosessing": "No te queda munición en el inventario. No puedes realizar la acción.",
+      "noSpareAmmo": "No te queda munición en el inventario. No puedes realizar la acción.",
       "notSufficientAmmo": "No te quedan suficientes balas en el arma para usar este ataque con ráfaga; no puedes llevar a cabo esta prueba.",
       "reloaded": "Has recargado tu arma {a}.",
       "ammoLabel": "balas restantes",

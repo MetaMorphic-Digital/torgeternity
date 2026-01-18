@@ -173,7 +173,7 @@
       "notPermittedDSR": "Next DSR step {step} not permitted by Drama Card",
       "modifiers": "Modifiers",
       "noAmmo": "Failed to fire your weapon, no bullets left.",
-      "noAmmoPosessing": "You do not have any ammunitions in your inventory. Failed to proceed.",
+      "noSpareAmmo": "You do not have any ammunitions in your inventory. Failed to proceed.",
       "notSufficientAmmo": "You do not have sufficent ammunition in your weapon for the numbers of targets and chosen burst, this test cannot be performed.",
       "reloaded": "You have reloaded your weapon {a}.",
       "ammoLabel": "Bullets left",
