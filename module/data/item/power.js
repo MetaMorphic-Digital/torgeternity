@@ -48,11 +48,4 @@ export class PowerItemData extends BaseItemData {
       }
     }
   }
-
-  /**
-   * @inheritdoc
-   */
-  prepareDerivedData() {
-    super.prepareDerivedData();
-  }
 }

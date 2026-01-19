@@ -53,13 +53,6 @@ export class ThreatData extends CommonActorData {
   }
 
   /**
-   * Prepare base data for Threats
-   */
-  prepareBaseData() {
-    super.prepareBaseData();
-  }
-
-  /**
    * Prepare derived data for Threats
    */
   prepareDerivedData() {

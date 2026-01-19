@@ -72,13 +72,6 @@ export class VehicleData extends foundry.abstract.TypeDataModel {
   }
 
   /**
-   * Prepare base data for Storm Knights and Threats
-   */
-  prepareBaseData() {
-    super.prepareBaseData();
-  }
-
-  /**
    * Prepare derived data for Storm Knights and Threats
    */
   prepareDerivedData() {

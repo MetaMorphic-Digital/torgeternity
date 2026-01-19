@@ -75,11 +75,4 @@ export class StormKnightData extends CommonActorData {
       this.details.clearance = 'omega';
     }
   }
-
-  /**
-   * Prepare derived data for Storm Knights
-   */
-  prepareDerivedData() {
-    super.prepareDerivedData();
-  }
 }

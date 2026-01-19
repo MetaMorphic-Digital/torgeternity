@@ -12,18 +12,4 @@ export class DestinyCardData extends foundry.abstract.TypeDataModel {
       pooled: new fields.BooleanField({ initial: false, label: 'torgeternity.dramaCard.pooled' }),
     };
   }
-
-  /**
-   * @inheritdoc
-   */
-  prepareBaseData() {
-    super.prepareBaseData();
-  }
-
-  /**
-   * @inheritdoc
-   */
-  prepareDerivedData() {
-    super.prepareDerivedData();
-  }
 }

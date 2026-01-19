@@ -5,6 +5,7 @@ import { torgeternity } from './config.js';
  */
 export default class torgeternitySceneConfig extends foundry.applications.sheets.SceneConfig {
 
+  // Foundry 14: "basics" got renamed to "presentation" (as property and template file and TABS)
   static PARTS = {
     tabs: { template: "templates/generic/tab-navigation.hbs" },
     basics: { template: "templates/scene/config/basics.hbs" },
