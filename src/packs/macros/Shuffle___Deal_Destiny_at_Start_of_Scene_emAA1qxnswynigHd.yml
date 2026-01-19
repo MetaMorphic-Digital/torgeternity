@@ -1,0 +1,41 @@
+name: Shuffle & Deal Destiny at Start of Scene
+type: script
+author: BMvGTGfheqDXarjN
+img: icons/svg/dice-target.svg
+scope: global
+command: |-
+  let decks = game.settings.get('torgeternity', 'deckSetting')
+
+  // Reset the destiny deck (recall all cards from players)
+  let destiny = await game.cards.get(decks.destinyDeck)
+  await destiny.recall();
+  await destiny.shuffle();
+
+  // Find hands owned by online players
+  // hasPlayerOwner + owner online
+  const hands = game.cards.filter(card => card.type === 'hand' && 
+    game.users.some(u => !u.isGM && u.active && card.testUserPermission(u, "OWNER")));
+
+  // Now deal cards from destiny to each of those players
+  destiny.deal(hands, 4).catch(err => {
+        ui.notifications.error(err.message);
+        return destiny;
+  });
+folder: null
+ownership:
+  default: 0
+  BMvGTGfheqDXarjN: 3
+flags: {}
+_stats:
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: torgeternity
+  systemVersion: 13.15.0
+  createdTime: 1768818118748
+  modifiedTime: 1768818118769
+  lastModifiedBy: BMvGTGfheqDXarjN
+_id: emAA1qxnswynigHd
+sort: 200000
+_key: '!macros!emAA1qxnswynigHd'
