@@ -126,7 +126,8 @@ export default class DeckSettingMenu extends HandlebarsApplicationMixin(Applicat
    */
   static #onSubmit(event, form, formData) {
     const data = foundry.utils.expandObject(formData.object);
-    game.settings.set('torgeternity', 'deckSetting', data);
+    // Update the icons in the Cards Directory
+    game.settings.set('torgeternity', 'deckSetting', data).then(() => ui.cards.render())
   }
   /**
    *
