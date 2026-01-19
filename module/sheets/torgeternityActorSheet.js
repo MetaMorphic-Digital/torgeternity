@@ -24,7 +24,7 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
     },
     position: {
       width: 770,
-      height: 768,
+      height: 860,
     },
     form: {
       submitOnChange: true,
@@ -161,6 +161,9 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
     switch (this.actor.type) {
       case 'stormknight':
         options.parts = ['title', 'tabs', 'stats', 'perks', 'gear', 'powers', 'effects', 'background'];
+        if (options.isFirstRender) {
+          if (options.position.height > window.innerHeight) options.position.height = window.innerHeight;
+        }
         break;
       case 'vehicle':
         options.parts = [this.actor.type];
