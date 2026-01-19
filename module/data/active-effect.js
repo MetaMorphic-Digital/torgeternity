@@ -11,11 +11,13 @@ const fields = foundry.data.fields;
  * @param {SetField(StringField)} applyVsTrait Apply this effect to the item if the target has one of these traits.
  */
 export class TorgActiveEffectData extends foundry.abstract.TypeDataModel {
+  // Foundry 14 - change base class to foundry.data.ActiveEffectTypeDataModel
 
   static LOCALIZATION_PREFIXES = ["torgeternity.activeEffect"];
 
   static defineSchema() {
     return {
+      // ...foundry.data.ActiveEffectTypeDataModel.defineSchema(),    // Foundry 14+
       transferOnAttack: new fields.BooleanField({ initial: false, }),
       transferOnOutcome: new fields.NumberField({
         choices: CONFIG.torgeternity.testOutcomeLabel,
