@@ -9,7 +9,7 @@
 - Add option for player to "return" a card to its original card (e.g. if the player drew a card from the wrong deck) by holding SHIFT while pressing the "Discard" button.
 
 ### TRANSLATIONS
-- cardTypes.dramaActive (same as cardTypes.activeDrama)
+- chatText.notSufficientAmmo (reworded)
 - cardTypes.cosmDeck
 - cardTypes.destinyDeck
 - cardTypes.dramaDeck
