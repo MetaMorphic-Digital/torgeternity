@@ -3,7 +3,8 @@
 ## NEXT
 
 - Reword message when insufficient ammunition (not just bullets) is available based on number of targets or selected burst.
-- Set default height of SK sheet to 768, to match the minimum height expected by Foundry.
+- Set **default height** of SK sheet to 768, to match the minimum height expected by Foundry.
+- Add icon (with tooltip) to each deck in the **Cards Directory** (right sidebar) indicating those decks which have been configured in the Default Card Deck Configuration window.
 
 TRANSLATIONS: required
 

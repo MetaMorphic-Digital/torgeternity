@@ -64,12 +64,16 @@
     },
     "cardTypes": {
       "activeDrama": "Active Drama Card",
+      "dramaActive": "Active Drama Card",
       "cosm": "Cosm",
+      "cosmDeck": "Cosm Deck",
       "cosmDiscard": "Cosm Discard Pile",
       "destiny": "Destiny",
+      "destinyDeck": "Destiny Deck",
       "destinyDiscard": "Destiny Discard Pile",
       "discardPile": "Discard Pile",
       "drama": "Drama",
+      "dramaDeck": "Drama Deck",
       "dramaDiscard": "Drama Discard Pile",
       "hand": "Hand"
     },
