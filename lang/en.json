@@ -326,7 +326,6 @@
       "playerPassTitle": "Pass to Player",
       "playerPassTo": "Pass To",
       "return": "Returns all cards to their deck(s). Does NOT automatically reshuffle the deck(s).",
-      "returnCard": "Return card to its deck",
       "selectCosmDeck": "Select Cosm Deck",
       "showDeckOfCard": "Click to open Deck",
       "showToPlayers": "Show to All players"

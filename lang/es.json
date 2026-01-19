@@ -70,12 +70,16 @@
     },
     "cardTypes": {
       "activeDrama": "Carta de Drama activa",
+      "dramaActive": "Carta de Drama activa",
       "cosm": "Cosmos",
+      "cosmDeck": "Cosm Deck",
       "cosmDiscard": "Pila de descartes de Cosmos",
       "destiny": "Destino",
+      "destinyDeck": "Destiny Deck",
       "destinyDiscard": "Pila de descartes de Destino",
       "discardPile": "Pila de descartes",
       "drama": "Drama",
+      "dramaDeck": "Drama Deck",
       "dramaDiscard": "Pila de descartes de Drama",
       "hand": "Mano"
     },
@@ -317,7 +321,7 @@
       "cardPooled": "Reserva",
       "cosmDeckDialogLabel": "Roba",
       "cosmDialogTitle": "Roba Carta de Cosmos",
-      "discards": "Descartar",
+      "discardCard": "Descartar (hold SHIFT to return to original Deck)",
       "drawCosm": "Roba Cosmos",
       "drawDestiny": "Roba Destino",
       "lifelike": "Visor Mejorado",
@@ -329,6 +333,7 @@
       "playerPassTo": "Intercambiar con",
       "return": "Devuelve todas las cartas a sus mazos. NO baraja automáticamente los mazos.",
       "selectCosmDeck": "Escoge Mazo de Cosmos",
+      "showDeckOfCard": "Click to open Deck",
       "showToPlayers": "Mostrar carta a todos"
     },
     "dialogWindow": {

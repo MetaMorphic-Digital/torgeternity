@@ -70,12 +70,16 @@
     },
     "cardTypes": {
       "activeDrama": "Carte d'Action active",
+      "dramaActive": "Carte d'Action active",
       "cosm": "Cosm",
+      "cosmDeck": "Cosm Deck",
       "cosmDiscard": "Défausse Cartes de Cosm",
       "destiny": "Destin",
+      "destinyDeck": "Destiny Deck",
       "destinyDiscard": "Défausse Cartes de Destin",
       "discardPile": "défausse",
       "drama": "Action",
+      "dramaDeck": "Drama Deck",
       "dramaDiscard": "Défausse Cartes d'Action",
       "hand": "Main"
     },
@@ -317,7 +321,7 @@
       "cardPooled": "Réserve d'action",
       "cosmDeckDialogLabel": "Piocher",
       "cosmDialogTitle": "Piocher une carte de Cosm",
-      "discardCard": "Défaussez",
+      "discardCard": "Défaussez (hold SHIFT to return to original Deck)",
       "drawCosm": "Piocher une carte de Cosm",
       "drawDestiny": "Piocher une carte de Destin",
       "lifelike": "Affichage en éventail",
@@ -329,6 +333,7 @@
       "playerPassTo": "Donner à",
       "return": "Renvoie toutes les cartes dans leur pioche d'origine. Ne remélange PAS automatiquement la pioche.",
       "selectCosmDeck": "Sélectionner le cosm",
+      "showDeckOfCard": "Click to open Deck",
       "showToPlayers": "Montrer à tous les joueurs"
     },
     "dialogWindow": {

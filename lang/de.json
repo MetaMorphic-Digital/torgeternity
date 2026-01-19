@@ -70,12 +70,16 @@
     },
     "cardTypes": {
       "activeDrama": "Aktive Dramakarte",
+      "dramaActive": "Aktive Dramakarte",
       "cosm": "Cosm",
+      "cosmDeck": "Cosm Deck",
       "cosmDiscard": "Ablagestapel Cosmkarten",
       "destiny": "Schicksal",
+      "destinyDeck": "Destiny Deck",
       "destinyDiscard": "Ablagestapel Schicksalskarten",
       "discardPile": "Kartenfriedhof",
       "drama": "Drama",
+      "dramaDeck": "Drama Deck",
       "dramaDiscard": "Ablagestapel Dramakarten",
       "hand": "Handkarten"
     },
@@ -317,7 +321,7 @@
       "cardPooled": "Im Aktionenpool?",
       "cosmDeckDialogLabel": "Ziehe",
       "cosmDialogTitle": "Ziehe Cosm-Karte",
-      "discardCard": "Wegwerfen",
+      "discardCard": "Wegwerfen (hold SHIFT to return to original Deck)",
       "drawCosm": "Cosm-Karte ziehen",
       "drawDestiny": "Schicksalskarte ziehen",
       "lifelike": "realitätsnahe Darstellung",
@@ -329,6 +333,7 @@
       "playerPassTo": "Weitergeben an",
       "return": "Legt alle Karten in ihre(n) Stapel zurück. Mischt die Kartenstapel NICHT automatisch neu.",
       "selectCosmDeck": "Wähle Cosm-Deck",
+      "showDeckOfCard": "Click to open Deck",
       "showToPlayers": "Karte allen Spielern zeigen"
     },
     "dialogWindow": {
