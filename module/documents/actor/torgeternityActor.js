@@ -33,6 +33,8 @@ export default class TorgeternityActor extends foundry.documents.Actor {
    * @inheritdoc
    */
   prepareBaseData() {
+    if (game.release.generation >= 14) super.prepareBaseData();  // Foundry 14+
+
     // Here Effects are not yet applied
     if (this.type !== 'vehicle') {
       // initialize the worn armor and shield bonus
