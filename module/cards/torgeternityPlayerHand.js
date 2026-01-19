@@ -18,6 +18,7 @@ export default class torgeternityPlayerHand extends foundry.applications.sheets.
     },
     actions: {
       controlCard: torgeternityPlayerHand.#onControlCard,
+      openDeck: torgeternityPlayerHand.#onOpenDeck,
       focusCard: torgeternityPlayerHand.#onFocusCard,
       drawCosm: torgeternityPlayerHand.#onDrawCosm,
       drawDestiny: torgeternityPlayerHand.#onDrawDestiny,
@@ -197,6 +198,10 @@ export default class torgeternityPlayerHand extends foundry.applications.sheets.
         break;
       case 'discard':
         {
+          if (_event.shiftKey) {
+            card.recall();
+            break;
+          }
           await card.update({ "system.pooled": false });
           const settings = game.settings.get('torgeternity', 'deckSetting');
           const discardPile = game.cards.get((card.type === 'destiny') ? settings.destinyDiscard : settings.cosmDiscard);
@@ -234,6 +239,12 @@ export default class torgeternityPlayerHand extends foundry.applications.sheets.
 
   static #onDrawDestiny() {
     return this.document.drawDestiny();
+  }
+
+  static #onOpenDeck(event, button) {
+    const card = this.document.cards.get(button.closest("li[data-card-id]")?.dataset.cardId);
+    console.log('open deck for', card)
+    card?.source.sheet.render({ force: true })
   }
   /**
  *

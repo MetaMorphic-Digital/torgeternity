@@ -5,8 +5,16 @@
 - Reword message when insufficient ammunition (not just bullets) is available based on number of targets or selected burst.
 - Set **default height** of SK sheet to 768, to match the minimum height expected by Foundry.
 - Add icon (with tooltip) to each deck in the **Cards Directory** (right sidebar) indicating those decks which have been configured in the Default Card Deck Configuration window.
+- Allow GM to click in the "Type" column of a Player Hand to open the deck from which that card came.
+- Add option for player to "return" a card to its original card (e.g. if the player drew a card from the wrong deck) by holding SHIFT while pressing the "Discard" button.
 
-TRANSLATIONS: required
+### TRANSLATIONS
+- cardTypes.dramaActive (same as cardTypes.activeDrama)
+- cardTypes.cosmDeck
+- cardTypes.destinyDeck
+- cardTypes.dramaDeck
+- dialogPrompts.showDeckOfCard
+- dialogPrompts.discardCard (added comment about SHIFT to return to original deck)
 
 ## 13.16.3
 

@@ -315,7 +315,7 @@
       "cardPooled": "In Pool?",
       "cosmDeckDialogLabel": "Draw",
       "cosmDialogTitle": "Draw Cosm Card",
-      "discardCard": "Discard",
+      "discardCard": "Discard (hold SHIFT to return to original Deck)",
       "drawCosm": "Draw Cosm",
       "drawDestiny": "Draw Destiny",
       "lifelike": "Enhanced Display",
@@ -326,7 +326,9 @@
       "playerPassTitle": "Pass to Player",
       "playerPassTo": "Pass To",
       "return": "Returns all cards to their deck(s). Does NOT automatically reshuffle the deck(s).",
+      "returnCard": "Return card to its deck",
       "selectCosmDeck": "Select Cosm Deck",
+      "showDeckOfCard": "Click to open Deck",
       "showToPlayers": "Show to All players"
     },
     "dialogWindow": {
