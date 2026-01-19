@@ -8,6 +8,7 @@
 - Allow GM to click in the "Type" column of a Player Hand to **open the deck** from which that card came.
 - Add option for player to **return a card** to its original card (e.g. if the player drew a card from the wrong deck) by holding SHIFT while pressing the "Discard" button.
 - Add macro **Shuffle & Deal Destiny at Start of Scene** to recall all destiny cards, shuffle the destiny deck, and then deal 4 cards to the default actor for each online player.
+- Update Active Effects to also support Foundry 14 (14.353, Prototype 3)
 
 ### TRANSLATIONS
 - chatText.notSufficientAmmo (reworded)
