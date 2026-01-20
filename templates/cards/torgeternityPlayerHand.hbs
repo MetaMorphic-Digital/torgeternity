@@ -10,7 +10,7 @@
         <i class="fas fa-sort fa-fw"></i>
       </a>
       <strong class="card-name">{{localize "CARD.FIELDS.face.label"}}</strong>
-      <span class="card-type">{{localize "CARDS.FIELDS.type.label"}}</span>
+      <span class="card-type">{{localize "DOCUMENT.FIELDS.type.label"}}</span>
       <strong class="card-pooled">{{localize "torgeternity.dialogPrompts.cardPooled"}}</strong>
       <div class="torg-card-controls controls">
         Actions
@@ -35,7 +35,9 @@
           </span>
           <strong class="card-name">{{card.name}}</strong>
           <!-- {{#if card.showFace}} -->
-          <span class="card-type">{{card.typeLoc}}</span>
+          <span class="card-type" {{#if @root.user.isGM}}data-action="openDeck"
+            data-tooltip="torgeternity.dialogPrompts.showDeckOfCard"
+            {{/if}}>{{card.typeLoc}}</span>
           {{#if (eq card.type "destiny")}}
             <span class="card-pooled">
               <input name="data.system.pooled" class="toggle" data-action="poolToggle"

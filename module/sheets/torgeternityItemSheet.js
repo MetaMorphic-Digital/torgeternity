@@ -405,7 +405,7 @@ export async function reloadAmmo(actor, weapon, ammoItem, ignoreUsage) {
     const ammoArray = actor.items.filter(item => item.type === 'ammunition');
     if (ammoArray.length === 0) {
       return ChatMessage.create({
-        content: `${game.i18n.localize('torgeternity.chatText.noAmmoPosessing')}`,
+        content: `${game.i18n.localize('torgeternity.chatText.noSpareAmmo')}`,
         speaker,
       });
     }

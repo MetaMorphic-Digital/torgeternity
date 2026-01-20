@@ -10,20 +10,25 @@ const fields = foundry.data.fields;
  * @param {SetField(StringField)} applyIfTrait Apply this effect to the item if the owning actor has one of these traits.
  * @param {SetField(StringField)} applyVsTrait Apply this effect to the item if the target has one of these traits.
  */
-export class TorgActiveEffectData extends foundry.abstract.TypeDataModel {
+export class TorgActiveEffectData extends (foundry.data.ActiveEffectTypeDataModel ?? foundry.abstract.TypeDataModel) {
+  // Foundry 14 - change base class to foundry.data.ActiveEffectTypeDataModel
 
   static LOCALIZATION_PREFIXES = ["torgeternity.activeEffect"];
 
   static defineSchema() {
-    return {
-      transferOnAttack: new fields.BooleanField({ initial: false, }),
-      transferOnOutcome: new fields.NumberField({
-        choices: CONFIG.torgeternity.testOutcomeLabel,
-        integer: true,
-        nullable: true,
-      }),
-      applyIfAttackTrait: newTraitsField(),
-      applyIfDefendTrait: newTraitsField(),
-    }
+    const schema = (game.release.generation >= 14) ? foundry.data.ActiveEffectTypeDataModel.defineSchema() : {};
+    Object.assign(schema,
+      {
+        // ...foundry.data.ActiveEffectTypeDataModel.defineSchema(),    // Foundry 14+
+        transferOnAttack: new fields.BooleanField({ initial: false, }),
+        transferOnOutcome: new fields.NumberField({
+          choices: CONFIG.torgeternity.testOutcomeLabel,
+          integer: true,
+          nullable: true,
+        }),
+        applyIfAttackTrait: newTraitsField(),
+        applyIfDefendTrait: newTraitsField(),
+      })
+    return schema;
   }
 }

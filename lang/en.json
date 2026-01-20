@@ -64,12 +64,16 @@
     },
     "cardTypes": {
       "activeDrama": "Active Drama Card",
+      "dramaActive": "Active Drama Card",
       "cosm": "Cosm",
+      "cosmDeck": "Cosm Deck",
       "cosmDiscard": "Cosm Discard Pile",
       "destiny": "Destiny",
+      "destinyDeck": "Destiny Deck",
       "destinyDiscard": "Destiny Discard Pile",
       "discardPile": "Discard Pile",
       "drama": "Drama",
+      "dramaDeck": "Drama Deck",
       "dramaDiscard": "Drama Discard Pile",
       "hand": "Hand"
     },
@@ -173,7 +177,7 @@
       "notPermittedDSR": "Next DSR step {step} not permitted by Drama Card",
       "modifiers": "Modifiers",
       "noAmmo": "Failed to fire your weapon, no bullets left.",
-      "noAmmoPosessing": "You do not have any ammunitions in your inventory. Failed to proceed.",
+      "noSpareAmmo": "You do not have any ammunitions in your inventory. Failed to proceed.",
       "notSufficientAmmo": "You do not have sufficent ammunition in your weapon for the numbers of targets and chosen burst, this test cannot be performed.",
       "reloaded": "You have reloaded your weapon {a}.",
       "ammoLabel": "Bullets left",
@@ -311,7 +315,7 @@
       "cardPooled": "In Pool?",
       "cosmDeckDialogLabel": "Draw",
       "cosmDialogTitle": "Draw Cosm Card",
-      "discardCard": "Discard",
+      "discardCard": "Discard (hold SHIFT to return to original Deck)",
       "drawCosm": "Draw Cosm",
       "drawDestiny": "Draw Destiny",
       "lifelike": "Enhanced Display",
@@ -323,6 +327,7 @@
       "playerPassTo": "Pass To",
       "return": "Returns all cards to their deck(s). Does NOT automatically reshuffle the deck(s).",
       "selectCosmDeck": "Select Cosm Deck",
+      "showDeckOfCard": "Click to open Deck",
       "showToPlayers": "Show to All players"
     },
     "dialogWindow": {

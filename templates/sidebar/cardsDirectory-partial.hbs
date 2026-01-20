@@ -1,0 +1,10 @@
+<li class="directory-item entry document {{ @root.documentCls }} flexrow" data-entry-id="{{ id }}">
+  {{#if thumbnail}}
+    <img class="thumbnail" src="{{ thumbnail }}" alt="{{ name }}" loading="lazy">
+  {{/if}}
+  <a class="entry-name ellipsis" data-action="activateEntry">{{ name }}</a>
+  {{#if (lookup @root.usedDecks id)}}<a class="flex0 fa-solid fa-gamepad"
+      data-tooltip="{{lookup @root.usedDecks id}}"></a>{{/if}}
+  {{#if (lookup @root.playerDecks id)}}<a class="flex0 fa-solid fa-person"
+      data-tooltip="{{lookup @root.playerDecks id}}""></a>{{/if}}
+</li>

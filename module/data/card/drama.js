@@ -30,18 +30,4 @@ export class DramaCardData extends foundry.abstract.TypeDataModel {
       villainsConditionsStandard: DramaCardData.conditionField('villainsConflict'),
     };
   }
-
-  /**
-   * @inheritdoc
-   */
-  prepareBaseData() {
-    super.prepareBaseData();
-  }
-
-  /**
-   * @inheritdoc
-   */
-  prepareDerivedData() {
-    super.prepareDerivedData();
-  }
 }

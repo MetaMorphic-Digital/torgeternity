@@ -22,6 +22,7 @@ import torgeternityPlayerHand from './cards/torgeternityPlayerHand.js';
 import torgeternityPile from './cards/torgeternityPile.js';
 import torgeternityDeck from './cards/torgeternityDeck.js';
 import torgeternityCardConfig from './cards/torgeternityCardConfig.js';
+import { torgeternityCardsDirectory } from './cards/torgeternityCardsDirectory.js';
 import { torgeternityCard } from './cards/torgeternityCard.js';
 import { torgeternityCards } from './cards/torgeternityCards.js';
 import { TestDialog } from './test-dialog.js';
@@ -109,6 +110,7 @@ Hooks.once('init', async function () {
     makeDefault: true,
   });
   CONFIG.ui.nav = torgeternityNav;
+  CONFIG.ui.cards = torgeternityCardsDirectory;
 
   // ---custom user class
   // Player list disabled for now
