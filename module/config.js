@@ -672,4 +672,9 @@ export function initConfig() {
     customAttack: { ...torgeternity.meleeWeaponTraits, ...torgeternity.rangedWeaponTraits }
   }
 
+  // animation time period for transitioning to dim light or Dark.
+  torgeternity.toDimLightAnimationMS = 3000;
+  torgeternity.toDarkAnimationMS = 3000;
+  // How long to wait between calls to darknessDebounce before processing it
+  torgeternity.darknessDebounceMS = 100;
 }

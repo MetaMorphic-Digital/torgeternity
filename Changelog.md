@@ -4,6 +4,10 @@
 
 - Prevent error from automatic darkness calculation when an Actor has two or more linked tokens on the same scene.
   - The game system will now use one of the tokens consistently to determine the darkness level appropriate for the Actor (usually the first token dragged onto the canvas, but not guaranteed [actually the first token returned by `Actor.getActiveTokens()`]).
+- Add CONFIG flags to make customisation easier:
+  - `CONFIG.torgeternity.toDimLightAnimationMS` - time to transition to Dim Light.
+  - `CONFIG.torgeternity.toDarkAnimationMS` - time to transition to Dark (light level).
+  - `CONFIG.torgeternity.darknessDebounceMS` - time after final token movement before Automatic Darkness Calculation is performed.
 
 ## 13.17.0
 

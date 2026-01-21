@@ -136,7 +136,7 @@ Hooks.on('getSceneControlButtons', controls => {
     visible: !canvas.scene?.environment.darknessLock,
     onChange: () => canvas.scene.update(
       { environment: { darknessLevel: canvas.scene.flags.torgeternity.dimLightThreshold } },
-      { animateDarkness: 3000 /*ms*/ }
+      { animateDarkness: CONFIG.torgeternity.toDimLightAnimationMS }
     ),
     button: true,
   };
@@ -148,7 +148,7 @@ Hooks.on('getSceneControlButtons', controls => {
     visible: !canvas.scene?.environment.darknessLock,
     onChange: () => canvas.scene.update(
       { environment: { darknessLevel: canvas.scene.flags.torgeternity.darkThreshold } },
-      { animateDarkness: 3000 /*ms*/ }
+      { animateDarkness: CONFIG.torgeternity.toDarkAnimationMS }
     ),
     button: true,
   };

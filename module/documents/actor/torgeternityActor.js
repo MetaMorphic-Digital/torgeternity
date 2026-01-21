@@ -785,7 +785,7 @@ export default class TorgeternityActor extends foundry.documents.Actor {
       //console.log(`${this.name}: enabling status '${darkness}'`)
       await this.toggleStatusEffect(darkness);
     }
-  }, 100)  // Wait until not called for 100ms before finally handling the token
+  }, CONFIG.torgeternity.darknessDebounceMS)  // Wait until not called for these MS before finally handling the token
 
   static migrateData(source) {
     if (source.type === 'vehicle' && typeof source.system?.operator?.name === 'string') {
