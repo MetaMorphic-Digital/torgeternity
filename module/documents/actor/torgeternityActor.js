@@ -762,6 +762,31 @@ export default class TorgeternityActor extends foundry.documents.Actor {
     }]);
   }
 
+  /**
+   * When the debounce has finished, update the darkness state of the first token on the given scene.
+   * @param {*} token 
+   */
+  debounceDarkness = foundry.utils.debounce(async scene => {
+    if (!scene.tokenVision || !game.user.isActiveGM) return;
+
+    const tokens = this.getActiveTokens();
+    if (!tokens) return;
+
+    const darkness = scene.getTokenDarknessPenalty(tokens[0]);
+    //console.log(`${this.name}: new darkness state = ${darkness}`)
+
+    for (const status of Object.keys(CONFIG.torgeternity.darknessModifiers)) {
+      if (this.statuses.has(status) && status !== darkness) {
+        //console.log(`${this.name}: disabling status '${status}'`)
+        await this.toggleStatusEffect(status);
+      }
+    }
+    if (darkness && !this.statuses.has(darkness)) {
+      //console.log(`${this.name}: enabling status '${darkness}'`)
+      await this.toggleStatusEffect(darkness);
+    }
+  }, 100)  // Wait until not called for 100ms before finally handling the token
+
   static migrateData(source) {
     if (source.type === 'vehicle' && typeof source.system?.operator?.name === 'string') {
       if (source.system.operator.name)

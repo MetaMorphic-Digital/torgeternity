@@ -1,5 +1,10 @@
 # TORG Eternity Changelog
 
+## NEXT
+
+- Prevent error from automatic darkness calculation when an Actor has two or more linked tokens on the same scene.
+  - The game system will now use one of the tokens consistently to determine the darkness level appropriate for the Actor (usually the first token dragged onto the canvas, but not guaranteed [actually the first token returned by `Actor.getActiveTokens()`]).
+
 ## 13.17.0
 
 - Reword message when **insufficient ammunition** (not just bullets) is available based on number of targets or selected burst.
