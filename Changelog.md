@@ -1,6 +1,6 @@
 # TORG Eternity Changelog
 
-## NEXT
+## NEXT - Darkness, Armor/Defense, Cosm Possibilities
 
 - Prevent error from automatic darkness calculation when an Actor has two or more linked tokens on the same scene.
   - The game system will now use one of the tokens consistently to determine the darkness level appropriate for the Actor (usually the first token dragged onto the canvas, but not guaranteed [actually the first token returned by `Actor.getActiveTokens()`]).
@@ -18,6 +18,8 @@
 
 ### Translations
 
+- torgeternity.chatText.possibilityChoiceCosm
+- torgeternity.chatText.possibilityChoiceStandard
 - torgeternity.chatText.possibilityChoiceTitle
 - torgeternity.chatText.possibilityNoMin10
 - torgeternity.chatText.possibilityTooltip (add para about CTRL to popup dialog)

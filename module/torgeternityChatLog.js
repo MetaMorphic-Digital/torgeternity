@@ -105,7 +105,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
         },
         {
           action: "cancel",
-          label: "torgeternity.chatText.possibilityChoiceBase",
+          label: "torgeternity.chatText.possibilityChoiceStandard",
           //icon: "fa-solid fa-check",
           callback: (event, button, dialog) => null
         },
