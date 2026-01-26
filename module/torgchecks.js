@@ -1172,7 +1172,7 @@ function getExtraProtection(attackerTraits, targetDefenses, protection) {
       const deftrait = atktrait.slice(0, -6) + protection;
       // TODO - where do we get the actual number from?
       if (Object.hasOwn(targetDefenses, deftrait)) {
-        console.log(`EXTRA DEFENSE: ${deftrait} vs ${atktrait}`)
+        if (CONFIG.debug.torgtest) console.debug(`EXTRA DEFENSE: ${deftrait} vs ${atktrait}`)
         result += targetDefenses[deftrait] ?? 0;
       }
     }
