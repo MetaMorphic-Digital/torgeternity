@@ -335,6 +335,8 @@ export function oneTestTarget(token, applySize) {
     }
   }
 
+  const damageDefenses = Object.entries(actor.defenses.damageTraits).filter(([_key, value]) => value).reduce((acc, [key, value]) => (acc[key] = value, acc), {})
+
   // Set vehicle defense if needed
   if (actor.type === 'vehicle') {
     return {
@@ -349,6 +351,7 @@ export function oneTestTarget(token, applySize) {
       armorTraits: [],
       // then vehicle specifics
       defenses: {
+        ...damageDefenses,
         vehicle: actor.system.defense,
         dodge: actor.system.defense,
         unarmedCombat: actor.system.defense,
@@ -380,6 +383,7 @@ export function oneTestTarget(token, applySize) {
       darknessModifier: actor.statusModifiers.darkness,
       isConcentrating: actor.isConcentrating,
       defenses: {
+        ...damageDefenses,
         dodge: actor.defenses.dodge.value,
         unarmedCombat: actor.defenses.unarmedCombat.value,
         meleeWeapons: actor.defenses.meleeWeapons.value,

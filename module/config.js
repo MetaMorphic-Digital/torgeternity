@@ -567,17 +567,7 @@ export function initConfig() {
     'fullBody': 'torgeternity.traits.fullBody',
     'torso': 'torgeternity.traits.torso',
     'head': 'torgeternity.traits.head',
-    'energyArmor': 'torgeternity.traits.energyArmor',
-    'fireArmor': 'torgeternity.traits.fireArmor',
-    'forceArmor': 'torgeternity.traits.forceArmor',
-    'iceArmor': 'torgeternity.traits.iceArmor',
-    'lightningArmor': 'torgeternity.traits.lightningArmor',
     'painful': 'torgeternity.traits.painful',
-    'energyDefense': 'torgeternity.traits.energyDefense',
-    'fireDefense': 'torgeternity.traits.fireDefense',
-    'forceDefense': 'torgeternity.traits.forceDefense',
-    'iceDefense': 'torgeternity.traits.iceDefense',
-    'lightningDefense': 'torgeternity.traits.lightningDefense',
     'ignoreShock': 'torgeternity.traits.ignoreShock',
     'ignoreWounds': 'torgeternity.traits.ignoreWounds',
     'supernaturalEvil': 'torgeternity.traits.supernaturalEvil'
@@ -672,4 +662,9 @@ export function initConfig() {
     customAttack: { ...torgeternity.meleeWeaponTraits, ...torgeternity.rangedWeaponTraits }
   }
 
+  // animation time period for transitioning to dim light or Dark.
+  torgeternity.toDimLightAnimationMS = 3000;
+  torgeternity.toDarkAnimationMS = 3000;
+  // How long to wait between calls to darknessDebounce before processing it
+  torgeternity.darknessDebounceMS = 100;
 }

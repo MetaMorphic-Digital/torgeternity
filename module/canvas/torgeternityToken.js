@@ -5,12 +5,6 @@ export default class TorgEternityToken extends foundry.canvas.placeables.Token {
   static #originToken;
   static #hoverToken;
   static #label;
-  #debounceDarkness;
-
-  constructor(document) {
-    super(document);
-    this.#debounceDarkness = foundry.utils.debounce(this.updateDarknessStatus.bind(this), 100);
-  }
 
   _refreshVisibility() {
     super._refreshVisibility();
@@ -20,25 +14,8 @@ export default class TorgEternityToken extends foundry.canvas.placeables.Token {
     if (this.isDragged || this.isPreview || !game.user.isActiveGM) return;
 
     //console.log(`_refreshVisibility ${this.name}`)
-    this.#debounceDarkness();
-  }
-
-  async updateDarknessStatus() {
-    const actor = this.actor;
-    if (!this.actor || !this.scene?.tokenVision) return;
-    const darkness = this.scene.getTokenDarknessPenalty(this);
-    //console.log(`${this.name}: new darkness state = ${darkness}`)
-
-    for (const status of Object.keys(CONFIG.torgeternity.darknessModifiers)) {
-      if (actor.statuses.has(status) && status !== darkness) {
-        //console.log(`${this.name}: disabling status '${status}'`)
-        await actor.toggleStatusEffect(status);
-      }
-    }
-    if (darkness && !actor.statuses.has(darkness)) {
-      //console.log(`${this.name}: enabling status '${darkness}'`)
-      await actor.toggleStatusEffect(darkness);
-    }
+    // `this.actor` is null during world startup.
+    this.actor?.debounceDarkness(this.scene);
   }
 
   _onHoverIn(event, options) {

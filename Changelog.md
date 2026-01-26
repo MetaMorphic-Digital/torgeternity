@@ -1,5 +1,26 @@
 # TORG Eternity Changelog
 
+## 13.8.0 - Darkness, Armor/Defense, Cosm Possibilities
+
+- Prevent error from automatic darkness calculation when an Actor has two or more linked tokens on the same scene.
+  - The game system will now use one of the tokens consistently to determine the darkness level appropriate for the Actor (usually the first token dragged onto the canvas, but not guaranteed [actually the first token returned by `Actor.getActiveTokens()`]).
+- Add CONFIG flags to make customisation easier:
+  - `CONFIG.torgeternity.toDimLightAnimationMS` - time to transition to Dim Light.
+  - `CONFIG.torgeternity.toDarkAnimationMS` - time to transition to Dark (light level).
+  - `CONFIG.torgeternity.darknessDebounceMS` - time after final token movement before Automatic Darkness Calculation is performed.
+- Add support for extra Armor or Protection vs Energy/Fire/Force/Ice/Lightning:
+  - The "Armor vs X" and "Defense vs X" item traits have been removed.
+  - add the following modifiers via Active Effects (with `Apply Effect to Actor`), each with a numeric value that modifiers the armor/defense:
+    - `defenses.damageTraits.lightningArmor` adds to the Armor vs a weapon with the `lightningDamage` trait
+    - `defenses.damageTraits.lightningDefense` adds to the Defense vs a weapon with the `lightningDamage` trait
+    - (substitute any of the damage types in the above examples)
+- When spending a Possibilty to modify a check result, allow CTRL to be pressed to popup a dialog to allow spending of possibilities from other cosms.
+  - The cosm name will be added to the "Possibility Spent" note in the updated chat message.
+  - Only the cosms of which the SK has at least one possibility will be presented. If the SK has no cosm-specific possibilities, then a standard possibility will be used without prompting for a cosm.
+  - Cancelling the dialog (or pressing the 'Standard' button) will spend a standard possibility.
+
+- Translations by Durak (French), Helmut (German), and Teotimus (Spanish).
+
 ## 13.17.0
 
 - Reword message when **insufficient ammunition** (not just bullets) is available based on number of targets or selected burst.

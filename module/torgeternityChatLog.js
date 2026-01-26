@@ -71,20 +71,73 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     return renderSkillChat(test);
   }
 
+  async chooseCosm(actor) {
+    const cosmposs = actor.flags?.torgeternity?.possibilityByCosm;
+    if (!cosmposs) return null;
+
+    let content = '';
+    let checked = true;
+    for (const key of Object.keys(cosmposs)) {
+      if (key === "coreEarthPoss" || !cosmposs[key]) continue;
+      const label = game.i18n.localize(`torgeternity.cosms.${key.slice(0, -4)}`);
+      content += `<p><label><input type="radio" name="choice" value="${key}" ${checked && "checked"}>${label} (${cosmposs[key]})</label>`;
+      checked = false;
+    }
+    if (!content) return null;
+
+    // Maybe no minimum 10?
+    content += `<hr><p><label><input type="checkbox" name="noMin10">${game.i18n.localize('torgeternity.chatText.possibilityNoMin10')}</label>`
+
+    return await foundry.applications.api.DialogV2.wait({
+      window: { title: "torgeternity.chatText.possibilityChoiceTitle" },
+      position: { width: "auto" },
+      classes: ["torgeternity"],
+      content: content,
+      buttons: [
+        {
+          action: "ok",
+          label: "torgeternity.chatText.possibilityChoiceCosm",
+          icon: "fa-solid fa-check",
+          default: true,
+          callback: (event, button, dialog) => {
+            return { cosmId: button.form.elements.choice.value, noMin10: button.form.elements.noMin10.checked }
+          }
+        },
+        {
+          action: "cancel",
+          label: "torgeternity.chatText.possibilityChoiceStandard",
+          //icon: "fa-solid fa-check",
+          callback: (event, button, dialog) => null
+        },
+      ]
+    })
+  }
+
   static async #onPossibility(event, button) {
     event.preventDefault();
-    const noMin10 = event.shiftKey;
+    let noMin10 = event.shiftKey;
     const { chatMessageId, chatMessage, test } = getMessage(button);
     if (!chatMessage.isAuthor && !game.user.isGM) {
       return;
     }
     // check for actor possibility
     // If vehicle roll, search for a character from the user (operator or gunner)
-    const possOwner = test.actorType === 'vehicle' ? TorgeternityActor.getControlledActor()?.uuid : test.actor;
+    const possOwner = test.actorType === 'vehicle' ? TorgeternityActor.getControlledActor() : fromUuidSync(test.actor);
     let possPool;
+    let possCosm;
+    let possProperty;
     // If no valid possOwner, take possibilities from the GM
     if (possOwner) {
-      possPool = parseInt(fromUuidSync(possOwner).system.other.possibilities);
+      // Prompt for which possibilities to use
+      possCosm = event.ctrlKey && await this.chooseCosm(possOwner);
+      if (possCosm) {
+        console.log(possCosm);
+        possProperty = `flags.torgeternity.possibilityByCosm.${possCosm.cosmId}`;
+        noMin10 = possCosm.noMin10;
+      } else
+        possProperty = "system.other.possibilities";
+
+      possPool = parseInt(foundry.utils.getProperty(possOwner, possProperty));
     } else {
       possPool = game.user.isGM ? parseInt(game.user.flags.torgeternity.GMpossibilities) : 0;
     }
@@ -113,7 +166,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
       test.chatNote += game.i18n.localize('torgeternity.sheetLabels.freePoss');
     }
     if (possOwner) {
-      await fromUuidSync(possOwner).update({ 'system.other.possibilities': possPool - 1 });
+      await possOwner.update({ [possProperty]: possPool - 1 });
     } else {
       game.user.isGM ? game.user.setFlag('torgeternity', 'GMpossibilities', possPool - 1) : {};
     }
@@ -154,7 +207,9 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     }
     test.diceroll = diceroll;
 
-    // add chat note "poss spent"
+    // add chat note "poss spent" - include name of COSM here (if not a standard possibility)
+    if (test.chatNote) test.chatNote += ' ';
+    if (possCosm) test.chatNote += game.i18n.localize(`torgeternity.cosms.${possCosm.cosmId.slice(0, -4)}`) + ' ';
     test.chatNote += game.i18n.localize('torgeternity.sheetLabels.possSpent');
     if (noMin10) test.chatNote += game.i18n.localize('torgeternity.sheetLabels.noMin10');
 
@@ -322,6 +377,14 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     return TestDialog.wait(test);
   }
 
+  /**
+   * 
+   * @param {*} event 
+   * @param {*} button 
+   * @returns 
+   * 
+   * @this 
+   */
   static async #applyDamage(event, button) {
     event.preventDefault();
     if (event.shiftKey) return this.#adjustDamage(event);

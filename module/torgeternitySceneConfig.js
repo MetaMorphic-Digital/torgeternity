@@ -1,5 +1,7 @@
 import { torgeternity } from './config.js';
 
+const presentation = foundry.data.ActiveEffectTypeDataModel ? "presentation" : "basics";
+
 /**
  *
  */
@@ -8,7 +10,7 @@ export default class torgeternitySceneConfig extends foundry.applications.sheets
   // Foundry 14: "basics" got renamed to "presentation" (as property and template file and TABS)
   static PARTS = {
     tabs: { template: "templates/generic/tab-navigation.hbs" },
-    basics: { template: "templates/scene/config/basics.hbs" },
+    [presentation]: { template: `templates/scene/config/${presentation}.hbs` },
     cosm: { template: `systems/torgeternity/templates/scenes/scenes-cosm.hbs` },
     grid: { template: "templates/scene/config/grid.hbs" },
     lighting: { template: "systems/torgeternity/templates/scenes/scenes-lighting.hbs", scrollable: [""] },
@@ -19,13 +21,13 @@ export default class torgeternitySceneConfig extends foundry.applications.sheets
   static TABS = {
     sheet: {
       tabs: [
-        { id: "basics", icon: "fa-solid fa-image" },
+        { id: presentation, icon: "fa-solid fa-image" },
         { id: "cosm", icon: "fa-solid fa-globe", label: "torgeternity.sheetLabels.cosm" },
         { id: "grid", icon: "fa-solid fa-grid" },
         { id: "lighting", icon: "fa-solid fa-lightbulb" },
         { id: "ambience", icon: "fa-solid fa-cloud-sun" }
       ],
-      initial: "basics",
+      initial: presentation,
       labelPrefix: "SCENE.TABS.SHEET"
     },
     ambience: {
@@ -134,7 +136,7 @@ Hooks.on('getSceneControlButtons', controls => {
     visible: !canvas.scene?.environment.darknessLock,
     onChange: () => canvas.scene.update(
       { environment: { darknessLevel: canvas.scene.flags.torgeternity.dimLightThreshold } },
-      { animateDarkness: 3000 /*ms*/ }
+      { animateDarkness: CONFIG.torgeternity.toDimLightAnimationMS }
     ),
     button: true,
   };
@@ -146,7 +148,7 @@ Hooks.on('getSceneControlButtons', controls => {
     visible: !canvas.scene?.environment.darknessLock,
     onChange: () => canvas.scene.update(
       { environment: { darknessLevel: canvas.scene.flags.torgeternity.darkThreshold } },
-      { animateDarkness: 3000 /*ms*/ }
+      { animateDarkness: CONFIG.torgeternity.toDarkAnimationMS }
     ),
     button: true,
   };

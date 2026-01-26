@@ -96,7 +96,22 @@ export default class TorgeternityActor extends foundry.documents.Actor {
       darkness: 0,
     };
 
+    this.defenses.damageTraits = {
+      // Armor: addition armor of the defender when damage is of the indicated type
+      energyArmor: 0,
+      fireArmor: 0,
+      forceArmor: 0,
+      iceArmor: 0,
+      lightningArmor: 0,
+      // Defense: increases the Defense skill of the defender when damage is of the indicated type
+      energyDefense: 0,
+      fireDefense: 0,
+      forceDefense: 0,
+      iceDefense: 0,
+      lightningDefense: 0
+    }
   }
+
 
   /**
    * @inheritdoc
@@ -761,6 +776,31 @@ export default class TorgeternityActor extends foundry.documents.Actor {
       disabled: false,
     }]);
   }
+
+  /**
+   * When the debounce has finished, update the darkness state of the first token on the given scene.
+   * @param {*} token 
+   */
+  debounceDarkness = foundry.utils.debounce(async scene => {
+    if (!scene.tokenVision || !game.user.isActiveGM) return;
+
+    const tokens = this.getActiveTokens();
+    if (!tokens) return;
+
+    const darkness = scene.getTokenDarknessPenalty(tokens[0]);
+    //console.log(`${this.name}: new darkness state = ${darkness}`)
+
+    for (const status of Object.keys(CONFIG.torgeternity.darknessModifiers)) {
+      if (this.statuses.has(status) && status !== darkness) {
+        //console.log(`${this.name}: disabling status '${status}'`)
+        await this.toggleStatusEffect(status);
+      }
+    }
+    if (darkness && !this.statuses.has(darkness)) {
+      //console.log(`${this.name}: enabling status '${darkness}'`)
+      await this.toggleStatusEffect(darkness);
+    }
+  }, CONFIG.torgeternity.darknessDebounceMS)  // Wait until not called for these MS before finally handling the token
 
   static migrateData(source) {
     if (source.type === 'vehicle' && typeof source.system?.operator?.name === 'string') {

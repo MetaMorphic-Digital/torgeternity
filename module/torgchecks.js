@@ -528,7 +528,7 @@ export async function renderSkillChat(test) {
         test.targetAdjustedToughness = target.toughness - target.armor;
         // If armor and cover can assist, adjust toughness based on AP effects and cover modifier
         if (test.applyArmor) {
-          const armor = target.armor + getExtraProtection(test.attackTraits, target.defenseTraits, 'Armor', 0);
+          const armor = target.armor + getExtraProtection(test.attackTraits, target.defenses, 'Armor');
           const weaponAP = applyEffects('test.weaponAP', test.weaponAP, effects);
           test.targetAdjustedToughness += Math.max(0, armor - weaponAP) + test.coverModifier;
         }
@@ -906,7 +906,7 @@ function individualDN(test, target) {
   if (typeof test.DNDescriptor === 'string' && test.DNDescriptor.startsWith('target')) {
     let onTarget = test.DNDescriptor.slice(6);
     onTarget = onTarget.at(0).toLowerCase() + onTarget.slice(1);
-    let traitdefense = getExtraProtection(test.attackTraits, target.defenseTraits, 'Defense', 0);
+    let traitdefense = getExtraProtection(test.attackTraits, target.defenses, 'Defense');
     if (onTarget === 'vehicleDefense')
       return target.defenses?.vehicle ?? 0;
     if (Object.hasOwn(target.attributes, onTarget))
@@ -1159,24 +1159,25 @@ function isApprovedAction(test) {
  * For each '*Damage' trait in 'attackTraits' look for a corresponding "*${protection}" in defenseTraits.
  * If found, then return the numeric value for that defensive trait.
  * @param {*} attackerTraits The attack traits of the attacker
- * @param {*} targetTraits The defensive traits of the target
+ * @param {*} targetDefenses The defenses of the target
  * @param {*} protection The type of trait to look for on the target (e.g. 'Armor' , 'Defense')
  * @param {Number} defaultValue The value returned if no matching targetTrait for any attackerTrait
  * @returns {Number} The numeric value of the corresponding targetTrait, or 'defaultValue'
  */
-function getExtraProtection(attackerTraits, targetTraits, protection, defaultValue) {
-  if (!attackerTraits || !targetTraits) return defaultValue;
+function getExtraProtection(attackerTraits, targetDefenses, protection) {
+  if (!attackerTraits) return 0;
+  let result = 0;
   for (const atktrait of attackerTraits) {
     if (atktrait.endsWith('Damage')) {
-      for (const deftrait of targetTraits) {
-        if (deftrait.endsWith(protection) && deftrait.slice(0, -protection.length) === atktrait.slice(0, -6)) {
-          // TODO - where do we get the actual number from?
-          console.log(`Apply TRAIT-specific ${protection}`);
-        }
+      const deftrait = atktrait.slice(0, -6) + protection;
+      // TODO - where do we get the actual number from?
+      if (Object.hasOwn(targetDefenses, deftrait)) {
+        if (CONFIG.debug.torgtest) console.debug(`EXTRA DEFENSE: ${deftrait} vs ${atktrait}`)
+        result += targetDefenses[deftrait] ?? 0;
       }
     }
   }
-  return defaultValue;
+  return result;
 }
 
 /**

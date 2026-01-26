@@ -1,8 +1,13 @@
 <div class="tab scrollable{{#if tab.active}} active{{/if}}" data-group="{{tab.group}}" data-tab="{{tab.id}}">
   {{formGroup fields.tokenVision value=source.tokenVision rootId=rootId}}
   <fieldset>
-    {{formGroup fogFields.exploration value=source.fog.exploration rootId=rootId}}
-    {{formGroup fogFields.overlay value=source.fog.overlay rootId=rootId}}
+    {{#if fogFields.exploration}}
+      {{formGroup fogFields.exploration value=source.fog.exploration rootId=rootId}}
+      {{formGroup fogFields.overlay value=source.fog.overlay rootId=rootId}}
+    {{else}}
+      {{formGroup fogFields.mode value=source.fog.mode choices=fogExplorationModes rootId=rootId}}
+      {{formGroup fog.overlay.field value=fog.overlay.value rootId=rootId localize=true}}
+    {{/if}}
     {{formGroup fogFields.colors.fields.unexplored value=source.fog.colors.unexplored placeholder="#000000" rootId=rootId}}
     {{formGroup fogFields.colors.fields.explored value=source.fog.colors.explored placeholder="#000000" rootId=rootId}}
   </fieldset>
