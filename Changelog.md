@@ -8,6 +8,12 @@
   - `CONFIG.torgeternity.toDimLightAnimationMS` - time to transition to Dim Light.
   - `CONFIG.torgeternity.toDarkAnimationMS` - time to transition to Dark (light level).
   - `CONFIG.torgeternity.darknessDebounceMS` - time after final token movement before Automatic Darkness Calculation is performed.
+- Add support for extra Armor or Protection vs Energy/Fire/Force/Ice/Lightning:
+  - The "Armor vs X" and "Defense vs X" item traits have been removed.
+  - add the following modifiers via Active Effects (with `Apply Effect to Actor`), each with a numeric value that modifiers the armor/defense:
+    - `defenses.damageTraits.lightningArmor` adds to the Armor vs a weapon with the `lightningDamage` trait
+    - `defenses.damageTraits.lightningDefense` adds to the Defense vs a weapon with the `lightningDamage` trait
+    - (substitute any of the damage types in the above examples)
 
 ## 13.17.0
 

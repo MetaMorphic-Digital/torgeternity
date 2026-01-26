@@ -96,7 +96,22 @@ export default class TorgeternityActor extends foundry.documents.Actor {
       darkness: 0,
     };
 
+    this.defenses.damageTraits = {
+      // Armor: addition armor of the defender when damage is of the indicated type
+      energyArmor: 0,
+      fireArmor: 0,
+      forceArmor: 0,
+      iceArmor: 0,
+      lightningArmor: 0,
+      // Defense: increases the Defense skill of the defender when damage is of the indicated type
+      energyDefense: 0,
+      fireDefense: 0,
+      forceDefense: 0,
+      iceDefense: 0,
+      lightningDefense: 0
+    }
   }
+
 
   /**
    * @inheritdoc

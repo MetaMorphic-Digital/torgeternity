@@ -29,7 +29,7 @@ export class BaseItemData extends foundry.abstract.TypeDataModel {
       // Remove invalid traits
       const badTraits = data.traits.filter(t => !Object.hasOwn(CONFIG.torgeternity.allItemTraits, t));
       data.traits = data.traits.filter(t => Object.hasOwn(CONFIG.torgeternity.allItemTraits, t));
-      if (badTraits.length) console.error(`Unsupported traits discarded: ${badTraits}`)
+      if (badTraits.length) console.info(`Unsupported traits discarded: ${badTraits}`)
     }
     return super.migrateData(data);
   }

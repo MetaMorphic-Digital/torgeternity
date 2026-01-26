@@ -1308,17 +1308,7 @@
       "fireDamage": "Dommages de Feu",
       "forceDamage": "Dommages de Force",
       "iceDamage": "Dommages de Froid",
-      "lightningDamage": "Dommages d'Électricité",
-      "energyArmor": "Armure vs Énergie",
-      "fireArmor": "Armure vs Feu",
-      "forceArmor": "Armure vs Force",
-      "iceArmor": "Armure vs Froid",
-      "lightningArmor": "Armure vs Électricité",
-      "energyDefense": "Défense vs Énergie",
-      "fireDefense": "Défense vs Feu",
-      "forceDefense": "Défense vs Force",
-      "iceDefense": "Défense vs Froid",
-      "lightningDefense": "Défense vs Électricité"
+      "lightningDamage": "Dommages d'Électricité"
     },
     "itemPurchase": {
       "free": "Gratuit",

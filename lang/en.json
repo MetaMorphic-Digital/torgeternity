@@ -1302,17 +1302,7 @@
       "fireDamage": "Fire Damage",
       "forceDamage": "Force Damage",
       "iceDamage": "Ice Damage",
-      "lightningDamage": "Lightning Damage",
-      "energyArmor": "Armor vs Energy",
-      "fireArmor": "Armor vs Fire",
-      "forceArmor": "Armor vs Force",
-      "iceArmor": "Armor vs Ice",
-      "lightningArmor": "Armor vs Lightning",
-      "energyDefense": "Defense vs Energy",
-      "fireDefense": "Defense vs Fire",
-      "forceDefense": "Defense vs Force",
-      "iceDefense": "Defense vs Ice",
-      "lightningDefense": "Defense vs Lightning"
+      "lightningDamage": "Lightning Damage"
     },
     "itemPurchase": {
       "free": "No Cost",

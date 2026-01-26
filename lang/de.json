@@ -1308,17 +1308,7 @@
       "fireDamage": "Feuerschaden",
       "forceDamage": "Kraftschaden",
       "iceDamage": "Eisschaden",
-      "lightningDamage": "Blitzschaden",
-      "energyArmor": "Rüstung gegen Energie",
-      "fireArmor": "Rüstung gegen Feuer",
-      "forceArmor": "Rüstung gegen Kraft",
-      "iceArmor": "Rüstung gegen Eis",
-      "lightningArmor": "Rüstung gegen Blitz",
-      "energyDefense": "Verteidigung gegen Energie",
-      "fireDefense": "Verteidigung gegen Feuer",
-      "forceDefense": "Verteidigung gegen Kraft",
-      "iceDefense": "Verteidigung gegen Eis",
-      "lightningDefense": "Verteidigung gegen Blitz"
+      "lightningDamage": "Blitzschaden"
     },
     "itemPurchase": {
       "free": "Keine Kosten",
