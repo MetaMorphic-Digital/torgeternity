@@ -14,6 +14,13 @@
     - `defenses.damageTraits.lightningArmor` adds to the Armor vs a weapon with the `lightningDamage` trait
     - `defenses.damageTraits.lightningDefense` adds to the Defense vs a weapon with the `lightningDamage` trait
     - (substitute any of the damage types in the above examples)
+- When spending a Possibilty to modify a check result, allow CTRL to be pressed to popup a dialog to allow spending of possibilities from other cosms.
+
+### Translations
+
+- torgeternity.chatText.possibilityChoiceTitle
+- torgeternity.chatText.possibilityNoMin10
+- torgeternity.chatText.possibilityTooltip (add para about CTRL to popup dialog)
 
 ## 13.17.0
 
