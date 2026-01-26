@@ -1,6 +1,6 @@
 # TORG Eternity Changelog
 
-## NEXT - Darkness, Armor/Defense, Cosm Possibilities
+## 13.8.0 - Darkness, Armor/Defense, Cosm Possibilities
 
 - Prevent error from automatic darkness calculation when an Actor has two or more linked tokens on the same scene.
   - The game system will now use one of the tokens consistently to determine the darkness level appropriate for the Actor (usually the first token dragged onto the canvas, but not guaranteed [actually the first token returned by `Actor.getActiveTokens()`]).
@@ -15,14 +15,11 @@
     - `defenses.damageTraits.lightningDefense` adds to the Defense vs a weapon with the `lightningDamage` trait
     - (substitute any of the damage types in the above examples)
 - When spending a Possibilty to modify a check result, allow CTRL to be pressed to popup a dialog to allow spending of possibilities from other cosms.
+  - The cosm name will be added to the "Possibility Spent" note in the updated chat message.
+  - Only the cosms of which the SK has at least one possibility will be presented. If the SK has no cosm-specific possibilities, then a standard possibility will be used without prompting for a cosm.
+  - Cancelling the dialog (or pressing the 'Standard' button) will spend a standard possibility.
 
-### Translations
-
-- torgeternity.chatText.possibilityChoiceCosm
-- torgeternity.chatText.possibilityChoiceStandard
-- torgeternity.chatText.possibilityChoiceTitle
-- torgeternity.chatText.possibilityNoMin10
-- torgeternity.chatText.possibilityTooltip (add para about CTRL to popup dialog)
+- Translations by Durak (French), Helmut (German), and Teotimus (Spanish).
 
 ## 13.17.0
 
