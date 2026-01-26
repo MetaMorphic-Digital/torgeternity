@@ -80,7 +80,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     for (const key of Object.keys(cosmposs)) {
       if (key === "coreEarthPoss" || !cosmposs[key]) continue;
       const label = game.i18n.localize(`torgeternity.cosms.${key.slice(0, -4)}`);
-      content += `<p><label><input type="radio" name="choice" value="flags.torgeternity.possibilityByCosm.${key}" ${checked && "checked"}>${label} (${cosmposs[key]})</label>`;
+      content += `<p><label><input type="radio" name="choice" value="${key}" ${checked && "checked"}>${label} (${cosmposs[key]})</label>`;
       checked = false;
     }
     if (!content) return null;
@@ -100,7 +100,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
           icon: "fa-solid fa-check",
           default: true,
           callback: (event, button, dialog) => {
-            return { propertyName: button.form.elements.choice.value, noMin10: button.form.elements.noMin10.checked }
+            return { cosmId: button.form.elements.choice.value, noMin10: button.form.elements.noMin10.checked }
           }
         },
         {
@@ -124,15 +124,16 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     // If vehicle roll, search for a character from the user (operator or gunner)
     const possOwner = test.actorType === 'vehicle' ? TorgeternityActor.getControlledActor() : fromUuidSync(test.actor);
     let possPool;
+    let possCosm;
     let possProperty;
     // If no valid possOwner, take possibilities from the GM
     if (possOwner) {
       // Prompt for which possibilities to use
-      const cosmposs = event.ctrlKey && await this.chooseCosm(possOwner);
-      if (cosmposs) {
-        console.log(cosmposs);
-        possProperty = cosmposs.propertyName;
-        noMin10 = cosmposs.noMin10;
+      possCosm = event.ctrlKey && await this.chooseCosm(possOwner);
+      if (possCosm) {
+        console.log(possCosm);
+        possProperty = `flags.torgeternity.possibilityByCosm.${possCosm.cosmId}`;
+        noMin10 = possCosm.noMin10;
       } else
         possProperty = "system.other.possibilities";
 
@@ -206,7 +207,9 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     }
     test.diceroll = diceroll;
 
-    // add chat note "poss spent"
+    // add chat note "poss spent" - include name of COSM here (if not a standard possibility)
+    if (test.chatNote) test.chatNote += ' ';
+    if (possCosm) test.chatNote += game.i18n.localize(`torgeternity.cosms.${possCosm.cosmId.slice(0, -4)}`) + ' ';
     test.chatNote += game.i18n.localize('torgeternity.sheetLabels.possSpent');
     if (noMin10) test.chatNote += game.i18n.localize('torgeternity.sheetLabels.noMin10');
 
@@ -374,6 +377,14 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     return TestDialog.wait(test);
   }
 
+  /**
+   * 
+   * @param {*} event 
+   * @param {*} button 
+   * @returns 
+   * 
+   * @this 
+   */
   static async #applyDamage(event, button) {
     event.preventDefault();
     if (event.shiftKey) return this.#adjustDamage(event);
