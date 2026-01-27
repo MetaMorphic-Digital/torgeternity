@@ -1,5 +1,9 @@
 # TORG Eternity Changelog
 
+## 13.18.2 - Fix Custom Skill Name in chat message
+
+- Ensures that the custom skill name (not id) is displayed in the test chat message.
+
 ## 13.18.1 - Eternity Shards
 
 - Update Eternity Shards to have current/max fields for Possibilities.
