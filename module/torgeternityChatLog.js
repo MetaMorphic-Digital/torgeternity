@@ -157,7 +157,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
           possPool = possOwner.flags.torgeternity.possibilityByCosm[possCosm]
         }
       } else {
-        possPool = possOwner.system.other.possibilities;
+        possPool = possOwner.system?.other?.possibilities ?? 0;
       }
     }
     // 0 => if GM ask for confirm, or return message "no poss"
