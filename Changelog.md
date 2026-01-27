@@ -1,6 +1,12 @@
 # TORG Eternity Changelog
 
-## 13.8.0 - Darkness, Armor/Defense, Cosm Possibilities
+## 13.18.1 - Eternity Shards
+
+- Update Eternity Shards to have current/max fields for Possibilities.
+- Allow possibilities within Eternity Shards to be chosen in the Possibility selection dialog.
+- Tidy up the "Notes:" section of chat notes so that each use of Possibilities appears on its own line.
+
+## 13.18.0 - Darkness, Armor/Defense, Cosm Possibilities
 
 - Prevent error from automatic darkness calculation when an Actor has two or more linked tokens on the same scene.
   - The game system will now use one of the tokens consistently to determine the darkness level appropriate for the Actor (usually the first token dragged onto the canvas, but not guaranteed [actually the first token returned by `Actor.getActiveTokens()`]).
