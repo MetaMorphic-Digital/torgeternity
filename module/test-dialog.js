@@ -409,8 +409,9 @@ export function TestDialogLabel(test) {
         result = `${game.i18n.localize('torgeternity.attributes.' + test.skillName)} ${game.i18n.localize('torgeternity.chatText.test')} `;
       break;
     case 'skill':
-      result = test.customSkill ? `${test.skillName} ` :
-        `${game.i18n.localize('torgeternity.skills.' + test.skillName)} ${game.i18n.localize('torgeternity.chatText.test')} `;
+      result = (test.customSkill ? (fromUuidSync(test.actor)?.items.get(test.skillName)?.name ?? game.i18n.localize('torgeternity.itemSheetDescriptions.customSkill')) :
+        game.i18n.localize('torgeternity.skills.' + test.skillName)) +
+        ' ' + game.i18n.localize('torgeternity.chatText.test');
       break;
     case 'interactionAttack':
     case 'attack':
