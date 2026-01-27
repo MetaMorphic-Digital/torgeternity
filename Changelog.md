@@ -4,6 +4,7 @@
 
 - Update Eternity Shards to have current/max fields for Possibilities.
 - Allow possibilities within Eternity Shards to be chosen in the Possibility selection dialog.
+- Tidy up the "Notes:" section of chat notes so that each use of Possibilities appears on its own line.
 
 ## 13.18.0 - Darkness, Armor/Defense, Cosm Possibilities
 
