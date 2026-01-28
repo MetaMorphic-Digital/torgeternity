@@ -43,6 +43,7 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
         'system.minStr': 'system.other.minStr',
         'system.attributes.minStr': 'system.other.minStr',
         'system.attributes.maxDex': 'system.other.maxDex',
+        'system.other.possibilities': 'system.other.possibilities.perAct',
       };
       for (const change of source.changes) {
         if (Object.hasOwn(migrationDictionary, change.key)) {
