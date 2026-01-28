@@ -3,7 +3,9 @@
 ## NEXT
 
 - Add roll button on Eternity Shards to roll Reality against the Tapping Difficulty of the Shard.
-- Add a button in SK sheets and Eternity Shards to reset the number of available possibilities (3 for SKs).
+- Add a button in SK sheets and Eternity Shards to reset the number of possibilities at the start of the Act.
+- Allow number of possibilities per Act to be configured with `CONFIG.torgeternity.possibilitiesPerAct`
+  - Active Effects can modify the number per act by modifying the property `system.other.possibilities.perAct`
 
 ### Translations
 

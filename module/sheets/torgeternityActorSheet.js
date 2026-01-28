@@ -1168,7 +1168,7 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
   }
 
   static async #onResetPoss(event, button) {
-    this.actor.update({ "system.other.possibilities": 3 });
+    this.actor.update({ "system.other.possibilities.value": this.actor.system.other.possibilities.perAct });
   }
 
   async deleteRace() {

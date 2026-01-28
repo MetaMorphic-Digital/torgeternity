@@ -31,7 +31,10 @@ export class CommonActorData extends foundry.abstract.TypeDataModel {
       }),
       other: new fields.SchemaField({
         cosm: new fields.StringField({ initial: 'none', choices: torgeternity.cosmTypes, textSearch: true, required: true, blank: false, nullable: false }),
-        possibilities: new fields.NumberField({ initial: 3, integer: true, nullable: false }),
+        possibilities: new fields.SchemaField({
+          value: new fields.NumberField({ initial: 3, integer: true, nullable: false }),
+          // perAct is a derived value, modifiable by Active Effects
+        }),
         piety: new fields.NumberField({ initial: 0, integer: true, nullable: false }),
       }),
       shock: new fields.SchemaField({
@@ -111,6 +114,10 @@ export class CommonActorData extends foundry.abstract.TypeDataModel {
         skill.unskilledUse = (skill.unskilledUse === 1);
       }
     }
+
+    if (Object.hasOwn(data, "other.possibilities") && typeof data.other.possibilities === 'number') {
+      data.other.possibilities = { value: data.other.possibilities }
+    }
     return super.migrateData(data);
   }
 
@@ -125,6 +132,7 @@ export class CommonActorData extends foundry.abstract.TypeDataModel {
     }
 
     this.shock.max = this.attributes.spirit.value;
+    this.other.possibilities.perAct = CONFIG.torgeternity.possibilitiesPerAct;
   }
 
   /**

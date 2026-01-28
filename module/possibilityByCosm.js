@@ -52,7 +52,7 @@ export class PossibilityByCosm extends foundry.applications.api.HandlebarsApplic
   async _prepareContext(options) {
     const context = await super._prepareContext(options);
     const actorPoss = this.actor.getFlag('torgeternity', 'possibilityByCosm') ?? {};
-    actorPoss.coreEarthPoss = this.actor.system.other.possibilities;
+    actorPoss.coreEarthPoss = this.actor.system.other.possibilities.value;
 
     const cosms = {};
     for (const cosm in CONFIG.torgeternity.cosmTypes) {
@@ -93,7 +93,7 @@ export class PossibilityByCosm extends foundry.applications.api.HandlebarsApplic
   static async #onSave(event, form, formData) {
     const actor = this.actor;
     await actor.setFlag('torgeternity', 'possibilityByCosm', formData.object);
-    await actor.update({ "system.other.possibilities": formData.object.coreEarthPoss });
+    await actor.update({ "system.other.possibilities.value": formData.object.coreEarthPoss });
   }
 
   static toggleRender(user) {

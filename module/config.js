@@ -9,6 +9,7 @@ export function initConfig() {
 
   torgeternity.welcomeMessage = '';
   torgeternity.skillDialog = '';
+  torgeternity.possibilitiesPerAct = 3;
 
   torgeternity.cardTypes = {
     drama: 'torgeternity.cardTypes.drama',

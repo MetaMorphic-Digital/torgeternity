@@ -157,7 +157,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
           possPool = possOwner.flags.torgeternity.possibilityByCosm[possCosm]
         }
       } else {
-        possPool = possOwner.system?.other?.possibilities ?? 0;
+        possPool = possOwner.system?.other?.possibilities.value ?? 0;
       }
     }
     // 0 => if GM ask for confirm, or return message "no poss"
@@ -192,7 +192,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     else if (possCosm)
       await possOwner.update({ [`flags.torgeternity.possibilityByCosm.${possCosm}`]: possPool - 1 });
     else
-      await possOwner.update({ "system.other.possibilities": possPool - 1 });
+      await possOwner.update({ "system.other.possibilities.value": possPool - 1 });
 
     test.hideFavButton = true;
 
@@ -444,7 +444,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
       });
     }
     //
-    let possPool = parseInt(target.system.other.possibilities);
+    let possPool = target.system.other.possibilities.value;
     // 0 => if GM ask for confirm, or return message "no poss"
     if (possPool <= 0 && !game.user.isGM) {
       ui.notifications.warn(game.i18n.localize('torgeternity.sheetLabels.noPoss'));
@@ -470,7 +470,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     }
 
     await soakDamages(target, chatMessage.id);
-    await target.update({ 'system.other.possibilities': possPool - 1 });
+    await target.update({ 'system.other.possibilities.value': possPool - 1 });
   }
 
   static #applySoak(event, button) {
