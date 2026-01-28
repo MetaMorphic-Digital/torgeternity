@@ -10,11 +10,7 @@
   - Active Effects can modify the number per act by modifying the property `system.other.possibilities.perAct`
   - Any existing AE that modifies `system.other.possibilities` will be automatically changed to modify `system.other.possibilities.perAct` (e.g. Prodigy perk)
 
-### Translations
-
-- `torgeternity.chatText.tapping`: "Tapping Test"
-- `torgeternity.iconeTitles.tappingRoll`: "Tapping Roll"
-- `torgeternity.iconeTitles.resetPoss`: "Reset Possibilities (hold SHIFT to include Eternity Shards)"
+- Translations by Durak (French), Helmut (German), and Teotimus (Spanish).
 
 ## 13.18.2 - Fix Custom Skill Name in chat message
 
