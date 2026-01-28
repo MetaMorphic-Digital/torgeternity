@@ -226,6 +226,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     } else if (!noMin10) {
       // Standardly, a possibility has a minimum of 10 on the dice.
       // Certain circumstances break that rule, so holding SHIFT will not apply min 10.
+      // Rolling a Possibility a second roll takes the BETTER of the two results (Nile Empire)
       test.possibilityTotal = Math.max(10, diceroll.total, test.possibilityTotal);
     }
     test.diceroll = diceroll;
