@@ -31,7 +31,10 @@ export class CommonActorData extends foundry.abstract.TypeDataModel {
       }),
       other: new fields.SchemaField({
         cosm: new fields.StringField({ initial: 'none', choices: torgeternity.cosmTypes, textSearch: true, required: true, blank: false, nullable: false }),
-        possibilities: new fields.NumberField({ initial: 3, integer: true, nullable: false }),
+        possibilities: new fields.SchemaField({
+          value: new fields.NumberField({ initial: 3, integer: true, nullable: false }),
+          // perAct is a derived value, modifiable by Active Effects
+        }),
         piety: new fields.NumberField({ initial: 0, integer: true, nullable: false }),
       }),
       shock: new fields.SchemaField({
@@ -90,18 +93,18 @@ export class CommonActorData extends foundry.abstract.TypeDataModel {
 
   /**
    *
-   * @param {object} data the data object to migrate
+   * @param {object} source the data object to migrate
    */
-  static migrateData(data) {
-    if (data.other?.cosm !== undefined) data.other.cosm = migrateCosm(data.other.cosm);
+  static migrateData(source) {
+    if (source.other?.cosm !== undefined) source.other.cosm = migrateCosm(source.other.cosm);
 
-    for (const attribute of Object.keys(data.attributes ?? {})) {
-      if (typeof data?.attributes?.[attribute] === 'number') {
-        data.attributes[attribute] = { base: data.attributes[attribute] };
+    for (const attribute of Object.keys(source.attributes ?? {})) {
+      if (typeof source?.attributes?.[attribute] === 'number') {
+        source.attributes[attribute] = { base: source.attributes[attribute] };
       }
     }
 
-    for (const skill of Object.values(data.skills ?? {})) {
+    for (const skill of Object.values(source.skills ?? {})) {
       if (Object.hasOwn(skill, 'adds') && typeof skill.adds !== 'number') {
         let skillAdd = parseInt(skill.adds);
         skillAdd = isNaN(skillAdd) ? 0 : skillAdd;
@@ -111,7 +114,11 @@ export class CommonActorData extends foundry.abstract.TypeDataModel {
         skill.unskilledUse = (skill.unskilledUse === 1);
       }
     }
-    return super.migrateData(data);
+
+    if (Object.hasOwn(source?.other, "possibilities") && typeof source.other.possibilities === 'number') {
+      source.other.possibilities = { value: source.other.possibilities }
+    }
+    return super.migrateData(source);
   }
 
   /**
@@ -125,6 +132,7 @@ export class CommonActorData extends foundry.abstract.TypeDataModel {
     }
 
     this.shock.max = this.attributes.spirit.value;
+    this.other.possibilities.perAct = CONFIG.torgeternity.possibilitiesPerAct;
   }
 
   /**

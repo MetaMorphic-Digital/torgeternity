@@ -21,7 +21,7 @@
       </p>
       {{#if (and editAttributes (ne document.system.details.race (localize 'torgeternity.sheetLabels.noRace')))}}
         <a class="deleteRaceButton" data-action="deleteRace"
-          data-tooltip="{{localize 'torgeternity.iconeTitles.deleteRace'}}"><i
+          data-tooltip="torgeternity.iconeTitles.deleteRace"><i
             class="fas fa-trash"></i></a>
       {{/if}}
     </span>
@@ -105,9 +105,11 @@
   </h2>
   <div class="sksheet header possybox">
     <input
-      name="system.other.possibilities"
+      name="system.other.possibilities.value"
       type="number"
-      value="{{document.system.other.possibilities}}"
+      value="{{document.system.other.possibilities.value}}"
       data-dtype="number" />
+    <a class="fa-solid fa-arrow-rotate-left" data-action="resetPoss"
+      data-tooltip="torgeternity.iconeTitles.resetPoss"></a>
   </div>
 </div>

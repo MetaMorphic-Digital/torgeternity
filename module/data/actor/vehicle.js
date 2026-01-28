@@ -51,24 +51,24 @@ export class VehicleData extends foundry.abstract.TypeDataModel {
 
   /**
    *
-   * @param {object} data the data object to migrate
+   * @param {object} source the data object to migrate
    */
-  static migrateData(data) {
-    if (data?.details && Object.hasOwn(data?.details, 'sizeBonus')) {
-      data.details.sizeBonus = Object.keys(torgeternity.sizes).includes(data.details.sizeBonus)
-        ? data.details.sizeBonus
+  static migrateData(source) {
+    if (source?.details && Object.hasOwn(source?.details, 'sizeBonus')) {
+      source.details.sizeBonus = Object.keys(torgeternity.sizes).includes(source.details.sizeBonus)
+        ? source.details.sizeBonus
         : 'normal';
     }
-    if (data?.price && Object.hasOwn(data?.price, 'magnitude')) {
-      data.price.dollars = String(data.price.dollars);
-      if (data.price.magnitude !== 'ones' && Object.keys(torgeternity.magnitudes).includes(data.price.magnitude))
-        data.price.dollars += CONFIG.torgeternity.magnitudeLabels[data.price.magnitude];
-      delete data.price.magnitude;
+    if (source?.price && Object.hasOwn(source?.price, 'magnitude')) {
+      source.price.dollars = String(source.price.dollars);
+      if (source.price.magnitude !== 'ones' && Object.keys(torgeternity.magnitudes).includes(source.price.magnitude))
+        source.price.dollars += CONFIG.torgeternity.magnitudeLabels[source.price.magnitude];
+      delete source.price.magnitude;
     }
-    if (data?.wounds && Object.hasOwn(data?.wounds, 'current')) {
-      data.wounds.value = data.wounds.current;
+    if (source?.wounds && Object.hasOwn(source?.wounds, 'current')) {
+      source.wounds.value = source.wounds.current;
     }
-    return super.migrateData(data);
+    return super.migrateData(source);
   }
 
   /**

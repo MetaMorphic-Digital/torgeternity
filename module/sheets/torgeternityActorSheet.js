@@ -37,6 +37,7 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
       skillEditToggle: TorgeternityActorSheet.#onSkillEditToggle,
       itemToChat: TorgeternityActorSheet.#onItemChat,
       itemAttackRoll: TorgeternityActorSheet.#onAttackRoll,
+      itemTappingRoll: TorgeternityActorSheet.#onTappingRoll,
       interactionAttack: TorgeternityActorSheet.#onInteractionAttack,
       unarmedAttack: TorgeternityActorSheet.#onUnarmedAttack,
       itemPowerRoll: TorgeternityActorSheet.#onPowerRoll,
@@ -61,6 +62,7 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
       deleteRace: TorgeternityActorSheet.#onDeleteRace,
       removeOperator: TorgeternityActorSheet.#onRemoveOperator,
       removeGunner: TorgeternityActorSheet.#onRemoveGunner,
+      resetPoss: TorgeternityActorSheet.#onResetPoss,
     }
   }
 
@@ -987,6 +989,51 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
     rollAttack(this.actor, item);
   }
 
+  static async #onTappingRoll(event, button) {
+    const item = this.actor.items.get(button.closest('.item').dataset.itemId);
+    if (!item) return ui.notifications.info(`Failed to find Item for button`);
+    const dn = item.system?.tappingDifficulty;
+    if (!dn) return ui.notifications.info(`Item does not have a Tapping Difficulty`);
+
+    const skillName = 'reality';
+    const skillData = this.actor.system?.skills[skillName];
+    if (!skillData) return ui.notifications.info(`Actor does not have the skill ${skillName}`);
+    //const attributeName = skillData.baseAttribute;
+    const skillValue = Number(skillData.value);
+
+    // Can't use reality while disconnected
+    if (this.actor.isDisconnected) {
+      return foundry.applications.handlebars.renderTemplate(
+        './systems/torgeternity/templates/chat/skill-error-card.hbs',
+        {
+          message: game.i18n.localize('torgeternity.chatText.check.cantUseRealityWhileDisconnected'),
+          actor: this.actor.uuid,
+          actorPic: this.actor.img,
+          actorName: this.actor.name,
+        }
+      ).then(content =>
+        ChatMessage.create({
+          speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+          owner: this.actor,
+          content: content
+        })
+      )
+    }
+
+    return TestDialog.wait({
+      testType: 'skill',
+      actor: this.actor,
+      isFav:
+        skillData.isFav ||
+        this.actor.system.attributes?.[skillName + 'IsFav'],
+      skillName: skillName,
+      skillValue: skillValue,
+      chatTitle: game.i18n.localize('torgeternity.chatText.tapping'),
+      DNDescriptor: 'fixedNumber',
+      DNfixed: dn
+    });
+  }
+
   /**
    *
    * @param event
@@ -1118,6 +1165,20 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
   static async #onRemoveGunner(event, button) {
     const weapon = this.document.items.get(button.closest('.vehicle-weapon-list')?.dataset?.itemId);
     if (weapon) weapon.update({ 'system.gunner': null })
+  }
+
+  static async #onResetPoss(event, button) {
+    await this.actor.update({ "system.other.possibilities.value": this.actor.system.other.possibilities.perAct });
+    if (event.shiftKey) {
+      const updates = this.actor.items.filter(it => it.type === 'eternityshard').map(item => {
+        return {
+          _id: item.id,
+          "system.possibilities.value": item.system.possibilities.max
+        }
+      });
+      if (updates.length)
+        await this.actor.updateEmbeddedDocuments('Item', updates);
+    }
   }
 
   async deleteRace() {

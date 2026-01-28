@@ -21,17 +21,17 @@ export class BaseItemData extends foundry.abstract.TypeDataModel {
   }
   /**
    * @inheritdoc
-   * @param {object} data delivered data from the constructor
+   * @param {object} source delivered data from the constructor
    */
-  static migrateData(data) {
-    if (data.cosm !== undefined) data.cosm = migrateCosm(data.cosm);
-    if (data.traits?.length) {
+  static migrateData(source) {
+    if (source.cosm !== undefined) source.cosm = migrateCosm(source.cosm);
+    if (source.traits?.length) {
       // Remove invalid traits
-      const badTraits = data.traits.filter(t => !Object.hasOwn(CONFIG.torgeternity.allItemTraits, t));
-      data.traits = data.traits.filter(t => Object.hasOwn(CONFIG.torgeternity.allItemTraits, t));
+      const badTraits = source.traits.filter(t => !Object.hasOwn(CONFIG.torgeternity.allItemTraits, t));
+      source.traits = source.traits.filter(t => Object.hasOwn(CONFIG.torgeternity.allItemTraits, t));
       if (badTraits.length) console.info(`Unsupported traits discarded: ${badTraits}`)
     }
-    return super.migrateData(data);
+    return super.migrateData(source);
   }
 }
 

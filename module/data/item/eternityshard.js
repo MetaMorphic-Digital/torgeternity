@@ -22,13 +22,13 @@ export class EternityShardItemData extends BaseItemData {
     };
   }
 
-  static migrateData(data) {
-    if (Object.hasOwn(data, "possibilities") && typeof data.possibilities === 'number') {
-      data.possibilities = {
-        value: data.possibilities,
-        max: data.possibilities,
+  static migrateData(source) {
+    if (Object.hasOwn(source, "possibilities") && typeof source.possibilities === 'number') {
+      source.possibilities = {
+        value: source.possibilities,
+        max: source.possibilities,
       }
     }
-    return super.migrateData(data);
+    return super.migrateData(source);
   }
 }

@@ -38,18 +38,18 @@ export class ThreatData extends CommonActorData {
 
   /**
    *
-   * @param {object} data the partial data object to migrate
+   * @param {object} source the partial data object to migrate
    */
-  static migrateData(data) {
-    if (data?.details && Object.hasOwn(data?.details, 'possibilitypotential')) {
-      data.details.possibilityPotential ??= 'Never';
+  static migrateData(source) {
+    if (source?.details && Object.hasOwn(source?.details, 'possibilitypotential')) {
+      source.details.possibilityPotential ??= 'Never';
     }
-    if (data?.details && Object.hasOwn(data?.details, 'sizeBonus')) {
-      data.details.sizeBonus = Object.keys(torgeternity.sizes).includes(data.details.sizeBonus)
-        ? data.details.sizeBonus
+    if (source?.details && Object.hasOwn(source?.details, 'sizeBonus')) {
+      source.details.sizeBonus = Object.keys(torgeternity.sizes).includes(source.details.sizeBonus)
+        ? source.details.sizeBonus
         : 'normal';
     }
-    return super.migrateData(data);
+    return super.migrateData(source);
   }
 
   /**

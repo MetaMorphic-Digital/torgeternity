@@ -38,7 +38,7 @@ export default class TorgeternityPlayerList extends foundry.applications.ui.Play
       user.character = userdoc.character;
       user.isGM = userdoc.isGM;
       user.inactive = !userdoc.active;
-      user.characterPossibilities = parseInt(user.character?.system.other.possibilities ?? 0);
+      user.characterPossibilities = user.character?.system.other.possibilities.value ?? 0;
     }
     return context;
   }
@@ -48,7 +48,7 @@ export default class TorgeternityPlayerList extends foundry.applications.ui.Play
    */
   static async #onAddPossibility(event, button) {
     const targetActor = game.actors.get(button.dataset.targetId);
-    return targetActor.update({ "system.other.possibilities": parseInt(targetActor.system.other.possibilities) + 1, });
+    return targetActor.update({ "system.other.possibilities.value": targetActor.system.other.possibilities.value + 1, });
   }
   static async #onAddPossibilityGM(event, button) {
     const gmuser = game.users.activeGM;
@@ -61,7 +61,7 @@ export default class TorgeternityPlayerList extends foundry.applications.ui.Play
    */
   static async #onMinusPossibility(event, button) {
     const targetActor = game.actors.get(button.dataset.targetId);
-    return targetActor.update({ "system.other.possibilities": parseInt(targetActor.system.other.possibilities) - 1, });
+    return targetActor.update({ "system.other.possibilities.value": targetActor.system.other.possibilities.value - 1, });
   }
   static async #onMinusPossibilityGM(event, button) {
     const gmuser = game.users.activeGM;
@@ -90,7 +90,7 @@ export default class TorgeternityPlayerList extends foundry.applications.ui.Play
             const newVal = parseInt(dialog.element.querySelector('[id=possibilitiesValue]').value);
             game.users.forEach((user) => {
               if (user.character) {
-                user.character.update({ "system.other.possibilities": newVal });
+                user.character.update({ "system.other.possibilities.value": newVal });
               }
             });
           },

@@ -13,6 +13,7 @@ export const preloadTemplates = async function () {
     'systems/torgeternity/templates/actors/stormknight/header.hbs',
     'systems/torgeternity/templates/actors/stormknight/perks-details.hbs',
     'systems/torgeternity/templates/actors/stormknight/defense.hbs',
+    'systems/torgeternity/templates/actors/stormknight/eternityshards-list.hbs',
     'systems/torgeternity/templates/actors/stormknight/weapons-list.hbs',
     'systems/torgeternity/templates/actors/stormknight/others.hbs',
     'systems/torgeternity/templates/actors/stormknight/perks-list.hbs',
