@@ -203,6 +203,7 @@
       "showDetails": "Zeige Details",
       "skillTestLabel": "Fertigkeitswert",
       "stunt": "Stunt-Probe",
+      "tapping": "Tapping Test",
       "test": "Probe",
       "unskilled": "ungelernt",
       "up": "Oberhand",
@@ -570,6 +571,7 @@
       "SKPoss": "Charakters Möglichkeitspool",
       "sendToChat": "An Chat senden",
       "spellRoll": "Zauberwurf",
+      "tappingRoll": "Tapping Roll",
       "toggle": "Umschalten auf",
       "toggleEquip": "Ausgerüstet?",
       "deleteRace": "Volk löschen"

@@ -579,6 +579,10 @@
             <img src="{{item.img}}" data-tooltip="{{item.name}}" />
             <a class="item-name {{TorgDisconnected item}}" data-action="itemName">{{item.name}}</a>
             <div class="item-controls">
+              <a class="item-control item-attackRoll" data-action="itemTappingRoll" {{disabled (not @root.editable)}}
+                data-tooltip="{{localize 'torgeternity.iconeTitles.tappingRoll'}}">
+                <i class="fas fa-dice-d20"></i>
+              </a>
               <a class="item-control item-tochat" data-action="itemToChat" {{disabled (not @root.editable)}}
                 data-tooltip="{{localize 'torgeternity.iconeTitles.sendToChat'}}">
                 <i class="fas fa-comment"></i>

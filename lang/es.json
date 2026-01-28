@@ -203,6 +203,7 @@
       "showDetails": "Mostrar detalles",
       "skillTestLabel": "Valor Habilidad",
       "stunt": "Prueba para truco",
+      "tapping": "Tapping Test",
       "test": "Prueba",
       "unskilled": "Sin Entrenar",
       "up": "AUMEN",
@@ -570,6 +571,7 @@
       "SKPoss": "posibilidades del personaje",
       "sendToChat": "Enviar al chat",
       "spellRoll": "Tirada de Conjuro",
+      "tappingRoll": "Tapping Roll",
       "toggle": "Cambiar",
       "toggleEquip": "Activar equipo",
       "deleteRace": "Suprimir raza"

@@ -197,6 +197,7 @@
       "showDetails": "Show Details",
       "skillTestLabel": "Skill Value",
       "stunt": "Stunt Test",
+      "tapping": "Tapping Test",
       "test": "Test",
       "unskilled": "Unskilled",
       "up": "Up",
@@ -564,6 +565,7 @@
       "SKPoss": "character's possibilities",
       "sendToChat": "Send to Chat",
       "spellRoll": "Spell Roll",
+      "tappingRoll": "Tapping Roll",
       "toggle": "Toggle",
       "toggleEquip": "Toggle Equip",
       "deleteRace": "Delete Race"

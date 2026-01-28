@@ -203,6 +203,7 @@
       "showDetails": "Afficher détails",
       "skillTestLabel": "Valeur de compétence",
       "stunt": "Test de conduite sportive",
+      "tapping": "Tapping Test",
       "test": "Test",
       "unskilled": "Incompétent",
       "up": "Un de plus !",
@@ -570,6 +571,7 @@
       "SKPoss": "Possibilités du personnage",
       "sendToChat": "Envoyer dans la discussion",
       "spellRoll": "Jet de sort",
+      "tappingRoll": "Tapping Roll",
       "toggle": "Activer/désactiver",
       "toggleEquip": "Équiper/Déséquiper",
       "deleteRace": "Effacer le choix de Race"

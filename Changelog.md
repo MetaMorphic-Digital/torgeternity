@@ -1,5 +1,14 @@
 # TORG Eternity Changelog
 
+## NEXT
+
+- Add roll button on Eternity Shards to roll Reality against the Tapping Difficulty of the Shard.
+
+### Translations
+
+- `torgeternity.chatText.tapping`: "Tapping Test"
+- `torgeternity.iconeTitles.tappingRoll`: "Tapping Roll"
+
 ## 13.18.2 - Fix Custom Skill Name in chat message
 
 - Ensures that the custom skill name (not id) is displayed in the test chat message.
