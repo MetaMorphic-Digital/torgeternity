@@ -1168,7 +1168,17 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
   }
 
   static async #onResetPoss(event, button) {
-    this.actor.update({ "system.other.possibilities.value": this.actor.system.other.possibilities.perAct });
+    await this.actor.update({ "system.other.possibilities.value": this.actor.system.other.possibilities.perAct });
+    if (event.shiftKey) {
+      const updates = this.actor.items.filter(it => it.type === 'eternityshard').map(item => {
+        return {
+          _id: item.id,
+          "system.possibilities.value": item.system.possibilities.max
+        }
+      });
+      if (updates.length)
+        await this.actor.updateEmbeddedDocuments('Item', updates);
+    }
   }
 
   async deleteRace() {
