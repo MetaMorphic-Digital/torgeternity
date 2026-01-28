@@ -1,6 +1,6 @@
 # TORG Eternity Changelog
 
-## NEXT - Resetting Possibilities
+## 13.18.3 - Resetting Possibilities & Tapping Eternity Shards
 
 - Add roll button on Eternity Shards to roll Reality against the **Tapping Difficulty** of the Shard.
 - Display **Eternity Shards on STATS tab** of the Storknight sheet for easier access to the Tapping Roll.
