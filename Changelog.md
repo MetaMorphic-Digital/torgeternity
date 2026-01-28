@@ -1,11 +1,12 @@
 # TORG Eternity Changelog
 
-## NEXT
+## NEXT - Resetting Possibilities
 
-- Add roll button on Eternity Shards to roll Reality against the Tapping Difficulty of the Shard.
-- Add a button in SK sheets and Eternity Shards to reset the number of possibilities at the start of the Act.
+- Add roll button on Eternity Shards to roll Reality against the **Tapping Difficulty** of the Shard.
+- Display **Eternity Shards on STATS tab** of the Storknight sheet for easier access to the Tapping Roll.
+- Add a button in SK sheets and Eternity Shards to **reset the number of possibilities** at the start of the Act.
   - Hold SHIFT on the SK sheet to automatically reset used possibilities on owned Eternity Shards as well.
-- Allow number of possibilities per Act for SKs to be configured with `CONFIG.torgeternity.possibilitiesPerAct`
+- Allow **number of possibilities per Act** for SKs to be configured with `CONFIG.torgeternity.possibilitiesPerAct`
   - Active Effects can modify the number per act by modifying the property `system.other.possibilities.perAct`
   - Any existing AE that modifies `system.other.possibilities` will be automatically changed to modify `system.other.possibilities.perAct` (e.g. Prodigy perk)
 

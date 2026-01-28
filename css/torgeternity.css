@@ -427,16 +427,19 @@ dialog.torgeternity:not(.actor, .item) .window-content,
       }
 
       .perks-list h3,
+      .eternityshards-list h3,
       .weapons-list h3 {
         display: none;
       }
 
       .perks-list img,
+      .eternityshards-list img,
       .weapons-list img {
         display: none;
       }
 
       .perks-list li,
+      .eternityshards-list li,
       .weapons-list li {
         display: flex;
         flex-direction: row;
@@ -1031,6 +1034,13 @@ dialog.torgeternity:not(.actor, .item) .window-content,
       font-size: 13px;
     }
 
+    .eternityshards-list {
+      grid-column: 5/9;
+      grid-row: 7/8;
+      font-family: "Signika";
+      font-size: 13px;
+    }
+
     .weapons-list {
       grid-column: 5/9;
       grid-row: 5/6;
@@ -1046,6 +1056,7 @@ dialog.torgeternity:not(.actor, .item) .window-content,
     }
 
     .perks-list,
+    .eternityshards-list,
     .weapons-list {
 
       h2,

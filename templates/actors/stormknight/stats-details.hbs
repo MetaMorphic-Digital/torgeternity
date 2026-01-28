@@ -20,5 +20,11 @@
     <div class="xp block">{{> "systems/torgeternity/templates/actors/stormknight/xp.hbs"}}</div>
 
     <div class="perks-list block">{{> "systems/torgeternity/templates/actors/stormknight/perks-list.hbs"}}</div>
+
+    {{#if eternityshard}}
+      <div class="eternityshards-list block">
+        {{> "systems/torgeternity/templates/actors/stormknight/eternityshards-list.hbs"}}
+      </div>
+    {{/if}}
   </div>
 </section>
