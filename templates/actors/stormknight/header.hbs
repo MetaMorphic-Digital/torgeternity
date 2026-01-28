@@ -21,7 +21,7 @@
       </p>
       {{#if (and editAttributes (ne document.system.details.race (localize 'torgeternity.sheetLabels.noRace')))}}
         <a class="deleteRaceButton" data-action="deleteRace"
-          data-tooltip="{{localize 'torgeternity.iconeTitles.deleteRace'}}"><i
+          data-tooltip="torgeternity.iconeTitles.deleteRace"><i
             class="fas fa-trash"></i></a>
       {{/if}}
     </span>
@@ -109,5 +109,7 @@
       type="number"
       value="{{document.system.other.possibilities}}"
       data-dtype="number" />
+    <a class="fa-solid fa-arrow-rotate-left" data-action="resetPoss"
+      data-tooltip="torgeternity.iconeTitles.resetPoss"></a>
   </div>
 </div>

@@ -62,6 +62,7 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
       deleteRace: TorgeternityActorSheet.#onDeleteRace,
       removeOperator: TorgeternityActorSheet.#onRemoveOperator,
       removeGunner: TorgeternityActorSheet.#onRemoveGunner,
+      resetPoss: TorgeternityActorSheet.#onResetPoss,
     }
   }
 
@@ -1164,6 +1165,10 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
   static async #onRemoveGunner(event, button) {
     const weapon = this.document.items.get(button.closest('.vehicle-weapon-list')?.dataset?.itemId);
     if (weapon) weapon.update({ 'system.gunner': null })
+  }
+
+  static async #onResetPoss(event, button) {
+    this.actor.update({ "system.other.possibilities": 3 });
   }
 
   async deleteRace() {

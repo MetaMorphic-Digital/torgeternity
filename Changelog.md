@@ -3,11 +3,13 @@
 ## NEXT
 
 - Add roll button on Eternity Shards to roll Reality against the Tapping Difficulty of the Shard.
+- Add a button in SK sheets and Eternity Shards to reset the number of available possibilities (3 for SKs).
 
 ### Translations
 
 - `torgeternity.chatText.tapping`: "Tapping Test"
 - `torgeternity.iconeTitles.tappingRoll`: "Tapping Roll"
+- `torgeternity.iconeTitles.resetPoss`: "Reset Possibilities"
 
 ## 13.18.2 - Fix Custom Skill Name in chat message
 

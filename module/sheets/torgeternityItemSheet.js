@@ -26,6 +26,7 @@ export default class TorgeternityItemSheet extends foundry.applications.api.Hand
       itemName: TorgeternityItemSheet.#onItemName,
       itemDelete: TorgeternityItemSheet.#onItemDelete,
       toggleTraitEdit: TorgeternityItemSheet.#onToggleTraitEdit,
+      resetPoss: TorgeternityItemSheet.#onResetPoss,
     },
   }
 
@@ -268,6 +269,11 @@ export default class TorgeternityItemSheet extends foundry.applications.api.Hand
         raceItem.update({ 'system.customAttackData': Array.from(allThingsOfRaceItem) });
       }
     }
+  }
+
+  static #onResetPoss(event, button) {
+    if (this.item.type !== 'eternityshard') return;
+    return this.item.update({ "system.possibilities.value": this.item.system.possibilities.max })
   }
 
   _configureRenderOptions(options) {
