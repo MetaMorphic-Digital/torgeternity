@@ -34,20 +34,20 @@ export class StormKnightData extends CommonActorData {
 
   /**
    *
-   * @param {object} data the data object to migrate
+   * @param {object} source the data object to migrate
    */
-  static migrateData(data) {
-    if (data?.details && Object.hasOwn(data?.details, 'race')) {
-      data.details.race = Object.keys(torgeternity.races).includes(data.details.race)
-        ? data.details.race
+  static migrateData(source) {
+    if (source?.details && Object.hasOwn(source?.details, 'race')) {
+      source.details.race = Object.keys(torgeternity.races).includes(source.details.race)
+        ? source.details.race
         : 'other';
     }
-    if (data?.details && Object.hasOwn(data?.details, 'sizeBonus')) {
-      data.details.sizeBonus = Object.keys(torgeternity.sizes).includes(data.details.sizeBonus)
-        ? data.details.sizeBonus
+    if (source?.details && Object.hasOwn(source?.details, 'sizeBonus')) {
+      source.details.sizeBonus = Object.keys(torgeternity.sizes).includes(source.details.sizeBonus)
+        ? source.details.sizeBonus
         : 'normal';
     }
-    return super.migrateData(data);
+    return super.migrateData(source);
   }
 
   /**

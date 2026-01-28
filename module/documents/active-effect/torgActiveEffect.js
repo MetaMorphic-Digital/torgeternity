@@ -7,11 +7,11 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
 
   /**
    *
-   * @param {object} data the data object to migrate
+   * @param {object} source the data object to migrate
    * @returns {object} the migrated data object
    */
-  static migrateData(data) {
-    if (Object.hasOwn(data, 'changes')) {
+  static migrateData(source) {
+    if (Object.hasOwn(source, 'changes')) {
       const migrationDictionary = {
         // SK and Threat attribute modifiers
         'system.attributes.charisma': 'system.attributes.charisma.value',
@@ -44,12 +44,12 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
         'system.attributes.minStr': 'system.other.minStr',
         'system.attributes.maxDex': 'system.other.maxDex',
       };
-      for (const change of data.changes) {
+      for (const change of source.changes) {
         if (Object.hasOwn(migrationDictionary, change.key)) {
           change.key = migrationDictionary[change.key];
         }
       }
-      for (const change of data.changes) {
+      for (const change of source.changes) {
         if (change.key.includes('.isFav') && (change.value === '1' || change.value === '0')) {
           change.value = change.value === '1' ? 'true' : 'false';
         } else if (change.key.includes('.isFav') && (change.value === 'True' || change.value === 'False')) {
@@ -59,16 +59,16 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
     }
 
     // Replace flags
-    if (data.flags?.torgeternity?.transferOnAttack !== undefined) {
-      data.system.transferOnAttack = data.flags.torgeternity.transferOnAttack;
-      delete data.flags.torgeternity.transferOnAttack;
+    if (source.flags?.torgeternity?.transferOnAttack !== undefined) {
+      source.system.transferOnAttack = source.flags.torgeternity.transferOnAttack;
+      delete source.flags.torgeternity.transferOnAttack;
     }
-    if (data.flags?.torgeternity?.testOutcome !== undefined) {
-      data.system.transferOnOutcome = data.flags.torgeternity.testOutcome;
-      delete data.flags.torgeternity.testOutcome;
+    if (source.flags?.torgeternity?.testOutcome !== undefined) {
+      source.system.transferOnOutcome = source.flags.torgeternity.testOutcome;
+      delete source.flags.torgeternity.testOutcome;
     }
 
-    return super.migrateData(data);
+    return super.migrateData(source);
   }
 
   /**
