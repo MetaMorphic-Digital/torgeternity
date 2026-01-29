@@ -115,7 +115,7 @@ export class CommonActorData extends foundry.abstract.TypeDataModel {
       }
     }
 
-    if (Object.hasOwn(source?.other, "possibilities") && typeof source.other.possibilities === 'number') {
+    if (source?.other && Object.hasOwn(source.other, "possibilities") && typeof source.other.possibilities === 'number') {
       source.other.possibilities = { value: source.other.possibilities }
     }
     return super.migrateData(source);
