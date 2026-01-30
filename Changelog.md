@@ -6,6 +6,7 @@
 - Hide price in item lists when no price is set.
 - Hide ammo in item lists when max ammo is 0 or not set.
 - Tidy up layout of other aspects of expanded item lists in Actor sheets.
+- Ignore commas in price when calculating its Torg Value (Javascript doesn't support locale-sensitive conversion).
 
 ## 13.18.3 - Resetting Possibilities & Tapping Eternity Shards
 
