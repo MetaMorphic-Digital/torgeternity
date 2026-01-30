@@ -133,6 +133,7 @@ export class CommonActorData extends foundry.abstract.TypeDataModel {
 
     this.shock.max = this.attributes.spirit.value;
     this.other.possibilities.perAct = CONFIG.torgeternity.possibilitiesPerAct;
+    this.other.inspiration = CONFIG.torgeternity.shockPerInspiration;
   }
 
   /**

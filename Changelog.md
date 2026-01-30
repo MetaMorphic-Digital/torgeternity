@@ -11,6 +11,8 @@
 - Add "Price:" prefix in the expanded info line in item lists.
 - Change how **dice** are displayed in the Chat, so that 20 on unskilled rolls aren't automatically marked as exploded.
   - Show **manual dice rolls** (d20 and/or d6) against each rolled dice (game system option to disable).
+- Add configuration parameter for how much shock is recovered on Inspiration, `CONFIG.torgernity.shockPerInspiration` (default 2)
+  - Add `actor.system.other.inspiration` field to Actors which can be modified by Active Effects which specifies how much shock is recovered when Inspiration occurs (default value: `CONFIG.torgernity.shockPerInspiration`).
 
 ## 13.18.3 - Resetting Possibilities & Tapping Eternity Shards
 

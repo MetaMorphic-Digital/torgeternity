@@ -334,9 +334,9 @@ export default class TorgCombat extends Combat {
     )}</h2><p>${game.i18n.localize('torgeternity.macros.reviveMacroFirst')}<p><ul>`;
 
     for (const actor of this.getFactionActors(faction)) {
-      const shock = actor.system.shock.value;
-      if (shock === 0) continue;
-      const reviveAmount = Math.min(shock, 2);
+      const shock = actor.system.shock?.value;
+      if (!shock || !actor.system?.other?.inspiration) continue;
+      const reviveAmount = Math.min(shock, actor.system.other.inspiration);
       await actor.update({ 'system.shock.value': shock - reviveAmount });
       chatOutput += `<li>${actor.name} ${game.i18n.localize('torgeternity.macros.reviveMacroCharPartyRevived')}${reviveAmount}`;
       if (actor.hasStatusEffect('unconscious')) {
