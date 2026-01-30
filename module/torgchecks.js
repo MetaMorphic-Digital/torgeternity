@@ -155,7 +155,9 @@ export async function renderSkillChat(test) {
     // add the dices only once, not for each target
     if (first && test.diceroll) {
       // to avoid errors if +3 cards
-      const values = test.diceroll.dice[0].values;
+      const values = test.diceroll.dice[0].results.filter(r => r.active);
+      if (test.diceroll.dice[0].method === 'manual' && game.settings.get('torgeternity', 'showManualRolls'))
+        for (const value of values) value.manual = true;
       if (test.diceroll.dice[0]._faces === 6)
         test.bonusDiceList = test.bonusDiceList ? test.bonusDiceList.concat(values) : values;
       else

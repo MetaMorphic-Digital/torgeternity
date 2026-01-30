@@ -9,6 +9,8 @@
 - Ignore commas in price when calculating its Torg Value (Javascript doesn't support locale-sensitive conversion).
 - Update how **price** is stored consistently between vehicles and items.
 - Add "Price:" prefix in the expanded info line in item lists.
+- Change how **dice** are displayed in the Chat, so that 20 on unskilled rolls aren't automatically marked as exploded.
+  - Show manual dice rolls (d20 and/or d6) against each rolled dice.
 
 ## 13.18.3 - Resetting Possibilities & Tapping Eternity Shards
 

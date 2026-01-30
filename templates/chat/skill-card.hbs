@@ -206,17 +206,20 @@
                   <ol class="dice-rolls">
                     {{#each diceList}} <!-- Array created in torgcheck -->
                       <li
-                        class="roll die d20 {{#if (eq this 20)}}exploded{{/if}} {{#if (eq this 10)}}exploded{{/if}}"
+                        class="roll die d20 {{#if this.exploded}}exploded{{/if}}"
                         {{#if
                         @root.torgDiceStyle}}style="background-image: url(systems/torgeternity/images/Torgd20.svg);"
                         {{/if}}>
-                        {{this}}
+                        {{{this.result}}}{{#if this.manual}}<span class="manualRoll">M</span>{{/if}}
                       </li>
                     {{/each}}
                     {{#if bonusDiceList}}
                       <li>&mdash;</li>
                       {{#each bonusDiceList}} <!-- Array created in torgcheck -->
-                        <li class="roll die d6">{{#if (eq this 6)}}&infin;{{else}}{{this}}{{/if}}</li>
+                        <li class="roll die d6">
+                          {{#if this.exploded}}&infin;{{else}}{{{this.result}}}{{/if}}{{#if this.manual}}<span
+                              class="manualRoll">M</span>{{/if}}
+                        </li>
                       {{/each}}
                     {{/if}}
                   </ol>

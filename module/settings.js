@@ -101,6 +101,15 @@ export function registerTorgSettings() {
     default: true,
   });
 
+  game.settings.register('torgeternity', 'showManualRolls', {
+    name: 'torgeternity.settingMenu.showManualRolls.name',
+    hint: 'torgeternity.settingMenu.showManualRolls.hint',
+    scope: 'client',
+    config: true,
+    type: Boolean,
+    default: true,
+  });
+
   game.settings.register('torgeternity', 'autoDamages', {
     name: 'torgeternity.settingMenu.autoDamages.name', // Register a module setting with checkbox
     hint: 'torgeternity.settingMenu.autoDamages.hint', // Description of the settings

@@ -774,6 +774,10 @@
         "hint": "Si está marcado, los dados en las tarjetas de chat serán del estilo de Torg. Si está desactivada, serán los dados grises habituales...",
         "name": "Mostrar dados de Torg en las tarjetas de chat"
       },
+      "showManualRolls": {
+        "hint": "Show dice which have been manually rolled in chat cards (with a suffix M)",
+        "name": "Show Manual Dice rolls"
+      },
       "autoDamages": {
         "hint": "Si está marcado, el Shock y las Heridas se aplican automáticamente si el jugador tiene seleccionado una ficha válida. ATENCIÓN: esta característica solo funciona con las tiradas de daño inicial. No actualizará correctamente las tiradas posteriores modificadas por Dados de Bonificación. Usar con cautela.",
         "name": "Aplicar daño automáticamente"

@@ -768,6 +768,10 @@
         "hint": "If activated, the Dice in Chat-Cards will be Torgish. If disabled, they're standard-foundry-grey.",
         "name": "Show Torg-Dice in chatcards"
       },
+      "showManualRolls": {
+        "hint": "Show dice which have been manually rolled in chat cards (with a suffix M)",
+        "name": "Show Manual Dice rolls"
+      },
       "autoDamages": {
         "hint": "If checked, shocks and wounds would be automatically apply if player has a valid target token. WARNING: This feature only works correctly with initial damage rolls. It will not correctly record subsequent bonus die rolls. Use with caution.",
         "name": "Apply damages automatically"
