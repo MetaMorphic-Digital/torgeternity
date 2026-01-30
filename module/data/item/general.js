@@ -14,9 +14,10 @@ export class GeneralItemData extends BaseItemData {
   static defineSchema(itemType) {
     return {
       ...super.defineSchema(itemType),
-      price: new fields.StringField({ initial: '', nullable: false }),
-      //techlevel: new fields.NumberField({ initial: 1, integer: true }),
-      value: new fields.NumberField({ initial: 0, integer: true }),
+      price: new fields.SchemaField({
+        dollars: new fields.StringField({ initial: '', nullable: false }),
+        // will receive price.torgValue during prepareDerivedData
+      }),
       secondaryAxiom: new fields.StringField({ initial: 'none' }),
     };
   }
@@ -35,14 +36,18 @@ export class GeneralItemData extends BaseItemData {
       }
       source.secondaryAxiom = source.secondaryAxiom.selected;
     }
+
+    if (source?.price && typeof source.price === 'string') {
+      source.price = { dollars: source.price }
+    }
     return super.migrateData(source);
   }
 
   /**
    * @inheritdoc
    */
-  prepareBaseData() {
-    super.prepareBaseData();
-    this.value = calcPriceValue(this.price);
+  prepareDerivedData() {
+    super.prepareDerivedData();
+    this.price.torgValue = calcPriceValue(this.price.dollars);
   }
 }

@@ -3,7 +3,7 @@
     <label for="name">{{localize (lookup config.Item.typeLabels item.type)}}</label>
     <input id="name" type="text" value="{{item.name}}" readonly />
     <label for="price">{{localize "torgeternity.gear.price"}}</label>
-    <input id="price" type="number" value="{{item.system.price}}" readonly />
+    <input id="price" type="number" value="{{item.system.price.dollars}}" readonly />
   </fieldset>
   {{#each currencies as |currency id|}}
     <p class="currency {{currency.system.cosm}}">

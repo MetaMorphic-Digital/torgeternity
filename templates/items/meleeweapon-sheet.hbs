@@ -12,13 +12,13 @@
         {{localize "torgeternity.gear.price"}}/{{localize "torgeternity.gear.value"}}
       </p>
       <input
-        name="system.price"
+        name="system.price.dollars"
         type="text"
-        value="{{item.system.price}}" />
+        value="{{item.system.price.dollars}}" />
       <input
-        name="system.value"
-        type="number"
-        value="{{item.system.value}}" />
+        name="system.price.torgValue"
+        type="number" disabled
+        value="{{item.system.price.torgValue}}" />
       <p class="item-data-label">{{localize "torgeternity.gear.attackWith"}}</p>
       <select name="system.attackWith">
         {{selectOptions config.attackTypes selected=item.system.attackWith localize=true}}

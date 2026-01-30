@@ -3705,7 +3705,7 @@ document-embed .generalHeader {
       }
     }
 
-    input[name="system.price"],
+    input[name="system.price.dollars"],
     input[name="system.tough"] {
       width: 5em;
     }

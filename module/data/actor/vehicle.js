@@ -35,7 +35,7 @@ export class VehicleData extends foundry.abstract.TypeDataModel {
       passengers: new fields.NumberField({ initial: 0, integer: true, nullable: false }),
       price: new fields.SchemaField({
         dollars: new fields.StringField({ initial: '', nullable: false }),
-        // will receive price.value during prepareDerivedData
+        // will receive price.torgValue during prepareDerivedData
       }),
       topSpeed: new fields.SchemaField({
         kph: new fields.NumberField({ initial: 100, integer: true, nullable: false }),
@@ -76,7 +76,7 @@ export class VehicleData extends foundry.abstract.TypeDataModel {
    */
   prepareDerivedData() {
     super.prepareDerivedData();
-    this.price.value = calcPriceValue(String(this.price.dollars));
+    this.price.torgValue = calcPriceValue(String(this.price.dollars));
 
     const speedValue = getTorgValue(this.topSpeed.kph) + 2;
     this.topSpeed.value = speedValue;

@@ -6,7 +6,8 @@
   <div class="item-description" data-item-id="{{_id}}">
     <div class="item-description">{{{system.description}}}</div>
     <div class="item-dropdown-extras">{{system.cosm}}</div>
-    <div class="item-dropdown-extras">{{system.price}} ({{system.value}})</div>
+    <div class="item-dropdown-extras">{{localize "torgeternity.gear.price"}}: {{system.price.dollars}}
+      ({{system.price.torgValue}})</div>
     <div class="item-dropdown-extras">{{localize 'torgeternity.gear.tl'}} {{system.axioms.tech}}</div>
     <div class="item-dropdown-extras">{{localize 'torgeternity.gear.bonus'}} {{system.bonus}}</div>
     <div class="item-dropdown-extras">

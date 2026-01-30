@@ -7,6 +7,8 @@
 - Hide ammo in item lists when max ammo is 0 or not set.
 - Tidy up layout of other aspects of expanded item lists in Actor sheets.
 - Ignore commas in price when calculating its Torg Value (Javascript doesn't support locale-sensitive conversion).
+- Update how **price** is stored consistently between vehicles and items.
+- Add "Price:" prefix in the expanded info line in item lists.
 
 ## 13.18.3 - Resetting Possibilities & Tapping Eternity Shards
 
