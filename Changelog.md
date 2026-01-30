@@ -13,6 +13,7 @@
   - Show **manual dice rolls** (d20 and/or d6) against each rolled dice (game system option to disable).
 - Add configuration parameter for how much shock is recovered on Inspiration, `CONFIG.torgernity.shockPerInspiration` (default 2)
   - Add `actor.system.other.inspiration` field to Actors which can be modified by Active Effects which specifies how much shock is recovered when Inspiration occurs (default value: `CONFIG.torgernity.shockPerInspiration`).
+- Prevent error if vehicle has friendly/hostile disposition when applying Inspiration.
 
 ## 13.18.3 - Resetting Possibilities & Tapping Eternity Shards
 
