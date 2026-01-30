@@ -214,7 +214,6 @@
                       </li>
                     {{/each}}
                     {{#if bonusDiceList}}
-                      <li>&mdash;</li>
                       {{#each bonusDiceList}} <!-- Array created in torgcheck -->
                         <li class="roll die d6">
                           {{#if this.exploded}}&infin;{{else}}{{{this.result}}}{{/if}}{{#if this.manual}}<span
