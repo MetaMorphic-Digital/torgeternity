@@ -1,5 +1,12 @@
 # TORG Eternity Changelog
 
+## NEXT
+
+- Avoid aborting migration early during editing of an Actor (the edit still occurs).
+- Hide price in item lists when no price is set.
+- Hide ammo in item lists when max ammo is 0 or not set.
+- Tidy up layout of other aspects of expanded item lists in Actor sheets.
+
 ## 13.18.3 - Resetting Possibilities & Tapping Eternity Shards
 
 - Add roll button on Eternity Shards to roll Reality against the **Tapping Difficulty** of the Shard.
