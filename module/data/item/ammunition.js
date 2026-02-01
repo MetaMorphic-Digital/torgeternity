@@ -9,7 +9,6 @@ export class AmmunitionItemData extends GeneralItemData {
     return {
       ...super.defineSchema('ammunition'),
       type: new fields.StringField({ initial: '' }),
-      quantity: new fields.NumberField({ initial: 1 }),
       damageMod: new fields.NumberField({ integer: true, initial: 0 }),
       apMod: new fields.NumberField({ integer: true, initial: 0 }),
       fireDamage: new fields.BooleanField({ initial: false }),
