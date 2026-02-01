@@ -14,6 +14,9 @@
 - Add configuration parameter for how much shock is recovered on Inspiration, `CONFIG.torgernity.shockPerInspiration` (default 2)
   - Add `actor.system.other.inspiration` field to Actors which can be modified by Active Effects which specifies how much shock is recovered when Inspiration occurs (default value: `CONFIG.torgernity.shockPerInspiration`). _(useful for Rune of Replenishment)_
 - Prevent error if vehicle has friendly/hostile disposition when applying Inspiration.
+- Some basic changes to make it slightly compatible with **Item Piles**
+  - All physical items have a quantity field (not always displayed in the Item sheet)
+  - Eternity Shard is now based on `GeneralItemData` instead of `BaseItemData`
 
 ## 13.18.3 - Resetting Possibilities & Tapping Eternity Shards
 

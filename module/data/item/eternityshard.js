@@ -1,10 +1,10 @@
-import { BaseItemData } from './baseItemData.js';
+import { GeneralItemData } from './general.js';
 
 const fields = foundry.data.fields;
 /**
  * @inheritdoc
  */
-export class EternityShardItemData extends BaseItemData {
+export class EternityShardItemData extends GeneralItemData {
   /**
    * @inheritdoc
    */
