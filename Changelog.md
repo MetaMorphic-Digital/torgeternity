@@ -3,17 +3,20 @@
 ## NEXT
 
 - Avoid aborting migration early during editing of an Actor (the edit still occurs).
-- Hide price in item lists when no price is set.
-- Hide ammo in item lists when max ammo is 0 or not set.
-- Tidy up layout of other aspects of expanded item lists in Actor sheets.
-- Ignore commas in price when calculating its Torg Value (Javascript doesn't support locale-sensitive conversion).
-- Update how **price** is stored consistently between vehicles and items.
-- Add "Price:" prefix in the expanded info line in item lists.
-- Change how **dice** are displayed in the Chat, so that 20 on unskilled rolls aren't automatically marked as exploded.
+- Update the **expanded attributes** displayed for Items in Actor sheet lists:
+  - Hide price when no price is set.
+  - Add "Price:" prefix (localized) when price is shown.
+  - Hide ammo when max ammo is 0 or not set.
+  - Tidy up layout of other aspects.
+- Update **price** handling:
+  - Ignore commas in price when calculating its Torg Value (Javascript doesn't support locale-sensitive conversion).
+  - Update how price is stored consistently between vehicles and items.
+- Change how **dice** are displayed in the Chat so dice which are actually exploded are marked as exploded (so 20 on unskilled rolls aren't marked as exploded).
   - Show **manual dice rolls** (d20 and/or d6) against each rolled dice (game system option to disable).
-- Add configuration parameter for how much shock is recovered on Inspiration, `CONFIG.torgernity.shockPerInspiration` (default 2)
+- Drama Card **Inspiration** improvements:
+  - Add configuration parameter for how much shock is recovered on Inspiration, `CONFIG.torgernity.shockPerInspiration` (default 2)
   - Add `actor.system.other.inspiration` field to Actors which can be modified by Active Effects which specifies how much shock is recovered when Inspiration occurs (default value: `CONFIG.torgernity.shockPerInspiration`). _(useful for Rune of Replenishment)_
-- Prevent error if vehicle has friendly/hostile disposition when applying Inspiration.
+  - Prevent error if vehicle has friendly/hostile disposition when applying Inspiration.
 
 ## 13.18.3 - Resetting Possibilities & Tapping Eternity Shards
 
