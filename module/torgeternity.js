@@ -51,7 +51,7 @@ import { initHideCompendium } from './hideCompendium.js';
 import DeckSettingMenu from './cards/cardSettingMenu.js';
 import activateSocketListeners from './sockets.js';
 import EffectsPanel from './effectsPanel.js';
-import setupItemPiles from './item-piles.js';
+import setupItemPiles from './modsupport/item-piles.js';
 
 const { DialogV2 } = foundry.applications.api;
 
