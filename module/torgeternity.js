@@ -51,6 +51,7 @@ import { initHideCompendium } from './hideCompendium.js';
 import DeckSettingMenu from './cards/cardSettingMenu.js';
 import activateSocketListeners from './sockets.js';
 import EffectsPanel from './effectsPanel.js';
+import setupItemPiles from './item-piles.js';
 
 const { DialogV2 } = foundry.applications.api;
 
@@ -961,3 +962,5 @@ function TorgDisconnected(doc) {
 function TorgIsSvg(value) {
   return value.endsWith('.svg') ? 'svg' : '';
 }
+
+Hooks.once("item-piles-ready", setupItemPiles);
