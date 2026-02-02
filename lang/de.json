@@ -898,6 +898,12 @@
       "showPiety": {
         "name": "Frömmigkeit im Charakterbogen anzeigen",
         "hint": "Anzeige des aktuellen Frömmigkeitswertes eines Storm Knight in seinem Charakterbogen"
+      },
+      "tokenActionHud": {
+        "showUnskilled": {
+          "name": "TAH: Zeige ungelernte Fertigkeiten im HUD",
+          "hint": "Aktiviert die Anzeige von ungelernten Fertigkeiten in Token Action HUD"
+        }
       }
     },
     "sheetLabels": {

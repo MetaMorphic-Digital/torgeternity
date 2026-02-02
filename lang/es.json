@@ -898,6 +898,12 @@
       "showPiety": {
         "name": "Mostrar Piedad en hoja de actor",
         "hint": "Muestra la puntuación de Piedad actual de un Caballero de la Tormenta en la hoja de actor"
+      },
+      "tokenActionHud": {
+        "showUnskilled": {
+          "name": "TAH: mostrar habilidades sin entrenar en el HUD",
+          "hint": "Permite mostrar las habilidades sin entrenar en Token Action HUD"
+        }
       }
     },
     "sheetLabels": {
