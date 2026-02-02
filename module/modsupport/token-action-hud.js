@@ -1,4 +1,4 @@
-import { rollAttack, rollPower, rollAttribute, rollSkill } from '../torgchecks.js';
+import { rollAttack, rollPower, rollAttribute, rollSkill, rollUnarmedAttack, rollInteractionAttack } from '../torgchecks.js';
 
 // LEFT CLICK to perform ACTION
 // RIGHT CLICK to open Item Sheet (ignored on Skills)
@@ -15,10 +15,13 @@ export default async function setupTokenActionHud(coreModule) {
   const ACTION_ATTRIBUTE = 'attribute';
   const ACTION_SKILL = 'skill';
   const ACTION_ATTACK = 'attack';
+  const ACTION_ATTACK_INTERACTION = 'attackInteraction';
   const ACTION_POWER = 'power';
   const ACTION_GEAR = 'gear';
   const ACTION_CONDITION = 'conditions';
+
   const FAVOURED = ' \u2606';
+  const EQUIPPED = ' \u270b';
 
   let GROUP = {
     attributes: { id: ATTRIBUTES_ID, name: "torgeternity.sheetLabels.attributes", type: "system" },
@@ -29,6 +32,7 @@ export default async function setupTokenActionHud(coreModule) {
     powers: { id: POWERS_ID, name: "torgeternity.sheetLabels.powers", type: "system" },
     gear: { id: GEAR_ID, name: "torgeternity.sheetLabels.gear", type: "system" },
     conditions: { id: CONDITION_ID, name: "torgeternity.sheetLabels.conditions", type: "system" },
+    attacksInteraction: { id: 'combat_interaction', name: "torgeternity.sheetLabels.interactionAttacks", type: "system" },
   }
   for (const key of Object.keys(CONFIG.Item.typeLabels)) {
     if (key === 'base') continue;
@@ -121,7 +125,7 @@ export default async function setupTokenActionHud(coreModule) {
       const actions = items.map(item => {
         return {
           id: item.id,
-          name: item.name,
+          name: item.name + (item.system?.equipped ? EQUIPPED : ''),
           encodedValue: [actionId, actor.id, tokenId, item.id].join(this.delimiter),
           img: coreModule.api.Utils.getImage(item),
           tooltip: { content: item.system.description },
@@ -149,6 +153,22 @@ export default async function setupTokenActionHud(coreModule) {
     }
 
     async #getAttacks(actor, tokenId, parent) {
+      // Interactions first
+      const interactions = ['unarmedCombat', 'intimidation', 'maneuver', 'taunt', 'trick']
+        .filter(attack => !actor.system.skills[attack].defenseOnly)
+        .map(attack => {
+          return {
+            id: attack,
+            name: game.i18n.localize(`torgeternity.skills.${attack}`) + (actor.system.skills[attack].isFav ? FAVOURED : '') + ` (${actor.system.skills[attack].value})`,
+            encodedValue: [ACTION_ATTACK_INTERACTION, actor.id, tokenId, attack].join(this.delimiter),
+          }
+        });
+      if (interactions.length) {
+        const subcat = { id: `${parent.id}-interactions`, name: coreModule.api.Utils.i18n(`torgeternity.sheetLabels.interactionAttacks`) };
+        this.addGroup(subcat, parent);
+        this.addActions(interactions, subcat);
+      }
+
       await this.#createList(parent, actor, tokenId, ACTION_ATTACK, actor.itemTypes.meleeweapon, 'meleeWeapons');
       await this.#createList(parent, actor, tokenId, ACTION_ATTACK, actor.itemTypes.missileweapon, 'missileWeapons');
       await this.#createList(parent, actor, tokenId, ACTION_ATTACK, actor.itemTypes.firearm, 'firearms');
@@ -238,6 +258,14 @@ export default async function setupTokenActionHud(coreModule) {
                 rollAttack(actor, item);
             }
           }
+          break;
+
+        case ACTION_ATTACK_INTERACTION:
+          if (this.isRenderItem()) return;
+          if (actionId === 'unarmedCombat')
+            rollUnarmedAttack(this.actor, actionId);
+          else
+            rollInteractionAttack(this.actor, actionId);
           break;
 
         case ACTION_GEAR:
@@ -341,6 +369,7 @@ export default async function setupTokenActionHud(coreModule) {
             name: game.i18n.localize('torgeternity.sheetLabels.attacks'),
             type: 'system',
             groups: [
+              { ...groups.attacksInteraction, nestId: "attack_interaction" },
               { ...groups.meleeweapon, nestId: "attack_melee" },
               { ...groups.missileweapon, nestId: "attack_missile" },
               { ...groups.firearm, nestId: "attack_firearm" },

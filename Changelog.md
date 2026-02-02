@@ -25,6 +25,7 @@
   - **TODO**: Please raise an issue if there are any improvements to the default configuration which you find useful.
 - Add some basic support for **Token Action HUD** providing Skills, Attacks and Powers in the HUD.
   - A game setting determines whether unskilled skills appear in the HUD's Skills list.
+  - HUD buttons are marked with a HAND for equipped gear and a STAR for favored skills.
 
 ## 13.18.3 - Resetting Possibilities & Tapping Eternity Shards
 
