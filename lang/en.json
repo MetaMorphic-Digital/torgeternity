@@ -892,6 +892,12 @@
       "showPiety": {
         "name": "Show Piety Score on Actor sheet",
         "hint": "Displays the current Piety Score of a Storm Knight on the Actor's sheet"
+      },
+      "tokenActionHud": {
+        "showUnskilled": {
+          "name": "TAH: Show Unskilled Skills in HUD",
+          "hint": "Enables the display of Unskilled skills in the Token Action HUD"
+        }
       }
     },
     "sheetLabels": {
