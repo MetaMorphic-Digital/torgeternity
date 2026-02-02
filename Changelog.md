@@ -1,6 +1,6 @@
 # TORG Eternity Changelog
 
-## NEXT
+## 13.19.0 - Attributes, Price, Inspiration, Item Piles & Token Action HUD
 
 - Avoid aborting migration early during editing of an Actor (the edit still occurs).
 - Update the **expanded attributes** displayed for Items in Actor sheet lists:
