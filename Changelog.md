@@ -23,6 +23,7 @@
   - Basic Item Piles configuration is automatically set by the game system.
   - Item Piles Currencies are determined by looking for all Currency Items in the world sidebar and in compendiums.
   - **TODO**: Please raise an issue if there are any improvements to the default configuration which you find useful.
+- Add some basic support for **Token Action HUD** providing Skills, Attacks and Powers in the HUD.
 
 ## 13.18.3 - Resetting Possibilities & Tapping Eternity Shards
 
