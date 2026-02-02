@@ -18,6 +18,7 @@ export default async function setupTokenActionHud(coreModule) {
   const ACTION_POWER = 'power';
   const ACTION_GEAR = 'gear';
   const ACTION_CONDITION = 'conditions';
+  const FAVOURED = ' \u2606';
 
   let GROUP = {
     attributes: { id: ATTRIBUTES_ID, name: "torgeternity.sheetLabels.attributes", type: "system" },
@@ -81,7 +82,7 @@ export default async function setupTokenActionHud(coreModule) {
         .map(([key, skill]) => {
           return {
             id: key,
-            name: game.i18n.localize(`torgeternity.skills.${key}`) + ` (${skill.value || '-'})`,
+            name: game.i18n.localize(`torgeternity.skills.${key}`) + (skill.isFav ? FAVOURED : '') + ` (${skill.value || '-'})`,
             groupName: skill.groupName, // for local filtering
             encodedValue: [ACTION_SKILL, actor.id, tokenId, key].join(this.delimiter),
             //img: 'systems/torgeternity/images/icons/custom-skills.webp',
@@ -93,7 +94,7 @@ export default async function setupTokenActionHud(coreModule) {
         }).concat(actor.itemTypes.customSkill.map(skill => {
           return {
             id: skill.id,
-            name: skill.name + ` (${skill.value || '-'})`,  // already in the local language
+            name: skill.name + (skill.system.isFav ? FAVOURED : '') + ` (${skill.system.value || '-'})`,  // already in the local language
             groupName: 'other', // for local filtering
             encodedValue: [ACTION_SKILL, actor.id, tokenId, skill.id].join(this.delimiter),
             system: skill
