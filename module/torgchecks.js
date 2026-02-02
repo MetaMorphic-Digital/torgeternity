@@ -419,7 +419,7 @@ export async function renderSkillChat(test) {
       await testActor.addConcentration(testItem);
       ChatMessage.create({
         speaker: ChatMessage.getSpeaker({ actor: testActor }),
-        content: game.i18n.format('torgeternity.concentration.start', { name: testItem.name })
+        content: game.i18n.format('torgeternity.chatText.concentration.start', { itemName: testItem.name })
       })
     }
 

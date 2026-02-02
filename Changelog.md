@@ -1,5 +1,9 @@
 # TORG Eternity Changelog
 
+## NEXT
+
+- Add missing translation key for an Actor starts concentrating on a power, `torgeternity.chatText.concentration.start`
+
 ## 13.19.0 - Attributes, Price, Inspiration, Item Piles & Token Action HUD
 
 - Avoid aborting migration early during editing of an Actor (the edit still occurs).

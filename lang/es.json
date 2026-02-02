@@ -149,6 +149,7 @@
         "testUnsuccessfull": "Prueba fallida"
       },
       "concentration": {
+        "start": "Started concentrating on {itemName}",
         "makeCheck": "{actor} debe hacer una prueba de Concentración",
         "AEname": "Concentrado: {item}",
         "AEdescription": "{actor} está concentrado en {itemType} '{itemName}'",

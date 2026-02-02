@@ -143,6 +143,7 @@
         "testUnsuccessfull": "Test unsuccessful"
       },
       "concentration": {
+        "start": "Started concentrating on {itemName}",
         "makeCheck": "{actor} must make a Concentration Check",
         "AEname": "Concentrating: {item}",
         "AEdescription": "{actor} is concentrating on {itemType} '{itemName}'",
