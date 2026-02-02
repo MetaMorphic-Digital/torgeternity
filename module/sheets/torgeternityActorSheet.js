@@ -1,4 +1,4 @@
-import { renderSkillChat, rollAttack, rollPower, rollAttribute, rollSkill } from '../torgchecks.js';
+import { renderSkillChat, rollAttack, rollPower, rollAttribute, rollSkill, rollUnarmedAttack, rollInteractionAttack } from '../torgchecks.js';
 import { onManageActiveEffect, prepareActiveEffectCategories } from '../effects.js';
 import { oneTestTarget, TestDialog } from '../test-dialog.js';
 import TorgeternityItem from '../documents/item/torgeternityItem.js';
@@ -768,39 +768,7 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
    * @param event
    */
   static #onInteractionAttack(event, button) {
-    let dnDescriptor = 'standard';
-    if (game.user.targets.size) {
-      switch (button.dataset.name) {
-        case 'intimidation':
-          dnDescriptor = 'targetIntimidation';
-          break;
-        case 'maneuver':
-          dnDescriptor = 'targetManeuver';
-          break;
-        case 'taunt':
-          dnDescriptor = 'targetTaunt';
-          break;
-        case 'trick':
-          dnDescriptor = 'targetTrick';
-          break;
-        default:
-          dnDescriptor = 'standard';
-      }
-    } else {
-      dnDescriptor = 'standard';
-    }
-
-    return TestDialog.wait({
-      testType: 'interactionAttack',
-      actor: this.actor,
-      skillName: button.dataset.name,
-      skillAdds: button.dataset.adds,
-      skillValue: Number(button.dataset.skillValue),
-      isFav: this.actor.system.skills[button.dataset.name].isFav,
-      unskilledUse: true,
-      DNDescriptor: dnDescriptor,
-      type: 'interactionAttack',
-    }, { useTargets: true });
+    return rollInteractionAttack(this.actor, button.dataset.name);
   }
 
   /**
@@ -808,47 +776,7 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
    * @param event
    */
   static #onUnarmedAttack(event, button) {
-    let dnDescriptor = 'standard';
-    if (game.user.targets.size) {
-      const firstTarget = game.user.targets.find(token => token.actor.type !== 'vehicle')?.actor ||
-        game.user.targets.first().actor;
-
-      if (firstTarget.type === 'vehicle') {
-        dnDescriptor = 'targetVehicleDefense';
-      } else {
-        firstTarget.items
-          .filter((it) => it.type === 'meleeweapon')
-          .filter((it) => it.system.equipped).length !== 0
-          ? (dnDescriptor = 'targetMeleeWeapons')
-          : (dnDescriptor = 'targetUnarmedCombat');
-      }
-    }
-
-    const skillValue = isNaN(button.dataset.skillValue)
-      ? this.actor.system.attributes.dexterity.value
-      : Number(button.dataset.skillValue);
-
-    // Almost the same as rollAttack
-    return TestDialog.wait({
-      testType: 'attack',
-      actor: this.actor,
-      amountBD: 0,
-      isAttack: true,
-      isFav: this.actor.system.skills.unarmedCombat.isFav,
-      skillName: 'unarmedCombat',
-      skillValue: skillValue,
-      unskilledUse: true,
-      damage: parseInt(button.dataset.damage),
-      weaponAP: 0,
-      applyArmor: true,
-      DNDescriptor: dnDescriptor,
-      type: 'attack',
-      applySize: true,
-      attackOptions: true,
-      //chatNote: '',
-      bdDamageSum: 0,
-      // itemId - no item
-    }, { useTargets: true });
+    return rollUnarmedAttack(this.actor, button.dataset.name);
   }
 
   /**

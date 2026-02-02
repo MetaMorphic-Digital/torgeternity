@@ -1199,6 +1199,84 @@ export async function rollSkill(actor, skillName) {
   }
 }
 
+export async function rollUnarmedAttack(actor, skillName) {
+  let dnDescriptor = 'standard';
+  if (game.user.targets.size) {
+    const firstTarget = game.user.targets.find(token => token.actor.type !== 'vehicle')?.actor ||
+      game.user.targets.first().actor;
+
+    if (firstTarget.type === 'vehicle') {
+      dnDescriptor = 'targetVehicleDefense';
+    } else {
+      firstTarget.items
+        .filter((it) => it.type === 'meleeweapon')
+        .filter((it) => it.system.equipped).length !== 0
+        ? (dnDescriptor = 'targetMeleeWeapons')
+        : (dnDescriptor = 'targetUnarmedCombat');
+    }
+  }
+
+  // Almost the same as rollAttack
+  return TestDialog.wait({
+    testType: 'attack',
+    actor: actor,
+    amountBD: 0,
+    isAttack: true,
+    isFav: actor.system.skills[skillName]?.isFav,
+    skillName: skillName,
+    skillValue: actor.system.skills[skillName]?.value ?? actor.system.attributes.dexterity.value,
+    unskilledUse: true,
+    damage: actor.unarmed.damage,
+    weaponAP: 0,
+    applyArmor: true,
+    DNDescriptor: dnDescriptor,
+    type: 'attack',
+    applySize: true,
+    attackOptions: true,
+    //chatNote: '',
+    bdDamageSum: 0,
+    // itemId - no item
+  }, { useTargets: true });
+}
+
+export async function rollInteractionAttack(actor, skillName) {
+  const skillData = actor.system.skills[skillName];
+
+  let dnDescriptor = 'standard';
+  if (game.user.targets.size) {
+    switch (skillName) {
+      case 'intimidation':
+        dnDescriptor = 'targetIntimidation';
+        break;
+      case 'maneuver':
+        dnDescriptor = 'targetManeuver';
+        break;
+      case 'taunt':
+        dnDescriptor = 'targetTaunt';
+        break;
+      case 'trick':
+        dnDescriptor = 'targetTrick';
+        break;
+      default:
+        dnDescriptor = 'standard';
+    }
+  } else {
+    dnDescriptor = 'standard';
+  }
+
+  return TestDialog.wait({
+    testType: 'interactionAttack',
+    actor: actor,
+    skillName: skillName,
+    skillAdds: skillData.adds,
+    skillValue: Number(skillData.value),
+    isFav: actor.system.skills[skillName].isFav,
+    unskilledUse: true,
+    DNDescriptor: dnDescriptor,
+    type: 'interactionAttack',
+  }, { useTargets: true });
+}
+
 function isApprovedAction(test) {
   if (!game.combat?.approvedActions) return false;
 
