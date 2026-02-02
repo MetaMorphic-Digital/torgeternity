@@ -1,4 +1,5 @@
 import { TestDialog, TestDialogLabel } from './test-dialog.js';
+const { DialogV2 } = foundry.applications.api;
 
 export const TestResult = {
   UNKNOWN: 0,
@@ -1120,6 +1121,82 @@ export async function rollPower(actor, item) {
     bdDamageSum: 0,
     itemId: item.id,
   }, { useTargets: true });
+}
+
+export async function rollAttribute(actor, attributeName) {
+  return TestDialog.wait({
+    testType: 'attribute',
+    actor: actor,
+    skillName: attributeName,
+    skillValue: actor.system.attributes[attributeName].value,
+    isFav: actor.system.attributes?.[attributeName + 'IsFav']
+  }, { useTargets: true });
+}
+
+
+export async function rollSkill(actor, skillName) {
+
+  const skillData = actor.system.skills[skillName] ?? actor.items.get(skillName)?.system;
+  if (!skillData) return;
+
+  // Before calculating roll, check to see if it can be attempted unskilled; exit test if actor doesn't have required skill
+  if (checkUnskilled(skillData.value, skillName, actor)) return;
+
+  // Check if character is trying to roll on reality while disconnected- must be allowed if reconnection-roll
+  let reconnection_attempt = false;
+  if (skillName === 'reality' && actor.isDisconnected) {
+    reconnection_attempt = true;
+    const confirmed = await DialogV2.confirm({
+      window: { title: 'torgeternity.dialogWindow.realityCheck.title' },
+      content: game.i18n.localize('torgeternity.dialogWindow.realityCheck.content'),
+    });
+
+    if (!confirmed) {
+
+      foundry.applications.handlebars.renderTemplate(
+        './systems/torgeternity/templates/chat/skill-error-card.hbs',
+        {
+          message: game.i18n.localize('torgeternity.chatText.check.cantUseRealityWhileDisconnected'),
+          actor: actor.uuid,
+          actorPic: actor.img,
+          actorName: actor.name,
+        }
+      ).then(content =>
+        ChatMessage.create({
+          speaker: ChatMessage.getSpeaker({ actor: actor }),
+          owner: actor,
+          content: content
+        })
+      )
+      // Don't wait for chat message to finish posting
+      return;
+    }
+  }
+
+  const dialog = TestDialog.wait({
+    testType: 'skill',
+    customSkill: !actor.system.skills[skillName],
+    actor: actor,
+    isFav: skillData.isFav,
+    skillName: skillName,
+    skillValue: skillData.value,
+  }, { useTargets: true });
+
+  if (!reconnection_attempt) return dialog;
+
+  switch ((await dialog).flags.torgeternity.test.result) {
+    case TestResult.STANDARD:
+    case TestResult.GOOD:
+    case TestResult.OUTSTANDING:
+      await actor.toggleStatusEffect('disconnected', { active: false });
+      ui.notifications.info(game.i18n.localize('torgeternity.macros.reconnectMacroStatusLiftet'));
+      break;
+    case TestResult.FAILURE:
+      // ChatMessage.create({content: "<p>Fehlschlag</p>"});
+      break;
+    case TestResult.MISHAP:
+      break;
+  }
 }
 
 function isApprovedAction(test) {
