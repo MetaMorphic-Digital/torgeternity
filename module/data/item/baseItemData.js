@@ -26,6 +26,8 @@ export class BaseItemData extends foundry.abstract.TypeDataModel {
   static migrateData(source) {
     if (source.cosm !== undefined) source.cosm = migrateCosm(source.cosm);
     if (source.traits?.length) {
+      // Map renamed traits
+      source.traits = source.traits.map(t => (t === 'supernnaturalEvil') ? 'supernaturalEvil' : t);
       // Remove invalid traits
       const badTraits = source.traits.filter(t => !Object.hasOwn(CONFIG.torgeternity.allItemTraits, t));
       source.traits = source.traits.filter(t => Object.hasOwn(CONFIG.torgeternity.allItemTraits, t));

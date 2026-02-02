@@ -115,7 +115,7 @@ export class CommonActorData extends foundry.abstract.TypeDataModel {
       }
     }
 
-    if (Object.hasOwn(source?.other, "possibilities") && typeof source.other.possibilities === 'number') {
+    if (source?.other && Object.hasOwn(source.other, "possibilities") && typeof source.other.possibilities === 'number') {
       source.other.possibilities = { value: source.other.possibilities }
     }
     return super.migrateData(source);
@@ -133,6 +133,7 @@ export class CommonActorData extends foundry.abstract.TypeDataModel {
 
     this.shock.max = this.attributes.spirit.value;
     this.other.possibilities.perAct = CONFIG.torgeternity.possibilitiesPerAct;
+    this.other.inspiration = CONFIG.torgeternity.shockPerInspiration;
   }
 
   /**

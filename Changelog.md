@@ -1,5 +1,32 @@
 # TORG Eternity Changelog
 
+## 13.19.0 - Attributes, Price, Inspiration, Item Piles & Token Action HUD
+
+- Avoid aborting migration early during editing of an Actor (the edit still occurs).
+- Update the **expanded attributes** displayed for Items in Actor sheet lists:
+  - Hide price when no price is set.
+  - Add "Price:" prefix (localized) when price is shown.
+  - Hide ammo when max ammo is 0 or not set.
+  - Tidy up layout of other aspects.
+- Update **price** handling:
+  - Ignore commas in price when calculating its Torg Value (Javascript doesn't support locale-sensitive conversion).
+  - Update how price is stored consistently between vehicles and items.
+- Change how **dice** are displayed in the Chat so dice which are actually exploded are marked as exploded (so 20 on unskilled rolls aren't marked as exploded).
+  - Show **manual dice rolls** (d20 and/or d6) against each rolled dice (game system option to disable).
+- Drama Card **Inspiration** improvements:
+  - Add configuration parameter for how much shock is recovered on Inspiration, `CONFIG.torgernity.shockPerInspiration` (default 2)
+  - Add `actor.system.other.inspiration` field to Actors which can be modified by Active Effects which specifies how much shock is recovered when Inspiration occurs (default value: `CONFIG.torgernity.shockPerInspiration`). _(useful for Rune of Replenishment)_
+  - Prevent error if vehicle has friendly/hostile disposition when applying Inspiration.
+- Some basic changes to make it slightly compatible with **Item Piles** (only applicable if you have the module enabled).
+  - All physical items have a quantity field (not always displayed in the Item sheet since most owned Items can't be stacked)
+  - Eternity Shard is now based on `GeneralItemData` instead of `BaseItemData`
+  - Basic Item Piles configuration is automatically set by the game system.
+  - Item Piles Currencies are determined by looking for all Currency Items in the world sidebar and in compendiums.
+  - **TODO**: Please raise an issue if there are any improvements to the default configuration which you find useful.
+- Add some basic support for **Token Action HUD** providing Skills, Attacks and Powers in the HUD.
+  - A game setting determines whether unskilled skills appear in the HUD's Skills list.
+  - HUD buttons are marked with a HAND for equipped gear and a STAR for favored skills.
+
 ## 13.18.3 - Resetting Possibilities & Tapping Eternity Shards
 
 - Add roll button on Eternity Shards to roll Reality against the **Tapping Difficulty** of the Shard.

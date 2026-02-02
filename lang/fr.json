@@ -774,6 +774,10 @@
         "hint": "Si sélectionné, le Dé dans les messages sera celui de TORG, à la place du Dé gris de Foundry.",
         "name": "Affiche les Dés TORG dans les messages"
       },
+      "showManualRolls": {
+        "hint": "Show dice which have been manually rolled in chat cards (with a suffix M)",
+        "name": "Show Manual Dice rolls"
+      },
       "autoDamages": {
         "hint": "Si coché, les points de Chocs et les Blessures seront automatiquement appliqués si le joueur a un token cible valide.",
         "name": "Application des dommages automatiques"
@@ -894,6 +898,12 @@
       "showPiety": {
         "name": "Afficher la Piété",
         "hint": "Affiche le score actuel de Piété du Chevalier des Tempêtes dans sa fiche de personnage"
+      },
+      "tokenActionHud": {
+        "showUnskilled": {
+          "name": "TAH: Montrer les compétences non maitrisées dans le HUD",
+          "hint": "Permet d'afficher les Compétences dites 'Incompétentes' par le module Token Action HUD"
+        }
       }
     },
     "sheetLabels": {

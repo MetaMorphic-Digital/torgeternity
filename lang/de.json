@@ -774,6 +774,10 @@
         "hint": "Wenn angehakt, bekommen die Würfel in Chat-Fenster einen Torg-Anstrich. Wenn nicht, sind diese standard-grau.",
         "name": "Zeige Torg-Würfel in Chat-Feldern "
       },
+      "showManualRolls": {
+        "hint": "Show dice which have been manually rolled in chat cards (with a suffix M)",
+        "name": "Show Manual Dice rolls"
+      },
       "autoDamages": {
         "hint": "Wenn angehakt, werden Schock und Wunden automatisch auf das Ziel angewendet werden.",
         "name": "Schaden automatisch anwenden (BETA!)"
@@ -894,6 +898,12 @@
       "showPiety": {
         "name": "Frömmigkeit im Charakterbogen anzeigen",
         "hint": "Anzeige des aktuellen Frömmigkeitswertes eines Storm Knight in seinem Charakterbogen"
+      },
+      "tokenActionHud": {
+        "showUnskilled": {
+          "name": "TAH: Zeige ungelernte Fertigkeiten im HUD",
+          "hint": "Aktiviert die Anzeige von ungelernten Fertigkeiten in Token Action HUD"
+        }
       }
     },
     "sheetLabels": {

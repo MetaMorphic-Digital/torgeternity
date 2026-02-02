@@ -31,4 +31,10 @@ export class TorgActiveEffectData extends (foundry.data.ActiveEffectTypeDataMode
       })
     return schema;
   }
+
+  static migrateData(source) {
+    if (source.applyIfAttackTrait) source.applyIfAttackTrait = source.applyIfAttackTrait.map(t => (t === 'supernnaturalEvil') ? 'supernaturalEvil' : t)
+    if (source.applyIfDefendTrait) source.applyIfDefendTrait = source.applyIfDefendTrait.map(t => (t === 'supernnaturalEvil') ? 'supernaturalEvil' : t)
+    return super.migrateData(source);
+  }
 }

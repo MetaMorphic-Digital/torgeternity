@@ -1,4 +1,5 @@
 import { TestDialog, TestDialogLabel } from './test-dialog.js';
+const { DialogV2 } = foundry.applications.api;
 
 export const TestResult = {
   UNKNOWN: 0,
@@ -155,7 +156,9 @@ export async function renderSkillChat(test) {
     // add the dices only once, not for each target
     if (first && test.diceroll) {
       // to avoid errors if +3 cards
-      const values = test.diceroll.dice[0].values;
+      const values = test.diceroll.dice[0].results.filter(r => r.active);
+      if (test.diceroll.dice[0].method === 'manual' && game.settings.get('torgeternity', 'showManualRolls'))
+        for (const value of values) value.manual = true;
       if (test.diceroll.dice[0]._faces === 6)
         test.bonusDiceList = test.bonusDiceList ? test.bonusDiceList.concat(values) : values;
       else
@@ -1117,6 +1120,160 @@ export async function rollPower(actor, item) {
     amountBD: 0,
     bdDamageSum: 0,
     itemId: item.id,
+  }, { useTargets: true });
+}
+
+export async function rollAttribute(actor, attributeName) {
+  return TestDialog.wait({
+    testType: 'attribute',
+    actor: actor,
+    skillName: attributeName,
+    skillValue: actor.system.attributes[attributeName].value,
+    isFav: actor.system.attributes?.[attributeName + 'IsFav']
+  }, { useTargets: true });
+}
+
+
+export async function rollSkill(actor, skillName) {
+
+  const skillData = actor.system.skills[skillName] ?? actor.items.get(skillName)?.system;
+  if (!skillData) return;
+
+  // Before calculating roll, check to see if it can be attempted unskilled; exit test if actor doesn't have required skill
+  if (checkUnskilled(skillData.value, skillName, actor)) return;
+
+  // Check if character is trying to roll on reality while disconnected- must be allowed if reconnection-roll
+  let reconnection_attempt = false;
+  if (skillName === 'reality' && actor.isDisconnected) {
+    reconnection_attempt = true;
+    const confirmed = await DialogV2.confirm({
+      window: { title: 'torgeternity.dialogWindow.realityCheck.title' },
+      content: game.i18n.localize('torgeternity.dialogWindow.realityCheck.content'),
+    });
+
+    if (!confirmed) {
+
+      foundry.applications.handlebars.renderTemplate(
+        './systems/torgeternity/templates/chat/skill-error-card.hbs',
+        {
+          message: game.i18n.localize('torgeternity.chatText.check.cantUseRealityWhileDisconnected'),
+          actor: actor.uuid,
+          actorPic: actor.img,
+          actorName: actor.name,
+        }
+      ).then(content =>
+        ChatMessage.create({
+          speaker: ChatMessage.getSpeaker({ actor: actor }),
+          owner: actor,
+          content: content
+        })
+      )
+      // Don't wait for chat message to finish posting
+      return;
+    }
+  }
+
+  const dialog = TestDialog.wait({
+    testType: 'skill',
+    customSkill: !actor.system.skills[skillName],
+    actor: actor,
+    isFav: skillData.isFav,
+    skillName: skillName,
+    skillValue: skillData.value,
+  }, { useTargets: true });
+
+  if (!reconnection_attempt) return dialog;
+
+  switch ((await dialog).flags.torgeternity.test.result) {
+    case TestResult.STANDARD:
+    case TestResult.GOOD:
+    case TestResult.OUTSTANDING:
+      await actor.toggleStatusEffect('disconnected', { active: false });
+      ui.notifications.info(game.i18n.localize('torgeternity.macros.reconnectMacroStatusLiftet'));
+      break;
+    case TestResult.FAILURE:
+      // ChatMessage.create({content: "<p>Fehlschlag</p>"});
+      break;
+    case TestResult.MISHAP:
+      break;
+  }
+}
+
+export async function rollUnarmedAttack(actor, skillName) {
+  let dnDescriptor = 'standard';
+  if (game.user.targets.size) {
+    const firstTarget = game.user.targets.find(token => token.actor.type !== 'vehicle')?.actor ||
+      game.user.targets.first().actor;
+
+    if (firstTarget.type === 'vehicle') {
+      dnDescriptor = 'targetVehicleDefense';
+    } else {
+      firstTarget.items
+        .filter((it) => it.type === 'meleeweapon')
+        .filter((it) => it.system.equipped).length !== 0
+        ? (dnDescriptor = 'targetMeleeWeapons')
+        : (dnDescriptor = 'targetUnarmedCombat');
+    }
+  }
+
+  // Almost the same as rollAttack
+  return TestDialog.wait({
+    testType: 'attack',
+    actor: actor,
+    amountBD: 0,
+    isAttack: true,
+    isFav: actor.system.skills[skillName]?.isFav,
+    skillName: skillName,
+    skillValue: actor.system.skills[skillName]?.value ?? actor.system.attributes.dexterity.value,
+    unskilledUse: true,
+    damage: actor.unarmed.damage,
+    weaponAP: 0,
+    applyArmor: true,
+    DNDescriptor: dnDescriptor,
+    type: 'attack',
+    applySize: true,
+    attackOptions: true,
+    //chatNote: '',
+    bdDamageSum: 0,
+    // itemId - no item
+  }, { useTargets: true });
+}
+
+export async function rollInteractionAttack(actor, skillName) {
+  const skillData = actor.system.skills[skillName];
+
+  let dnDescriptor = 'standard';
+  if (game.user.targets.size) {
+    switch (skillName) {
+      case 'intimidation':
+        dnDescriptor = 'targetIntimidation';
+        break;
+      case 'maneuver':
+        dnDescriptor = 'targetManeuver';
+        break;
+      case 'taunt':
+        dnDescriptor = 'targetTaunt';
+        break;
+      case 'trick':
+        dnDescriptor = 'targetTrick';
+        break;
+      default:
+        dnDescriptor = 'standard';
+    }
+  } else {
+    dnDescriptor = 'standard';
+  }
+
+  return TestDialog.wait({
+    testType: 'interactionAttack',
+    actor: actor,
+    skillName: skillName,
+    skillAdds: skillData.adds,
+    skillValue: Number(skillData.value),
+    isFav: actor.system.skills[skillName].isFav,
+    unskilledUse: true,
+    DNDescriptor: dnDescriptor,
+    type: 'interactionAttack',
   }, { useTargets: true });
 }
 

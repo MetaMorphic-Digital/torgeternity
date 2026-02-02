@@ -45,7 +45,7 @@ export function migrateCosm(cosm) {
 }
 
 export function calcPriceValue(price) {
-  const found = price?.match(/^(\d+)(\D*)$/);
+  const found = price?.replaceAll(',', '').match(/^(\d+)(\D*)$/);
   if (!found) return null;
   let fullprice = Number(found[1]);
   if (found[2]) {

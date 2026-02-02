@@ -64,7 +64,6 @@
           <div class="item-detail">
             <div class="item-dropdown-description">
               {{{item.description}}}
-              <p></p>
               <div class="item-dropdown-extras">
                 {{item.system.cosm}}
               </div>
@@ -75,10 +74,12 @@
               {{#if item.traitDesc}}
                 <div class="item-dropdown-extras"> {{item.traitDesc}} </div>
               {{/if}}
-              <div class="item-dropdown-extras">
-                {{item.system.price}}
-                ({{item.system.value}})
-              </div>
+              {{#if item.system.price.dollars}}
+                <div class="item-dropdown-extras">
+                  {{localize "torgeternity.gear.price"}}: {{item.system.price.dollars}}
+                  ({{item.system.price.torgValue}})
+                </div>
+              {{/if}}
               <div class="item-dropdown-extras">
                 {{item.system.notes}}
               </div>
@@ -120,7 +121,6 @@
           <div class="item-detail">
             <div class="item-dropdown-description">
               {{{item.description}}}
-              <p></p>
               <div class="item-dropdown-extras">
                 {{item.system.cosm}}
               </div>
@@ -131,19 +131,20 @@
               {{#if item.traitDesc}}
                 <div class="item-dropdown-extras"> {{item.traitDesc}} </div>
               {{/if}}
-              <div class="item-dropdown-extras">
-                {{item.system.price}}
-                ({{item.system.value}})
-              </div>
+              {{#if item.system.price.dollars}}
+                <div class="item-dropdown-extras">
+                  {{localize "torgeternity.gear.price"}}: {{item.system.price.dollars}}
+                  ({{item.system.price.torgValue}})
+                </div>
+              {{/if}}
               <div class="item-dropdown-extras">
                 {{item.system.range}}
               </div>
-              <div class="item-dropdown-extras">
-                {{localize "torgeternity.gear.ammo"}}:{{item.system.ammo.value}}
-                /
-                {{item.system.ammo.max}}
-
-              </div>
+              {{#if item.system.ammo.max}}
+                <div class="item-dropdown-extras">
+                  {{localize "torgeternity.gear.ammo"}}: {{item.system.ammo.value}} / {{item.system.ammo.max}}
+                </div>
+              {{/if}}
               <div class="item-dropdown-extras">
                 {{item.system.notes}}
               </div>
@@ -184,7 +185,6 @@
           <div class="item-detail">
             <div class="item-dropdown-description">
               {{{item.description}}}
-              <p></p>
               <div class="item-dropdown-extras">
                 {{item.system.cosm}}
               </div>
@@ -195,19 +195,20 @@
               {{#if item.traitDesc}}
                 <div class="item-dropdown-extras"> {{item.traitDesc}} </div>
               {{/if}}
-              <div class="item-dropdown-extras">
-                {{item.system.price}}
-                ({{item.system.value}})
-              </div>
+              {{#if item.system.price.dollars}}
+                <div class="item-dropdown-extras">
+                  {{localize "torgeternity.gear.price"}}: {{item.system.price.dollars}}
+                  ({{item.system.price.torgValue}})
+                </div>
+              {{/if}}
               <div class="item-dropdown-extras">
                 {{item.system.range}}
               </div>
-              <div class="item-dropdown-extras">
-                {{localize "torgeternity.gear.ammo"}}:
-                {{item.system.ammo.value}}
-                /
-                {{item.system.ammo.max}}
-              </div>
+              {{#if item.system.ammo.max}}
+                <div class="item-dropdown-extras">
+                  {{localize "torgeternity.gear.ammo"}}: {{item.system.ammo.value}} / {{item.system.ammo.max}}
+                </div>
+              {{/if}}
               <div class="item-dropdown-extras">
                 {{item.system.notes}}
               </div>
@@ -248,7 +249,6 @@
           <div class="item-detail">
             <div class="item-dropdown-description">
               {{{item.description}}}
-              <p></p>
               <div class="item-dropdown-extras">
                 {{item.system.cosm}}
               </div>
@@ -259,19 +259,20 @@
               {{#if item.traitDesc}}
                 <div class="item-dropdown-extras"> {{item.traitDesc}} </div>
               {{/if}}
-              <div class="item-dropdown-extras">
-                {{item.system.price}}
-                ({{item.system.value}})
-              </div>
+              {{#if item.system.price.dollars}}
+                <div class="item-dropdown-extras">
+                  {{localize "torgeternity.gear.price"}}: {{item.system.price.dollars}}
+                  ({{item.system.price.torgValue}})
+                </div>
+              {{/if}}
               <div class="item-dropdown-extras">
                 {{item.system.range}}
               </div>
-              <div class="item-dropdown-extras">
-                {{localize "torgeternity.gear.ammo"}}:
-                {{item.system.ammo.value}}
-                /
-                {{item.system.ammo.max}}
-              </div>
+              {{#if item.system.ammo.max}}
+                <div class="item-dropdown-extras">
+                  {{localize "torgeternity.gear.ammo"}}: {{item.system.ammo.value}} / {{item.system.ammo.max}}
+                </div>
+              {{/if}}
               <div class="item-dropdown-extras">
                 {{item.system.notes}}
               </div>
@@ -301,11 +302,9 @@
               </a>
             </div>
           </div>
-
           <div class="item-detail">
             <div class="item-dropdown-description">
               {{{item.description}}}
-              <p></p>
               <div class="item-dropdown-extras">
                 {{localize 'torgeternity.sheetLabels.quantity'}}
                 {{item.system.quantity}}
@@ -317,10 +316,12 @@
               {{#if item.traitDesc}}
                 <div class="item-dropdown-extras"> {{item.traitDesc}} </div>
               {{/if}}
-              <div class="item-dropdown-extras">
-                {{item.system.price}}
-                ({{item.system.value}})
-              </div>
+              {{#if item.system.price.dollars}}
+                <div class="item-dropdown-extras">
+                  {{localize "torgeternity.gear.price"}}: {{item.system.price.dollars}}
+                  ({{item.system.price.torgValue}})
+                </div>
+              {{/if}}
               <div class="item-dropdown-extras">
                 {{item.system.notes}}
               </div>
@@ -379,14 +380,15 @@
           <div class="item-detail">
             <div class="item-dropdown-description">
               {{{item.description}}}
-              <p></p>
               <div class="item-dropdown-extras">
                 {{item.system.cosm}}
               </div>
-              <div class="item-dropdown-extras">
-                {{item.system.price}}
-                ({{item.system.value}})
-              </div>
+              {{#if item.system.price.dollars}}
+                <div class="item-dropdown-extras">
+                  {{localize "torgeternity.gear.price"}}: {{item.system.price.dollars}}
+                  ({{item.system.price.torgValue}})
+                </div>
+              {{/if}}
               <div class="item-dropdown-extras">
                 {{localize "torgeternity.gear.tl"}}
                 {{item.system.axioms.tech}}
@@ -439,14 +441,15 @@
           <div class="item-detail">
             <div class="item-dropdown-description">
               {{{item.description}}}
-              <p></p>
               <div class="item-dropdown-extras">
                 {{item.system.cosm}}
               </div>
-              <div class="item-dropdown-extras">
-                {{item.system.price}}
-                ({{item.system.value}})
-              </div>
+              {{#if item.system.price.dollars}}
+                <div class="item-dropdown-extras">
+                  {{localize "torgeternity.gear.price"}}: {{item.system.price.dollars}}
+                  ({{item.system.price.torgValue}})
+                </div>
+              {{/if}}
               <div class="item-dropdown-extras">
                 {{localize "torgeternity.gear.tl"}}
                 {{item.system.axioms.tech}}
@@ -502,14 +505,15 @@
           <div class="item-detail">
             <div class="item-dropdown-description">
               {{{item.description}}}
-              <p></p>
               <div class="item-dropdown-extras">
                 {{item.system.cosm}}
               </div>
-              <div class="item-dropdown-extras">
-                {{item.system.price}}
-                ({{item.system.value}})
-              </div>
+              {{#if item.system.price.dollars}}
+                <div class="item-dropdown-extras">
+                  {{localize "torgeternity.gear.price"}}: {{item.system.price.dollars}}
+                  ({{item.system.price.torgValue}})
+                </div>
+              {{/if}}
               <div class="item-dropdown-extras">
                 {{localize "torgeternity.gear.tl"}}
                 {{item.system.axioms.tech}}
@@ -549,14 +553,15 @@
           <div class="item-detail">
             <div class="item-dropdown-description">
               {{{item.description}}}
-              <p></p>
               <div class="item-dropdown-extras">
                 {{item.system.cosm}}
               </div>
-              <div class="item-dropdown-extras">
-                {{item.system.price}}
-                ({{item.system.value}})
-              </div>
+              {{#if item.system.price.dollars}}
+                <div class="item-dropdown-extras">
+                  {{localize "torgeternity.gear.price"}}: {{item.system.price.dollars}}
+                  ({{item.system.price.torgValue}})
+                </div>
+              {{/if}}
               <div class="item-dropdown-extras">
                 {{localize "torgeternity.gear.tl"}}
                 {{item.system.axioms.tech}}
@@ -600,7 +605,6 @@
           <div class="item-detail">
             <div class="item-dropdown-description">
               {{{item.description}}}
-              <p></p>
               <div class="item-dropdown-extras">
                 {{item.system.cosm}}
               </div>
@@ -647,7 +651,6 @@
           <div class="item-detail">
             <div class="item-dropdown-description">
               {{{item.description}}}
-              <p></p>
               <div class="item-dropdown-extras">
                 {{item.system.cosm}}
               </div>

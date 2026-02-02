@@ -24,7 +24,6 @@
       <div class="item-detail">
         <div class="item-dropdown-description">
           {{{item.description}}}
-          <p></p>
           <div class="item-dropdown-extras">
             {{item.system.cosm}}
           </div>
@@ -35,19 +34,19 @@
           {{#if item.traitDesc}}
             <div class="item-dropdown-extras"> {{item.traitDesc}} </div>
           {{/if}}
-          <div class="item-dropdown-extras">
-            {{item.system.price}}
-            ({{item.system.value}})
-          </div>
+          {{#if item.system.price.dollars}}
+            <div class="item-dropdown-extras">
+              {{localize "torgeternity.gear.price"}}: {{item.system.price.dollars}} ({{item.system.price.torgValue}})
+            </div>
+          {{/if}}
           <div class="item-dropdown-extras">
             {{item.system.range}}
           </div>
-          <div class="item-dropdown-extras">
-            {{localize 'torgeternity.gear.ammo'}}:
-            {{item.system.ammo.value}}
-            /
-            {{item.system.ammo.max}}
-          </div>
+          {{#if item.system.ammo.max}}
+            <div class="item-dropdown-extras">
+              {{localize 'torgeternity.gear.ammo'}}: {{item.system.ammo.value}} / {{item.system.ammo.max}}
+            </div>
+          {{/if}}
           <div class="item-dropdown-extras">
             {{item.system.notes}}
           </div>
@@ -118,11 +117,9 @@
             </a>
           </div>
         </div>
-
         <div class="item-detail">
           <div class="item-dropdown-description">
             {{{item.description}}}
-            <p></p>
             <div class="item-dropdown-extras">
               {{localize 'torgeternity.sheetLabels.quantity'}}
               {{item.system.quantity}}
@@ -134,10 +131,11 @@
             {{#if item.traitDesc}}
               <div class="item-dropdown-extras"> {{item.traitDesc}} </div>
             {{/if}}
-            <div class="item-dropdown-extras">
-              {{item.system.price}}
-              ({{item.system.value}})
-            </div>
+            {{#if item.system.price.dollars}}
+              <div class="item-dropdown-extras">
+                {{localize "torgeternity.gear.price"}}: {{item.system.price.dollars}} ({{item.system.price.torgValue}})
+              </div>
+            {{/if}}
             <div class="item-dropdown-extras">
               {{item.system.notes}}
             </div>
@@ -161,7 +159,7 @@
   </div>
   <ol class="item-list">
     {{#each gear as |item id|}}
-      <li class="item draggable" data-item-id="{{item._id}}">
+      <li class="item draggable block" data-item-id="{{item._id}}">
         <div class="item-row flexrow">
           <img src="{{item.img}}" data-tooltip="{{item.name}}" />
           <a class="item-name {{TorgDisconnected item}}" data-action="itemName">{{item.name}}</a>
@@ -183,21 +181,22 @@
         <div class="item-detail">
           <div class="item-dropdown-description">
             {{{item.description}}}
+            <div class="item-dropdown-extras">
+              {{item.system.cosm}}
+            </div>
+            {{#if item.system.price.dollars}}
+              <div class="item-dropdown-extras">
+                {{localize "torgeternity.gear.price"}}: {{item.system.price.dollars}} ({{item.system.price.torgValue}})
+              </div>
+            {{/if}}
+            <div class="item-dropdown-extras">
+              {{localize 'torgeternity.gear.tl'}}
+              {{item.system.axioms.tech}}
+            </div>
+            {{#if item.traitDesc}}
+              <div class="item-dropdown-extras"> {{item.traitDesc}} </div>
+            {{/if}}
           </div>
-          <div class="item-dropdown-extras">
-            {{item.system.cosm}}
-          </div>
-          <div class="item-dropdown-extras">
-            {{item.system.price}}
-            ({{item.system.value}})
-          </div>
-          <div class="item-dropdown-extras">
-            {{localize 'torgeternity.gear.tl'}}
-            {{item.system.axioms.tech}}
-          </div>
-          {{#if item.traitDesc}}
-            <div class="item-dropdown-extras"> {{item.traitDesc}} </div>
-          {{/if}}
         </div>
       </li>
     {{/each}}

@@ -3321,6 +3321,11 @@ document-embed .generalHeader {
   flex-direction: row;
   justify-content: center;
   text-shadow: 0px 0px 2px grey;
+
+  .manualRoll {
+    font-size: 8px;
+    vertical-align: super;
+  }
 }
 
 .dice-roll-torg {
@@ -3705,7 +3710,7 @@ document-embed .generalHeader {
       }
     }
 
-    input[name="system.price"],
+    input[name="system.price.dollars"],
     input[name="system.tough"] {
       width: 5em;
     }

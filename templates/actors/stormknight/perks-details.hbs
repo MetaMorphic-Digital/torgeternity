@@ -33,22 +33,21 @@
               </a>
             </div>
           </div>
-
           <div class="item-detail">
             <div class="item-dropdown-description">
               {{{item.description}}}
-            </div>
-            <div class="item-dropdown-extras">
-              {{localize (concat "torgeternity.cosms." item.system.cosm)}}
-            </div>
-            {{#if item.traitDesc}}
-              <div class="item-dropdown-extras"> {{item.traitDesc}} </div>
-            {{/if}}
-            {{#if item.system.timestaken}}
               <div class="item-dropdown-extras">
-                {{item.system.timestaken}}x
+                {{localize (concat "torgeternity.cosms." item.system.cosm)}}
               </div>
-            {{/if}}
+              {{#if item.traitDesc}}
+                <div class="item-dropdown-extras"> {{item.traitDesc}} </div>
+              {{/if}}
+              {{#if item.system.timestaken}}
+                <div class="item-dropdown-extras">
+                  {{item.system.timestaken}}x
+                </div>
+              {{/if}}
+            </div>
           </div>
         </li>
       {{/if}}
@@ -71,22 +70,21 @@
               </a>
             </div>
           </div>
-
           <div class="item-detail">
             <div class="item-dropdown-description">
               {{{item.description}}}
-            </div>
-            <div class="item-dropdown-extras">
-              {{localize (concat "torgeternity.cosms." item.system.cosm)}}
-            </div>
-            {{#if item.traitDesc}}
-              <div class="item-dropdown-extras"> {{item.traitDesc}} </div>
-            {{/if}}
-            {{#if item.system.timestaken}}
               <div class="item-dropdown-extras">
-                {{item.system.timestaken}}x
+                {{localize (concat "torgeternity.cosms." item.system.cosm)}}
               </div>
-            {{/if}}
+              {{#if item.traitDesc}}
+                <div class="item-dropdown-extras"> {{item.traitDesc}} </div>
+              {{/if}}
+              {{#if item.system.timestaken}}
+                <div class="item-dropdown-extras">
+                  {{item.system.timestaken}}x
+                </div>
+              {{/if}}
+            </div>
           </div>
         </li>
       {{/if}}
@@ -127,16 +125,15 @@
             </a>
           </div>
         </div>
-
         <div class="item-detail">
           <div class="item-dropdown-description">
             {{{item.description}}}
           </div>
         </div>
-
       </li>
     {{/each}}
   </ol>
+
   {{#if enhancement}}
     <div class="list-section-heading">
       <span>{{localize "torgeternity.sheetLabels.enhancements"}}</span>
@@ -152,7 +149,7 @@
     </div>
     <ol class="item-list">
       {{#each enhancement as |item id|}}
-        <li class="item draggable" data-item-id="{{item._id}}">
+        <li class="item draggable block" data-item-id="{{item._id}}">
           <div class="item-row flexrow">
             <img src="{{item.img}}" data-tooltip="{{item.name}}" />
             <a class="item-name {{TorgDisconnected item}}" data-action="itemName">{{item.name}}

@@ -17,7 +17,7 @@ import { registerTorgSettings } from './settings.js';
 import { rollAttack, rollPower, TestResult } from './torgchecks.js';
 import { modifyTokenBars } from './tokenBars.js';
 import TorgCombatant from './dramaticScene/torgeternityCombatant.js';
-import { registerDiceSoNice } from './dice-so-nice.js';
+import { registerDiceSoNice } from './modsupport/dice-so-nice.js';
 import torgeternityPlayerHand from './cards/torgeternityPlayerHand.js';
 import torgeternityPile from './cards/torgeternityPile.js';
 import torgeternityDeck from './cards/torgeternityDeck.js';
@@ -51,6 +51,8 @@ import { initHideCompendium } from './hideCompendium.js';
 import DeckSettingMenu from './cards/cardSettingMenu.js';
 import activateSocketListeners from './sockets.js';
 import EffectsPanel from './effectsPanel.js';
+import setupItemPiles from './modsupport/item-piles.js';
+import setupTokenActionHud from './modsupport/token-action-hud.js';
 
 const { DialogV2 } = foundry.applications.api;
 
@@ -961,3 +963,7 @@ function TorgDisconnected(doc) {
 function TorgIsSvg(value) {
   return value.endsWith('.svg') ? 'svg' : '';
 }
+
+Hooks.once("item-piles-ready", setupItemPiles);
+
+Hooks.once('tokenActionHudCoreApiReady', setupTokenActionHud);

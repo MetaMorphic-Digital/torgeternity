@@ -12,17 +12,17 @@
         name="system.axioms.tech"
         type="number"
         value="{{item.system.axioms.tech}}" />
-      <label for="system.price" style="grid-column: 1/3" class="item-data-label">
+      <label for="system.price.dollars" style="grid-column: 1/3" class="item-data-label">
         {{localize "torgeternity.gear.price"}}/{{localize "torgeternity.gear.value"}}
       </label>
       <input
-        name="system.price"
+        name="system.price.dollars"
         type="text"
-        value="{{item.system.price}}" />
+        value="{{item.system.price.dollars}}" />
       <input
-        name="system.value"
-        type="number"
-        value="{{item.system.value}}" />
+        name="system.price.torgValue"
+        type="number" disabled
+        value="{{item.system.price.torgValue}}" />
       <label for="system.minStrength" class="item-data-label">
         {{localize "torgeternity.gear.minStrength"}}
       </label>
