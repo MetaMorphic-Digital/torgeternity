@@ -52,6 +52,7 @@ import DeckSettingMenu from './cards/cardSettingMenu.js';
 import activateSocketListeners from './sockets.js';
 import EffectsPanel from './effectsPanel.js';
 import setupItemPiles from './modsupport/item-piles.js';
+import setupTokenActionHud from './modsupport/token-action-hud.js';
 
 const { DialogV2 } = foundry.applications.api;
 
@@ -964,3 +965,5 @@ function TorgIsSvg(value) {
 }
 
 Hooks.once("item-piles-ready", setupItemPiles);
+
+Hooks.once('tokenActionHudCoreApiReady', setupTokenActionHud);
