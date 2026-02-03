@@ -1,4 +1,4 @@
-import { renderSkillChat, rollAttack, rollPower, rollAttribute, rollSkill, rollUnarmedAttack, rollInteractionAttack } from '../torgchecks.js';
+import { renderSkillChat, rollAttack, rollPower, rollAttribute, rollSkill, rollUnarmedAttack, rollInteractionAttack, rollTapping } from '../torgchecks.js';
 import { onManageActiveEffect, prepareActiveEffectCategories } from '../effects.js';
 import { oneTestTarget, TestDialog } from '../test-dialog.js';
 import TorgeternityItem from '../documents/item/torgeternityItem.js';
@@ -859,46 +859,7 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
   static async #onTappingRoll(event, button) {
     const item = this.actor.items.get(button.closest('.item').dataset.itemId);
     if (!item) return ui.notifications.info(`Failed to find Item for button`);
-    const dn = item.system?.tappingDifficulty;
-    if (!dn) return ui.notifications.info(`Item does not have a Tapping Difficulty`);
-
-    const skillName = 'reality';
-    const skillData = this.actor.system?.skills[skillName];
-    if (!skillData) return ui.notifications.info(`Actor does not have the skill ${skillName}`);
-    //const attributeName = skillData.baseAttribute;
-    const skillValue = Number(skillData.value);
-
-    // Can't use reality while disconnected
-    if (this.actor.isDisconnected) {
-      return foundry.applications.handlebars.renderTemplate(
-        './systems/torgeternity/templates/chat/skill-error-card.hbs',
-        {
-          message: game.i18n.localize('torgeternity.chatText.check.cantUseRealityWhileDisconnected'),
-          actor: this.actor.uuid,
-          actorPic: this.actor.img,
-          actorName: this.actor.name,
-        }
-      ).then(content =>
-        ChatMessage.create({
-          speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-          owner: this.actor,
-          content: content
-        })
-      )
-    }
-
-    return TestDialog.wait({
-      testType: 'skill',
-      actor: this.actor,
-      isFav:
-        skillData.isFav ||
-        this.actor.system.attributes?.[skillName + 'IsFav'],
-      skillName: skillName,
-      skillValue: skillValue,
-      chatTitle: game.i18n.localize('torgeternity.chatText.tapping'),
-      DNDescriptor: 'fixedNumber',
-      DNfixed: dn
-    });
+    rollTapping(this.actor, item);
   }
 
   /**

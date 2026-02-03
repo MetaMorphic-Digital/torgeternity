@@ -1277,6 +1277,49 @@ export async function rollInteractionAttack(actor, skillName) {
   }, { useTargets: true });
 }
 
+export async function rollTapping(actor, item) {
+  const dn = item.system?.tappingDifficulty;
+  if (!dn) return ui.notifications.info(`Item does not have a Tapping Difficulty`);
+
+  const skillName = 'reality';
+  const skillData = actor.system?.skills[skillName];
+  if (!skillData) return ui.notifications.info(`Actor does not have the skill ${skillName}`);
+  //const attributeName = skillData.baseAttribute;
+  const skillValue = Number(skillData.value);
+
+  // Can't use reality while disconnected
+  if (actor.isDisconnected) {
+    return foundry.applications.handlebars.renderTemplate(
+      './systems/torgeternity/templates/chat/skill-error-card.hbs',
+      {
+        message: game.i18n.localize('torgeternity.chatText.check.cantUseRealityWhileDisconnected'),
+        actor: actor.uuid,
+        actorPic: actor.img,
+        actorName: actor.name,
+      }
+    ).then(content =>
+      ChatMessage.create({
+        speaker: ChatMessage.getSpeaker({ actor: actor }),
+        owner: actor,
+        content: content
+      })
+    )
+  }
+
+  return TestDialog.wait({
+    testType: 'skill',
+    actor: actor,
+    isFav:
+      skillData.isFav ||
+      actor.system.attributes?.[skillName + 'IsFav'],
+    skillName: skillName,
+    skillValue: skillValue,
+    chatTitle: game.i18n.localize('torgeternity.chatText.tapping'),
+    DNDescriptor: 'fixedNumber',
+    DNfixed: dn
+  });
+}
+
 function isApprovedAction(test) {
   if (!game.combat?.approvedActions) return false;
 
