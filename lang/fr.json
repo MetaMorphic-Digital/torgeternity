@@ -149,7 +149,7 @@
         "testUnsuccessfull": "Le jet n'a pas réussi"
       },
       "concentration": {
-        "start": "Started concentrating on {itemName}",
+        "start": "Début de la concentration pour {itemName}",
         "makeCheck": "{actor} doit effectuer un test de Concentration",
         "AEname": "Concentration: {item}",
         "AEdescription": "{actor} est concentré sur {itemType} '{itemName}'",

@@ -149,7 +149,7 @@
         "testUnsuccessfull": "Probe nicht erfolgreich"
       },
       "concentration": {
-        "start": "Started concentrating on {itemName}",
+        "start": "Konzentration auf {itemName} begonnen",
         "makeCheck": "{actor} muss eine Konzentrations-Probe ablegen",
         "AEname": "Konzentration: {item}",
         "AEdescription": "{actor} konzentriert sich auf {itemType} '{itemName}'",
