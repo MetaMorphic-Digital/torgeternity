@@ -3,6 +3,9 @@
 ## NEXT
 
 - Add missing translation key for an Actor starts concentrating on a power, `torgeternity.chatText.concentration.start`
+- **Token Action Hud**
+  - Add **PERKS** tab
+  - Allow making a Tapping Roll on eternity shards
 
 ## 13.19.0 - Attributes, Price, Inspiration, Item Piles & Token Action HUD
 

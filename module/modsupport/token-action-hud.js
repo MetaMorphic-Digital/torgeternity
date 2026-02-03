@@ -1,4 +1,4 @@
-import { rollAttack, rollPower, rollAttribute, rollSkill, rollUnarmedAttack, rollInteractionAttack } from '../torgchecks.js';
+import { rollAttack, rollPower, rollAttribute, rollSkill, rollUnarmedAttack, rollInteractionAttack, rollTapping } from '../torgchecks.js';
 
 // LEFT CLICK to perform ACTION
 // RIGHT CLICK to open Item Sheet (ignored on Skills)
@@ -33,7 +33,7 @@ export default async function setupTokenActionHud(coreModule) {
     combat: { id: ATTACK_ID, name: "torgeternity.sheetLabels.attacks", type: "system" },
     perks: { id: PERKS_ID, name: "torgeternity.sheetLabels.perks", type: "system" },
     powers: { id: POWERS_ID, name: "torgeternity.sheetLabels.powers", type: "system" },
-    gear: { id: GEAR_ID, name: "torgeternity.sheetLabels.gear", type: "system" },
+    gearGroup: { id: GEAR_ID, name: "torgeternity.sheetLabels.gear", type: "system" },
     conditions: { id: CONDITION_ID, name: "torgeternity.sheetLabels.conditions", type: "system" },
     attacksInteraction: { id: 'combat_interaction', name: "torgeternity.sheetLabels.interactionAttacks", type: "system" },
   }
@@ -63,7 +63,7 @@ export default async function setupTokenActionHud(coreModule) {
       await this.#getSkills(actor, tokenId, GROUP.skills);
       await this.#getPowers(actor, tokenId, GROUP.powers);
       await this.#getAttacks(actor, tokenId, GROUP.combat);
-      await this.#getGear(actor, tokenId, GROUP.gear);
+      await this.#getGear(actor, tokenId, GROUP.gearGroup);
       await this.#getPerks(actor, tokenId, GROUP.perks);
       await this.#getConditions(actor, tokenId, GROUP.conditions);
 
@@ -267,8 +267,7 @@ export default async function setupTokenActionHud(coreModule) {
             const item = actor.items.get(actionId);
             switch (item.type) {
               case 'eternityshard':
-                // Actor Sheet: onTappingRoll
-                break;
+                return rollTapping(this.actor, item);
             }
           }
           break;
