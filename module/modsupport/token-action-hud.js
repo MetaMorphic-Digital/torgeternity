@@ -11,6 +11,7 @@ export default async function setupTokenActionHud(coreModule) {
   const POWERS_ID = 'powersid';
   const GEAR_ID = 'gearid';   // since "gear" is the name of an Item group
   const CONDITION_ID = 'conditionsid';
+  const PERKS_ID = 'perksid';
 
   const ACTION_ATTRIBUTE = 'attribute';
   const ACTION_SKILL = 'skill';
@@ -19,6 +20,7 @@ export default async function setupTokenActionHud(coreModule) {
   const ACTION_POWER = 'power';
   const ACTION_GEAR = 'gear';
   const ACTION_CONDITION = 'conditions';
+  const ACTION_PERK = 'perk';
 
   const FAVOURED = ' \u2606';
   const EQUIPPED = ' \u270b';
@@ -29,6 +31,7 @@ export default async function setupTokenActionHud(coreModule) {
     skillsInteraction: { id: 'skills_interaction', name: "torgeternity.sheetLabels.interactionSkills", type: "system" },
     skillsOther: { id: 'skills_other', name: "torgeternity.sheetLabels.otherSkills", type: "system" },
     combat: { id: ATTACK_ID, name: "torgeternity.sheetLabels.attacks", type: "system" },
+    perks: { id: PERKS_ID, name: "torgeternity.sheetLabels.perks", type: "system" },
     powers: { id: POWERS_ID, name: "torgeternity.sheetLabels.powers", type: "system" },
     gear: { id: GEAR_ID, name: "torgeternity.sheetLabels.gear", type: "system" },
     conditions: { id: CONDITION_ID, name: "torgeternity.sheetLabels.conditions", type: "system" },
@@ -56,12 +59,13 @@ export default async function setupTokenActionHud(coreModule) {
 
       if (actor.type !== 'stormknight' && actor.type !== 'threat') return;
 
-      await this.#getAttributes(actor, tokenId, { id: ATTRIBUTES_ID, type: 'system' })
-      await this.#getSkills(actor, tokenId, { id: SKILLS_ID, type: 'system' })
-      await this.#getPowers(actor, tokenId, { id: POWERS_ID, type: 'system' })
-      await this.#getAttacks(actor, tokenId, { id: ATTACK_ID, type: 'system' })
-      await this.#getGear(actor, tokenId, { id: GEAR_ID, type: 'system' })
-      await this.#getConditions(actor, tokenId, { id: CONDITION_ID, type: 'system' })
+      await this.#getAttributes(actor, tokenId, GROUP.attributes);
+      await this.#getSkills(actor, tokenId, GROUP.skills);
+      await this.#getPowers(actor, tokenId, GROUP.powers);
+      await this.#getAttacks(actor, tokenId, GROUP.combat);
+      await this.#getGear(actor, tokenId, GROUP.gear);
+      await this.#getPerks(actor, tokenId, GROUP.perks);
+      await this.#getConditions(actor, tokenId, GROUP.conditions);
 
       //if (settings.get("showHudTitle")) result.hudTitle = token.name;
     }
@@ -152,6 +156,10 @@ export default async function setupTokenActionHud(coreModule) {
       await this.#createList(parent, actor, tokenId, ACTION_POWER, actor.itemTypes.psionicpower, 'psionicPowers');
     }
 
+    async #getPerks(actor, tokenId, parent) {
+      await this.#createList(parent, actor, tokenId, ACTION_PERK, actor.itemTypes.perk, 'perks');
+    }
+
     async #getAttacks(actor, tokenId, parent) {
       // Interactions first
       const interactions = ['unarmedCombat', 'intimidation', 'maneuver', 'taunt', 'trick']
@@ -224,44 +232,29 @@ export default async function setupTokenActionHud(coreModule) {
 
         case ACTION_ATTRIBUTE:
           // ActorSheet: skillRoll
-          if (this.isRenderItem()) return;
+          if (this.isRenderItem()) return; // nothing to render
           rollAttribute(this.actor, actionId);
           break;
 
         case ACTION_SKILL:
           // ActorSheet: skillRoll
-          if (this.isRenderItem()) return;
+          if (this.isRenderItem()) return; // nothing to render
           rollSkill(this.actor, actionId);
           break;
 
         case ACTION_POWER:
-          {
-            // Sheet: itemPowerRoll
-            const item = actor.items.get(actionId);
-            if (item) {
-              if (this.isRenderItem())
-                item.sheet.render({ force: true })
-              else
-                rollPower(actor, item);
-            }
-          }
+          if (this.isRenderItem()) return this.renderItem(actor, actionId);
+          rollPower(actor, actor.items.get(actionId));
           break;
 
         case ACTION_ATTACK:
           // Sheet: onAttackRoll
-          {
-            const item = actor.items.get(actionId);
-            if (item) {
-              if (this.isRenderItem())
-                item.sheet.render({ force: true })
-              else
-                rollAttack(actor, item);
-            }
-          }
+          if (this.isRenderItem()) return this.renderItem(actor, actionId);
+          rollAttack(actor, actor.items.get(actionId));
           break;
 
         case ACTION_ATTACK_INTERACTION:
-          if (this.isRenderItem()) return;
+          if (this.isRenderItem()) return; // nothing to render
           if (actionId === 'unarmedCombat')
             rollUnarmedAttack(this.actor, actionId);
           else
@@ -269,29 +262,28 @@ export default async function setupTokenActionHud(coreModule) {
           break;
 
         case ACTION_GEAR:
+          if (this.isRenderItem()) return this.renderItem(actor, actionId);
           {
             const item = actor.items.get(actionId);
-            if (item) {
-              if (this.isRenderItem())
-                item.sheet.render({ force: true })
-              else
-                switch (item.type) {
-                  case 'eternityshard':
-                    // Actor Sheet: onTappingRoll
-                    break;
-                }
+            switch (item.type) {
+              case 'eternityshard':
+                // Actor Sheet: onTappingRoll
+                break;
             }
           }
           break;
 
+        case ACTION_PERK:
+          if (this.isRenderItem()) return this.renderItem(actor, actionId);
+          break;
+
         case ACTION_CONDITION:
-          {
-            if (this.isRenderItem()) {
-              const effect = actor.allApplicableEffects().find(effect => effect.statuses.has(actionId));
-              if (effect) effect.sheet.render({ force: true }); // TODO
-            } else
-              this.actor.toggleStatusEffect(actionId);
-          }
+          if (this.isRenderItem()) {
+            // Render the EFFECT sheet (not the ITEM sheet)
+            const effect = actor.allApplicableEffects().find(effect => effect.statuses.has(actionId));
+            if (effect) effect.sheet.render({ force: true });
+          } else
+            this.actor.toggleStatusEffect(actionId);
           break;
       }
 
@@ -384,6 +376,15 @@ export default async function setupTokenActionHud(coreModule) {
               { ...groups.spell, nestId: "power_spell" },
               { ...groups.miracle, nestId: "power_miracle" },
               { ...groups.pisonicpower, nestId: "power_psionic" }
+            ]
+          },
+          {
+            nestId: PERKS_ID,
+            id: PERKS_ID,
+            name: game.i18n.localize('torgeternity.sheetLabels.perks'),
+            type: 'system',
+            groups: [
+              { ...groups.perks, nestId: "perks_perks" },
             ]
           },
           {
