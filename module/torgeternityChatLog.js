@@ -39,6 +39,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
       'drawDestiny': TorgeternityChatLog.#drawDestiny,
       'pingTarget': TorgeternityChatLog.#pingTarget,
       "panToTarget": TorgeternityChatLog.#panToTarget,
+      "reconnect": TorgeternityChatLog.#reconnect,
     }
   }
 
@@ -143,6 +144,15 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     // Foundry: _onPanToCombatant
     const { x, y } = token.center;
     return canvas.animatePan({ x, y, scale: Math.max(canvas.stage.scale.x, canvas.dimensions.scale.default) });
+  }
+
+  static async #reconnect(_event, button) {
+    const { chatMessage, actor } = getChatActor(button);
+    await actor.toggleStatusEffect('disconnected', { active: false });
+    chatMessage.update({
+      "flags.torgeternity.test.showReconnect": false,
+      "flags.torgeternity.test.skillRollMenuStyle": 'hidden',
+    });
   }
 
   /// @type {TorgeternityChatLog} this
@@ -373,13 +383,8 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
       return;
     }
 
-    // Pick the specific target from the chat card to receive the BD
-    test.possibilityStyle = 'hidden';
-    test.upStyle = 'hidden';
-    test.dramaStyle = 'hidden';
-    test.heroStyle = 'hidden';
-    test.hideFavButton = true;
-    test.hidePlus3 = true;
+    // Hide the action total modifier buttons
+    test.skillRollMenuStyle = 'hidden';
 
     let finalValue;
     if (rollTwice) {
@@ -425,7 +430,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
   static async #applyDamage(event, button) {
     event.preventDefault();
     if (event.shiftKey) return this.#adjustDamage(event);
-    const { test, targetActor, testTarget } = getChatTarget(button);
+    const { test, targetActor, testTarget, chatMessage } = getChatTarget(button);
     if (!targetActor || !testTarget) return;
     const damage = torgDamage(testTarget.damage, testTarget.targetAdjustedToughness,
       {
@@ -437,6 +442,10 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     if (targetActor.isConcentrating) {
       this.promptConcentration(targetActor);
     }
+    chatMessage.update({
+      "flags.torgeternity.test.showApplyDamage": false,
+      "flags.torgeternity.test.skillRollMenuStyle": 'hidden',
+    });
   }
 
   static async #soakDamage(event, button) {
@@ -511,12 +520,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     // Hide "apply soak" button in the soak test (as well the buttons which affect the action total)
     chatMessage.update({
       "flags.torgeternity.test.showApplySoak": false,
-      "flags.torgeternity.test.possibilityStyle": 'hidden',
-      "flags.torgeternity.test.upStyle": 'hidden',
-      "flags.torgeternity.test.heroStyle": 'hidden',
-      "flags.torgeternity.test.dramaStyle": 'hidden',
-      "flags.torgeternity.test.hideFavButton": true,
-      "flags.torgeternity.test.hidePlus3": true,
+      "flags.torgeternity.test.skillRollMenuStyle": 'hidden',
     });
 
     if (origmsg.isOwner) {

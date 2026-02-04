@@ -7,6 +7,9 @@
 - **Token Action Hud**
   - Add **PERKS** tab
   - Allow making a **Tapping** Roll on eternity shards
+- General **Skill Chat Card** changes
+  - **Reconnection** is now handled like other tests, so a `Reconnect` button will appear when the actor succeeds at the test (possibly after modifications to the action total)
+  - Action Total modifier buttons are hidden on use of BD or "apply damage" buttons
 - Reworked **MULTI-TARGET ACTIONS**
   - A single chat card is used for each multi-target action
   - The buttons to modify the action total remain near the top of the card.

@@ -165,7 +165,7 @@
 
     {{#if ownsActor}}
       {{#unless (and hideFavButton hidePlus3 (eq possibilityStyle 'hidden') (eq upStyle 'hidden') (eq heroStyle 'hidden') (eq dramaStyle 'hidden') )}}
-        <div class="skill-roll-menu">
+        <div class="skill-roll-menu {{skillRollMenuStyle}}">
           {{#unless hideFavButton}}
             <a class="button roll-button" data-action="rollFav">{{localize 'torgeternity.chatText.favored'}}</a>
           {{/unless}}
@@ -183,12 +183,17 @@
         </div>
       {{/unless}}
 
-      {{#if (and ownsActor (or showApplySoak showActorApplyVeryVulnerable showBacklashButtons))}}
+      {{#if (and ownsActor (or showApplySoak showReconnect showActorApplyVeryVulnerable showBacklashButtons))}}
         <p class="applyButtons">
           {{#if showApplySoak}}
             <a class="button roll-button" data-action="applySoak"
               data-tooltip="{{localize 'torgeternity.sheetLabels.applySoakTooltip'}}">
               {{localize 'torgeternity.sheetLabels.applySoak'}}</a>
+          {{/if}}
+          {{#if showReconnect}}
+            <a class="button roll-button" data-action="reconnect"
+              data-tooltip="{{localize 'torgeternity.sheetLabels.reconnectTooltip'}}">
+              {{localize 'torgeternity.sheetLabels.reconnect'}}</a>
           {{/if}}
           {{#if showActorApplyVeryVulnerable}}
             <a class="button roll-button" data-action="applyActorVulnerable"

@@ -1067,6 +1067,8 @@
       "race": "Race",
       "racialPerks": "Racial perks",
       "range": "Range",
+      "reconnect": "Reconnect",
+      "reconnectTooltip": "Remove Disconnected condition",
       "darkvision": "Darkvision",
       "removeGunner": "Remove this gunner from this weapon",
       "removeOperator": "Remove the operator from the vehicle",

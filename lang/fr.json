@@ -1073,6 +1073,8 @@
       "race": "Race",
       "racialPerks": "Avantages raciaux",
       "range": "Portée",
+      "reconnect": "Reconnect",
+      "reconnectTooltip": "Remove Disconnected condition",
       "darkvision": "Vision dans le noir",
       "removeGunner": "Supprimme l'opérateur de cette arme",
       "removeOperator": "Supprimme l'opérateur de ce véhicule",

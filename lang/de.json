@@ -1073,6 +1073,8 @@
       "race": "Volk",
       "racialPerks": "Volksfähigkeiten",
       "range": "Reichweite",
+      "reconnect": "Reconnect",
+      "reconnectTooltip": "Remove Disconnected condition",
       "darkvision": "Dunkelsicht",
       "removeGunner": "Entferne bei dieser Waffe den Schützen",
       "removeOperator": "Entferne bei diesem Fahrzeug den Lenker",

@@ -425,6 +425,9 @@ export async function renderSkillChat(test) {
       })
     }
 
+    if (test.testType === 'reconnect' && test.result >= TestResult.STANDARD) {
+      test.showReconnect = true;
+    }
     // Choose Text to Display as Result
     if (testActor.isDisconnected) {
       test.possibilityStyle = 'hidden';
@@ -449,12 +452,7 @@ export async function renderSkillChat(test) {
         test.outcomeColor += SHADOW_STYLE;
         test.resultTextStyle += SHADOW_STYLE;
       }
-      test.possibilityStyle = 'hidden';
-      test.upStyle = 'hidden';
-      test.dramaStyle = 'hidden';
-      test.heroStyle = 'hidden';
-      test.hideFavButton = true;
-      test.hidePlus3 = true;
+      test.skillRollMenuStyle = 'hidden';
       if (test.testType === 'soak')
         test.chatNote =
           game.i18n.localize('torgeternity.sheetLabels.soakNull') +
@@ -606,6 +604,7 @@ export async function renderSkillChat(test) {
     // Label as Skill vs. Attribute Test and turn on BD option if needed
     if (
       test.testType === 'skill' ||
+      test.testType === 'reconnect' ||
       test.testType === 'interactionAttack' ||
       test.testType === 'chase' ||
       test.testType === 'stunt' ||
@@ -907,11 +906,11 @@ function individualDN(test, target) {
     let traitdefense = getExtraProtection(test.attackTraits, target.defenses, 'Defense');
     if (onTarget === 'vehicleDefense')
       return target.defenses?.vehicle ?? 0;
-    if (Object.hasOwn(target.attributes, onTarget))
+    if (target.attributes && Object.hasOwn(target.attributes, onTarget))
       return target.attributes[onTarget].value + traitdefense;
-    if (Object.hasOwn(target.defenses, onTarget))
+    if (target.defenses && Object.hasOwn(target.defenses, onTarget))
       return target.defenses[onTarget] + traitdefense;
-    if (Object.hasOwn(target.skills, onTarget)) {
+    if (target.skills && Object.hasOwn(target.skills, onTarget)) {
       const skill = target.skills[onTarget];
       return ((skill.value && skill.value !== '-') ? skill.value : target.attributes[skill.baseAttribute].value) + traitdefense;
     }
@@ -1136,11 +1135,11 @@ export async function rollSkill(actor, skillName) {
 
   // Before calculating roll, check to see if it can be attempted unskilled; exit test if actor doesn't have required skill
   if (checkUnskilled(skillData.value, skillName, actor)) return;
+  let testType = 'skill';
 
   // Check if character is trying to roll on reality while disconnected- must be allowed if reconnection-roll
-  let reconnection_attempt = false;
   if (skillName === 'reality' && actor.isDisconnected) {
-    reconnection_attempt = true;
+    testType = 'reconnect';
     const confirmed = await DialogV2.confirm({
       window: { title: 'torgeternity.dialogWindow.realityCheck.title' },
       content: game.i18n.localize('torgeternity.dialogWindow.realityCheck.content'),
@@ -1168,30 +1167,14 @@ export async function rollSkill(actor, skillName) {
     }
   }
 
-  const dialog = TestDialog.wait({
-    testType: 'skill',
+  return TestDialog.wait({
+    testType: testType,
     customSkill: !actor.system.skills[skillName],
     actor: actor,
     isFav: skillData.isFav,
     skillName: skillName,
     skillValue: skillData.value,
-  }, { useTargets: true });
-
-  if (!reconnection_attempt) return dialog;
-
-  switch ((await dialog).flags.torgeternity.test.result) {
-    case TestResult.STANDARD:
-    case TestResult.GOOD:
-    case TestResult.OUTSTANDING:
-      await actor.toggleStatusEffect('disconnected', { active: false });
-      ui.notifications.info(game.i18n.localize('torgeternity.macros.reconnectMacroStatusLiftet'));
-      break;
-    case TestResult.FAILURE:
-      // ChatMessage.create({content: "<p>Fehlschlag</p>"});
-      break;
-    case TestResult.MISHAP:
-      break;
-  }
+  }, { useTargets: (testType === 'skill') });
 }
 
 export async function rollUnarmedAttack(actor, skillName) {
