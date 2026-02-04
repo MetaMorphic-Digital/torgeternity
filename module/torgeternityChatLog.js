@@ -442,8 +442,10 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     if (targetActor.isConcentrating) {
       this.promptConcentration(targetActor);
     }
+    testTarget.showApplyDamage = false;
+    testTarget.showBD = false;
     chatMessage.update({
-      "flags.torgeternity.test.showApplyDamage": false,
+      "flags.torgeternity.test.targetAll": test.targetAll,
       "flags.torgeternity.test.skillRollMenuStyle": 'hidden',
     });
   }
@@ -512,6 +514,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
       return;
     }
     origtarget.soakWounds = testTarget.soakWounds;
+    origtarget.showApplyDamage = false;
     origtarget.showBD = false;
     origtest.diceroll = null;  // use existing roll number
     // Display soak information, WITHOUT the footnote about possibility spent

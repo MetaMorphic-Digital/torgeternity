@@ -576,7 +576,7 @@ export async function renderSkillChat(test) {
               soakWounds: target.soakWounds,
             });
 
-          if (damage.wounds || damage.shocks) target.showApplyDamage = true;
+          if (damage.wounds || damage.shocks) target.showApplyDamage ??= true;
           target.damageDescription = damage.label;
           target.damageSubDescription =
             `${game.i18n.localize('torgeternity.chatText.check.result.damage')} ${adjustedDamage} vs. ${target.targetAdjustedToughness} ${game.i18n.localize('torgeternity.chatText.check.result.toughness')}`;
@@ -613,15 +613,15 @@ export async function renderSkillChat(test) {
       test.typeLabel = game.i18n.localize('torgeternity.chatText.skillTestLabel');
     } else if (test.testType === 'attack') {
       test.typeLabel = game.i18n.localize('torgeternity.chatText.skillTestLabel');
-      if (test.rollTotal !== 1 && !target.soakWounds) target.showBD = true;
+      if (test.rollTotal !== 1 && !target.soakWounds) target.showBD ??= true;
     } else if (test.testType === 'power') {
       test.typeLabel = game.i18n.localize('torgeternity.chatText.skillTestLabel');
-      if (test.isAttack && !target.soakWounds) target.showBD = true;
+      if (test.isAttack && !target.soakWounds) target.showBD ??= true;
     } else if (test.testType === 'custom') {
       test.typeLabel = game.i18n.localize('torgeternity.chatText.skillTestLabel');
       test.outcomeColor = 'hidden;';
       test.resultTextStyle = 'display:hidden;';
-      if (!target.soakWounds) target.showBD = true;
+      if (!target.soakWounds) target.showBD ??= true;
       test.upStyle = 'hidden';
     } else {
       test.typeLabel = game.i18n.localize('torgeternity.chatText.attributeTestLabel');
