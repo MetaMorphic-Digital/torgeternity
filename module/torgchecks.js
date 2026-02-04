@@ -355,7 +355,7 @@ export async function renderSkillChat(test) {
     // Handle numeric value in DNDescriptor
     let actionTotalContent = `${game.i18n.localize('torgeternity.chatText.check.result.actionTotal')} ${test.rollResult} vs. ${test.DN} `;
     if (isNaN(Number(test.DNDescriptor))) actionTotalContent += game.i18n.localize('torgeternity.dnTypes.' + test.DNDescriptor);
-    if (uniqueDN)
+    if (uniqueDN || (target.dummyTarget && !test.isAttack))
       test.actionTotalContent = actionTotalContent;
     else
       target.actionTotalContent = actionTotalContent;
@@ -659,7 +659,6 @@ export async function renderSkillChat(test) {
 
     first = false;
   } // for each target
-  if (test.targetAll[0].dummyTarget) test.target = test.targetAll[0];
 
   const rollMode = game.settings.get("core", "rollMode");
   const flavor = (rollMode === 'publicroll') ? '' : game.i18n.localize(CONFIG.Dice.rollModes[rollMode].label);

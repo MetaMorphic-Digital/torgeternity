@@ -249,39 +249,41 @@
                 </p>
               {{/if}}
 
-              <p class="applyButtons">
-                {{#if (and @root.ownsActor this.showBD)}}
-                  <a class="button roll-button showBD" data-action="addBd"
-                    data-tooltip="{{localize 'torgeternity.chatText.bdTooltip'}}">{{localize 'torgeternity.chatText.bonusDice'}}</a>
-                {{/if}}
-                {{#if this.ownsTarget}}
-                  {{#if this.showApplyDamage}}
-                    {{#unless this.soakWounds}}
-                      <a class="button roll-button" data-action="soakDam"
-                        data-tooltip="{{localize 'torgeternity.sheetLabels.soakDamageTooltip'}}">
-                        {{localize 'torgeternity.sheetLabels.soakDamage'}}</a>
-                    {{/unless}}
-                    <a class="button roll-button" data-action="applyDam"
-                      data-tooltip="{{localize 'torgeternity.sheetLabels.applyDamageTooltip'}}">
-                      {{localize 'torgeternity.sheetLabels.applyDamage'}}</a>
+              {{#if (or (and @root.ownsActor this.showBD) (and this.ownsTarget (or this.showApplyDamage this.showApplyEffects this.showApplyStymied this.showApplyVulnerable)))}}
+                <p class="applyButtons">
+                  {{#if (and @root.ownsActor this.showBD)}}
+                    <a class="button roll-button showBD" data-action="addBd"
+                      data-tooltip="{{localize 'torgeternity.chatText.bdTooltip'}}">{{localize 'torgeternity.chatText.bonusDice'}}</a>
                   {{/if}}
-                  {{#if this.showApplyEffects}}
-                    <a class="button roll-button" data-action="applyEffects"
-                      data-tooltip="{{localize 'torgeternity.sheetLabels.applyEffectsTooltip'}}">
-                      {{localize 'torgeternity.sheetLabels.applyEffects'}}</a>
+                  {{#if this.ownsTarget}}
+                    {{#if this.showApplyDamage}}
+                      {{#unless this.soakWounds}}
+                        <a class="button roll-button" data-action="soakDam"
+                          data-tooltip="{{localize 'torgeternity.sheetLabels.soakDamageTooltip'}}">
+                          {{localize 'torgeternity.sheetLabels.soakDamage'}}</a>
+                      {{/unless}}
+                      <a class="button roll-button" data-action="applyDam"
+                        data-tooltip="{{localize 'torgeternity.sheetLabels.applyDamageTooltip'}}">
+                        {{localize 'torgeternity.sheetLabels.applyDamage'}}</a>
+                    {{/if}}
+                    {{#if this.showApplyEffects}}
+                      <a class="button roll-button" data-action="applyEffects"
+                        data-tooltip="{{localize 'torgeternity.sheetLabels.applyEffectsTooltip'}}">
+                        {{localize 'torgeternity.sheetLabels.applyEffects'}}</a>
+                    {{/if}}
+                    {{#if this.showApplyStymied}}
+                      <a class="button roll-button" data-action="applyStymied"
+                        data-tooltip="{{localize 'torgeternity.sheetLabels.applyStymiedTooltip'}}">
+                        {{localize 'torgeternity.sheetLabels.applyStymied'}}</a>
+                    {{/if}}
+                    {{#if this.showApplyVulnerable}}
+                      <a class="button roll-button" data-action="applyVulnerable"
+                        data-tooltip="{{localize 'torgeternity.sheetLabels.applyVulnerableTooltip'}}">
+                        {{localize 'torgeternity.sheetLabels.applyVulnerable'}}</a>
+                    {{/if}}
                   {{/if}}
-                  {{#if this.showApplyStymied}}
-                    <a class="button roll-button" data-action="applyStymied"
-                      data-tooltip="{{localize 'torgeternity.sheetLabels.applyStymiedTooltip'}}">
-                      {{localize 'torgeternity.sheetLabels.applyStymied'}}</a>
-                  {{/if}}
-                  {{#if this.showApplyVulnerable}}
-                    <a class="button roll-button" data-action="applyVulnerable"
-                      data-tooltip="{{localize 'torgeternity.sheetLabels.applyVulnerableTooltip'}}">
-                      {{localize 'torgeternity.sheetLabels.applyVulnerable'}}</a>
-                  {{/if}}
-                {{/if}}
-              </p>
+                </p>
+              {{/if}}
             </div>
           </li>
         {{/each}}
