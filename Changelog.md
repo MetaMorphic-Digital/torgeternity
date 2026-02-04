@@ -8,6 +8,7 @@
 - General **Skill Chat Card** changes
   - **Reconnection** is now handled like other tests, so a `Reconnect` button will appear when the actor succeeds at the test (possibly after modifications to the action total)
   - Buttons in chat cards are hidden when they are no longer a valid option
+  - Automatically roll **Bonus Die** on GOOD or OUTSTANDING attack totals (configurable game setting)
 - Reworked **MULTI-TARGET ACTIONS**
   - A single chat card is used for each multi-target action
   - The buttons to modify the action total remain near the top of the card.

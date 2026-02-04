@@ -776,6 +776,10 @@
         "hint": "Wenn angehakt, bekommen die Würfel in Chat-Fenster einen Torg-Anstrich. Wenn nicht, sind diese standard-grau.",
         "name": "Zeige Torg-Würfel in Chat-Feldern "
       },
+      "autoRollBD": {
+        "hint": "Automatically the BD when a GOOD or OUTSTANDING success is achieved on an attack",
+        "name": "Automatically roll BD"
+      },
       "showManualRolls": {
         "hint": "Show dice which have been manually rolled in chat cards (with a suffix M)",
         "name": "Show Manual Dice rolls"

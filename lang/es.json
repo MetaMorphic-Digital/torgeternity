@@ -776,6 +776,10 @@
         "hint": "Si está marcado, los dados en las tarjetas de chat serán del estilo de Torg. Si está desactivada, serán los dados grises habituales...",
         "name": "Mostrar dados de Torg en las tarjetas de chat"
       },
+      "autoRollBD": {
+        "hint": "Automatically the BD when a GOOD or OUTSTANDING success is achieved on an attack",
+        "name": "Automatically roll BD"
+      },
       "showManualRolls": {
         "hint": "Show dice which have been manually rolled in chat cards (with a suffix M)",
         "name": "Show Manual Dice rolls"

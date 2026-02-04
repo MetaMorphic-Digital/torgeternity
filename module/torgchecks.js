@@ -546,22 +546,24 @@ export async function renderSkillChat(test) {
           }
 
         } else {
-          // Extra BDs based on success - we can't do this since each target might have a different degree of success!
-          /*test.addBDs ??= 0;
-          if (test.result === TestResult.OUTSTANDING) {
-            test.addsBDs += 2;
-          } else if (test.result === TestResult.GOOD) {
-            test.addsBDs += 1;
-          }*/
-
           // Cancel the "unwieldy" which might have been set if previously a failure
           test.showActorApplyVeryVulnerable &&= false;
+
+          // Extra BDs based on level success (but this is called many times, so ensure total of 0, 1 or 2 is maintained)
+          target.addBDs ??= 0;
+          if (game.settings.get('torgeternity', 'autoRollBD')) {
+            if (test.result === TestResult.OUTSTANDING) {
+              target.addBDs = Math.max(0, 2 - target.amountBD);
+            } else if (test.result === TestResult.GOOD) {
+              target.addBDs = Math.max(0, 1 - target.amountBD);
+            }
+          }
 
           // Add BDs in promise if applicable as this should only be rolled if the test is successful
           if (target.addBDs && !test.explicitBonus) {
             const iteratedRoll = await rollBonusDie(test.trademark, target.addBDs);
             const bdDamage = iteratedRoll.total;
-            test.bonusDiceList = test.bonusDiceList ? test.bonusDiceList.concat(iteratedRoll.dice[0].values) : iteratedRoll.dice[0].values;
+            test.bonusDiceList = test.bonusDiceList ? test.bonusDiceList.concat(iteratedRoll.dice[0].results) : iteratedRoll.dice[0].results;
             target.amountBD += target.addBDs;
             target.addBDs = 0;
 
