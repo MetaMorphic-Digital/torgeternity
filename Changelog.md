@@ -24,6 +24,30 @@
 - Add missing translation key for an Actor starts concentrating on a power, `torgeternity.chatText.concentration.start`
 - Prevent error on Firefox during loading when the Combat Tracker isn't fully initialised.
 
+### Translations
+
+- `autoRollBD.name/hint`
+- `diceTotal` (rewording)
+- `BDDamageSum`
+- `dieTotal`
+- `pingToken`
+- `applyDamage`
+- `applyEffects`
+- `applyStymied`
+- `applyVulnerable`
+- `reconnect`
+- `reconnectTooltip`
+- `autoDamage.hint` (shocks -> shock)
+- `chooseDamage` (damages -> damage)
+- `modifyDamage` (damages -> damage)
+- `modifyShocks` (shocks -> shock)
+- `soakAll` (shocks -> shock)
+- `soakDamage` (damages -> damage)
+- `soakValue` (shocks -> shock)
+- `backlash1Tooltip` (shocks -> shock)
+- `periculumSourceName`  (damages -> damage)
+
+
 ## 13.19.0 - Attributes, Price, Inspiration, Item Piles & Token Action HUD
 
 - Avoid aborting migration early during editing of an Actor (the edit still occurs).
