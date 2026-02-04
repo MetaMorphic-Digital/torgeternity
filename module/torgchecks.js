@@ -535,8 +535,6 @@ export async function renderSkillChat(test) {
           const weaponAP = applyEffects('test.weaponAP', test.weaponAP, effects);
           target.targetAdjustedToughness += Math.max(0, armor - weaponAP) + test.coverModifier;
         }
-        // Always set showActorApplyVeryVulnerable, in case result changes due to attack total modifiers
-        test.showActorApplyVeryVulnerable = (test.result < TestResult.STANDARD && test.attackTraits.includes('unwieldy'));
 
         // Generate damage description and damage sublabel
         if (test.result < TestResult.STANDARD) {
@@ -544,6 +542,7 @@ export async function renderSkillChat(test) {
           target.damageSubDescription = game.i18n.localize('torgeternity.chatText.check.result.attackMissed');
           if (test.attackTraits.includes('unwieldy')) {
             target.damageDescription += ` (${game.i18n.localize('torgeternity.traits.unwieldy')})`;
+            test.showActorApplyVeryVulnerable = true;
           }
 
         } else {
@@ -554,6 +553,9 @@ export async function renderSkillChat(test) {
           } else if (test.result === TestResult.GOOD) {
             test.addsBDs += 1;
           }*/
+
+          // Cancel the "unwieldy" which might have been set if previously a failure
+          test.showActorApplyVeryVulnerable &&= false;
 
           // Add BDs in promise if applicable as this should only be rolled if the test is successful
           if (target.addBDs && !test.explicitBonus) {
