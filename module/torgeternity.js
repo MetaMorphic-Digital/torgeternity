@@ -767,7 +767,7 @@ async function rollSkillMacro(skillName, attributeName, isInteractionAttack, DND
   if (isUnarmed) {
     // see TorgeternityActorSheet.#onUnarmedAttack
     test.testType = 'attack';
-    test.amountBD = 0;
+    //test.amountBD = 0;
     test.isAttack = true;
     test.unskilledUse = true;
     test.damage = actor.unarmed.damage;
@@ -775,7 +775,7 @@ async function rollSkillMacro(skillName, attributeName, isInteractionAttack, DND
     test.applyArmor = true;
     test.applySize = true;
     test.attackOptions = true;
-    test.bdDamageSum = 0;
+    //test.bdDamageSum = 0;
 
     let dnDescriptor;
     if (game.user.targets.size && !DNDescriptor) {

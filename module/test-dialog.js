@@ -217,11 +217,16 @@ export class TestDialog extends HandlebarsApplicationMixin(ApplicationV2) {
       context.test.vulnerableModifier = Math.max(...context.test.targetAll.map(target => target.vulnerableModifier));
       context.test.darknessModifier = Math.min(0, Math.min(...context.test.targetAll.map(target => target.darknessModifier)) + context.test.targetDarknessModifier);
     } else {
-      context.test.targetAll = [];
+      context.test.targetAll = dummyTestTargets();
       context.test.sizeModifier = 0;
       context.test.vulnerableModifier = 0;
       context.test.darknessModifier = 0;
     }
+
+    // Maybe there is an explicit amount of damage
+    if (this.test.damage)
+      for (const target of context.test.targetAll)
+        target.damage = this.test.damage;
 
     context.test.hasModifiers =
       (context.test?.woundModifier ||
@@ -308,14 +313,22 @@ export class TestDialog extends HandlebarsApplicationMixin(ApplicationV2) {
 
     if (CONFIG.debug.torgtest) console.debug('TestDialog.onRoll', this.test);
 
-    const messages = await renderSkillChat(this.test);
-    if (messages && this.options.callback) {
-      for (const message of messages) {
-        this.options.callback(message);
-      }
+    const message = await renderSkillChat(this.test);
+    if (message && this.options.callback) {
+      this.options.callback(message);
     }
     this.close();
   }
+}
+
+export function dummyTestTargets() {
+  return [{
+    dummyTarget: true,
+    amountBD: 0,
+    addBDs: 0,
+    bdDamageSum: 0,
+    damage: 0,
+  }];
 }
 
 
@@ -342,6 +355,7 @@ export function oneTestTarget(token, applySize) {
     return {
       type: actor.type,
       id: actor.id,
+      actorUuid: actor.uuid,
       uuid: token.document.uuid,
       targetPic: actor.img,
       targetName: token.name,
@@ -349,6 +363,9 @@ export function oneTestTarget(token, applySize) {
       toughness: actor.defenses.toughness,
       armor: actor.defenses.armor,
       armorTraits: [],
+      amountBD: 0,
+      addBDs: 0,
+      bdDamageSum: 0,
       // then vehicle specifics
       defenses: {
         ...damageDefenses,
@@ -366,6 +383,7 @@ export function oneTestTarget(token, applySize) {
     return {
       type: actor.type,
       id: actor.id,
+      actorUuid: actor.uuid,
       uuid: token.document.uuid,
       targetPic: actor.img,
       targetName: token.name,
@@ -382,6 +400,9 @@ export function oneTestTarget(token, applySize) {
       vulnerableModifier: actor.statusModifiers.vulnerable,
       darknessModifier: actor.statusModifiers.darkness,
       isConcentrating: actor.isConcentrating,
+      amountBD: 0,
+      addBDs: 0,
+      bdDamageSum: 0,
       defenses: {
         ...damageDefenses,
         dodge: actor.defenses.dodge.value,

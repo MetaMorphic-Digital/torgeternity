@@ -37,6 +37,8 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
       'testConcentration': TorgeternityChatLog.#testConcentration,
       'applyDefeat': TorgeternityChatLog.#applyDefeat,
       'drawDestiny': TorgeternityChatLog.#drawDestiny,
+      'pingTarget': TorgeternityChatLog.#pingTarget,
+      "panToTarget": TorgeternityChatLog.#panToTarget,
     }
   }
 
@@ -125,6 +127,22 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
         },
       ]
     })
+  }
+
+  static async #pingTarget(event, button) {
+    const { testTarget } = getChatTarget(button);
+    const token = fromUuidSync(testTarget.uuid)?.object;
+    if (!token || !canvas.ready) return;
+    return canvas.ping(token.center, {});
+  }
+
+  static async #panToTarget(event, button) {
+    const { testTarget } = getChatTarget(button);
+    const token = fromUuidSync(testTarget.uuid)?.object;
+    if (!token || !canvas.ready || !token.visible) return;
+    // Foundry: _onPanToCombatant
+    const { x, y } = token.center;
+    return canvas.animatePan({ x, y, scale: Math.max(canvas.stage.scale.x, canvas.dimensions.scale.default) });
   }
 
   /// @type {TorgeternityChatLog} this
@@ -341,15 +359,21 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     return renderSkillChat(test);
   }
 
+  /**
+   * Adds a Bonus Die of damage to the target of this button
+   * @param {} event 
+   * @param {*} button 
+   * @returns 
+   */
   static async #onBd(event, button) {
     event.preventDefault();
     const rollTwice = event.shiftKey;
-    const { chatMessageId, chatMessage, test } = getMessage(button);
+    const { chatMessageId, chatMessage, test, testTarget } = getChatTarget(button);
     if (!chatMessage.isAuthor && !game.user.isGM) {
       return;
     }
+
     // Pick the specific target from the chat card to receive the BD
-    if (test.target) test.targetAll = [test.target];
     test.possibilityStyle = 'hidden';
     test.upStyle = 'hidden';
     test.dramaStyle = 'hidden';
@@ -368,26 +392,12 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     } else
       finalValue = await rollBonusDie(test.trademark);
 
-    const newDamage = test.damage + finalValue.total;
+    const newDamage = testTarget.damage + finalValue.total;
 
-    test.damage = newDamage;
+    testTarget.damage = newDamage;
     test.diceroll = finalValue;
-
-    test.amountBD += 1;
-    if (test.amountBD === 1 && !test.addBDs) {
-      test.chatTitle += ` +${test.amountBD}` + game.i18n.localize('torgeternity.chatText.bonusDice');
-      if (rollTwice) test.chatTitle += BDMARKER;
-    } else if (test.amountBD > 1) {
-      test.chatTitle = test.chatTitle.replace(
-        (test.amountBD - 1).toString(),
-        test.amountBD.toString()
-      );
-      if (rollTwice) test.chatTitle += BDMARKER;
-    } else {
-      ui.notifications.info(game.i18n.localize('torgeternity.notifications.failureBDResolution'));
-    }
-
-    test.bdDamageSum += finalValue.total;
+    testTarget.amountBD += 1;
+    testTarget.bdDamageSum += finalValue.total;
     game.messages.get(chatMessageId).delete();
 
     // No parentDeleteByTime?
@@ -415,36 +425,36 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
   static async #applyDamage(event, button) {
     event.preventDefault();
     if (event.shiftKey) return this.#adjustDamage(event);
-    const { test, target } = getChatTarget(button);
-    if (!target) return;
-    const damage = torgDamage(test.damage, test.target.targetAdjustedToughness,
+    const { test, targetActor, testTarget } = getChatTarget(button);
+    if (!targetActor || !testTarget) return;
+    const damage = torgDamage(testTarget.damage, testTarget.targetAdjustedToughness,
       {
         attackTraits: test.attackTraits,
-        defenseTraits: target.defenseTraits,
-        soakWounds: test.soakWounds
+        defenseTraits: testTarget.defenseTraits,
+        soakWounds: testTarget.soakWounds
       });
-    target.applyDamages(damage.shocks, damage.wounds);
-    if (target.isConcentrating) {
-      this.promptConcentration(target);
+    targetActor.applyDamages(damage.shocks, damage.wounds);
+    if (targetActor.isConcentrating) {
+      this.promptConcentration(targetActor);
     }
   }
 
   static async #soakDamage(event, button) {
     event.preventDefault();
-    const { test, target, chatMessage } = getChatTarget(button);
-    if (!target) return;
+    const { targetActor, chatMessage } = getChatTarget(button);
+    if (!targetActor) return;
 
-    if (test.target.id !== game.user?.character?.id && !game.user.isGM) {
+    if (targetActor.id !== game.user?.character?.id && !game.user.isGM) {
       return;
     }
-    if (target.isDisconnected) {
+    if (targetActor.isDisconnected) {
       return ChatMessage.create({
-        speaker: ChatMessage.getSpeaker({ actor: target }),
+        speaker: ChatMessage.getSpeaker({ actor: targetActor }),
         content: game.i18n.localize('torgeternity.chatText.check.cantUseRealityWhileDisconnected'),
       });
     }
     //
-    let possPool = target.system.other.possibilities.value;
+    let possPool = targetActor.system.other.possibilities.value;
     // 0 => if GM ask for confirm, or return message "no poss"
     if (possPool <= 0 && !game.user.isGM) {
       ui.notifications.warn(game.i18n.localize('torgeternity.sheetLabels.noPoss'));
@@ -469,27 +479,45 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
       possPool += 1;
     }
 
-    await soakDamages(target, chatMessage.id);
-    await target.update({ 'system.other.possibilities.value': possPool - 1 });
+    await soakDamages(targetActor, chatMessage.id);
+    await targetActor.update({ 'system.other.possibilities.value': possPool - 1 });
   }
 
   static #applySoak(event, button) {
     event.preventDefault();
-    const { test: soaktest, chatMessage: soakmsg } = getMessage(button);
+    const { test: soaktest, chatMessage } = getMessage(button);
+    const testTarget = soaktest.targetAll[0];
+
     const origMessageId = soaktest.soakingMessage;
+    const origmsg = game.messages.get(origMessageId);
+    // The message might no longer be available (after a restart? or after applying once already)
+    if (!origmsg) return;
 
     // Update the original chat card to show the new damage.
 
-    const origmsg = game.messages.get(origMessageId);
     const origtest = origmsg.flags?.torgeternity?.test;
-    if (!origtest) {
+    const origtarget = origtest?.targetAll.find(target => target.dummyTarget || target.actorUuid === soaktest.actor);
+
+    if (!origtest || !testTarget || !origtarget) {
       ui.notifications.warn(`APPLY SOAK: Failed to find original message`)
       return;
     }
-    origtest.soakWounds = soaktest.soakWounds;
+    origtarget.soakWounds = testTarget.soakWounds;
+    origtarget.showBD = false;
     origtest.diceroll = null;  // use existing roll number
     // Display soak information, WITHOUT the footnote about possibility spent
-    origtest.soakDescription = soaktest.chatNote.slice(0, -game.i18n.localize('torgeternity.sheetLabels.possSpent').length);
+    origtarget.soakDescription = soaktest.chatNote.slice(0, -game.i18n.localize('torgeternity.sheetLabels.possSpent').length);
+
+    // Hide "apply soak" button in the soak test (as well the buttons which affect the action total)
+    chatMessage.update({
+      "flags.torgeternity.test.showApplySoak": false,
+      "flags.torgeternity.test.possibilityStyle": 'hidden',
+      "flags.torgeternity.test.upStyle": 'hidden',
+      "flags.torgeternity.test.heroStyle": 'hidden',
+      "flags.torgeternity.test.dramaStyle": 'hidden',
+      "flags.torgeternity.test.hideFavButton": true,
+      "flags.torgeternity.test.hidePlus3": true,
+    });
 
     if (origmsg.isOwner) {
       origmsg.delete();
@@ -508,14 +536,14 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     // Prevent Foundry's normal contextmenu handler from doing anything
     event.preventDefault();
     event.stopImmediatePropagation();
-    const { test, target } = getChatTarget(event.target);
-    if (!target) return;
+    const { test, targetActor, testTarget } = getChatTarget(event.target);
+    if (!targetActor || !testTarget) return;
 
-    const newDamages = torgDamage(test.damage, test.targetAdjustedToughness,
+    const newDamages = torgDamage(testTarget.damage, testTarget.targetAdjustedToughness,
       {
         attackTraits: test.attackTraits,
-        defenseTraits: test.target?.defenseTraits,
-        soakWounds: test.soakWounds
+        defenseTraits: testTarget.defenseTraits,
+        soakWounds: testTarget.soakWounds
       });
 
     const fields = foundry.applications.fields;
@@ -543,7 +571,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
           callback: async (event, button, dialog) => {
             const wounds = button.form.elements.nw.valueAsNumber;
             const shock = button.form.elements.ns.valueAsNumber;
-            target.applyDamages(shock, wounds);
+            targetActor.applyDamages(shock, wounds);
           },
         },
       ],
@@ -553,8 +581,8 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
 
   static async #applyEffects(event, button) {
     event.preventDefault();
-    const { test, target } = getChatTarget(button);
-    if (!target) return;
+    const { test, targetActor } = getChatTarget(button);
+    if (!targetActor) return;
 
     // Transfer Effects from the Weapon (& Ammo) to the target.
     const effects = test.effects.map(uuid => {
@@ -566,7 +594,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     }).filter(ef => ef !== undefined);
 
     if (effects.length)
-      target.createEmbeddedDocuments('ActiveEffect', effects);
+      targetActor.createEmbeddedDocuments('ActiveEffect', effects);
   }
 
   static async #applyItemEffect(event, button) {
@@ -581,21 +609,21 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
 
   static async #applyStymied(event, button) {
     event.preventDefault();
-    const { test, target } = getChatTarget(button);
-    if (target) {
-      await target.applyStymiedState(test.actor);
-      if (test.testType === 'interactionAttack' && target.isConcentrating)
-        this.promptConcentration(target);
+    const { test, targetActor } = getChatTarget(button);
+    if (targetActor) {
+      await targetActor.applyStymiedState(test.actor);
+      if (test.testType === 'interactionAttack' && targetActor.isConcentrating)
+        this.promptConcentration(targetActor);
     }
   }
 
   static async #applyTargetVulnerable(event, button) {
     event.preventDefault();
-    const { test, target } = getChatTarget(button);
-    if (target) {
-      await target.applyVulnerableState(test.actor);
-      if (test.testType === 'interactionAttack' && target.isConcentrating)
-        this.promptConcentration(target);
+    const { test, targetActor } = getChatTarget(button);
+    if (targetActor) {
+      await targetActor.applyVulnerableState(test.actor);
+      if (test.testType === 'interactionAttack' && targetActor.isConcentrating)
+        this.promptConcentration(targetActor);
     }
   }
 
@@ -806,6 +834,11 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
   }
 }
 
+/**
+ * 
+ * @param {HTMLElement} button 
+ * @returns 
+ */
 function getMessage(button) {
   const chatMessageId = button.closest('.chat-message').dataset.messageId;
   const chatMessage = game.messages.get(chatMessageId);
@@ -823,7 +856,7 @@ function getChatActor(button) {
   const test = msg?.test;
   if (!test) return null;
   const actor = fromUuidSync(test.actor, { strict: false });
-  if (actor) return { test, actor, chatMessage: msg.chatMessage };
+  if (actor) return { actor, ...msg };
   ui.notifications.warn(game.i18n.localize('torgeternity.notifications.noTarget'));
   return null;
 }
@@ -837,8 +870,9 @@ function getChatTarget(button) {
   const msg = getMessage(button);
   const test = msg?.test;
   if (!test) return null;
-  const target = fromUuidSync(test.target?.uuid, { strict: false })?.actor;
-  if (target) return { test, target, chatMessage: msg.chatMessage }
+  const targetActor = fromUuidSync(button.closest('.skill-roll-target')?.dataset.tokenUuid, { strict: false })?.actor;
+  const testTarget = test?.targetAll.find(target => target.dummyTarget || target.actorUuid === targetActor.uuid);
+  if (testTarget) return { targetActor, testTarget, ...msg };
   ui.notifications.warn(game.i18n.localize('torgeternity.notifications.noTarget'));
   return null;
 }

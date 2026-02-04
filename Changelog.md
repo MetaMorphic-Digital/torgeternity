@@ -7,6 +7,13 @@
 - **Token Action Hud**
   - Add **PERKS** tab
   - Allow making a **Tapping** Roll on eternity shards
+- Reworked **MULTI-TARGET ACTIONS**
+  - A single chat card is used for each multi-target action
+  - The buttons to modify the action total remain near the top of the card.
+  - At the bottom of the card is a list of targets, with buttons specific to each target (including the BD button)
+  - Buttons which affect the attacker (e.g. "apply soak", backlash) appear above the target list
+  - A "ping token" button is available on each target to ping the token (SHIFT and ALT work as per normal canvas pings)
+  - Clicking on the name of the target pans the canvas to that target
 
 ## 13.19.0 - Attributes, Price, Inspiration, Item Piles & Token Action HUD
 
