@@ -1,22 +1,27 @@
 # TORG Eternity Changelog
 
-## NEXT
+## NEXT - Multi-Target Actions & Skill Chat Cards
 
-- Use **token name** of the target in the chat card, not the actor name (since token might have prefix/suffix)
-- Add missing translation key for an Actor starts concentrating on a power, `torgeternity.chatText.concentration.start`
 - **Token Action Hud**
   - Add **PERKS** tab
   - Allow making a **Tapping** Roll on eternity shards
 - General **Skill Chat Card** changes
   - **Reconnection** is now handled like other tests, so a `Reconnect` button will appear when the actor succeeds at the test (possibly after modifications to the action total)
-  - Action Total modifier buttons are hidden on use of BD or "apply damage" buttons
+  - Buttons in chat cards are hidden when they are no longer a valid option
 - Reworked **MULTI-TARGET ACTIONS**
   - A single chat card is used for each multi-target action
   - The buttons to modify the action total remain near the top of the card.
   - At the bottom of the card is a list of targets, with buttons specific to each target (including the BD button)
   - Buttons which affect the attacker (e.g. "apply soak", backlash) appear above the target list
+  - Buttons which affect a token have less rounded borders.
   - A "ping token" button is available on each target to ping the token (SHIFT and ALT work as per normal canvas pings)
   - Clicking on the name of the target pans the canvas to that target
+
+### Bug Fixes
+
+- Use **token name** of the target in the chat card, not the actor name (since token might have prefix/suffix)
+- Add missing translation key for an Actor starts concentrating on a power, `torgeternity.chatText.concentration.start`
+- Prevent error on Firefox during loading when the Combat Tracker isn't fully initialised.
 
 ## 13.19.0 - Attributes, Price, Inspiration, Item Piles & Token Action HUD
 
