@@ -146,10 +146,21 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     return canvas.animatePan({ x, y, scale: Math.max(canvas.stage.scale.x, canvas.dimensions.scale.default) });
   }
 
+  async updateChatMessage(chatMessage, updates) {
+    if (chatMessage.isOwner)
+      return chatMessage.update(updates);
+    else
+      game.socket.emit(`system.${game.system.id}`, {
+        request: 'updateChatMessage',
+        messageId: chatMessage.id,
+        updates,
+      })
+  }
+
   static async #reconnect(_event, button) {
     const { chatMessage, actor } = getChatActor(button);
     await actor.toggleStatusEffect('disconnected', { active: false });
-    chatMessage.update({
+    this.updateChatMessage(chatMessage, {
       "flags.torgeternity.test.showReconnect": false,
       "flags.torgeternity.test.skillRollMenuStyle": 'hidden',
     });
@@ -444,9 +455,9 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     }
     testTarget.showApplyDamage = false;
     testTarget.showBD = false;
-    chatMessage.update({
-      "flags.torgeternity.test.targetAll": test.targetAll,
-      "flags.torgeternity.test.skillRollMenuStyle": 'hidden',
+    this.updateChatMessage(chatMessage, {
+      'flags.torgeternity.test.skillRollMenuStyle': 'hidden',
+      'flags.torgeternity.test.targetAll': test.targetAll,
     });
   }
 
@@ -521,9 +532,9 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     origtarget.soakDescription = soaktest.chatNote.slice(0, -game.i18n.localize('torgeternity.sheetLabels.possSpent').length);
 
     // Hide "apply soak" button in the soak test (as well the buttons which affect the action total)
-    chatMessage.update({
-      "flags.torgeternity.test.showApplySoak": false,
-      "flags.torgeternity.test.skillRollMenuStyle": 'hidden',
+    this.updateChatMessage(chatMessage, {
+      'flags.torgeternity.test.showApplySoak': false,
+      'flags.torgeternity.test.skillRollMenuStyle': 'hidden',
     });
 
     if (origmsg.isOwner) {
@@ -616,9 +627,15 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
 
   static async #applyStymied(event, button) {
     event.preventDefault();
-    const { test, targetActor } = getChatTarget(button);
+    const { test, targetActor, chatMessage, testTarget } = getChatTarget(button);
     if (targetActor) {
       await targetActor.applyStymiedState(test.actor);
+
+      testTarget.showApplyStymied = false;
+      this.updateChatMessage(chatMessage, {
+        'flags.torgeternity.test.targetAll': test.targetAll  // TODO : potential clash, since entire array updated
+      })
+
       if (test.testType === 'interactionAttack' && targetActor.isConcentrating)
         this.promptConcentration(targetActor);
     }
@@ -626,9 +643,14 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
 
   static async #applyTargetVulnerable(event, button) {
     event.preventDefault();
-    const { test, targetActor } = getChatTarget(button);
+    const { test, targetActor, chatMessage, testTarget } = getChatTarget(button);
     if (targetActor) {
       await targetActor.applyVulnerableState(test.actor);
+
+      testTarget.showApplyVulnerable = false;
+      this.updateChatMessage(chatMessage, {
+        'flags.torgeternity.test.targetAll': test.targetAll  // TODO : potential clash, since entire array updated
+      })
       if (test.testType === 'interactionAttack' && targetActor.isConcentrating)
         this.promptConcentration(targetActor);
     }
