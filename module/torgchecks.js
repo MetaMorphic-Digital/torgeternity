@@ -535,13 +535,15 @@ export async function renderSkillChat(test) {
           const weaponAP = applyEffects('test.weaponAP', test.weaponAP, effects);
           target.targetAdjustedToughness += Math.max(0, armor - weaponAP) + test.coverModifier;
         }
+        // Always set showActorApplyVeryVulnerable, in case result changes due to attack total modifiers
+        test.showActorApplyVeryVulnerable = (test.result < TestResult.STANDARD && test.attackTraits.includes('unwieldy'));
+
         // Generate damage description and damage sublabel
         if (test.result < TestResult.STANDARD) {
           target.damageDescription = game.i18n.localize('torgeternity.chatText.check.result.noDamage');
           target.damageSubDescription = game.i18n.localize('torgeternity.chatText.check.result.attackMissed');
           if (test.attackTraits.includes('unwieldy')) {
             target.damageDescription += ` (${game.i18n.localize('torgeternity.traits.unwieldy')})`;
-            test.showActorApplyVeryVulnerable = true;
           }
 
         } else {
