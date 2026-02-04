@@ -500,7 +500,8 @@ export default class TorgCombat extends Combat {
     // Combat.updateTurnMarkers won't add new ones!
     if (this.#currentDisposition != old)
       for (const combatant of this.turns)
-        combatant.token?.object?.renderFlags.set({ refreshTurnMarker: true });
+        if (combatant.token.rendered)
+          combatant.token?.object?.renderFlags.set({ refreshTurnMarker: true });
   }
 
   get currentDisposition() {
