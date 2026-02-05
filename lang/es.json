@@ -92,7 +92,7 @@
       "bonus": "Bonificación",
       "bonusCard": "CAR+3",
       "bonusDamage": "Daño Adicional",
-      "bdTooltip": "Hold SHIFT to roll BD twice and keep the best result",
+      "bdTooltip": "Pulsa MAY para tirar los DB dos veces y quedarte el mejor resultado",
       "bonusDice": "DB",
       "chase": "Prueba de persecución",
       "check": {
@@ -144,7 +144,7 @@
           "result": "resultado",
           "standardSuccess": "Éxito Estándar",
           "toughness": " Resistencia",
-          "BDDamageSum": "Suma de Dados de Bonificación"
+          "BDDamageSum": "Sunma de daño por tirar {count} DB = {total}"
         },
         "testUnsuccessfull": "Prueba fallida"
       },
@@ -191,7 +191,7 @@
       "notes": "Notas",
       "passesCard1": "Pasa",
       "passesCard2": "a",
-      "pingToken": "Ping Token",
+      "pingToken": "Marcar ficha",
       "playsCard": "Juega",
       "possibleGlory": "¡¡¡POSIBLE GLORIA!!!",
       "possibility": "POSIB",
@@ -279,7 +279,7 @@
       "orrorshPossLink": "Compendium.te014-orrorsh.orrorsh-journals.JournalEntry.pkSJbwMgFDaVLAYv.JournalEntryPage.VB1wEM80BtkrkFBf",
       "orrorshPossLink2": "orrorsh-possibility-energy",
       "other": "Otro",
-      "otherPoss": "Ask your GM !",
+      "otherPoss": "¡Pregunta a tu DJ!!",
       "panPacifica": "Pan-Pacifica",
       "panPacificaPossLink": "Compendium.te016-pan-pacifica.pan-pacifica-journals.JournalEntry.djoNGjsSOk7CsnQh.JournalEntryPage.VB1wEM80BtkrkFBf",
       "panPacificaPossLink2": "pan-pacifica-possibility-energy",
@@ -777,12 +777,12 @@
         "name": "Mostrar dados de Torg en las tarjetas de chat"
       },
       "autoRollBD": {
-        "hint": "Automatically the BD when a GOOD or OUTSTANDING success is achieved on an attack",
-        "name": "Automatically roll BD"
+        "hint": "Tira automáticamente los DB cuando un ataque obtiene un éxito BUENO O ESPECTACULAR",
+        "name": "Tirar DB automáticamente"
       },
       "showManualRolls": {
-        "hint": "Show dice which have been manually rolled in chat cards (with a suffix M)",
-        "name": "Show Manual Dice rolls"
+        "hint": "Muestra qué dados se han tirado manualmente en las tarjetas de chat (con el sufijo M)",
+        "name": "Mostrar tiradas manuales"
       },
       "autoDamages": {
         "hint": "Si está marcado, el Shock y las Heridas se aplican automáticamente si el jugador tiene seleccionado una ficha válida. ATENCIÓN: esta característica solo funciona con las tiradas de daño inicial. No actualizará correctamente las tiradas posteriores modificadas por Dados de Bonificación. Usar con cautela.",
@@ -926,15 +926,15 @@
       "alterAttributes": "Ahora puede cambiar los atributos",
       "ammunition": "Munición",
       "APMod": "Modificador PA",
-      "applyDamage": "Aplicar daño",
-      "applyEffects": "Aplicar efectos",
+      "applyDamage": "Daño",
+      "applyEffects": "Efectos",
       "applyDamageTooltip": "May + clic para modificar daño aplicado, botón izquierdo para aplicar.",
       "applyEffectsTooltip": "Aplicar efectos activos pertinentes al/los objetivo(s)",
-      "applySoak": "Aplicar absorción",
+      "applySoak": "absorción",
       "applySoakTooltip": "Aplicar al ataque las reducciones por absorción.",
-      "applyStymied": "Aplicar Impedido",
+      "applyStymied": "Impedido",
       "applyStymiedTooltip": "Clic para aplicar Impedido, o Muy Impedido si ya está Impedido.",
-      "applyVulnerable": "Aplicar Vulnerable",
+      "applyVulnerable": "Vulnerable",
       "applyVulnerableTooltip": "Clic para aplicar Vulnerable, o Muy Vulnerable si ya está Vulnerable.",
       "armor": "Armadura",
       "armorAndShields": "Armadura y Escudo",
@@ -1077,8 +1077,8 @@
       "race": "Raza",
       "racialPerks": "Ventajas raciales",
       "range": "Alcance",
-      "reconnect": "Reconnect",
-      "reconnectTooltip": "Remove Disconnected condition",
+      "reconnect": "Reconectar",
+      "reconnectTooltip": "Eliminar estado Desconectado",
       "darkvision": "Visión en la oscuridad",
       "removeGunner": "Elimina a este artillero de esta arma",
       "removeOperator": "Elimina al operador de este vehículo",
@@ -1099,7 +1099,7 @@
       "skills": "Habilidades",
       "skillValue": "Valor Hab.",
       "soakAll": "Absorberás todas las Heridas y Shock.",
-      "soakDamage": "Absorber daño",
+      "soakDamage": "Resistencia",
       "soakDamageTooltip": "Genera una tirada de la habilidad Realidad y otorga reducción de daño.",
       "soakNull": "No absorbes naa.",
       "soakRoll": "Absorción por Realidad",

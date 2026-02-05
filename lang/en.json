@@ -771,7 +771,7 @@
         "name": "Show Torg-Dice in chatcards"
       },
       "autoRollBD": {
-        "hint": "Automatically the BD when a GOOD or OUTSTANDING success is achieved on an attack",
+        "hint": "Automatically roll the BD(s) when a GOOD or OUTSTANDING success is achieved on an attack",
         "name": "Automatically roll BD"
       },
       "showManualRolls": {
