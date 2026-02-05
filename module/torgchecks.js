@@ -567,8 +567,6 @@ export async function renderSkillChat(test) {
             target.amountBD += target.addBDs;
             target.addBDs = 0;
 
-            test.chatTitle += ` + ${target.amountBD} ${game.i18n.localize('torgeternity.chatText.bonusDice')}`;
-
             target.bdDamageSum += bdDamage;
             target.damage += bdDamage;
             adjustedDamage += bdDamage;
