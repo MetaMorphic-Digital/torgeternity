@@ -1,5 +1,11 @@
 # TORG Eternity Changelog
 
+## NEXT
+
+- Don't add "+x BD" into the chat title.
+- When an Item triggers a skill check, put the item name on a separate line in the chat title.
+- Ensure various data fields are Number not String, and make many of them NOT nullable (i.e. require a value).
+
 ## 13.20.0 - Multi-Target Actions & Skill Chat Cards
 
 - General **Skill Chat Card** changes:
