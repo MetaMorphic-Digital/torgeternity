@@ -101,6 +101,15 @@ export function registerTorgSettings() {
     default: true,
   });
 
+  game.settings.register('torgeternity', 'autoRollBD', {
+    name: 'torgeternity.settingMenu.autoRollBD.name',
+    hint: 'torgeternity.settingMenu.autoRollBD.hint',
+    scope: 'world',
+    config: true,
+    type: Boolean,
+    default: true,
+  });
+
   game.settings.register('torgeternity', 'showManualRolls', {
     name: 'torgeternity.settingMenu.showManualRolls.name',
     hint: 'torgeternity.settingMenu.showManualRolls.hint',

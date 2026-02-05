@@ -105,8 +105,8 @@ export default class DeckSettingMenu extends HandlebarsApplicationMixin(Applicat
       }
     });
   }
+
   /**
-   * 
    * @inheritDoc
    */
   _onChangeForm(formConfig, event) {
@@ -132,6 +132,7 @@ export default class DeckSettingMenu extends HandlebarsApplicationMixin(Applicat
   /**
    *
    * @param {Event} event The event object.
+   * @this {DeckSettingMenu}
    */
   static #onCreateCards(event) {
     event.preventDefault();

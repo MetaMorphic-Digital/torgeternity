@@ -136,9 +136,11 @@ export default class torgeternityCombatTracker extends foundry.applications.side
 
   /**
    * A player has pressed the button at the bottom of the combat tracker to end "their" turn.
-   * @param event
+   * @this {torgeternityCombatTracker}
+   * @param {Event} _event 
+   * @param {HTMLButtonElement} _button 
    */
-  static async #onHasFinished(event, button) {
+  static async #onHasFinished(_event, _button) {
     const combatant = this.viewed?.combatants.find(combatant => combatant.actorId === game.user.character.id);
     if (!combatant) {
       ui.notifications.info('COMBAT.UnknownCombatant', { localize: true })
@@ -151,9 +153,11 @@ export default class torgeternityCombatTracker extends foundry.applications.side
 
   /**
    * A player has finished their turn.
-   * @param event
+   * @this {torgeternityCombatTracker}
+   * @param {Event} _event 
+   * @param {HTMLButtonElement} button 
    */
-  static async #onHasPlayed(event, button) {
+  static async #onHasPlayed(_event, button) {
     const { combatantId } = button.closest("[data-combatant-id]")?.dataset ?? {};
     const combatant = this.viewed?.combatants.get(combatantId);
     if (!combatant) return;
@@ -164,10 +168,12 @@ export default class torgeternityCombatTracker extends foundry.applications.side
   }
 
   /**
- * Toggle the Wait status of a combatant.
- * @param event
- */
-  static async #onToggleWaiting(event, button) {
+   * Toggle the Wait status of a combatant.
+   * @this {torgeternityCombatTracker}
+   * @param {Event} _event 
+   * @param {HTMLButtonElement} button 
+   */
+  static async #onToggleWaiting(_event, button) {
     const { combatantId } = button.closest("[data-combatant-id]")?.dataset ?? {};
     const combatant = this.viewed?.combatants.get(combatantId);
     if (!combatant) return;
@@ -195,8 +201,9 @@ export default class torgeternityCombatTracker extends foundry.applications.side
   }
 
   /**
-   *
-   * @param event
+   * @this {torgeternityCombatTracker}
+   * @param {Event} event 
+   * @param {HTMLButtonElement} button 
    */
   static async #incStage(event, button) {
     if (!this.viewed || !this.viewed?.currentDrama) return;
@@ -205,8 +212,9 @@ export default class torgeternityCombatTracker extends foundry.applications.side
   }
 
   /**
-   *
-   * @param event
+   * @this {torgeternityCombatTracker}
+   * @param {Event} event 
+   * @param {HTMLButtonElement} button 
    */
   static async #incPlayerStage(event, button) {
     const { combatantId } = button.closest("[data-combatant-id]")?.dataset ?? {};
@@ -219,33 +227,78 @@ export default class torgeternityCombatTracker extends foundry.applications.side
   /*
    * DRAMA DECK HANDLING
    */
-  static #toggleDramatic(event, button) {
+  /**
+   * @this {torgeternityCombatTracker}
+   * @param {Event} _event 
+   * @param {HTMLButtonElement} button 
+   */
+  static #toggleDramatic(_event, _button) {
     const newstate = !this.viewed.isDramatic;
     this.viewed.setIsDramatic(newstate);
     console.log(`COMBAT MODE = ${newstate ? "DRAMATIC" : "STANDARD"} ==> ${this.viewed.conflictLineText}`)
   }
-  static #onDramaFlurry(event, button) {
+  /**
+   * @this {torgeternityCombatTracker}
+   * @param {Event} _event 
+   * @param {HTMLButtonElement} button 
+   */
+  static #onDramaFlurry(_event, button) {
     this.viewed.dramaFlurry(button.dataset.faction);
   }
-  static async #onDramaInspiration(event, button) {
+  /**
+   * @this {torgeternityCombatTracker}
+   * @param {Event} _event 
+   * @param {HTMLButtonElement} button 
+   */
+  static async #onDramaInspiration(_event, button) {
     this.viewed.dramaInspiration(button.dataset.faction);
   }
-  static #onDramaUp(event, button) {
+  /**
+   * @this {torgeternityCombatTracker}
+   * @param {Event} _event 
+   * @param {HTMLButtonElement} button 
+   */
+  static #onDramaUp(_event, button) {
     this.viewed.dramaUp(button.dataset.faction)
   }
-  static #onDramaConfused(event, button) {
+  /**
+   * @this {torgeternityCombatTracker}
+   * @param {Event} _event 
+   * @param {HTMLButtonElement} button 
+   */
+  static #onDramaConfused(_event, button) {
     this.viewed.dramaConfused(button.dataset.faction)
   }
-  static #onDramaFatigued(event, button) {
+  /**
+   * @this {torgeternityCombatTracker}
+   * @param {Event} _event 
+   * @param {HTMLButtonElement} button 
+   */
+  static #onDramaFatigued(_event, button) {
     this.viewed.dramaFatigued(button.dataset.faction)
   }
-  static #onDramaSetback(event, button) {
+  /**
+   * @this {torgeternityCombatTracker}
+   * @param {Event} _event 
+   * @param {HTMLButtonElement} button 
+   */
+  static #onDramaSetback(_event, button) {
     this.viewed.dramaSetback(button.dataset.faction)
   }
-  static #onDramaStymied(event, button) {
+  /**
+   * @this {torgeternityCombatTracker}
+   * @param {Event} _event 
+   * @param {HTMLButtonElement} button 
+   */
+  static #onDramaStymied(_event, button) {
     this.viewed.dramaStymied(button.dataset.faction)
   }
-  static #onDramaSurge(event, button) {
+  /**
+   * @this {torgeternityCombatTracker}
+   * @param {Event} _event 
+   * @param {HTMLButtonElement} button 
+   */
+  static #onDramaSurge(_event, button) {
     this.viewed.dramaSurge(button.dataset.faction)
   }
 }

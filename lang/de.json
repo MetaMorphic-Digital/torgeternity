@@ -144,11 +144,12 @@
           "result": "Ergebnis",
           "standardSuccess": "Standarderfolg",
           "toughness": "Robustheit",
-          "BDDamageSum": "Summe des Schadens der BW"
+          "BDDamageSum": "diere gewürfelten Schaden aus {count} BW = {total}"
         },
         "testUnsuccessfull": "Probe nicht erfolgreich"
       },
       "concentration": {
+        "start": "Konzentration auf {itemName} begonnen",
         "makeCheck": "{actor} muss eine Konzentrations-Probe ablegen",
         "AEname": "Konzentration: {item}",
         "AEdescription": "{actor} konzentriert sich auf {itemType} '{itemName}'",
@@ -190,6 +191,7 @@
       "notes": "Notizen",
       "passesCard1": "Gibt",
       "passesCard2": "an",
+      "pingToken": "Token anpingen",
       "playsCard": "Spielt aus:",
       "possibleGlory": "!!! MÖGLICHES RUHMEREIGNIS !!!",
       "possibility": "Möglichkeit",
@@ -774,9 +776,13 @@
         "hint": "Wenn angehakt, bekommen die Würfel in Chat-Fenster einen Torg-Anstrich. Wenn nicht, sind diese standard-grau.",
         "name": "Zeige Torg-Würfel in Chat-Feldern "
       },
+      "autoRollBD": {
+        "hint": "Würfle BW bei Angriffen mit GUTEM oder HERVORRAGENDEM Erfolg automatisch",
+        "name": "BW automatisch würfeln"
+      },
       "showManualRolls": {
-        "hint": "Show dice which have been manually rolled in chat cards (with a suffix M)",
-        "name": "Show Manual Dice rolls"
+        "hint": "Zeige an, wenn Würfel im Chat-Feld manuell gewürfelt wurden (mit dem Zusatz M)",
+        "name": "Zeige manuelle Würfelwürfe an"
       },
       "autoDamages": {
         "hint": "Wenn angehakt, werden Schock und Wunden automatisch auf das Ziel angewendet werden.",
@@ -920,15 +926,15 @@
       "alterAttributes": "Du kannst nun die Attribute ändern",
       "ammunition": "Munition",
       "APMod": "PB Modifikator",
-      "applyDamage": "Schaden anwenden",
-      "applyEffects": "Effekt anwenden",
+      "applyDamage": "Schaden",
+      "applyEffects": "Effekte",
       "applyDamageTooltip": "Linksklick zum anwenden, Shiftklick zum modifizieren.",
       "applyEffectsTooltip": "Wende den passenden Aktiven Effekt auf die Ziele an",
       "applySoak": "Schaden wegstecken anwenden",
       "applySoakTooltip": "Wende die Reduktion des Schadens dieses Angriffs an.",
-      "applyStymied": "Angeschlagen anwenden",
+      "applyStymied": "Angeschlagen",
       "applyStymiedTooltip": "Klicke, um den Status \"Angeschlagen\" anzuwenden. Mit einem zweiten Klick weiter zu \"Sehr Angeschlagen\".",
-      "applyVulnerable": "Verwundbar anwenden",
+      "applyVulnerable": "Verwundbar",
       "applyVulnerableTooltip": "Klicke, um den Status \"Verwundbar\" anzuwenden. Mit einem zweiten Klick weiter zu \"Sehr Verwundbar\".",
       "armor": "Rüstung",
       "armorAndShields": "Rüstung und Schilde",
@@ -1071,6 +1077,8 @@
       "race": "Volk",
       "racialPerks": "Volksfähigkeiten",
       "range": "Reichweite",
+      "reconnect": "Ankoppeln",
+      "reconnectTooltip": "Abkopplungszustand entfernen",
       "darkvision": "Dunkelsicht",
       "removeGunner": "Entferne bei dieser Waffe den Schützen",
       "removeOperator": "Entferne bei diesem Fahrzeug den Lenker",
@@ -1091,7 +1099,7 @@
       "skills": "Fertigkeiten",
       "skillValue": "Fertigkeitswert",
       "soakAll": "Du steckst alle Wunden und Schock weg.",
-      "soakDamage": "Schaden wegstecken",
+      "soakDamage": "Wegstecken",
       "soakDamageTooltip": "Macht eine Realitäts-Probe und zeigt die Schadensreduzierung",
       "soakNull": "Du steckst nichts weg.",
       "soakRoll": "Wegstecken",
@@ -1127,9 +1135,6 @@
       "unspent": "Nicht ausgegeben",
       "up": "Oberhand",
       "update": "Aktualisieren",
-      "usePreviousBonusLegend": "Wähle, ob du (1) würfeln willst oder (2) einen zuvor gewürfelten Bonus eingibst, wenn du eine Mehrfachaktion versuchst.",
-      "usePreviousBonustitle": "Wenn du eine Mehrfachaktion durchführst, setze hier einen Haken und trage den Bonus des letzten Würfelwurfs ein.",
-      "usePreviousBonusText": "Trage den BONUS ein, nicht die Augenzahl des Würfels!",
       "vehicle": "Fahrzeug",
       "vehicles": "Fahrzeuge",
       "vitalArea": "Schwerer Treffer",

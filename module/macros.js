@@ -387,7 +387,7 @@ export class TorgeternityMacros {
     const test = {
       actor: _actor,
       skillName: 'reality',
-      testType: 'skill',
+      testType: 'reconnect',
       skillAdds: realitySkill.adds,
       skillValue: realitySkill.value,
       isFav: realitySkill.isFav,
@@ -410,26 +410,7 @@ export class TorgeternityMacros {
       });
     }
 
-    const dialog = await TestDialog.wait(test, { useTargets: true });
-
-    if (!dialog) {
-      ui.notifications.error(game.i18n.localize('torgeternity.macros.commonMacroNoChatMessageFound'));
-      return;
-    }
-
-    switch (dialog.flags.torgeternity.test.result) {
-      case TestResult.STANDARD:
-      case TestResult.GOOD:
-      case TestResult.OUTSTANDING:
-        await _actor.toggleStatusEffect('disconnected', { active: false });
-        ui.notifications.info(game.i18n.localize('torgeternity.macros.reconnectMacroStatusLiftet'));
-        break;
-      case TestResult.FAILURE:
-        // ChatMessage.create({content: "<p>Fehlschlag</p>"});
-        break;
-      case TestResult.MISHAP:
-        break;
-    }
+    return TestDialog.wait(test, { useTargets: false });
   }
 
   async openPacks() {

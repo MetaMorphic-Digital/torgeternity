@@ -49,6 +49,11 @@ export default class torgeternityPile extends foundry.applications.sheets.CardPi
     ]
   }
 
+  /**
+   * 
+   * @param {Event} event 
+   * @this {torgeternityPile}
+   */
   static async #onReturn(event) {
     for (let i = 0; i < this.document.cards.size; i++) {
       this.document.cards.contents[i].recall();

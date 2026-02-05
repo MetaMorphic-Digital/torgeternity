@@ -11,11 +11,6 @@
         <p class="skill-chat-title skilled">{{chatTitle}}</p>
       {{/if}}
     </div>
-
-    {{#if target}}
-      <img class="message-header torgeternity-target-icon" src="{{target.targetPic}}"
-        data-tooltip="{{target.targetName}}" data-action="openSheet" data-actor="{{target.id}}" />
-    {{/if}}
   </div>
   <div class="chat-text" style="padding:0px">
     <p class="skill-roll-result" style="{{resultTextStyle}}">
@@ -43,85 +38,25 @@
     {{#if successfulDefendApprovedAction}}
       <p class="skill-roll-approved-action">
         {{localize 'torgeternity.chatText.check.isApprovedDefend' name=target.targetName}}
-        <a class="button roll-button drawDestiny" data-action="drawDestiny"
-          data-actor="{{target.id}}">{{localize 'torgeternity.dialogPrompts.drawDestiny'}}</a>
+        <a class="button roll-button drawDestiny" data-action="drawDestiny" data-actor="{{target.id}}">
+          <i class="fa-solid fa-cards-blank"></i>
+          &nbsp;{{localize 'torgeternity.dialogPrompts.drawDestiny'}}</a>
       </p>
     {{/if}}
     {{#if successfulApprovedAction}}
-      {{log actor}}
       <p class="skill-roll-approved-action">{{localize 'torgeternity.chatText.check.isApprovedAction'}}
-        <a class="button roll-button drawDestiny" data-action="drawDestiny"
-          data-actor="{{actor}}">{{localize 'torgeternity.dialogPrompts.drawDestiny'}}</a>
+        <a class="button roll-button drawDestiny" data-action="drawDestiny" data-actor="{{actor}}">
+          <i class="fa-solid fa-cards-blank"></i>
+          &nbsp;{{localize 'torgeternity.dialogPrompts.drawDestiny'}}</a>
       </p>
-    {{/if}}
-    {{#if damageDescription}}
-      <p class="skill-roll-damage-label">
-        {{damageDescription}}
-      </p>
-      {{#if soakDescription}}
-        <p class="skill-roll-damage-label">
-          {{soakDescription}}
-        </p>
-      {{/if}}
     {{/if}}
     {{#if isDefeatTest}}
       <p class="skill-roll-defeat defeat-main">
-        <a class="defeat" data-action="applyDefeat"
-          data-result="{{result}}">{{{defeatMain}}}</a>
+        <a class="defeat" data-action="applyDefeat" data-result="{{result}}">{{{defeatMain}}}</a>
       </p>
       <p class="skill-roll-defeat defeat-sub">{{{defeatSub}}}</p>
       </p>
     {{/if}}
-    <p class="applyButtons">
-      {{#if showApplySoak}}
-        <a class="button roll-button" data-action="applySoak"
-          data-tooltip="{{localize 'torgeternity.sheetLabels.applySoakTooltip'}}">
-          {{localize 'torgeternity.sheetLabels.applySoak'}}</a>
-      {{/if}}
-      {{#if ownsTarget}}
-        {{#if showApplyDamage}}
-          <a class="button roll-button" data-action="applyDam"
-            data-tooltip="{{localize 'torgeternity.sheetLabels.applyDamageTooltip'}}">
-            {{localize 'torgeternity.sheetLabels.applyDamage'}}</a>
-          {{#unless soakWounds}}
-            <a class="button roll-button" data-action="soakDam"
-              data-tooltip="{{localize 'torgeternity.sheetLabels.soakDamageTooltip'}}">
-              {{localize 'torgeternity.sheetLabels.soakDamage'}}</a>
-          {{/unless}}
-        {{/if}}
-        {{#if showApplyEffects}}
-          <a class="button roll-button" data-action="applyEffects"
-            data-tooltip="{{localize 'torgeternity.sheetLabels.applyEffectsTooltip'}}">
-            {{localize 'torgeternity.sheetLabels.applyEffects'}}</a>
-        {{/if}}
-        {{#if showApplyStymied}}
-          <a class="button roll-button" data-action="applyStymied"
-            data-tooltip="{{localize 'torgeternity.sheetLabels.applyStymiedTooltip'}}">
-            {{localize 'torgeternity.sheetLabels.applyStymied'}}</a>
-        {{/if}}
-        {{#if showApplyVulnerable}}
-          <a class="button roll-button" data-action="applyVulnerable"
-            data-tooltip="{{localize 'torgeternity.sheetLabels.applyVulnerableTooltip'}}">
-            {{localize 'torgeternity.sheetLabels.applyVulnerable'}}</a>
-        {{/if}}
-        {{#if showApplyVeryVulnerable}}
-          <a class="button roll-button" data-action="applyActorVulnerable"
-            data-tooltip="{{localize 'torgeternity.sheetLabels.applyVulnerableTooltip'}}">
-            {{localize 'torgeternity.sheetLabels.applyVulnerable'}}</a>
-        {{/if}}
-        {{#if showBacklashButtons}}
-          <a class="button roll-button" data-action="backlash1"
-            data-tooltip="{{localize 'torgeternity.sheetLabels.backlash1Tooltip'}}">
-            {{localize 'torgeternity.sheetLabels.backlash1'}}</a>
-          <a class="button roll-button" data-action="backlash2"
-            data-tooltip="{{localize 'torgeternity.sheetLabels.backlash2Tooltip'}}">
-            {{localize 'torgeternity.sheetLabels.backlash2'}}</a>
-          <a class="button roll-button" data-action="backlash3"
-            data-tooltip="{{localize 'torgeternity.sheetLabels.backlash3Tooltip'}}">
-            {{localize 'torgeternity.sheetLabels.backlash3'}}</a>
-        {{/if}}
-      {{/if}}
-    </p>
     <details class="chatCardDetailsElement" {{isOpen}}>
       <summary class="skillcardSummaryElement"
         data-open="{{localize 'torgeternity.chatText.hideDetails'}}"
@@ -133,14 +68,6 @@
           <p class="skill-roll-action-label">{{actionTotalContent}}</p>
         {{/if}}
       </summary>
-      {{#if damageSubDescription}}
-        <p class="skill-roll-action-label">{{damageSubDescription}}</p>
-      {{/if}}
-      {{#if bdDamageSum}}
-        <p class="skill-roll-action-label">{{localize 'torgeternity.chatText.check.result.BDDamageSum'}}:&nbsp;
-          {{~bdDamageSum~}}
-        </p>
-      {{/if}}
       <table class=" skill-roll-table">
         <tr>
           <td>{{typeLabel}}:</td>
@@ -210,7 +137,8 @@
                         {{#if
                         @root.torgDiceStyle}}style="background-image: url(systems/torgeternity/images/Torgd20.svg);"
                         {{/if}}>
-                        {{{this.result}}}{{#if this.manual}}<span class="manualRoll">M</span>{{/if}}
+                        {{{this.result}}}{{#if this.manual}}<span class="manualRoll">M</span>
+                        {{/if}}
                       </li>
                     {{/each}}
                     {{#if bonusDiceList}}
@@ -237,25 +165,154 @@
     {{/if}}
 
     {{#if ownsActor}}
-      <div class="skill-roll-menu">
-        {{#unless hideFavButton}}
-          <a class="button roll-button" data-action="rollFav">{{localize 'torgeternity.chatText.favored'}}</a>
-        {{/unless}}
-        <a class="button roll-button {{possibilityStyle}}" data-action="rollPossibility"
-          data-tooltip="{{localize 'torgeternity.chatText.possibilityTooltip'}}">{{localize 'torgeternity.chatText.possibility'}}</a>
-        <a class="button roll-button {{upStyle}}"
-          data-action="rollUp">{{localize 'torgeternity.chatText.up'}}</a>
-        <a class="button roll-button {{heroStyle}}"
-          data-action="rollHero">{{localize 'torgeternity.chatText.hero'}}</a>
-        <a class="button roll-button {{dramaStyle}}"
-          data-action="rollDrama">{{localize 'torgeternity.chatText.drama'}}</a>
-        {{#unless hidePlus3}}
-          <a class="button roll-button" data-action="addPlus3">{{localize 'torgeternity.chatText.bonusCard'}}</a>
-        {{/unless}}
-        {{#if showBD}}
-          <a class="button roll-button" data-action="addBd"
-            data-tooltip="{{localize 'torgeternity.chatText.bdTooltip'}}">{{localize 'torgeternity.chatText.bonusDice'}}</a>
-        {{/if}}
+      {{#unless (and hideFavButton hidePlus3 (eq possibilityStyle 'hidden') (eq upStyle 'hidden') (eq heroStyle 'hidden') (eq dramaStyle 'hidden') )}}
+        <div class="skill-roll-menu {{skillRollMenuStyle}}">
+          {{#unless hideFavButton}}
+            <a class="button roll-button" data-action="rollFav">
+              <i class="fa-solid fa-dice-d20"></i>
+              {{localize 'torgeternity.chatText.favored'}}</a>
+          {{/unless}}
+          <a class="button roll-button {{possibilityStyle}}" data-action="rollPossibility"
+            data-tooltip="{{localize 'torgeternity.chatText.possibilityTooltip'}}">
+            <i class="fa-solid fa-dice-d20"></i>
+            {{localize 'torgeternity.chatText.possibility'}}</a>
+          <a class="button roll-button {{upStyle}}"
+            data-action="rollUp"><i class="fa-solid fa-dice-d20"></i>
+            {{localize 'torgeternity.chatText.up'}}</a>
+          <a class="button roll-button {{heroStyle}}"
+            data-action="rollHero"><i class="fa-solid fa-dice-d20"></i>
+            {{localize 'torgeternity.chatText.hero'}}</a>
+          <a class="button roll-button {{dramaStyle}}"
+            data-action="rollDrama"><i class="fa-solid fa-dice-d20"></i>
+            {{localize 'torgeternity.chatText.drama'}}</a>
+          {{#unless hidePlus3}}
+            <a class="button roll-button" data-action="addPlus3">
+              {{localize 'torgeternity.chatText.bonusCard'}}</a>
+          {{/unless}}
+        </div>
+      {{/unless}}
+
+      {{#if (and ownsActor (or showApplySoak showReconnect showActorApplyVeryVulnerable showBacklashButtons))}}
+        <p class="applyButtons">
+          {{#if showApplySoak}}
+            <a class="button roll-button" data-action="applySoak"
+              data-tooltip="{{localize 'torgeternity.sheetLabels.applySoakTooltip'}}">
+              {{localize 'torgeternity.sheetLabels.applySoak'}}</a>
+          {{/if}}
+          {{#if showReconnect}}
+            <a class="button roll-button" data-action="reconnect"
+              data-tooltip="{{localize 'torgeternity.sheetLabels.reconnectTooltip'}}">
+              {{localize 'torgeternity.sheetLabels.reconnect'}}</a>
+          {{/if}}
+          {{#if showActorApplyVeryVulnerable}}
+            <a class="button roll-button" data-action="applyActorVulnerable"
+              data-tooltip="{{localize 'torgeternity.sheetLabels.applyVulnerableTooltip'}}">
+              <i class="fa-solid fa-person-rays"></i>
+              {{localize 'torgeternity.sheetLabels.applyVulnerable'}}</a>
+          {{/if}}
+          {{#if showBacklashButtons}}
+            <a class="button roll-button" data-action="backlash1"
+              data-tooltip="{{localize 'torgeternity.sheetLabels.backlash1Tooltip'}}">
+              <i class="fa-solid fa-person-rays"></i>
+              {{localize 'torgeternity.sheetLabels.backlash1'}}</a>
+            <a class="button roll-button" data-action="backlash2"
+              data-tooltip="{{localize 'torgeternity.sheetLabels.backlash2Tooltip'}}">
+              <i class="fa-solid fa-person-rays"></i>
+              {{localize 'torgeternity.sheetLabels.backlash2'}}</a>
+            <a class="button roll-button" data-action="backlash3"
+              data-tooltip="{{localize 'torgeternity.sheetLabels.backlash3Tooltip'}}">
+              <i class="fa-solid fa-person-rays"></i>
+              {{localize 'torgeternity.sheetLabels.backlash3'}}</a>
+          {{/if}}
+        </p>
+      {{/if}}
+    {{/if}}
+
+    {{#if (or targetPresent isAttack)}}
+      <div class="skill-roll-target-list">
+        {{#each targetAll}}
+          <li class="skill-roll-target" data-token-uuid="{{this.uuid}}">
+            {{#if this.targetName}}
+              <div class="target-header">
+                <span class="name" data-action="panToTarget"><i
+                    class="icon fa-solid {{ifThen (eq type 'stormknight') 'fa-person' 'fa-ghost'}}"></i>&nbsp;{{this.targetName}}
+                </span>
+                {{#unless this.dummyTarget}}
+                  <span class="controls"><a data-action="pingTarget"
+                      data-tooltip="{{localize 'torgeternity.chatText.pingToken'}}">
+                      <i class="fa-solid fa-fw fa-signal-stream"></i></a></span>
+                {{/unless}}
+              </div>
+            {{/if}}
+            <!-- <img class="target-icon" src="{{this.targetPic}}"
+              data-tooltip="{{this.targetName}}" data-action="openSheet" data-actor="{{this.id}}" /> -->
+            <div class="target-details">
+              {{#if this.actionTotalContent}}
+                <p class="skill-roll-action-label actionTotalContent">{{this.actionTotalContent}}</p>
+              {{/if}}
+              {{#if this.damageSubDescription}}
+                <p class="skill-roll-action-label damageSubDescription">{{this.damageSubDescription}}</p>
+              {{/if}}
+              {{#if this.bdDamageSum}}
+                <p class="skill-roll-action-label bdDamageSum">
+                  {{localize 'torgeternity.chatText.check.result.BDDamageSum' count=this.amountBD total=this.bdDamageSum}}
+                </p>
+              {{/if}}
+              {{#if this.damageDescription}}
+                {{#if this.soakDescription}}
+                  <p class="skill-roll-damage-label soakDescription">
+                    {{this.soakDescription}}
+                  </p>
+                {{/if}}
+                <p class="skill-roll-damage-label damageDescription">
+                  {{this.damageDescription}}
+                </p>
+              {{/if}}
+
+              {{#if (or (and @root.ownsActor this.showBD) (and this.ownsTarget (or this.showApplyDamage this.showApplyEffects this.showApplyStymied this.showApplyVulnerable)))}}
+                <p class="applyButtons">
+                  {{#if (and @root.ownsActor this.showBD)}}
+                    <a class="button roll-button showBD" data-action="addBd"
+                      data-tooltip="{{localize 'torgeternity.chatText.bdTooltip'}}">
+                      <i class="fa-solid fa-dice-d6"></i>{{localize 'torgeternity.chatText.bonusDice'}}</a>
+                  {{/if}}
+                  {{#if this.ownsTarget}}
+                    {{#if this.showApplyDamage}}
+                      {{#unless this.soakWounds}}
+                        <a class="button roll-button" data-action="soakDam"
+                          data-tooltip="{{localize 'torgeternity.sheetLabels.soakDamageTooltip'}}">
+                          <i class="fa-solid fa-dice-d20"></i>
+                          {{localize 'torgeternity.sheetLabels.soakDamage'}}</a>
+                      {{/unless}}
+                      <a class="button roll-button" data-action="applyDam"
+                        data-tooltip="{{localize 'torgeternity.sheetLabels.applyDamageTooltip'}}">
+                        <i class="fa-solid fa-user-plus"></i>
+                        {{localize 'torgeternity.sheetLabels.applyDamage'}}</a>
+                    {{/if}}
+                    {{#if this.showApplyEffects}}
+                      <a class="button roll-button" data-action="applyEffects"
+                        data-tooltip="{{localize 'torgeternity.sheetLabels.applyEffectsTooltip'}}">
+                        <i class="fa-solid fa-person-rays"></i>
+                        {{localize 'torgeternity.sheetLabels.applyEffects'}}</a>
+                    {{/if}}
+                    {{#if this.showApplyStymied}}
+                      <a class="button roll-button" data-action="applyStymied"
+                        data-tooltip="{{localize 'torgeternity.sheetLabels.applyStymiedTooltip'}}">
+                        <i class="fa-solid fa-person-rays"></i>
+                        {{localize 'torgeternity.sheetLabels.applyStymied'}}</a>
+                    {{/if}}
+                    {{#if this.showApplyVulnerable}}
+                      <a class="button roll-button" data-action="applyVulnerable"
+                        data-tooltip="{{localize 'torgeternity.sheetLabels.applyVulnerableTooltip'}}">
+                        <i class="fa-solid fa-person-rays"></i>
+                        {{localize 'torgeternity.sheetLabels.applyVulnerable'}}</a>
+                    {{/if}}
+                  {{/if}}
+                </p>
+              {{/if}}
+            </div>
+          </li>
+        {{/each}}
       </div>
     {{/if}}
   </div>

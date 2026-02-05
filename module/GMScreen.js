@@ -31,6 +31,7 @@ export default class GMScreen extends HandlebarsApplicationMixin(ApplicationV2) 
   /**
    *
    * @param evt
+   * @this {GMScreen}
    */
   static #clickPanel(evt) {
     let cl;
@@ -52,8 +53,9 @@ export default class GMScreen extends HandlebarsApplicationMixin(ApplicationV2) 
     }
     GMScreen.classList.toggle(cl);
   }
+
   /**
-   *
+   * @inheritDoc 
    */
   async _prepareContext(options) {
     const data = await super._prepareContext(options);

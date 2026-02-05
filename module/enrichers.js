@@ -79,7 +79,7 @@ const interactionAttacks = ['unarmed', 'intimidation', 'maneuver', 'taunt', 'kic
 
 /**
  * The click handler to trigger the Test Dialog when the button is clicked.
- * @param {*} event 
+ * @param {Event} event 
  */
 function _onClickInlineCheck(event) {
   // Firstly check for clicking on the "post to chat" button
@@ -230,7 +230,7 @@ function InlineConditionEnricher(match, options) {
 
 /**
  * The click handler to trigger the Test Dialog when the button is clicked.
- * @param {*} event 
+ * @param {Event} event 
  */
 async function _onClickInlineCondition(event) {
   const target = event.target.closest('a.torg-inline-condition');
@@ -347,7 +347,7 @@ function InlineBuffEnricher(match, options) {
 
 /**
  * The click handler to trigger the Test Dialog when the button is clicked.
- * @param {*} event 
+ * @param {Event} event 
  */
 async function _onClickInlineBuff(event) {
   const target = event.target.closest('a.torg-inline-buff');

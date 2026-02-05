@@ -14,9 +14,7 @@ export default class TorgCombat extends Combat {
 
   /**
    * On deletion, remove all pooled cards from the hands of the stormknight actors in the combat.
-   * @param {*} options 
-   * @param {*} user 
-   * @returns 
+   * @inheritDoc
    */
   async _preDelete(options, user) {
     const allowed = super._preDelete(options, user);
@@ -500,7 +498,8 @@ export default class TorgCombat extends Combat {
     // Combat.updateTurnMarkers won't add new ones!
     if (this.#currentDisposition != old)
       for (const combatant of this.turns)
-        combatant.token?.object?.renderFlags.set({ refreshTurnMarker: true });
+        if (combatant.token.rendered)
+          combatant.token?.object?.renderFlags.set({ refreshTurnMarker: true });
   }
 
   get currentDisposition() {

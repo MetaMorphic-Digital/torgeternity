@@ -144,11 +144,12 @@
           "result": "Résultat",
           "standardSuccess": "Succès simple",
           "toughness": "Résistance",
-          "BDDamageSum": "Somme des Dés Bonus de dommages"
+          "BDDamageSum": "Total des lancers des {count} BDs = {total}"
         },
         "testUnsuccessfull": "Le jet n'a pas réussi"
       },
       "concentration": {
+        "start": "Début de la concentration pour {itemName}",
         "makeCheck": "{actor} doit effectuer un test de Concentration",
         "AEname": "Concentration: {item}",
         "AEdescription": "{actor} est concentré sur {itemType} '{itemName}'",
@@ -190,6 +191,7 @@
       "notes": "Notes",
       "passesCard1": "Passe",
       "passesCard2": "à",
+      "pingToken": "Trouver le Token",
       "playsCard": "Jouer",
       "possibleGlory": "!!! GLOIRE JOUABLE !!!",
       "possibility": "Possibilité",
@@ -774,9 +776,13 @@
         "hint": "Si sélectionné, le Dé dans les messages sera celui de TORG, à la place du Dé gris de Foundry.",
         "name": "Affiche les Dés TORG dans les messages"
       },
+      "autoRollBD": {
+        "hint": "Automatise le lancer des BDs quand un succés Supérieur ou Spectaculaire est obtenu lors d'une attaque",
+        "name": "Lancer automatique des BDs"
+      },
       "showManualRolls": {
-        "hint": "Show dice which have been manually rolled in chat cards (with a suffix M)",
-        "name": "Show Manual Dice rolls"
+        "hint": "Informe des dés lancés en présentiel (avec le suffixe M)",
+        "name": "Lancer manuel des dés"
       },
       "autoDamages": {
         "hint": "Si coché, les points de Chocs et les Blessures seront automatiquement appliqués si le joueur a un token cible valide.",
@@ -920,15 +926,15 @@
       "alterAttributes": "Tu peux maintenant modifier les attributs",
       "ammunition": "Munitions",
       "APMod": "Modificateur de PA",
-      "applyDamage": "Appliquer les dommages",
-      "applyEffects": "Appliquer les Effets",
+      "applyDamage": "Dommages",
+      "applyEffects": "Effets",
       "applyDamageTooltip": "Maj+Clic pour ajuster les dommages, Clic pour les appliquer.",
       "applyEffectsTooltip": "Transfert les Effets pertinents aux cibles",
       "applySoak": "Annulation des dommages",
       "applySoakTooltip": "Applique la réduction des dommages sur l'attaque.",
-      "applyStymied": "Appliquer Déstabilisé",
+      "applyStymied": "Déstabilisé",
       "applyStymiedTooltip": "Applique Déstabilisé, ou Très déstabilisé si déjà Déstabilisé.",
-      "applyVulnerable": "Appliquer Vulnérable",
+      "applyVulnerable": "Vulnérable",
       "applyVulnerableTooltip": "Applique Vulnérable, ou Très vulnérable si déjà Vulnérable.",
       "armor": "Armure",
       "armorAndShields": "Armures et boucliers",
@@ -1071,6 +1077,8 @@
       "race": "Race",
       "racialPerks": "Avantages raciaux",
       "range": "Portée",
+      "reconnect": "Reconnection",
+      "reconnectTooltip": "Supprime la condition Déconnecté",
       "darkvision": "Vision dans le noir",
       "removeGunner": "Supprimme l'opérateur de cette arme",
       "removeOperator": "Supprimme l'opérateur de ce véhicule",
@@ -1091,7 +1099,7 @@
       "skills": "Compétences",
       "skillValue": "Compétence",
       "soakAll": "Vous annulez tous les dommages.",
-      "soakDamage": "Annulation des dommages",
+      "soakDamage": "Ann. Dom.",
       "soakDamageTooltip": "Test de Réalité pour annuler les dommages, donne la réduction.",
       "soakNull": "Vous n'annulez aucun dommage.",
       "soakRoll": "Test de Réalité/Annulation des dommages",
@@ -1127,9 +1135,6 @@
       "unspent": "Disponibles",
       "up": "Un de plus",
       "update": "Mise à jour",
-      "usePreviousBonusLegend": "Choisir entre (1) lancer le Dé et générer un bonus ou (2) saisir un bonus déjà généré par un jet en Actions multiples.",
-      "usePreviousBonustitle": "Dans le cadre d'Actions multiples, cocher pour saisir le bonus généré par le test précédent.",
-      "usePreviousBonusText": "Saisir le BONUS, et pas le total du Dé.",
       "vehicle": "Véhicule",
       "vehicles": "Véhicules",
       "vitalArea": "Coup fatal",
