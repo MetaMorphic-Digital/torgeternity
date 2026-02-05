@@ -548,6 +548,8 @@ export async function renderSkillChat(test) {
         } else {
           // Cancel the "unwieldy" which might have been set if previously a failure
           test.showActorApplyVeryVulnerable &&= false;
+          // Maybe now good enough to have some BD on it
+          if (!target.soakWounds) target.showBD ??= true;
 
           // Extra BDs based on level success (but this is called many times, so ensure total of 0, 1 or 2 is maintained)
           target.addBDs ??= 0;
@@ -617,15 +619,12 @@ export async function renderSkillChat(test) {
       test.typeLabel = game.i18n.localize('torgeternity.chatText.skillTestLabel');
     } else if (test.testType === 'attack') {
       test.typeLabel = game.i18n.localize('torgeternity.chatText.skillTestLabel');
-      if (test.rollTotal !== 1 && !target.soakWounds) target.showBD ??= true;
     } else if (test.testType === 'power') {
       test.typeLabel = game.i18n.localize('torgeternity.chatText.skillTestLabel');
-      if (test.isAttack && !target.soakWounds) target.showBD ??= true;
     } else if (test.testType === 'custom') {
       test.typeLabel = game.i18n.localize('torgeternity.chatText.skillTestLabel');
       test.outcomeColor = 'hidden;';
       test.resultTextStyle = 'display:hidden;';
-      if (!target.soakWounds) target.showBD ??= true;
       test.upStyle = 'hidden';
     } else {
       test.typeLabel = game.i18n.localize('torgeternity.chatText.attributeTestLabel');
