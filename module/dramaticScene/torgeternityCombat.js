@@ -84,6 +84,9 @@ export default class TorgCombat extends Combat {
         const hand = combatant.actor.getDefaultHand();
         if (hand) hand.setFlag('torgeternity', 'disablePlayCards', true)
       }
+
+      // Check if the turn marker should be immediately displayed
+      combatant.token?.object?.renderFlags.set({ refreshTurnMarker: true })
     }
   }
 

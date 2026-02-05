@@ -5,6 +5,8 @@
 - Don't add "+x BD" into the chat title.
 - When an Item triggers a skill check, put the item name on a separate line in the chat title.
 - Ensure various data fields are Number not String, and make many of them NOT nullable (i.e. require a value).
+- Don't show the BD button while the attack total indicates a failure.
+- When adding a token to an Combat that has already started, display a turn marker under it if it is a member of the active faction.
 
 ## 13.20.0 - Multi-Target Actions & Skill Chat Cards
 
