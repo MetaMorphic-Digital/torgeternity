@@ -14,7 +14,7 @@ export class GeneralItemData extends BaseItemData {
   static defineSchema(itemType) {
     return {
       ...super.defineSchema(itemType),
-      quantity: new fields.NumberField({ initial: 1 }),
+      quantity: new fields.NumberField({ initial: 1, integer: true, nullable: false }),
       price: new fields.SchemaField({
         dollars: new fields.StringField({ initial: '', nullable: false }),
         // will receive price.torgValue during prepareDerivedData

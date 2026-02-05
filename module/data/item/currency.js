@@ -18,7 +18,7 @@ export class CurrencyItemData extends BaseItemData {
   static defineSchema() {
     return {
       ...super.defineSchema('currency'),
-      quantity: new fields.NumberField({ initial: 0 }),
+      quantity: new fields.NumberField({ initial: 0, integer: true, nullable: false }),
     }
   }
 }

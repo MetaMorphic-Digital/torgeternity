@@ -12,10 +12,10 @@ export class SpecialAbilityRollableItemData extends BaseItemData {
   static defineSchema() {
     return {
       ...super.defineSchema('specialability-rollable'),
-      ap: new fields.NumberField({ initial: 0, integer: true }),
+      ap: new fields.NumberField({ initial: 0, integer: true, nullable: false }),
       attackWith: new fields.StringField({ initial: 'unarmedCombat' }),
       chatNote: new fields.StringField({ initial: '' }),
-      damage: new fields.NumberField({ initial: 0, integer: true }),
+      damage: new fields.NumberField({ initial: 0, integer: true, nullable: false }),
     };
   }
 }

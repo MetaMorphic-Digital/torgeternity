@@ -11,7 +11,7 @@ export class CustomSkillItemData extends BaseItemData {
   static defineSchema() {
     return {
       ...super.defineSchema('customSkill'),
-      adds: new fields.NumberField({ initial: 1 }),
+      adds: new fields.NumberField({ initial: 1, integer: true }),
       baseAttribute: new fields.StringField({ initial: 'strength', choices: CONFIG.torgeternity.attributeTypes }),
       isFav: new fields.BooleanField({ initial: false }),
     };

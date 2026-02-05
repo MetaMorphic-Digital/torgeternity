@@ -18,7 +18,7 @@ export class EternityShardItemData extends GeneralItemData {
       powers: new fields.StringField({ initial: '' }),
       purpose: new fields.StringField({ initial: '' }),
       restrictions: new fields.StringField({ initial: '' }),
-      tappingDifficulty: new fields.NumberField({ initial: 18, integer: true }),
+      tappingDifficulty: new fields.NumberField({ initial: 10, integer: true, nullable: false }),
     };
   }
 
