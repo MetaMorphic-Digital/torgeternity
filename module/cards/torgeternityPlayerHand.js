@@ -134,7 +134,7 @@ export default class torgeternityPlayerHand extends foundry.applications.sheets.
    * Our own drag/drop handler copes with dropping into the blank area of the lifelike hand,
    * but we must prevent the drop handler being called twice when a card is dropped onto one
    * the two piles of cards in that window.
-   * @param {*} event 
+   * @param {Event} event 
    */
   _onDrop(event) {
     super._onDrop(event);

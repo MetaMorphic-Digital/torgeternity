@@ -51,7 +51,7 @@ export default class torgeternityPile extends foundry.applications.sheets.CardPi
 
   /**
    * 
-   * @param {*} event 
+   * @param {Event} event 
    * @this {torgeternityPile}
    */
   static async #onReturn(event) {

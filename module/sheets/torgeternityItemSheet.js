@@ -177,8 +177,8 @@ export default class TorgeternityItemSheet extends foundry.applications.api.Hand
 
   /**
    * Actions
-   * @param {} event 
-   * @param {*} button 
+ * @param {Event} event 
+ * @param {HTMLButtonElement} button 
    * @this {TorgeternityItemSheet}
    */
   static #onEffectControl(event, button) {
@@ -187,8 +187,8 @@ export default class TorgeternityItemSheet extends foundry.applications.api.Hand
 
   /**
  * Actions
- * @param {} event 
- * @param {*} button 
+ * @param {Event} event 
+ * @param {HTMLButtonElement} button 
  * @this {TorgeternityItemSheet}
  */
   static #onConvertRsa(event, button) {
@@ -200,8 +200,8 @@ export default class TorgeternityItemSheet extends foundry.applications.api.Hand
 
   /**
  * Actions
- * @param {} event 
- * @param {*} button 
+ * @param {Event} event 
+ * @param {HTMLButtonElement} button 
  * @this {TorgeternityItemSheet}
  */
   static #onAddEnhancement(event, button) {
@@ -212,8 +212,8 @@ export default class TorgeternityItemSheet extends foundry.applications.api.Hand
 
   /**
    * Actions
-   * @param {} event 
-   * @param {*} button 
+ * @param {Event} event 
+ * @param {HTMLButtonElement} button 
    * @this {TorgeternityItemSheet}
    */
   static #onRemoveEnhancement(event, button) {
@@ -224,8 +224,8 @@ export default class TorgeternityItemSheet extends foundry.applications.api.Hand
 
   /**
  * Actions
- * @param {} event 
- * @param {*} button 
+ * @param {Event} event 
+ * @param {HTMLButtonElement} button 
  * @this {TorgeternityItemSheet}
  */
   static #onAddLimitation(event, button) {
@@ -236,8 +236,8 @@ export default class TorgeternityItemSheet extends foundry.applications.api.Hand
 
   /**
  * Actions
- * @param {} event 
- * @param {*} button 
+ * @param {Event} event 
+ * @param {HTMLButtonElement} button 
  * @this {TorgeternityItemSheet}
  */
   static #onRemoveLimitation(event, button) {
@@ -248,8 +248,8 @@ export default class TorgeternityItemSheet extends foundry.applications.api.Hand
 
   /**
  * Actions
- * @param {} event 
- * @param {*} button 
+ * @param {Event} event 
+ * @param {HTMLButtonElement} button 
  * @this {TorgeternityItemSheet}
  */
   static #onReloadWeapon(event, button) {
@@ -259,8 +259,8 @@ export default class TorgeternityItemSheet extends foundry.applications.api.Hand
 
   /**
  * Actions
- * @param {} event 
- * @param {*} button 
+ * @param {Event} event 
+ * @param {HTMLButtonElement} button 
  * @this {TorgeternityItemSheet}
  */
   static async #onSelectSecondaryAxiom(event) {
@@ -272,8 +272,8 @@ export default class TorgeternityItemSheet extends foundry.applications.api.Hand
 
   /**
  * Actions
- * @param {} event 
- * @param {*} button 
+ * @param {Event} event 
+ * @param {HTMLButtonElement} button 
  * @this {TorgeternityItemSheet}
  */
   static #onToggleTraitEdit(event, button) {
@@ -287,8 +287,8 @@ export default class TorgeternityItemSheet extends foundry.applications.api.Hand
 
   /**
  * Actions
- * @param {} event 
- * @param {*} button 
+ * @param {Event} event 
+ * @param {HTMLButtonElement} button 
  * @this {TorgeternityItemSheet}
  */
   static #onItemName(event, button) {
@@ -302,8 +302,8 @@ export default class TorgeternityItemSheet extends foundry.applications.api.Hand
 
   /**
  * Actions
- * @param {} event 
- * @param {*} button 
+ * @param {Event} event 
+ * @param {HTMLButtonElement} button 
  * @this {TorgeternityItemSheet}
  */
   static #onItemDelete(event, button) {
@@ -333,8 +333,8 @@ export default class TorgeternityItemSheet extends foundry.applications.api.Hand
 
   /**
  * Actions
- * @param {} event 
- * @param {*} button 
+ * @param {Event} event 
+ * @param {HTMLButtonElement} button 
  * @this {TorgeternityItemSheet}
  */
   static #onResetPoss(event, button) {
