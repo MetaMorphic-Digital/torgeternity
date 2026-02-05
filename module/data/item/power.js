@@ -12,23 +12,23 @@ export class PowerItemData extends BaseItemData {
   static defineSchema() {
     return {
       ...super.defineSchema('power'),
-      ap: new fields.NumberField({ initial: 0, integer: true }),
+      ap: new fields.NumberField({ initial: 0, integer: true, nullable: false }),
       applyArmor: new fields.BooleanField({ initial: true }),
       applySize: new fields.BooleanField({ initial: true }),
       //axiom: new fields.NumberField({ initial: 0, integer: true }),
       castingtime: new fields.StringField({ initial: '' }),
-      damage: new fields.NumberField({ initial: 0, integer: true }),
+      damage: new fields.NumberField({ initial: 0, integer: true, nullable: false }),
       dn: new fields.StringField({ initial: '' }),
       dnType: new fields.StringField({ initial: '' }),
       duration: new fields.StringField({ initial: '' }),
       good: new fields.HTMLField({ initial: '', textSearch: true }),
       isAttack: new fields.BooleanField({ initial: false }),
-      modifier: new fields.NumberField({ integer: true }),
+      modifier: new fields.NumberField({ integer: true, initial: 0, nullable: false }),
       outstanding: new fields.HTMLField({ initial: '', textSearch: true }),
       range: new fields.StringField({ initial: '' }),
       requiresConcentration: new fields.BooleanField({ initial: false }),
       skill: new fields.StringField({ initial: '' }),
-      skilllevel: new fields.StringField({ initial: '' }),
+      skilllevel: new fields.NumberField({ initial: 0, integer: true, nullable: false }),
       targetDefense: new fields.StringField({ initial: '' }),
     };
   }
