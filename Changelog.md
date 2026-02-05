@@ -1,52 +1,28 @@
 # TORG Eternity Changelog
 
-## NEXT - Multi-Target Actions & Skill Chat Cards
+## 13.20.0 - Multi-Target Actions & Skill Chat Cards
 
-- **Token Action Hud**
-  - Add **PERKS** tab
-  - Allow making a **Tapping** Roll on eternity shards
-- General **Skill Chat Card** changes
-  - **Reconnection** is now handled like other tests, so a `Reconnect` button will appear when the actor succeeds at the test (possibly after modifications to the action total)
-  - Buttons in chat cards are hidden when they are no longer a valid option
-  - Automatically roll **Bonus Die** on GOOD or OUTSTANDING attack totals (configurable game setting)
+- General **Skill Chat Card** changes:
+  - **Reconnection** is now handled like other tests, so a `Reconnect` button will appear when the actor succeeds at the test (possibly after modifications to the action total).
+  - Buttons in chat cards are hidden when they are no longer a valid option.
+  - Automatically roll **Bonus Die** on GOOD or OUTSTANDING attack totals (configurable game setting).
 - Reworked **MULTI-TARGET ACTIONS**
-  - A single chat card is used for each multi-target action
+  - A single chat card is used for each multi-target action.
   - The buttons to modify the action total remain near the top of the card.
   - At the bottom of the card is a list of targets, with buttons specific to each target (including the BD button)
-  - Buttons which affect the attacker (e.g. "apply soak", backlash) appear above the target list
+    - A "ping token" button is available on each target to ping the token (SHIFT and ALT work as per normal canvas pings)
+    - Clicking on the target's name will pan the canvas to centre on that target's token.
+  - Buttons which affect the attacker (e.g. "apply soak", backlash) appear above the target list.
   - Buttons which affect a token have less rounded borders.
-  - A "ping token" button is available on each target to ping the token (SHIFT and ALT work as per normal canvas pings)
-  - Clicking on the name of the target pans the canvas to that target
+- Additions to **Token Action Hud** support:
+  - Add **PERKS** tab
+  - Allow making a **Tapping** Roll on eternity shards
 
 ### Bug Fixes
 
 - Use **token name** of the target in the chat card, not the actor name (since token might have prefix/suffix)
 - Add missing translation key for an Actor starts concentrating on a power, `torgeternity.chatText.concentration.start`
 - Prevent error on Firefox during loading when the Combat Tracker isn't fully initialised.
-
-### Translations
-
-- `autoRollBD.name/hint`
-- `diceTotal` (rewording)
-- `BDDamageSum`
-- `dieTotal`
-- `pingToken`
-- `applyDamage`
-- `applyEffects`
-- `applyStymied`
-- `applyVulnerable`
-- `reconnect`
-- `reconnectTooltip`
-- `autoDamage.hint` (shocks -> shock)
-- `chooseDamage` (damages -> damage)
-- `modifyDamage` (damages -> damage)
-- `modifyShocks` (shocks -> shock)
-- `soakAll` (shocks -> shock)
-- `soakDamage` (damages -> damage)
-- `soakValue` (shocks -> shock)
-- `backlash1Tooltip` (shocks -> shock)
-- `periculumSourceName`  (damages -> damage)
-
 
 ## 13.19.0 - Attributes, Price, Inspiration, Item Piles & Token Action HUD
 
