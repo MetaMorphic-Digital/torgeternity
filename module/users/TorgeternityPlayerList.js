@@ -44,7 +44,9 @@ export default class TorgeternityPlayerList extends foundry.applications.ui.Play
   }
   /**
    *
-   * @param event
+   * @param {Event} event
+   * @param {HTMLButtonElement} button
+   * @this {TorgeternityPlayerList}
    */
   static async #onAddPossibility(event, button) {
     const targetActor = game.actors.get(button.dataset.targetId);
@@ -55,14 +57,24 @@ export default class TorgeternityPlayerList extends foundry.applications.ui.Play
     const newVal = gmuser.getFlag('torgeternity', 'GMpossibilities') + 1;
     gmuser.setFlag('torgeternity', 'GMpossibilities', newVal);
   }
+
   /**
    *
-   * @param event
+   * @param {Event} event
+   * @param {HTMLButtonElement} button
+   * @this {TorgeternityPlayerList}
    */
   static async #onMinusPossibility(event, button) {
     const targetActor = game.actors.get(button.dataset.targetId);
     return targetActor.update({ "system.other.possibilities.value": targetActor.system.other.possibilities.value - 1, });
   }
+
+  /**
+ *
+ * @param {Event} event
+ * @param {HTMLButtonElement} button
+ * @this {TorgeternityPlayerList}
+ */
   static async #onMinusPossibilityGM(event, button) {
     const gmuser = game.users.activeGM;
     const newVal = gmuser.getFlag('torgeternity', 'GMpossibilities') - 1;
@@ -70,10 +82,12 @@ export default class TorgeternityPlayerList extends foundry.applications.ui.Play
   }
 
   /**
-   *
-   * @param event
-   */
-  static #onResetPossibilities() {
+ *
+ * @param {Event} event
+ * @param {HTMLButtonElement} button
+ * @this {TorgeternityPlayerList}
+ */
+  static #onResetPossibilities(event, button) {
     DialogV2.wait({
       window: {
         title: 'torgeternity.possibilitiesReset.name',

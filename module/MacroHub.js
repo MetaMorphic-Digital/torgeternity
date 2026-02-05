@@ -26,8 +26,7 @@ export default class MacroHub extends HandlebarsApplicationMixin(ApplicationV2) 
   }
 
   /**
-   * _prepareContext extension
-   * @returns context
+   * @inheritDoc 
    */
   async _prepareContext(options) {
     const data = await super._prepareContext(options);
@@ -63,8 +62,11 @@ export default class MacroHub extends HandlebarsApplicationMixin(ApplicationV2) 
       return this.close();
   }
 
+  /** 
+   * @this {MacroHub}
+  */
   static async #executeMacro(event) {
-    const macroPack = await game.packs.get('torgeternity.macros');
+    const macroPack = game.packs.get('torgeternity.macros');
     const macroId = event.target.closest('.macroHubSpan').dataset.macroId;
     return macroPack.getDocument(macroId).then((m) => m.execute());
   }

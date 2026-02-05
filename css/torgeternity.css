@@ -2871,6 +2871,7 @@ nav#controls,
     font-weight: bold;
     border: 2px solid black;
     background-color: beige;
+    background-image: url("../images/tokens/step.webp");
     outline-color: black;
     display: inline-block;
     border-radius: 10px;
@@ -3178,7 +3179,8 @@ document-embed .generalHeader {
   .skill-roll-action-label {
     text-align: center;
     font-family: "Palatino Linotype";
-    font-size: 14px;
+    font-style: italic;
+    font-size: small;
     padding: 0px;
     margin: 0px;
   }
@@ -3226,7 +3228,7 @@ document-embed .generalHeader {
 
   .skill-roll-damage-label {
     font-family: "Palatino Linotype";
-    font-size: 18px;
+    font-size: larger;
     font-weight: bold;
     text-align: center;
     margin: 0.5em 0 0 0;
@@ -3255,6 +3257,49 @@ document-embed .generalHeader {
     }
   }
 
+  div.skill-roll-target-list {
+    margin-top: 1em;
+
+    li.skill-roll-target {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: start;
+      border-top: 1px solid;
+      /*font-size: 13px;*/
+      margin: 1px;
+      padding: 1px;
+      font-family: "Palatino Linotype";
+
+      .target-header {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+      }
+
+      .name {
+        font-size: 14px;
+        font-weight: bold;
+        flex: 1
+      }
+
+      .skill-roll-damage-label {
+        margin: 0
+      }
+
+      img.target-icon {
+        width: 50px;
+        height: 50px;
+      }
+
+      div.target-details {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+      }
+    }
+  }
+
   .contradiction-roll {
     font-family: "Palatino Linotype";
 
@@ -3269,6 +3314,12 @@ document-embed .generalHeader {
     justify-content: space-evenly;
     gap: 5px;
     flex-flow: wrap;
+
+    a.roll-button {
+      font-family: "Palatino Linotype";
+      margin-bottom: auto;
+      border-radius: 0.2rem;
+    }
   }
 
   .generalHeader {
@@ -3375,10 +3426,6 @@ document-embed .generalHeader {
 }
 
 .chat-message h4 {
-  font-family: Alaska;
-}
-
-.chat-message .applyButtons a.button {
   font-family: Alaska;
 }
 

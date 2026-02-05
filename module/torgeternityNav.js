@@ -9,8 +9,9 @@ export default class TorgeternityNav extends foundry.applications.ui.SceneNaviga
       template: "systems/torgeternity/templates/scenes/nav.hbs"
     },
   }
+
   /**
-   *
+   * @inheritDoc 
    */
   async _prepareContext(options) {
     const context = await super._prepareContext(options);

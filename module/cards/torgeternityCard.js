@@ -5,9 +5,7 @@ export class torgeternityCard extends Card {
 
   /**
    * If a card's pooled state is changed, then update the Combat Tracker to show the new set of pooled cards.
-   * @param {*} changed 
-   * @param {*} options 
-   * @param {*} userId 
+   * @inheritDoc
    */
   _onUpdate(changed, options, userId) {
     super._onUpdate(changed, options, userId);

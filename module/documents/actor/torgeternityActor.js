@@ -278,9 +278,7 @@ export default class TorgeternityActor extends foundry.documents.Actor {
 
   /**
    * On creation of a stormknight, create a corresponding card hand.
-   * @param {*} data 
-   * @param {*} options 
-   * @param {*} userId 
+   * @inheritDoc
    */
   _onCreate(data, options, userId) {
     super._onCreate(data, options, userId);
@@ -292,11 +290,7 @@ export default class TorgeternityActor extends foundry.documents.Actor {
 
   /**
    * As per core Actor#modifyTokenAttribute but do NOT clamp the value when modifying shock or wounds
-   * @param {*} attribute 
-   * @param {*} value 
-   * @param {*} isDelta 
-   * @param {*} isBar 
-   * @returns 
+   * @inheritDoc
    */
   async modifyTokenAttribute(attribute, value, isDelta = false, isBar = true) {
     if (attribute !== 'shock' && attribute !== 'wounds') {
@@ -315,10 +309,7 @@ export default class TorgeternityActor extends foundry.documents.Actor {
 
   /**
    * 
-   * @param {*} changed 
-   * @param {*} options 
-   * @param {*} user 
-   * @returns 
+   * @inheritDoc
    */
   async _preUpdate(changed, options, user) {
     const isFullReplace = !((options.diff ?? true) && (options.recursive ?? true));
@@ -448,8 +439,7 @@ export default class TorgeternityActor extends foundry.documents.Actor {
 
   /**
    * When a stormknight is deleted, delete the corresponding player hand
-   * @param {*} options 
-   * @param {*} userId 
+   * @inheritDoc
    */
   _onDelete(options, userId) {
     if (this.type === 'stormknight' && game.user.isActiveGM)
@@ -779,7 +769,6 @@ export default class TorgeternityActor extends foundry.documents.Actor {
 
   /**
    * When the debounce has finished, update the darkness state of the first token on the given scene.
-   * @param {*} token 
    */
   debounceDarkness = foundry.utils.debounce(async scene => {
     if (!scene.tokenVision || !game.user.isActiveGM) return;
