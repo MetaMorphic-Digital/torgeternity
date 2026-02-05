@@ -567,6 +567,7 @@
       "miracleRoll": "Jet de miracle",
       "openParty": "Ouvrir la fiche du groupe",
       "psionicRoll": "Jet de pouvoir psionique",
+      "reduceShock": "During combat, perform <em>Recovery</em>.<br>Out of combat, it removes <em>all</em> shock.",
       "reload": "Rechargement de l'arme",
       "resetPoss": "Rétablir les Possibilités (maintenir SHIFT pour inclure les Fragments d'Éternité)",
       "resetPossibilities": "Rétablir les Possibilités des Chevaliers des Tempêtes",

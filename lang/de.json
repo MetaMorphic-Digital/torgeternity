@@ -567,6 +567,7 @@
       "miracleRoll": "Wunder-Wurf",
       "openParty": "Öffnet die Gruppenübersicht",
       "psionicRoll": "Psionischer Wurf",
+      "reduceShock": "During combat, perform <em>Recovery</em>.<br>Out of combat, it removes <em>all</em> shock.",
       "reload": "Waffe nachladen<p>(halte SHIFT für freies Nachladen)",
       "resetPoss": "Möglichkeiten zurücksetzen (SHIFT drücken um Ewigkeitssplitter einzubeziehen)",
       "resetPossibilities": "Möglichkeiten zurücksetzen",

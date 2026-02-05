@@ -567,6 +567,7 @@
       "miracleRoll": "Tirar Milagro",
       "openParty": "Abrir hoja de grupo",
       "psionicRoll": "Tirar poder Psiónico",
+      "reduceShock": "During combat, perform <em>Recovery</em>.<br>Out of combat, it removes <em>all</em> shock.",
       "reload": "Recargar arma",
       "resetPoss": "Reiniciar Posibilidades (pulsar MAY para incluir los Fragmentos de Eternidad)",
       "resetPossibilities": "Reiniciar Posibilidad Caballeros",

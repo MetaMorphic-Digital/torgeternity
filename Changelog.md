@@ -7,6 +7,9 @@
 - Ensure various data fields are Number not String, and make many of them NOT nullable (i.e. require a value).
 - Don't show the BD button while the attack total indicates a failure.
 - When adding a token to an Combat that has already started, display a turn marker under it if it is a member of the active faction.
+- Add an "undo" button for Shock on Stormknight and Threat sheets:
+  - **In combat**, it reduces the shock by 2 (_Recovery_)
+  - **Out of combat**, it removes all shock.
 
 ## 13.20.0 - Multi-Target Actions & Skill Chat Cards
 

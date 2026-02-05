@@ -63,6 +63,7 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
       removeOperator: TorgeternityActorSheet.#onRemoveOperator,
       removeGunner: TorgeternityActorSheet.#onRemoveGunner,
       resetPoss: TorgeternityActorSheet.#onResetPoss,
+      reduceShock: TorgeternityActorSheet.#onReduceShock,
     }
   }
 
@@ -1106,11 +1107,11 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
   }
 
   /**
- *
- * @param {Event} event
- * @param {HTMLButtonElement} button
- * @this {TorgeternityActorSheet}
- */
+   *
+   * @param {Event} event
+   * @param {HTMLButtonElement} button
+   * @this {TorgeternityActorSheet}
+   */
   static async #onResetPoss(event, button) {
     await this.actor.update({ "system.other.possibilities.value": this.actor.system.other.possibilities.perAct });
     if (event.shiftKey) {
@@ -1123,6 +1124,20 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
       if (updates.length)
         await this.actor.updateEmbeddedDocuments('Item', updates);
     }
+  }
+
+  /**
+ * Reduces the Shock of an Actor:
+ * In a combat, it reduces the shock by 2 (Recovery)
+ * Out of combat, it removes ALL shock.
+ * 
+ * @param {Event} event
+ * @param {HTMLButtonElement} button
+ * @this {TorgeternityActorSheet}
+ */
+  static async #onReduceShock(event, button) {
+    const newShock = this.actor.inCombat ? Math.max(0, this.actor.system.shock.value - 2) : 0;
+    return this.actor.update({ "system.shock.value": newShock });
   }
 
   async deleteRace() {
