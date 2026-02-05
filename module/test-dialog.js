@@ -468,7 +468,7 @@ export function TestDialogLabel(test) {
   }
   if (test.itemId) {
     const itemName = fromUuidSync(test.actor, { strict: false })?.items.get(test.itemId).name;
-    if (itemName) result += ` (${itemName})`;
+    if (itemName) result += `<br>(${itemName})`;
   }
   return result;
 }
