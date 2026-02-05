@@ -680,7 +680,9 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
 
   /**
    * Toggle whether the skill is a threat skill not (whether it appears in a Threat sheet's reduced skill list)
-   * @param event
+   * @param {Event} event
+   * @param {HTMLButtonElement} button
+   * @this {TorgeternityActorSheet}
    */
   static async #onToggleThreatSkill(event, button) {
     const skillName = button.dataset.name;
@@ -692,6 +694,12 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
     return this.actor.update(update);
   }
 
+  /**
+   * 
+   * @param {Event} event
+   * @param {HTMLButtonElement} button
+   * @this {TorgeternityActorSheet}
+   */
   static async #onToggleStatusEffect(event, button) {
     const statusId = button.dataset.control;
     return this.actor.toggleStatusEffect(statusId);
@@ -699,7 +707,9 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
 
   /**
    *
-   * @param event
+   * @param {Event} event
+   * @param {HTMLButtonElement} button
+   * @this {TorgeternityActorSheet}
    */
   static async #onSkillRoll(event, button) {
     if (button.dataset.testtype === 'attribute')
@@ -710,7 +720,9 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
 
   /**
    *
-   * @param event
+   * @param {Event} event
+   * @param {HTMLButtonElement} button
+   * @this {TorgeternityActorSheet}
    */
   static async #onChaseRoll(event, button) {
     if (!game.combat) {
@@ -731,7 +743,9 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
 
   /**
    *
-   * @param event
+   * @param {Event} event
+   * @param {HTMLButtonElement} button
+   * @this {TorgeternityActorSheet}
    */
   static async #onBaseRoll(event, button) {
     return TestDialog.wait({
@@ -746,7 +760,9 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
 
   /**
    *
-   * @param event
+   * @param {Event} event
+   * @param {HTMLButtonElement} button
+   * @this {TorgeternityActorSheet}
    */
   static async #onStuntRoll(event, button) {
     const dnDescriptor = (game.user.targets.first()?.actor.type === 'vehicle')
@@ -765,7 +781,9 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
 
   /**
    *
-   * @param event
+   * @param {Event} event
+   * @param {HTMLButtonElement} button
+   * @this {TorgeternityActorSheet}
    */
   static #onInteractionAttack(event, button) {
     return rollInteractionAttack(this.actor, button.dataset.name);
@@ -773,7 +791,9 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
 
   /**
    *
-   * @param event
+   * @param {Event} event
+   * @param {HTMLButtonElement} button
+   * @this {TorgeternityActorSheet}
    */
   static #onUnarmedAttack(event, button) {
     return rollUnarmedAttack(this.actor, button.dataset.name);
@@ -781,7 +801,9 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
 
   /**
    *
-   * @param event
+   * @param {Event} event
+   * @param {HTMLButtonElement} button
+   * @this {TorgeternityActorSheet}
    */
   static #onSkillEditToggle(event, button) {
     event.preventDefault();
@@ -791,7 +813,9 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
 
   /**
    *
-   * @param event
+   * @param {Event} event
+   * @param {HTMLButtonElement} button
+   * @this {TorgeternityActorSheet}
    */
   static #onActiveDefenseRoll(event, button) {
 
@@ -810,7 +834,9 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
 
   /**
    *
-   * @param event
+   * @param {Event} event
+   * @param {HTMLButtonElement} button
+   * @this {TorgeternityActorSheet}
    */
   static async #onActiveDefenseCancel(event, button) {
 
@@ -837,7 +863,9 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
 
   /**
    *
-   * @param event
+   * @param {Event} event
+   * @param {HTMLButtonElement} button
+   * @this {TorgeternityActorSheet}
    */
   static async #onItemChat(event, button) {
     const item = this.actor.items.get(button.closest('.item').dataset.itemId);
@@ -848,7 +876,9 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
 
   /**
    *
-   * @param event
+   * @param {Event} event
+   * @param {HTMLButtonElement} button
+   * @this {TorgeternityActorSheet}
    */
   static #onAttackRoll(event, button) {
     const item = this.actor.items.get(button.closest('.item').dataset.itemId);
@@ -864,7 +894,9 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
 
   /**
    *
-   * @param event
+   * @param {Event} event
+   * @param {HTMLButtonElement} button
+   * @this {TorgeternityActorSheet}
    */
   static #onPowerRoll(event, button) {
     const item = this.actor.items.get(button.closest('.item').dataset.itemId);
@@ -872,6 +904,12 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
     rollPower(this.actor, item);
   }
 
+  /**
+ *
+ * @param {Event} event
+ * @param {HTMLButtonElement} button
+ * @this {TorgeternityActorSheet}
+ */
   static #onItemEdit(event, button) {
     const item = this.actor.items.get(button.closest('.item').dataset.itemId);
     if (!item) return ui.notifications.info(`Failed to find Item for button`);
@@ -880,7 +918,9 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
 
   /**
    *
-   * @param event
+   * @param {Event} event
+   * @param {HTMLButtonElement} button
+   * @this {TorgeternityActorSheet}
    */
   static #onItemCreate(event, button) {
     event.preventDefault();
@@ -903,7 +943,9 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
 
   /**
    *
-   * @param event
+   * @param {Event} event
+   * @param {HTMLButtonElement} button
+   * @this {TorgeternityActorSheet}
    */
   static #onItemEquip(event, button) {
     const itemID = button.closest('.item').dataset.itemId;
@@ -911,15 +953,33 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
     TorgeternityItem.toggleEquipState(item, this.actor);
   }
 
+  /**
+ *
+ * @param {Event} event
+ * @param {HTMLButtonElement} button
+ * @this {TorgeternityActorSheet}
+ */
   static #onManageActiveEffect(event, button) {
     onManageActiveEffect(event, button, this.actor);
   }
 
+  /**
+ *
+ * @param {Event} event
+ * @param {HTMLButtonElement} button
+ * @this {TorgeternityActorSheet}
+ */
   static #onApplyFatigue(event, button) {
     const newShock = this.actor.system.shock.value + parseInt(button.dataset.fatigue);
     this.actor.update({ 'system.shock.value': newShock });
   }
 
+  /**
+ *
+ * @param {Event} event
+ * @param {HTMLButtonElement} button
+ * @this {TorgeternityActorSheet}
+ */
   static #onChangeAttributesToggle(event, button) {
     this.actor.setFlag(
       'torgeternity',
@@ -927,6 +987,13 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
       !this.actor.getFlag('torgeternity', 'editAttributes')
     );
   }
+
+  /**
+ *
+ * @param {Event} event
+ * @param {HTMLButtonElement} button
+ * @this {TorgeternityActorSheet}
+ */
   static #onIncreaseAttribute(event, button) {
     const concernedAttribute = button.dataset.concernedattribute;
     const attributeToChange = this.actor.system.attributes[concernedAttribute].base;
@@ -934,12 +1001,25 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
       [`system.attributes.${concernedAttribute}.base`]: attributeToChange + 1,
     });
   }
+
+  /**
+ *
+ * @param {Event} event
+ * @param {HTMLButtonElement} button
+ * @this {TorgeternityActorSheet}
+ */
   static #onDecreaseAttribute(event, button) {
     const concernedAttribute = button.dataset.concernedattribute;
     const attributeToChange = this.actor.system.attributes[concernedAttribute].base;
     this.actor.update({ [`system.attributes.${concernedAttribute}.base`]: attributeToChange - 1 });
   }
 
+  /**
+ *
+ * @param {Event} event
+ * @param {HTMLButtonElement} button
+ * @this {TorgeternityActorSheet}
+ */
   static #onItemDelete(event, button) {
     return DialogV2.confirm({
       window: { title: 'torgeternity.dialogWindow.itemDeletion.title' },
@@ -960,11 +1040,23 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
     });
   }
 
+  /**
+ *
+ * @param {Event} event
+ * @param {HTMLButtonElement} button
+ * @this {TorgeternityActorSheet}
+ */
   static #onReloadWeapon(event, button) {
     const weapon = this.actor.items.get(button.closest('[data-item-id]').dataset.itemId);
     reloadAmmo(this.actor, weapon, null, event.shiftKey);
   }
 
+  /**
+ *
+ * @param {Event} event
+ * @param {HTMLButtonElement} button
+ * @this {TorgeternityActorSheet}
+ */
   static #onitemName(event, button) {
     const section = button.closest('.item');
     const detail = section.querySelector('.item-detail');
@@ -972,6 +1064,12 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
     detail.style.maxHeight = detail.style.maxHeight ? null : (detail.scrollHeight + 'px');
   }
 
+  /**
+ *
+ * @param {Event} event
+ * @param {HTMLButtonElement} button
+ * @this {TorgeternityActorSheet}
+ */
   static async #onDeleteRace(event, button) {
     const raceItem = this.actor.items.find(item => item.type === 'race');
     if (!raceItem) {
@@ -986,15 +1084,33 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
     }
   }
 
+  /**
+ *
+ * @param {Event} event
+ * @param {HTMLButtonElement} button
+ * @this {TorgeternityActorSheet}
+ */
   static async #onRemoveOperator(event, button) {
     this.document.update({ 'system.operator': null })
   }
 
+  /**
+ *
+ * @param {Event} event
+ * @param {HTMLButtonElement} button
+ * @this {TorgeternityActorSheet}
+ */
   static async #onRemoveGunner(event, button) {
     const weapon = this.document.items.get(button.closest('.vehicle-weapon-list')?.dataset?.itemId);
     if (weapon) weapon.update({ 'system.gunner': null })
   }
 
+  /**
+ *
+ * @param {Event} event
+ * @param {HTMLButtonElement} button
+ * @this {TorgeternityActorSheet}
+ */
   static async #onResetPoss(event, button) {
     await this.actor.update({ "system.other.possibilities.value": this.actor.system.other.possibilities.perAct });
     if (event.shiftKey) {

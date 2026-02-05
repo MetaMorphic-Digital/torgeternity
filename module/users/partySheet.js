@@ -51,7 +51,9 @@ export default class PartySheet extends HandlebarsApplicationMixin(ApplicationV2
 
   /**
    *
-   * @param ev
+   * @param {Event} event 
+   * @param {HTMLButtonElement} button 
+   * @this {PartySheet}
    */
   static #onClickItem(event, button) {
     const itemId = button.dataset.itemid;
@@ -61,8 +63,9 @@ export default class PartySheet extends HandlebarsApplicationMixin(ApplicationV2
   }
   /**
    * 
-   * @param {*} event 
-   * @param {*} button 
+   * @param {Event} event 
+   * @param {HTMLButtonElement} button 
+   * @this {PartySheet}
    */
   static #onClickActor(event, button) {
     const actorId = button.dataset.actorid;

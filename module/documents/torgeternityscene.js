@@ -54,7 +54,7 @@ export default class TorgeternityScene extends foundry.documents.Scene {
   /**
    * Returns true if the given 'cosm' is active within the zone of this scene.
    * (Either the single or dominant zone, or either cosm if mixed)
-   * @param {*} cosm 
+   * @param {String} cosm 
    * @returns 
    */
   hasCosm(cosm) {
@@ -65,7 +65,7 @@ export default class TorgeternityScene extends foundry.documents.Scene {
    * Update the various darkness penalty statuses on the token based on the scene's darkness level and any nearby light sources.
    * 
    * Derived from https://github.com/kristianserrano/swade-illuminator
-   * @param {*} token 
+   * @param {Token} token 
    * @returns either null or one of the keys from CONFIG.torgeternity.darknessModifiers (none, dim, dark, pitchBlack)
    */
   getTokenDarknessPenalty(token) {

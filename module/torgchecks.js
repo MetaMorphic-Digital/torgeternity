@@ -1342,10 +1342,9 @@ function isApprovedAction(test) {
 /**
  * For each '*Damage' trait in 'attackTraits' look for a corresponding "*${protection}" in defenseTraits.
  * If found, then return the numeric value for that defensive trait.
- * @param {*} attackerTraits The attack traits of the attacker
- * @param {*} targetDefenses The defenses of the target
- * @param {*} protection The type of trait to look for on the target (e.g. 'Armor' , 'Defense')
- * @param {Number} defaultValue The value returned if no matching targetTrait for any attackerTrait
+ * @param {String[]} attackerTraits The attack traits of the attacker
+ * @param {String[]} targetDefenses The defenses of the target
+ * @param {String} protection The type of trait to look for on the target (e.g. 'Armor' , 'Defense')
  * @returns {Number} The numeric value of the corresponding targetTrait, or 'defaultValue'
  */
 function getExtraProtection(attackerTraits, targetDefenses, protection) {

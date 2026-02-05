@@ -150,7 +150,7 @@ export class TestDialog extends HandlebarsApplicationMixin(ApplicationV2) {
   }
 
   /**
-   *
+   * @inheritDoc 
    */
   async _prepareContext(options) {
     const context = await super._prepareContext(options);
@@ -252,6 +252,9 @@ export class TestDialog extends HandlebarsApplicationMixin(ApplicationV2) {
     }
   }
 
+  /**
+   * @inheritDoc 
+   */
   _onChangeForm(config, event) {
     super._onChangeForm(config, event);
     if (event.target.name === 'DNDescriptor') {

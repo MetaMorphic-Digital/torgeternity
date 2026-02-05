@@ -80,10 +80,8 @@ export default class torgeternitySceneConfig extends foundry.applications.sheets
 
   /**
    * Ensure all sliders remain within valid ranges based on the slider being moved
-   * @param {*} formConfig 
-   * @param {*} event 
-   * @returns 
-   */
+   * @inheritDoc 
+  */
   _onChangeForm(formConfig, event) {
     super._onChangeForm(formConfig, event);
     if (event.type !== 'change') return;

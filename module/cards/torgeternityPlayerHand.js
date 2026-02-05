@@ -145,6 +145,7 @@ export default class torgeternityPlayerHand extends foundry.applications.sheets.
   /**
    *
    * @param event
+   * @this {torgeternityPlayerHand}
    */
   static async #onControlCard(_event, button) {
     const li = button.closest("li[data-card-id]");
@@ -233,14 +234,26 @@ export default class torgeternityPlayerHand extends foundry.applications.sheets.
     }
   }
 
+  /**
+   * @this {torgeternityPlayerHand}
+   */
   static #onDrawCosm() {
     this.drawCosmDialog();
   }
 
+  /**
+   * @this {torgeternityPlayerHand}
+   */
   static #onDrawDestiny() {
     return this.document.drawDestiny();
   }
 
+  /**
+   * 
+   * @param {Event} event 
+   * @param {HTMLButtonElement} button 
+   * @this {torgeternityPlayerHand}
+   */
   static #onOpenDeck(event, button) {
     const card = this.document.cards.get(button.closest("li[data-card-id]")?.dataset.cardId);
     console.log('open deck for', card)
@@ -249,6 +262,7 @@ export default class torgeternityPlayerHand extends foundry.applications.sheets.
   /**
  *
  * @param event
+ * @this {torgeternityPlayerHand}
  */
   static async #onLifelike(event, button) {
     await this.document.setFlag('torgeternity', 'lifelike', button.checked);
@@ -372,6 +386,7 @@ export default class torgeternityPlayerHand extends foundry.applications.sheets.
   /**
    *
    * @param ev
+   * @this {torgeternityPlayerHand}
    */
   static #onFocusCard(ev) {
     const card = ev.target.closest('li.card');

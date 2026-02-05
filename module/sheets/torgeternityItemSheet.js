@@ -179,11 +179,18 @@ export default class TorgeternityItemSheet extends foundry.applications.api.Hand
    * Actions
    * @param {} event 
    * @param {*} button 
+   * @this {TorgeternityItemSheet}
    */
   static #onEffectControl(event, button) {
     onManageActiveEffect(event, button, this.document);
   }
 
+  /**
+ * Actions
+ * @param {} event 
+ * @param {*} button 
+ * @this {TorgeternityItemSheet}
+ */
   static #onConvertRsa(event, button) {
     this.item.update({
       type: 'specialability-rollable',
@@ -191,36 +198,71 @@ export default class TorgeternityItemSheet extends foundry.applications.api.Hand
     });
   }
 
+  /**
+ * Actions
+ * @param {} event 
+ * @param {*} button 
+ * @this {TorgeternityItemSheet}
+ */
   static #onAddEnhancement(event, button) {
     const currentShown = this.document.system.pulpPowers.enhancementNumber;
     const newShown = currentShown < 15 ? currentShown + 1 : currentShown;
     this.item.update({ 'system.pulpPowers.enhancementNumber': newShown });
   }
 
-
+  /**
+   * Actions
+   * @param {} event 
+   * @param {*} button 
+   * @this {TorgeternityItemSheet}
+   */
   static #onRemoveEnhancement(event, button) {
     const currentShown = this.document.system.pulpPowers.enhancementNumber;
     const newShown = 0 < currentShown ? currentShown - 1 : currentShown;
     this.item.update({ 'system.pulpPowers.enhancementNumber': newShown });
   }
 
+  /**
+ * Actions
+ * @param {} event 
+ * @param {*} button 
+ * @this {TorgeternityItemSheet}
+ */
   static #onAddLimitation(event, button) {
     const currentShown = this.document.system.pulpPowers.limitationNumber;
     const newShown = currentShown < 10 ? currentShown + 1 : currentShown;
     this.item.update({ 'system.pulpPowers.limitationNumber': newShown });
   }
 
+  /**
+ * Actions
+ * @param {} event 
+ * @param {*} button 
+ * @this {TorgeternityItemSheet}
+ */
   static #onRemoveLimitation(event, button) {
     const currentShown = this.document.system.pulpPowers.limitationNumber;
     const newShown = 0 < currentShown ? currentShown - 1 : currentShown;
     this.item.update({ 'system.pulpPowers.limitationNumber': newShown });
   }
 
+  /**
+ * Actions
+ * @param {} event 
+ * @param {*} button 
+ * @this {TorgeternityItemSheet}
+ */
   static #onReloadWeapon(event, button) {
     const usedAmmo = this?.actor.items.get(button.closest('[data-item-id]').dataset.itemId);
     reloadAmmo(this.actor, this.item, usedAmmo, event.shiftKey);
   }
 
+  /**
+ * Actions
+ * @param {} event 
+ * @param {*} button 
+ * @this {TorgeternityItemSheet}
+ */
   static async #onSelectSecondaryAxiom(event) {
     const old_selected = this.item.system.secondaryAxiom;
     if (event.target.value === old_selected) return;
@@ -228,6 +270,12 @@ export default class TorgeternityItemSheet extends foundry.applications.api.Hand
       await this.item.update({ [`system.axioms.${old_selected}`]: 0 });
   }
 
+  /**
+ * Actions
+ * @param {} event 
+ * @param {*} button 
+ * @this {TorgeternityItemSheet}
+ */
   static #onToggleTraitEdit(event, button) {
     const traits = button.parentElement.querySelectorAll('string-tags input, string-tags button, multi-select select');
     if (!traits) return;
@@ -237,6 +285,12 @@ export default class TorgeternityItemSheet extends foundry.applications.api.Hand
     button.classList.add(hidden ? 'fa-square-caret-down' : 'fa-square-caret-up');
   }
 
+  /**
+ * Actions
+ * @param {} event 
+ * @param {*} button 
+ * @this {TorgeternityItemSheet}
+ */
   static #onItemName(event, button) {
     const section = button.closest('.item');
     const detail = section.querySelector('.item-detail');
@@ -246,6 +300,12 @@ export default class TorgeternityItemSheet extends foundry.applications.api.Hand
         ? 'block' : 'none';
   }
 
+  /**
+ * Actions
+ * @param {} event 
+ * @param {*} button 
+ * @this {TorgeternityItemSheet}
+ */
   static #onItemDelete(event, button) {
     if (this.item.type === 'race') {
       // Deleting an item from a race Item
@@ -271,6 +331,12 @@ export default class TorgeternityItemSheet extends foundry.applications.api.Hand
     }
   }
 
+  /**
+ * Actions
+ * @param {} event 
+ * @param {*} button 
+ * @this {TorgeternityItemSheet}
+ */
   static #onResetPoss(event, button) {
     if (this.item.type !== 'eternityshard') return;
     return this.item.update({ "system.possibilities.value": this.item.system.possibilities.max })

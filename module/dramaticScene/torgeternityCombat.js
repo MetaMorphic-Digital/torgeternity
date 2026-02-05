@@ -14,9 +14,7 @@ export default class TorgCombat extends Combat {
 
   /**
    * On deletion, remove all pooled cards from the hands of the stormknight actors in the combat.
-   * @param {*} options 
-   * @param {*} user 
-   * @returns 
+   * @inheritDoc
    */
   async _preDelete(options, user) {
     const allowed = super._preDelete(options, user);

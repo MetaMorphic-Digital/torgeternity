@@ -55,6 +55,11 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     ChatMessage.implementation.deleteDocuments(messageIds);
   }
 
+  /**
+   * @param {Event} event 
+   * @param {HTMLButtonElement} button 
+   * @this {TorgeternityChatLog}
+   */
   static async #onFavored(event, button) {
     event.preventDefault();
     const { chatMessageId, chatMessage, test } = getMessage(button);
@@ -130,6 +135,11 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     })
   }
 
+  /**
+   * @param {Event} event 
+   * @param {HTMLButtonElement} button 
+  * @this {TorgeternityChatLog}
+ */
   static async #pingTarget(event, button) {
     const { testTarget } = getChatTarget(button);
     const token = fromUuidSync(testTarget.uuid)?.object;
@@ -137,6 +147,11 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     return canvas.ping(token.center, {});
   }
 
+  /**
+   * @param {Event} event 
+   * @param {HTMLButtonElement} button 
+   * @this {TorgeternityChatLog}
+ */
   static async #panToTarget(event, button) {
     const { testTarget } = getChatTarget(button);
     const token = fromUuidSync(testTarget.uuid)?.object;
@@ -157,6 +172,12 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
       })
   }
 
+  /**
+   * 
+   * @param {Event} event 
+   * @param {HTMLButtonElement} button 
+   * @this {TorgeternityChatLog}
+   */
   static async #reconnect(_event, button) {
     const { chatMessage, actor } = getChatActor(button);
     await actor.toggleStatusEffect('disconnected', { active: false });
@@ -166,7 +187,11 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     });
   }
 
-  /// @type {TorgeternityChatLog} this
+  /**
+   * @param {Event} event 
+   * @param {HTMLButtonElement} button 
+ * @this {TorgeternityChatLog}
+ */
   static async #onPossibility(event, button) {
     event.preventDefault();
     const { chatMessageId, chatMessage, test } = getMessage(button);
@@ -283,6 +308,11 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     return renderSkillChat(test);
   }
 
+  /**
+   * @param {Event} event 
+   * @param {HTMLButtonElement} button 
+ * @this {TorgeternityChatLog}
+ */
   static async #onUp(event, button) {
     event.preventDefault();
     const { chatMessage, test } = getMessage(button);
@@ -308,6 +338,12 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     return renderSkillChat(test);
   }
 
+  /**
+   * 
+   * @param {Event} event 
+   * @param {HTMLButtonElement} button 
+  * @this {TorgeternityChatLog}
+ */
   static async #onHero(event, button) {
     event.preventDefault();
     const { chatMessageId, chatMessage, test } = getMessage(button);
@@ -335,6 +371,12 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     return renderSkillChat(test);
   }
 
+  /**
+   * 
+   * @param {Event} event 
+   * @param {HTMLButtonElement} button 
+ * @this {TorgeternityChatLog}
+ */
   static async #onDrama(event, button) {
     event.preventDefault();
     const { chatMessage, test } = getMessage(button);
@@ -362,6 +404,11 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     return renderSkillChat(test);
   }
 
+  /**
+   * @param {Event} event 
+   * @param {HTMLButtonElement} button 
+ * @this {TorgeternityChatLog}
+ */
   static async #onPlus3(event, button) {
     event.preventDefault();
     const { chatMessage, test } = getMessage(button);
@@ -382,9 +429,11 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
 
   /**
    * Adds a Bonus Die of damage to the target of this button
-   * @param {} event 
-   * @param {*} button 
+   * @param {Event} event 
+   * @param {HTMLButtonElement} button 
    * @returns 
+   * 
+   * @this {TorgeternityChatLog}
    */
   static async #onBd(event, button) {
     event.preventDefault();
@@ -420,6 +469,11 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     return renderSkillChat(test);
   }
 
+  /**
+   * @param {Event} event 
+   * @param {HTMLButtonElement} button 
+ * @this {TorgeternityChatLog}
+ */
   static async #onModifier(event, button) {
     event.preventDefault();
     const { chatMessage, test } = getMessage(button);
@@ -432,11 +486,11 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
 
   /**
    * 
-   * @param {*} event 
-   * @param {*} button 
+   * @param {Event} event 
+   * @param {HTMLButtonElement} button 
    * @returns 
    * 
-   * @this 
+   * @this {TorgeternityChatLog}
    */
   static async #applyDamage(event, button) {
     event.preventDefault();
@@ -461,6 +515,11 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     });
   }
 
+  /**
+   * @param {Event} event 
+   * @param {HTMLButtonElement} button 
+ * @this {TorgeternityChatLog}
+ */
   static async #soakDamage(event, button) {
     event.preventDefault();
     const { targetActor, chatMessage } = getChatTarget(button);
@@ -505,6 +564,11 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     await targetActor.update({ 'system.other.possibilities.value': possPool - 1 });
   }
 
+  /**
+   * @param {Event} event 
+   * @param {HTMLButtonElement} button 
+ * @this {TorgeternityChatLog}
+ */
   static #applySoak(event, button) {
     event.preventDefault();
     const { test: soaktest, chatMessage } = getMessage(button);
@@ -597,6 +661,11 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     });
   }
 
+  /**
+   * @param {Event} event 
+   * @param {HTMLButtonElement} button 
+ * @this {TorgeternityChatLog}
+ */
   static async #applyEffects(event, button) {
     event.preventDefault();
     const { test, targetActor } = getChatTarget(button);
@@ -615,6 +684,11 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
       targetActor.createEmbeddedDocuments('ActiveEffect', effects);
   }
 
+  /**
+   * @param {Event} event 
+   * @param {HTMLButtonElement} button 
+ * @this {TorgeternityChatLog}
+ */
   static async #applyItemEffect(event, button) {
     event.preventDefault();
     const origEffect = fromUuidSync(button.dataset.uuid, { strict: false });
@@ -625,6 +699,11 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
       token.document.actor.createEmbeddedDocuments('ActiveEffect', [effect]);
   }
 
+  /**
+   * @param {Event} event 
+   * @param {HTMLButtonElement} button 
+ * @this {TorgeternityChatLog}
+ */
   static async #applyStymied(event, button) {
     event.preventDefault();
     const { test, targetActor, chatMessage, testTarget } = getChatTarget(button);
@@ -641,6 +720,11 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     }
   }
 
+  /**
+   * @param {Event} event 
+   * @param {HTMLButtonElement} button 
+ * @this {TorgeternityChatLog}
+ */
   static async #applyTargetVulnerable(event, button) {
     event.preventDefault();
     const { test, targetActor, chatMessage, testTarget } = getChatTarget(button);
@@ -656,6 +740,11 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     }
   }
 
+  /**
+   * @param {Event} event 
+   * @param {HTMLButtonElement} button 
+ * @this {TorgeternityChatLog}
+ */
   static async #applyActorVulnerable(event, button) {
     event.preventDefault();
     const { test, actor } = getChatActor(button);
@@ -664,7 +753,10 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
 
   /**
    * Inflict Backlash (2 shock)
-   * @param event
+   * 
+   * @param {Event} event 
+   * @param {HTMLButtonElement} button 
+   * @this {TorgeternityChatLog}
    */
   static async #applyBacklash1(event, button) {
     event.preventDefault();
@@ -674,7 +766,9 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
 
   /**
    * Inflict Minor Backlash (1 shock)
-   * @param event
+   * @param {Event} event 
+   * @param {HTMLButtonElement} button 
+   * @this {TorgeternityChatLog}
    */
   static async #applyBacklash2(event, button) {
     event.preventDefault();
@@ -684,7 +778,9 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
 
   /**
    * Inflict Major Backlash (very stymied)
-   * @param event
+   * @param {Event} event 
+   * @param {HTMLButtonElement} button 
+   * @this {TorgeternityChatLog}
    */
   static async #applyBacklash3(event, button) {
     event.preventDefault();
@@ -692,6 +788,11 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     if (actor) actor.setVeryStymied();
   }
 
+  /**
+   * @param {Event} event 
+   * @param {HTMLButtonElement} button 
+ * @this {TorgeternityChatLog}
+ */
   static async #testDefeat(event, button) {
     event.preventDefault();
     // No test in the chat message that display Defeat prompt
@@ -742,6 +843,11 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     })
   }
 
+  /**
+   * @param {Event} event 
+   * @param {HTMLButtonElement} button 
+* @this {TorgeternityChatLog}
+*/
   static async #testConcentration(event, button) {
     event.preventDefault();
     // No test in the chat message that display Defeat prompt
@@ -773,6 +879,11 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     }
   }
 
+  /**
+   * @param {Event} event 
+   * @param {HTMLButtonElement} button 
+* @this {TorgeternityChatLog}
+*/
   static async #drawDestiny(event, button) {
     let id = button.dataset.actor;
     if (id.startsWith('Actor.')) id = id.slice(6);
@@ -784,6 +895,11 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     return hand.drawDestiny();
   }
 
+  /**
+   * @param {Event} event 
+   * @param {HTMLButtonElement} button 
+* @this {TorgeternityChatLog}
+*/
   static async #openSheet(event, button) {
     let id = button.dataset.actor;
     if (id.startsWith('Actor.')) id = id.slice(6);
@@ -793,6 +909,11 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     actor.sheet.render({ force: true });
   }
 
+  /**
+   * @param {Event} event 
+   * @param {HTMLButtonElement} button 
+   * @this {TorgeternityChatLog}
+   */
   static async #applyDefeat(event, button) {
     const { actor } = getChatActor(button);
     if (!actor) return console.error(`applyDefeat: failed to find actor`)

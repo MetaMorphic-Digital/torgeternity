@@ -48,6 +48,9 @@ export default class EffectsPanel extends HandlebarsApplicationMixin(Application
       button.addEventListener('pointerdown', EffectsPanel.#onClick.bind(this));
   }
 
+  /**
+   * @inheritDoc 
+   */
   async _prepareContext(options) {
     const context = await super._prepareContext(options);
     const token = canvas.ready && (canvas.tokens.controlled.length === 1) ? canvas.tokens.controlled[0] : null;

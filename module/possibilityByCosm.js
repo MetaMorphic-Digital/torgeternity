@@ -47,7 +47,7 @@ export class PossibilityByCosm extends foundry.applications.api.HandlebarsApplic
   }
 
   /**
-   *
+   * @inheritDoc 
    */
   async _prepareContext(options) {
     const context = await super._prepareContext(options);
@@ -80,6 +80,7 @@ export class PossibilityByCosm extends foundry.applications.api.HandlebarsApplic
   /**
    *
    * @param event
+   * @this {PossibilityByCosm}
    */
   static async #onTestActiveModule(event) {
     const tes = await fromUuid(event.target.dataset.uuid, { strict: false });
@@ -89,6 +90,7 @@ export class PossibilityByCosm extends foundry.applications.api.HandlebarsApplic
   /**
    *
    * @param event
+   * @this {PossibilityByCosm}
    */
   static async #onSave(event, form, formData) {
     const actor = this.actor;
