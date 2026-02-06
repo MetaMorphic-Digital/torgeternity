@@ -1257,7 +1257,18 @@
       "veryStymied": "Very Stymied",
       "veryVulnerable": "Very Vulnerable",
       "vulnerable": "Vulnerable",
-      "waiting": "Waiting"
+      "waiting": "Waiting",
+      "description": {
+        "disconnected": "You can't cause Contradictions, and you can't take actions or gain benefits from tools that violate the axioms of the realm you're in",
+        "stymied": "-2 to all your actions",
+        "veryStymied": "-4 to all your actions",
+        "vulnerable": "+2 to all actions against you",
+        "veryVulnerable": "+4 to all actions against you",
+        "aiming": "+4 to attack total. Can take simple actions and walk, but may not run or take regular actions",
+        "dim": "-2 on attacks against you",
+        "dark": "-4 on attacks against you",
+        "pitchBlack": "-6 on attacks against you"
+      }
     },
     "darknessModifiers": {
       "dim": "Dim",

@@ -311,6 +311,11 @@ Hooks.once('i18nInit', () => {
   CONFIG.torgeternity.magnitudeLabels = {};
   for (const [key, value] of Object.entries(CONFIG.torgeternity.magnitudes))
     CONFIG.torgeternity.magnitudeLabels[key] = game.i18n.localize(value);
+  for (const value of CONFIG.statusEffects) {
+    const key = `torgeternity.statusEffects.description.${value.id}`
+    const desc = game.i18n.localize(key);
+    if (desc !== key) value.description = desc;
+  }
 })
 
 Hooks.once('setup', async function () {
