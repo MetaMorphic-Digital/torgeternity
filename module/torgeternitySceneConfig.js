@@ -1,42 +1,31 @@
 import { torgeternity } from './config.js';
 
-const presentation = foundry.data.ActiveEffectTypeDataModel ? "presentation" : "basics";
-
 /**
  *
  */
 export default class torgeternitySceneConfig extends foundry.applications.sheets.SceneConfig {
 
-  // Foundry 14: "basics" got renamed to "presentation" (as property and template file and TABS)
+  // Foundry 14 changes some tab names, so we have to be clever to support V13 and V14
   static PARTS = {
-    tabs: { template: "templates/generic/tab-navigation.hbs" },
-    [presentation]: { template: `templates/scene/config/${presentation}.hbs` },
     cosm: { template: `systems/torgeternity/templates/scenes/scenes-cosm.hbs` },
-    grid: { template: "templates/scene/config/grid.hbs" },
-    lighting: { template: "systems/torgeternity/templates/scenes/scenes-lighting.hbs", scrollable: [""] },
-    ambience: { template: "templates/scene/config/ambience.hbs", scrollable: ["div.tab[data-tab=environment]"] },
-    footer: { template: "templates/generic/form-footer.hbs" }
+    ...foundry.applications.sheets.SceneConfig.PARTS,
   };
 
-  static TABS = {
+  static TABS = foundry.utils.mergeObject(foundry.applications.sheets.SceneConfig.TABS, {
     sheet: {
-      tabs: [
-        { id: presentation, icon: "fa-solid fa-image" },
+      tabs: foundry.applications.sheets.SceneConfig.TABS.sheet.tabs.toSpliced(1, 0,
         { id: "cosm", icon: "fa-solid fa-globe", label: "torgeternity.sheetLabels.cosm" },
-        { id: "grid", icon: "fa-solid fa-grid" },
-        { id: "lighting", icon: "fa-solid fa-lightbulb" },
-        { id: "ambience", icon: "fa-solid fa-cloud-sun" }
-      ],
-      initial: presentation,
-      labelPrefix: "SCENE.TABS.SHEET"
+      )
     },
-    ambience: {
-      tabs: [
-        { id: "basic", icon: "fa-solid fa-table-list" },
-        { id: "environment", icon: "fa-solid fa-cloud-sun" }
-      ],
-      initial: "basic",
-      labelPrefix: "SCENE.TABS.AMBIENCE"
+  })
+
+  _configureRenderOptions(options) {
+    super._configureRenderOptions(options);
+    const pos = options.parts.indexOf('cosm');
+    if (pos >= 0) {
+      // Move 'cosm' tab between first and last tab
+      options.parts.splice(0, 1);
+      options.parts.splice(2, 0, 'cosm');
     }
   }
 
