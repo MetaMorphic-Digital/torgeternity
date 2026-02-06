@@ -464,8 +464,8 @@ export function TestDialogLabel(test) {
       result = `${test.skillName} ${game.i18n.localize('torgeternity.chatText.test')}  `;
   }
   if (test.itemId) {
-    const itemName = fromUuidSync(test.actor, { strict: false })?.items.get(test.itemId).name;
-    if (itemName) result += `<br>(${itemName})`;
+    const item = fromUuidSync(test.actor, { strict: false })?.items.get(test.itemId);
+    if (item) result += `<br>(${item.name}${item.system?.traits?.has('trademark') ? '\u2122' : ''})`;
   }
   return result;
 }
