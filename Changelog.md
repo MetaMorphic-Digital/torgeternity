@@ -16,6 +16,7 @@
 - Hold SHIFT when clicking the `+Stymied` and `+Vulnerable` button to apply the **VERY** version instead.
 - Add description to some status effects with their game effects.
 - Add button to show image of Actor/Item in larger window, from which it can be shown to all players.
+- Removed `hbs` files which are not used (primarily for cards which are not Items).
 
 ### Translations
 
