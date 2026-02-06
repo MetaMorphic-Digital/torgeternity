@@ -61,6 +61,8 @@ export async function renderSkillChat(test) {
   }
 
   const uniqueDN = game.settings.get('torgeternity', 'uniqueDN') ? await highestDN(test) : undefined;
+  const singleResult = (uniqueDN || (!test.isAttack && test.targetAll[0].dummyTarget));
+
   let first = true;
   for (const target of test.targetAll) {
     test.sizeModifier = target.sizeModifier ?? 0;
@@ -302,7 +304,8 @@ export async function renderSkillChat(test) {
       modifiers.push(modifierString('torgeternity.chatText.check.modifier.allOutAttack', 4));
 
       // if it's an all-out-attack, apply very vulnerable to attacker
-      if (first) await testActor.setVeryVulnerable();
+      // duration = 2 since it is testActor's current turn, and the duration decreases at the END of each turn
+      if (first) await testActor.setVeryVulnerable(testActor.uuid, 2);
     }
 
     if (test.aimedFlag) {
@@ -355,7 +358,7 @@ export async function renderSkillChat(test) {
     // Handle numeric value in DNDescriptor
     let actionTotalContent = `${game.i18n.localize('torgeternity.chatText.check.result.actionTotal')} ${test.rollResult} vs. ${test.DN} `;
     if (isNaN(Number(test.DNDescriptor))) actionTotalContent += game.i18n.localize('torgeternity.dnTypes.' + test.DNDescriptor);
-    if (uniqueDN || (target.dummyTarget && !test.isAttack))
+    if (singleResult)
       test.actionTotalContent = actionTotalContent;
     else
       target.actionTotalContent = actionTotalContent;
@@ -387,7 +390,7 @@ export async function renderSkillChat(test) {
       test.outcomeColor = useColorBlind ? 'color: rgb(44, 179, 44)' : 'color: green';
       if (test.testType === 'soak') target.soakWounds = 1;
     }
-    if (!useColorBlind && uniqueDN) test.outcomeColor += SHADOW_STYLE;
+    if (!useColorBlind && singleResult) test.outcomeColor += SHADOW_STYLE;
 
     test.showApplySoak = (test.testType === 'soak' && target.soakWounds);
 
@@ -448,7 +451,7 @@ export async function renderSkillChat(test) {
       if (useColorBlind) {
         test.outcomeColor = 'color: purple';
         test.resultTextStyle = 'color: purple';
-      } else if (uniqueDN) {
+      } else if (singleResult) {
         // Only add shadow when displayed at the TOP of the card
         test.outcomeColor += SHADOW_STYLE;
         test.resultTextStyle += SHADOW_STYLE;
