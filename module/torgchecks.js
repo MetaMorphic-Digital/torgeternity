@@ -387,7 +387,7 @@ export async function renderSkillChat(test) {
       test.outcomeColor = useColorBlind ? 'color: rgb(44, 179, 44)' : 'color: green';
       if (test.testType === 'soak') target.soakWounds = 1;
     }
-    if (!useColorBlind) test.outcomeColor += SHADOW_STYLE;
+    if (!useColorBlind && uniqueDN) test.outcomeColor += SHADOW_STYLE;
 
     test.showApplySoak = (test.testType === 'soak' && target.soakWounds);
 
@@ -448,7 +448,8 @@ export async function renderSkillChat(test) {
       if (useColorBlind) {
         test.outcomeColor = 'color: purple';
         test.resultTextStyle = 'color: purple';
-      } else {
+      } else if (uniqueDN) {
+        // Only add shadow when displayed at the TOP of the card
         test.outcomeColor += SHADOW_STYLE;
         test.resultTextStyle += SHADOW_STYLE;
       }
@@ -630,6 +631,12 @@ export async function renderSkillChat(test) {
       test.typeLabel = game.i18n.localize('torgeternity.chatText.attributeTestLabel');
     }
     test.typeLabel += ' ';
+
+    // Always store the results for this target
+    if (!uniqueDN) {
+      target.resultText = test.resultText;
+      target.resultTextStyle = test.resultTextStyle;
+    }
 
     // Highlight the UP button if the Drama Card shows UP.
     // get disposition from prototype Token if there's no real token.

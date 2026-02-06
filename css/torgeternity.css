@@ -3275,12 +3275,19 @@ document-embed .generalHeader {
         display: flex;
         justify-content: space-between;
         width: 100%;
-      }
 
-      .name {
-        font-size: 14px;
-        font-weight: bold;
-        flex: 1
+        .name {
+          font-size: 14px;
+          font-weight: bold;
+          flex: 1
+        }
+
+        .skill-roll-result {
+          text-align: center;
+          font-size: 14px;
+          font-weight: bold;
+          flex: 1
+        }
       }
 
       .skill-roll-damage-label {
@@ -3385,6 +3392,17 @@ document-embed .generalHeader {
   flex-wrap: wrap;
   justify-content: flex-start;
   justify-content: space-around;
+
+  .roll:has(img.bonusDie) {
+    background-image: none;
+  }
+
+  img.bonusDie {
+    margin-top: 0.2em;
+    width: 1.2em;
+    height: 1.2em;
+    background-image: none;
+  }
 }
 
 .chat-message .possible-glory {
