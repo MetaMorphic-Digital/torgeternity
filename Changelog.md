@@ -6,7 +6,7 @@
   - Don't add "+x BD" into the chat title.
   - Don't show the BD button while the attack total indicates a failure.
   - Change the icons to the standard Torg d6 image.
-  - Get "Rolled Bonus-Dice in advance" value in skill test working again.
+  - Get "Rolled Bonus-Dice in advance" value in skill test working again (not rolled in chat card until test is a success).
 - When an Item triggers a skill check, put the item name on a separate line in the chat title.
 - Ensure various data fields are Number not String, and make many of them NOT nullable (i.e. require a value).
 - When adding a token to an Combat that has already started, display a turn marker under it if it is a member of the active faction.
@@ -23,6 +23,7 @@
 
 - applyStymiedTooltip - "<hr>SHIFT click to immediately apply Very Stymied"
 - applyVulnerableTooltip - "<hr>SHIFT click to immediately apply Very Vulnerable"
+- 'uniqueDN' - "Unique DN" -> "Highest DN"
 
 ## 13.20.0 - Multi-Target Actions & Skill Chat Cards
 

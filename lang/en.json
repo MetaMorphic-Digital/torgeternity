@@ -838,7 +838,7 @@
       },
       "uniqueDN": {
         "hint": "If checked, when a multi-target test is done, will keep the highest DN from all targets to determine outcome, as RAW.",
-        "name": "Unique DN"
+        "name": "Highest DN"
       },
       "unTarget": {
         "hint": "Targets are reseted after an attack by default. Uncheck if you want to keep them.",
