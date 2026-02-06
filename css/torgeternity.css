@@ -3230,7 +3230,6 @@ document-embed .generalHeader {
     font-family: "Palatino Linotype";
     font-size: 8px;
     text-align: center;
-    margin: 12px 0 0 0;
     display: flex;
     flex-direction: row;
     flex-flow: wrap;
@@ -3275,7 +3274,6 @@ document-embed .generalHeader {
   }
 
   div.skill-roll-target-list {
-    margin-top: 1em;
 
     li.skill-roll-target {
       display: flex;
