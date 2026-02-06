@@ -14,6 +14,7 @@
   - **Out of combat**, it removes all shock.
 - When "Unique DN" is not set, then display the result text against each target rather than at the top of the chat card.
 - Hold SHIFT when clicking the `+Stymied` and `+Vulnerable` button to apply the **VERY** version instead.
+- Add description to some status effects with their game effects.
 
 ### Translations
 

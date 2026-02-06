@@ -186,7 +186,7 @@ body#tinymce.mce-content-body {
     }
 
     h1 {
-      background-image: URL(../../../systems/torgeternity/images/tab-header.webp);
+      background-image: URL(../images/tab-header.webp);
       background-repeat: no-repeat;
       background-size: 100% 100%;
       overflow: hidden;
