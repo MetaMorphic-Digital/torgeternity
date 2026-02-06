@@ -10,32 +10,37 @@ const chat_templates = 'systems/torgeternity/templates/chat/';
 export default class TorgeternityItem extends foundry.documents.Item {
   // TODO: Chatcardtemplate for ammunitions & race
   static CHAT_TEMPLATE = {
-    perk: `${chat_templates}perk-card.hbs`,
-    attack: `${chat_templates}attack-card.hbs`,
-    bonus: `${chat_templates}bonus-card.hbs`,
-    power: `${chat_templates}power-card.hbs`,
-    gear: `${chat_templates}gear-card.hbs`,
-    implant: `${chat_templates}implant-card.hbs`,
+    // ammunition?
+    attack: `${chat_templates}attack-card.hbs`, // not an Item type
+    bonus: `${chat_templates}bonus-card.hbs`, // not an Item type
+    armor: `${chat_templates}armor-card.hbs`,
     currency: `${chat_templates}currency-card.hbs`,
+    //customAttack: `${chat_templates}customAttack-card.hbs`,
+    customSkill: `${chat_templates}customSkill-card.hbs`,
     enhancement: `${chat_templates}enhancement-card.hbs`,
     eternityshard: `${chat_templates}eternityshard-card.hbs`,
-    armor: `${chat_templates}armor-card.hbs`,
-    shield: `${chat_templates}shield-card.hbs`,
-    spell: `${chat_templates}spell-card.hbs`,
-    miracle: `${chat_templates}miracle-card.hbs`,
-    psionicpower: `${chat_templates}psionicpower-card.hbs`,
-    specialability: `${chat_templates}specialability-card.hbs`,
-    vehicle: `${chat_templates}vehicle-card.hbs`,
-    destinyCard: `${chat_templates}destinyCard.hbs`,
-    cosmCard: `${chat_templates}cosmCard.hbs`,
-    dramaCard: `${chat_templates}dramaCard.hbs`,
-    customSkill: `${chat_templates}customSkill-card.hbs`,
-    vehicleAddOn: `${chat_templates}vehicleAddOn-card.hbs`,
-    // Different types of attacks (not fully fleshed out)
-    meleeweapon: `${chat_templates}meleeweapon-card.hbs`,
-    //heavyweapon: `${chat_templates}heavyweapon-card.hbs`,
     //firearm: `${chat_templates}firearm-card.hbs`,
-    //customAttack: `${chat_templates}customAttack-card.hbs`,
+    gear: `${chat_templates}gear-card.hbs`,
+    //heavyweapon: `${chat_templates}heavyweapon-card.hbs`,
+    implant: `${chat_templates}implant-card.hbs`,
+    meleeweapon: `${chat_templates}meleeweapon-card.hbs`,
+    miracle: `${chat_templates}miracle-card.hbs`,
+    //missileweapon?
+    perk: `${chat_templates}perk-card.hbs`,
+    psionicpower: `${chat_templates}psionicpower-card.hbs`,
+    // race?
+    shield: `${chat_templates}shield-card.hbs`,
+    specialability: `${chat_templates}specialability-card.hbs`,
+    //specialability-rollable?
+    spell: `${chat_templates}spell-card.hbs`,
+    vehicle: `${chat_templates}vehicle-card.hbs`,
+    vehicleAddOn: `${chat_templates}vehicleAddOn-card.hbs`,
+
+    // not real items
+    //power: `${chat_templates}power-card.hbs`,
+    //destinyCard: `${chat_templates}destinyCard.hbs`,
+    //cosmCard: `${chat_templates}cosmCard.hbs`,
+    //dramaCard: `${chat_templates}dramaCard.hbs`,
   };
 
   /**

@@ -9,8 +9,12 @@
     <div class="skills block">{{> "systems/torgeternity/templates/actors/stormknight/skills.hbs"}}</div>
 
     <div class="char_image">
-      <img src="{{document.img}}" class="profile-img" data-edit="img" data-tooltip="{{document.name}}"
-        {{#if editable}}data-action="editImage" {{/if}}>
+      <div class="image-container">
+        <img src="{{document.img}}" class="profile-img" data-edit="img" data-tooltip="{{document.name}}"
+          {{#if editable}}data-action="editImage" {{/if}}>
+        <a class="hover-icon" data-action="showImage" , data-tooltip="SIDEBAR.CharArt">
+          <i class="fa-solid fa-image sa-fw"></i></a>
+      </div>
     </div>
 
     <div class="weapons-list block">{{> "systems/torgeternity/templates/actors/stormknight/weapons-list.hbs"}}</div>

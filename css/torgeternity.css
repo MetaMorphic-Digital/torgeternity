@@ -199,6 +199,25 @@ dialog.torgeternity:not(.actor, .item) .window-content,
     font-size: 12px;
   }
 
+  .image-container {
+    position: relative;
+
+    &:hover .hover-icon {
+      display: flex;
+    }
+
+    .hover-icon {
+      display: none;
+      color: white;
+      /*margin: 0.5em;*/
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      --shadow-color: black;
+      text-shadow: 0 0 3px var(--shadow-color), 0 0 5px var(--shadow-color), 0 0 8px var(--shadow-color);
+    }
+  }
+
   header {
     div.form-group label {
       flex: 0;
@@ -1365,9 +1384,7 @@ dialog.torgeternity:not(.actor, .item) .window-content,
   img.profile-img {
     height: 120px;
     width: 120px;
-    object-fit: cover;
-    object-position: 50% 0;
-    aspect-ratio: 1/1;
+    object-fit: contain;
   }
 
   &.vehicle {
@@ -3627,7 +3644,7 @@ document-embed .generalHeader {
     display: flex;
     align-items: center;
 
-    img {
+    .image-container {
       flex: 0 0 64px;
       height: 64px;
       margin: 0 1em 0 1em;

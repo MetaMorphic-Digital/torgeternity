@@ -64,6 +64,7 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
       removeGunner: TorgeternityActorSheet.#onRemoveGunner,
       resetPoss: TorgeternityActorSheet.#onResetPoss,
       reduceShock: TorgeternityActorSheet.#onReduceShock,
+      showImage: TorgeternityActorSheet.#onShowImage,
     }
   }
 
@@ -1154,5 +1155,20 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
           .map(item => item.id),
       ]);
     }
+  }
+
+  /**
+ *
+ * @param {Event} event
+ * @param {HTMLButtonElement} button
+ * @this {TorgeternityActorSheet}
+ */
+  static #onShowImage(event, button) {
+    const doc = this.document;
+    return new foundry.applications.apps.ImagePopout({
+      src: doc.img,
+      uuid: doc.uuid,
+      window: { title: doc.token?.name ?? doc.prototypeToken?.name ?? doc.name },
+    }).render({ force: true })
   }
 }

@@ -2,8 +2,12 @@
   <h3 class="item-type left-tab"><span>{{typeLabel}}</span></h3>
 
   <header class="sheet-header flexrow">
-    <img src="{{item.img}}" data-edit="img" data-tooltip="{{item.name}}"
-      {{#if editable}}data-action="editImage" {{/if}} />
+    <div class="image-container">
+      <img src="{{item.img}}" data-edit="img" data-tooltip="{{item.name}}"
+        {{#if editable}}data-action="editImage" {{/if}} />
+      <a class="hover-icon" data-action="showImage" , data-tooltip="SIDEBAR.CharArt">
+        <i class="fa-solid fa-image sa-fw"></i></a>
+    </div>
     <div class="flexcol">
       <h1><input name="name" type="text" value="{{item.name}}" placeholder="{{item.type}} Name" /></h1>
       <div class="flexrow">
