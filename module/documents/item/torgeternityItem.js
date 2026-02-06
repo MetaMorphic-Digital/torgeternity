@@ -35,12 +35,6 @@ export default class TorgeternityItem extends foundry.documents.Item {
     spell: `${chat_templates}spell-card.hbs`,
     vehicle: `${chat_templates}vehicle-card.hbs`,
     vehicleAddOn: `${chat_templates}vehicleAddOn-card.hbs`,
-
-    // not real items
-    //power: `${chat_templates}power-card.hbs`,
-    //destinyCard: `${chat_templates}destinyCard.hbs`,
-    //cosmCard: `${chat_templates}cosmCard.hbs`,
-    //dramaCard: `${chat_templates}dramaCard.hbs`,
   };
 
   /**

@@ -224,9 +224,6 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
     context.specialability = context.items.filter(item => item.type === 'specialability');
     context.specialabilityRollable = context.items.filter(item => item.type === 'specialability-rollable');
     context.enhancement = context.items.filter(item => item.type === 'enhancement');
-    context.dramaCard = context.items.filter(item => item.type === 'dramaCard');
-    context.destinyCard = context.items.filter(item => item.type === 'destinyCard');
-    context.cosmCard = context.items.filter(item => item.type === 'cosmCard');
     context.vehicleAddOn = context.items.filter(item => item.type === 'vehicleAddOn');
     context.ammunitions = context.items.filter(item => item.type === 'ammunition');
     context.statusEffects = {};
@@ -280,9 +277,6 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
       'specialability',
       'specialabilityRollable',
       'enhancement',
-      'dramaCard',
-      'destinyCard',
-      'cosmCard',
       'vehicleAddOn',
     ]) {
       for (const item of context[type]) {

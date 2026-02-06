@@ -76,7 +76,6 @@ export const preloadTemplates = async function () {
     'systems/torgeternity/templates/chat/specialability-card.hbs',
     'systems/torgeternity/templates/chat/skill-error-card.hbs',
     'systems/torgeternity/templates/chat/spell-card.hbs',
-    'systems/torgeternity/templates/chat/up-card.hbs',
     'systems/torgeternity/templates/chat/vehicle-card.hbs',
     // Powers
     'systems/torgeternity/templates/items/powers-sheet.hbs',
