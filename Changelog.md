@@ -15,6 +15,11 @@
 - When "Unique DN" is not set, then display the result text against each target rather than at the top of the chat card.
 - Hold SHIFT when clicking the `+Stymied` and `+Vulnerable` button to apply the **VERY** version instead.
 
+### Translations
+
+- applyStymiedTooltip - "<hr>SHIFT click to immediately apply Very Stymied"
+- applyVulnerableTooltip - "<hr>SHIFT click to immediately apply Very Vulnerable"
+
 ## 13.20.0 - Multi-Target Actions & Skill Chat Cards
 
 - General **Skill Chat Card** changes:
