@@ -271,6 +271,10 @@ export default class TorgeternityItem extends foundry.documents.Item {
     return this.system?.ammo.value > 0;
   }
 
+  get isBlastAmmo() {
+    return this.system.traits.find(trait => trait.endsWith('Blast'));
+  }
+
   /**
    * Does the weapon have sufficient ammo? Will only be important for burst attacks.
    *
@@ -282,6 +286,7 @@ export default class TorgeternityItem extends foundry.documents.Item {
     const currentAmmo = this.system.ammo.value;
     const bulletAmount = this.#estimateBulletLoss(burstModifier);
 
+    if (this.isBlastAmmo) targets = 1;
     return currentAmmo >= bulletAmount * targets;
   }
 
@@ -293,6 +298,8 @@ export default class TorgeternityItem extends foundry.documents.Item {
    */
   async reduceAmmo(burstModifier, targets = 1) {
     const currentAmmo = this.system.ammo.value;
+    // Blast weapons only use 1 ammo regardless of the number of targets
+    if (this.isBlastAmmo) targets = 1;
 
     await this.update({
       'system.ammo.value': currentAmmo - this.#estimateBulletLoss(burstModifier) * targets,
