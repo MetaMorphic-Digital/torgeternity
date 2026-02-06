@@ -556,16 +556,19 @@ export async function renderSkillChat(test) {
           if (!target.soakWounds) target.showBD ??= true;
 
           // Extra BDs based on level success (but this is called many times, so ensure total of 0, 1 or 2 is maintained)
-          target.addBDs ??= 0;
+          target.addBDs ??= test.addBDs;
           if (game.settings.get('torgeternity', 'autoRollBD')) {
+            target.autoBDs ??= 0;
             if (test.result === TestResult.OUTSTANDING) {
-              target.addBDs = Math.max(0, 2 - target.amountBD);
+              if (target.autoBDs < 2) target.addBDs += (2 - target.autoBDs);
+              target.autoBDs = 2;
             } else if (test.result === TestResult.GOOD) {
-              target.addBDs = Math.max(0, 1 - target.amountBD);
+              if (!target.autoBDs) target.addBDs += 1;
+              target.autoBDs = 1;
             }
           }
 
-          // Add BDs in promise if applicable as this should only be rolled if the test is successful
+          // Add BDs if applicable as this should only be rolled if the test is successful
           if (target.addBDs && !test.explicitBonus) {
             const iteratedRoll = await rollBonusDie(test.trademark, target.addBDs);
             const bdDamage = iteratedRoll.total;

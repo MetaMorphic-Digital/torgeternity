@@ -328,7 +328,6 @@ export function dummyTestTargets() {
   return [{
     dummyTarget: true,
     amountBD: 0,
-    addBDs: 0,
     bdDamageSum: 0,
     damage: 0,
   }];
@@ -367,7 +366,6 @@ export function oneTestTarget(token, applySize) {
       armor: actor.defenses.armor,
       armorTraits: [],
       amountBD: 0,
-      addBDs: 0,
       bdDamageSum: 0,
       // then vehicle specifics
       defenses: {
@@ -404,7 +402,6 @@ export function oneTestTarget(token, applySize) {
       darknessModifier: actor.statusModifiers.darkness,
       isConcentrating: actor.isConcentrating,
       amountBD: 0,
-      addBDs: 0,
       bdDamageSum: 0,
       defenses: {
         ...damageDefenses,
