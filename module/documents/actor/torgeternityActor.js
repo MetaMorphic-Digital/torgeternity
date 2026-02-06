@@ -624,7 +624,7 @@ export default class TorgeternityActor extends foundry.documents.Actor {
   /**
    * Very Stymied - self-imposed by Backlash3
    */
-  async setVeryStymied() {
+  async setVeryStymied(originid, duration = 1) {
     // apply Stymied, or veryStymied
     if (this.hasStatusEffect('stymied')) {
       await this.toggleStatusEffect('stymied', { active: false });
@@ -633,8 +633,8 @@ export default class TorgeternityActor extends foundry.documents.Actor {
     if (!this.hasStatusEffect('veryStymied')) {
       let eff = await this.toggleStatusEffect('veryStymied', { active: true });
       eff.update({
-        origin: this.uuid,
-        duration: { rounds: 1, turns: 1 }
+        origin: originid,
+        duration: { rounds: duration, turns: duration }
       })
     }
   }
@@ -642,7 +642,7 @@ export default class TorgeternityActor extends foundry.documents.Actor {
   /**
    * Very Vulnerable - Self-imposed by performing an All-Out attack
    */
-  async setVeryVulnerable() {
+  async setVeryVulnerable(origin, duration = 1) {
     // take away vulnerable effect
     await this.toggleStatusEffect('vulnerable', { active: false });
 
@@ -650,10 +650,11 @@ export default class TorgeternityActor extends foundry.documents.Actor {
     if (!effect) {
       effect = await this.toggleStatusEffect('veryVulnerable', { active: true });
     }
-    effect.update({ origin: this, duration: { rounds: 2, turns: 2 } })
+    // If no origin, then it is being self-applied so needs to last to after this actor's next turn
+    effect.update({ origin, duration: { rounds: duration, turns: duration } })
   }
 
-  async applyStymiedState(originid) {
+  async increaseStymied(origin, duration = 1) {
     // apply Stymied, or veryStymied
     if (this.hasStatusEffect('veryStymied')) return;
 
@@ -668,8 +669,8 @@ export default class TorgeternityActor extends foundry.documents.Actor {
     if (statusId) {
       const effect = await this.toggleStatusEffect(statusId, { active: true });
       effect.update({
-        origin: originid,
-        duration: { rounds: 1, turns: 1 }
+        origin,
+        duration: { rounds: duration, turns: duration }
       })
     }
   }
@@ -678,7 +679,7 @@ export default class TorgeternityActor extends foundry.documents.Actor {
    * increase Vulnerable effect one step, up to VeryVulnerable
    * @param targetuuid
    */
-  async applyVulnerableState(originid) {
+  async increaseVulnerable(originid, duration = 1) {
     // apply Vulnerable, or veryVulnerable
     let statusId;
     if (this.hasStatusEffect('veryVulnerable')) return;
@@ -693,7 +694,7 @@ export default class TorgeternityActor extends foundry.documents.Actor {
       const effect = await this.toggleStatusEffect(statusId, { active: true });
       effect.update({
         origin: originid,
-        duration: { rounds: 1, turns: 1 }
+        duration: { rounds: duration, turns: duration }
       })
     }
   }

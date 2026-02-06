@@ -708,7 +708,10 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     event.preventDefault();
     const { test, targetActor, chatMessage, testTarget } = getChatTarget(button);
     if (targetActor) {
-      await targetActor.applyStymiedState(test.actor);
+      if (event.shiftKey)
+        await targetActor.setVeryStymied(test.actor);
+      else
+        await targetActor.increaseStymied(test.actor);
 
       testTarget.showApplyStymied = false;
       this.updateChatMessage(chatMessage, {
@@ -729,7 +732,10 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     event.preventDefault();
     const { test, targetActor, chatMessage, testTarget } = getChatTarget(button);
     if (targetActor) {
-      await targetActor.applyVulnerableState(test.actor);
+      if (event.shiftKey)
+        await targetActor.setVeryVulnerable(test.actor);
+      else
+        await targetActor.increaseVulnerable(test.actor);
 
       testTarget.showApplyVulnerable = false;
       this.updateChatMessage(chatMessage, {
@@ -748,7 +754,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
   static async #applyActorVulnerable(event, button) {
     event.preventDefault();
     const { test, actor } = getChatActor(button);
-    if (actor) actor.applyVulnerableState(test.actor);
+    if (actor) actor.increaseVulnerable(test.actor);
   }
 
   /**
@@ -785,7 +791,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
   static async #applyBacklash3(event, button) {
     event.preventDefault();
     const { actor } = getChatActor(button);
-    if (actor) actor.setVeryStymied();
+    if (actor) actor.setVeryStymied(actor.uuid, 2);  // duration decrements at the end of this actor's turn
   }
 
   /**

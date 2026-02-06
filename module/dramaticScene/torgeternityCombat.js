@@ -380,7 +380,7 @@ export default class TorgCombat extends Combat {
     console.log('Drama Stymied', faction)
     this.#sendDramaChat('stymied', faction);
     for (const actor of this.getFactionActors(faction))
-      actor.applyStymiedState('stymied', faction);
+      actor.increaseStymied('stymied', faction);
   }
 
   async dramaSurge(faction) {

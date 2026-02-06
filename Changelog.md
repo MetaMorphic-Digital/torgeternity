@@ -13,6 +13,7 @@
   - **In combat**, it reduces the shock by 2 (_Recovery_)
   - **Out of combat**, it removes all shock.
 - When "Unique DN" is not set, then display the result text against each target rather than at the top of the chat card.
+- Hold SHIFT when clicking the `+Stymied` and `+Vulnerable` button to apply the **VERY** version instead.
 
 ## 13.20.0 - Multi-Target Actions & Skill Chat Cards
 
