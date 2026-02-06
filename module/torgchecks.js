@@ -60,8 +60,8 @@ export async function renderSkillChat(test) {
     test.ammoCount = testItem.system.ammo.value;
   }
 
-  const highestDN = game.settings.get('torgeternity', 'uniqueDN') ? await highestDN(test) : undefined;
-  const singleResult = (highestDN || (!test.isAttack && test.targetAll[0].dummyTarget));
+  const useHighestDN = game.settings.get('torgeternity', 'uniqueDN') ? await highestDN(test) : undefined;
+  const singleResult = (useHighestDN || (!test.isAttack && test.targetAll[0].dummyTarget));
 
   let first = true;
   for (const target of test.targetAll) {
@@ -79,7 +79,7 @@ export async function renderSkillChat(test) {
     //
     // Establish DN for this test based on test.DNDescriptor //
     //
-    test.DN = highestDN ?? individualDN(test, target);
+    test.DN = useHighestDN ?? individualDN(test, target);
 
     //
     // -----------------------Determine Bonus---------------------------- //
@@ -639,7 +639,7 @@ export async function renderSkillChat(test) {
     test.typeLabel += ' ';
 
     // Always store the results for this target
-    if (!highestDN) {
+    if (!useHighestDN) {
       target.resultText = test.resultText;
       target.resultTextStyle = test.resultTextStyle;
     }
