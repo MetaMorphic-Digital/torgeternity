@@ -271,7 +271,7 @@ export default class TorgeternityItem extends foundry.documents.Item {
     return this.system?.ammo.value > 0;
   }
 
-  get isBlastAmmo() {
+  get hasBlastTrait() {
     return this.system.traits.find(trait => trait.endsWith('Blast'));
   }
 
@@ -285,8 +285,6 @@ export default class TorgeternityItem extends foundry.documents.Item {
   hasSufficientAmmo(burstModifier, targets = 1) {
     const currentAmmo = this.system.ammo.value;
     const bulletAmount = this.#estimateBulletLoss(burstModifier);
-
-    if (this.isBlastAmmo) targets = 1;
     return currentAmmo >= bulletAmount * targets;
   }
 

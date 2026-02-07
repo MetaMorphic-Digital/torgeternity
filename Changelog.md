@@ -1,8 +1,8 @@
 # TORG Eternity Changelog
 
-## NEXT - BD, Recovery, Contradictions, Blast weapons, Portraits
+## 13.21.0 - BD, Recovery, Contradictions, Blast weapons, Portraits
 
-- Bonus Die:
+- **Bonus Die**:
   - Don't add "+x BD" into the chat title.
   - Don't show the BD button while the attack total indicates a failure.
   - Change the icons to the standard Torg d6 image.
@@ -10,14 +10,14 @@
 - When an Item triggers a skill check, put the item name on a separate line in the chat title.
   - Put "TM" as superscript after the item name if it is has the "Trademark Wpn" trait.
 - Ensure various data fields are Number not String, and make many of them NOT nullable (i.e. require a value).
-- When adding a token to a Combat that has already started, display a turn marker under it if it is a member of the active faction.
+- When adding a token to a Combat that has already started, display a **turn marker** under it if it is a member of the active faction.
 - Add a **recovery button** for Shock on Stormknight and Threat sheets:
   - **In combat**, it reduces the shock by 2 (_Recovery_)
   - **Out of combat**, it removes all shock.
 - When "Highest DN" is not set (previously "Unique DN"), then display the result text against each target rather than at the top of the chat card.
 - Hold SHIFT when clicking the `+Stymied` and `+Vulnerable` button to immediately apply the **VERY** version instead.
 - Add description to some status effects with their game effects.
-- Add button to show portrait image of Actor/Item in larger window, from which it can be shown to all players.
+- Add button to **show portrait image** of Actor/Item in larger window, from which it can be shown to all players.
 - Removed `hbs` files which are not used (primarily for cards which are not Items).
 - A **Blast** weapon will have the Multi-Target entry set to 1 by default in the Test dialog (so it will consume only 1 ammo, and have no multi-target penalty).
 - TAH: Reinstate the missing Skills tab.
@@ -25,12 +25,6 @@
   - Only Perks with the "Contradictions" checked should be allowed to cause Contradictions.
   - Use *current* scene, not the *active* scene, when checking against the cosm's axioms.
   - Display 1 or 4 as a superscript value after an Item's name if its use could cause a Contradiction on the *current* scene.
-
-### Translations
-
-- applyStymiedTooltip - "<hr>SHIFT click to immediately apply Very Stymied"
-- applyVulnerableTooltip - "<hr>SHIFT click to immediately apply Very Vulnerable"
-- 'uniqueDN' - "Unique DN" -> "Highest DN"
 
 ## 13.20.0 - Multi-Target Actions & Skill Chat Cards
 
