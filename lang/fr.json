@@ -30,20 +30,20 @@
     "activeEffect": {
       "FIELDS": {
         "transferOnAttack": {
-          "label": "Transfert d'effet par une Attaque",
-          "hint": "Si coché, cet Effet sera appliqué à l'Acteur ciblé par une attaque impliquant cet Objet (armes ou munitions)"
+          "label": "Transfert d'Effet par une Attaque",
+          "hint": "Si coché, cet Effet sera appliqué à l'Acteur ciblé par une attaque impliquant cet objet (armes ou munitions)"
         },
         "transferOnOutcome": {
-          "label": "Applique l'Effet correspondant au degré de réussite",
-          "hint": "Applique l'Effet sur le token ciblé correspondant au degré de réussite du test impliquant cet objet"
+          "label": "Appliquer l'Effet correspondant au degré de réussite",
+          "hint": "Appliquer l'Effet sur le Token ciblé correspondant au degré de réussite du test impliquant cet objet"
         },
         "applyIfAttackTrait": {
           "label": "Appliquer le trait d'attaque",
-          "hint": "Appliquer l'effet uniquement si le token attaquant possède l'un de ces traits"
+          "hint": "Appliquer l'Effet uniquement si le Token attaquant possède l'un de ces traits"
         },
         "applyIfDefendTrait": {
           "label": "Appliquer le trait de défense",
-          "hint": "Appliquer l'effet uniquement si le token attaqué (la cible) possède l'un de ces traits"
+          "hint": "Appliquer l'Effet uniquement si le Token attaqué (la cible) possède l'un de ces traits"
         }
       }
     },
@@ -77,7 +77,7 @@
       "destiny": "Destin",
       "destinyDeck": "Cartes de Destin",
       "destinyDiscard": "Défausse Cartes de Destin",
-      "discardPile": "défausse",
+      "discardPile": "Défausse",
       "drama": "Action",
       "dramaDeck": "Cartes d'Action",
       "dramaDiscard": "Défausse Cartes d'Action",
@@ -85,24 +85,24 @@
     },
     "chatText": {
       "actionTotal": "Total d'action",
-      "applyEffect": "Appliquer l'effet: {name}",
+      "applyEffect": "Appliquer l'Effet: {name}",
       "attack": "Attaque",
       "attributeTestLabel": "Valeur d'attribut",
       "baseDamage": "Dommages de base",
       "bonus": "Bonus",
       "bonusCard": "Carte +3",
       "bonusDamage": "Bonus aux dommages",
-      "bdTooltip": "Maintenir SHIFT pour lancer le BD deux fois et garder le plus haut résultat",
+      "bdTooltip": "Maintenir SHIFT pour lancer le DB deux fois et garder le plus haut résultat",
       "bonusDice": "DB",
       "chase": "Test de Poursuite",
       "check": {
         "cantUseUntrained": " ne peut pas être utilisé sans être appris (au moins un rang).",
         "cantUseRealityWhileDisconnected": "Vous ne pouvez pas utiliser la compétence Réalité lorsque vous êtes Déconnecté.",
-        "interactionNeedTarget": "Impossible d’effectuer une interaction offensive sans cible. Ciblez un token puis réessayez.",
+        "interactionNeedTarget": "Impossible d’effectuer une interaction offensive sans cible. Ciblez un Token puis réessayez.",
         "isApprovedAction": "Action approuvée réussie",
         "isApprovedDefend": "{name} s'est défendu avec succès",
         "modifier": {
-          "aimedShot": "tir visé",
+          "aimedShot": "Tir visé",
           "allOutAttack": "Attaque totale",
           "blindFire": "Tir au jugé",
           "calledShot": "Attaque ciblée",
@@ -112,20 +112,20 @@
           "longBurst": "Rafale longue",
           "multiAction": "Actions multiples",
           "multiAttack": "Attaques multiples",
-          "multiTarget": "cibles multiples",
+          "multiTarget": "Cibles multiples",
           "powerModifier": "Modificateur d'un pouvoir",
           "running": "Course",
           "shortBurst": "Rafale courte",
           "stymied": "Déstabilisé",
           "targetConcealment": "Couvert de la cible",
-          "targetSize": "taille de la cible",
-          "targetVeryVulnerable": "cible Très vulnérable",
-          "targetVulnerable": "cible Vulnérable",
-          "veryStymied": "très Déstabilisé",
+          "targetSize": "Taille de la cible",
+          "targetVeryVulnerable": "Cible Très Vulnérable",
+          "targetVulnerable": "Cible Vulnérable",
+          "veryStymied": "Très Déstabilisé",
           "waiting": "Attendre",
           "wounds": "blessures"
         },
-        "needTarget": "Impossible d’effectuer un jet avancé sans cible. Ciblez un token puis réessayez.",
+        "needTarget": "Impossible d’effectuer un jet avancé sans cible. Ciblez un Token puis réessayez.",
         "noTracker": "Pas de jet de Poursuite à moins d'un combat actif.",
         "result": {
           "actionTotal": "Total de l'action",
@@ -144,7 +144,7 @@
           "result": "Résultat",
           "standardSuccess": "Succès simple",
           "toughness": "Résistance",
-          "BDDamageSum": "Total des lancers des {count} BDs = {total}"
+          "BDDamageSum": "Total des lancers des {count} DBs = {total}"
         },
         "testUnsuccessfull": "Le jet n'a pas réussi"
       },
@@ -183,7 +183,7 @@
       "itemPurchase": "{item} acheté pour {price} {currency}",
       "notPermittedDSR": "Prochain RDT {step} non autorisé par la carte d'Action",
       "modifiers": "Modificateurs",
-      "noAmmo": "Le chargeur de votre arme est vide, vous ne pouvez pas faire feu.",
+      "noAmmo": "Votre arme n'est pas rechargée, vous ne pouvez pas effectuer d'attaque avec.",
       "noSpareAmmo": "Pas de munitions dans votre inventaire. Rechargement impossible.",
       "notSufficientAmmo": "Vous n'avez pas assez de munitions dans votre/vos arme(s) pour effectuer le tir demandé, combinaison du nombre de cibles et du type de rafale choisie. Ce tir n'est pas possible.",
       "reloaded": "Vous avez rechargé votre arme {a}.",
@@ -212,7 +212,7 @@
       "value": "Valeur",
       "vehicleBase": "Test d'Opérateur",
       "mayCauseContradiction": "Les Atouts avec ce sigle dépendent des Lois de leur Cosm, et peuvent générer des contradictions dans les autres Cosms.",
-      "changeAmmoType": "Munitions de {weapon} changée pour {ammo}",
+      "changeAmmoType": "Munitions de {weapon} changées pour {ammo}",
       "ammoFull": "Le chargeur de votre \"{a}\" est plein."
     },
     "clearances": {
@@ -226,10 +226,10 @@
       "dramaBack": "systems/torgeternity/images/cards/drama-back-fr.webp",
       "toggleDramatic": "Bascule le combat entre une scène Normale et une scène Dramatique",
       "toggleWaiting": "Active l'état Attendre de ce combattant",
-      "waitingCombatants": "Combattants sous l'effet Attendre",
+      "waitingCombatants": "Combattants sous l'Effet Attendre",
       "endMyTurn": "Terminé",
-      "nextKeep": "Nouveau round (garder la carte actuelle)",
-      "nextNew": "Nouveau round (nouvelle carte d'Action)",
+      "nextKeep": "Nouveau round (garder la carte Action actuelle)",
+      "nextNew": "Nouveau round (nouvelle carte Action)",
       "heroes": "Héros",
       "villains": "Vilains",
       "herosTooltip": "initiative aux héros",
@@ -244,7 +244,7 @@
       }
     },
     "core": {
-      "forceDarkModeHint": "TORG fonctionne uniquement avec les Applications en mode Sombre"
+      "forceDarkModeHint": "TORG fonctionne uniquement avec les applications en mode Sombre"
     },
     "cosmDecks": {
       "aysle": "Cartes de Cosm d'Aysle",
@@ -252,8 +252,8 @@
       "cyberpapacy": "Cartes de Cosm de la Cyberpapauté",
       "livingLand": "Cartes de Cosm de la Terre-Vivante",
       "nileEmpire": "Cartes de Cosm de l'Empire du Nil",
-      "orrorsh": "Carte de Cosm d'Orrorsh",
-      "panPacifica": "Cartes de Cosm du Pan-Pacifica",
+      "orrorsh": "Cartes de Cosm d'Orrorsh",
+      "panPacifica": "Cartes de Cosm de Pan-Pacifica",
       "tharkold": "Cartes de Cosm de Tharkold"
     },
     "cosms": {
@@ -274,7 +274,7 @@
       "nileEmpire": "Empire du Nil",
       "nileEmpirePossLink": "Compendium.te006-nile-empire.nile-empire-journals.JournalEntry.Y4KrTlZKQe6Q4CYN.JournalEntryPage.EvNuvKR90hr4cAqr",
       "nileEmpirePossLink2": "nile-empire-possibility-energy",
-      "none": "(Sans cosm)",
+      "none": "(Sans Cosm)",
       "orrorsh": "Orrorsh",
       "orrorshPossLink": "Compendium.te014-orrorsh.orrorsh-journals.JournalEntry.pkSJbwMgFDaVLAYv.JournalEntryPage.VB1wEM80BtkrkFBf",
       "orrorshPossLink2": "orrorsh-possibility-energy",
@@ -300,7 +300,7 @@
       "prompt": "{name} doit effectuer un test de Défaite",
       "chatTitle": "Test de Défaite ({attribute})",
       "chooseAttribute": "Choisir un attribut",
-      "tempInjury": "Vous souffrez d'une Séquelle temporaire. Votre {attribute} est réduit par un effet (moins 1)",
+      "tempInjury": "Vous souffrez d'une Séquelle temporaire. Votre {attribute} est réduit par un Effet (moins 1)",
       "permInjury": "Vous souffrez d'une Séquelle permanente. Votre {attribute} est réduit de 1",
       "outstanding": {
         "main": "KO",
@@ -333,13 +333,13 @@
       "drawDestiny": "Piocher une carte de Destin",
       "lifelike": "Affichage en éventail",
       "openHand": "Voir sa main",
-      "playCard": "Jouez",
+      "playCard": "Jouer",
       "playerPassInstructions": "Sélection du joueur recevant la carte",
       "playerPassLabel": "Donner",
       "playerPassTitle": "Donner au joueur",
       "playerPassTo": "Donner à",
       "return": "Renvoie toutes les cartes dans leur pioche d'origine. Ne remélange PAS automatiquement la pioche.",
-      "selectCosmDeck": "Sélectionner le cosm",
+      "selectCosmDeck": "Sélectionner le Cosm",
       "showDeckOfCard": "Cliquer pour ouvrir le paquet",
       "showToPlayers": "Montrer à tous les joueurs"
     },
@@ -390,7 +390,7 @@
       },
       "cardRetour": {
         "cardBack": "Restitution d'une carte jouée",
-        "cardOwner": "A qui rendre la carte ?"
+        "cardOwner": "À qui rendre la carte ?"
       },
       "buffMacro": {
         "choice": "Votre choix",
@@ -398,7 +398,7 @@
         "allAttributes": "Tous les attributs",
         "defenses": "Défenses",
         "physicalDefenses": "Défenses physiques",
-        "cancelEffects": "Annuler les effets",
+        "cancelEffects": "Annuler les Effets",
         "bonusTitle": "Saisie de la valeur du bonus/malus",
         "value": "Choisissez la valeur de la modification",
         "timeLabel": "Choix de la durée",
@@ -478,10 +478,10 @@
       "stymied": "Déstabilisés",
       "surge": "Déferlement",
       "flurryDesc": "VIVACITÉ: Les {faction} bénéficient d'un tour supplémentaire",
-      "inspirationDesc": "INSPIRATION: Tous les  {faction} se remettent immédiatement de 2 points de Choc",
+      "inspirationDesc": "INSPIRATION: Tous les {faction} se remettent immédiatement de 2 points de Chocs",
       "upDesc": "UN DE PLUS !: Octroie un jet de dé supplémentaire à celui du premier jet pour les {faction}",
       "confusedDesc": "DÉSORIENTÉS: Les joueurs ne peuvent utiliser de cartes de leur réserve",
-      "fatiguedDesc": "FATIGUÉS: Inflige 2+ points de Choc à chaque membres des {faction} à la fin de leur tour",
+      "fatiguedDesc": "FATIGUÉS: Inflige 2+ points de Chocs à chaque membres des {faction} à la fin de leur tour",
       "setbackDesc": "REVERS: Le MJ doit déterminer un rebondissement probable et malheureux au détriment des {faction}",
       "stymiedDesc": "DÉSTABILISÉ: Tous les {faction} sont Déstabilisés jusqu'à la fin de leur tour",
       "surgeDesc": "DÉFERLEMENT: Tous les {faction} doivent effectuer un test de Contradiction"
@@ -501,7 +501,7 @@
       "any": "Toutes",
       "complication": "Complication",
       "criticalProblem": "Problème critique",
-      "possibleSetback": "Revers Possible",
+      "possibleSetback": "Revers possible",
       "shuffleDeck": "Mélanger le paquet d'Action",
       "getPreviousDrama": "Récupérer la carte d'Action précédente"
     },
@@ -543,7 +543,7 @@
       "purpose": "Vocation",
       "range": "Portée",
       "restrictions": "Restrictions",
-      "short-description": "Description Courte",
+      "short-description": "Description courte",
       "skill": "Compétence",
       "tappingDifficulty": "Difficulté d'activation",
       "tappingDifficultyAbbr": "Diff",
@@ -567,16 +567,16 @@
       "miracleRoll": "Jet de miracle",
       "openParty": "Ouvrir la fiche du groupe",
       "psionicRoll": "Jet de pouvoir psionique",
-      "reduceShock": "During combat, perform <em>Recovery</em>.<br>Out of combat, it removes <em>all</em> shock.",
+      "reduceShock": "Durant un combat, permet de bénéficier de <em>Récupération</em>.<br>Hors combat, supprime <em>tous</em> les points de Chocs.",
       "reload": "Rechargement de l'arme",
       "resetPoss": "Rétablir les Possibilités (maintenir SHIFT pour inclure les Fragments d'Éternité)",
       "resetPossibilities": "Rétablir les Possibilités des Chevaliers des Tempêtes",
-      "GMPoss": "réserve de Possibilités du GM",
+      "GMPoss": "Réserve de Possibilités du GM",
       "SKPoss": "Possibilités du personnage",
-      "sendToChat": "Envoyer dans la discussion",
+      "sendToChat": "Envoyer dans la fenêtre de discussion",
       "spellRoll": "Jet de sort",
       "tappingRoll": "Jet d'activation",
-      "toggle": "Activer/désactiver",
+      "toggle": "Activer/Désactiver",
       "toggleEquip": "Équiper/Déséquiper",
       "deleteRace": "Effacer le choix de Race"
     },
@@ -620,21 +620,21 @@
       "play": "Jouer cette carte"
     },
     "notifications": {
-      "beginningMigration": "Migration du système TORG vers la version ",
+      "beginningMigration": "Début de la migration du système TORG vers la version ",
       "defaultAction": "Action par défaut, équipement par exemple.",
       "dramaDeckEmpty": "Le paquet de cartes Action est vide. Réinitialisez-le.",
       "insufficientFunds": "Vous n'avez pas assez de {currency} ({quantity}) pour acheter {item} ({price})",
       "macroTypeWarning": "Vous ne pouvez créer des macros que pour vos objets, attributs ou compétences",
       "migrationRunning": "Migration de la version du système Torg à ",
       "moduleNotActive": "Description disponible dans le module correspondant.",
-      "noActiveEffectInOwnedItem": "Configurer les effets actifs à l'intérieur des objets possédés n'est pas encore possible.",
+      "noActiveEffectInOwnedItem": "Configurer les Effets actifs à l'intérieur des objets possédés n'est pas encore possible.",
       "noAttrNamed": "L'acteur que vous contrôlez n'a pas d'attribut nommé ",
-      "noHands": "Pas de main de carte disponible !",
+      "noHands": "Pas de main de cartes disponible !",
       "noItemNamed": "L'acteur que vous contrôlez n'a pas d'objet nommé ",
       "noRaceToDelete": "Pas de 'Race' à modifier.",
       "noSkillNamed": "L'acteur que vous contrôlez n'a pas de compétence nommée ",
-      "noTarget": "Pas de token cible valide.",
-      "noTokenNorActor": "Aucun jeton sélectionné et aucun personnage attribué trouvé, la macro ne peut pas être exécutée.",
+      "noTarget": "Pas de Token cible valide.",
+      "noTokenNorActor": "Aucun Token sélectionné et aucun personnage attribué trouvé, la macro ne peut pas être exécutée.",
       "noVehicleOperator": "Le véhicule {a} ciblé n'a pas d'opérateur. Le test ne peut pas avoir lieu.",
       "notImplemented": "Pas encore implémenté.",
       "onlyReservedCard": "Vous ne pouvez jouer que les cartes en réserve durant une scène de combat.",
@@ -672,7 +672,7 @@
       "prerequisites": "Prérequis",
       "timestaken": "Nombre de choix",
       "generalContradiction": "Contradictions",
-      "generalContradictionTT": "Provoque des Contradictions en dehors de son cosm."
+      "generalContradictionTT": "Provoque des Contradictions en dehors de son Cosm."
     },
     "perkTypes": {
       "abomination": "Abomination",
@@ -754,7 +754,7 @@
     "scenes": {
       "HeaderAmbienceHint": "Configure les intégrations supplémentaires entre la Scène et les articles, les playlists ou les effets météo.",
       "HeaderDetailsHint": "Configure les détails de base de la Scène et les permissions qui contrôlent sa visibilité.",
-      "HeaderGridHint": "Configure les dimensions de la grille utilisée pour mesurer le mouvement des tokens de la Scène.",
+      "HeaderGridHint": "Configure les dimensions de la grille utilisée pour mesurer le mouvement des Tokens de la Scène.",
       "HeaderVisionHint": "Configure les paramètres de vision, d'éclairage et de brouillard de guerre de la Scène.",
       "main": "Scène standard",
       "reality": "Réalité",
@@ -766,11 +766,11 @@
         "name": "Animation des messages de la discussion"
       },
       "autoDarknessPenalty": {
-        "hint": "Si coché, la pénalité de luminosité des tokens sera automatiquement ajustée par le paramètre 'Niveau d'obscurité' d'une scène, par l'ajustement paramétré d'une Région, et par les sources de lumière/obscurité configurées.",
+        "hint": "Si coché, la pénalité de luminosité des Tokens sera automatiquement ajustée par le paramètre 'Niveau d'obscurité' d'une Scène, par l'ajustement paramétré d'une Région, et par les sources de lumière/obscurité configurées.",
         "name": "Pénalités automatiques de luminosité"
       },
       "useColorBlindnessColors": {
-        "hint": "Si sélectionné, le système utilise des couleurs rouge et verte plus adaptées à des personnes atteinte de daltonisme.",
+        "hint": "Si sélectionné, le système utilise des couleurs rouge et verte plus adaptées à des personnes atteintes de daltonisme.",
         "name": "Utilise des couleurs plus adaptées au daltonisme"
       },
       "useRenderedTorgDice": {
@@ -778,15 +778,15 @@
         "name": "Affiche les Dés TORG dans les messages"
       },
       "autoRollBD": {
-        "hint": "Automatise le lancer des BDs quand un succés Supérieur ou Spectaculaire est obtenu lors d'une attaque",
-        "name": "Lancer automatique des BDs"
+        "hint": "Automatise le lancer des DBs quand un succés Supérieur ou Spectaculaire est obtenu lors d'une attaque",
+        "name": "Lancer automatique des DBs"
       },
       "showManualRolls": {
         "hint": "Informe des dés lancés en présentiel (avec le suffixe M)",
         "name": "Lancer manuel des dés"
       },
       "autoDamages": {
-        "hint": "Si coché, les points de Chocs et les Blessures seront automatiquement appliqués si le joueur a un token cible valide.",
+        "hint": "Si coché, les points de Chocs et les Blessures seront automatiquement appliqués si le joueur a un Token cible valide.",
         "name": "Application des dommages automatiques"
       },
       "deckSetting": {
@@ -819,11 +819,11 @@
         "name": "Image de pause"
       },
       "playerHandBottom": {
-        "hint": "La main du joueur s'ouvre en bas à droite, et les cartes apparaitrons au dessus de la fenêtre. Nécessite un rechargement(F5) pour être effectif.",
+        "hint": "La main du joueur s'ouvre en bas à droite, et les cartes apparaitront au dessus de la fenêtre. Nécessite un rechargement(F5) pour être effectif.",
         "name": "Affichage haute de la main"
       },
       "setupCards": {
-        "hint": "Si sélectionné, le système réinstallera tous les paquets de cartes, et les défausses. Vous devrez rafraîchir le navigateur ou l'application (F5).",
+        "hint": "Si sélectionné, le système réinstallera tous les paquets de cartes, et les défausses. Vous devrez rafraîchir le navigateur ou l'application(F5).",
         "name": "Installer les paquets de cartes"
       },
       "showCheckDetails": {
@@ -831,20 +831,20 @@
         "name": "Montrer les détails des tests"
       },
       "showEffectsPanel": {
-        "hint": "Si coché, affiche une liste des effets en cours sur le token sélectionné.",
-        "name": "Afficher le panneau des effets"
+        "hint": "Si coché, affiche une liste des Effets en cours sur le Token sélectionné.",
+        "name": "Afficher le panneau des Effets"
       },
       "effectsPanelOnlyTemporary": {
-        "hint": "Si coché, le panneau des effets ne montrera que les effets temporaires (effets passifs cachés).",
-        "name": "N'afficher que les effets temporaires"
+        "hint": "Si coché, le panneau des Effets ne montrera que les Effets temporaires (Effets passifs cachés).",
+        "name": "N'afficher que les Effets temporaires"
       },
       "welcome": {
         "hint": "Si sélectionné, le message de bienvenue apparaîtra au chargement",
         "name": "Afficher le message de bienvenue"
       },
       "uniqueDN": {
-        "hint": "Si coché, quand une action multi-cibles est résolue, garde le DN le plus élevé des cibles pour déterminer le degré de réussite de l'action.",
-        "name": "Plus haut DN"
+        "hint": "Si coché, quand une action multi-cibles est résolue, garde le ND le plus élevé des cibles pour déterminer le degré de réussite de l'action.",
+        "name": "Plus haut ND"
       },
       "unTarget": {
         "hint": "Par défaut, vos cibles sont perdues après une attaque. Décochez si vous voulez garder le ciblage.",
@@ -859,7 +859,7 @@
         "name": "Supprime les messages Core Foundry"
       },
       "shuffleMessageSurpress": {
-        "hint": "Si coché, le message indiquant le mélange d'un deck ne sera pas affiché dans le chat.",
+        "hint": "Si coché, le message indiquant le mélange d'un paquet de cartes ne sera pas affiché dans le chat.",
         "name": "Supprimer le message lors d'un mélange de cartes"
       },
       "ignoreAmmo": {
@@ -867,36 +867,36 @@
         "name": "Ignore les munitions"
       },
       "hoverDistance": {
-        "hint": "Si coché, la souris positionnée au dessus d'un token affichera la distance depuis le token sélectionné de l'utilisateur.",
-        "name": "Afficher la distance entre token"
+        "hint": "Si coché, la souris positionnée au dessus d'un Token affichera la distance depuis le Token sélectionné de l'utilisateur.",
+        "name": "Afficher la distance entre Tokens"
       },
       "rulerGridWalk": {
-        "hint": "Couleur de mouvement tant que le token n'a pas parcouru sa distance de marche (default: --color-level-success)",
+        "hint": "Couleur de mouvement tant que le Token n'a pas parcouru sa distance de marche (default: --color-level-success)",
         "name": "Couleur de grille (Marche)"
       },
       "rulerGridRun": {
-        "hint": "Couleur de mouvement tant que le token dépasse sa distance de marche, mais pas sa distance de course (default: --color-level-info)",
+        "hint": "Couleur de mouvement tant que le Token dépasse sa distance de marche, mais pas sa distance de course (default: --color-level-info)",
         "name": "Couleur de grille (Course)"
       },
       "rulerGridMax": {
-        "hint": "Couleur de mouvement si le token dépasse son déplacement maximal (default: --color-level-error)",
+        "hint": "Couleur de mouvement si le Token dépasse son déplacement maximal (default: --color-level-error)",
         "name": "Couleur de grille (>Course)"
       },
       "showMovementRuler": {
-        "hint": "Affiche le déplacement effectué par le token durant son round de combat (l'historique est supprimé lors d'un nouveau round)",
+        "hint": "Affiche le déplacement effectué par le Token durant son round de combat (l'historique est supprimé lors d'un nouveau round)",
         "name": "Afficher l'historique de déplacement"
       },
       "autoShock": {
         "name": "Application du KO",
-        "hint": "Applique automatiquement KO à un acteur si il dépasse son seuil de choc"
+        "hint": "Appliquer automatiquement KO à un acteur si il dépasse son seuil de Chocs"
       },
       "autoWound": {
         "name": "Application des Blessures",
-        "hint": "Applique l'effet Mort aux menaces et véhicules qui dépassent leur seuil de Blessures"
+        "hint": "Appliquer l'Effet Mort aux menaces et véhicules qui dépassent leur seuil de Blessures"
       },
       "autoDisconnect": {
         "name": "Déconnexion Automatique",
-        "hint": "En cas de Déferlement et de jet qui provoque une déconnexion, applique l'effet Déconnecté automatiquement"
+        "hint": "En cas de Déferlement et de jet qui provoque une déconnexion, appliquer l'Effet Déconnecté automatiquement"
       },
       "itemPurchaseCosm": {
         "name": "Devise d'achat des objets",
@@ -921,9 +921,9 @@
       "addOns": "Options",
       "adds": "Rang",
       "aimed": "Visée",
-      "aimedTooltip": "Tir précis (uniquement pour armes a distance)",
+      "aimedTooltip": "Tir précis (uniquement pour armes à distance)",
       "allOut": "Attaque totale",
-      "allOutTooltip": "+4 Bonus/Très vulnérable (Mêlée et attaques à mains nues)",
+      "allOutTooltip": "+4 Bonus/Très Vulnérable (Mêlée et attaques à mains nues)",
       "alterAttributes": "Tu peux maintenant modifier les attributs",
       "ammunition": "Munitions",
       "APMod": "Modificateur de PA",
@@ -932,7 +932,7 @@
       "applyDamageTooltip": "Maj+Clic pour ajuster les dommages, Clic pour les appliquer.",
       "applyEffectsTooltip": "Transfert les Effets pertinents aux cibles",
       "applySoak": "Annulation des dommages",
-      "applySoakTooltip": "Applique la réduction des dommages sur l'attaque.",
+      "applySoakTooltip": "Appliquer la réduction des dommages sur l'attaque.",
       "applyStymied": "Déstabilisé",
       "applyStymiedTooltip": "Appliquer Déstabilisé. Ou Très Déstabilisé si déjà Dastabilisé.<hr>Maintenir SHIFT pour appliquer directement Très Déstabilisé",
       "applyVulnerable": "Vulnérable",
@@ -987,12 +987,12 @@
       "earned": "Total",
       "editableTooltip": "Agrandissez la fiche pour faire apparaître les champs éditables",
       "effect": "Effet",
-      "effectCreate": "Créer un effet",
+      "effectCreate": "Créer un Effet",
       "effects": "Effets",
       "end": "Fin",
       "enhancement": "Amélioration",
       "enhancements": "Améliorations",
-      "enhancementTooltip": "Cocher si l'amélioration a été choisi par le Chevalier des Tempêtes",
+      "enhancementTooltip": "Cocher si l'amélioration a été choisie par le Chevalier des Tempêtes",
       "enhancementRemoveTooltip": "Supprimer la dernière amélioration",
       "enhancementAddTooltip": "Ajouter une amélioration disponible à la fin de la liste",
       "equipment": "Équipement",
@@ -1005,7 +1005,7 @@
       "favored": "Favorisé",
       "favoredTitle": "Cocher si la compétence est Favorisée",
       "firearms": "Armes à feu",
-      "firedamage": "Applique des dommages de feu",
+      "firedamage": "Appliquer des dommages de feu",
       "freePoss": " Le GM offre une Possibilité !",
       "gear": "Équipement",
       "generalGear": "Équipement général",
@@ -1037,8 +1037,8 @@
       "miracles": "Miracles",
       "missileWeapons": "Armes de jet",
       "mod": "Mod",
-      "modifyDamage": "Vous povez modifier les dommages appliqués ici.",
-      "modifyShocks": "Points de Choc ajustés",
+      "modifyDamage": "Vous pouvez modifier les dommages appliqués ici.",
+      "modifyShocks": "Points de Chocs ajustés",
       "modifyWounds": "Blessures ajustées",
       "move": "Déplacement",
       "movementPenalty": "Malus de mouvement",
@@ -1055,9 +1055,9 @@
       "number": "Nombre",
       "operator": "Opérateur",
       "other": "Autres",
-      "otherAttacks": "Autres",
+      "otherAttacks": "Autres attaques",
       "otherModifiers": "Autres modificateurs",
-      "otherSkills": "Autres",
+      "otherSkills": "Autres compétences",
       "outstandingResult": "Résultat spectaculaire",
       "passiveEffects": "Effets passifs",
       "perks": "Atouts",
@@ -1098,13 +1098,13 @@
       "skillAdds": "Rangs",
       "skillRollHint": "Cliquer pour un test de compétence",
       "skills": "Compétences",
-      "skillValue": "Compétence",
+      "skillValue": "Valeur de Compétence",
       "soakAll": "Vous annulez tous les dommages.",
       "soakDamage": "Ann. Dom.",
       "soakDamageTooltip": "Test de Réalité pour annuler les dommages, donne la réduction.",
       "soakNull": "Vous n'annulez aucun dommage.",
       "soakRoll": "Test de Réalité/Annulation des dommages",
-      "soakValue": " blessure(s) annulée(s), et tout les points de Choc.",
+      "soakValue": " blessure(s) annulée(s), et tout les points de Chocs.",
       "social": "Social",
       "source": "Origine",
       "specialabilities": "Capacités spéciales",
@@ -1134,7 +1134,7 @@
       "type": "Type",
       "unarmed": "Mains nues",
       "unspent": "Disponibles",
-      "up": "Un de plus",
+      "up": "Un de plus!",
       "update": "Mise à jour",
       "vehicle": "Véhicule",
       "vehicles": "Véhicules",
@@ -1149,10 +1149,10 @@
       "backlash1": "Contrecoup",
       "backlash2": "Contrecoup réduit",
       "backlash3": "Aïe la tête !",
-      "backlash1Tooltip": "Applique 2 Chocs",
-      "backlash2Tooltip": "Applique 1 Choc",
-      "backlash3Tooltip": "Applique Très déstabilisé",
-      "additionalDamage": "Dommages Additionels",
+      "backlash1Tooltip": "Appliquer 2 Chocs",
+      "backlash2Tooltip": "Appliquer 1 Choc",
+      "backlash3Tooltip": "Appliquer Très Déstabilisé",
+      "additionalDamage": "Dommages additionels",
       "bonusDice": "DB lancés par avance"
     },
     "sizes": {
@@ -1172,11 +1172,11 @@
     },
     "levelDifferences": {
       "1+": "Un cran de plus",
-      "2+": "Deux cran de plus",
-      "3+": "Trois cran de plus",
+      "2+": "Deux crans de plus",
+      "3+": "Trois crans de plus",
       "1-": "Un cran de moins",
-      "2-": "Deux cran de moins",
-      "3-": "Trois cran de moins"
+      "2-": "Deux crans de moins",
+      "3-": "Trois crans de moins"
     },
     "skillDialogs": {
       "disfavored": "Défavorisé",
@@ -1260,12 +1260,12 @@
       "targetSize": "Taille de la cible",
       "targetVulnerability": "Cible Vulnérable",
       "unconscious": "Inconscient",
-      "veryStymied": "Très déstabilisé",
-      "veryVulnerable": "Très vulnérable",
+      "veryStymied": "Très Déstabilisé",
+      "veryVulnerable": "Très Vulnérable",
       "vulnerable": "Vulnérable",
       "waiting": "Attendre",
       "description": {
-        "disconnected": "Vous ne pouvez effectuer d'actions, ni utiliser ou bénéficier d'objets en contradiction avec les niveaux des axiomes du cosm où vous êtes",
+        "disconnected": "Vous ne pouvez effectuer d'actions, ni utiliser ou bénéficier d'objets en contradiction avec les niveaux des axiomes du Cosm où vous êtes",
         "stymied": "-2 à toutes vos actions",
         "veryStymied": "-4 à toutes vos actions",
         "vulnerable": "+2 à toutes les actions contre vous",
@@ -1284,7 +1284,7 @@
     "stymiedStates": {
       "none": "Non Déstabilisé",
       "stymied": "Déstabilisé",
-      "veryStymied": "Très déstabilisé"
+      "veryStymied": "Très Déstabilisé"
     },
     "submit": {
       "apply": "Appliquer",
@@ -1368,8 +1368,8 @@
       "water": "Aquatique"
     },
     "vulnerableStates": {
-      "none": "Non vulnérable",
-      "veryVulnerable": "Très vulnérable",
+      "none": "Non Vulnérable",
+      "veryVulnerable": "Très Vulnérable",
       "vulnerable": "Vulnérable"
     },
     "yesNo": {
@@ -1377,25 +1377,25 @@
       "true": "Oui"
     },
     "macros": {
-      "commonMacroNoTokensSelected": "Aucun token n'a été sélectionné. La macro ne peut pas être exécutée.",
+      "commonMacroNoTokensSelected": "Aucun Token n'a été sélectionné. La macro ne peut pas être exécutée.",
       "commonMacroNoCharacter": "Je ne trouve pas de personnage pour continuer.",
       "commonMacroNoValue": "Aucune valeur n'a été saisie. La macro ne peut pas être exécutée.",
       "commonMacroOnlyByGM": "Cette macro ne peut être exécutée que par les maîtres du jeu !",
       "commonMacroNoChatMessageFound": "Aucun message de chat n'a pu être intercepté, la suite du traitement sera interrompue.",
-      "fatigueMacroDealtDamage": "Les personnages suivants ont subit des points de Choc:",
+      "fatigueMacroDealtDamage": "Les personnages suivants ont subi des points de Chocs:",
       "fatigueMacroCharKO": "assommé !",
-      "fatigueMacroCharAlreadyKO": "est déjà KO ! Pas de points de Choc supplémentaires.",
-      "reviveMacroChatHeadline": "Récupération après avoir subit des points de Choc !",
-      "reviveMacroWindowLabel1": "Quelle quantité de points de Choc faut-il récupérer ?",
+      "fatigueMacroCharAlreadyKO": "est déjà KO ! Pas de points de Chocs supplémentaires.",
+      "reviveMacroChatHeadline": "Récupération après avoir subi des points de Chocs !",
+      "reviveMacroWindowLabel1": "Quelle quantité de points de Chocs faut-il récupérer ?",
       "reviveMacroError1": "Rien n'a été renseigné dans le champ quantité et la case n'a pas été cochée. Que dois-je faire ? Annuler.",
-      "reviveMacroFirst": "Les personnages suivants se remettent des points de Choc: ",
-      "reviveMacroAlreadyFull": "va bien et n'a pas perdu de points de Choc !",
+      "reviveMacroFirst": "Les personnages suivants se remettent des points de Chocs: ",
+      "reviveMacroAlreadyFull": "va bien et n'a pas perdu de points de Chocs !",
       "reviveMacroCharRevived": "est entièrement restauré.",
       "reviveMacroCharPartyRevived": "a été soigné du montant suivant: ",
       "reviveMacroCharDeKOed": "Le statut KO a été levé pour ",
       "reviveMacroWholeRevive": "Récupérer tous les points de Chocs ?",
-      "clearStatusEffectsHeadline": "Les statuts ont été supprimées pour les personnages suivants :",
-      "clearStatusEffectsNothingFound": "Aucun état n'a été trouvé pour les tokens marqués.",
+      "clearStatusEffectsHeadline": "Les statuts ont été supprimés pour les personnages suivants :",
+      "clearStatusEffectsNothingFound": "Aucun état n'a été trouvé pour les Tokens marqués.",
       "clearStatusEffectsliftedFrom": "De",
       "clearStatusEffectsliftedStatusOf": "le statut suivant a été levé:",
       "bonusDieMacroTitle": "Macro pour dés bonus",
@@ -1403,10 +1403,10 @@
       "bonusDieMacroErrorIntegerValue": "La saisie n'était pas un entier. Veuillez saisir un entier.",
       "bonusDieMacroResult1": "Vous avez lancé les dés:",
       "bonusDieMacroResult2": "avec un résultat de",
-      "bonusDieMacroResult3": "Le token avec le nom",
+      "bonusDieMacroResult3": "Le Token avec le nom",
       "bonusDieMacroResult4": "reçoit des dommages de",
-      "bonusDieMacroResultNoDamage": "ne subit aucun dommages",
-      "bonusDieMacroNoTokenTargeted": "Aucun token n'a été ciblé.",
+      "bonusDieMacroResultNoDamage": "ne subit aucun dommage",
+      "bonusDieMacroNoTokenTargeted": "Aucun Token n'a été ciblé.",
       "bonusDieMacroNoDiscon": "Il n'y a pas de statut \"Déconnecté\" sur ce personnage.",
       "reconnectMacroZoneModifier": "Modificateur de zone",
       "reconnectMacroZoneModifierNotDetectedTitle": "Aucun modificateur de zone",
