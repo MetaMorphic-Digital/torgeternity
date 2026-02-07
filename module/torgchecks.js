@@ -56,7 +56,9 @@ export async function renderSkillChat(test) {
 
   // Handle ammo, if not opt-out. First, check if there is enough ammo, then reduce it.
   if (testItem?.weaponWithAmmo) {
-    await testItem.reduceAmmo(test.burstModifier, test.targetAll?.length);
+    // Ammo used is based on the targets Modifier, not the number of selected tokens (to account for Blast weapons)
+    // see parameters of hasSufficientAmmo in test-dialog.js
+    await testItem.reduceAmmo(test.burstModifier, (1 - test.targetsModifier / 2));
     test.ammoCount = testItem.system.ammo.value;
   }
 

@@ -181,7 +181,8 @@ export class TestDialog extends HandlebarsApplicationMixin(ApplicationV2) {
       CONFIG.torgeternity.concentrationSkills.includes(context.test.skillName)) {
       context.test.concentratingModifier = myActor.statusModifiers.concentrating;
     }
-    context.test.requiresConcentration = this.test.itemId && myActor.items.get(this.test.itemId)?.requiresConcentration;
+    const testItem = this.test.itemId && myActor.items.get(this.test.itemId);
+    context.test.requiresConcentration = testItem?.requiresConcentration;
 
     // Set Modifiers for Vehicles
     if (this.test.testType === 'chase') {
@@ -209,7 +210,7 @@ export class TestDialog extends HandlebarsApplicationMixin(ApplicationV2) {
     const targets = this.options.useTargets ? Array.from(game.user.targets) : [];
     context.test.targetPresent = !!targets.length;
     const MULTITARGET = [0, 0, -2, -4, -6, -8, -10];
-    context.test.targetsModifier ||= MULTITARGET[targets.length] ?? 0;
+    context.test.targetsModifier ||= MULTITARGET[testItem?.isBlastAmmo ? 1 : targets.length] ?? 0;
 
     if (context.test.targetPresent && context.test.testType !== 'soak') {
       context.test.targetAll = targets.map(token => oneTestTarget(token, this.test.applySize));

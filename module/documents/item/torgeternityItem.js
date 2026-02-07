@@ -298,9 +298,6 @@ export default class TorgeternityItem extends foundry.documents.Item {
    */
   async reduceAmmo(burstModifier, targets = 1) {
     const currentAmmo = this.system.ammo.value;
-    // Blast weapons only use 1 ammo regardless of the number of targets
-    if (this.isBlastAmmo) targets = 1;
-
     await this.update({
       'system.ammo.value': currentAmmo - this.#estimateBulletLoss(burstModifier) * targets,
     });
