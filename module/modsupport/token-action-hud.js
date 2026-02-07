@@ -27,19 +27,22 @@ export default async function setupTokenActionHud(coreModule) {
 
   let GROUP = {
     attributes: { id: ATTRIBUTES_ID, name: "torgeternity.sheetLabels.attributes", type: "system" },
-    skillsCombat: { id: 'skills_combat', name: "torgeternity.sheetLabels.combatSkills", type: "system" },
-    skillsInteraction: { id: 'skills_interaction', name: "torgeternity.sheetLabels.interactionSkills", type: "system" },
-    skillsOther: { id: 'skills_other', name: "torgeternity.sheetLabels.otherSkills", type: "system" },
     combat: { id: ATTACK_ID, name: "torgeternity.sheetLabels.attacks", type: "system" },
     perks: { id: PERKS_ID, name: "torgeternity.sheetLabels.perks", type: "system" },
     powers: { id: POWERS_ID, name: "torgeternity.sheetLabels.powers", type: "system" },
-    gearGroup: { id: GEAR_ID, name: "torgeternity.sheetLabels.gear", type: "system" },
+    gear: { id: GEAR_ID, name: "torgeternity.sheetLabels.gear", type: "system" },
+    skills: { id: SKILLS_ID, name: "torgeternity.sheetLabels.skills", type: "system" },
     conditions: { id: CONDITION_ID, name: "torgeternity.sheetLabels.conditions", type: "system" },
+  }
+  let SUBGROUP = {
+    skillsCombat: { id: 'skills_combat', name: "torgeternity.sheetLabels.combatSkills", type: "system" },
+    skillsInteraction: { id: 'skills_interaction', name: "torgeternity.sheetLabels.interactionSkills", type: "system" },
+    skillsOther: { id: 'skills_other', name: "torgeternity.sheetLabels.otherSkills", type: "system" },
     attacksInteraction: { id: 'combat_interaction', name: "torgeternity.sheetLabels.interactionAttacks", type: "system" },
   }
   for (const key of Object.keys(CONFIG.Item.typeLabels)) {
     if (key === 'base') continue;
-    GROUP[key] = { id: key, name: CONFIG.Item.typeLabels[key], type: "system" };
+    SUBGROUP[key] = { id: key, name: CONFIG.Item.typeLabels[key], type: "system" };
   }
 
   class MyActionHandler extends coreModule.api.ActionHandler {
@@ -63,7 +66,7 @@ export default async function setupTokenActionHud(coreModule) {
       await this.#getSkills(actor, tokenId, GROUP.skills);
       await this.#getPowers(actor, tokenId, GROUP.powers);
       await this.#getAttacks(actor, tokenId, GROUP.combat);
-      await this.#getGear(actor, tokenId, GROUP.gearGroup);
+      await this.#getGear(actor, tokenId, GROUP.gear);
       await this.#getPerks(actor, tokenId, GROUP.perks);
       await this.#getConditions(actor, tokenId, GROUP.conditions);
 
@@ -217,6 +220,12 @@ export default async function setupTokenActionHud(coreModule) {
 
   class MyRollHandler extends coreModule.api.RollHandler {
 
+    /**
+     * 
+     * @param {Event} event 
+     * @param {String} encodedValue 
+     * @returns Promise
+     */
     async handleActionClick(event, encodedValue) {
       let payload = encodedValue.split(this.delimiter);
 
@@ -326,7 +335,7 @@ export default async function setupTokenActionHud(coreModule) {
 
     async registerDefaults() {
 
-      const groups = GROUP;
+      const groups = SUBGROUP;
       Object.values(groups).forEach(group => {
         group.name = game.i18n.localize(group.name);
         group.listName = `Group: ${group.name}`;
