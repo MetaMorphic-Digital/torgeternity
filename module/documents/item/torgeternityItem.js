@@ -330,6 +330,7 @@ export default class TorgeternityItem extends foundry.documents.Item {
    */
   isGeneralContradiction(scene) {
     return this.type === 'perk' &&
+      this.system.generalContradiction &&
       this.system.cosm !== 'none' &&
       !scene.hasCosm(this.system.cosm);
   }

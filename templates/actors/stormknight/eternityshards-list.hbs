@@ -3,7 +3,8 @@
   {{#each eternityshard as |item id|}}
     <li class="item draggable" data-item-id="{{item._id}}">
       <div><img src="{{item.img}}" data-tooltip="{{item.name}}" /></div>
-      <span class="item-name {{TorgDisconnected item}}" data-action="itemName">{{item.name}}</span>
+      <span class="item-name {{TorgDisconnected item}}" data-action="itemName">{{item.name}}
+        <span class="contradiction">{{item.contradictionCase}}</span></span>
       <div class="item-controls">
         <a class="item-control item-attackRoll" data-action="itemTappingRoll" {{disabled (not @root.editable)}}
           data-tooltip="{{localize 'torgeternity.iconeTitles.tappingRoll'}}">

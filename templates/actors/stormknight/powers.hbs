@@ -17,7 +17,8 @@
         <li class="item draggable block" data-item-id="{{item._id}}">
           <div class="item-row flexrow">
             <img src="{{item.img}}" data-tooltip="{{item.name}}" />
-            <a class="item-name {{TorgDisconnected item}}" data-action="itemName">{{item.name}}</a>
+            <a class="item-name {{TorgDisconnected item}}" data-action="itemName">{{item.name}}
+              <span class="contradiction">{{item.contradictionCase}}</span></a>
             <div class="item-controls">
               <a class="item-control item-powerRoll" data-action="itemPowerRoll" {{disabled (not @root.editable)}}
                 data-tooltip="{{localize 'torgeternity.iconeTitles.spellRoll'}}">
@@ -82,7 +83,8 @@
         <li class="item draggable block" data-item-id="{{item._id}}">
           <div class="item-row flexrow">
             <img src="{{item.img}}" data-tooltip="{{item.name}}" />
-            <a class="item-name {{TorgDisconnected item}}" data-action="itemName">{{item.name}}</a>
+            <a class="item-name {{TorgDisconnected item}}" data-action="itemName">{{item.name}}
+              <span class="contradiction">{{item.contradictionCase}}</span></a>
             <div class="item-controls">
               <a class="item-control item-powerRoll" data-action="itemPowerRoll" {{disabled (not @root.editable)}}
                 data-tooltip="{{localize 'torgeternity.iconeTitles.miracleRoll'}}">
@@ -148,7 +150,8 @@
 
           <div class="item-row flexrow">
             <img src="{{item.img}}" data-tooltip="{{item.name}}" />
-            <a class="item-name {{TorgDisconnected item}}" data-action="itemName">{{item.name}}</a>
+            <a class="item-name {{TorgDisconnected item}}" data-action="itemName">{{item.name}}
+              <span class="contradiction">{{item.contradictionCase}}</span></a>
             <div class="item-controls">
               <a class="item-control item-powerRoll" data-action="itemPowerRoll" {{disabled (not @root.editable)}}
                 data-tooltip="{{localize 'torgeternity.iconeTitles.psionicRoll'}}">

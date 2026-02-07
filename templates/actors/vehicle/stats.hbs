@@ -129,7 +129,7 @@
     {{#*inline "weaponData" item}}
       <li class="item draggable vehicle-weapon-list" data-item-id="{{item._id}}">
         <div class="vehicle-image"><img src="{{item.img}}" data-tooltip="{{item.name}}" /></div>
-        <div class="name">{{item.name}}</div>
+        <div class="name">{{item.name}}<span class="contradiction">{{item.contradictionCase}}</span></div>
         <div class="gunner">{{item.system.gunner.name}}</div>
         <a class="icon fa-solid fa-trash remove-gunner {{disabled (not item.system.gunner.name)}}"
           data-action="removeGunner" data-tooltip="{{localize 'torgeternity.sheetLabels.removeGunner'}}"></a>
@@ -196,7 +196,9 @@
         <div class="add-on-image">
           <img src="{{item.img}}" data-tooltip="{{item.name}}" />
         </div>
-        <div class="add-on-name">{{item.name}}</div>
+        <div class="add-on-name">{{item.name}}
+          <span class="contradiction">{{item.contradictionCase}}</span>
+        </div>
         <div class="add-on-description">{{item.system.short-description}}</div>
         <div class="controls">
           <a

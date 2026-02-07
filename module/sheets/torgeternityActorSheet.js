@@ -141,6 +141,8 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
         if (gunner) gunner.apps[this.id] = this;
       }
     }
+    game.scenes.forEach(scene => scene.apps[this.id] = this);  // a scene config changes
+    game.scenes.apps.push(this); // change of viewed scene
     return super._onFirstRender(context, options);
   }
 
@@ -154,6 +156,9 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
         if (gunner) delete gunner.apps[this.id];
       }
     }
+    game.scenes.forEach(scene => delete scene.apps[this.id]);  // a scene config changes
+    const pos = game.scenes.apps.indexOf(this);
+    if (pos >= 0) game.scenes.apps.splice(pos, 1);
     super._onClose(options);
   }
 
@@ -200,6 +205,16 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
     context.tabs = this._prepareTabs(this.actor.type);
     context.systemFields = context.document.system.schema.fields;
     context.items = Array.from(context.document.items);
+    // Determine contradiction case for each item (Perks need isGeneralContradiction test)
+    const actorAxioms = this.actor.system.axioms;
+    const zoneAxioms = game.scenes.current?.torg.axioms;
+    for (const item of context.items) {
+      const failsActor = item.isContradiction(actorAxioms);
+      const failsCosm = item.isGeneralContradiction(game.scenes.current) || item.isContradiction(zoneAxioms);
+      item.contradictionCase = (failsActor && failsCosm) ? '4' : (failsActor || failsCosm) ? '1' : '';
+      //console.log(`${item.name} : actor ${failsActor}, cosm ${failsCosm} = "${item.contradictionCase}"`)
+    }
+
     context.showPiety = game.settings.get('torgeternity', 'showPiety');
     context.items.sort((a, b) => (a.sort || 0) - (b.sort || 0));
     context.editAttributes = this.actor.flags.torgeternity?.editAttributes ?? false;

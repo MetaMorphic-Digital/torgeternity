@@ -119,7 +119,7 @@ export async function renderSkillChat(test) {
       if (!test.ignoreContradictions && testItem && test.rollTotal <= 4) {
 
         // We can't check for Starred Perks, since no dice rolls are made from them.
-        const failsZone = testItem.isGeneralContradiction(game.scenes.active) || testItem.isContradiction(game.scenes.active?.torg.axioms);
+        const failsZone = testItem.isGeneralContradiction(game.scenes.current) || testItem.isContradiction(game.scenes.current?.torg.axioms);
         const failsActor = testItem.isContradiction(testActor.system.axioms);
         const limit = (!failsZone && !failsActor) ? 0 : (failsZone && failsActor) ? 4 : 1;
 

@@ -1101,6 +1101,10 @@ dialog.torgeternity:not(.actor, .item) .window-content,
           &.disconnected {
             text-decoration: line-through;
           }
+
+          .contradiction {
+            vertical-align: super;
+          }
         }
 
         img {
@@ -1170,6 +1174,10 @@ dialog.torgeternity:not(.actor, .item) .window-content,
 
             &.disconnected {
               text-decoration: line-through;
+            }
+
+            .contradiction {
+              vertical-align: super;
             }
           }
 

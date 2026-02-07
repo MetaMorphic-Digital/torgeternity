@@ -21,6 +21,10 @@
 - Removed `hbs` files which are not used (primarily for cards which are not Items).
 - A weapon with one of the **Blast** traits will consume ammo as if there was only 1 target (but still accounting for burst).
 - TAH: Reinstate the missing Skills tab.
+- **Contradictions**:
+  - Only Perks with the "Contradictions" checked should be allowed to cause Contradictions.
+  - Use *current* scene, not the *active* scene, when checking against the cosm's axioms.
+  - Display 1 or 4 as a superscript value after an Item's name if its use could cause a Contradiction on the *current* scene.
 
 ### Translations
 
