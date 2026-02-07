@@ -1264,7 +1264,7 @@
         "veryStymied": "-4 to all your actions",
         "vulnerable": "+2 to all actions against you",
         "veryVulnerable": "+4 to all actions against you",
-        "aiming": "+4 to attack total. Can take simple actions and walk, but may not run or take regular actions",
+        "aiming": "+4 to ranged attack total. Can take simple actions and walk, but may not run or take regular actions",
         "dim": "-2 on attacks against you",
         "dark": "-4 on attacks against you",
         "pitchBlack": "-6 on attacks against you"
