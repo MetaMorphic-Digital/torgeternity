@@ -843,8 +843,8 @@
         "name": "Afficher le message de bienvenue"
       },
       "uniqueDN": {
-        "hint": "Si coché, durant une attaque en multi-cibles, garde le DN le plus élevé pour déterminer le résultat sur toutes les cibles (Règle).",
-        "name": "DN unique"
+        "hint": "Si coché, quand une action multi-cibles est résolue, garde le DN le plus élevé des cibles pour déterminer le degré de réussite de l'action.",
+        "name": "Plus haut DN"
       },
       "unTarget": {
         "hint": "Par défaut, vos cibles sont perdues après une attaque. Décochez si vous voulez garder le ciblage.",
@@ -855,12 +855,12 @@
         "name": "Year-1 PP TT"
       },
       "cardChatNotify": {
-        "hint": "Supprimme les messages de Foundry si le système TORG génère son propre message",
-        "name": "Supprimme les messages Core Foundry"
+        "hint": "Supprime les messages de Foundry si le système TORG génère son propre message",
+        "name": "Supprime les messages Core Foundry"
       },
       "shuffleMessageSurpress": {
         "hint": "Si coché, le message indiquant le mélange d'un deck ne sera pas affiché dans le chat.",
-        "name": "Supprimmer le message lors d'un mélange de cartes"
+        "name": "Supprimer le message lors d'un mélange de cartes"
       },
       "ignoreAmmo": {
         "hint": "Si coché, les règles et mécanismes de rechargement des munitions sont complètement ignorés.",
@@ -934,9 +934,9 @@
       "applySoak": "Annulation des dommages",
       "applySoakTooltip": "Applique la réduction des dommages sur l'attaque.",
       "applyStymied": "Déstabilisé",
-      "applyStymiedTooltip": "Applique Déstabilisé, ou Très déstabilisé si déjà Déstabilisé.",
+      "applyStymiedTooltip": "Appliquer Déstabilisé. Ou Très Déstabilisé si déjà Dastabilisé.<hr>Maintenir SHIFT pour appliquer directement Très Déstabilisé",
       "applyVulnerable": "Vulnérable",
-      "applyVulnerableTooltip": "Applique Vulnérable, ou Très vulnérable si déjà Vulnérable.",
+      "applyVulnerableTooltip": "Appliquer Vulnérable. Ou Très Vulnérable si déjà Vulnérable.<hr>Maintenir SHIFT pour appliquer directement Très Vulnérable",
       "armor": "Armure",
       "armorAndShields": "Armures et boucliers",
       "attackOptions": "Options d'attaque",
@@ -1081,8 +1081,8 @@
       "reconnect": "Reconnection",
       "reconnectTooltip": "Supprime la condition Déconnecté",
       "darkvision": "Vision dans le noir",
-      "removeGunner": "Supprimme l'opérateur de cette arme",
-      "removeOperator": "Supprimme l'opérateur de ce véhicule",
+      "removeGunner": "Supprime l'opérateur de cette arme",
+      "removeOperator": "Supprime l'opérateur de ce véhicule",
       "return": "Retour",
       "roll": "Lancer",
       "run": "Course",
@@ -1263,7 +1263,18 @@
       "veryStymied": "Très déstabilisé",
       "veryVulnerable": "Très vulnérable",
       "vulnerable": "Vulnérable",
-      "waiting": "Attendre"
+      "waiting": "Attendre",
+      "description": {
+        "disconnected": "Vous ne pouvez effectuer d'actions, ni utiliser ou bénéficier d'objets en contradiction avec les niveaux des axiomes du cosm où vous êtes",
+        "stymied": "-2 à toutes vos actions",
+        "veryStymied": "-4 à toutes vos actions",
+        "vulnerable": "+2 à toutes les actions contre vous",
+        "veryVulnerable": "+4 à toutes les actions contre vous",
+        "aiming": "+4 au total de l'attaque à distance. Les actions simples et la marche sont autorisées, mais vous perdez le bénéfice si vous courrez ou effectuez un autre type d'action",
+        "dim": "-2 aux attaques contre vous",
+        "dark": "-4 aux attaques contre vous",
+        "pitchBlack": "-6 aux attaques contre vous"
+      }
     },
     "darknessModifiers": {
       "dim": "Pénombre",
