@@ -10,7 +10,7 @@
 - When an Item triggers a skill check, put the item name on a separate line in the chat title.
   - Put "TM" as superscript after the item name if it is has the "Trademark Wpn" trait.
 - Ensure various data fields are Number not String, and make many of them NOT nullable (i.e. require a value).
-- When adding a token to an Combat that has already started, display a turn marker under it if it is a member of the active faction.
+- When adding a token to a Combat that has already started, display a turn marker under it if it is a member of the active faction.
 - Add a recovery button for Shock on Stormknight and Threat sheets:
   - **In combat**, it reduces the shock by 2 (_Recovery_)
   - **Out of combat**, it removes all shock.
@@ -20,6 +20,7 @@
 - Add button to show image of Actor/Item in larger window, from which it can be shown to all players.
 - Removed `hbs` files which are not used (primarily for cards which are not Items).
 - A weapon with one of the **Blast** traits will consume ammo as if there was only 1 target (but still accounting for burst).
+- TAH: Reinstate the missing Skills tab.
 
 ### Translations
 
