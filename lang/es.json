@@ -844,7 +844,7 @@
       },
       "uniqueDN": {
         "hint": "Si está marcado, cuando se lleve a cabo una acción múltiple, se mantendrá el ND más alto para determinar los resultados contra todos los objetivos, tal y como indican las reglas.",
-        "name": "Un único ND"
+        "name": "ND más alto"
       },
       "unTarget": {
         "hint": "Los objetivos quedan por defecto desmarcados tras un ataque. Desactivar si se desea mantenerlos seleccionados.",
@@ -934,9 +934,9 @@
       "applySoak": "absorción",
       "applySoakTooltip": "Aplicar al ataque las reducciones por absorción.",
       "applyStymied": "Impedido",
-      "applyStymiedTooltip": "Clic para aplicar Impedido, o Muy Impedido si ya está Impedido.",
+      "applyStymiedTooltip": "Clic para aplicar Impedido, o Muy Impedido si ya está Impedido.<hr>Click + MAY para aplicar inmediatamente Muy Impedido",
       "applyVulnerable": "Vulnerable",
-      "applyVulnerableTooltip": "Clic para aplicar Vulnerable, o Muy Vulnerable si ya está Vulnerable.",
+      "applyVulnerableTooltip": "Clic para aplicar Vulnerable, o Muy Vulnerable si ya está Vulnerable.<hr>Click + MAY para aplicar inmediatamente Muy Vulnerable",
       "armor": "Armadura",
       "armorAndShields": "Armadura y Escudo",
       "attackOptions": "Opciones de ataque",
@@ -1263,7 +1263,18 @@
       "veryStymied": "Muy Impedido",
       "veryVulnerable": "Muy Vulnerable",
       "vulnerable": "Vulnerable",
-      "waiting": "Espera"
+      "waiting": "Espera",
+      "description": {
+        "disconnected": "No puedes causar Contradicciones y no puedes realizar acciones u obtener beneficios de herramientas que violen los axiomas del cosmos en el que estás",
+        "stymied": "-2 a todas tus acciones",
+        "veryStymied": "-4 a todas tus acciones",
+        "vulnerable": "+2 a todas las acciones contra ti",
+        "veryVulnerable": "+4 a todas las acciones contra ti",
+        "aiming": "+4 al total de ataque. Puedes realizar acciones simples y caminar, pero no puedes correr o realizar acciones normales",
+        "dim": "-2 a los ataques contra ti",
+        "dark": "-4 a los ataques contra ti",
+        "pitchBlack": "-6 a los ataques contra ti"
+      }
     },
     "darknessModifiers": {
       "dim": "Tenue",
