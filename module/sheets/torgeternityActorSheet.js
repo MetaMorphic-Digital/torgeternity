@@ -456,6 +456,11 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
     const actor = this.actor;
     if (!actor.isOwner) return super._onDropItem(event, item);
 
+    // If the actor is the same, call the parent method, which will eventually call the sort instead
+    if (this.actor.uuid === item.parent?.uuid) {
+      return super._onDropItem(event, item);
+    }
+
     // Maybe dropping currency, so merge with existing (if any)
     if (item.type === 'currency') {
       const currency = actor.items.find(it => it.name === item.name && it.system.cosm === item.system.cosm);
@@ -463,7 +468,7 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
         await currency.update({ 'system.quantity': currency.system.quantity + item.system.quantity });
         return item;
       }
-      // not found, so allow creation of new Item to happen later.
+      // not found, so drop the new item onto the actor
       return super._onDropItem(event, item);
     }
 

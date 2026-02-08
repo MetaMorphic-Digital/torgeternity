@@ -1,4 +1,3 @@
-import { getTorgValue } from '../../torgchecks.js';
 import { BaseItemData } from './baseItemData.js'
 import { calcPriceValue } from '../shared.js';
 
