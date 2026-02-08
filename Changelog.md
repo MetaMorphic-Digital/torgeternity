@@ -15,12 +15,14 @@
   - **In combat**, it reduces the shock by 2 (_Recovery_)
   - **Out of combat**, it removes all shock.
 - When "Highest DN" is not set (previously "Unique DN"), then display the result text against each target rather than at the top of the chat card.
-- Hold SHIFT when clicking the `+Stymied` and `+Vulnerable` button to immediately apply the **VERY** version instead.
+- Stymied/Vulnerable handling:
+  - Hold SHIFT when clicking the `+Stymied` and `+Vulnerable` button to immediately apply the **VERY** version instead.
+  - Ensure correct durations when applied from chat card or drama card during combat.
 - Add description to some status effects with their game effects.
 - Add button to **show portrait image** of Actor/Item in larger window, from which it can be shown to all players.
 - Removed `hbs` files which are not used (primarily for cards which are not Items).
 - A **Blast** weapon will have the Multi-Target entry set to 1 by default in the Test dialog (so it will consume only 1 ammo, and have no multi-target penalty).
-- TAH: Reinstate the missing Skills tab.
+- **TAH**: Reinstate the missing Skills tab.
 - **Contradictions**:
   - Only Perks with the "Contradictions" checked should be allowed to cause Contradictions.
   - Use *current* scene, not the *active* scene, when checking against the cosm's axioms.
