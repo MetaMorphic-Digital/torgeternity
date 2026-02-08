@@ -5,17 +5,19 @@
 
     <div class="message-header torgeternity-skill-description flexcol">
       {{#if unskilledTest}}
-        <p class="skill-chat-title unskilled">{{chatTitle}}</p>
+        <p class="skill-chat-title unskilled">{{{chatTitle}}}</p>
         <p class="skill-unskilled-label">{{localize 'torgeternity.chatText.unskilled'}}</p>
       {{else}}
-        <p class="skill-chat-title skilled">{{chatTitle}}</p>
+        <p class="skill-chat-title skilled">{{{chatTitle}}}</p>
       {{/if}}
     </div>
   </div>
   <div class="chat-text" style="padding:0px">
-    <p class="skill-roll-result" style="{{resultTextStyle}}">
-      {{resultText}}
-    </p>
+    {{#if actionTotalContent}}
+      <p class="skill-roll-result" style="{{resultTextStyle}}">
+        {{resultText}}
+      </p>
+    {{/if}}
     {{#if extraResult}}
       <p class="skill-roll-disconnect-label"> {{{extraResult}}} </p>
     {{/if}}
@@ -143,9 +145,10 @@
                     {{/each}}
                     {{#if bonusDiceList}}
                       {{#each bonusDiceList}} <!-- Array created in torgcheck -->
-                        <li class="roll die d6">
-                          {{#if this.exploded}}&infin;{{else}}{{{this.result}}}{{/if}}{{#if this.manual}}<span
-                              class="manualRoll">M</span>{{/if}}
+                        <li class="roll">
+                          <img class="bonusDie"
+                            src="systems/torgeternity/images/bonus-{{ifThen this.exploded 'i' this.result}}.webp">
+                          {{#if this.manual}}<span class="manualRoll">M</span>{{/if}}
                         </li>
                       {{/each}}
                     {{/if}}
@@ -237,6 +240,9 @@
                 <span class="name" data-action="panToTarget"><i
                     class="icon fa-solid {{ifThen (eq type 'stormknight') 'fa-person' 'fa-ghost'}}"></i>&nbsp;{{this.targetName}}
                 </span>
+                {{#if this.resultText}}
+                  <span class="skill-roll-result" style="{{this.resultTextStyle}}">{{this.resultText}}</span>
+                {{/if}}
                 {{#unless this.dummyTarget}}
                   <span class="controls"><a data-action="pingTarget"
                       data-tooltip="{{localize 'torgeternity.chatText.pingToken'}}">
@@ -297,13 +303,13 @@
                     {{/if}}
                     {{#if this.showApplyStymied}}
                       <a class="button roll-button" data-action="applyStymied"
-                        data-tooltip="{{localize 'torgeternity.sheetLabels.applyStymiedTooltip'}}">
+                        data-tooltip-html="{{localize 'torgeternity.sheetLabels.applyStymiedTooltip'}}">
                         <i class="fa-solid fa-person-rays"></i>
                         {{localize 'torgeternity.sheetLabels.applyStymied'}}</a>
                     {{/if}}
                     {{#if this.showApplyVulnerable}}
                       <a class="button roll-button" data-action="applyVulnerable"
-                        data-tooltip="{{localize 'torgeternity.sheetLabels.applyVulnerableTooltip'}}">
+                        data-tooltip-html="{{localize 'torgeternity.sheetLabels.applyVulnerableTooltip'}}">
                         <i class="fa-solid fa-person-rays"></i>
                         {{localize 'torgeternity.sheetLabels.applyVulnerable'}}</a>
                     {{/if}}

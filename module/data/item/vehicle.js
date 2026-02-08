@@ -11,10 +11,10 @@ export class VehicleItemData extends GeneralItemData {
   static defineSchema() {
     return {
       ...super.defineSchema('vehicle'),
-      mr: new fields.NumberField({ initial: -1, integer: true }),
-      pass: new fields.NumberField({ initial: 1, integer: true }),
-      topspeed: new fields.StringField({ initial: '' }),
-      tough: new fields.StringField({ initial: '' }),
+      mr: new fields.NumberField({ initial: -1, integer: true }), // maneuver
+      pass: new fields.NumberField({ initial: 1, integer: true }), // passengers
+      topspeed: new fields.NumberField({ initial: 1, integer: true }),
+      tough: new fields.NumberField({ initial: 1, integer: true }),  // toughness
       wounds: new fields.NumberField({ initial: 3, integer: true }),
     };
   }

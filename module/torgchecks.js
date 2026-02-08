@@ -56,11 +56,15 @@ export async function renderSkillChat(test) {
 
   // Handle ammo, if not opt-out. First, check if there is enough ammo, then reduce it.
   if (testItem?.weaponWithAmmo) {
-    await testItem.reduceAmmo(test.burstModifier, test.targetAll?.length);
+    // Ammo used is based on the targets Modifier, not the number of selected tokens (to account for Blast weapons)
+    // see parameters of hasSufficientAmmo in test-dialog.js
+    await testItem.reduceAmmo(test.burstModifier, (1 - test.targetsModifier / 2));
     test.ammoCount = testItem.system.ammo.value;
   }
 
-  const uniqueDN = game.settings.get('torgeternity', 'uniqueDN') ? await highestDN(test) : undefined;
+  const useHighestDN = game.settings.get('torgeternity', 'uniqueDN') ? await highestDN(test) : undefined;
+  const singleResult = (useHighestDN || (!test.isAttack && test.targetAll[0].dummyTarget));
+
   let first = true;
   for (const target of test.targetAll) {
     test.sizeModifier = target.sizeModifier ?? 0;
@@ -77,7 +81,7 @@ export async function renderSkillChat(test) {
     //
     // Establish DN for this test based on test.DNDescriptor //
     //
-    test.DN = uniqueDN ?? individualDN(test, target);
+    test.DN = useHighestDN ?? individualDN(test, target);
 
     //
     // -----------------------Determine Bonus---------------------------- //
@@ -117,7 +121,7 @@ export async function renderSkillChat(test) {
       if (!test.ignoreContradictions && testItem && test.rollTotal <= 4) {
 
         // We can't check for Starred Perks, since no dice rolls are made from them.
-        const failsZone = testItem.isGeneralContradiction(game.scenes.active) || testItem.isContradiction(game.scenes.active?.torg.axioms);
+        const failsZone = testItem.isGeneralContradiction(game.scenes.current) || testItem.isContradiction(game.scenes.current?.torg.axioms);
         const failsActor = testItem.isContradiction(testActor.system.axioms);
         const limit = (!failsZone && !failsActor) ? 0 : (failsZone && failsActor) ? 4 : 1;
 
@@ -302,7 +306,8 @@ export async function renderSkillChat(test) {
       modifiers.push(modifierString('torgeternity.chatText.check.modifier.allOutAttack', 4));
 
       // if it's an all-out-attack, apply very vulnerable to attacker
-      if (first) await testActor.setVeryVulnerable();
+      // duration = 2 since it is testActor's current turn, and the duration decreases at the END of each turn
+      if (first) await testActor.setVeryVulnerable(testActor.uuid, 2);
     }
 
     if (test.aimedFlag) {
@@ -355,7 +360,7 @@ export async function renderSkillChat(test) {
     // Handle numeric value in DNDescriptor
     let actionTotalContent = `${game.i18n.localize('torgeternity.chatText.check.result.actionTotal')} ${test.rollResult} vs. ${test.DN} `;
     if (isNaN(Number(test.DNDescriptor))) actionTotalContent += game.i18n.localize('torgeternity.dnTypes.' + test.DNDescriptor);
-    if (uniqueDN || (target.dummyTarget && !test.isAttack))
+    if (singleResult)
       test.actionTotalContent = actionTotalContent;
     else
       target.actionTotalContent = actionTotalContent;
@@ -387,7 +392,7 @@ export async function renderSkillChat(test) {
       test.outcomeColor = useColorBlind ? 'color: rgb(44, 179, 44)' : 'color: green';
       if (test.testType === 'soak') target.soakWounds = 1;
     }
-    if (!useColorBlind) test.outcomeColor += SHADOW_STYLE;
+    if (!useColorBlind && singleResult) test.outcomeColor += SHADOW_STYLE;
 
     test.showApplySoak = (test.testType === 'soak' && target.soakWounds);
 
@@ -448,7 +453,8 @@ export async function renderSkillChat(test) {
       if (useColorBlind) {
         test.outcomeColor = 'color: purple';
         test.resultTextStyle = 'color: purple';
-      } else {
+      } else if (singleResult) {
+        // Only add shadow when displayed at the TOP of the card
         test.outcomeColor += SHADOW_STYLE;
         test.resultTextStyle += SHADOW_STYLE;
       }
@@ -548,26 +554,29 @@ export async function renderSkillChat(test) {
         } else {
           // Cancel the "unwieldy" which might have been set if previously a failure
           test.showActorApplyVeryVulnerable &&= false;
+          // Maybe now good enough to have some BD on it
+          if (!target.soakWounds) target.showBD ??= true;
 
           // Extra BDs based on level success (but this is called many times, so ensure total of 0, 1 or 2 is maintained)
-          target.addBDs ??= 0;
+          target.addBDs ??= test.addBDs;
           if (game.settings.get('torgeternity', 'autoRollBD')) {
+            target.autoBDs ??= 0;
             if (test.result === TestResult.OUTSTANDING) {
-              target.addBDs = Math.max(0, 2 - target.amountBD);
+              if (target.autoBDs < 2) target.addBDs += (2 - target.autoBDs);
+              target.autoBDs = 2;
             } else if (test.result === TestResult.GOOD) {
-              target.addBDs = Math.max(0, 1 - target.amountBD);
+              if (!target.autoBDs) target.addBDs += 1;
+              target.autoBDs = 1;
             }
           }
 
-          // Add BDs in promise if applicable as this should only be rolled if the test is successful
+          // Add BDs if applicable as this should only be rolled if the test is successful
           if (target.addBDs && !test.explicitBonus) {
             const iteratedRoll = await rollBonusDie(test.trademark, target.addBDs);
             const bdDamage = iteratedRoll.total;
             test.bonusDiceList = test.bonusDiceList ? test.bonusDiceList.concat(iteratedRoll.dice[0].results) : iteratedRoll.dice[0].results;
             target.amountBD += target.addBDs;
             target.addBDs = 0;
-
-            test.chatTitle += ` + ${target.amountBD} ${game.i18n.localize('torgeternity.chatText.bonusDice')}`;
 
             target.bdDamageSum += bdDamage;
             target.damage += bdDamage;
@@ -619,20 +628,23 @@ export async function renderSkillChat(test) {
       test.typeLabel = game.i18n.localize('torgeternity.chatText.skillTestLabel');
     } else if (test.testType === 'attack') {
       test.typeLabel = game.i18n.localize('torgeternity.chatText.skillTestLabel');
-      if (test.rollTotal !== 1 && !target.soakWounds) target.showBD ??= true;
     } else if (test.testType === 'power') {
       test.typeLabel = game.i18n.localize('torgeternity.chatText.skillTestLabel');
-      if (test.isAttack && !target.soakWounds) target.showBD ??= true;
     } else if (test.testType === 'custom') {
       test.typeLabel = game.i18n.localize('torgeternity.chatText.skillTestLabel');
       test.outcomeColor = 'hidden;';
       test.resultTextStyle = 'display:hidden;';
-      if (!target.soakWounds) target.showBD ??= true;
       test.upStyle = 'hidden';
     } else {
       test.typeLabel = game.i18n.localize('torgeternity.chatText.attributeTestLabel');
     }
     test.typeLabel += ' ';
+
+    // Always store the results for this target
+    if (!useHighestDN) {
+      target.resultText = test.resultText;
+      target.resultTextStyle = test.resultTextStyle;
+    }
 
     // Highlight the UP button if the Drama Card shows UP.
     // get disposition from prototype Token if there's no real token.

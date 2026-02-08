@@ -567,6 +567,7 @@
       "miracleRoll": "Wunder-Wurf",
       "openParty": "Öffnet die Gruppenübersicht",
       "psionicRoll": "Psionischer Wurf",
+      "reduceShock": "During combat, perform <em>Recovery</em>.<br>Out of combat, it removes <em>all</em> shock.",
       "reload": "Waffe nachladen<p>(halte SHIFT für freies Nachladen)",
       "resetPoss": "Möglichkeiten zurücksetzen (SHIFT drücken um Ewigkeitssplitter einzubeziehen)",
       "resetPossibilities": "Möglichkeiten zurücksetzen",
@@ -765,8 +766,8 @@
         "name": "Animation der Chat-Fenster"
       },
       "autoDarknessPenalty": {
-        "hint": "If checked, the darkness penalty on a token will be set automatically based on the scene's darkness level, regions with adjust darkness level and light/dark sources.",
-        "name": "Automatic Darkness Penalties"
+        "hint": "Wende für Token automatisch die Dunkelheitsmalusse anhand der Dunkelheitseinstellung der Szene oder Regionen mit angepasster Dunkelheitsstufe und Licht/Dunkelheitsquellen an.",
+        "name": "Automatische Dunkelheitsmalusse"
       },
       "useColorBlindnessColors": {
         "hint": "Wenn angehakt, werden Achromatismus- freundliche (AKA Farbblindheit) rote und grüne Farben genutzt.",
@@ -843,7 +844,7 @@
       },
       "uniqueDN": {
         "hint": "Wenn diese Option aktiviert ist, wird bei einem Test mit mehreren Zielen der höchste MW aller Ziele zur Bestimmung des Ergebnisses beibehalten, wie von den Regeln vorgesehen.",
-        "name": "Einzelner MW"
+        "name": "Höchster  MW"
       },
       "unTarget": {
         "hint": "Zielauswahl wird nach dem Angriff standardmäßig zurückgesetzt. Deaktiviere diese Option falls du die Zielauswahl behalten möchtest.",
@@ -933,9 +934,9 @@
       "applySoak": "Schaden wegstecken anwenden",
       "applySoakTooltip": "Wende die Reduktion des Schadens dieses Angriffs an.",
       "applyStymied": "Angeschlagen",
-      "applyStymiedTooltip": "Klicke, um den Status \"Angeschlagen\" anzuwenden. Mit einem zweiten Klick weiter zu \"Sehr Angeschlagen\".",
+      "applyStymiedTooltip": "Klicke, um den Status \"Angeschlagen\" anzuwenden. Mit einem zweiten Klick weiter zu \"Sehr Angeschlagen\".<hr>SHIFT-Klicken um direkt Sehr Angeschlagen anzuwenden.",
       "applyVulnerable": "Verwundbar",
-      "applyVulnerableTooltip": "Klicke, um den Status \"Verwundbar\" anzuwenden. Mit einem zweiten Klick weiter zu \"Sehr Verwundbar\".",
+      "applyVulnerableTooltip": "Klicke, um den Status \"Verwundbar\" anzuwenden. Mit einem zweiten Klick weiter zu \"Sehr Verwundbar\".<hr>SHIFT-Klicken um direkt Sehr Verwundbar anzuwenden",
       "armor": "Rüstung",
       "armorAndShields": "Rüstung und Schilde",
       "attackOptions": "Angriffsoptionen",
@@ -1262,7 +1263,18 @@
       "veryStymied": "Sehr Angeschlagen",
       "veryVulnerable": "Sehr Verwundbar",
       "vulnerable": "Verwundbar",
-      "waiting": "Warten"
+      "waiting": "Warten",
+      "description": {
+        "disconnected": "Du kannst keine Widersprüche verursachen und auch keine Aktionen ausführen oder von Gegenständen profitieren die gegen die Axiome der aktuellen Zone verstoßen",
+        "stymied": "-2 auf alle Aktionen",
+        "veryStymied": "-4 auf alle Aktionen",
+        "vulnerable": "+2 auf alle Aktionen gegen dich",
+        "veryVulnerable": "+4 auf alle Aktionen gegen dich",
+        "aiming": "+4 auf Fernkampfangriff. Kann gehen und einfache Aktionen ausführen aber darf nicht laufen oder normale Aktionen ausführen",
+        "dim": "-2 auf Angriffe gegen dich",
+        "dark": "-4 auf Angriffe gegen dich",
+        "pitchBlack": "-6 auf Angriffe gegen dich"
+      }
     },
     "darknessModifiers": {
       "dim": "Dämmrig",
@@ -1415,16 +1427,16 @@
   "SCENE.FIELDS": {
     "flags.torgeternity": {
       "dimLightThreshold": {
-        "name": "Dim Light Threshold",
-        "hint": "A darkness threshold between 0.05 and 0.9. When the Scene darkness level exceeds this threshold Global Illumination is considered at least to be Dim Light when determining Darkness penalties."
+        "name": "Schwellenwert für Dämmrig",
+        "hint": "Ein Dunkelheitsschwellenwert zwischen 0,05 und 0,9. Sobald der Dunkelheitswert dieser Szene diesen Schwellenwert überschreitet, wird die allgemeine Beleuchtung mindestens als Dämmrige für Dunkelheitsmalusse angenommen."
       },
       "darkThreshold": {
-        "name": "Dark Threshold",
-        "hint": "A darkness threshold between 0.1 and 0.95. When the Scene darkness level exceeds this threshold Global Illumination is considered at least to be Darkness when determining Darkness penalties."
+        "name": "Schwellenwert für Dunkel",
+        "hint": "Ein Dunkelheitsschwellenwert zwischen 0,1 und 0,95. Sobald der Dunkelheitswert dieser Szene diesen Schwellenwert überschreitet, wird die allgemeine Beleuchtung mindestens als Dunkel für Dunkelheitsmalusse angenommen."
       },
       "pitchBlackThreshold": {
-        "label": "Pitch Black Threshold",
-        "hint": "A darkness threshold between 0.15 and 1. When the Scene darkness level exceeds this threshold Global Illumination is disabled and considered to be Pitch Black when determining Darkness penalties."
+        "label": "Schwellenwert für Pechschwarze Dunkelheit",
+        "hint": "Ein Dunkelheitsschwellenwert zwischen 0,15 und 1. Sobald der Dunkelheitswert dieser Szene diesen Schwellenwert überschreitet, wird die allgemeine Beleuchtung mindestens als Pechschwarze Dunkelheit für Dunkelheitsmalusse angenommen."
       }
     }
   },

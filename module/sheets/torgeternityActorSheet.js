@@ -63,6 +63,8 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
       removeOperator: TorgeternityActorSheet.#onRemoveOperator,
       removeGunner: TorgeternityActorSheet.#onRemoveGunner,
       resetPoss: TorgeternityActorSheet.#onResetPoss,
+      reduceShock: TorgeternityActorSheet.#onReduceShock,
+      showImage: TorgeternityActorSheet.#onShowImage,
     }
   }
 
@@ -139,6 +141,8 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
         if (gunner) gunner.apps[this.id] = this;
       }
     }
+    game.scenes.forEach(scene => scene.apps[this.id] = this);  // a scene config changes
+    game.scenes.apps.push(this); // change of viewed scene
     return super._onFirstRender(context, options);
   }
 
@@ -152,6 +156,9 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
         if (gunner) delete gunner.apps[this.id];
       }
     }
+    game.scenes.forEach(scene => delete scene.apps[this.id]);  // a scene config changes
+    const pos = game.scenes.apps.indexOf(this);
+    if (pos >= 0) game.scenes.apps.splice(pos, 1);
     super._onClose(options);
   }
 
@@ -198,6 +205,16 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
     context.tabs = this._prepareTabs(this.actor.type);
     context.systemFields = context.document.system.schema.fields;
     context.items = Array.from(context.document.items);
+    // Determine contradiction case for each item (Perks need isGeneralContradiction test)
+    const actorAxioms = this.actor.system.axioms;
+    const zoneAxioms = game.scenes.current?.torg.axioms;
+    for (const item of context.items) {
+      const failsActor = item.isContradiction(actorAxioms);
+      const failsCosm = item.isGeneralContradiction(game.scenes.current) || item.isContradiction(zoneAxioms);
+      item.contradictionCase = (failsActor && failsCosm) ? '4' : (failsActor || failsCosm) ? '1' : '';
+      //console.log(`${item.name} : actor ${failsActor}, cosm ${failsCosm} = "${item.contradictionCase}"`)
+    }
+
     context.showPiety = game.settings.get('torgeternity', 'showPiety');
     context.items.sort((a, b) => (a.sort || 0) - (b.sort || 0));
     context.editAttributes = this.actor.flags.torgeternity?.editAttributes ?? false;
@@ -222,9 +239,6 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
     context.specialability = context.items.filter(item => item.type === 'specialability');
     context.specialabilityRollable = context.items.filter(item => item.type === 'specialability-rollable');
     context.enhancement = context.items.filter(item => item.type === 'enhancement');
-    context.dramaCard = context.items.filter(item => item.type === 'dramaCard');
-    context.destinyCard = context.items.filter(item => item.type === 'destinyCard');
-    context.cosmCard = context.items.filter(item => item.type === 'cosmCard');
     context.vehicleAddOn = context.items.filter(item => item.type === 'vehicleAddOn');
     context.ammunitions = context.items.filter(item => item.type === 'ammunition');
     context.statusEffects = {};
@@ -278,9 +292,6 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
       'specialability',
       'specialabilityRollable',
       'enhancement',
-      'dramaCard',
-      'destinyCard',
-      'cosmCard',
       'vehicleAddOn',
     ]) {
       for (const item of context[type]) {
@@ -1106,11 +1117,11 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
   }
 
   /**
- *
- * @param {Event} event
- * @param {HTMLButtonElement} button
- * @this {TorgeternityActorSheet}
- */
+   *
+   * @param {Event} event
+   * @param {HTMLButtonElement} button
+   * @this {TorgeternityActorSheet}
+   */
   static async #onResetPoss(event, button) {
     await this.actor.update({ "system.other.possibilities.value": this.actor.system.other.possibilities.perAct });
     if (event.shiftKey) {
@@ -1123,6 +1134,20 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
       if (updates.length)
         await this.actor.updateEmbeddedDocuments('Item', updates);
     }
+  }
+
+  /**
+ * Reduces the Shock of an Actor:
+ * In a combat, it reduces the shock by 2 (Recovery)
+ * Out of combat, it removes ALL shock.
+ * 
+ * @param {Event} event
+ * @param {HTMLButtonElement} button
+ * @this {TorgeternityActorSheet}
+ */
+  static async #onReduceShock(event, button) {
+    const newShock = this.actor.inCombat ? Math.max(0, this.actor.system.shock.value - 2) : 0;
+    return this.actor.update({ "system.shock.value": newShock });
   }
 
   async deleteRace() {
@@ -1139,5 +1164,20 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
           .map(item => item.id),
       ]);
     }
+  }
+
+  /**
+ *
+ * @param {Event} event
+ * @param {HTMLButtonElement} button
+ * @this {TorgeternityActorSheet}
+ */
+  static #onShowImage(event, button) {
+    const doc = this.document;
+    return new foundry.applications.apps.ImagePopout({
+      src: doc.img,
+      uuid: doc.uuid,
+      window: { title: doc.token?.name ?? doc.prototypeToken?.name ?? doc.name },
+    }).render({ force: true })
   }
 }

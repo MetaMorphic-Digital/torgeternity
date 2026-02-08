@@ -12,10 +12,10 @@ export class MissileWeaponItemData extends BaseWeaponItemData {
   static defineSchema(subtype = 'missileweapon', attackwith = 'missileWeapons') {
     return {
       ...super.defineSchema(subtype, attackwith),
-      range: new fields.StringField({ initial: '' }),
+      range: new fields.StringField({ initial: '' }),  // "10 / 20 / 40"
       ammo: new fields.SchemaField({
         max: new fields.NumberField({ initial: 1, integer: true }),
-        value: new fields.NumberField({ initial: 1, integer: true }),
+        value: new fields.NumberField({ initial: 1, integer: true }),  // null = unlimited ammo
       }),
       loadedAmmo: new fields.DocumentIdField({ initial: null }),
       gunner: new fields.ForeignDocumentField(TorgeternityActor),

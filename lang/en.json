@@ -561,6 +561,7 @@
       "miracleRoll": "Miracle Roll",
       "openParty": "Open the party sheet",
       "psionicRoll": "Psionic Power Roll",
+      "reduceShock": "During combat, removes 2 Shock.<br>Out of combat, removes <em>all</em> shock.",
       "reload": "Reload weapon<p>(hold SHIFT for free reload)",
       "resetPoss": "Reset Possibilities (hold SHIFT to include Eternity Shards)",
       "resetPossibilities": "Reset Storm Knight Possibilities",
@@ -837,7 +838,7 @@
       },
       "uniqueDN": {
         "hint": "If checked, when a multi-target test is done, will keep the highest DN from all targets to determine outcome, as RAW.",
-        "name": "Unique DN"
+        "name": "Highest DN"
       },
       "unTarget": {
         "hint": "Targets are reseted after an attack by default. Uncheck if you want to keep them.",
@@ -927,9 +928,9 @@
       "applySoak": "Apply Soak",
       "applySoakTooltip": "Apply the soak reductions to the attack.",
       "applyStymied": "Stymied",
-      "applyStymiedTooltip": "Click to apply Stymied. Or Very Stymied if already Stymied.",
+      "applyStymiedTooltip": "Click to apply Stymied. Or Very Stymied if already Stymied.<hr>SHIFT click to immediately apply Very Stymied",
       "applyVulnerable": "Vulnerable",
-      "applyVulnerableTooltip": "Click to apply Vulnerable. Or Very Vulnerable if already Vulnerable.",
+      "applyVulnerableTooltip": "Click to apply Vulnerable. Or Very Vulnerable if already Vulnerable.<hr>SHIFT click to immediately apply Very Vulnerable",
       "armor": "Armor",
       "armorAndShields": "Armor and Shields",
       "attackOptions": "Attack Options",
@@ -1256,7 +1257,18 @@
       "veryStymied": "Very Stymied",
       "veryVulnerable": "Very Vulnerable",
       "vulnerable": "Vulnerable",
-      "waiting": "Waiting"
+      "waiting": "Waiting",
+      "description": {
+        "disconnected": "You can't cause Contradictions, and you can't take actions or gain benefits from tools that violate the axioms of the realm you're in",
+        "stymied": "-2 to all your actions",
+        "veryStymied": "-4 to all your actions",
+        "vulnerable": "+2 to all actions against you",
+        "veryVulnerable": "+4 to all actions against you",
+        "aiming": "+4 to ranged attack total. Can take simple actions and walk, but may not run or take regular actions",
+        "dim": "-2 on attacks against you",
+        "dark": "-4 on attacks against you",
+        "pitchBlack": "-6 on attacks against you"
+      }
     },
     "darknessModifiers": {
       "dim": "Dim",

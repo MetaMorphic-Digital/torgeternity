@@ -30,6 +30,7 @@ export default class TorgCombatant extends Combatant {
 
     await this.setFlag('world', 'turnTaken', value);
     if (value) {
+      // Turn has been taken
       await this.actor.toggleStatusEffect('waiting', { active: false });
       await this.clearCurrentBonus();
       await this.actor.decayEffects();

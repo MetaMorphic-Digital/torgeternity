@@ -27,6 +27,7 @@ export default class TorgeternityItemSheet extends foundry.applications.api.Hand
       itemDelete: TorgeternityItemSheet.#onItemDelete,
       toggleTraitEdit: TorgeternityItemSheet.#onToggleTraitEdit,
       resetPoss: TorgeternityItemSheet.#onResetPoss,
+      showImage: TorgeternityItemSheet.#onShowImage,
     },
   }
 
@@ -440,6 +441,21 @@ export default class TorgeternityItemSheet extends foundry.applications.api.Hand
     else if (this.item.type === 'psionicpower') context.axiom = 'social';
 
     return context;
+  }
+
+  /**
+ *
+ * @param {Event} event
+ * @param {HTMLButtonElement} button
+ * @this {TorgeternityActorSheet}
+ */
+  static #onShowImage(event, button) {
+    const doc = this.document;
+    return new foundry.applications.apps.ImagePopout({
+      src: doc.img,
+      uuid: doc.uuid,
+      window: { title: doc.token?.name ?? doc.prototypeToken?.name ?? doc.name },
+    }).render({ force: true })
   }
 }
 

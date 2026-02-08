@@ -7,16 +7,33 @@
   {{/if}}
   {{#with scenes.viewed}}
     <menu id="scene-navigation-viewed" class="scene-navigation-menu flexcol">
-      {{> ".scene"  }}
+      {{> ".scene" }}
     </menu>
   {{/with}}
+  {{#if scenes.levels}}
+    <menu id="scene-navigation-levels"
+      class="scene-levels scene-navigation-menu flexcol levels-{{ scenes.levels.length }}">
+      {{#each scenes.levels}}
+        <li class="level-row">
+          {{#with button}}
+            <button type="button" class="ui-control icon fa-solid {{ css }}" data-action="cycleLevel"
+              data-direction="{{ direction }}" aria-label="{{ label }}"></button>
+          {{/with}}
+          <div class="ui-control scene scene-level {{ css }}" data-scene-id="{{ sceneId }}" data-level-id="{{ id }}"
+            data-action="viewLevel">
+            <span class="ellipsis">{{ name }}</span>
+          </div>
+        </li>
+      {{/each}}
+    </menu>
+  {{/if}}
   <menu id="scene-navigation-active" class="scene-navigation-menu flexcol">
-    {{#each scenes.active }}
+    {{#each scenes.active}}
       {{> ".scene" }}
     {{/each}}
   </menu>
   <menu id="scene-navigation-inactive" class="scene-navigation-menu flexcol">
-    {{#each scenes.inactive }}
+    {{#each scenes.inactive as |scene|}}
       {{> ".scene" }}
     {{/each}}
   </menu>
@@ -41,9 +58,9 @@
     </div>
     {{#if users}}
       <ul class="scene-players">
-        {{#each users as |user|}}
-          <li class="scene-player" style="--color-bg:{{user.color}}; --color-border:{{user.border}}"
-            data-tooltip aria-label="{{user.name}}">{{user.letter}}</li>
+        {{#each users}}
+          <li class="scene-player" style="--color-bg: {{ color }}; --color-border: {{ border }}" data-tooltip
+            aria-label="{{ name }}">{{ letter }}</li>
         {{/each}}
       </ul>
     {{/if}}

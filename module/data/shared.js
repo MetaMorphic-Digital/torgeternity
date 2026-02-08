@@ -11,7 +11,7 @@ import { torgeternity } from '../config.js';
 export function makeSkillFields(unskilledUse, baseAttribute, groupName) {
   const fields = foundry.data.fields;
   return new fields.SchemaField({
-    adds: new fields.NumberField({ initial: 0, integer: true }),
+    adds: new fields.NumberField({ initial: 0, integer: true }),  // if null then untrained/not allowed
     baseAttribute: new fields.StringField({ initial: baseAttribute, choices: torgeternity.attributeTypes }),
     groupName: new fields.StringField({ initial: groupName }),
     isFav: new fields.BooleanField({ initial: false }),

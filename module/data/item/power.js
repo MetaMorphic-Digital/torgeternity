@@ -23,12 +23,12 @@ export class PowerItemData extends BaseItemData {
       duration: new fields.StringField({ initial: '' }),
       good: new fields.HTMLField({ initial: '', textSearch: true }),
       isAttack: new fields.BooleanField({ initial: false }),
-      modifier: new fields.NumberField({ integer: true }),
+      modifier: new fields.NumberField({ integer: true, initial: 0 }),
       outstanding: new fields.HTMLField({ initial: '', textSearch: true }),
       range: new fields.StringField({ initial: '' }),
       requiresConcentration: new fields.BooleanField({ initial: false }),
       skill: new fields.StringField({ initial: '' }),
-      skilllevel: new fields.StringField({ initial: '' }),
+      skilllevel: new fields.NumberField({ initial: 0, integer: true }),
       targetDefense: new fields.StringField({ initial: '' }),
     };
   }

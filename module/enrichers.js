@@ -253,13 +253,13 @@ async function _onClickInlineCondition(event) {
     const status = data.status;
     if (status === 'stymied' && options.active) {
       if (actor.hasStatusEffect('stymied')) {
-        actor.setVeryStymied();
+        actor.setVeryStymied(actor.uuid);
         continue;
       } else if (actor.hasStatusEffect('veryStymied'))
         continue;
     } else if (status === 'vulnerable' && options.active) {
       if (actor.hasStatusEffect('vulnerable')) {
-        actor.setVeryVulnerable();
+        actor.setVeryVulnerable(actor.uuid);
         continue;
       } else if (actor.hasStatusEffect('veryVulnerable'))
         continue;
