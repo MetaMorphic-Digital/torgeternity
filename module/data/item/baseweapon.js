@@ -11,11 +11,11 @@ export class BaseWeaponItemData extends GeneralItemData {
   static defineSchema(weapontype, attackWith) {
     return {
       ...super.defineSchema(weapontype),
-      ap: new fields.NumberField({ initial: 0, integer: true, nullable: false }),
+      ap: new fields.NumberField({ initial: 0, integer: true }),
       attackWith: new fields.StringField({ initial: attackWith }),
-      bonus: new fields.NumberField({ initial: 2, integer: true, nullable: false }),
+      bonus: new fields.NumberField({ initial: 2, integer: true }),
       chatNote: new fields.StringField({ initial: '' }),
-      damage: new fields.NumberField({ initial: 0, integer: true, nullable: false }),
+      damage: new fields.NumberField({ initial: 0, integer: true }),
       damageType: new fields.StringField({ initial: '' }),
       equipped: new fields.BooleanField({ initial: false }),
       minStrength: new fields.NumberField({ initial: null, integer: true }),
