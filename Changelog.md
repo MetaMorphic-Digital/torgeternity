@@ -9,7 +9,7 @@
   - Get "Rolled Bonus-Dice in advance" value in skill test working again (not rolled in chat card until test is a success).
 - When an Item triggers a skill check, put the item name on a separate line in the chat title.
   - Put "TM" as superscript after the item name if it is has the "Trademark Wpn" trait.
-- Ensure various data fields are Number not String, and make many of them NOT nullable (i.e. require a value).
+- Ensure various data fields are Number (integer) not String: `missileweapon.range`, `power.skillLevel`, `shield.minStrength`, `vehicle.topSpeed`, `vehicle.tough`
 - When adding a token to a Combat that has already started, display a **turn marker** under it if it is a member of the active faction.
 - Add a **recovery button** for Shock on Stormknight and Threat sheets:
   - **In combat**, it reduces the shock by 2 (_Recovery_)
