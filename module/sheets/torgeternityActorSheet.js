@@ -332,11 +332,11 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
   async _onDragStart(event) {
     const target = event.currentTarget;
     if (target.classList.contains('skill-roll'))
-      this._skillAttrDragStart(event) // a.skill-roll
+      this._onDragStartSkill(event) // a.skill-roll
     else if (target.classList.contains('interaction-attack') || target.classList.contains('unarmed-attack'))
-      this._interactionDragStart(event) // a.interaction-attack
+      this._onDragStartInteraction(event) // a.interaction-attack
     else if (target.dataset.effectUuid) {
-      const effect = await fromUuid(target.dataset.effectUuid);
+      const effect = await fromUuid(target.dataset.effectUuid); // might be on an Item
       event.dataTransfer.setData("text/plain", JSON.stringify(effect.toDragData()));
     } else
       return super._onDragStart(event) // a.item-name, threat: a.item
@@ -350,7 +350,7 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
    *
    * @param event
    */
-  _skillAttrDragStart(event) {
+  _onDragStartSkill(event) {
     const data = event.target.dataset;
     const skillAttrData = {
       type: data.testtype,
@@ -372,7 +372,7 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
    *
    * @param event
    */
-  _interactionDragStart(event) {
+  _onDragStartInteraction(event) {
     const skillNameKey = event.target.dataset.name;
     const skill = this.actor.system.skills[skillNameKey];
     const value = skill.value || (skill.adds + this.actor.system.attributes[skill.baseAttribute].value);
@@ -452,31 +452,31 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
   }
 
   /** @inheritdoc */
-  async _onDrop(event) {
+  async _onDropItem(event, item) {
     const actor = this.actor;
-    if (!actor.isOwner) return super._onDrop(event);
-
-    const data = foundry.applications.ux.TextEditor.getDragEventData(event);
-    const document = await fromUuid(data.uuid, { invalid: true });
-    if (!document) return super._onDrop(event);
+    if (!actor.isOwner) return super._onDropItem(event, item);
 
     // Maybe dropping currency, so merge with existing (if any)
-    if (document instanceof TorgeternityItem && document.type === 'currency') {
-      const currency = actor.items.find(it => it.name === document.name && it.system.cosm === document.system.cosm);
-      if (currency) return currency.update({ 'system.quantity': currency.system.quantity + document.system.quantity });
+    if (item.type === 'currency') {
+      const currency = actor.items.find(it => it.name === item.name && it.system.cosm === item.system.cosm);
+      if (currency) {
+        await currency.update({ 'system.quantity': currency.system.quantity + item.system.quantity });
+        return item;
+      }
       // not found, so allow creation of new Item to happen later.
+      return super._onDropItem(event, item);
     }
 
     // Maybe dropping an item with a price, so reduce currency
     const itemCost = game.settings.get('torgeternity', 'itemPurchaseCosm');
-    if (!event.shiftKey && document instanceof TorgeternityItem && itemCost !== 'free' && actor.type === 'stormknight') {
-      const price = Number(document.system?.price);
+    if (!event.shiftKey && itemCost !== 'free' && actor.type === 'stormknight') {
+      const price = Number(item.system?.price);
       let currency;
       if (price && price > 0) {
         let cosm, cosm2;
         switch (itemCost) {
           case 'playerCosm': cosm = actor.system.other.cosm; break;
-          case 'itemCosm': cosm = document.system.cosm; break;
+          case 'itemCosm': cosm = item.system.cosm; break;
           case 'activeScene':
             cosm = game.scenes.active.torg.cosm;
             if (game.scenes.active.torg.isMixed) cosm2 = game.scenes.active.torg.cosm2;
@@ -485,12 +485,12 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
             {
               const choice = await DialogV2.wait({
                 classes: ['torgeternity', 'themed', 'theme-dark'],
-                window: { title: game.i18n.format('torgeternity.itemPurchase.choice.title', { item: document.name, price }) },
+                window: { title: game.i18n.format('torgeternity.itemPurchase.choice.title', { item: item.name, price }) },
                 content: await foundry.applications.handlebars.renderTemplate('systems/torgeternity/templates/actors/currency-choice.hbs', {
                   config: CONFIG,
                   actor: actor,
                   currencies: actor.items.filter(it => it.type === 'currency'),
-                  item: document
+                  item: item
                 }),
                 buttons: [{
                   action: "choice",
@@ -498,11 +498,10 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
                   callback: (event, button, dialog) => button.form.elements.choice.value
                 }]
               });
-              if (!choice) return;  // selection aborted
+              if (!choice) return null;  // selection aborted
               if (choice === 'free') {
                 // No cost, so add the item to the actor.
-                // We can't call super._onDrop because 'event' has been lost due to showing  a dialog!
-                return super._onDropItem(event, document);
+                return super._onDropItem(event, item);
               }
               currency = actor.items.get(choice);
             }
@@ -513,108 +512,112 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
           // Not enough of 1 currency, so maybe try second currency
           if (cosm2) currency = actor.items.find(it => it.system.cosm === cosm2);
           if (!currency || price > currency.system.quantity) {
-            return ui.notifications.warn(game.i18n.format('torgeternity.notifications.insufficientFunds',
+            ui.notifications.warn(game.i18n.format('torgeternity.notifications.insufficientFunds',
               {
                 currency: currency?.name ?? game.i18n.localize(CONFIG.torgeternity.cosmTypes[cosm]),
                 quantity: currency?.system.quantity ?? 0,
-                item: document.name,
+                item: item.name,
                 price
               }));
+            return null;
           }
         }
         if (currency) {
           // It appears that 'await currency.update' prevents super._onDrop from working
-          await super._onDrop(event);
+          await super._onDropItem(event, item);
           ChatMessage.create({
             speaker: ChatMessage.getSpeaker({ actor }),
             owner: actor,
             content: game.i18n.format('torgeternity.chatText.itemPurchase', {
-              item: document.name,
+              item: item.name,
               price,
               currency: currency.name
             })
           });
-          return currency.update({ 'system.quantity': currency.system.quantity - price });
+          await currency.update({ 'system.quantity': currency.system.quantity - price });
+          return item;
         }
       }
     }
 
-    switch (actor.type) {
+    // Check for dropping race onto SK
+    if (actor.type === 'stormknight' && item.type === 'race') {
 
-      case 'stormknight':
-        // Check for dropping race onto SK
-        if (!(document instanceof TorgeternityItem) || document.type !== 'race') break;
+      await this.deleteRace();
 
-        await this.deleteRace();
+      // Add new race and racial abilities
+      let docs = await actor.createEmbeddedDocuments('Item', [
+        item.toObject(),
+        ...item.system.perksData,
+        ...item.system.customAttackData
+      ]);
+      console.log(docs);
 
-        // Add new race and racial abilities
-        let docs = await actor.createEmbeddedDocuments('Item', [
-          document.toObject(),
-          ...document.system.perksData,
-          ...document.system.customAttackData
-        ]);
-        console.log(docs);
+      // Mark items are being from the race
+      const racedoc = docs.shift();
+      for (const item of docs) {
+        await item.update({ 'system.transferenceID': racedoc.id })
+      }
 
-        // Mark items are being from the race
-        const racedoc = docs.shift();
-        for (const item of docs) {
-          item.update({ 'system.transferenceID': racedoc.id })
-        }
+      // Enforce attribute maximums
+      const updates = {};
+      for (const [key, value] of Object.entries(item.system.attributeMaximum)) {
+        if (actor.system.attributes[key].base <= value) continue;
 
-        // Enforce attribute maximums
-        const updates = {};
-        for (const [key, value] of Object.entries(document.system.attributeMaximum)) {
-          if (actor.system.attributes[key].base <= value) continue;
+        const proceed = await DialogV2.confirm({
+          window: { title: 'torgeternity.dialogWindow.raceDiminishAttribute.title' },
+          content: game.i18n.format(
+            'torgeternity.dialogWindow.raceDiminishAttribute.maintext',
+            { attribute: game.i18n.localize('torgeternity.attributes.' + key), }
+          ),
+          rejectClose: false,
+          modal: true,
+        });
+        if (proceed) updates[`system.attributes.${key}.base`] = value;
+      }
+      updates['system.details.sizeBonus'] = item.system.size;
 
-          const proceed = await DialogV2.confirm({
-            window: { title: 'torgeternity.dialogWindow.raceDiminishAttribute.title' },
-            content: game.i18n.format(
-              'torgeternity.dialogWindow.raceDiminishAttribute.maintext',
-              { attribute: game.i18n.localize('torgeternity.attributes.' + key), }
-            ),
-            rejectClose: false,
-            modal: true,
-          });
-          if (proceed) updates[`system.attributes.${key}.base`] = value;
-        }
-        updates['system.details.sizeBonus'] = document.system.size;
+      if (item.system.darkvision)
+        updates['prototypeToken.sight.visionMode'] = 'darkvision';
 
-        if (document.system.darkvision)
-          updates['prototypeToken.sight.visionMode'] = 'darkvision';
-
-        await actor.update(updates);
-        return;
-
-      case 'vehicle':
-        if (document instanceof Actor && (document.type === 'stormknight' || document.type === 'threat')) {
-
-          // Is it a driver or a gunner?
-          const target = event.target;
-          if (target.closest('.vehicle-operator')) {
-            // dropped document = driver
-            const skillValue = document?.system?.skills[actor.system.type.toLowerCase() + 'Vehicles']?.value ?? 0;
-            if (skillValue === 0) {
-              ui.notifications.warn(game.i18n.format('torgeternity.notifications.noCapacity', { a: document.name }));
-              return;
-            }
-            actor.update({ 'system.operator': document.id });
-          } else {
-            // Check for gunner
-            const weapon = actor.items.get(target.closest('li.vehicle-weapon-list')?.dataset?.itemId);
-            if (weapon) {
-              const skillValue = document?.system?.skills[weapon.system.attackWith]?.value ?? 0;
-              if (skillValue === 0) {
-                ui.notifications.warn(game.i18n.format('torgeternity.notifications.noCapacity', { a: document.name }));
-                return;
-              }
-              weapon.update({ 'system.gunner': document.id });
-            }
-          }
-          return;
-        }
+      await actor.update(updates);
+      return item;
     }
 
-    return super._onDrop(event);
+    return super._onDropItem(event, item);
+  }
+
+  /** @inheritdoc */
+  async _onDropActor(event, actor) {
+    if (!this.actor.isOwner) return null;
+
+    // Only support drop of Stormknight or Threat ONTO a Vehicle
+    if (this.actor.type !== 'vehicle') return null;
+    if (actor.type !== 'stormknight' && actor.type !== 'threat') return null;
+
+    // Is it a driver or a gunner?
+    const target = event.target;
+    if (target.closest('.vehicle-operator')) {
+      // dropped document = driver
+      const skillValue = actor?.system?.skills[this.actor.system.type.toLowerCase() + 'Vehicles']?.value ?? 0;
+      if (skillValue === 0) {
+        ui.notifications.warn(game.i18n.format('torgeternity.notifications.noCapacity', { a: actor.name }));
+        return null;
+      }
+      await this.actor.update({ 'system.operator': actor.id });
+    } else {
+      // Check for gunner
+      const weapon = this.actor.items.get(target.closest('li.vehicle-weapon-list')?.dataset?.itemId);
+      if (weapon) {
+        const skillValue = actor?.system?.skills[weapon.system.attackWith]?.value ?? 0;
+        if (skillValue === 0) {
+          ui.notifications.warn(game.i18n.format('torgeternity.notifications.noCapacity', { a: actor.name }));
+          return null;
+        }
+        await weapon.update({ 'system.gunner': actor.id });
+      }
+    }
+    return actor;
   }
 
   static async #onSubmitActorForm(event, form, formData, options) {
