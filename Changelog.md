@@ -1,6 +1,6 @@
 # TORG Eternity Changelog
 
-## NEXT
+## NEXT - Active Effect Revamp
 
 - Reorganise the drag/drop code in the Actor sheet to simplify it.
 - **Active Effects**
@@ -10,6 +10,7 @@
   - `Apply Effect on Attack` and `Apply Effect on Outcome` no longer works on disabled AEs.
   - AEs with `Apply Effect on Attack` and `Apply Effect on Outcome` are NOT applied to the owning actor.
   - Clear Torg-specific AE flags when copying an AE to a target.
+  - Do not offer to transfer AEs which only have changes for `test.X` (and do not transfer `test.X` changes regardless)
 
 ## 13.21.0 - BD, Recovery, Contradictions, Blast weapons, Portraits
 
