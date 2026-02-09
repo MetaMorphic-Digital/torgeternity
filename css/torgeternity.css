@@ -576,8 +576,8 @@ dialog.torgeternity:not(.actor, .item) .window-content,
     }
 
     input {
-      width: 30px;
-      height: 20px;
+      width: 3em;
+      height: 1.7em;
       text-align: center;
 
 
@@ -1442,6 +1442,10 @@ dialog.torgeternity:not(.actor, .item) .window-content,
       }
     }
 
+    .vehicle-operator {
+      margin-top: 0em;
+    }
+
     li.vehicle-weapon-header,
     li.add-on-header {
       display: flex;
@@ -1543,6 +1547,10 @@ dialog.torgeternity:not(.actor, .item) .window-content,
       font-family: "Signika";
       font-size: 12px;
       text-align: center;
+    }
+
+    li.effect {
+      font-family: "Signika";
     }
 
     li.vehicle-weapon-list {

@@ -58,6 +58,23 @@
       </tbody>
     </table>
   </div>
+
+  {{#if toggleEffects}}
+    <div class="threat-block toggleEffects">
+      <span>{{localize "torgeternity.sheetLabels.effects"}}:</span>
+      {{#each toggleEffects as |effect id|}}
+        <li class="item effect" data-effect-uuid="{{effect.uuid}}">
+          <a class="effect-control effect-toggle {{#if effect.disabled}}effectDisabled{{/if}}"
+            data-action="effectControl" data-control="toggle"
+            data-tooltip="{{localize 'torgeternity.iconeTitles.toggle'}}"
+            {{disabled (not @root.editable)}}>
+            <span class="item-name">{{effect.name}}</span>
+          </a>
+        </li>
+      {{/each}}
+    </div>
+  {{/if}}
+
   <h2>{{localize "torgeternity.sheetLabels.operator"}}</h2>
   <table class="groove-borders left-align vehicle-operator">
     <tr>
