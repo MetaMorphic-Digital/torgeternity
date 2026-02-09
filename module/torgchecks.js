@@ -397,14 +397,15 @@ export async function renderSkillChat(test) {
     test.showApplySoak = (test.testType === 'soak' && target.soakWounds);
 
     // Show the "Apply Effects" button if the test has an effect that can be applied
+    test.effects = testActor.effects.filter(ef => ef.appliesToTest(test.result, test.attackTraits, target?.defenseTraits)).map(ef => ef.uuid);
     if (testItem) {
-      test.effects = testItem.effects.filter(ef => ef.appliesToTest(test.result, test.attackTraits, target?.defenseTraits)).map(ef => ef.uuid);
+      test.effects = test.effects.concat(testItem.effects.filter(ef => ef.appliesToTest(test.result, test.attackTraits, target?.defenseTraits)).map(ef => ef.uuid));
       if (testItem.system?.loadedAmmo) {
         const ammo = testActor.items.get(testItem.system.loadedAmmo);
         if (ammo) test.effects.push(...ammo.effects.filter(ef => ef.appliesToTest(result, test.attackTraits, target?.defenseTraits)).map(ef => ef.uuid));
       }
-      target.showApplyEffects = (test.effects.length > 0);
     }
+    target.showApplyEffects = (test.effects.length > 0);
 
     // Approved Action Processing
     test.successfulDefendApprovedAction = false;

@@ -3,7 +3,10 @@
 ## NEXT
 
 - Reorganise the drag/drop code in the Actor sheet to simplify it.
-- New AE option to have active effects as toggles in the "Attacks & Powers" section of the Actor Sheet
+- **Active Effects**
+  - Always show the Torg tab in the Active Effects editor.
+  - New AE option to show the Active Effect as a toggle in the "Attacks & Powers" section of the Actor Sheet.
+  - Allow AE directly on an Actor to affect attacks (not just AE on owned Items).
 
 ## 13.21.0 - BD, Recovery, Contradictions, Blast weapons, Portraits
 
