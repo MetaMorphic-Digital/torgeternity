@@ -83,6 +83,12 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
     return this.parent.name;
   }
 
+  /** @inheritDoc */
+  get active() {
+    // Don't apply the AE to the owning actor if it is being transferred on an attack
+    return !this.system.transferOnAttack && this.system.transferOnOutcome === null && super.active;
+  }
+
   /**
    * Should this effect be transferred to the target on a successful attack?
    * @param {TestResult} result 
@@ -90,9 +96,25 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
    * @param {Array<String> | undefined} defendTraits array of traits on the target of the test
    */
   appliesToTest(result, attackTraits, defendTraits) {
-    return ((this.system.transferOnAttack && result >= TestResult.STANDARD) || (this.system.transferOnOutcome === result)) &&
+    return (!this.disabled &&
+      (this.system.transferOnAttack && result >= TestResult.STANDARD) || (this.system.transferOnOutcome === result)) &&
       testTraits(this.system.applyIfAttackTrait, attackTraits) &&
       testTraits(this.system.applyIfDefendTrait, defendTraits);
+  }
+
+  /**
+   * Return a copy of this object with the various "attack" traits cleared.
+   */
+  copyForTarget() {
+    let fx = this.toObject();
+    return Object.assign(fx, {
+      disabled: false,
+      system: {
+        transferOnAttack: false,
+        transferOnOutcome: null,
+        combatToggle: false,
+      }
+    });
   }
 }
 

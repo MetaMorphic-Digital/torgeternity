@@ -673,11 +673,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
 
     // Transfer Effects from the Weapon (& Ammo) to the target.
     const effects = test.effects.map(uuid => {
-      let obj = fromUuidSync(uuid, { strict: false });
-      if (!obj) return undefined;
-      let fx = obj.toObject();
-      fx.disabled = false;
-      return fx;
+      return fromUuidSync(uuid, { strict: false })?.copyForTarget();
     }).filter(ef => ef !== undefined);
 
     if (effects.length)

@@ -23,6 +23,7 @@ export class TorgActiveEffectData extends (foundry.data.ActiveEffectTypeDataMode
         transferOnAttack: new fields.BooleanField({ initial: false, }),
         transferOnOutcome: new fields.NumberField({
           choices: CONFIG.torgeternity.testOutcomeLabel,
+          initial: null,
           integer: true,
           nullable: true,
         }),

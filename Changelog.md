@@ -7,6 +7,9 @@
   - Always show the Torg tab in the Active Effects editor.
   - New AE option to show the Active Effect as a toggle in the "Attacks & Powers" section of the Actor Sheet.
   - Allow AE directly on an Actor to affect attacks (not just AE on owned Items).
+  - `Apply Effect on Attack` and `Apply Effect on Outcome` no longer works on disabled AEs.
+  - AEs with `Apply Effect on Attack` and `Apply Effect on Outcome` are NOT applied to the owning actor.
+  - Clear Torg-specific AE flags when copying an AE to a target.
 
 ## 13.21.0 - BD, Recovery, Contradictions, Blast weapons, Portraits
 
