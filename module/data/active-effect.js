@@ -39,4 +39,9 @@ export class TorgActiveEffectData extends (foundry.data.ActiveEffectTypeDataMode
     if (source.applyIfDefendTrait) source.applyIfDefendTrait = source.applyIfDefendTrait.map(t => (t === 'supernnaturalEvil') ? 'supernaturalEvil' : t)
     return super.migrateData(source);
   }
+
+  get isSuppressed() {
+    // Don't apply the AE to the owning actor if it is being transferred on an attack
+    return this.transferOnAttack || this.transferOnOutcome !== null;
+  }
 }

@@ -83,12 +83,6 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
     return this.parent.name;
   }
 
-  /** @inheritDoc */
-  get active() {
-    // Don't apply the AE to the owning actor if it is being transferred on an attack
-    return !this.system.transferOnAttack && this.system.transferOnOutcome === null && super.active;
-  }
-
   /**
    * Should this effect be transferred to the target on a successful attack?
    * @param {TestResult} result 
