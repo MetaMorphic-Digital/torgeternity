@@ -103,17 +103,28 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
   }
 
   /**
-   * Return a copy of this object with the various "attack" traits cleared.
+   * @returns {Boolean} true if this effect has at least one change which is not merely changing the test.
+   */
+  get isTransferrable() {
+    return !this.disabled &&
+      (this.system.transferOnAttack || this.system.transferOnOutcome) &&
+      this.changes.find(change => !change.key.startsWith('test.'));
+  }
+  static blank;
+
+  /**
+   * Return a copy of this object with the various "attack" traits cleared,
+   * and any 'test.*' changes removed from it.
    */
   copyForTarget() {
+    if (!this.blank) this.blank = new TorgActiveEffect({ name: "blank" });
+
     let fx = this.toObject();
+    fx.changes = fx.changes.filter(change => !change.key.startsWith('test.'));
     return Object.assign(fx, {
       disabled: false,
-      system: {
-        transferOnAttack: false,
-        transferOnOutcome: null,
-        combatToggle: false,
-      }
+      system: this.blank.system,
+      origin: this.parent.uuid,
     });
   }
 }
