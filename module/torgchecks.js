@@ -405,7 +405,7 @@ export async function renderSkillChat(test) {
         if (ammo) test.effects.push(...ammo.effects.filter(ef => ef.appliesToTest(result, test.attackTraits, target?.defenseTraits)).map(ef => ef.uuid));
       }
     }
-    target.showApplyEffects = test.effects.map(fx => fromUuidSync(fx)).find(fx => fx.isTransferrable);
+    target.showApplyEffects = test.effects.map(fx => fromUuidSync(fx)).find(fx => fx.modifiesTarget);
 
     // Approved Action Processing
     test.successfulDefendApprovedAction = false;

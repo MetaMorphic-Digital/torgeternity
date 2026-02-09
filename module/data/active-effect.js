@@ -40,6 +40,10 @@ export class TorgActiveEffectData extends (foundry.data.ActiveEffectTypeDataMode
     return super.migrateData(source);
   }
 
+  /**
+   * Suppress the ActiveEffect if it is transferrable to the target.
+   * @type {boolean}
+   */
   get isSuppressed() {
     // Don't apply the AE to the owning actor if it is being transferred on an attack
     return this.transferOnAttack || this.transferOnOutcome !== null;

@@ -97,9 +97,10 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
   }
 
   /**
-   * @returns {Boolean} true if this effect has at least one change which is not merely changing the test.
+   * Return if this effect has at least one change which is not merely changing the test.
+   * @type {boolean}
    */
-  get isTransferrable() {
+  get modifiesTarget() {
     return !this.disabled &&
       (this.system.transferOnAttack || this.system.transferOnOutcome) &&
       this.changes.find(change => !change.key.startsWith('test.'));
