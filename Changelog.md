@@ -1,5 +1,10 @@
 # TORG Eternity Changelog
 
+## NEXT
+
+- Reorganise the drag/drop code in the Actor sheet to simplify it.
+- New AE option to have active effects as toggles in the "Attacks & Powers" section of the Actor Sheet
+
 ## 13.21.0 - BD, Recovery, Contradictions, Blast weapons, Portraits
 
 - **Bonus Die**:

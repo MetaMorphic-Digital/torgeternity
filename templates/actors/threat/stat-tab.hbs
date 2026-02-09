@@ -369,6 +369,23 @@
       </div>
     </div>
 
+    {{#if toggleEffects}}
+      <div class="threat-section-effects">
+        <div class="section-bar">{{localize 'torgeternity.sheetLabels.effects'}}</div>
+        <div class="threat-block toggleEffects">
+          {{#each toggleEffects as |effect id|}}
+            <li class="item effect" data-effect-uuid="{{effect.uuid}}">
+              <a class="effect-control effect-toggle {{#if effect.disabled}}effectDisabled{{/if}}"
+                data-action="effectControl" data-control="toggle"
+                data-tooltip="{{localize 'torgeternity.iconeTitles.toggle'}}"
+                {{disabled (not @root.editable)}}>
+                <span class="item-name">{{effect.name}}</span>
+              </a>
+            </li>
+          {{/each}}
+        </div>
+    {{/if}}
+
     <div class="threat-section-skills">
       <div class="section-bar">
         {{localize 'torgeternity.sheetLabels.skills'}}

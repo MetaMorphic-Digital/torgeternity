@@ -1074,6 +1074,18 @@ dialog.torgeternity:not(.actor, .item) .window-content,
       }
     }
 
+    .toggleEffects {
+      list-style: none;
+      margin-bottom: 1em;
+      display: flex;
+      flex-wrap: wrap;
+      column-gap: 1em;
+
+      .effectDisabled {
+        text-decoration: line-through;
+      }
+    }
+
     .perks-list,
     .eternityshards-list,
     .weapons-list {
@@ -1094,6 +1106,10 @@ dialog.torgeternity:not(.actor, .item) .window-content,
         font-size: 13px;
         margin: 1px;
         padding: 1px;
+
+        &.effect {
+          border-top: none;
+        }
 
         .item-name {
           align-self: center;

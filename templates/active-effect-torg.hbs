@@ -1,6 +1,7 @@
 <section class="tab {{#if tab.active}} active{{/if}}" data-group="{{tab.group}}" data-tab="{{tab.id}}">
   {{formGroup systemFields.transferOnAttack value=source.system.transferOnAttack rootId=rootId localize=true}}
   {{formGroup systemFields.transferOnOutcome value=source.system.transferOnOutcome rootId=rootId localize=true}}
+  {{formGroup systemFields.combatToggle value=source.system.combatToggle rootId=rootId localize=true}}
 
   {{formGroup systemFields.applyIfAttackTrait value=source.system.applyIfAttackTrait rootId=rootId localize=true}}
   {{formGroup systemFields.applyIfDefendTrait value=source.system.applyIfDefendTrait rootId=rootId localize=true}}
