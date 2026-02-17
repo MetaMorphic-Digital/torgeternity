@@ -14,7 +14,7 @@
 - **Combined Actions**
   - Provide an additional line in the skill test dialog to allow the number of helpers to be specified.
   - The Torg Value for the number of helpers will be added as a bonus to the skill check.
-  - A checkbox is also provided to apply the bonus to damage as well the skill check (e.g. for Hordes).
+  - When performing an attack, a checkbox is also provided to apply the bonus to damage as well the skill check (e.g. for Hordes).
 
 ### Translations
 

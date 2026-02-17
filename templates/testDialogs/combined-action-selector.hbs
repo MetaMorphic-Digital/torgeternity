@@ -4,7 +4,9 @@
   <input type="number" data-dtype="Number" id="combActHelpers" name="combinedAction.helpers"
     data-tooltip="torgeternity.sheetLabels.combinedAction.helpersHint" value="{{test.combinedAction.helpers}}" />
   <input class="toggle" type="checkbox" data-dtype="Boolean" id="combActDamage" name="combinedAction.forDamage"
+    {{#if test.attackOptions}}
     {{checked test.combinedAction.forDamage}} />
   <label for="combActDamage"
     data-tooltip="torgeternity.sheetLabels.combinedAction.damageHint">{{localize 'torgeternity.sheetLabels.combinedAction.damage'}}</label>
+  {{/if}}
 </fieldset>
