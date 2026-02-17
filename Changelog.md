@@ -16,6 +16,22 @@
   - The Torg Value for the number of helpers will be added as a bonus to the skill check.
   - A checkbox is also provided to apply the bonus to damage as well the skill check (e.g. for Hordes).
 
+### Translations
+
+```
+{
+  "torgeternity.chatText.check.modifiercombinedAction": "Combined Action",
+  "torgeternity.sheetLabels.combinedAction": {
+    "title": "Combined Action",
+    "helpers": "Num. Helpers",
+    "helpersHint": "Enter the number of helpers, and the Torg Value bonus will be added to the skill check",
+    "damage": "+damage",
+    "damageHint": "Also apply the Torg Value bonus to the damage inflicted by this attack"
+  }
+}
+```
+
+
 ## 13.21.0 - BD, Recovery, Contradictions, Blast weapons, Portraits
 
 - **Bonus Die**:
