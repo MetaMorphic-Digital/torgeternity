@@ -1,6 +1,6 @@
 # TORG Eternity Changelog
 
-## NEXT - Active Effect Revamp, Combined Actions
+## 13.22.0 - Active Effect Revamp, Combined Actions
 
 - Reorganise the drag/drop code in the Actor sheet to simplify it.
 - The Skill Check Dialog automatically caters for different length strings in the different supported languages.
@@ -17,26 +17,6 @@
   - The number of participants defaults to the number of selected (not targeted) tokens, minimum 1 (primarily for GM use).
   - The Torg Value for the number of participants will be added as a bonus to the skill check.
   - When performing an attack, a checkbox is also provided to apply the bonus to damage as well the skill check (e.g. for Hordes).
-
-### Translations
-
-```
-{
-  "torgeternity.chatText.check.modifiercombinedAction": "Combined Action",
-  "torgeternity.sheetLabels.combinedAction": {
-    "title": "Combined Action",
-    "participants": "Participants",
-    "participantsHint": "Enter the number of participants, and the Torg Value bonus will be added to the skill check",
-    "damage": "+damage",
-    "damageHint": "Also apply the Torg Value bonus to the damage inflicted by this attack"
-  }
-  "torgeternity.activeEffect.combatToggle": {
-    "label": "Display as Combat Toggle",
-    "hint": "DIsplay this effect in the Attacks and Powers section of the Actor sheet for quicker access to toggling its state"
-  }
-}
-```
-
 
 ## 13.21.0 - BD, Recovery, Contradictions, Blast weapons, Portraits
 
