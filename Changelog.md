@@ -1,6 +1,6 @@
 # TORG Eternity Changelog
 
-## 13.22.0 - Active Effect Revamp, Combined Actions
+## 13.22.0 - Active Effect Revamp & Combined Actions
 
 - Reorganise the drag/drop code in the Actor sheet to simplify it.
 - The Skill Check Dialog automatically caters for different length strings in the different supported languages.
