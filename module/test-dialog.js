@@ -61,7 +61,7 @@ const DEFAULT_TEST = {
   applySize: false,
   chatNote: '',
   combinedAction: {
-    participants: 1,
+    participants: null,
     torgBonus: 0,
     forDamage: false
   }
@@ -216,6 +216,7 @@ export class TestDialog extends HandlebarsApplicationMixin(ApplicationV2) {
     context.test.targetPresent = !!targets.length;
     const MULTITARGET = [0, 0, -2, -4, -6, -8, -10];
     context.test.targetsModifier ||= MULTITARGET[testItem?.hasBlastTrait ? 1 : targets.length] ?? 0;
+    context.test.combinedAction.participants ??= game.canvas?.tokens?.controlled?.length || 1;
 
     if (context.test.targetPresent && context.test.testType !== 'soak') {
       context.test.targetAll = targets.map(token => oneTestTarget(token, this.test.applySize));

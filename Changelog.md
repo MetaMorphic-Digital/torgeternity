@@ -3,6 +3,7 @@
 ## NEXT - Active Effect Revamp, Combined Actions
 
 - Reorganise the drag/drop code in the Actor sheet to simplify it.
+- The Skill Check Dialog automatically caters for different length strings in the different supported languages.
 - **Active Effects**
   - Always show the Torg tab in the Active Effects editor.
   - New AE option to show the Active Effect as a toggle in the "Attacks & Powers" section of the Actor Sheet.
@@ -12,7 +13,8 @@
   - Clear Torg-specific AE flags when copying an AE to a target.
   - Do not offer to transfer AEs which only have changes for `test.X` (and do not transfer `test.X` changes regardless)
 - **Combined Actions**
-  - Provide an additional line in the skill test dialog to allow the number of participants to be specified (default 1).
+  - Provide an additional line in the skill test dialog to allow the number of participants to be specified.
+  - The number of participants defaults to the number of selected (not targeted) tokens, minimum 1 (primarily for GM use).
   - The Torg Value for the number of participants will be added as a bonus to the skill check.
   - When performing an attack, a checkbox is also provided to apply the bonus to damage as well the skill check (e.g. for Hordes).
 
