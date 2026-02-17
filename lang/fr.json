@@ -37,6 +37,10 @@
           "label": "Appliquer l'Effet correspondant au degré de réussite",
           "hint": "Appliquer l'Effet sur le Token ciblé correspondant au degré de réussite du test impliquant cet objet"
         },
+        "combatToggle": {
+          "label": "Afficher/Masquer avec les attaques",
+          "hint": "Afficher cet effet dans la section Attaques de la feuille de personnage pour un accés rapide à la commutation Activation/Désactivation "
+        },
         "applyIfAttackTrait": {
           "label": "Appliquer le trait d'attaque",
           "hint": "Appliquer l'Effet uniquement si le Token attaquant possède l'un de ces traits"
@@ -106,6 +110,7 @@
           "allOutAttack": "Attaque totale",
           "blindFire": "Tir au jugé",
           "calledShot": "Attaque ciblée",
+          "combinedAction": "Action combinée",
           "concentrating": "Concentration",
           "darkness": "Obscurité",
           "heavyBurst": "Rafale nourrie",
@@ -962,6 +967,13 @@
       "clearance": "Habilitation",
       "collision": "Collision",
       "combatSkills": "Combat",
+      "combinedAction": {
+        "title": "Action combinée",
+        "participants": "Participants",
+        "participantsHint": "Entrer le nombre de participants de l'Action combinée, et le bonus sera ajouté à la résolution du test",
+        "damage": "+dom.",
+        "damageHint": "Applique également le bonus aux dégats de cette attaque"
+      },
       "concealment": "Dissimulation",
       "conditions": "Conditions",
       "cosm": "Cosm",
