@@ -33,7 +33,7 @@
         },
         "combatToggle": {
           "label": "Display as Combat Toggle",
-          "hint": "DIsplay this effect in the Attacks and Powers section of the Actor sheet for quicker access to toggling its state"
+          "hint": "Display this effect in the Attacks and Powers section of the Actor sheet for quicker access to toggling its state"
         },
         "applyIfAttackTrait": {
           "label": "Apply If Attack Trait",

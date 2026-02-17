@@ -28,6 +28,10 @@
     "damage": "+damage",
     "damageHint": "Also apply the Torg Value bonus to the damage inflicted by this attack"
   }
+  "torgeternity.activeEffect.combatToggle": {
+    "label": "Display as Combat Toggle",
+    "hint": "DIsplay this effect in the Attacks and Powers section of the Actor sheet for quicker access to toggling its state"
+  }
 }
 ```
 
