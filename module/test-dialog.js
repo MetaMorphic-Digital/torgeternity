@@ -231,9 +231,8 @@ export class TestDialog extends HandlebarsApplicationMixin(ApplicationV2) {
     }
 
     // Maybe there is an explicit amount of damage
-    if (this.test.damage)
-      for (const target of context.test.targetAll)
-        target.damage = this.test.damage;
+    for (const target of context.test.targetAll)
+      target.damage = this.test.damage ?? 0;
 
     context.test.hasModifiers =
       (context.test?.woundModifier ||
