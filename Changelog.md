@@ -1,6 +1,6 @@
 # TORG Eternity Changelog
 
-## NEXT - Active Effect Revamp
+## NEXT - Active Effect Revamp, Combined Actions
 
 - Reorganise the drag/drop code in the Actor sheet to simplify it.
 - **Active Effects**
@@ -11,6 +11,10 @@
   - AEs with `Apply Effect on Attack` and `Apply Effect on Outcome` are NOT applied to the owning actor.
   - Clear Torg-specific AE flags when copying an AE to a target.
   - Do not offer to transfer AEs which only have changes for `test.X` (and do not transfer `test.X` changes regardless)
+- **Combined Actions**
+  - Provide an additional line in the skill test dialog to allow the number of helpers to be specified.
+  - The Torg Value for the number of helpers will be added as a bonus to the skill check.
+  - A checkbox is also provided to apply the bonus to damage as well the skill check (e.g. for Hordes).
 
 ## 13.21.0 - BD, Recovery, Contradictions, Blast weapons, Portraits
 

@@ -60,6 +60,10 @@ const DEFAULT_TEST = {
   isAttack: false,
   applySize: false,
   chatNote: '',
+  combinedAction: {
+    helpers: 0,
+    forDamage: false
+  }
 }
 
 export class TestDialog extends HandlebarsApplicationMixin(ApplicationV2) {
@@ -86,7 +90,7 @@ export class TestDialog extends HandlebarsApplicationMixin(ApplicationV2) {
   }
 
   get title() {
-    let label = TestDialogLabel(this.test);
+    let label = TestDialogLabel(this.test, false);
     // if (this.itemId) label = fromUuidSync(this.actor)?.items.get(this.itemId)?.name;
     return label ?? 'Skill Test';
   }
@@ -419,8 +423,13 @@ export function oneTestTarget(token, applySize) {
   }
 }
 
-
-export function TestDialogLabel(test) {
+/**
+ * 
+ * @param {Object} test The Label for this test will be generated
+ * @param {Boolean} multiline Whether a multiline label should be generated
+ * @returns {String} A label for the test.
+ */
+export function TestDialogLabel(test, multiline) {
   let result;
 
   switch (test.testType) {
@@ -466,7 +475,10 @@ export function TestDialogLabel(test) {
   }
   if (test.itemId) {
     const item = fromUuidSync(test.actor, { strict: false })?.items.get(test.itemId);
-    if (item) result += `<br>(${item.name}${item.system?.traits?.has('trademark') ? '\u2122' : ''})`;
+    if (item) {
+      result +=
+        `${multiline ? '<br>' : ' '}(${item.name}${item.system?.traits?.has('trademark') ? '\u2122' : ''})`;
+    }
   }
   return result;
 }

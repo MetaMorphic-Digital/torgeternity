@@ -75,7 +75,7 @@ export async function renderSkillChat(test) {
     // Check to see if we already have a chat title from a chat card roll. If not, Set title for Chat Message in test.chatTitle //
     //
     if (!test.chatTitle) {
-      test.chatTitle = TestDialogLabel(test);
+      test.chatTitle = TestDialogLabel(test, true);
     }
 
     //
@@ -343,6 +343,12 @@ export async function renderSkillChat(test) {
       modifiers.push(modifierString('torgeternity.stats.speedModifier', test.speedModifier));
     }
 
+    if (test.combinedAction.helpers > 0) {
+      const modifier = getTorgValue(test.combinedAction.helpers);
+      test.modifiers += modifier;
+      modifiers.push(modifierString('torgeternity.chatText.check.modifier.combinedAction', modifier));
+    }
+
     if (modifiers.length) {
       test.modifierText = `<p>${modifiers.sort().join('<br>')}</p>`;
     }
@@ -525,6 +531,9 @@ export async function renderSkillChat(test) {
       // add additional Damage from roll dialogue
       if (test?.additionalDamage && !test.explicitBonus) {
         adjustedDamage += test?.additionalDamage;
+      }
+      if (test.combinedAction.forDamage && test.combinedAction.helpers > 0) {
+        adjustedDamage += getTorgValue(test.combinedAction.helpers);
       }
 
       // Check for whether a target is present and turn on display of damage sub-label

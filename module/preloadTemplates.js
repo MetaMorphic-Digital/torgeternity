@@ -47,6 +47,7 @@ export const preloadTemplates = async function () {
     'systems/torgeternity/templates/testDialogs/fixed-modifiers.hbs',
     'systems/torgeternity/templates/testDialogs/modifiers-table.hbs',
     'systems/torgeternity/templates/testDialogs/movement-penalty-selector.hbs',
+    'systems/torgeternity/templates/testDialogs/combined-action-selector.hbs',
     'systems/torgeternity/templates/testDialogs/multi-action-selector.hbs',
     'systems/torgeternity/templates/testDialogs/multi-target-selector.hbs',
     'systems/torgeternity/templates/testDialogs/target-options.hbs',

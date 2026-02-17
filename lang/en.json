@@ -104,6 +104,7 @@
           "allOutAttack": "All out Attack",
           "blindFire": "Blind Fire",
           "calledShot": "Called Shot",
+          "combinedAction": "Combined Action",
           "concentrating": "Concentrating",
           "darkness": "Darkness",
           "heavyBurst": "Heavy Burst",
@@ -960,6 +961,13 @@
       "clearance": "Clearance",
       "collision": "Collision",
       "combatSkills": "Combat",
+      "combinedAction": {
+        "title": "Combined Action",
+        "helpers": "Num. Helpers",
+        "helpersHint": "Enter the number of helpers, and the Torg Value bonus will be added to the skill check",
+        "damage": "+damage",
+        "damageHint": "Also apply the Torg Value bonus to the damage inflicted by this attack"
+      },
       "concealment": "Concealment",
       "conditions": "Conditions",
       "cosm": "Cosm",

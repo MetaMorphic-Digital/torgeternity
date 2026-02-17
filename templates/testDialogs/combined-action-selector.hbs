@@ -1,0 +1,9 @@
+<fieldset>
+  <legend>{{localize "torgeternity.sheetLabels.combinedAction.title"}}</legend>
+  <label for="combActHelpers">{{localize 'torgeternity.sheetLabels.combinedAction.helpers'}}</label>
+  <input type="number" data-dtype="Number" id="combActHelpers" name="combinedAction.helpers"
+    data-tooltip="torgeternity.sheetLabels.combinedAction.helpersHint" value="{{test.combinedAction.helpers}}" />
+  <input class="toggle" type="checkbox" data-dtype="Boolean" id="combActDamage" name="combinedAction.forDamage"
+    data-tooltip="torgeternity.sheetLabels.combinedAction.damageHint" {{checked test.combinedAction.forDamage}} />
+  <label for="combActDamage">{{localize 'torgeternity.sheetLabels.combinedAction.damage'}}</label>
+</fieldset>
