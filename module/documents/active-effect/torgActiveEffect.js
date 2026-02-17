@@ -131,6 +131,7 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
  */
 function testTraits(testTraits, actualTraits) {
   if (!testTraits?.size) return true;
+  if (!actualTraits?.length) return false;
   for (const trait of testTraits) {
     if (actualTraits.includes(trait)) return true;
   }

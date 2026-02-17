@@ -18,6 +18,11 @@
   - The Torg Value for the number of participants will be added as a bonus to the skill check.
   - When performing an attack, a checkbox is also provided to apply the bonus to damage as well the skill check (e.g. for Hordes).
 
+### Bug Fixes
+
+- Prevent error when attack has "If Apply Attack/Defend Trait" and the attacker/defender has no traits.
+- Prevent error if an Item's base damage is 0.
+
 ## 13.21.0 - BD, Recovery, Contradictions, Blast weapons, Portraits
 
 - **Bonus Die**:
