@@ -75,7 +75,7 @@ export async function renderSkillChat(test) {
     // Check to see if we already have a chat title from a chat card roll. If not, Set title for Chat Message in test.chatTitle //
     //
     if (!test.chatTitle) {
-      test.chatTitle = TestDialogLabel(test);
+      test.chatTitle = TestDialogLabel(test, true);
     }
 
     //
@@ -343,6 +343,12 @@ export async function renderSkillChat(test) {
       modifiers.push(modifierString('torgeternity.stats.speedModifier', test.speedModifier));
     }
 
+    test.combinedAction.torgBonus = getTorgValue(test.combinedAction.participants);
+    if (test.combinedAction.torgBonus > 0) {
+      test.modifiers += test.combinedAction.torgBonus;
+      modifiers.push(modifierString('torgeternity.chatText.check.modifier.combinedAction', test.combinedAction.torgBonus));
+    }
+
     if (modifiers.length) {
       test.modifierText = `<p>${modifiers.sort().join('<br>')}</p>`;
     }
@@ -397,14 +403,15 @@ export async function renderSkillChat(test) {
     test.showApplySoak = (test.testType === 'soak' && target.soakWounds);
 
     // Show the "Apply Effects" button if the test has an effect that can be applied
+    test.effects = testActor.effects.filter(ef => ef.appliesToTest(test.result, test.attackTraits, target?.defenseTraits)).map(ef => ef.uuid);
     if (testItem) {
-      test.effects = testItem.effects.filter(ef => ef.appliesToTest(test.result, test.attackTraits, target?.defenseTraits)).map(ef => ef.uuid);
+      test.effects = test.effects.concat(testItem.effects.filter(ef => ef.appliesToTest(test.result, test.attackTraits, target?.defenseTraits)).map(ef => ef.uuid));
       if (testItem.system?.loadedAmmo) {
         const ammo = testActor.items.get(testItem.system.loadedAmmo);
         if (ammo) test.effects.push(...ammo.effects.filter(ef => ef.appliesToTest(result, test.attackTraits, target?.defenseTraits)).map(ef => ef.uuid));
       }
-      target.showApplyEffects = (test.effects.length > 0);
     }
+    target.showApplyEffects = test.effects.map(fx => fromUuidSync(fx)).find(fx => fx.modifiesTarget);
 
     // Approved Action Processing
     test.successfulDefendApprovedAction = false;
@@ -524,6 +531,9 @@ export async function renderSkillChat(test) {
       // add additional Damage from roll dialogue
       if (test?.additionalDamage && !test.explicitBonus) {
         adjustedDamage += test?.additionalDamage;
+      }
+      if (test.combinedAction.forDamage && test.combinedAction.torgBonus) {
+        adjustedDamage += test.combinedAction.torgBonus;
       }
 
       // Check for whether a target is present and turn on display of damage sub-label

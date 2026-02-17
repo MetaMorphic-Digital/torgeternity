@@ -37,6 +37,10 @@
           "label": "Effect je nach Ergebnis anwenden",
           "hint": "Je nach Probenergebnis mit diesem Gegenstand den passenden Effekt auf den Zieltoken anwenden"
         },
+        "combatToggle": {
+          "label": "Als Angriffsoption anzeigen",
+          "hint": "Diesen Effekt am Charakterbogen unter Angriffe anzeigen um einfaches Umschalten zu ermöglichen"
+        },
         "applyIfAttackTrait": {
           "label": "Anwenden bei Angreifer-Eigenschaft",
           "hint": "Effekt wird nur angewendet, wenn der Angriffer-Token einen der angegebenen Eigenschaften besitzt."
@@ -106,6 +110,7 @@
           "allOutAttack": "Rücksichtsloser Angriff",
           "blindFire": "Blindes Feuern",
           "calledShot": "Gezielter Angriff",
+          "combinedAction": "Gruppenaktion",
           "concentrating": "Konzentration",
           "darkness": "Dunkelheit",
           "heavyBurst": "Schwerer Feuerstoß",
@@ -962,6 +967,13 @@
       "clearance": "Sicherheitsstufe",
       "collision": "Kollision",
       "combatSkills": "Kampf",
+      "combinedAction": {
+        "title": "Gruppenaktion",
+        "participants": "Teilnehmer",
+        "participantsHint": "Anzahl der Beteiligten eintragen damit der Bonus, analog zur Torg-Wertetabelle, zur Probe hinzugerechnet wird",
+        "damage": "+Schaden",
+        "damageHint": "Torg-Bonuswert ebenfalls auf den verursachten Schaden dieses Angriffs anrechnen"
+      },
       "concealment": "Deckung",
       "conditions": "Auswirkungen",
       "cosm": "Cosm",

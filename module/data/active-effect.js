@@ -23,11 +23,13 @@ export class TorgActiveEffectData extends (foundry.data.ActiveEffectTypeDataMode
         transferOnAttack: new fields.BooleanField({ initial: false, }),
         transferOnOutcome: new fields.NumberField({
           choices: CONFIG.torgeternity.testOutcomeLabel,
+          initial: null,
           integer: true,
           nullable: true,
         }),
         applyIfAttackTrait: newTraitsField(),
         applyIfDefendTrait: newTraitsField(),
+        combatToggle: new fields.BooleanField({ initial: false, }),
       })
     return schema;
   }
@@ -36,5 +38,14 @@ export class TorgActiveEffectData extends (foundry.data.ActiveEffectTypeDataMode
     if (source.applyIfAttackTrait) source.applyIfAttackTrait = source.applyIfAttackTrait.map(t => (t === 'supernnaturalEvil') ? 'supernaturalEvil' : t)
     if (source.applyIfDefendTrait) source.applyIfDefendTrait = source.applyIfDefendTrait.map(t => (t === 'supernnaturalEvil') ? 'supernaturalEvil' : t)
     return super.migrateData(source);
+  }
+
+  /**
+   * Suppress the ActiveEffect if it is transferrable to the target.
+   * @type {boolean}
+   */
+  get isSuppressed() {
+    // Don't apply the AE to the owning actor if it is being transferred on an attack
+    return this.system && (this.system.transferOnAttack || this.system.transferOnOutcome);
   }
 }

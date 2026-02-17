@@ -1,48 +1,53 @@
 <fieldset class="flexcol">
   <legend>{{localize "torgeternity.sheetLabels.attackOptions"}}</legend>
-  <div class="flexrow" style="flex-wrap: nowrap">
-    <fieldset class="skill-check-options flexrow">
+  <div class="flexrow flex1" style="flex-wrap: nowrap">
+    <fieldset class="skill-check-options flexrow half-width">
       <legend>{{localize "torgeternity.sheetLabels.calledShot"}}:</legend>
       {{TorgRadioBoxesNumber "calledShotModifier" choices.calledShot checked=test.calledShotModifier localize=true}}
 
-      <input type="checkbox" data-dtype="Number" id="vital-area"
-        data-tooltip='torgeternity.sheetLabels.vitalAreaTooltip' name="vitalAreaDamageModifier" value="4"
-        {{checked (eq test.vitalAreaDamageModifier 4)}} />
-      <label for="vital-area">{{localize "torgeternity.sheetLabels.vitalArea"}}</label><br />
+      <label>{{~localize "torgeternity.sheetLabels.vitalArea"~}}
+        <input type="checkbox" data-dtype="Number"
+          data-tooltip='torgeternity.sheetLabels.vitalAreaTooltip' name="vitalAreaDamageModifier" value="4"
+          {{checked (eq test.vitalAreaDamageModifier 4)}} /></label>
     </fieldset>
 
-    <fieldset class="skill-check-options flexrow">
+    <fieldset class="skill-check-options flexrow half-width">
       <legend>{{localize "torgeternity.sheetLabels.burst"}}:</legend>
       {{TorgRadioBoxesNumber "burstModifier" choices.burst checked=test.burstModifier localize=true tooltip=true}}
     </fieldset>
   </div>
-  <div class="flexrow flex1">
-    <fieldset class="skill-check-options flexrow" style="flex-wrap: wrap">
-      <input type="checkbox" id="all-out" name="allOutFlag" data-dtype="Boolean"
-        data-tooltip="torgeternity.sheetLabels.allOutTooltip" {{checked test.allOutFlag }} />
-      <label for="all-out">{{localize "torgeternity.sheetLabels.allOut"}}</label>
-      <input type="checkbox" data-dtype="Boolean" id="aimed" name="aimedFlag"
-        data-tooltip="torgeternity.sheetLabels.aimedTooltip" {{checked test.aimedFlag }} />
-      <label for="aimed">{{localize "torgeternity.sheetLabels.aimed"}}</label>
-      <input type="checkbox" data-dtype="Boolean" id="blind-fire" name="blindFireFlag" ,
-        data-tooltip="torgeternity.sheetLabels.blindFireTooltip" {{checked test.blindFireFlag }} />
-      <label for="blind-fire">{{localize "torgeternity.sheetLabels.blindFire"}}</label>
-      <input type="checkbox" data-dtype="Boolean" id="trademark-weapon" name="trademark"
-        data-tooltip="torgeternity.sheetLabels.trademarkHint"
-        value="trademark" {{checked test.trademark }} />
-      <label for="trademark-weapon">{{localize "torgeternity.sheetLabels.trademark"}}</label>
+  <div class="flexrow flex1" style="flex-wrap: nowrap">
+    <fieldset class="skill-check-options flexrow half-width" style="flex-wrap: wrap">
+      <label>{{~localize "torgeternity.sheetLabels.allOut"~}}
+        <input type="checkbox" name="allOutFlag" data-dtype="Boolean"
+          data-tooltip="torgeternity.sheetLabels.allOutTooltip" {{checked test.allOutFlag }} />
+      </label>
+      <label>{{~localize "torgeternity.sheetLabels.aimed"~}}
+        <input type="checkbox" data-dtype="Boolean" name="aimedFlag"
+          data-tooltip="torgeternity.sheetLabels.aimedTooltip" {{checked test.aimedFlag }} />
+      </label>
+      <label>{{~localize "torgeternity.sheetLabels.blindFire"~}}
+        <input type="checkbox" data-dtype="Boolean" name="blindFireFlag" ,
+          data-tooltip="torgeternity.sheetLabels.blindFireTooltip" {{checked test.blindFireFlag }} />
+      </label>
+      <label>{{~localize "torgeternity.sheetLabels.trademark"~}}
+        <input type="checkbox" data-dtype="Boolean" name="trademark"
+          data-tooltip="torgeternity.sheetLabels.trademarkHint"
+          value="trademark" {{checked test.trademark }} /></label>
     </fieldset>
-    <fieldset class="skill-check-options flexcol">
+    <fieldset class="skill-check-options flexcol half-width">
       <div class="flexrow">
-        <input type="number" id="additional-damage" name="additionalDamage"
-          data-dtype="Number" placeholder="0" value="{{test.additionalDamage}}">
-        <label for="additional-damage">{{localize "torgeternity.sheetLabels.additionalDamage"}}</label>
+        <label>{{~localize "torgeternity.sheetLabels.additionalDamage"~}}
+          <input type="number" name="additionalDamage"
+            data-dtype="Number" placeholder="0" value="{{test.additionalDamage}}">
+        </label>
       </div>
       <div class="flexrow">
-        <select id="addBDs" data-dtype="Number" name="addBDs">
-          {{selectOptions choices.addBDs selected=test.addBDs}}
-        </select>
-        <label for="addBDs">{{localize "torgeternity.sheetLabels.bonusDice"}}</label>
+        <label>{{~localize "torgeternity.sheetLabels.bonusDice"~}}
+          <select data-dtype="Number" name="addBDs">
+            {{selectOptions choices.addBDs selected=test.addBDs}}
+          </select>
+        </label>
       </div>
     </fieldset>
   </div>

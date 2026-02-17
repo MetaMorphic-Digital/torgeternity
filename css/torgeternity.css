@@ -576,8 +576,8 @@ dialog.torgeternity:not(.actor, .item) .window-content,
     }
 
     input {
-      width: 30px;
-      height: 20px;
+      width: 3em;
+      height: 1.7em;
       text-align: center;
 
 
@@ -1074,6 +1074,18 @@ dialog.torgeternity:not(.actor, .item) .window-content,
       }
     }
 
+    .toggleEffects {
+      list-style: none;
+      margin-bottom: 1em;
+      display: flex;
+      flex-wrap: wrap;
+      column-gap: 1em;
+
+      .effectDisabled {
+        text-decoration: line-through;
+      }
+    }
+
     .perks-list,
     .eternityshards-list,
     .weapons-list {
@@ -1094,6 +1106,10 @@ dialog.torgeternity:not(.actor, .item) .window-content,
         font-size: 13px;
         margin: 1px;
         padding: 1px;
+
+        &.effect {
+          border-top: none;
+        }
 
         .item-name {
           align-self: center;
@@ -1426,6 +1442,10 @@ dialog.torgeternity:not(.actor, .item) .window-content,
       }
     }
 
+    .vehicle-operator {
+      margin-top: 0em;
+    }
+
     li.vehicle-weapon-header,
     li.add-on-header {
       display: flex;
@@ -1527,6 +1547,10 @@ dialog.torgeternity:not(.actor, .item) .window-content,
       font-family: "Signika";
       font-size: 12px;
       text-align: center;
+    }
+
+    li.effect {
+      font-family: "Signika";
     }
 
     li.vehicle-weapon-list {
@@ -4036,11 +4060,6 @@ document-embed .generalHeader {
     align-items: center;
     gap: 0.5em;
     font-family: Palatino;
-
-    &.flexrow {
-      flex-wrap: nowrap;
-      row-gap: 5px;
-    }
   }
 
   input[type="radio"],
@@ -4051,6 +4070,7 @@ document-embed .generalHeader {
   }
 
   label:has(input[type="radio"]),
+  label:has(input[type="checkbox"]),
   input[type="checkbox"]+label {
     /* Core: body.theme-dark input[type=radio] */
     --checkbox-checked-color: var(--color-cool-3);
@@ -4065,17 +4085,20 @@ document-embed .generalHeader {
   }
 
   label:has(input[type="radio"]:checked),
+  label:has(input[type="checkbox"]:checked),
   input[type="checkbox"]:checked+label {
     background-color: var(--checkbox-checked-color);
     border: 2px inset var(--color-cool-4);
   }
 
   label:focus:has(input[type="radio"]),
+  label:focus:has(input[type="checkbox"]),
   input[type="checkbox"]:focus+label {
     border-color: var(--input-focus-outline-color);
   }
 
   label:hover:has(input[type="radio"]),
+  label:hover:has(input[type="checkbox"]),
   input[type="checkbox"]:hover+label {
     background-color: var(--color-cool-4);
   }
@@ -4088,6 +4111,13 @@ document-embed .generalHeader {
     align-items: center;
     border-color: auto;
     column-gap: 0.7em;
+
+    .half-width {
+      flex-grow: 1;
+      flex-basis: 0;
+      min-width: 0;
+      align-self: stretch;
+    }
 
     legend {
       font-size: 12px;
@@ -4449,7 +4479,7 @@ select {
 }
 
 .torgeternity .standard-form fieldset {
-  padding: 4.2px 9px 7.5px 9px;
+  padding: 4.2px 5px 7.5px 5px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

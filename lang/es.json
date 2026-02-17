@@ -37,6 +37,10 @@
           "label": "Aplicar efecto con resultado",
           "hint": "Aplicar el efecto a la(s) ficha(s) objetivo cuando una prueba que usa este objeto obtenga este resultado específico"
         },
+        "combatToggle": {
+          "label": "Mostrar como opción de combate",
+          "hint": "Muestra este efecto en la sección de Ataques y poderes de la hoja de actor para fácil acceso y gestionar su estado"
+        },
         "applyIfAttackTrait": {
           "label": "Aplicar si el atacante tiene rasgo",
           "hint": "Aplicar el efecto solo si la ficha atacante tiene uno de estos rasgos"
@@ -106,6 +110,7 @@
           "allOutAttack": "Ataque Total",
           "blindFire": "Tiro a Ciegas",
           "calledShot": "Tiro Preciso",
+          "combinedAction": "Acción combinada",
           "concentrating": "Concentrado",
           "darkness": "Oscuridad",
           "heavyBurst": "Ráfaga Continua",
@@ -962,6 +967,13 @@
       "clearance": "Nivel",
       "collision": "Colisión",
       "combatSkills": "Combate",
+      "combinedAction": {
+        "title": "Acción combinada",
+        "participants": "Participantes",
+        "participantsHint": "Introduce el número de participantes y se añadirá a la prueba la bonificación correspondiente por la Tabla de valores de Torg",
+        "damage": "+daño",
+        "damageHint": "Aplica también la bonificación por la Tabla de valor de Torg al daño infligido por este ataque"
+      },
       "concealment": "Cobertura",
       "conditions": "Condiciones",
       "cosm": "Cosmos",

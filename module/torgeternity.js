@@ -951,7 +951,7 @@ function TorgRadioBoxesNumber(name, choices, options) {
     if (isChecked) input.defaultChecked = (checked == key);
     if (isNumber) input.dataset.dtype = "Number";
     if (options.hash.tooltip) element.dataset.tooltip = key;
-    element.append(input, " ", label);
+    element.append(input, label);
     html += element.outerHTML;
   }
   return new Handlebars.SafeString(html);

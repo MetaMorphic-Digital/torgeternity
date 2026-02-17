@@ -90,9 +90,37 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
    * @param {Array<String> | undefined} defendTraits array of traits on the target of the test
    */
   appliesToTest(result, attackTraits, defendTraits) {
-    return ((this.system.transferOnAttack && result >= TestResult.STANDARD) || (this.system.transferOnOutcome === result)) &&
+    return (!this.disabled &&
+      (this.system.transferOnAttack && result >= TestResult.STANDARD) || (this.system.transferOnOutcome === result)) &&
       testTraits(this.system.applyIfAttackTrait, attackTraits) &&
       testTraits(this.system.applyIfDefendTrait, defendTraits);
+  }
+
+  /**
+   * Return if this effect has at least one change which is not merely changing the test.
+   * @type {boolean}
+   */
+  get modifiesTarget() {
+    return !this.disabled &&
+      (this.system.transferOnAttack || this.system.transferOnOutcome) &&
+      this.changes.find(change => !change.key.startsWith('test.'));
+  }
+  static blank;
+
+  /**
+   * Return a copy of this object with the various "attack" traits cleared,
+   * and any 'test.*' changes removed from it.
+   */
+  copyForTarget() {
+    if (!this.blank) this.blank = new TorgActiveEffect({ name: "blank" });
+
+    let fx = this.toObject();
+    fx.changes = fx.changes.filter(change => !change.key.startsWith('test.'));
+    return Object.assign(fx, {
+      disabled: false,
+      system: this.blank.system,
+      origin: this.parent.uuid,
+    });
   }
 }
 
@@ -103,6 +131,7 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
  */
 function testTraits(testTraits, actualTraits) {
   if (!testTraits?.size) return true;
+  if (!actualTraits?.length) return false;
   for (const trait of testTraits) {
     if (actualTraits.includes(trait)) return true;
   }

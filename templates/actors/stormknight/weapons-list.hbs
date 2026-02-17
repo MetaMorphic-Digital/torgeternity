@@ -46,6 +46,21 @@
     {{localize 'torgeternity.skills.trick'}}
   </a>
 </div>
+{{#if toggleEffects.length}}
+  <h3>{{localize 'torgeternity.sheetLabels.effects'}}</h3>
+  <div class="item-list toggleEffects">
+    {{#each toggleEffects as |effect id|}}
+      <li class="item effect" data-effect-uuid="{{effect.uuid}}">
+        <a class="effect-control effect-toggle {{#if effect.disabled}}effectDisabled{{/if}}"
+          data-action="effectControl" data-control="toggle"
+          data-tooltip="{{localize 'torgeternity.iconeTitles.toggle'}}"
+          {{disabled (not @root.editable)}}>
+          <span class="item-name">{{effect.name}}</span>
+        </a>
+      </li>
+    {{/each}}
+  </div>
+{{/if}}
 {{#if meleeweapons}}
   <h3>{{localize 'torgeternity.sheetLabels.meleeWeapons'}}</h3>
   <div class="item-list">

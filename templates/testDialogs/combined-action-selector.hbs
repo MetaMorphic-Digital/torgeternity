@@ -1,0 +1,15 @@
+<fieldset style="skill-check-options half-width">
+  <legend>{{localize "torgeternity.sheetLabels.combinedAction.title"}}</legend>
+  <label>{{~localize 'torgeternity.sheetLabels.combinedAction.participants'~}}
+    <input type="number" data-dtype="Number" name="combinedAction.participants"
+      data-tooltip="torgeternity.sheetLabels.combinedAction.participantsHint"
+      value="{{test.combinedAction.participants}}" />
+  </label>
+  {{#if test.attackOptions}}
+    <label data-tooltip="torgeternity.sheetLabels.combinedAction.damageHint">
+      {{localize 'torgeternity.sheetLabels.combinedAction.damage'}}
+      <input class="toggle" type="checkbox" data-dtype="Boolean" id="combActDamage" name="combinedAction.forDamage"
+        {{checked test.combinedAction.forDamage}} />
+    </label>
+  {{/if}}
+</fieldset>

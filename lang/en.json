@@ -31,6 +31,10 @@
           "label": "Apply Effect on Outcome",
           "hint": "Apply the effect to the target token(s) when a test using this item has this particular outcome"
         },
+        "combatToggle": {
+          "label": "Display as Combat Toggle",
+          "hint": "Display this effect in the Attacks and Powers section of the Actor sheet for quicker access to toggling its state"
+        },
         "applyIfAttackTrait": {
           "label": "Apply If Attack Trait",
           "hint": "Apply the effect only if the attacking token has one of these traits"
@@ -100,6 +104,7 @@
           "allOutAttack": "All out Attack",
           "blindFire": "Blind Fire",
           "calledShot": "Called Shot",
+          "combinedAction": "Combined Action",
           "concentrating": "Concentrating",
           "darkness": "Darkness",
           "heavyBurst": "Heavy Burst",
@@ -956,6 +961,13 @@
       "clearance": "Clearance",
       "collision": "Collision",
       "combatSkills": "Combat",
+      "combinedAction": {
+        "title": "Combined Action",
+        "participants": "Participants",
+        "participantsHint": "Enter the number of participants, and the Torg Value bonus will be added to the skill check",
+        "damage": "+damage",
+        "damageHint": "Also apply the Torg Value bonus to the damage inflicted by this attack"
+      },
       "concealment": "Concealment",
       "conditions": "Conditions",
       "cosm": "Cosm",
@@ -1132,7 +1144,7 @@
       "update": "Update",
       "vehicle": "Vehicle",
       "vehicles": "Vehicles",
-      "vitalArea": "Vital Area",
+      "vitalArea": "Vital Blow",
       "vitalAreaTooltip": "+4 Damage",
       "walking": "Walking",
       "weapons": "Weapons",

@@ -60,6 +60,11 @@ const DEFAULT_TEST = {
   isAttack: false,
   applySize: false,
   chatNote: '',
+  combinedAction: {
+    participants: null,
+    torgBonus: 0,
+    forDamage: false
+  }
 }
 
 export class TestDialog extends HandlebarsApplicationMixin(ApplicationV2) {
@@ -86,7 +91,7 @@ export class TestDialog extends HandlebarsApplicationMixin(ApplicationV2) {
   }
 
   get title() {
-    let label = TestDialogLabel(this.test);
+    let label = TestDialogLabel(this.test, false);
     // if (this.itemId) label = fromUuidSync(this.actor)?.items.get(this.itemId)?.name;
     return label ?? 'Skill Test';
   }
@@ -211,6 +216,7 @@ export class TestDialog extends HandlebarsApplicationMixin(ApplicationV2) {
     context.test.targetPresent = !!targets.length;
     const MULTITARGET = [0, 0, -2, -4, -6, -8, -10];
     context.test.targetsModifier ||= MULTITARGET[testItem?.hasBlastTrait ? 1 : targets.length] ?? 0;
+    context.test.combinedAction.participants ??= game.canvas?.tokens?.controlled?.length || 1;
 
     if (context.test.targetPresent && context.test.testType !== 'soak') {
       context.test.targetAll = targets.map(token => oneTestTarget(token, this.test.applySize));
@@ -225,9 +231,8 @@ export class TestDialog extends HandlebarsApplicationMixin(ApplicationV2) {
     }
 
     // Maybe there is an explicit amount of damage
-    if (this.test.damage)
-      for (const target of context.test.targetAll)
-        target.damage = this.test.damage;
+    for (const target of context.test.targetAll)
+      target.damage = this.test.damage ?? 0;
 
     context.test.hasModifiers =
       (context.test?.woundModifier ||
@@ -419,8 +424,13 @@ export function oneTestTarget(token, applySize) {
   }
 }
 
-
-export function TestDialogLabel(test) {
+/**
+ * 
+ * @param {Object} test The Label for this test will be generated
+ * @param {Boolean} multiline Whether a multiline label should be generated
+ * @returns {String} A label for the test.
+ */
+export function TestDialogLabel(test, multiline) {
   let result;
 
   switch (test.testType) {
@@ -466,7 +476,10 @@ export function TestDialogLabel(test) {
   }
   if (test.itemId) {
     const item = fromUuidSync(test.actor, { strict: false })?.items.get(test.itemId);
-    if (item) result += `<br>(${item.name}${item.system?.traits?.has('trademark') ? '\u2122' : ''})`;
+    if (item) {
+      result +=
+        `${multiline ? '<br>' : ' '}(${item.name}${item.system?.traits?.has('trademark') ? '\u2122' : ''})`;
+    }
   }
   return result;
 }
