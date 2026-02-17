@@ -1,7 +1,7 @@
 <fieldset class="flexcol">
   <legend>{{localize "torgeternity.sheetLabels.attackOptions"}}</legend>
-  <div class="flexrow" style="flex-wrap: nowrap">
-    <fieldset class="skill-check-options flexrow">
+  <div class="flexrow flex1" style="flex-wrap: nowrap">
+    <fieldset class="skill-check-options flexrow half-width">
       <legend>{{localize "torgeternity.sheetLabels.calledShot"}}:</legend>
       {{TorgRadioBoxesNumber "calledShotModifier" choices.calledShot checked=test.calledShotModifier localize=true}}
 
@@ -11,13 +11,13 @@
       <label for="vital-area">{{localize "torgeternity.sheetLabels.vitalArea"}}</label><br />
     </fieldset>
 
-    <fieldset class="skill-check-options flexrow">
+    <fieldset class="skill-check-options flexrow half-width">
       <legend>{{localize "torgeternity.sheetLabels.burst"}}:</legend>
       {{TorgRadioBoxesNumber "burstModifier" choices.burst checked=test.burstModifier localize=true tooltip=true}}
     </fieldset>
   </div>
   <div class="flexrow flex1">
-    <fieldset class="skill-check-options flexrow" style="flex-wrap: wrap">
+    <fieldset class="skill-check-options flexrow half-width" style="flex-wrap: wrap">
       <input type="checkbox" id="all-out" name="allOutFlag" data-dtype="Boolean"
         data-tooltip="torgeternity.sheetLabels.allOutTooltip" {{checked test.allOutFlag }} />
       <label for="all-out">{{localize "torgeternity.sheetLabels.allOut"}}</label>
@@ -32,7 +32,7 @@
         value="trademark" {{checked test.trademark }} />
       <label for="trademark-weapon">{{localize "torgeternity.sheetLabels.trademark"}}</label>
     </fieldset>
-    <fieldset class="skill-check-options flexcol">
+    <fieldset class="skill-check-options flexcol half-width">
       <div class="flexrow">
         <input type="number" id="additional-damage" name="additionalDamage"
           data-dtype="Number" placeholder="0" value="{{test.additionalDamage}}">

@@ -12,7 +12,7 @@
   - Clear Torg-specific AE flags when copying an AE to a target.
   - Do not offer to transfer AEs which only have changes for `test.X` (and do not transfer `test.X` changes regardless)
 - **Combined Actions**
-  - Provide an additional line in the skill test dialog to allow the number of participants to be specified.
+  - Provide an additional line in the skill test dialog to allow the number of participants to be specified (default 1).
   - The Torg Value for the number of participants will be added as a bonus to the skill check.
   - When performing an attack, a checkbox is also provided to apply the bonus to damage as well the skill check (e.g. for Hordes).
 
