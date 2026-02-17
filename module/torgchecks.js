@@ -343,10 +343,10 @@ export async function renderSkillChat(test) {
       modifiers.push(modifierString('torgeternity.stats.speedModifier', test.speedModifier));
     }
 
-    if (test.combinedAction.helpers > 0) {
-      const modifier = getTorgValue(test.combinedAction.helpers);
-      test.modifiers += modifier;
-      modifiers.push(modifierString('torgeternity.chatText.check.modifier.combinedAction', modifier));
+    test.combinedAction.torgBonus = getTorgValue(test.combinedAction.participants);
+    if (test.combinedAction.torgBonus > 0) {
+      test.modifiers += test.combinedAction.torgBonus;
+      modifiers.push(modifierString('torgeternity.chatText.check.modifier.combinedAction', test.combinedAction.torgBonus));
     }
 
     if (modifiers.length) {
@@ -532,8 +532,8 @@ export async function renderSkillChat(test) {
       if (test?.additionalDamage && !test.explicitBonus) {
         adjustedDamage += test?.additionalDamage;
       }
-      if (test.combinedAction.forDamage && test.combinedAction.helpers > 0) {
-        adjustedDamage += getTorgValue(test.combinedAction.helpers);
+      if (test.combinedAction.forDamage && test.combinedAction.torgBonus) {
+        adjustedDamage += test.combinedAction.torgBonus;
       }
 
       // Check for whether a target is present and turn on display of damage sub-label

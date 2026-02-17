@@ -12,8 +12,8 @@
   - Clear Torg-specific AE flags when copying an AE to a target.
   - Do not offer to transfer AEs which only have changes for `test.X` (and do not transfer `test.X` changes regardless)
 - **Combined Actions**
-  - Provide an additional line in the skill test dialog to allow the number of helpers to be specified.
-  - The Torg Value for the number of helpers will be added as a bonus to the skill check.
+  - Provide an additional line in the skill test dialog to allow the number of participants to be specified.
+  - The Torg Value for the number of participants will be added as a bonus to the skill check.
   - When performing an attack, a checkbox is also provided to apply the bonus to damage as well the skill check (e.g. for Hordes).
 
 ### Translations
@@ -23,8 +23,8 @@
   "torgeternity.chatText.check.modifiercombinedAction": "Combined Action",
   "torgeternity.sheetLabels.combinedAction": {
     "title": "Combined Action",
-    "helpers": "Num. Helpers",
-    "helpersHint": "Enter the number of helpers, and the Torg Value bonus will be added to the skill check",
+    "participants": "Participants",
+    "participantsHint": "Enter the number of participants, and the Torg Value bonus will be added to the skill check",
     "damage": "+damage",
     "damageHint": "Also apply the Torg Value bonus to the damage inflicted by this attack"
   }

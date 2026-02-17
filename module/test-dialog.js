@@ -61,7 +61,8 @@ const DEFAULT_TEST = {
   applySize: false,
   chatNote: '',
   combinedAction: {
-    helpers: 0,
+    participants: 1,
+    torgBonus: 0,
     forDamage: false
   }
 }
