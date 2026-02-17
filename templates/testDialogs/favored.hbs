@@ -1,12 +1,14 @@
 <fieldset class="half-width">
   <legend>{{localize 'torgeternity.skillDialogs.favoredanddisfavored'}}</legend>
-  <input type="checkbox" data-dtype="Boolean" class="attack-dialog-checkbox" id="isFav" name="isFav"
-    data-tooltip="{{localize 'torgeternity.skillDialogs.favoredTip'}}"
-    value="true" {{checked test.isFav}}>
-  <label for="isFav">{{localize 'torgeternity.skillDialogs.favored'}}</label>
+  <label>{{~localize 'torgeternity.skillDialogs.favored'~}}
+    <input type="checkbox" data-dtype="Boolean" class="attack-dialog-checkbox" name="isFav"
+      data-tooltip="{{localize 'torgeternity.skillDialogs.favoredTip'}}"
+      value="true" {{checked test.isFav}}>
+  </label>
 
-  <input type="checkbox" data-dtype="Boolean" class="attack-dialog-checkbox" id="disfavored" name="disfavored"
-    data-tooltip="{{localize 'torgeternity.skillDialogs.disfavoredTip'}}"
-    value="false" {{checked test.disfavored}} />
-  <label for="disfavored">{{localize 'torgeternity.skillDialogs.disfavored'}}</label>
+  <label>{{~localize 'torgeternity.skillDialogs.disfavored'~}}
+    <input type="checkbox" data-dtype="Boolean" class="attack-dialog-checkbox" name="disfavored"
+      data-tooltip="{{localize 'torgeternity.skillDialogs.disfavoredTip'}}"
+      value="false" {{checked test.disfavored}} />
+  </label>
 </fieldset>

@@ -1,9 +1,10 @@
 <fieldset class="half-width">
   <legend data-tooltip="{{localize 'torgeternity.sheetLabels.inputExistingTooltip'}}">Bonus</legend>
   <div class="skill-check-options flexrow">
-    <label for="bonus">{{localize 'torgeternity.sheetLabels.inputExisting'}}</label>
-    <input type="number" data-dtype="Number" id="bonus-text" name="bonus"
-      data-tooltip="{{localize 'torgeternity.sheetLabels.inputExistingTitle'}}"
-      placeholder="???" value="{{test.bonus}}" />
+    <label>{{~localize 'torgeternity.sheetLabels.inputExisting'~}}
+      <input type="number" data-dtype="Number" name="bonus"
+        data-tooltip="{{localize 'torgeternity.sheetLabels.inputExistingTitle'}}"
+        placeholder="???" value="{{test.bonus}}" />
+    </label>
   </div>
 </fieldset>
