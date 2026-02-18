@@ -9,6 +9,8 @@
 
 - AEs on Ammo will no longer generate an error.
 - No error if test has no `attackTraits`.
+- Do not strip `test.X` changes from AEs when copying the AE to a target.
+
 
 **NOTE** : `Transfer on Outcome` really requires two separate entries:
   - Only transfer to target on a specific outcome (single "Transfer on Success": "<blank>", "Any Success" or one of the specific levels)

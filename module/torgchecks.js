@@ -1449,8 +1449,5 @@ function appliesToTest(effect, test, target) {
 function testTraits(ifTraits, actualTraits) {
   if (!ifTraits?.size) return true;
   if (!actualTraits?.length) return false;
-  for (const trait of ifTraits) {
-    if (actualTraits.includes(trait)) return true;
-  }
-  return false;
+  return actualTraits.find(trait => ifTraits.has(trait));
 }
