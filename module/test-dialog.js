@@ -145,6 +145,7 @@ export class TestDialog extends HandlebarsApplicationMixin(ApplicationV2) {
         if (bonus !== undefined) this.test.bonus = bonus;
       }
     }
+
     // Ensure all relevant fields are Number
     for (const key of Object.keys(DEFAULT_TEST))
       if (typeof DEFAULT_TEST[key] === 'number' && typeof this.test[key] !== 'number')
@@ -212,7 +213,7 @@ export class TestDialog extends HandlebarsApplicationMixin(ApplicationV2) {
     // ***Set Target Data***
     // Transfer data here because passing the entire target to a chat message tends to degrade the data
     //
-    const targets = this.options.useTargets ? Array.from(game.user.targets) : [];
+    const targets = (this.options.useTargets && game.user.targets.size) ? Array.from(game.user.targets) : context.test.targetSelf ? myActor.getActiveTokens() : [];
     context.test.targetPresent = !!targets.length;
     const MULTITARGET = [0, 0, -2, -4, -6, -8, -10];
     context.test.targetsModifier ||= MULTITARGET[testItem?.hasBlastTrait ? 1 : targets.length] ?? 0;
