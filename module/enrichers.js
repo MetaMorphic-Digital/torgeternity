@@ -1,6 +1,14 @@
 import { TestDialog } from './test-dialog.js';
 import { torgDamage, torgDamageModifiers, checkUnskilled } from './torgchecks.js';
 
+function sanitizeNumbers(obj) {
+  for (const [key, value] of Object.entries(obj))
+    if (typeof value === 'string' && value.length) {
+      let num = Number(value);
+      if (!isNaN(num)) obj[key] = num;
+    }
+}
+
 /**
  * INLINE CHECKS
  */
@@ -89,6 +97,7 @@ function _onClickInlineCheck(event) {
 
   const target = event.target.closest('a.torg-inline-check');
   const test = { ...target.dataset };
+  sanitizeNumbers(test);
 
   // Same test as in 'rollSkillMacro'
   let actor = null;
@@ -240,6 +249,7 @@ async function _onClickInlineCondition(event) {
   }
 
   const data = { ...target.dataset };
+  sanitizeNumbers(data);
 
   const options = {};
   if (Object.hasOwn(data, "off")) options.active = false;
@@ -391,6 +401,7 @@ async function _onClickInlineBuff(event) {
     } else
       foundry.utils.setProperty(effectdata, key, value);
   }
+  sanitizeNumbers(effectdata);
 
   // Add an effect to each actor
   const actors = getActors();
@@ -480,6 +491,7 @@ function InlineDamageEnricher(match, options) {
 async function _onClickInlineDamage(event) {
   const target = event.target.closest('a.torg-inline-damage');
   const dataset = event.target.dataset;
+  sanitizeNumbers(dataset);
 
   // Firstly check for clicking on the "post to chat" button
   if (event.target.dataset.original) {
