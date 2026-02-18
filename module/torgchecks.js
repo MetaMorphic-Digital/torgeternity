@@ -403,12 +403,12 @@ export async function renderSkillChat(test) {
     test.showApplySoak = (test.testType === 'soak' && target.soakWounds);
 
     // Show the "Apply Effects" button if the test has an effect that can be applied
-    test.effects = testActor.effects.filter(ef => ef.appliesToTest(test.result, test.attackTraits, target?.defenseTraits)).map(ef => ef.uuid);
+    test.effects = testActor.effects.filter(ef => appliesToTest(ef, test, target)).map(ef => ef.uuid);
     if (testItem) {
-      test.effects = test.effects.concat(testItem.effects.filter(ef => ef.appliesToTest(test.result, test.attackTraits, target?.defenseTraits)).map(ef => ef.uuid));
+      test.effects = test.effects.concat(testItem.effects.filter(ef => appliesToTest(ef, test, target)).map(ef => ef.uuid));
       if (testItem.system?.loadedAmmo) {
         const ammo = testActor.items.get(testItem.system.loadedAmmo);
-        if (ammo) test.effects.push(...ammo.effects.filter(ef => ef.appliesToTest(test.result, test.attackTraits, target?.defenseTraits)).map(ef => ef.uuid));
+        if (ammo) test.effects.push(...ammo.effects.filter(ef => appliesToTest(ef, test, target)).map(ef => ef.uuid));
       }
     }
     target.showApplyEffects = test.effects.map(fx => fromUuidSync(fx)).find(fx => fx.modifiesTarget);
@@ -760,7 +760,7 @@ export function torgDamage(damage, toughness, options) {
 function applyEffects(fieldname, origvalue, effects) {
   if (!effects) return origvalue;
   for (const effect of effects) {
-    if (!effect) continue;  // fromUuidSync failed
+    if (!effect || effect.modifiesTarget) continue;  // fromUuidSync failed
     for (const change of effect.changes) {
       if (change.key === fieldname) {
         // DataModel.applyField
@@ -1412,4 +1412,37 @@ export function checkUnskilled(skillValue, skillName, actor) {
     )
 
   return true;
+}
+
+/**
+ * Should this effect be transferred to the target on a successful attack?
+ * @param {TorgActiveEffect} effect 
+ * @param {TorgTest} test The overall test
+ * @param {TestTarget | undefined} target The internal test.target
+ * @return {Boolean}
+ */
+function appliesToTest(effect, test, target) {
+  if (effect.disabled) return false;
+  if (effect.system.applyIfAttackTrait?.size && !testTraits(effect.system.applyIfAttackTrait, test.attackTraits)) return false;
+  if (effect.system.applyIfDefendTrait?.size && !testTraits(effect.system.applyIfDefendTrait, target?.defenseTraits)) return false;
+  const result = test.result;
+  // If transferred, then applies to test
+  if (effect.system.transferOnAttack) return result >= TestResult.STANDARD;
+  if (effect.system.transferOnOutcome) return effect.system.transferOnOutcome === result;
+  // Not transferred, but might affect the result. (e.g. 'test.damage' or 'test.weaponAP')
+  return effect.changes.find(change => change.key.startsWith('test.'));
+}
+
+
+/**
+ * Return true if testTraits contains at least one of the entries in actualTraits
+ * @param {Set<String>} ifTraits list of traits to look for
+ * @param {Array<String>} actualTraits list of traits on Actor
+ */
+function testTraits(ifTraits, actualTraits) {
+  if (!actualTraits?.length) return false;
+  for (const trait of ifTraits) {
+    if (actualTraits.includes(trait)) return true;
+  }
+  return false;
 }
