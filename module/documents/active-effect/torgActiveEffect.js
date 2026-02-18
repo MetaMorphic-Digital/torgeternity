@@ -102,21 +102,17 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
    */
   get modifiesTarget() {
     return !this.disabled &&
-      (this.system.transferOnAttack || this.system.transferOnOutcome) &&
-      (this.changes.length === 0 ||
-        this.changes.find(change => !change.key.startsWith('test.')));
+      (this.system.transferOnAttack || this.system.transferOnOutcome);
   }
   static blank;
 
   /**
-   * Return a copy of this object with the various "attack" traits cleared,
-   * and any 'test.*' changes removed from it.
+   * Return a copy of this object with the various "attack" traits cleared.
    */
   copyForTarget() {
     if (!this.blank) this.blank = new TorgActiveEffect({ name: "blank" });
 
     let fx = this.toObject();
-    fx.changes = fx.changes.filter(change => !change.key.startsWith('test.'));
     return Object.assign(fx, {
       disabled: false,
       system: this.blank.system,

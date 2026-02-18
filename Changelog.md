@@ -1,5 +1,11 @@
 # TORG Eternity Changelog
 
+## NEXT
+
+- Revert the following change made in 13.22.0:
+  - Do not offer to transfer AEs which only have changes for `test.X` (and do not transfer `test.X` changes regardless)
+- Now, all the changes on the AE will be transferred to the target.
+
 ## 13.22.1 - Fix for missing "Effects" button
 
 - Fixes an issue where the "Effects" button was not appearing on targets if the AE had no entries in its "changes" table.
