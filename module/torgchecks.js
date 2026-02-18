@@ -594,12 +594,12 @@ export async function renderSkillChat(test) {
           }
           // adjustedDamage is already computed from test.damage
           // then modify test.damage for following future computation, and modify the adjustedDamage
-          const damage = torgDamage(adjustedDamage, target.targetAdjustedToughness,
-            {
-              attackTraits: test.attackTraits,
-              defenseTraits: target?.defenseTraits,
-              soakWounds: target.soakWounds,
-            });
+          const damage = torgDamage(adjustedDamage, target.targetAdjustedToughness, {
+            attackTraits: test.attackTraits,
+            defenseTraits: target?.defenseTraits,
+            soakWounds: target.soakWounds,
+            effects
+          });
 
           if (damage.wounds || damage.shocks) target.showApplyDamage ??= true;
           target.damageDescription = damage.label;
@@ -787,6 +787,12 @@ export function torgDamageModifiers(result, options) {
 
   const flags = [];
   const traits = (attackTraits ?? []).concat(defenseTraits ?? [])
+
+  // Check for extra soak/wounds from AE
+  if (options.effects) {
+    result.wounds = applyEffects('test.extraWounds', result.wounds, options.effects);
+    result.shocks = applyEffects('test.extraShock', result.shocks, options.effects);
+  }
 
   if (soakWounds) {
     if (soakWounds === 'all') {
