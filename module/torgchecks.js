@@ -408,7 +408,7 @@ export async function renderSkillChat(test) {
       test.effects = test.effects.concat(testItem.effects.filter(ef => ef.appliesToTest(test.result, test.attackTraits, target?.defenseTraits)).map(ef => ef.uuid));
       if (testItem.system?.loadedAmmo) {
         const ammo = testActor.items.get(testItem.system.loadedAmmo);
-        if (ammo) test.effects.push(...ammo.effects.filter(ef => ef.appliesToTest(result, test.attackTraits, target?.defenseTraits)).map(ef => ef.uuid));
+        if (ammo) test.effects.push(...ammo.effects.filter(ef => ef.appliesToTest(test.result, test.attackTraits, target?.defenseTraits)).map(ef => ef.uuid));
       }
     }
     target.showApplyEffects = test.effects.map(fx => fromUuidSync(fx)).find(fx => fx.modifiesTarget);
