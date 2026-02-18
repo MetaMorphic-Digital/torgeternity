@@ -790,8 +790,8 @@ export function torgDamageModifiers(result, options) {
 
   // Check for extra soak/wounds from AE
   if (options.effects) {
-    result.wounds = applyEffects('test.extraWounds', result.wounds, options.effects);
-    result.shocks = applyEffects('test.extraShock', result.shocks, options.effects);
+    result.wounds = applyEffects('test.wounds', result.wounds, options.effects);
+    result.shocks = applyEffects('test.shock', result.shocks, options.effects);
   }
 
   if (soakWounds) {
