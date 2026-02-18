@@ -1,6 +1,10 @@
 # TORG Eternity Changelog
 
-## 13.22.0 - Active Effect Revamp, Combined Actions
+## 13.22.1 - Fix for missing "Effects" button
+
+- Fixes an issue where the "Effects" button was not appearing on targets if the AE had no entries in its "changes" table.
+
+## 13.22.0 - Active Effect Revamp & Combined Actions
 
 - Reorganise the drag/drop code in the Actor sheet to simplify it.
 - The Skill Check Dialog automatically caters for different length strings in the different supported languages.
