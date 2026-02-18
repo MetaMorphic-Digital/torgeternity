@@ -84,57 +84,26 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
   }
 
   /**
-   * Should this effect be transferred to the target on a successful attack?
-   * @param {TestResult} result 
-   * @param {Array<String> | undefined} attackTraits array of traits on the actor performing the test
-   * @param {Array<String> | undefined} defendTraits array of traits on the target of the test
-   */
-  appliesToTest(result, attackTraits, defendTraits) {
-    return (!this.disabled &&
-      (this.system.transferOnAttack && result >= TestResult.STANDARD) || (this.system.transferOnOutcome === result)) &&
-      testTraits(this.system.applyIfAttackTrait, attackTraits) &&
-      testTraits(this.system.applyIfDefendTrait, defendTraits);
-  }
-
-  /**
-   * Return if this effect has at least one change which is not merely changing the test.
+   * Return if this effect modifies the target of the test rather than the owner of the AE.
    * @type {boolean}
    */
   get modifiesTarget() {
     return !this.disabled &&
-      (this.system.transferOnAttack || this.system.transferOnOutcome) &&
-      (this.changes.length === 0 ||
-        this.changes.find(change => !change.key.startsWith('test.')));
+      (this.system.transferOnAttack || this.system.transferOnOutcome);
   }
   static blank;
 
   /**
-   * Return a copy of this object with the various "attack" traits cleared,
-   * and any 'test.*' changes removed from it.
+   * Return a copy of this object with the various "attack" traits cleared.
    */
   copyForTarget() {
     if (!this.blank) this.blank = new TorgActiveEffect({ name: "blank" });
 
     let fx = this.toObject();
-    fx.changes = fx.changes.filter(change => !change.key.startsWith('test.'));
     return Object.assign(fx, {
       disabled: false,
       system: this.blank.system,
       origin: this.parent.uuid,
     });
   }
-}
-
-/**
- * Return true if testTraits contains at least one of the entries in actualTraits
- * @param {Set<String>} testTraits 
- * @param {Array<String>} actualTraits 
- */
-function testTraits(testTraits, actualTraits) {
-  if (!testTraits?.size) return true;
-  if (!actualTraits?.length) return false;
-  for (const trait of testTraits) {
-    if (actualTraits.includes(trait)) return true;
-  }
-  return false;
 }

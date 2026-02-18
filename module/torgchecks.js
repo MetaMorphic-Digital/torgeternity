@@ -29,11 +29,11 @@ export async function renderSkillChat(test) {
 
   if (CONFIG.debug.torgtestrender) console.debug('renderSkillChat', test);
 
-  for (const key of Object.keys(test)) {
-    if (!(test[key] instanceof String)) continue;
-    const num = Number(test[key]);
+  for (const [key, value] of Object.entries(test)) {
+    if (typeof value !== 'string' || !value.length) continue;
+    const num = Number(value);
     if (isNaN(num)) continue;
-    console.error(`renderSkillChat passed a number as a String! (${key} = ${test[key]})`)
+    console.error(`renderSkillChat passed a number as a String! (${key} = ${value})`)
     test[key] = num;
   }
 
@@ -403,12 +403,12 @@ export async function renderSkillChat(test) {
     test.showApplySoak = (test.testType === 'soak' && target.soakWounds);
 
     // Show the "Apply Effects" button if the test has an effect that can be applied
-    test.effects = testActor.effects.filter(ef => ef.appliesToTest(test.result, test.attackTraits, target?.defenseTraits)).map(ef => ef.uuid);
+    test.effects = testActor.effects.filter(ef => appliesToTest(ef, test, target)).map(ef => ef.uuid);
     if (testItem) {
-      test.effects = test.effects.concat(testItem.effects.filter(ef => ef.appliesToTest(test.result, test.attackTraits, target?.defenseTraits)).map(ef => ef.uuid));
+      test.effects = test.effects.concat(testItem.effects.filter(ef => appliesToTest(ef, test, target)).map(ef => ef.uuid));
       if (testItem.system?.loadedAmmo) {
         const ammo = testActor.items.get(testItem.system.loadedAmmo);
-        if (ammo) test.effects.push(...ammo.effects.filter(ef => ef.appliesToTest(result, test.attackTraits, target?.defenseTraits)).map(ef => ef.uuid));
+        if (ammo) test.effects.push(...ammo.effects.filter(ef => appliesToTest(ef, test, target)).map(ef => ef.uuid));
       }
     }
     target.showApplyEffects = test.effects.map(fx => fromUuidSync(fx)).find(fx => fx.modifiesTarget);
@@ -556,7 +556,7 @@ export async function renderSkillChat(test) {
         if (test.result < TestResult.STANDARD) {
           target.damageDescription = game.i18n.localize('torgeternity.chatText.check.result.noDamage');
           target.damageSubDescription = game.i18n.localize('torgeternity.chatText.check.result.attackMissed');
-          if (test.attackTraits.includes('unwieldy')) {
+          if (test.attackTraits?.includes('unwieldy')) {
             target.damageDescription += ` (${game.i18n.localize('torgeternity.traits.unwieldy')})`;
             test.showActorApplyVeryVulnerable = true;
           }
@@ -594,12 +594,12 @@ export async function renderSkillChat(test) {
           }
           // adjustedDamage is already computed from test.damage
           // then modify test.damage for following future computation, and modify the adjustedDamage
-          const damage = torgDamage(adjustedDamage, target.targetAdjustedToughness,
-            {
-              attackTraits: test.attackTraits,
-              defenseTraits: target?.defenseTraits,
-              soakWounds: target.soakWounds,
-            });
+          const damage = torgDamage(adjustedDamage, target.targetAdjustedToughness, {
+            attackTraits: test.attackTraits,
+            defenseTraits: target?.defenseTraits,
+            soakWounds: target.soakWounds,
+            effects
+          });
 
           if (damage.wounds || damage.shocks) target.showApplyDamage ??= true;
           target.damageDescription = damage.label;
@@ -760,7 +760,7 @@ export function torgDamage(damage, toughness, options) {
 function applyEffects(fieldname, origvalue, effects) {
   if (!effects) return origvalue;
   for (const effect of effects) {
-    if (!effect) continue;  // fromUuidSync failed
+    if (!effect || effect.modifiesTarget) continue;  // fromUuidSync failed
     for (const change of effect.changes) {
       if (change.key === fieldname) {
         // DataModel.applyField
@@ -787,6 +787,12 @@ export function torgDamageModifiers(result, options) {
 
   const flags = [];
   const traits = (attackTraits ?? []).concat(defenseTraits ?? [])
+
+  // Check for extra soak/wounds from AE
+  if (options.effects) {
+    result.wounds = applyEffects('test.wounds', result.wounds, options.effects);
+    result.shocks = applyEffects('test.shock', result.shocks, options.effects);
+  }
 
   if (soakWounds) {
     if (soakWounds === 'all') {
@@ -1412,4 +1418,36 @@ export function checkUnskilled(skillValue, skillName, actor) {
     )
 
   return true;
+}
+
+/**
+ * Should this effect be transferred to the target on a successful attack?
+ * @param {TorgActiveEffect} effect 
+ * @param {TorgTest} test The overall test
+ * @param {TestTarget | undefined} target The internal test.target
+ * @return {Boolean}
+ */
+function appliesToTest(effect, test, target) {
+  if (effect.disabled) return false;
+  if (!testTraits(effect.system.applyIfAttackTrait, test.attackTraits)) return false;
+  if (!testTraits(effect.system.applyIfDefendTrait, target?.defenseTraits)) return false;
+  const result = test.result;
+  // If transferred, then applies to test
+  if (effect.system.transferOnAttack) return result >= TestResult.STANDARD;
+  if (effect.system.transferOnOutcome) return effect.system.transferOnOutcome === result;
+  // Not transferred, but might affect the result. (e.g. 'test.damage' or 'test.weaponAP')
+  return effect.changes.find(change => change.key.startsWith('test.'));
+}
+
+
+/**
+ * Return true if testTraits contains at least one of the entries in actualTraits
+ * @param {Set<String>} ifTraits list of traits to look for (returns true if empty)
+ * @param {Array<String>} actualTraits list of traits on Actor (returns false if empty)
+ * @return {Boolean}
+ */
+function testTraits(ifTraits, actualTraits) {
+  if (!ifTraits?.size) return true;
+  if (!actualTraits?.length) return false;
+  return actualTraits.find(trait => ifTraits.has(trait));
 }
