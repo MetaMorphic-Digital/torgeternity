@@ -29,11 +29,11 @@ export async function renderSkillChat(test) {
 
   if (CONFIG.debug.torgtestrender) console.debug('renderSkillChat', test);
 
-  for (const key of Object.keys(test)) {
-    if (!(test[key] instanceof String)) continue;
-    const num = Number(test[key]);
+  for (const [key, value] of Object.entries(test)) {
+    if (typeof value !== 'string' || !value.length) continue;
+    const num = Number(value);
     if (isNaN(num)) continue;
-    console.error(`renderSkillChat passed a number as a String! (${key} = ${test[key]})`)
+    console.error(`renderSkillChat passed a number as a String! (${key} = ${value})`)
     test[key] = num;
   }
 
@@ -556,7 +556,7 @@ export async function renderSkillChat(test) {
         if (test.result < TestResult.STANDARD) {
           target.damageDescription = game.i18n.localize('torgeternity.chatText.check.result.noDamage');
           target.damageSubDescription = game.i18n.localize('torgeternity.chatText.check.result.attackMissed');
-          if (test.attackTraits.includes('unwieldy')) {
+          if (test.attackTraits?.includes('unwieldy')) {
             target.damageDescription += ` (${game.i18n.localize('torgeternity.traits.unwieldy')})`;
             test.showActorApplyVeryVulnerable = true;
           }
@@ -1429,8 +1429,8 @@ export function checkUnskilled(skillValue, skillName, actor) {
  */
 function appliesToTest(effect, test, target) {
   if (effect.disabled) return false;
-  if (effect.system.applyIfAttackTrait?.size && !testTraits(effect.system.applyIfAttackTrait, test.attackTraits)) return false;
-  if (effect.system.applyIfDefendTrait?.size && !testTraits(effect.system.applyIfDefendTrait, target?.defenseTraits)) return false;
+  if (!testTraits(effect.system.applyIfAttackTrait, test.attackTraits)) return false;
+  if (!testTraits(effect.system.applyIfDefendTrait, target?.defenseTraits)) return false;
   const result = test.result;
   // If transferred, then applies to test
   if (effect.system.transferOnAttack) return result >= TestResult.STANDARD;
@@ -1442,10 +1442,12 @@ function appliesToTest(effect, test, target) {
 
 /**
  * Return true if testTraits contains at least one of the entries in actualTraits
- * @param {Set<String>} ifTraits list of traits to look for
- * @param {Array<String>} actualTraits list of traits on Actor
+ * @param {Set<String>} ifTraits list of traits to look for (returns true if empty)
+ * @param {Array<String>} actualTraits list of traits on Actor (returns false if empty)
+ * @return {Boolean}
  */
 function testTraits(ifTraits, actualTraits) {
+  if (!ifTraits?.size) return true;
   if (!actualTraits?.length) return false;
   for (const trait of ifTraits) {
     if (actualTraits.includes(trait)) return true;

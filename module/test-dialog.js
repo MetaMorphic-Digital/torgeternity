@@ -19,6 +19,7 @@ const DEFAULT_TEST = {
   disfavored: false,
   skillName: '',
   customSkill: false,
+  targetSelf: false,
   // movement-penalty
   movementModifier: 0,
   // multi-action
@@ -133,7 +134,7 @@ export class TestDialog extends HandlebarsApplicationMixin(ApplicationV2) {
       this.test.actorName ??= actor.name;
       this.test.actorType ??= actor.type;
 
-      const item = this.test.itemId ? actor.items.get(this.test.itemId) : null;
+      const item = this.test.itemId && actor.items.get(this.test.itemId);
       if (item) {
         this.test.trademark = item.system.traits.has('trademark');
         this.test.requiresConcentration = item.system.requiresConcentration;
@@ -299,7 +300,7 @@ export class TestDialog extends HandlebarsApplicationMixin(ApplicationV2) {
       if (this.test.attackOptions) {
 
         const myActor = fromUuidSync(this.test.actor);
-        const myItem = this.test.itemId ? myActor.items.get(this.test.itemId) : null;
+        const myItem = this.test.itemId && myActor.items.get(this.test.itemId);
         if (
           myItem?.weaponWithAmmo &&
           !myItem.hasSufficientAmmo(this.test.burstModifier, this.test?.targetAll.length || (1 - this.test.targetsModifier / 2))
