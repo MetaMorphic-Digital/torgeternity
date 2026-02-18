@@ -103,7 +103,8 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
   get modifiesTarget() {
     return !this.disabled &&
       (this.system.transferOnAttack || this.system.transferOnOutcome) &&
-      this.changes.find(change => !change.key.startsWith('test.'));
+      (this.changes.length === 0 ||
+        this.changes.find(change => !change.key.startsWith('test.')));
   }
   static blank;
 
