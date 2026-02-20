@@ -113,9 +113,9 @@ export default class DeckSettingMenu extends HandlebarsApplicationMixin(Applicat
     const elem = event.target;
     const html = this.element;
     if (elem.nodeName !== 'SELECT') return;
-    if (elem.classList.contains("selectDeck"))
+    if (elem.classList.contains('selectDeck'))
       this.#onChangeDeck(html, event);
-    if (elem.classList.contains("stormknightHand"))
+    if (elem.classList.contains('stormknightHand'))
       this.#onChangeHand(html, event);
   }
 
