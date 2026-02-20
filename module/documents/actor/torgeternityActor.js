@@ -515,7 +515,7 @@ export default class TorgeternityActor extends foundry.documents.Actor {
         });
         break;
 
-      default:
+      case 'vehicle':
         // Vehicles + other?
         await this.updateSource({
           img: 'systems/torgeternity/images/characters/vehicle-land.webp',
