@@ -4,6 +4,7 @@
 
 - Add "Test Inspector" context menu option to chat messages.
 - Add "duration=X" option to `@Condition`
+- **Token Action HUD**: Add `Effects` tab, by default it only shows the Combat Toggles (game system option to show ALL effects).
 
 ## 13.22.2 - Ammo and other Active Effect fixes
 

@@ -912,6 +912,10 @@
         "hint": "Muestra la puntuación de Piedad actual de un Caballero de la Tormenta en la hoja de actor"
       },
       "tokenActionHud": {
+        "showAllEffects": {
+          "name": "TAH: Show All Effects",
+          "hint": "When not selected, only the 'Combat Toggle' events are shown in the Token Action HUD"
+        },
         "showUnskilled": {
           "name": "TAH: mostrar habilidades sin entrenar en el HUD",
           "hint": "Permite mostrar las habilidades sin entrenar en Token Action HUD"
@@ -967,6 +971,7 @@
       "clearance": "Nivel",
       "collision": "Colisión",
       "combatSkills": "Combate",
+      "combatToggles": "Combat Toggles",
       "combinedAction": {
         "title": "Acción combinada",
         "participants": "Participantes",

@@ -912,6 +912,10 @@
         "hint": "Anzeige des aktuellen Frömmigkeitswertes eines Storm Knight in seinem Charakterbogen"
       },
       "tokenActionHud": {
+        "showAllEffects": {
+          "name": "TAH: Show All Effects",
+          "hint": "When not selected, only the 'Combat Toggle' events are shown in the Token Action HUD"
+        },
         "showUnskilled": {
           "name": "TAH: Zeige ungelernte Fertigkeiten im HUD",
           "hint": "Aktiviert die Anzeige von ungelernten Fertigkeiten in Token Action HUD"
@@ -967,6 +971,7 @@
       "clearance": "Sicherheitsstufe",
       "collision": "Kollision",
       "combatSkills": "Kampf",
+      "combatToggles": "Combat Toggles",
       "combinedAction": {
         "title": "Gruppenaktion",
         "participants": "Teilnehmer",

@@ -911,6 +911,10 @@
         "hint": "Displays the current Piety Score of a Storm Knight on the Actor's sheet"
       },
       "tokenActionHud": {
+        "showAllEffects": {
+          "name": "TAH: Show All Effects",
+          "hint": "When not selected, only the 'Combat Toggle' events are shown in the Token Action HUD"
+        },
         "showUnskilled": {
           "name": "TAH: Show Unskilled Skills in HUD",
           "hint": "Enables the display of Unskilled skills in the Token Action HUD"
@@ -966,6 +970,7 @@
       "clearance": "Clearance",
       "collision": "Collision",
       "combatSkills": "Combat",
+      "combatToggles": "Combat Toggles",
       "combinedAction": {
         "title": "Combined Action",
         "participants": "Participants",
