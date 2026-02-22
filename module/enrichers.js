@@ -215,8 +215,9 @@ function InlineConditionEnricher(match, options) {
 
   // Decode each of the parameters
   const dataset = { status };
-  for (const key of parts) {
-    dataset[key] = true;
+  for (const elem of parts) {
+    const [key, value] = elem.split("=");
+    dataset[key] = value ?? true;
   }
 
   // Create the base anchor
@@ -255,12 +256,12 @@ async function _onClickInlineCondition(event) {
   if (Object.hasOwn(data, "off")) options.active = false;
   else if (!Object.hasOwn(data, "toggle")) options.active = true;
   if (Object.hasOwn(data, "overlay")) options.overlay = true;
+  const status = data.status;
 
   // Special case of stymied/vulnerable stacking
   const actors = getActors();
   if (!actors) return ui.notifications.info('torgeternity.notifications.noTokenNorActor', { localize: true });
   for (const actor of actors) {
-    const status = data.status;
     if (status === 'stymied' && options.active) {
       if (actor.hasStatusEffect('stymied')) {
         actor.setVeryStymied(actor.uuid);
@@ -275,7 +276,11 @@ async function _onClickInlineCondition(event) {
         continue;
     }
     console.log(`Setting '${actor.name}' = '${status}'`);
-    await actor.toggleStatusEffect(status, options);
+    let eff = await actor.toggleStatusEffect(status, options);
+    if (data.duration) {
+      // toggleStatusEffect only accepts 'active' and 'overlay' properties
+      eff.update({ duration: { rounds: data.duration, turns: data.duration } })
+    }
   }
 }
 

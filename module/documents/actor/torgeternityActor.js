@@ -798,13 +798,13 @@ export default class TorgeternityActor extends foundry.documents.Actor {
     const toDelete = [];
     for (const effect of this.effects.filter((e) => e.duration.type === 'turns')) {
       if (effect.name === 'ActiveDefense') continue;
-      if (effect.duration.turns === 1 && effect.duration.rounds === 1)
+      if (effect.duration.turns <= 1 && effect.duration.rounds <= 1)
         toDelete.push(effect.id)
       else
         toUpdate.push({
           _id: effect.id,
-          'duration.turns': effect.duration.turns - 1,
-          'duration.rounds': effect.duration.rounds - 1,
+          'duration.turns': Math.max(0, effect.duration.turns - 1),
+          'duration.rounds': Math.max(0, effect.duration.rounds - 1),
         });
     }
     const promises = [];
