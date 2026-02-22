@@ -21,6 +21,11 @@
     }
   },
   "torgeternity": {
+    "testInspector": {
+      "title": "Test Inspector",
+      "field": "Field Name",
+      "value": "Field Value"
+    },
     "activeEffect": {
       "FIELDS": {
         "transferOnAttack": {

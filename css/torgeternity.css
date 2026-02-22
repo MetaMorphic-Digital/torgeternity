@@ -4697,3 +4697,21 @@ div.torgeternity.effects-panel {
     }
   }
 }
+
+div.testInspector {
+  overflow: scroll;
+  height: 800px;
+
+  table {
+    thead {
+      background-color: #000040;
+      position: sticky;
+      top: 0;
+      z-index: 2;
+    }
+
+    th {
+      font-size: larger;
+    }
+  }
+}

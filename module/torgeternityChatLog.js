@@ -43,6 +43,59 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     }
   }
 
+  _getEntryContextOptions() {
+    const options = super._getEntryContextOptions();
+    options.push({
+      name: 'torgeternity.testInspector.title',
+      icon: '<i class="fa-solid fa-magnifying-glass"></i>',
+      condition: li => {
+        const message = game.messages.get(li.dataset.messageId);
+        return message.flags?.torgeternity?.test;
+      },
+      callback: async li => {
+        const message = game.messages.get(li.dataset.messageId);
+        const test = message.flags?.torgeternity?.test;
+        let entries = [];
+        function doField(key, field) {
+          if (Array.isArray(field)) {
+            for (const [subkey, value] of Object.entries(field)) {
+              doField(`${key}[${subkey}]`, value);
+            }
+          } else if (field && typeof field === 'object') {
+            const prefix = key ? `${key}.` : '';
+            for (const [subkey, value] of Object.entries(foundry.utils.flattenObject(field))) {
+              doField(`${prefix}${subkey}`, value);
+            }
+          } else if (typeof value === 'string')
+            entries.push({ key, value: `"${field}"` });
+          else
+            entries.push({ key, value: field })
+        }
+        doField('', test);
+
+        const content = entries.sort((a, b) => a.key.localeCompare(b.key))
+          .map(obj => `<tr><td>${obj.key}</td><td>${obj.value}</td></tr>`).join('\n');
+
+        await DialogV2.prompt({
+          classes: ['torgeternity', 'themed', 'theme-dark'],
+          window: {
+            title: 'torgeternity.testInspector.title',
+            resizable: true
+          },
+          position: { width: 800 },
+          content: `<div class="testInspector scrollable">
+          <table>
+          <thead><tr>
+          <th>${game.i18n.localize('torgeternity.testInspector.field')}</th>
+          <th>${game.i18n.localize('torgeternity.testInspector.value')}</th>
+          </tr></thead>
+          <tbody>${content}</tbody></table></div>`,
+        });
+        console.log(content);
+      }
+    })
+    return options;
+  }
   parentDeleteByTime(oldMsg) {
     // Use time and author to find all messages related to the same test.
     const messageIds = game.messages
@@ -100,7 +153,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     // Maybe no minimum 10?
     content += `<hr><p><label><input type="checkbox" name="noMin10">${game.i18n.localize('torgeternity.chatText.possibilityNoMin10')}</label>`
 
-    return await foundry.applications.api.DialogV2.wait({
+    return await DialogV2.wait({
       window: { title: "torgeternity.chatText.possibilityChoiceTitle" },
       position: { width: "auto" },
       classes: ["torgeternity"],
