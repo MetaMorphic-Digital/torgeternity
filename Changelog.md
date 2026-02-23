@@ -10,8 +10,8 @@
   - The glow is shown if the item is considered equipped (worn for armor, held for anything else).
   - Armor can be held in a hand, but is not considered "equipped" for game purposes.
   - No restriction is placed on how many items can be held in hands (two melee weapons still give the +2 melee defense bonus).
-  - On becoming equipped, all Active Effects on the item will be enabled.
-  - On becoming unequipped, all Active Effects on the item will be disabled.
+  - On becoming equipped, all non-target Active Effects on the item will be enabled.
+  - On becoming unequipped, all non-target Active Effects on the item will be disabled.
   - The old `equipped` boolean is used to determine the new state:
     - equipped Armor becomes `worn`
     - equipped other Items becomes `held` in one-hand unless they have the `twoHanded` trait.
@@ -21,6 +21,7 @@
 - **Token Action HUD**: Add `Effects` menu, by default it only shows the Combat Toggles (game system option to show ALL effects).
 - Cosm names are now **localized** when item descriptions are sent to Chat.
 - Get **Items Cost Currency** option working again.
+- Internally, use `actor.itemTypes` to access specific types of Items rather than using `items.find`
 
 ## 13.22.2 - Ammo and other Active Effect fixes
 
