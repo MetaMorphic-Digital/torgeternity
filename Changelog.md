@@ -12,9 +12,9 @@
     - equipped other Items becomes `held` in one-hand unless they have the `twoHanded` trait.
     - all other Items become `stowed`.
 - Add **Test Inspector** context menu option to chat messages.
-- Add "duration=X" option to `@Condition`
+- The **@Condition** enricher now supports `duration=X` (sets both turns and rounds to X).
 - **Token Action HUD**: Add `Effects` tab, by default it only shows the Combat Toggles (game system option to show ALL effects).
-- Cosm names are now localized when item descriptions are sent to Chat.
+- Cosm names are now **localized** when item descriptions are sent to Chat.
 
 ## 13.22.2 - Ammo and other Active Effect fixes
 
