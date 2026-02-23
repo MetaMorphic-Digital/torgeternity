@@ -27,6 +27,11 @@
     }
   },
   "torgeternity": {
+    "testInspector": {
+      "title": "Inspecter le jet",
+      "field": "Nom du champs",
+      "value": "Valeur du champs"
+    },
     "activeEffect": {
       "FIELDS": {
         "transferOnAttack": {
@@ -582,7 +587,7 @@
       "spellRoll": "Jet de sort",
       "tappingRoll": "Jet d'activation",
       "toggle": "Activer/Désactiver",
-      "changeCarryType": "Équiper/Déséquiper",
+      "changeCarryType": "Changer la façon de porter",
       "deleteRace": "Effacer le choix de Race"
     },
     "itemSheetDescriptions": {
@@ -913,8 +918,8 @@
       },
       "tokenActionHud": {
         "showAllEffects": {
-          "name": "TAH: Show All Effects",
-          "hint": "When not selected, only the 'Combat Toggle' events are shown in the Token Action HUD"
+          "name": "TAH: Montrer tous les Effets",
+          "hint": "Si non coché, n'affiche que les Effets de la section Attaques dans le Token Action HUD"
         },
         "showUnskilled": {
           "name": "TAH: Montrer les compétences non maitrisées dans le HUD",
@@ -971,7 +976,7 @@
       "clearance": "Habilitation",
       "collision": "Collision",
       "combatSkills": "Combat",
-      "combatToggles": "Combat Toggles",
+      "combatToggles": "Activation en combat",
       "combinedAction": {
         "title": "Action combinée",
         "participants": "Participants",
@@ -1392,6 +1397,13 @@
     "yesNo": {
       "false": "Non",
       "true": "Oui"
+    },
+    "carryType": {
+      "held1": "Tenu à 1 mains",
+      "held2": "Tenu à 2 mains",
+      "worn": "Porté",
+      "stowed": "Rangé",
+      "dropped": "Laché"
     },
     "macros": {
       "commonMacroNoTokensSelected": "Aucun Token n'a été sélectionné. La macro ne peut pas être exécutée.",
