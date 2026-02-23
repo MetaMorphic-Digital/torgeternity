@@ -27,6 +27,11 @@
     }
   },
   "torgeternity": {
+    "testInspector": {
+      "title": "Inspector de pruebas",
+      "field": "Nombre del campo",
+      "value": "Valor del campo"
+    },
     "activeEffect": {
       "FIELDS": {
         "transferOnAttack": {
@@ -582,7 +587,7 @@
       "spellRoll": "Tirada de Conjuro",
       "tappingRoll": "Tirada de uso",
       "toggle": "Cambiar",
-      "changeCarryType": "Activar equipo",
+      "changeCarryType": "Cambiar forma de carga",
       "deleteRace": "Suprimir raza"
     },
     "itemSheetDescriptions": {
@@ -913,8 +918,8 @@
       },
       "tokenActionHud": {
         "showAllEffects": {
-          "name": "TAH: Show All Effects",
-          "hint": "When not selected, only the 'Combat Toggle' events are shown in the Token Action HUD"
+          "name": "TAH: mostrar todos los efectos",
+          "hint": "Cuando no está seleccionado, en Token Action HUD solo aparecen los eventos de 'Activar combate"
         },
         "showUnskilled": {
           "name": "TAH: mostrar habilidades sin entrenar en el HUD",
@@ -971,7 +976,7 @@
       "clearance": "Nivel",
       "collision": "Colisión",
       "combatSkills": "Combate",
-      "combatToggles": "Combat Toggles",
+      "combatToggles": "Opciones de combate",
       "combinedAction": {
         "title": "Acción combinada",
         "participants": "Participantes",
@@ -1392,6 +1397,13 @@
     "yesNo": {
       "false": "No",
       "true": "Si"
+    },
+    "carryType": {
+      "held1": "A una mano",
+      "held2": "A dos manos",
+      "worn": "A cuestas",
+      "stowed": "En la mochila",
+      "dropped": "En el suelo"
     },
     "macros": {
       "commonMacroNoTokensSelected": "No se ha seleccionado ninguna ficha. La macro no puede ejecutarse.",
