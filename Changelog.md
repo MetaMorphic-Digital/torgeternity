@@ -2,10 +2,10 @@
 
 ## 13.23.0
 
-- Change **equipped** on Items to now hold one of `Held` (1H or 2H), `Worn` (for armor), `Stowed` or `Dropped`.
+- Change **equipped** on Items to now hold one of `Held` (1H or 2H), `Worn` (for armor), `Carried` or `Dropped`.
   - **Worn** is only applicable to Armor (shields are held).
   - **Held** items can be held in one hand (1H) or two hands (2H).
-  - **Stowed** indicates that the item is still being carried in the Actor's person.
+  - **Carried** (Stowed) indicates that the item is still being carried in the Actor's person.
   - **Dropped** indicates that the item is NOT being carried by the Actor (could be left at home). They are not considered when looking for Contradictions, and thus do not affect `Surge`.
   - The glow is shown if the item is considered equipped (worn for armor, held for anything else).
   - Armor can be held in a hand, but is not considered "equipped" for game purposes.

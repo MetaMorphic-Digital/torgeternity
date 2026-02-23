@@ -1396,7 +1396,7 @@
       "held1": "Held 1H",
       "held2": "Held 2H",
       "worn": "Worn",
-      "stowed": "Stowed",
+      "stowed": "Carried",
       "dropped": "Dropped"
     },
     "macros": {
