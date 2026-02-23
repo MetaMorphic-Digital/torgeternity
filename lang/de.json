@@ -27,6 +27,11 @@
     }
   },
   "torgeternity": {
+    "testInspector": {
+      "title": "Proben Begutachter",
+      "field": "Feldname",
+      "value": "Feldwert"
+    },
     "activeEffect": {
       "FIELDS": {
         "transferOnAttack": {
@@ -582,7 +587,7 @@
       "spellRoll": "Zauberwurf",
       "tappingRoll": "Anwendungs-Wurf",
       "toggle": "Umschalten auf",
-      "changeCarryType": "Ausgerüstet?",
+      "changeCarryType": "Trageart ändern",
       "deleteRace": "Volk löschen"
     },
     "itemSheetDescriptions": {
@@ -913,8 +918,8 @@
       },
       "tokenActionHud": {
         "showAllEffects": {
-          "name": "TAH: Show All Effects",
-          "hint": "When not selected, only the 'Combat Toggle' events are shown in the Token Action HUD"
+          "name": "TAH: Zeige alle Effekte",
+          "hint": "Wenn nicht ausgewählt werden nur die 'Angriffsoptions'-Ereignisse im Token Action HUD angezeigt"
         },
         "showUnskilled": {
           "name": "TAH: Zeige ungelernte Fertigkeiten im HUD",
@@ -971,7 +976,7 @@
       "clearance": "Sicherheitsstufe",
       "collision": "Kollision",
       "combatSkills": "Kampf",
-      "combatToggles": "Combat Toggles",
+      "combatToggles": "Angriffsoptionen",
       "combinedAction": {
         "title": "Gruppenaktion",
         "participants": "Teilnehmer",
@@ -1392,6 +1397,13 @@
     "yesNo": {
       "false": "Nein",
       "true": "Ja"
+    },
+    "carryType": {
+      "held1": "Gehalten 1H",
+      "held2": "Gehalten 2H",
+      "worn": "Angezogen",
+      "stowed": "Verstaut",
+      "dropped": "Weggelegt"
     },
     "macros": {
       "commonMacroNoTokensSelected": "Es wurden keine Token ausgewählt. Das Makro kann nicht ausgeführt werden.",
