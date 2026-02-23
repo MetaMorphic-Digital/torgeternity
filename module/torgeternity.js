@@ -321,7 +321,7 @@ Hooks.once('i18nInit', () => {
 Hooks.once('setup', async function () {
 
   // Choose the best document type for creation (minimise clicks)
-  CONFIG.Actor.defaultType = (game.user.isGM) ? "threat" : "stormknight";
+  CONFIG.Actor.defaultType = (game.user.isGM) ? 'threat' : 'stormknight';
 
   modifyTokenBars();
   InitEnrichers();
@@ -708,7 +708,7 @@ async function rollSkillMacro(skillName, attributeName, isInteractionAttack, DND
         : null;
     // Maybe a custom skill?
     if (!skill && actor) {
-      skill = actor.items.find(it => it.type === 'customSkill' && it.name === skillName)?.system;
+      skill = actor.itemTypes.customSkill?.find(it => it.name === skillName)?.system;
       if (skill) customSkill = true;
     }
     if (!skill)
@@ -787,15 +787,10 @@ async function rollSkillMacro(skillName, attributeName, isInteractionAttack, DND
       const firstTarget = game.user.targets.find(token => token.actor.type !== 'vehicle')?.actor ||
         game.user.targets.first().actor;
 
-      if (firstTarget.type === 'vehicle') {
+      if (firstTarget.type === 'vehicle')
         dnDescriptor = 'targetVehicleDefense';
-      } else {
-        firstTarget.items
-          .filter((it) => it.type === 'meleeweapon')
-          .filter((it) => it.system.equipped).length !== 0
-          ? (dnDescriptor = 'targetMeleeWeapons')
-          : (dnDescriptor = 'targetUnarmedCombat');
-      }
+      else
+        dnDescriptor = firstTarget.equippedMelee ? 'targetMeleeWeapons' : 'targetUnarmedCombat';
     }
     test.DNDescriptor = dnDescriptor ?? DNDescriptor;
 

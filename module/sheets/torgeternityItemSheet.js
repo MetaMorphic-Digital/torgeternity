@@ -490,7 +490,7 @@ export async function reloadAmmo(actor, weapon, ammoItem, ignoreUsage) {
 
   if (!ammoItem) {
     // called from the main actor sheet, it's not known what ammo item is used.
-    const ammoArray = actor.items.filter(item => item.type === 'ammunition');
+    const ammoArray = actor.itemTypes.ammunition;
     if (ammoArray.length === 0) {
       return ChatMessage.create({
         content: `${game.i18n.localize('torgeternity.chatText.noSpareAmmo')}`,

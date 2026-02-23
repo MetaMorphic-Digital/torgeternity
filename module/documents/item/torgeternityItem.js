@@ -141,14 +141,11 @@ export default class TorgeternityItem extends foundry.documents.Item {
     super._onCreate(data, options, userId);
     if (game.user.id !== userId) return;
 
-    if (this.parent && ['armor', 'shield'].includes(this.type) && this.system.equipped) {
+    if (this.parent && ['armor', 'shield'].includes(this.type) && this.isEquipped) {
       const actor = this.parent;
-      const previousEquipped = actor.items.find(
-        item => item.id !== this.id && item.system.equipped && item.type === this.type
-      );
-
+      const previousEquipped = actor.items.find(item => item.id !== this.id && item.isEquipped && item.type === this.type);
       if (previousEquipped) {
-        TorgeternityItem.toggleEquipState(previousEquipped, actor);
+        previousEquipped.setCarryType(actor, 'stowed', 0);
       }
     }
   }
@@ -189,43 +186,55 @@ export default class TorgeternityItem extends foundry.documents.Item {
     }
   }
 
+  get isDropped() {
+    return this.system.equipped?.carryType === 'dropped';
+  }
+
+  get isEquipped() {
+    return this.system.equipped?.carryType === this.system.usage;
+  }
+
   /**
    *
    * @param {Item} item the item that gets equipped or unequipped
    * @param {Actor} actor the actor that the item belongs to
    */
-  static toggleEquipState(item, actor) {
-    const wasEquipped = item.system.equipped;
-    const itemUpdates = [
-      {
-        _id: item.id,
-        'system.equipped': !wasEquipped,
-      },
-    ];
-    // enable/disable effects
-    const sourceOrigin = 'Item.' + item._id;
-    const effectUpdates = actor.effects
-      .filter((e) => e.origin && e.origin.endsWith(sourceOrigin))
-      .map((e) => ({ _id: e.id, disabled: wasEquipped }));
+  setCarryType(actor, carryType, handsHeld) {
+    const item = this;
+    const wasEquipped = item.isEquipped;
+    const willBeEquipped = carryType === this.system.usage;
+    const itemUpdates = [{
+      _id: item.id,
+      'system.equipped.carryType': carryType,
+      'system.equipped.handsHeld': handsHeld,
+    }];
 
-    // for armors and shields, ensure that there is only one equipped at a time
-    if (!wasEquipped && ['armor', 'shield'].includes(item.type)) {
-      actor.items
-        .filter(it => it.id !== item.id && it.system.equipped && it.type === item.type)
-        .forEach(it => {
-          itemUpdates.push({
-            _id: it.id,
-            'system.equipped': false,
-          });
-          effectUpdates.push(
-            ...actor.effects
+    let effectPromises = [];
+
+    if (wasEquipped !== willBeEquipped) {
+      const sourceOrigin = 'Item.' + item._id;
+      // enable/disable effects
+      Array.from(actor.allApplicableEffects())
+        .filter((e) => e.origin && e.origin.endsWith(sourceOrigin))
+        .map((e) => e.update({ disabled: wasEquipped }));
+
+      // for armors and shields, ensure that there is only one equipped at a time
+      if (willBeEquipped && ['armor', 'shield'].includes(item.type)) {
+        actor.items
+          .filter(it => it.id !== item.id && it.isEquipped && it.type === item.type)
+          .forEach(it => {
+            itemUpdates.push({
+              _id: it.id,
+              'system.equipped.carryType': 'stowed',
+              'system.equipped.handsHeld': 0,
+            });
+            Array.from(actor.allApplicableEffects())
               .filter((e) => e.origin && e.origin.endsWith('Item.' + it._id))
-              .map((e) => ({ _id: e.id, disabled: true }))
-          );
-        });
+              .map((e) => e.update({ disabled: true }));
+          });
+      }
     }
     actor.updateEmbeddedDocuments('Item', itemUpdates);
-    actor.updateEmbeddedDocuments('ActiveEffect', effectUpdates);
   }
 
   async #encodeString(options) {
@@ -337,7 +346,7 @@ export default class TorgeternityItem extends foundry.documents.Item {
    * @returns Boolean
    */
   isContradiction(maxAxioms) {
-    if (!maxAxioms) return false;
+    if (!maxAxioms || this.isDropped) return false;
 
     const results = [];
 

@@ -68,11 +68,7 @@
                 data-tooltip="{{localize 'torgeternity.iconeTitles.delete'}}">
                 <i class="fas fa-trash"></i>
               </a>
-              <a class="item-control item-equip {{ifThen item.system.equipped " item-equipped" "item-unequipped" }}"
-                data-action="itemEquip" {{disabled (not @root.editable)}}
-                data-tooltip="{{localize 'torgeternity.iconeTitles.toggleEquip'}}">
-                <i class="fas fa-hand-paper"></i>
-              </a>
+              {{> equipIcon item=item equipped=item.system.equipped}}
             </div>
           </div>
           <div class="item-detail">
@@ -130,11 +126,7 @@
                 data-tooltip="{{localize 'torgeternity.iconeTitles.delete'}}">
                 <i class="fas fa-trash"></i>
               </a>
-              <a class="item-control item-equip {{ifThen item.system.equipped " item-equipped" "item-unequipped" }}"
-                data-action="itemEquip" {{disabled (not @root.editable)}}
-                data-tooltip="{{localize 'torgeternity.iconeTitles.toggleEquip'}}">
-                <i class="fas fa-hand-paper"></i>
-              </a>
+              {{> equipIcon item=item equipped=item.system.equipped}}
             </div>
           </div>
           <div class="item-detail">
@@ -199,11 +191,7 @@
                 data-tooltip="{{localize 'torgeternity.iconeTitles.delete'}}">
                 <i class="fas fa-trash"></i>
               </a>
-              <a class="item-control item-equip {{ifThen item.system.equipped " item-equipped" "item-unequipped" }}"
-                data-action="itemEquip" {{disabled (not @root.editable)}}
-                data-tooltip="{{localize 'torgeternity.iconeTitles.toggleEquip'}}">
-                <i class="fas fa-hand-paper"></i>
-              </a>
+              {{> equipIcon item=item equipped=item.system.equipped}}
             </div>
           </div>
           <div class="item-detail">
@@ -268,11 +256,7 @@
                 data-tooltip="{{localize 'torgeternity.iconeTitles.delete'}}">
                 <i class="fas fa-trash"></i>
               </a>
-              <a class="item-control item-equip {{ifThen item.system.equipped " item-equipped" "item-unequipped" }}"
-                data-action="itemEquip" {{disabled (not @root.editable)}}
-                data-tooltip="{{localize 'torgeternity.iconeTitles.toggleEquip'}}">
-                <i class="fas fa-hand-paper"></i>
-              </a>
+              {{> equipIcon item=item equipped=item.system.equipped}}
             </div>
           </div>
           <div class="item-detail">
@@ -409,11 +393,7 @@
                 data-tooltip="{{localize 'torgeternity.iconeTitles.delete'}}">
                 <i class="fas fa-trash"></i>
               </a>
-              <a class="item-control item-equip {{ifThen item.system.equipped " item-equipped" "item-unequipped" }}"
-                data-action="itemEquip" {{disabled (not @root.editable)}}
-                data-tooltip="{{localize 'torgeternity.iconeTitles.toggleEquip'}}">
-                <i class="fas fa-hand-paper"></i>
-              </a>
+              {{> equipIcon item=item equipped=item.system.equipped}}
             </div>
           </div>
           <div class="item-detail">
@@ -475,11 +455,7 @@
                 data-tooltip="{{localize 'torgeternity.iconeTitles.delete'}}">
                 <i class="fas fa-trash"></i>
               </a>
-              <a class="item-control item-equip {{ifThen item.system.equipped " item-equipped" "item-unequipped" }}"
-                data-action="itemEquip" {{disabled (not @root.editable)}}
-                data-tooltip="{{localize 'torgeternity.iconeTitles.toggleEquip'}}">
-                <i class="fas fa-hand-paper"></i>
-              </a>
+              {{> equipIcon item=item equipped=item.system.equipped}}
             </div>
           </div>
           <div class="item-detail">
@@ -791,3 +767,19 @@
     </ol>
   {{/if}}
 </section>
+
+{{#*inline "equipIcon"}}
+  <a class="item-control item-equip {{ifThen item.isEquipped 'item-equipped' : 'item-unequipped' }}"
+    data-tooltip="{{localize 'torgeternity.iconeTitles.changeCarryType'}}"
+    data-action="changeCarryType" {{disabled (not @root.editable)}}>
+    {{~#if (and (eq equipped.carryType "held") (eq equipped.handsHeld 1))}}<span class="fa-stack fa-fw fa-2xs">
+        <i class="fa-solid fa-hand-fist fa-stack-2x"></i>
+        <i class="fa-solid fa-1 fa-inverse fa-stack-1x"></i></span>
+    {{~else if (and (eq equipped.carryType "held") (eq equipped.handsHeld 2))}}<span class="fa-stack fa-fw fa-2xs">
+        <i class="fa-solid fa-hand-fist fa-stack-2x"></i>
+        <i class="fa-solid fa-2 fa-inverse fa-stack-1x"></i></span>
+    {{~else if (eq equipped.carryType "stowed")}}<i class="fa-solid fa-box fa-fw"></i>
+    {{~else if (eq equipped.carryType "dropped")}}<i class="fa-solid fa-grip-lines fa-fw"></i>
+    {{~else}}<i class="fa-solid fa-shirt fa-fw"></i>{{/if~}}
+  </a>
+{{/inline}}

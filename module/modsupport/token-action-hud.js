@@ -1,4 +1,5 @@
 import { rollAttack, rollPower, rollAttribute, rollSkill, rollUnarmedAttack, rollInteractionAttack, rollTapping } from '../torgchecks.js';
+import { prepareActiveEffectCategories } from '../effects.js';
 
 // LEFT CLICK to perform ACTION
 // RIGHT CLICK to open Item Sheet (ignored on Skills)
@@ -12,6 +13,7 @@ export default async function setupTokenActionHud(coreModule) {
   const GEAR_ID = 'gearid';   // since "gear" is the name of an Item group
   const CONDITION_ID = 'conditionsid';
   const PERKS_ID = 'perksid';
+  const EFFECTS_ID = 'effectsid';
 
   const ACTION_ATTRIBUTE = 'attribute';
   const ACTION_SKILL = 'skill';
@@ -21,6 +23,7 @@ export default async function setupTokenActionHud(coreModule) {
   const ACTION_GEAR = 'gear';
   const ACTION_CONDITION = 'conditions';
   const ACTION_PERK = 'perk';
+  const ACTION_EFFECTS = 'effects';
 
   const FAVOURED = ' \u2606';
   const EQUIPPED = ' \u270b';
@@ -32,6 +35,7 @@ export default async function setupTokenActionHud(coreModule) {
     powers: { id: POWERS_ID, name: "torgeternity.sheetLabels.powers", type: "system" },
     gear: { id: GEAR_ID, name: "torgeternity.sheetLabels.gear", type: "system" },
     skills: { id: SKILLS_ID, name: "torgeternity.sheetLabels.skills", type: "system" },
+    effects: { id: EFFECTS_ID, name: "torgeternity.sheetLabels.effects", type: "system" },
     conditions: { id: CONDITION_ID, name: "torgeternity.sheetLabels.conditions", type: "system" },
   }
   let SUBGROUP = {
@@ -39,6 +43,10 @@ export default async function setupTokenActionHud(coreModule) {
     skillsInteraction: { id: 'skills_interaction', name: "torgeternity.sheetLabels.interactionSkills", type: "system" },
     skillsOther: { id: 'skills_other', name: "torgeternity.sheetLabels.otherSkills", type: "system" },
     attacksInteraction: { id: 'combat_interaction', name: "torgeternity.sheetLabels.interactionAttacks", type: "system" },
+    effectsToggle: { id: 'effects_toggle', name: "torgeternity.sheetLabels.combatToggles", type: "system" },
+    effectsTemp: { id: 'effects_temp', name: "torgeternity.sheetLabels.tempEffects", type: "system" },
+    effectsPassive: { id: 'effects_passive', name: "torgeternity.sheetLabels.passiveEffects", type: "system" },
+    effectsInactive: { id: 'effects_inactive', name: "torgeternity.sheetLabels.inactiveEffects", type: "system" },
   }
   for (const key of Object.keys(CONFIG.Item.typeLabels)) {
     if (key === 'base') continue;
@@ -68,6 +76,7 @@ export default async function setupTokenActionHud(coreModule) {
       await this.#getAttacks(actor, tokenId, GROUP.combat);
       await this.#getGear(actor, tokenId, GROUP.gear);
       await this.#getPerks(actor, tokenId, GROUP.perks);
+      await this.#getEffects(actor, tokenId, GROUP.effects);
       await this.#getConditions(actor, tokenId, GROUP.conditions);
 
       //if (settings.get("showHudTitle")) result.hudTitle = token.name;
@@ -196,6 +205,43 @@ export default async function setupTokenActionHud(coreModule) {
       await this.#createList(parent, actor, tokenId, ACTION_GEAR, actor.itemTypes.eternityshard, 'eternityShard');
     }
 
+    async #getEffects(actor, tokenId, parent) {
+      const actionId = ACTION_EFFECTS;
+
+      async function getList(tah, effects, label, showSelected = false) {
+        const actions = effects.map(eff => {
+          let result = {
+            id: eff.id,
+            name: eff.name,
+            encodedValue: [actionId, actor.id, tokenId, eff.id].join(tah.delimiter),
+            img: coreModule.api.Utils.getImage(eff),
+            system: eff,
+          }
+
+          if (eff.description) result.tooltip = { content: eff.description };
+          if (showSelected) {
+            result.cssClass = `toggle${eff.active && ' active'}`;
+            result.selected = eff.active;
+          }
+          return result;
+        })
+
+        if (actions.length) {
+          const subcat = { id: `${parent.id}-${label}`, name: coreModule.api.Utils.i18n(`torgeternity.sheetLabels.${label}`) };
+          tah.addGroup(subcat, parent);
+          tah.addActions(actions, subcat);
+        }
+      }
+
+      const effects = prepareActiveEffectCategories(this.actor.allApplicableEffects());
+      await getList(this, Array.from(this.actor.allApplicableEffects().filter(effect => effect.system.combatToggle)), 'combatToggles', true);
+      if (game.settings.get('torgeternity', 'tahShowAllEffects')) {
+        await getList(this, effects.temporary.effects, 'tempEffects');
+        await getList(this, effects.passive.effects, 'passiveEffects');
+        await getList(this, effects.inactive.effects, 'inactiveEffects');
+      }
+    }
+
     async #getConditions(actor, tokenId, parent) {
       const actions = CONFIG.torgeternity.statusEffects.map(status => {
         const result = {
@@ -285,6 +331,19 @@ export default async function setupTokenActionHud(coreModule) {
           if (this.isRenderItem()) return this.renderItem(actor, actionId);
           break;
 
+        case ACTION_EFFECTS: {
+          const effect = actor.allApplicableEffects().find(effect => effect.id === actionId);
+          if (!effect) return;
+          if (this.isRenderItem()) {
+            // Render the EFFECT sheet (not the ITEM sheet)
+            effect.sheet.render({ force: true });
+          } else {
+            await effect.update({ disabled: !effect.disabled });
+            Hooks.callAll('forceUpdateTokenActionHud');
+          }
+          break;
+        }
+
         case ACTION_CONDITION:
           if (this.isRenderItem()) {
             // Render the EFFECT sheet (not the ITEM sheet)
@@ -325,6 +384,16 @@ export default async function setupTokenActionHud(coreModule) {
       game.settings.register('torgeternity', 'tahShowUnskilled', {
         name: game.i18n.localize('torgeternity.settingMenu.tokenActionHud.showUnskilled.name'),
         hint: game.i18n.localize('torgeternity.settingMenu.tokenActionHud.showUnskilled.hint'),
+        scope: 'client',
+        config: true,
+        type: Boolean,
+        default: false,
+        onChange: value => onChangeFunction(value)
+      })
+
+      game.settings.register('torgeternity', 'tahShowAllEffects', {
+        name: game.i18n.localize('torgeternity.settingMenu.tokenActionHud.showAllEffects.name'),
+        hint: game.i18n.localize('torgeternity.settingMenu.tokenActionHud.showAllEffects.hint'),
         scope: 'client',
         config: true,
         type: Boolean,
@@ -407,6 +476,18 @@ export default async function setupTokenActionHud(coreModule) {
               { ...groups.implant, nestId: "gear_implants" },
               { ...groups.currency, nestId: "gear_currencies" },
               { ...groups.eternityshard, nestId: "gear_eternityshard" },
+            ]
+          },
+          {
+            nestId: EFFECTS_ID,
+            id: EFFECTS_ID,
+            name: game.i18n.localize('torgeternity.sheetLabels.effects'),
+            type: 'system',
+            groups: [
+              { ...groups.effectsToggle, nestId: "effects_toggle" },
+              { ...groups.effectsTemp, nestId: "effects_toggle" },
+              { ...groups.effectsPassive, nestId: "effects_toggle" },
+              { ...groups.effectsInactive, nestId: "effects_toggle" },
             ]
           },
           {

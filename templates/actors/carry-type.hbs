@@ -1,0 +1,27 @@
+<li>
+  <a {{#if (and (eq item.system.equipped.carryType "held" ) (eq item.system.equipped.handsHeld 1))}}
+    class="selected" {{/if}}
+    data-carry-type="held" data-hands-held="1">
+    <i class="fa-solid fa-fw fa-hand-fist"></i>&nbsp;{{localize "torgeternity.carryType.held1"}}</a>
+</li>
+<li>
+  <a {{#if (and (eq item.system.equipped.carryType "held" ) (eq item.system.equipped.handsHeld 2))}}
+    class="selected" {{/if}}
+    data-carry-type="held" data-hands-held="2">
+    <i class="fa-solid fa-fw fa-hand-fist"></i>&nbsp;{{localize "torgeternity.carryType.held2"}}</a>
+</li>
+{{#if (eq item.system.usage "worn")}}
+  <li>
+    <a {{#if (eq item.system.equipped.carryType "worn" )}} class="selected" {{/if}}
+      data-carry-type="worn"><i class="fa-solid fa-fw fa-shirt"></i>&nbsp;{{localize "torgeternity.carryType.worn"}}</a>
+  </li>
+{{/if}}
+<li>
+  <a {{#if (eq item.system.equipped.carryType "stowed" )}}class="selected" {{/if}}
+    data-carry-type="stowed"><i class="fa-solid fa-fw fa-box"></i>&nbsp;{{localize "torgeternity.carryType.stowed"}}</a>
+</li>
+<li>
+  <a {{#if (eq item.system.equipped.carryType "dropped" )}}class="selected" {{/if}}
+    data-carry-type="dropped">
+    <i class="fa-solid fa-fw fa-grip-lines"></i>&nbsp;{{localize "torgeternity.carryType.dropped"}}</a>
+</li>

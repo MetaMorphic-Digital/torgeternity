@@ -21,6 +21,11 @@
     }
   },
   "torgeternity": {
+    "testInspector": {
+      "title": "Test Inspector",
+      "field": "Field Name",
+      "value": "Field Value"
+    },
     "activeEffect": {
       "FIELDS": {
         "transferOnAttack": {
@@ -576,7 +581,7 @@
       "spellRoll": "Spell Roll",
       "tappingRoll": "Tapping Roll",
       "toggle": "Toggle",
-      "toggleEquip": "Toggle Equip",
+      "changeCarryType": "Change Carry Type",
       "deleteRace": "Delete Race"
     },
     "itemSheetDescriptions": {
@@ -906,6 +911,10 @@
         "hint": "Displays the current Piety Score of a Storm Knight on the Actor's sheet"
       },
       "tokenActionHud": {
+        "showAllEffects": {
+          "name": "TAH: Show All Effects",
+          "hint": "When not selected, only the 'Combat Toggle' events are shown in the Token Action HUD"
+        },
         "showUnskilled": {
           "name": "TAH: Show Unskilled Skills in HUD",
           "hint": "Enables the display of Unskilled skills in the Token Action HUD"
@@ -961,6 +970,7 @@
       "clearance": "Clearance",
       "collision": "Collision",
       "combatSkills": "Combat",
+      "combatToggles": "Combat Toggles",
       "combinedAction": {
         "title": "Combined Action",
         "participants": "Participants",
@@ -1381,6 +1391,13 @@
     "yesNo": {
       "false": "No",
       "true": "Yes"
+    },
+    "carryType": {
+      "held1": "Held 1H",
+      "held2": "Held 2H",
+      "worn": "Worn",
+      "stowed": "Carried",
+      "dropped": "Dropped"
     },
     "macros": {
       "commonMacroNoTokensSelected": "There were no tokens selected. The macro cannot compute.",

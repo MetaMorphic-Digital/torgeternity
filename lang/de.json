@@ -27,6 +27,11 @@
     }
   },
   "torgeternity": {
+    "testInspector": {
+      "title": "Proben Begutachter",
+      "field": "Feldname",
+      "value": "Feldwert"
+    },
     "activeEffect": {
       "FIELDS": {
         "transferOnAttack": {
@@ -582,7 +587,7 @@
       "spellRoll": "Zauberwurf",
       "tappingRoll": "Anwendungs-Wurf",
       "toggle": "Umschalten auf",
-      "toggleEquip": "Ausgerüstet?",
+      "changeCarryType": "Trageart ändern",
       "deleteRace": "Volk löschen"
     },
     "itemSheetDescriptions": {
@@ -912,6 +917,10 @@
         "hint": "Anzeige des aktuellen Frömmigkeitswertes eines Storm Knight in seinem Charakterbogen"
       },
       "tokenActionHud": {
+        "showAllEffects": {
+          "name": "TAH: Zeige alle Effekte",
+          "hint": "Wenn nicht ausgewählt werden nur die 'Angriffsoptions'-Ereignisse im Token Action HUD angezeigt"
+        },
         "showUnskilled": {
           "name": "TAH: Zeige ungelernte Fertigkeiten im HUD",
           "hint": "Aktiviert die Anzeige von ungelernten Fertigkeiten in Token Action HUD"
@@ -967,6 +976,7 @@
       "clearance": "Sicherheitsstufe",
       "collision": "Kollision",
       "combatSkills": "Kampf",
+      "combatToggles": "Angriffsoptionen",
       "combinedAction": {
         "title": "Gruppenaktion",
         "participants": "Teilnehmer",
@@ -1387,6 +1397,13 @@
     "yesNo": {
       "false": "Nein",
       "true": "Ja"
+    },
+    "carryType": {
+      "held1": "Gehalten 1H",
+      "held2": "Gehalten 2H",
+      "worn": "Angezogen",
+      "stowed": "Getragen",
+      "dropped": "Weggelegt"
     },
     "macros": {
       "commonMacroNoTokensSelected": "Es wurden keine Token ausgewählt. Das Makro kann nicht ausgeführt werden.",

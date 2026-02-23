@@ -4697,3 +4697,39 @@ div.torgeternity.effects-panel {
     }
   }
 }
+
+div.testInspector {
+  overflow: scroll;
+  height: 800px;
+
+  table {
+    thead {
+      background-color: #000040;
+      position: sticky;
+      top: 0;
+      z-index: 2;
+    }
+
+    th {
+      font-size: larger;
+    }
+  }
+}
+
+aside.carry-type-menu {
+  padding: 8px;
+
+  ul {
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+
+    li {
+      padding: 0px 8px 0px 8px;
+    }
+
+    li:has(a.selected) {
+      background: #444;
+    }
+  }
+}

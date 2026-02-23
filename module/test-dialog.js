@@ -361,68 +361,75 @@ export function oneTestTarget(token, applySize) {
   const damageDefenses = Object.entries(actor.defenses.damageTraits).filter(([_key, value]) => value).reduce((acc, [key, value]) => (acc[key] = value, acc), {})
 
   // Set vehicle defense if needed
-  if (actor.type === 'vehicle') {
-    return {
-      type: actor.type,
-      id: actor.id,
-      actorUuid: actor.uuid,
-      uuid: token.document.uuid,
-      targetPic: actor.img,
-      targetName: token.name,
-      sizeModifier: sizeModifier,
-      toughness: actor.defenses.toughness,
-      armor: actor.defenses.armor,
-      armorTraits: [],
-      amountBD: 0,
-      bdDamageSum: 0,
-      // then vehicle specifics
-      defenses: {
-        ...damageDefenses,
-        vehicle: actor.system.defense,
-        dodge: actor.system.defense,
-        unarmedCombat: actor.system.defense,
-        meleeWeapons: actor.system.defense,
-        intimidation: actor.system.defense,
-        maneuver: actor.system.defense,
-        taunt: actor.system.defense,
-        trick: actor.system.defense,
-      },
-    };
-  } else {
-    return {
-      type: actor.type,
-      id: actor.id,
-      actorUuid: actor.uuid,
-      uuid: token.document.uuid,
-      targetPic: actor.img,
-      targetName: token.name,
-      sizeModifier: sizeModifier,
-      toughness: actor.defenses.toughness,
-      armor: actor.defenses.armor,
-      defenseTraits: actor.defenseTraits,
-      // then non-vehicle changes
-      skills: actor.items.filter(it => it.type === 'customSkill').reduce((acc, skill) => {
-        acc[toCamelCase(skill.name)] = { name: skill.name, ...skill.system };
-        return acc;
-      }, { ...actor.system.skills }),
-      attributes: actor.system.attributes,
-      vulnerableModifier: actor.statusModifiers.vulnerable,
-      darknessModifier: actor.statusModifiers.darkness,
-      isConcentrating: actor.isConcentrating,
-      amountBD: 0,
-      bdDamageSum: 0,
-      defenses: {
-        ...damageDefenses,
-        dodge: actor.defenses.dodge.value,
-        unarmedCombat: actor.defenses.unarmedCombat.value,
-        meleeWeapons: actor.defenses.meleeWeapons.value,
-        intimidation: actor.defenses.intimidation.value,
-        maneuver: actor.defenses.maneuver.value,
-        taunt: actor.defenses.taunt.value,
-        trick: actor.defenses.trick.value,
-        activeDefense: !!actor.activeDefense
-      },
-    };
+  switch (actor.type) {
+    case 'vehicle':
+      return {
+        type: actor.type,
+        id: actor.id,
+        actorUuid: actor.uuid,
+        uuid: token.document.uuid,
+        targetPic: actor.img,
+        targetName: token.name,
+        sizeModifier: sizeModifier,
+        toughness: actor.defenses.toughness,
+        armor: actor.defenses.armor,
+        armorTraits: [],
+        amountBD: 0,
+        bdDamageSum: 0,
+        // then vehicle specifics
+        defenses: {
+          ...damageDefenses,
+          vehicle: actor.system.defense,
+          dodge: actor.system.defense,
+          unarmedCombat: actor.system.defense,
+          meleeWeapons: actor.system.defense,
+          intimidation: actor.system.defense,
+          maneuver: actor.system.defense,
+          taunt: actor.system.defense,
+          trick: actor.system.defense,
+        },
+      };
+
+    case 'threat':
+    case 'stormknight':
+      return {
+        type: actor.type,
+        id: actor.id,
+        actorUuid: actor.uuid,
+        uuid: token.document.uuid,
+        targetPic: actor.img,
+        targetName: token.name,
+        sizeModifier: sizeModifier,
+        toughness: actor.defenses.toughness,
+        armor: actor.defenses.armor,
+        defenseTraits: actor.defenseTraits,
+        // then non-vehicle changes
+        skills: actor.itemTypes.customSkill.reduce((acc, skill) => {
+          acc[toCamelCase(skill.name)] = { name: skill.name, ...skill.system };
+          return acc;
+        }, { ...actor.system.skills }),
+        attributes: actor.system.attributes,
+        vulnerableModifier: actor.statusModifiers.vulnerable,
+        darknessModifier: actor.statusModifiers.darkness,
+        isConcentrating: actor.isConcentrating,
+        amountBD: 0,
+        bdDamageSum: 0,
+        defenses: {
+          ...damageDefenses,
+          dodge: actor.defenses.dodge.value,
+          unarmedCombat: actor.defenses.unarmedCombat.value,
+          meleeWeapons: actor.defenses.meleeWeapons.value,
+          intimidation: actor.defenses.intimidation.value,
+          maneuver: actor.defenses.maneuver.value,
+          taunt: actor.defenses.taunt.value,
+          trick: actor.defenses.trick.value,
+          activeDefense: !!actor.activeDefense
+        },
+      };
+
+    default:
+      console.warn(`Unknown actor type ${oneTestTarget}`);
+      return null;
   }
 }
 

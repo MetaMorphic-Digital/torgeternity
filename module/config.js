@@ -669,4 +669,6 @@ export function initConfig() {
   torgeternity.toDarkAnimationMS = 3000;
   // How long to wait between calls to darknessDebounce before processing it
   torgeternity.darknessDebounceMS = 100;
+
+  torgeternity.carryTypes = ['held', 'worn', 'stowed', 'dropped'];
 }

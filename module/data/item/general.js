@@ -19,6 +19,10 @@ export class GeneralItemData extends BaseItemData {
         // will receive price.torgValue during prepareDerivedData
       }),
       secondaryAxiom: new fields.StringField({ initial: 'none' }),
+      equipped: new fields.SchemaField({
+        carryType: new fields.StringField({ required: true, nullable: false, choices: CONFIG.torgeternity.carryTypes, initial: "stowed" }),
+        handsHeld: new fields.NumberField({ initial: 0, integer: true }),
+      })
     };
   }
 
@@ -27,6 +31,15 @@ export class GeneralItemData extends BaseItemData {
       if (!source.axioms) source.axioms = {};
       source.axioms.tech = source.techlevel;
       delete source.techlevel;
+    }
+    if (typeof source.equipped === 'boolean') {
+      // Armor will deal with 'worn'
+      source.equipped = { carryType: source.equipped ? 'held' : 'stowed' };
+      if (source.equipped.carryType === 'held') {
+        source.equipped.handsHeld = source.traits?.includes('twoHanded') ? 2 : 1;
+      }
+    } else if (!Object.hasOwn(source, 'equipped')) {
+      this.equipped = { carryType: 'stowed', handsHeld: 0 }
     }
 
     if (source.secondaryAxiom?.selected) {
@@ -49,5 +62,12 @@ export class GeneralItemData extends BaseItemData {
   prepareDerivedData() {
     super.prepareDerivedData();
     this.price.torgValue = calcPriceValue(this.price.dollars);
+  }
+
+  /**
+   * @returns {String} the carry-type in which this Item is assumed to be Equipped
+   */
+  get usage() {
+    return 'held';
   }
 }

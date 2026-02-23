@@ -9,27 +9,13 @@
   </div>
   <div class="item-description" data-item-id="{{_id}}">
     <div class="item-description">{{{system.description}}}</div>
-    <div class="item-dropdown-extras">
-      {{system.cosm}}
-    </div>
-    <div class="item-dropdown-extras">
-      {{localize "torgeternity.gear.price"}}: {{system.price.dollars}} ({{system.price.torgValue}})
-    </div>
-    <div class="item-dropdown-extras">
-      {{localize "torgeternity.gear.techlevel"}}
-      :
-      {{system.axioms.tech}}
-    </div>
-    <div class="item-dropdown-extras">
-      {{system.topspeed}}
-    </div>
-    <div class="item-dropdown-extras">
-      {{localize "torgeternity.skills.maneuver"}}
-      {{system.mr}}
-    </div>
-    <div class="item-dropdown-extras">
-      {{system.wounds}}/{{system.tough}}
-    </div>
+    <div class="item-dropdown-extras">{{localize (concat 'torgeternity.cosms.' system.cosm)}}</div>
+    <div class="item-dropdown-extras">{{localize "torgeternity.gear.price"}}: {{system.price.dollars}}
+      ({{system.price.torgValue}})</div>
+    <div class="item-dropdown-extras">{{localize "torgeternity.gear.techlevel"}} : {{system.axioms.tech}}</div>
+    <div class="item-dropdown-extras">{{system.topspeed}}</div>
+    <div class="item-dropdown-extras">{{localize "torgeternity.skills.maneuver"}}: {{system.mr}}</div>
+    <div class="item-dropdown-extras">{{system.wounds}}/{{system.tough}} </div>
     {{> "systems/torgeternity/templates/chat/effects-subcard.hbs"}}
   </div>
 

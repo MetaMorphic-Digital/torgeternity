@@ -17,7 +17,6 @@ export class BaseWeaponItemData extends GeneralItemData {
       chatNote: new fields.StringField({ initial: '' }),
       damage: new fields.NumberField({ initial: 0, integer: true }),
       damageType: new fields.StringField({ initial: '' }),
-      equipped: new fields.BooleanField({ initial: false }),
       minStrength: new fields.NumberField({ initial: null, integer: true }),
       notes: new fields.StringField({ initial: '' }),
     };

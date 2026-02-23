@@ -14,11 +14,11 @@ export default class TorgeternityActor extends foundry.documents.Actor {
    * @returns {Item|null}
    */
   get equippedMelee() {
-    return this.itemTypes.meleeweapon.find((a) => a.system.equipped) ?? null;
+    return this.itemTypes.meleeweapon.find((a) => a.isEquipped) ?? null;
   }
 
   get equippedMelees() {
-    return this.itemTypes.meleeweapon.filter((a) => a.system.equipped) ?? null;
+    return this.itemTypes.meleeweapon.filter((a) => a.isEquipped) ?? null;
   }
 
   get race() {
@@ -38,8 +38,8 @@ export default class TorgeternityActor extends foundry.documents.Actor {
     // Here Effects are not yet applied
     if (this.type !== 'vehicle') {
       // initialize the worn armor and shield bonus
-      const wornArmor = this.itemTypes.armor.find((a) => a.system.equipped);
-      const heldShield = this.itemTypes.shield.find((a) => a.system.equipped);
+      const wornArmor = this.itemTypes.armor.find((a) => a.isEquipped);
+      const heldShield = this.itemTypes.shield.find((a) => a.isEquipped);
       const shieldBonus = heldShield?.system?.bonus ?? 0;
 
       this.fatigue = 2 + (wornArmor?.system?.fatigue ?? 0);
@@ -170,11 +170,9 @@ export default class TorgeternityActor extends foundry.documents.Actor {
 
       const meleeWeaponsDefenseSkill = skills.meleeWeapons.value || attributes.dexterity.value;
       this.defenses.meleeWeapons.value = meleeWeaponsDefenseSkill + this.defenses.meleeWeapons.mod;
-      // (Core pg 126) Wielding two melee weapons increases melee weapons defense by 2.
-      if (this.type !== 'vehicle') {
-        const meleeWeaponCount = this.items.filter(item => item.type === 'meleeweapon' && item.system.equipped);
-        if (meleeWeaponCount.length > 1) this.defenses.meleeWeapons.value += 2;
-      }
+      // (Core pg 126) Wielding TWO melee weapons increases melee weapons defense by 2.
+      if (this.type !== 'vehicle' && this.equippedMelees?.length > 1)
+        this.defenses.meleeWeapons.value += 2;
 
       const unarmedCombatDefenseSkill = skills.unarmedCombat.value || attributes.dexterity.value;
       this.defenses.unarmedCombat.value = unarmedCombatDefenseSkill + this.defenses.unarmedCombat.mod;
@@ -515,7 +513,7 @@ export default class TorgeternityActor extends foundry.documents.Actor {
         });
         break;
 
-      default:
+      case 'vehicle':
         // Vehicles + other?
         await this.updateSource({
           img: 'systems/torgeternity/images/characters/vehicle-land.webp',
@@ -681,7 +679,7 @@ export default class TorgeternityActor extends foundry.documents.Actor {
    */
   async setActiveDefense(bonus) {
 
-    const equippedShield = this.items.find(item => item.type === 'shield' && item.system.equipped); // Search for an equipped shield
+    const equippedShield = this.itemTypes.shield.find(item => item.isEquipped); // Search for an equipped shield
     let shieldBonus = (equippedShield && !this.hasStatusEffect('vulnerable') && !this.hasStatusEffect('veryVulnerable')) ? equippedShield.system.bonus : 0
 
     return this.createEmbeddedDocuments('ActiveEffect', [{
@@ -798,13 +796,13 @@ export default class TorgeternityActor extends foundry.documents.Actor {
     const toDelete = [];
     for (const effect of this.effects.filter((e) => e.duration.type === 'turns')) {
       if (effect.name === 'ActiveDefense') continue;
-      if (effect.duration.turns === 1 && effect.duration.rounds === 1)
+      if (effect.duration.turns <= 1 && effect.duration.rounds <= 1)
         toDelete.push(effect.id)
       else
         toUpdate.push({
           _id: effect.id,
-          'duration.turns': effect.duration.turns - 1,
-          'duration.rounds': effect.duration.rounds - 1,
+          'duration.turns': Math.max(0, effect.duration.turns - 1),
+          'duration.rounds': Math.max(0, effect.duration.rounds - 1),
         });
     }
     const promises = [];
@@ -844,7 +842,7 @@ export default class TorgeternityActor extends foundry.documents.Actor {
   get defenseTraits() {
     const result = [];
     for (const item of this.items) {
-      if ((item.type === 'armor' && item.system.equipped) ||
+      if ((item.type === 'armor' && item.isEquipped) ||
         item.type === 'perk' ||
         item.type === 'specialability' ||
         item.type === 'specialabilityRollable') {
