@@ -7,6 +7,7 @@
   - `Held` items can be held in one hand (1H) or two hands (2H).
   - Armor can be held in a hand, but is not considered "equipped" for game purposes.
   - No restriction is placed on how many items can be held in hands.
+  - `Dropped` items are not considered when looking for Contradictions, and thus do not affect `Surge`.
   - The old `equipped` boolean is used to determine the new state:
     - equipped Armor becomes `worn`
     - equipped other Items becomes `held` in one-hand unless they have the `twoHanded` trait.

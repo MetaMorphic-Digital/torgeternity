@@ -186,6 +186,10 @@ export default class TorgeternityItem extends foundry.documents.Item {
     }
   }
 
+  get isDropped() {
+    return this.system.equipped?.carryType === 'dropped';
+  }
+
   get isEquipped() {
     return this.system.equipped?.carryType === this.system.usage;
   }
@@ -342,7 +346,7 @@ export default class TorgeternityItem extends foundry.documents.Item {
    * @returns Boolean
    */
   isContradiction(maxAxioms) {
-    if (!maxAxioms) return false;
+    if (!maxAxioms || this.isDropped) return false;
 
     const results = [];
 
