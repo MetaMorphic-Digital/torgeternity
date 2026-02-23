@@ -41,7 +41,7 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
       interactionAttack: TorgeternityActorSheet.#onInteractionAttack,
       unarmedAttack: TorgeternityActorSheet.#onUnarmedAttack,
       itemPowerRoll: TorgeternityActorSheet.#onPowerRoll,
-      itemEquip: TorgeternityActorSheet.#onItemEquip,
+      changeCarryType: TorgeternityActorSheet.#onChangeCarryType,
       itemCreate: TorgeternityActorSheet.#onItemCreate,
       activeDefenseRoll: TorgeternityActorSheet.#onActiveDefenseRoll,
       activeDefenseRollGlow: TorgeternityActorSheet.#onActiveDefenseCancel,
@@ -967,10 +967,34 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
    * @param {HTMLButtonElement} button
    * @this {TorgeternityActorSheet}
    */
-  static #onItemEquip(event, button) {
-    const itemID = button.closest('.item').dataset.itemId;
-    const item = this.actor.items.get(itemID);
-    TorgeternityItem.toggleEquipState(item, this.actor);
+  static async #onChangeCarryType(event, button) {
+    const item = this.actor.items.get(button.closest('.item').dataset.itemId);
+    if (!item) return;
+
+    const template = await foundry.applications.handlebars.renderTemplate("systems/torgeternity/templates/actors/carry-type.hbs",
+      { item });
+    const html = document.createElement('ul');
+    html.style = "list-style-type: none";
+    html.innerHTML = template;
+
+    html.addEventListener('click', event2 => {
+      const menuOption = event2.target?.closest("a[data-carry-type]");
+      if (!menuOption) return;
+      const carryType = menuOption.dataset.carryType;
+      const handsHeld = Number(menuOption.dataset.handsHeld) || 0;
+      const current = item.system.equipped;
+      if (carryType !== current.carryType ||
+        (carryType === "held" && handsHeld !== current.handsHeld)) {
+        item.setCarryType(this.actor, carryType, handsHeld)
+      }
+      game.tooltip.dismissLockedTooltips()
+    })
+
+    game.tooltip.activate(button, {
+      cssClass: "torgeternity carry-type-menu",
+      html: html,
+      locked: true
+    })
   }
 
   /**

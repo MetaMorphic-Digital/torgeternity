@@ -582,7 +582,7 @@
       "spellRoll": "Tirada de Conjuro",
       "tappingRoll": "Tirada de uso",
       "toggle": "Cambiar",
-      "toggleEquip": "Activar equipo",
+      "changeCarryType": "Activar equipo",
       "deleteRace": "Suprimir raza"
     },
     "itemSheetDescriptions": {

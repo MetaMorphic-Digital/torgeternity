@@ -787,15 +787,12 @@ async function rollSkillMacro(skillName, attributeName, isInteractionAttack, DND
       const firstTarget = game.user.targets.find(token => token.actor.type !== 'vehicle')?.actor ||
         game.user.targets.first().actor;
 
-      if (firstTarget.type === 'vehicle') {
+      if (firstTarget.type === 'vehicle')
         dnDescriptor = 'targetVehicleDefense';
-      } else {
-        firstTarget.items
-          .filter((it) => it.type === 'meleeweapon')
-          .filter((it) => it.system.equipped).length !== 0
-          ? (dnDescriptor = 'targetMeleeWeapons')
-          : (dnDescriptor = 'targetUnarmedCombat');
-      }
+      else
+        dnDescriptor = firstTarget.items.find(item => item.type === 'meleeweapon' && item.isEquipped)
+          ? 'targetMeleeWeapons'
+          : 'targetUnarmedCombat';
     }
     test.DNDescriptor = dnDescriptor ?? DNDescriptor;
 

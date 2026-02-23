@@ -582,7 +582,7 @@
       "spellRoll": "Jet de sort",
       "tappingRoll": "Jet d'activation",
       "toggle": "Activer/Désactiver",
-      "toggleEquip": "Équiper/Déséquiper",
+      "changeCarryType": "Équiper/Déséquiper",
       "deleteRace": "Effacer le choix de Race"
     },
     "itemSheetDescriptions": {

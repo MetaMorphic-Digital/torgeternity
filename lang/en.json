@@ -581,7 +581,7 @@
       "spellRoll": "Spell Roll",
       "tappingRoll": "Tapping Roll",
       "toggle": "Toggle",
-      "toggleEquip": "Toggle Equip",
+      "changeCarryType": "Change Carry Type",
       "deleteRace": "Delete Race"
     },
     "itemSheetDescriptions": {
@@ -1391,6 +1391,13 @@
     "yesNo": {
       "false": "No",
       "true": "Yes"
+    },
+    "carryType": {
+      "held1": "Held 1H",
+      "held2": "Held 2H",
+      "worn": "Worn",
+      "stowed": "Stowed",
+      "dropped": "Dropped"
     },
     "macros": {
       "commonMacroNoTokensSelected": "There were no tokens selected. The macro cannot compute.",

@@ -2,9 +2,18 @@
 
 ## NEXT
 
-- Add "Test Inspector" context menu option to chat messages.
+- Add **Test Inspector** context menu option to chat messages.
 - Add "duration=X" option to `@Condition`
 - **Token Action HUD**: Add `Effects` tab, by default it only shows the Combat Toggles (game system option to show ALL effects).
+- Change **equipped** on Items to now hold one of `Held` (1H or 2H), `Worn` (for armor), `Stowed` or `Dropped`.
+  - `Worn` is only applicable to Armor (shields are held).
+  - `Held` items can be held in one hand (1H) or two hands (2H).
+  - Armor can be held in a hand, but is not considered "equipped" for game purposes.
+  - No restriction is placed on how many items can be held in hands.
+  - The old `equipped` boolean is used to determine the new state:
+    - equipped Armor becomes `worn`
+    - equipped other Items becomes `held` in one-hand unless they have the `twoHanded` trait.
+    - all other Items become `stowed`.
 
 ## 13.22.2 - Ammo and other Active Effect fixes
 

@@ -582,7 +582,7 @@
       "spellRoll": "Zauberwurf",
       "tappingRoll": "Anwendungs-Wurf",
       "toggle": "Umschalten auf",
-      "toggleEquip": "Ausgerüstet?",
+      "changeCarryType": "Ausgerüstet?",
       "deleteRace": "Volk löschen"
     },
     "itemSheetDescriptions": {
