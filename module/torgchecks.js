@@ -1045,9 +1045,7 @@ export async function rollAttack(actor, item) {
       switch (attackWith) {
         case 'meleeWeapons':
         case 'unarmedCombat':
-          dnDescriptor = firstTarget.items.find(item => item.type === 'meleeweapon' && item.isEquipped)
-            ? 'targetMeleeWeapons'
-            : 'targetUnarmedCombat';
+          dnDescriptor = firstTarget.equippedMelee ? 'targetMeleeWeapons' : 'targetUnarmedCombat';
           break;
         case 'fireCombat':
         case 'energyWeapons':
@@ -1219,9 +1217,7 @@ export async function rollUnarmedAttack(actor, skillName) {
     if (firstTarget.type === 'vehicle')
       dnDescriptor = 'targetVehicleDefense';
     else
-      dnDescriptor = firstTarget.items.find(item => item.type === 'meleeweapon' && item.isEquipped)
-        ? 'targetMeleeWeapons'
-        : 'targetUnarmedCombat';
+      dnDescriptor = firstTarget.equippedMelee ? 'targetMeleeWeapons' : 'targetUnarmedCombat';
   }
 
   // Almost the same as rollAttack

@@ -476,7 +476,7 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
     // Maybe dropping an item with a price, so reduce currency
     const itemCost = game.settings.get('torgeternity', 'itemPurchaseCosm');
     if (!event.shiftKey && itemCost !== 'free' && actor.type === 'stormknight') {
-      const price = Number(item.system?.price);
+      const price = Number(item.system?.price?.dollars);
       let currency;
       if (price && price > 0) {
         let cosm, cosm2;
@@ -513,7 +513,7 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
             }
             break;
         }
-        if (cosm) currency = actor.items.find(it => it.type === 'currency' && it.system.cosm === cosm);
+        if (cosm) currency = actor.itemTypes.currency.find(it => it.system.cosm === cosm);
         if (!currency || price > currency.system.quantity) {
           // Not enough of 1 currency, so maybe try second currency
           if (cosm2) currency = actor.items.find(it => it.system.cosm === cosm2);
@@ -1119,7 +1119,7 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
  * @this {TorgeternityActorSheet}
  */
   static async #onDeleteRace(event, button) {
-    const raceItem = this.actor.items.find(item => item.type === 'race');
+    const raceItem = this.actor.itemTypes.race?.[0];
     if (!raceItem) {
       ui.notifications.error(game.i18n.localize('torgeternity.notifications.noRaceToDelete'));
       return;
@@ -1188,7 +1188,7 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
   }
 
   async deleteRace() {
-    const oldRace = this.actor.items.find(item => item.type === 'race');
+    const oldRace = this.actor.itemTypes.race?.[0];
     if (oldRace) {
       // Remove old racial abilities.
       // It doesn't remove custom attacks!

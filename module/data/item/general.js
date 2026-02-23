@@ -64,6 +64,9 @@ export class GeneralItemData extends BaseItemData {
     this.price.torgValue = calcPriceValue(this.price.dollars);
   }
 
+  /**
+   * @returns {String} the carry-type in which this Item is assumed to be Equipped
+   */
   get usage() {
     return 'held';
   }

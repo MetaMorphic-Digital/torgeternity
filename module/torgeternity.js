@@ -708,7 +708,7 @@ async function rollSkillMacro(skillName, attributeName, isInteractionAttack, DND
         : null;
     // Maybe a custom skill?
     if (!skill && actor) {
-      skill = actor.items.find(it => it.type === 'customSkill' && it.name === skillName)?.system;
+      skill = actor.itemTypes.customSkill?.find(it => it.name === skillName)?.system;
       if (skill) customSkill = true;
     }
     if (!skill)
@@ -790,9 +790,7 @@ async function rollSkillMacro(skillName, attributeName, isInteractionAttack, DND
       if (firstTarget.type === 'vehicle')
         dnDescriptor = 'targetVehicleDefense';
       else
-        dnDescriptor = firstTarget.items.find(item => item.type === 'meleeweapon' && item.isEquipped)
-          ? 'targetMeleeWeapons'
-          : 'targetUnarmedCombat';
+        dnDescriptor = firstTarget.equippedMelee ? 'targetMeleeWeapons' : 'targetUnarmedCombat';
     }
     test.DNDescriptor = dnDescriptor ?? DNDescriptor;
 

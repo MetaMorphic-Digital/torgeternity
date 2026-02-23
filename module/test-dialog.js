@@ -404,7 +404,7 @@ export function oneTestTarget(token, applySize) {
         armor: actor.defenses.armor,
         defenseTraits: actor.defenseTraits,
         // then non-vehicle changes
-        skills: actor.items.filter(it => it.type === 'customSkill').reduce((acc, skill) => {
+        skills: actor.itemTypes.customSkill.reduce((acc, skill) => {
           acc[toCamelCase(skill.name)] = { name: skill.name, ...skill.system };
           return acc;
         }, { ...actor.system.skills }),
