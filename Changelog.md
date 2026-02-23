@@ -5,8 +5,9 @@
 - Change **equipped** on Items to now hold one of `Held` (1H or 2H), `Worn` (for armor), `Stowed` or `Dropped`.
   - `Worn` is only applicable to Armor (shields are held).
   - `Held` items can be held in one hand (1H) or two hands (2H).
+  - The glow is shown if the item is considered equipped (worn for armor, held for anything else).
   - Armor can be held in a hand, but is not considered "equipped" for game purposes.
-  - No restriction is placed on how many items can be held in hands.
+  - No restriction is placed on how many items can be held in hands (two melee weapons still give the +2 melee defense bonus).
   - `Dropped` items are not considered when looking for Contradictions, and thus do not affect `Surge`.
   - The old `equipped` boolean is used to determine the new state:
     - equipped Armor becomes `worn`

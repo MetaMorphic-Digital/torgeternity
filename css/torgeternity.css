@@ -4715,3 +4715,21 @@ div.testInspector {
     }
   }
 }
+
+aside.carry-type-menu {
+  padding: 8px;
+
+  ul {
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+
+    li {
+      padding: 0px 8px 0px 8px;
+    }
+
+    li:has(a.selected) {
+      background: #444;
+    }
+  }
+}

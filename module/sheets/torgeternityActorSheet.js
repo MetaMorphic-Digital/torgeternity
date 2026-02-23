@@ -974,7 +974,6 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
     const template = await foundry.applications.handlebars.renderTemplate("systems/torgeternity/templates/actors/carry-type.hbs",
       { item });
     const html = document.createElement('ul');
-    html.style = "list-style-type: none";
     html.innerHTML = template;
 
     html.addEventListener('click', event2 => {
