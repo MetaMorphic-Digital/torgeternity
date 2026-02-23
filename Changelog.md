@@ -10,14 +10,43 @@
   - The glow is shown if the item is considered equipped (worn for armor, held for anything else).
   - Armor can be held in a hand, but is not considered "equipped" for game purposes.
   - No restriction is placed on how many items can be held in hands (two melee weapons still give the +2 melee defense bonus).
+  - On becoming equipped, all Active Effects on the item will be enabled.
+  - On becoming unequipped, all Active Effects on the item will be disabled.
   - The old `equipped` boolean is used to determine the new state:
     - equipped Armor becomes `worn`
     - equipped other Items becomes `held` in one-hand unless they have the `twoHanded` trait.
     - all other Items become `stowed`.
 - Add **Test Inspector** context menu option to chat messages.
 - The **@Condition** enricher now supports `duration=X` (sets both turns and rounds to X).
-- **Token Action HUD**: Add `Effects` tab, by default it only shows the Combat Toggles (game system option to show ALL effects).
+- **Token Action HUD**: Add `Effects` menu, by default it only shows the Combat Toggles (game system option to show ALL effects).
 - Cosm names are now **localized** when item descriptions are sent to Chat.
+
+### Translations
+
+```
+{
+  "changeCarryType": "Change Carry Type",  // Tooltip to popup a menu with the 'carryType' options
+  "carryType": {
+    "held1": "Held 1H",
+    "held2": "Held 2H",
+    "worn": "Worn",
+    "stowed": "Stowed",
+    "dropped": "Dropped"
+  },
+  "testInspector": {
+    "title": "Test Inspector",  // Title that appears in the context menu on a chat card
+    "field": "Field Name",      // Column title
+    "value": "Field Value"      // Column title
+  },
+  "tokenActionHud": {
+    "showAllEffects": {
+      "name": "TAH: Show All Effects",
+      "hint": "When not selected, only the 'Combat Toggle' events are shown in the Token Action HUD"
+    },
+  },
+  "combatToggles": "Combat Toggles",   // For Token Action HUD header for the effects that can be toggled during combat
+}
+```
 
 ## 13.22.2 - Ammo and other Active Effect fixes
 
