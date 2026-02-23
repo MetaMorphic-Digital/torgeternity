@@ -2,9 +2,6 @@
 
 ## NEXT
 
-- Add **Test Inspector** context menu option to chat messages.
-- Add "duration=X" option to `@Condition`
-- **Token Action HUD**: Add `Effects` tab, by default it only shows the Combat Toggles (game system option to show ALL effects).
 - Change **equipped** on Items to now hold one of `Held` (1H or 2H), `Worn` (for armor), `Stowed` or `Dropped`.
   - `Worn` is only applicable to Armor (shields are held).
   - `Held` items can be held in one hand (1H) or two hands (2H).
@@ -14,6 +11,10 @@
     - equipped Armor becomes `worn`
     - equipped other Items becomes `held` in one-hand unless they have the `twoHanded` trait.
     - all other Items become `stowed`.
+- Add **Test Inspector** context menu option to chat messages.
+- Add "duration=X" option to `@Condition`
+- **Token Action HUD**: Add `Effects` tab, by default it only shows the Combat Toggles (game system option to show ALL effects).
+- Cosm names are now localized when item descriptions are sent to Chat.
 
 ## 13.22.2 - Ammo and other Active Effect fixes
 
