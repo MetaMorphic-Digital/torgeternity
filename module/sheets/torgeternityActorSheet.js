@@ -878,6 +878,11 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
       targetAll: game.user.targets.map(token => oneTestTarget(token)), // for renderSkillChat
       applySize: false,
       attackOptions: false,
+      combinedAction: {
+        participants: 1,
+        torgBonus: 0,
+        forDamage: false
+      }
     });
   }
 

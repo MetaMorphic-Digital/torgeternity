@@ -38,6 +38,8 @@ export class GeneralItemData extends BaseItemData {
       if (source.equipped.carryType === 'held') {
         source.equipped.handsHeld = source.traits?.includes('twoHanded') ? 2 : 1;
       }
+    } else if (!Object.hasOwn(source, 'equipped')) {
+      this.equipped = { carryType: 'stowed', handsHeld: 0 }
     }
 
     if (source.secondaryAxiom?.selected) {
@@ -54,10 +56,6 @@ export class GeneralItemData extends BaseItemData {
     return super.migrateData(source);
   }
 
-  prepareBaseData() {
-    this.equipped.carryType ??= 'held';
-    this.equipped.handsHeld ??= 0;
-  }
   /**
    * @inheritdoc
    */

@@ -171,10 +171,8 @@ export default class TorgeternityActor extends foundry.documents.Actor {
       const meleeWeaponsDefenseSkill = skills.meleeWeapons.value || attributes.dexterity.value;
       this.defenses.meleeWeapons.value = meleeWeaponsDefenseSkill + this.defenses.meleeWeapons.mod;
       // (Core pg 126) Wielding TWO melee weapons increases melee weapons defense by 2.
-      if (this.type !== 'vehicle') {
-        const meleeWeaponCount = this.items.filter(item => item.type === 'meleeweapon' && item.isEquipped);
-        if (meleeWeaponCount.length > 1) this.defenses.meleeWeapons.value += 2;
-      }
+      if (this.type !== 'vehicle' && this.equippedMelees?.length > 1)
+        this.defenses.meleeWeapons.value += 2;
 
       const unarmedCombatDefenseSkill = skills.unarmedCombat.value || attributes.dexterity.value;
       this.defenses.unarmedCombat.value = unarmedCombatDefenseSkill + this.defenses.unarmedCombat.mod;
@@ -681,7 +679,7 @@ export default class TorgeternityActor extends foundry.documents.Actor {
    */
   async setActiveDefense(bonus) {
 
-    const equippedShield = this.items.find(item => item.type === 'shield' && item.isEquipped); // Search for an equipped shield
+    const equippedShield = this.itemTypes.shield.find(item => item.isEquipped); // Search for an equipped shield
     let shieldBonus = (equippedShield && !this.hasStatusEffect('vulnerable') && !this.hasStatusEffect('veryVulnerable')) ? equippedShield.system.bonus : 0
 
     return this.createEmbeddedDocuments('ActiveEffect', [{
