@@ -241,7 +241,9 @@ items:
       chatNote: ''
       damage: 14
       damageType: ''
-      equipped: false
+      equipped:
+        carryType: held
+        handsHeld: 2
       equippedClass: .item-unequipped
       notes: Utilise les munitions spéciales
       range: 50/100/200
@@ -249,11 +251,11 @@ items:
       default: 0
     _stats:
       systemId: torgeternity
-      systemVersion: 13.10.0
-      coreVersion: '13.348'
+      systemVersion: 13.15.0
+      coreVersion: '13.351'
       createdTime: null
-      modifiedTime: 1758491737788
-      lastModifiedBy: l8SVzn2293lAwvMC
+      modifiedTime: 1771934142591
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: Item.fW9IrnHVWRXgCWEx
       duplicateSource: null
       exportSource: null
@@ -282,18 +284,20 @@ items:
       chatNote: Discret
       damage: 1
       damageType: strengthPlus
-      equipped: false
+      equipped:
+        carryType: held
+        handsHeld: 1
       equippedClass: .item-unequipped
       notes: Lancée avec Armes de jet
     ownership:
       default: 0
     _stats:
-      systemId: null
-      systemVersion: null
-      coreVersion: '13.348'
+      systemId: torgeternity
+      systemVersion: 13.15.0
+      coreVersion: '13.351'
       createdTime: null
-      modifiedTime: 1758492211371
-      lastModifiedBy: l8SVzn2293lAwvMC
+      modifiedTime: 1771934124646
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
@@ -325,15 +329,17 @@ items:
       equippedClass: .item-unequipped
       notes: ''
       range: 10 / 25 / 40
+      traits:
+        - pistol
     ownership:
       default: 0
     _stats:
       systemId: torgeternity
-      systemVersion: 13.10.0
-      coreVersion: '13.348'
+      systemVersion: 13.15.0
+      coreVersion: '13.351'
       createdTime: null
-      modifiedTime: 1758491743136
-      lastModifiedBy: l8SVzn2293lAwvMC
+      modifiedTime: 1771934139282
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null

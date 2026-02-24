@@ -829,18 +829,20 @@ items:
       chatNote: ''
       damage: 3
       damageType: strengthPlus
-      equipped: false
+      equipped:
+        carryType: held
+        handsHeld: 1
       equippedClass: .item-unequipped
       notes: '-'
     ownership:
       default: 0
     _stats:
-      systemId: null
-      systemVersion: null
-      coreVersion: '13.348'
+      systemId: torgeternity
+      systemVersion: 13.15.0
+      coreVersion: '13.351'
       createdTime: null
-      modifiedTime: 1758492203294
-      lastModifiedBy: l8SVzn2293lAwvMC
+      modifiedTime: 1771934113502
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: Item.LGGaptAxiwJMZLsD
       duplicateSource: null
       exportSource: null
@@ -874,7 +876,9 @@ items:
       chatNote: ''
       damage: 13
       damageType: flat
-      equipped: false
+      equipped:
+        carryType: held
+        handsHeld: 2
       equippedClass: .item-unequipped
       minStrength: '7'
       notes: Force min 7
@@ -882,12 +886,12 @@ items:
     ownership:
       default: 0
     _stats:
-      systemId: null
-      systemVersion: null
-      coreVersion: '13.348'
+      systemId: torgeternity
+      systemVersion: 13.15.0
+      coreVersion: '13.351'
       createdTime: null
-      modifiedTime: 1758492031454
-      lastModifiedBy: l8SVzn2293lAwvMC
+      modifiedTime: 1771934116759
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: Item.95xJ3EnPzdWIOAWh
       duplicateSource: null
       exportSource: null

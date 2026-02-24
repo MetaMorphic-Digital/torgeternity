@@ -353,19 +353,23 @@ items:
       chatNote: ''
       damage: 15
       damageType: flat
-      equipped: false
+      equipped:
+        carryType: held
+        handsHeld: 1
       equippedClass: .item-unequipped
       notes: '-'
       range: 10/25/40
+      traits:
+        - pistol
     ownership:
       default: 0
     _stats:
-      systemId: null
-      systemVersion: null
-      coreVersion: '13.348'
+      systemId: torgeternity
+      systemVersion: 13.15.0
+      coreVersion: '13.351'
       createdTime: null
-      modifiedTime: 1758491726897
-      lastModifiedBy: l8SVzn2293lAwvMC
+      modifiedTime: 1771934102302
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: Item.e2Jc6xS0T4XEs8q9
       duplicateSource: null
       exportSource: null

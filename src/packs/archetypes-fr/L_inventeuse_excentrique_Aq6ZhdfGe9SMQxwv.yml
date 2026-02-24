@@ -501,7 +501,9 @@ items:
       chatNote: ''
       damage: 15
       damageType: ''
-      equipped: false
+      equipped:
+        carryType: held
+        handsHeld: 2
       equippedClass: .item-unequipped
       notes: necessite l'atout "électro-rayon" / Régénère 1 munition par round
       range: 10/25/50
@@ -509,11 +511,11 @@ items:
       default: 0
     _stats:
       systemId: torgeternity
-      systemVersion: 13.10.0
-      coreVersion: '13.348'
+      systemVersion: 13.15.0
+      coreVersion: '13.351'
       createdTime: null
-      modifiedTime: 1758491638991
-      lastModifiedBy: l8SVzn2293lAwvMC
+      modifiedTime: 1771933992617
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: Item.W8ZARSxZdHHv4JZN
       duplicateSource: null
       exportSource: null

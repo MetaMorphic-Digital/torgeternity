@@ -322,18 +322,20 @@ items:
       chatNote: ''
       damage: 2
       damageType: strengthPlus
-      equipped: false
+      equipped:
+        carryType: held
+        handsHeld: 1
       equippedClass: .item-unequipped
       notes: Tests de Survie Favorisés
     ownership:
       default: 0
     _stats:
-      systemId: null
-      systemVersion: null
-      coreVersion: '13.348'
+      systemId: torgeternity
+      systemVersion: 13.15.0
+      coreVersion: '13.351'
       createdTime: null
-      modifiedTime: 1758492260683
-      lastModifiedBy: l8SVzn2293lAwvMC
+      modifiedTime: 1771934311911
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: Item.Of0q2y9B0BpfAByr
       duplicateSource: null
       exportSource: null
@@ -372,15 +374,19 @@ items:
       minStrength: ''
       notes: Non létal, Zone d’effet moyenne
       range: 10/20/30
+      traits:
+        - mediumBlast
+        - thrown
+        - nonLethal
     ownership:
       default: 0
     _stats:
-      systemId: null
-      systemVersion: null
-      coreVersion: '13.348'
+      systemId: torgeternity
+      systemVersion: 13.15.0
+      coreVersion: '13.351'
       createdTime: null
-      modifiedTime: 1758492064702
-      lastModifiedBy: l8SVzn2293lAwvMC
+      modifiedTime: 1771934344692
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: Item.hvK73rLc7gT5pQIA
       duplicateSource: null
       exportSource: null
@@ -411,20 +417,24 @@ items:
       chatNote: ''
       damage: 13
       damageType: ''
-      equipped: false
+      equipped:
+        carryType: held
+        handsHeld: 1
       equippedClass: .item-unequipped
       notes: Pistolet
       range: 10/25/40
+      traits:
+        - pistol
     ownership:
       default: 0
       TK1vCAdCz548vBDu: 3
     _stats:
-      systemId: null
-      systemVersion: null
-      coreVersion: '13.348'
+      systemId: torgeternity
+      systemVersion: 13.15.0
+      coreVersion: '13.351'
       createdTime: null
-      modifiedTime: 1758491948750
-      lastModifiedBy: l8SVzn2293lAwvMC
+      modifiedTime: 1771934360168
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: Item.iOnl5BiGmVFaCzma
       duplicateSource: null
       exportSource: null

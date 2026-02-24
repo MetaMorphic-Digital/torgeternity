@@ -417,18 +417,20 @@ items:
       chatNote: ''
       damage: 4
       damageType: strengthPlus
-      equipped: false
+      equipped:
+        carryType: held
+        handsHeld: 1
       equippedClass: .item-unequipped
       notes: Pénétration d’armure 2
     ownership:
       default: 0
     _stats:
-      systemId: null
-      systemVersion: null
-      coreVersion: '13.348'
+      systemId: torgeternity
+      systemVersion: 13.15.0
+      coreVersion: '13.351'
       createdTime: null
-      modifiedTime: 1758492255139
-      lastModifiedBy: l8SVzn2293lAwvMC
+      modifiedTime: 1771934294766
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: Compendium.te001-core-rulebook.Items.oXC2OfgC7II3et6Z
       duplicateSource: null
       exportSource: null
@@ -460,19 +462,21 @@ items:
       chatNote: ''
       damage: 13
       damageType: flat
-      equipped: false
+      equipped:
+        carryType: held
+        handsHeld: 2
       equippedClass: .item-unequipped
       notes: Rafale courte
       range: 20 / 40 / 80
     ownership:
       default: 0
     _stats:
-      systemId: null
-      systemVersion: null
-      coreVersion: '13.348'
+      systemId: torgeternity
+      systemVersion: 13.15.0
+      coreVersion: '13.351'
       createdTime: null
-      modifiedTime: 1758491938986
-      lastModifiedBy: l8SVzn2293lAwvMC
+      modifiedTime: 1771934298709
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: Compendium.te001-core-rulebook.Items.TD2iH8mU5NxIyQKy
       duplicateSource: null
       exportSource: null

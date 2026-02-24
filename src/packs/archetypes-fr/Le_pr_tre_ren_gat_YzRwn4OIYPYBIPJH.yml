@@ -534,19 +534,21 @@ items:
       chatNote: ''
       damage: 14
       damageType: ''
-      equipped: false
+      equipped:
+        carryType: held
+        handsHeld: 2
       equippedClass: .item-unequipped
       notes: Rafale courte, PA 1, intégré dans un Bras HardPlas
       range: 100 / 500 / 1000
     ownership:
       default: 0
     _stats:
-      systemId: null
-      systemVersion: null
-      coreVersion: '13.348'
+      systemId: torgeternity
+      systemVersion: 13.15.0
+      coreVersion: '13.351'
       createdTime: null
-      modifiedTime: 1758491927825
-      lastModifiedBy: l8SVzn2293lAwvMC
+      modifiedTime: 1771934252141
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null

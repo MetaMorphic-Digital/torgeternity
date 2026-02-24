@@ -652,10 +652,14 @@ items:
       chatNote: ''
       damage: 2
       damageType: strengthPlus
-      equipped: true
+      equipped:
+        carryType: held
+        handsHeld: 1
       minStrength: ''
       notes: ''
       range: 10/20/40
+      traits:
+        - thrown
     effects: []
     folder: null
     ownership:
@@ -665,12 +669,12 @@ items:
     _stats:
       compendiumSource: Compendium.te001-core-rulebook.grw-de-ausruestung.Item.oA1Elm4eVdBcBSn2
       duplicateSource: null
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
-      systemVersion: 13.2.2
+      systemVersion: 13.15.0
       createdTime: null
-      modifiedTime: 1753598497945
-      lastModifiedBy: W32Zl65V9atvPk8o
+      modifiedTime: 1771933682759
+      lastModifiedBy: BMvGTGfheqDXarjN
       exportSource: null
     _id: z1qqBadmQ8CgUUel
     sort: 0
@@ -703,7 +707,9 @@ items:
       chatNote: ''
       damage: 2
       damageType: strengthPlus
-      equipped: true
+      equipped:
+        carryType: held
+        handsHeld: 1
       notes: Wurfwaffe
       secondaryAxiom:
         selected: none
@@ -719,12 +725,12 @@ items:
     _stats:
       compendiumSource: Compendium.te001-core-rulebook.grw-de-ausruestung.Item.VRuK7Un8bvtpUk3s
       duplicateSource: null
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
-      systemVersion: 13.2.2
+      systemVersion: 13.15.0
       createdTime: null
-      modifiedTime: 1753598504163
-      lastModifiedBy: W32Zl65V9atvPk8o
+      modifiedTime: 1771933685606
+      lastModifiedBy: BMvGTGfheqDXarjN
       exportSource: null
     _key: '!actors.items!6Pc9oa7mM6kZkFUi.bsYMg4OVWpTV2Ixt'
   - name: Edeinos

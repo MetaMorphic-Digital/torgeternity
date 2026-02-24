@@ -457,23 +457,27 @@ items:
       chatNote: Pistole
       damage: 14
       damageType: ''
-      equipped: true
+      equipped:
+        handsHeld: 1
+        carryType: held
       notes: ''
       range: 10/25/40
       secondaryAxiom:
         selected: none
         value: null
+      traits:
+        - pistol
     ownership:
       default: 0
       9Q0XnqFwko7hRlvL: 3
       CtisFurQNe9h7ABb: 3
     _stats:
       systemId: torgeternity
-      systemVersion: 13.2.2
-      coreVersion: '13.346'
+      systemVersion: 13.15.0
+      coreVersion: '13.351'
       createdTime: 1694868115803
-      modifiedTime: 1753598559674
-      lastModifiedBy: W32Zl65V9atvPk8o
+      modifiedTime: 1771933741568
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: Compendium.te001-core-rulebook.grw-de-ausruestung.Item.eaDTP2RPFOw4DHnq
       duplicateSource: null
       exportSource: null
@@ -502,23 +506,27 @@ items:
       chatNote: ''
       damage: 14
       damageType: ''
-      equipped: true
+      equipped:
+        carryType: held
+        handsHeld: 1
       notes: Karabiner, nutzt spezielle Patronen
       range: 50/100/200
       secondaryAxiom:
         selected: none
         value: null
+      traits:
+        - pistol
     ownership:
       default: 0
       9Q0XnqFwko7hRlvL: 3
       CtisFurQNe9h7ABb: 3
     _stats:
       systemId: torgeternity
-      systemVersion: 13.2.2
-      coreVersion: '13.346'
+      systemVersion: 13.15.0
+      coreVersion: '13.351'
       createdTime: 1694868126947
-      modifiedTime: 1753598557933
-      lastModifiedBy: W32Zl65V9atvPk8o
+      modifiedTime: 1771933752624
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: Compendium.te001-core-rulebook.grw-de-ausruestung.Item.wEOCxOMN84sOaC3F
       duplicateSource: null
       exportSource: null

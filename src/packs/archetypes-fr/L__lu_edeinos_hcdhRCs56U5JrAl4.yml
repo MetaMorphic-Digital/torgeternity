@@ -359,18 +359,20 @@ items:
       chatNote: ''
       damage: 2
       damageType: strengthPlus
-      equipped: false
+      equipped:
+        carryType: held
+        handsHeld: 1
       equippedClass: .item-unequipped
       notes: Lancée avec Armes de jet
     ownership:
       default: 0
     _stats:
-      systemId: null
-      systemVersion: null
-      coreVersion: '13.348'
+      systemId: torgeternity
+      systemVersion: 13.15.0
+      coreVersion: '13.351'
       createdTime: null
-      modifiedTime: 1758492170652
-      lastModifiedBy: l8SVzn2293lAwvMC
+      modifiedTime: 1771933965387
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: Item.0ibFEQi66ymd6PnN
       duplicateSource: null
       exportSource: null
