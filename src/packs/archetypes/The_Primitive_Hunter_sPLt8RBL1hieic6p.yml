@@ -364,7 +364,9 @@ items:
       chatNote: ''
       damage: 1
       damageType: strengthPlus
-      equipped: true
+      equipped:
+        carryType: held
+        handsHeld: 1
       notes: Fragile, Small
       secondaryAxiom:
         selected: none
@@ -379,11 +381,11 @@ items:
       CtisFurQNe9h7ABb: 3
     _stats:
       systemId: torgeternity
-      systemVersion: 13.2.2
-      coreVersion: '13.346'
+      systemVersion: 13.15.0
+      coreVersion: '13.351'
       createdTime: 1693912255642
-      modifiedTime: 1753599262670
-      lastModifiedBy: W32Zl65V9atvPk8o
+      modifiedTime: 1771933410453
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: Compendium.te001-core-rulebook.Items.9AgUL9MMDkCf2WT9
       duplicateSource: null
       exportSource: null
@@ -450,7 +452,9 @@ items:
       chatNote: ''
       damage: 2
       damageType: strengthPlus
-      equipped: true
+      equipped:
+        carryType: held
+        handsHeld: 1
       notes: Thrown
       secondaryAxiom:
         selected: none
@@ -466,12 +470,12 @@ items:
     _stats:
       compendiumSource: Compendium.te001-core-rulebook.Items.Item.ammMtd4GDTZAbVQx
       duplicateSource: null
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
-      systemVersion: 13.2.2
+      systemVersion: 13.15.0
       createdTime: null
-      modifiedTime: 1753599256749
-      lastModifiedBy: W32Zl65V9atvPk8o
+      modifiedTime: 1771933413604
+      lastModifiedBy: BMvGTGfheqDXarjN
       exportSource: null
     _key: '!actors.items!sPLt8RBL1hieic6p.e9xaMsAeSysyibki'
   - name: Hrockt Shoot Spear
@@ -499,10 +503,14 @@ items:
       chatNote: ''
       damage: 2
       damageType: strengthPlus
-      equipped: true
+      equipped:
+        handsHeld: 1
+        carryType: held
       minStrength: ''
       notes: ''
       range: 10/20/40
+      traits:
+        - thrown
     effects: []
     folder: null
     ownership:
@@ -512,12 +520,12 @@ items:
     _stats:
       compendiumSource: Compendium.te001-core-rulebook.Items.Item.6Pb5rtY0QdIMTbRF
       duplicateSource: null
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
-      systemVersion: 13.2.2
+      systemVersion: 13.15.0
       createdTime: null
-      modifiedTime: 1753599250428
-      lastModifiedBy: W32Zl65V9atvPk8o
+      modifiedTime: 1771933418440
+      lastModifiedBy: BMvGTGfheqDXarjN
       exportSource: null
     _id: sUwjzPc7YwVZ31dC
     sort: 0

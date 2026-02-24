@@ -302,23 +302,27 @@ items:
       chatNote: ''
       damage: 13
       damageType: flat
-      equipped: true
+      equipped:
+        carryType: held
+        handsHeld: 1
       notes: ''
       range: 10 / 25 / 40
       secondaryAxiom:
         selected: none
         value: null
+      traits:
+        - pistol
     ownership:
       default: 0
       A9LyAqagoJJU3gDH: 3
       CtisFurQNe9h7ABb: 3
     _stats:
       systemId: torgeternity
-      systemVersion: 12.2.0
-      coreVersion: '13.345'
+      systemVersion: 13.15.0
+      coreVersion: '13.351'
       createdTime: 1693912919026
-      modifiedTime: 1722157282118
-      lastModifiedBy: 93AMwcGe6H37rcPA
+      modifiedTime: 1771933448674
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: Compendium.te001-core-rulebook.Items.36zun3ZNNpg6Al8g
       duplicateSource: null
       exportSource: null
@@ -346,23 +350,27 @@ items:
       chatNote: ''
       damage: 13
       damageType: flat
-      equipped: false
+      equipped:
+        carryType: stowed
+        handsHeld: 0
       notes: ''
       range: 10 / 25 / 40
       secondaryAxiom:
         selected: none
         value: null
+      traits:
+        - pistol
     ownership:
       default: 0
       A9LyAqagoJJU3gDH: 3
       CtisFurQNe9h7ABb: 3
     _stats:
       systemId: torgeternity
-      systemVersion: 12.2.0
-      coreVersion: '13.345'
+      systemVersion: 13.15.0
+      coreVersion: '13.351'
       createdTime: 1693912920114
-      modifiedTime: 1722157285333
-      lastModifiedBy: 93AMwcGe6H37rcPA
+      modifiedTime: 1771933463313
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: Compendium.te001-core-rulebook.Items.36zun3ZNNpg6Al8g
       duplicateSource: null
       exportSource: null
@@ -674,7 +682,9 @@ items:
       chatNote: ''
       damage: 2
       damageType: strengthPlus
-      equipped: true
+      equipped:
+        carryType: held
+        handsHeld: 1
       notes: Survival tests Favored
       secondaryAxiom:
         selected: none
@@ -688,12 +698,12 @@ items:
     _stats:
       compendiumSource: Compendium.te001-core-rulebook.Items.r116QllfSDV3jAJs
       duplicateSource: null
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: torgeternity
-      systemVersion: 12.2.0
+      systemVersion: 13.15.0
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1771933444190
+      lastModifiedBy: BMvGTGfheqDXarjN
       exportSource: null
     _key: '!actors.items!tbqGzMeQeCA3n1Mt.KgPr4gJpKrjSjjIj'
   - name: Human
