@@ -234,7 +234,6 @@ items:
       value: 9
       bonus: 1
       equipped: true
-      equippedClass: .item-unequipped
       maxDex: 12
       minStrength: null
       notes: Torse
@@ -325,7 +324,6 @@ items:
       equipped:
         carryType: held
         handsHeld: 1
-      equippedClass: .item-unequipped
       notes: Tests de Survie Favorisés
     ownership:
       default: 0
@@ -370,7 +368,6 @@ items:
       damage: 16
       damageType: flat
       equipped: false
-      equippedClass: .item-unequipped
       minStrength: ''
       notes: Non létal, Zone d’effet moyenne
       range: 10/20/30
@@ -420,7 +417,6 @@ items:
       equipped:
         carryType: held
         handsHeld: 1
-      equippedClass: .item-unequipped
       notes: Pistolet
       range: 10/25/40
       traits:
@@ -457,7 +453,6 @@ items:
       price: '40'
       techlevel: 22
       value: 8
-      equippedClass: item-equipped
     ownership:
       default: 0
       TK1vCAdCz548vBDu: 3
@@ -487,7 +482,6 @@ items:
       price: '10'
       techlevel: 20
       value: 5
-      equippedClass: item-equipped
     ownership:
       default: 0
       TK1vCAdCz548vBDu: 3
@@ -517,7 +511,6 @@ items:
       price: '20'
       techlevel: 22
       value: 6
-      equippedClass: item-equipped
     ownership:
       default: 0
       TK1vCAdCz548vBDu: 3
@@ -550,7 +543,6 @@ items:
       price: '500'
       techlevel: 12
       value: 13
-      equippedClass: item-equipped
     ownership:
       default: 0
       TK1vCAdCz548vBDu: 3
@@ -1060,7 +1052,7 @@ system:
       <p class="MsoNormal">□ (5 PX) R&eacute;alit&eacute; +5</p>
     race: human
     sizeBonus: normal
-  editstate: true
+  editstate: false
 ownership:
   default: 0
   A9LyAqagoJJU3gDH: 3
@@ -1148,11 +1140,11 @@ prototypeToken:
   movementAction: null
 _stats:
   systemId: torgeternity
-  systemVersion: 13.13.2
+  systemVersion: 13.15.0
   coreVersion: '13.351'
   createdTime: 1716827809233
-  modifiedTime: 1764001517390
-  lastModifiedBy: e1DB4TK9SbDuMDS3
+  modifiedTime: 1771935917805
+  lastModifiedBy: BMvGTGfheqDXarjN
   compendiumSource: null
   duplicateSource: null
   exportSource: null

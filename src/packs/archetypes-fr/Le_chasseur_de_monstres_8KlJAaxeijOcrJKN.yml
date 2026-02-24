@@ -192,7 +192,6 @@ items:
       price: '40'
       techlevel: 14
       value: 8
-      equippedClass: item-equipped
     ownership:
       default: 0
     _stats:
@@ -244,7 +243,6 @@ items:
       equipped:
         carryType: held
         handsHeld: 2
-      equippedClass: .item-unequipped
       notes: Utilise les munitions spéciales
       range: 50/100/200
     ownership:
@@ -287,7 +285,6 @@ items:
       equipped:
         carryType: held
         handsHeld: 1
-      equippedClass: .item-unequipped
       notes: Lancée avec Armes de jet
     ownership:
       default: 0
@@ -326,7 +323,6 @@ items:
       damage: 14
       damageType: flat
       equipped: false
-      equippedClass: .item-unequipped
       notes: ''
       range: 10 / 25 / 40
       traits:
@@ -365,7 +361,6 @@ items:
       value: 12
       bonus: 2
       equipped: true
-      equippedClass: item-unequipped
       maxDex: 10
       minStrength: null
       notes: Fatigue
@@ -556,7 +551,6 @@ items:
       price: '5'
       techlevel: 2
       value: 3
-      equippedClass: item-equipped
     ownership:
       default: 0
       qjRKKHBumHYSfxpw: 3
@@ -1085,7 +1079,7 @@ system:
       style="mso-spacerun: yes;">&nbsp;&nbsp; </span></p>
     race: human
     sizeBonus: normal
-  editstate: true
+  editstate: false
 ownership:
   default: 0
   A9LyAqagoJJU3gDH: 3
@@ -1173,11 +1167,11 @@ prototypeToken:
   movementAction: null
 _stats:
   systemId: torgeternity
-  systemVersion: 13.13.2
+  systemVersion: 13.15.0
   coreVersion: '13.351'
   createdTime: 1716827809076
-  modifiedTime: 1764001552348
-  lastModifiedBy: e1DB4TK9SbDuMDS3
+  modifiedTime: 1771935897030
+  lastModifiedBy: BMvGTGfheqDXarjN
   compendiumSource: null
   duplicateSource: null
   exportSource: null

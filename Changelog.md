@@ -10,6 +10,8 @@
   - **Firearms** without the `pistol` or `carbine` trait are only considered equipped if held in TWO hands.
 - The blue glow on the Gear tab indicates a correctly equipped item.
 - Only correctly equipped melee weapons count for the two-weapon melee defense bonus.
+- Archetypes updated where necessary with correct equipped state of their weaponry.
+- FR archetypes no longer have the skills list expanded by default.
 
 ## 13.23.0
 

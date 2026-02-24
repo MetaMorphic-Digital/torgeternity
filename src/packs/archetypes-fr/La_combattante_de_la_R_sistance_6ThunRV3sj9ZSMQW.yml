@@ -142,7 +142,6 @@ items:
       value: 11
       bonus: 1
       equipped: false
-      equippedClass: item-unequipped
       maxDex: 10
       minStrength: null
       notes: ''
@@ -181,7 +180,6 @@ items:
       value: 11
       bonus: 3
       equipped: true
-      equippedClass: item-unequipped
       maxDex: 10
       minStrength: null
       notes: Torse
@@ -228,7 +226,6 @@ items:
       equipped:
         carryType: held
         handsHeld: 1
-      equippedClass: .item-unequipped
       notes: Douleur, Déséquilibre
     ownership:
       default: 0
@@ -270,7 +267,6 @@ items:
       damage: 13
       damageType: flat
       equipped: false
-      equippedClass: .item-unequipped
       notes: Pistolet, Rafale courte
       range: 25 / 50 / 100
     ownership:
@@ -639,7 +635,6 @@ items:
       price: '40'
       techlevel: 14
       value: 8
-      equippedClass: item-equipped
     ownership:
       default: 0
       qjRKKHBumHYSfxpw: 3
@@ -669,7 +664,6 @@ items:
       price: '20'
       techlevel: 22
       value: 6
-      equippedClass: item-equipped
     ownership:
       default: 0
       qjRKKHBumHYSfxpw: 3
@@ -699,7 +693,6 @@ items:
       price: '5'
       techlevel: 20
       value: 3
-      equippedClass: item-equipped
     ownership:
       default: 0
       qjRKKHBumHYSfxpw: 3

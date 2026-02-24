@@ -231,7 +231,6 @@ items:
       price: '100'
       techlevel: 23
       value: 10
-      equippedClass: item-equipped
     ownership:
       default: 0
     _stats:
@@ -268,7 +267,6 @@ items:
       price: '60'
       techlevel: 21
       value: 9
-      equippedClass: item-equipped
     ownership:
       default: 0
     _stats:
@@ -356,7 +354,6 @@ items:
       equipped:
         carryType: held
         handsHeld: 1
-      equippedClass: .item-unequipped
       notes: Tests de Survie Favorisés
     ownership:
       default: 0
@@ -400,7 +397,6 @@ items:
       equipped:
         carryType: held
         handsHeld: 1
-      equippedClass: .item-unequipped
       notes: '-Pistolet'
       range: 10/25/40
       traits:
@@ -446,7 +442,6 @@ items:
       damage: 13
       damageType: ''
       equipped: false
-      equippedClass: .item-unequipped
       notes: '-Pistolet'
       range: 10/25/40
       traits:
@@ -482,7 +477,6 @@ items:
       value: 10
       bonus: 1
       equipped: true
-      equippedClass: .item-unequipped
       maxDex: 12
       minStrength: null
       notes: Torse
@@ -516,7 +510,6 @@ items:
       price: '20'
       techlevel: 22
       value: 6
-      equippedClass: item-equipped
     ownership:
       default: 0
       qjRKKHBumHYSfxpw: 3
@@ -546,7 +539,6 @@ items:
       price: '5'
       techlevel: 2
       value: 3
-      equippedClass: item-equipped
     ownership:
       default: 0
       qjRKKHBumHYSfxpw: 3
@@ -576,7 +568,6 @@ items:
       price: '25'
       techlevel: 8
       value: 7
-      equippedClass: item-equipped
     ownership:
       default: 0
       qjRKKHBumHYSfxpw: 3
@@ -608,7 +599,6 @@ items:
       price: '0'
       techlevel: 10
       value: null
-      equippedClass: item-equipped
     ownership:
       default: 0
       qjRKKHBumHYSfxpw: 3
@@ -638,7 +628,6 @@ items:
       price: '50'
       techlevel: 10
       value: 8
-      equippedClass: item-equipped
     ownership:
       default: 0
       qjRKKHBumHYSfxpw: 3
@@ -674,7 +663,6 @@ items:
       price: '300'
       techlevel: 23
       value: 12
-      equippedClass: item-equipped
     ownership:
       default: 0
       qjRKKHBumHYSfxpw: 3
@@ -1218,7 +1206,7 @@ system:
       <p class="MsoNormal">□ (5 PX) Esquive +5</p>
     race: human
     sizeBonus: normal
-  editstate: true
+  editstate: false
 ownership:
   default: 0
   A9LyAqagoJJU3gDH: 3
@@ -1306,11 +1294,11 @@ prototypeToken:
   movementAction: null
 _stats:
   systemId: torgeternity
-  systemVersion: 13.13.2
+  systemVersion: 13.15.0
   coreVersion: '13.351'
   createdTime: 1716827809839
-  modifiedTime: 1764001537304
-  lastModifiedBy: e1DB4TK9SbDuMDS3
+  modifiedTime: 1771935887186
+  lastModifiedBy: BMvGTGfheqDXarjN
   compendiumSource: null
   duplicateSource: null
   exportSource: null

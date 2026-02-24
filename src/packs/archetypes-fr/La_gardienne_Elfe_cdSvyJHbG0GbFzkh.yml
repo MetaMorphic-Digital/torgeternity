@@ -699,7 +699,6 @@ items:
       price: '500'
       techlevel: 12
       value: 13
-      equippedClass: item-equipped
     ownership:
       default: 0
     _stats:
@@ -728,7 +727,6 @@ items:
       price: '25'
       techlevel: 8
       value: 7
-      equippedClass: item-equipped
     ownership:
       default: 0
     _stats:
@@ -759,7 +757,6 @@ items:
       price: '5'
       techlevel: 9
       value: 3
-      equippedClass: item-equipped
     ownership:
       default: 0
     _stats:
@@ -790,7 +787,6 @@ items:
       value: 10
       bonus: 1
       equipped: true
-      equippedClass: .item-unequipped
       maxDex: 12
       minStrength: null
       notes: Torse
@@ -832,7 +828,6 @@ items:
       equipped:
         carryType: held
         handsHeld: 1
-      equippedClass: .item-unequipped
       notes: '-'
     ownership:
       default: 0
@@ -879,7 +874,6 @@ items:
       equipped:
         carryType: held
         handsHeld: 2
-      equippedClass: .item-unequipped
       minStrength: '7'
       notes: Force min 7
       range: 20/40/80
@@ -1435,7 +1429,7 @@ system:
       yes;">&nbsp;</span></p>
     race: elf
     sizeBonus: normal
-  editstate: true
+  editstate: false
 ownership:
   default: 0
   A9LyAqagoJJU3gDH: 3
@@ -1523,11 +1517,11 @@ prototypeToken:
   movementAction: null
 _stats:
   systemId: torgeternity
-  systemVersion: 13.13.2
+  systemVersion: 13.15.0
   coreVersion: '13.351'
   createdTime: 1716827809619
-  modifiedTime: 1764001548738
-  lastModifiedBy: e1DB4TK9SbDuMDS3
+  modifiedTime: 1771935893892
+  lastModifiedBy: BMvGTGfheqDXarjN
   compendiumSource: null
   duplicateSource: null
   exportSource: null
