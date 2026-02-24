@@ -214,9 +214,7 @@ export default class TorgeternityItem extends foundry.documents.Item {
     if (wasEquipped !== willBeEquipped) {
       const sourceOrigin = 'Item.' + item._id;
       // enable/disable effects
-      Array.from(actor.allApplicableEffects())
-        .filter((e) => e.origin && e.origin.endsWith(sourceOrigin))
-        .map((e) => e.update({ disabled: wasEquipped }));
+      item.effects.map(ef => ef.update({ disabled: wasEquipped }));
 
       // for armors and shields, ensure that there is only one equipped at a time
       if (willBeEquipped && ['armor', 'shield'].includes(item.type)) {
@@ -228,9 +226,7 @@ export default class TorgeternityItem extends foundry.documents.Item {
               'system.equipped.carryType': 'stowed',
               'system.equipped.handsHeld': 0,
             });
-            Array.from(actor.allApplicableEffects())
-              .filter((e) => e.origin && e.origin.endsWith('Item.' + it._id))
-              .map((e) => e.update({ disabled: true }));
+            it.effects.map(ef => ef.update({ disabled: true }));
           });
       }
     }

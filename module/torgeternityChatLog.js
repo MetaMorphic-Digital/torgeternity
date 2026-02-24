@@ -931,7 +931,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
 
       ChatMessage.create({
         speaker: chatMessage.speaker,
-        content: `<p>${game.i18n.format('torgeternity.chatText.concentration.broken', { actor: actor.name })}</p><ul>${list}</ul>`
+        content: `<p>${game.i18n.format('torgeternity.chatText.concentration.broken', { actor: actor.name })}</p><ul>${list.join('')}</ul>`
       })
       actor.deleteEmbeddedDocuments('ActiveEffect', failed.map(ef => ef.id));
     }

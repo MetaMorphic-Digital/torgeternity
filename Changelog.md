@@ -13,6 +13,10 @@
 - Archetypes updated where necessary with correct equipped state of their weaponry.
 - FR archetypes no longer have the skills list expanded by default.
 
+### Bug Fixes
+
+- AEs on Items should now be correctly enabled/disabled based on the equipped/unequipped status of the Item itself.
+
 ## 13.23.0
 
 - Change **equipped** on Items to now hold one of `Held` (1H or 2H), `Worn` (for armor), `Carried` or `Dropped`.
