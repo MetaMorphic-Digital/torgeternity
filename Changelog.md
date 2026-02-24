@@ -1,5 +1,15 @@
 # TORG Eternity Changelog
 
+## NEXT
+
+- Update **Equipped** logic:
+  - Each item has a `usage` property ('worn' for armor, 'held' for everything else).
+  - The base equipped state for an item is that the `carryType` matches its `usage`.
+  - **Firearms** without the `pistol` or `carbine` trait are only considered equipped if held in TWO hands.
+  - **Melee Weapons** with the `twoHanded` trait are only considered equipped if held in TWO hands, or held by an Actor with strength 10+.
+- The blue glow on the Gear tab indicates a correctly equipped item.
+- Only correctly equipped melee weapons count for the two-weapon melee defense bonus.
+
 ## 13.23.0
 
 - Change **equipped** on Items to now hold one of `Held` (1H or 2H), `Worn` (for armor), `Carried` or `Dropped`.

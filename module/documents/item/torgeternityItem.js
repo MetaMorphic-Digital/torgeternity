@@ -191,7 +191,7 @@ export default class TorgeternityItem extends foundry.documents.Item {
   }
 
   get isEquipped() {
-    return this.system.equipped?.carryType === this.system.usage;
+    return this.system.isEquipped;
   }
 
   /**
