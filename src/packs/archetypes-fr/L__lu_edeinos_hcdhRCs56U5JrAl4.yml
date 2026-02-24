@@ -276,7 +276,6 @@ items:
       price: '0'
       techlevel: 5
       value: null
-      equippedClass: item-equipped
     ownership:
       default: 0
     _stats:
@@ -314,7 +313,6 @@ items:
       value: 13
       bonus: 2
       equipped: true
-      equippedClass: .item-unequipped
       maxDex: 10
       minStrength: null
       notes: Torse, Dex Max 10
@@ -359,18 +357,19 @@ items:
       chatNote: ''
       damage: 2
       damageType: strengthPlus
-      equipped: false
-      equippedClass: .item-unequipped
+      equipped:
+        carryType: held
+        handsHeld: 1
       notes: Lancée avec Armes de jet
     ownership:
       default: 0
     _stats:
-      systemId: null
-      systemVersion: null
-      coreVersion: '13.348'
+      systemId: torgeternity
+      systemVersion: 13.15.0
+      coreVersion: '13.351'
       createdTime: null
-      modifiedTime: 1758492170652
-      lastModifiedBy: l8SVzn2293lAwvMC
+      modifiedTime: 1771933965387
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: Item.0ibFEQi66ymd6PnN
       duplicateSource: null
       exportSource: null
@@ -575,7 +574,6 @@ items:
       damage: 2
       damageType: strengthPlus
       equipped: false
-      equippedClass: .item-unequipped
       notes: ''
     ownership:
       default: 0
@@ -1169,7 +1167,7 @@ system:
       <p class="MsoNormal" style="tab-stops: 150.75pt;">□ (5 PX) Foi +5</p>
     race: edeinos
     sizeBonus: normal
-  editstate: true
+  editstate: false
 ownership:
   default: 0
   A9LyAqagoJJU3gDH: 3
@@ -1257,11 +1255,11 @@ prototypeToken:
   movementAction: null
 _stats:
   systemId: torgeternity
-  systemVersion: 13.13.2
+  systemVersion: 13.15.0
   coreVersion: '13.351'
   createdTime: 1716827809684
-  modifiedTime: 1764001588497
-  lastModifiedBy: e1DB4TK9SbDuMDS3
+  modifiedTime: 1771935731208
+  lastModifiedBy: BMvGTGfheqDXarjN
   compendiumSource: null
   duplicateSource: null
   exportSource: null

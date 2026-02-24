@@ -142,7 +142,6 @@ items:
       value: 11
       bonus: 1
       equipped: false
-      equippedClass: item-unequipped
       maxDex: 10
       minStrength: null
       notes: ''
@@ -181,7 +180,6 @@ items:
       value: 11
       bonus: 3
       equipped: true
-      equippedClass: item-unequipped
       maxDex: 10
       minStrength: null
       notes: Torse
@@ -225,18 +223,19 @@ items:
       chatNote: ''
       damage: 1
       damageType: strengthPlus
-      equipped: false
-      equippedClass: .item-unequipped
+      equipped:
+        carryType: held
+        handsHeld: 1
       notes: Douleur, Déséquilibre
     ownership:
       default: 0
     _stats:
-      systemId: null
-      systemVersion: null
-      coreVersion: '13.348'
+      systemId: torgeternity
+      systemVersion: 13.15.0
+      coreVersion: '13.351'
       createdTime: null
-      modifiedTime: 1758492190668
-      lastModifiedBy: l8SVzn2293lAwvMC
+      modifiedTime: 1771934049111
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: Compendium.te001-core-rulebook.Items.fmwK3vCtQr2PAPtN
       duplicateSource: null
       exportSource: null
@@ -268,7 +267,6 @@ items:
       damage: 13
       damageType: flat
       equipped: false
-      equippedClass: .item-unequipped
       notes: Pistolet, Rafale courte
       range: 25 / 50 / 100
     ownership:
@@ -637,7 +635,6 @@ items:
       price: '40'
       techlevel: 14
       value: 8
-      equippedClass: item-equipped
     ownership:
       default: 0
       qjRKKHBumHYSfxpw: 3
@@ -667,7 +664,6 @@ items:
       price: '20'
       techlevel: 22
       value: 6
-      equippedClass: item-equipped
     ownership:
       default: 0
       qjRKKHBumHYSfxpw: 3
@@ -697,7 +693,6 @@ items:
       price: '5'
       techlevel: 20
       value: 3
-      equippedClass: item-equipped
     ownership:
       default: 0
       qjRKKHBumHYSfxpw: 3

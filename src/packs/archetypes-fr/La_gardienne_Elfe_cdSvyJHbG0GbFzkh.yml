@@ -699,7 +699,6 @@ items:
       price: '500'
       techlevel: 12
       value: 13
-      equippedClass: item-equipped
     ownership:
       default: 0
     _stats:
@@ -728,7 +727,6 @@ items:
       price: '25'
       techlevel: 8
       value: 7
-      equippedClass: item-equipped
     ownership:
       default: 0
     _stats:
@@ -759,7 +757,6 @@ items:
       price: '5'
       techlevel: 9
       value: 3
-      equippedClass: item-equipped
     ownership:
       default: 0
     _stats:
@@ -790,7 +787,6 @@ items:
       value: 10
       bonus: 1
       equipped: true
-      equippedClass: .item-unequipped
       maxDex: 12
       minStrength: null
       notes: Torse
@@ -829,18 +825,19 @@ items:
       chatNote: ''
       damage: 3
       damageType: strengthPlus
-      equipped: false
-      equippedClass: .item-unequipped
+      equipped:
+        carryType: held
+        handsHeld: 1
       notes: '-'
     ownership:
       default: 0
     _stats:
-      systemId: null
-      systemVersion: null
-      coreVersion: '13.348'
+      systemId: torgeternity
+      systemVersion: 13.15.0
+      coreVersion: '13.351'
       createdTime: null
-      modifiedTime: 1758492203294
-      lastModifiedBy: l8SVzn2293lAwvMC
+      modifiedTime: 1771934113502
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: Item.LGGaptAxiwJMZLsD
       duplicateSource: null
       exportSource: null
@@ -874,20 +871,21 @@ items:
       chatNote: ''
       damage: 13
       damageType: flat
-      equipped: false
-      equippedClass: .item-unequipped
+      equipped:
+        carryType: held
+        handsHeld: 2
       minStrength: '7'
       notes: Force min 7
       range: 20/40/80
     ownership:
       default: 0
     _stats:
-      systemId: null
-      systemVersion: null
-      coreVersion: '13.348'
+      systemId: torgeternity
+      systemVersion: 13.15.0
+      coreVersion: '13.351'
       createdTime: null
-      modifiedTime: 1758492031454
-      lastModifiedBy: l8SVzn2293lAwvMC
+      modifiedTime: 1771934116759
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: Item.95xJ3EnPzdWIOAWh
       duplicateSource: null
       exportSource: null
@@ -1431,7 +1429,7 @@ system:
       yes;">&nbsp;</span></p>
     race: elf
     sizeBonus: normal
-  editstate: true
+  editstate: false
 ownership:
   default: 0
   A9LyAqagoJJU3gDH: 3
@@ -1519,11 +1517,11 @@ prototypeToken:
   movementAction: null
 _stats:
   systemId: torgeternity
-  systemVersion: 13.13.2
+  systemVersion: 13.15.0
   coreVersion: '13.351'
   createdTime: 1716827809619
-  modifiedTime: 1764001548738
-  lastModifiedBy: e1DB4TK9SbDuMDS3
+  modifiedTime: 1771935893892
+  lastModifiedBy: BMvGTGfheqDXarjN
   compendiumSource: null
   duplicateSource: null
   exportSource: null

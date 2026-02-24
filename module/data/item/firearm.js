@@ -11,4 +11,21 @@ export class FirearmItemData extends MissileWeaponItemData {
   static defineSchema(subtype = 'firearm', attackwith = 'fireCombat') {
     return MissileWeaponItemData.defineSchema(subtype, attackwith);
   }
+
+  static migrateData(source) {
+    if (typeof source.equipped === 'boolean') {
+      source.equipped = { carryType: source.equipped ? 'held' : 'stowed' };
+      if (source.equipped.carryType === 'held') {
+        source.equipped.handsHeld = (source.traits?.includes('pistol') || source.traits?.includes('carbine')) ? 1 : 2;
+      }
+    }
+    return super.migrateData(source);
+  }
+
+  get isEquipped() {
+    // Can't use `super.isEquipped` since Missile Weapons have other conditions compared to Firearms
+    return this.equipped?.carryType === this.usage &&   // BaseItemData.isEquipped 
+      (this.traits.has('pistol') || this.traits.has('carbine') ||
+        this.equipped.handsHeld === 2);
+  }
 }

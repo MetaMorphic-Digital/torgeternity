@@ -343,7 +343,6 @@ items:
       value: 10
       bonus: 1
       equipped: true
-      equippedClass: .item-unequipped
       maxDex: 12
       minStrength: null
       notes: Torse
@@ -390,19 +389,22 @@ items:
       chatNote: ''
       damage: 13
       damageType: ''
-      equipped: false
-      equippedClass: .item-unequipped
+      equipped:
+        carryType: held
+        handsHeld: 1
       notes: '-'
       range: 10 / 25 / 40
+      traits:
+        - pistol
     ownership:
       default: 0
     _stats:
-      systemId: null
-      systemVersion: null
-      coreVersion: '13.348'
+      systemId: torgeternity
+      systemVersion: 13.15.0
+      coreVersion: '13.351'
       createdTime: null
-      modifiedTime: 1758491601890
-      lastModifiedBy: l8SVzn2293lAwvMC
+      modifiedTime: 1771934238682
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
@@ -422,7 +424,6 @@ items:
       price: '100'
       techlevel: 15
       value: 10
-      equippedClass: item-equipped
     ownership:
       default: 0
     _stats:
@@ -454,7 +455,6 @@ items:
       price: '150'
       techlevel: 20
       value: 11
-      equippedClass: item-equipped
     ownership:
       default: 0
     _stats:
@@ -483,7 +483,6 @@ items:
       price: '20'
       techlevel: 22
       value: 6
-      equippedClass: item-equipped
     ownership:
       default: 0
       TK1vCAdCz548vBDu: 3
@@ -514,7 +513,6 @@ items:
       price: '5'
       techlevel: 20
       value: 3
-      equippedClass: item-equipped
     ownership:
       default: 0
       qjRKKHBumHYSfxpw: 3
@@ -544,7 +542,6 @@ items:
       price: '0'
       techlevel: 19
       value: 0
-      equippedClass: item-equipped
     ownership:
       default: 0
       TK1vCAdCz548vBDu: 3
@@ -1084,7 +1081,7 @@ system:
       <p>&nbsp;</p>
     race: human
     sizeBonus: normal
-  editstate: true
+  editstate: false
 ownership:
   default: 0
   A9LyAqagoJJU3gDH: 3
@@ -1172,11 +1169,11 @@ prototypeToken:
   movementAction: null
 _stats:
   systemId: torgeternity
-  systemVersion: 13.13.2
+  systemVersion: 13.15.0
   coreVersion: '13.351'
   createdTime: 1716827809436
-  modifiedTime: 1764001568064
-  lastModifiedBy: e1DB4TK9SbDuMDS3
+  modifiedTime: 1771935907044
+  lastModifiedBy: BMvGTGfheqDXarjN
   compendiumSource: null
   duplicateSource: null
   exportSource: null

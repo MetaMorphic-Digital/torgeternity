@@ -244,7 +244,6 @@ items:
       price: '100'
       techlevel: 20
       value: 10
-      equippedClass: item-equipped
     ownership:
       default: 0
     _stats:
@@ -273,7 +272,6 @@ items:
       price: '50'
       techlevel: 10
       value: 8
-      equippedClass: item-equipped
     ownership:
       default: 0
     _stats:
@@ -345,7 +343,6 @@ items:
       price: '50'
       techlevel: 20
       value: 8
-      equippedClass: item-equipped
     ownership:
       default: 0
     _stats:
@@ -374,7 +371,6 @@ items:
       price: '10'
       techlevel: 10
       value: 5
-      equippedClass: item-equipped
     ownership:
       default: 0
     _stats:
@@ -403,7 +399,6 @@ items:
       price: '50'
       techlevel: 20
       value: 8
-      equippedClass: item-equipped
     ownership:
       default: 0
     _stats:
@@ -432,7 +427,6 @@ items:
       price: '100'
       techlevel: 18
       value: 10
-      equippedClass: item-equipped
     ownership:
       default: 0
     _stats:
@@ -464,7 +458,6 @@ items:
       price: '150'
       techlevel: 20
       value: 11
-      equippedClass: item-equipped
     ownership:
       default: 0
     _stats:
@@ -501,19 +494,20 @@ items:
       chatNote: ''
       damage: 15
       damageType: ''
-      equipped: false
-      equippedClass: .item-unequipped
+      equipped:
+        carryType: held
+        handsHeld: 2
       notes: necessite l'atout "électro-rayon" / Régénère 1 munition par round
       range: 10/25/50
     ownership:
       default: 0
     _stats:
       systemId: torgeternity
-      systemVersion: 13.10.0
-      coreVersion: '13.348'
+      systemVersion: 13.15.0
+      coreVersion: '13.351'
       createdTime: null
-      modifiedTime: 1758491638991
-      lastModifiedBy: l8SVzn2293lAwvMC
+      modifiedTime: 1771933992617
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: Item.W8ZARSxZdHHv4JZN
       duplicateSource: null
       exportSource: null
@@ -535,7 +529,6 @@ items:
       price: '10'
       techlevel: 20
       value: 5
-      equippedClass: item-equipped
     ownership:
       default: 0
       qjRKKHBumHYSfxpw: 3
@@ -567,7 +560,6 @@ items:
       value: 10
       bonus: 1
       equipped: true
-      equippedClass: .item-unequipped
       maxDex: 12
       minStrength: null
       notes: Torse
@@ -1082,7 +1074,7 @@ system:
       </ul>
     race: human
     sizeBonus: normal
-  editstate: true
+  editstate: false
 ownership:
   default: 0
   A9LyAqagoJJU3gDH: 3
@@ -1170,11 +1162,11 @@ prototypeToken:
   movementAction: null
 _stats:
   systemId: torgeternity
-  systemVersion: 13.13.2
+  systemVersion: 13.15.0
   coreVersion: '13.351'
   createdTime: 1716827809182
-  modifiedTime: 1764001531764
-  lastModifiedBy: e1DB4TK9SbDuMDS3
+  modifiedTime: 1771935740808
+  lastModifiedBy: BMvGTGfheqDXarjN
   compendiumSource: null
   duplicateSource: null
   exportSource: null

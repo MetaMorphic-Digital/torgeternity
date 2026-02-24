@@ -262,7 +262,6 @@ items:
       price: '5'
       techlevel: 2
       value: 3
-      equippedClass: item-equipped
     ownership:
       default: 0
     _stats:
@@ -291,7 +290,6 @@ items:
       price: '0'
       techlevel: 3
       value: null
-      equippedClass: item-equipped
     ownership:
       default: 0
     _stats:
@@ -320,7 +318,6 @@ items:
       price: '1'
       techlevel: 4
       value: 0
-      equippedClass: item-equipped
     ownership:
       default: 0
     _stats:
@@ -356,7 +353,6 @@ items:
       value: 8
       bonus: 1
       equipped: true
-      equippedClass: .item-unequipped
       maxDex: 12
       minStrength: null
       notes: Torse
@@ -400,18 +396,19 @@ items:
       chatNote: ''
       damage: 2
       damageType: strengthPlus
-      equipped: false
-      equippedClass: .item-unequipped
+      equipped:
+        carryType: held
+        handsHeld: 1
       notes: lancée
     ownership:
       default: 0
     _stats:
-      systemId: null
-      systemVersion: null
-      coreVersion: '13.348'
+      systemId: torgeternity
+      systemVersion: 13.15.0
+      coreVersion: '13.351'
       createdTime: null
-      modifiedTime: 1758491988589
-      lastModifiedBy: l8SVzn2293lAwvMC
+      modifiedTime: 1771934007715
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: Item.0ibFEQi66ymd6PnN
       duplicateSource: null
       exportSource: null
@@ -439,18 +436,19 @@ items:
       chatNote: ''
       damage: 1
       damageType: strengthPlus
-      equipped: false
-      equippedClass: .item-unequipped
+      equipped:
+        carryType: held
+        handsHeld: 1
       notes: Fragile, Discret
     ownership:
       default: 0
     _stats:
       systemId: torgeternity
-      systemVersion: 13.10.0
-      coreVersion: '13.348'
+      systemVersion: 13.15.0
+      coreVersion: '13.351'
       createdTime: null
-      modifiedTime: 1758491994110
-      lastModifiedBy: l8SVzn2293lAwvMC
+      modifiedTime: 1771934009392
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: Item.2OZHSyASNn86YGNX
       duplicateSource: null
       exportSource: null
@@ -945,7 +943,7 @@ system:
       <p class="MsoNormal">□ (5 PX) Armes de m&ecirc;l&eacute;e +5</p>
     race: human
     sizeBonus: normal
-  editstate: true
+  editstate: false
 ownership:
   default: 0
   A9LyAqagoJJU3gDH: 3
@@ -1033,11 +1031,11 @@ prototypeToken:
   movementAction: null
 _stats:
   systemId: torgeternity
-  systemVersion: 13.13.2
+  systemVersion: 13.15.0
   coreVersion: '13.351'
   createdTime: 1716827809787
-  modifiedTime: 1764001534213
-  lastModifiedBy: e1DB4TK9SbDuMDS3
+  modifiedTime: 1771935884737
+  lastModifiedBy: BMvGTGfheqDXarjN
   compendiumSource: null
   duplicateSource: null
   exportSource: null

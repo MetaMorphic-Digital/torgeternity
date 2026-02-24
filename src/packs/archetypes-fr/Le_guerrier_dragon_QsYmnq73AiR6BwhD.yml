@@ -289,7 +289,6 @@ items:
       damage: 16
       damageType: flat
       equipped: false
-      equippedClass: .item-unequipped
       minStrength: ''
       notes: dommages de feu ; zone d'effet limitée
       range: 10m
@@ -323,7 +322,6 @@ items:
       price: '500'
       techlevel: 12
       value: 13
-      equippedClass: item-equipped
     ownership:
       default: 0
     _stats:
@@ -352,7 +350,6 @@ items:
       price: '25'
       techlevel: 8
       value: 7
-      equippedClass: item-equipped
     ownership:
       default: 0
     _stats:
@@ -388,7 +385,6 @@ items:
       price: '40'
       techlevel: 14
       value: 8
-      equippedClass: item-equipped
     ownership:
       default: 0
     _stats:
@@ -427,18 +423,21 @@ items:
       chatNote: ''
       damage: 4
       damageType: strengthPlus
-      equipped: false
-      equippedClass: .item-unequipped
+      equipped:
+        carryType: held
+        handsHeld: 1
       notes: Déséquilibre, Deux mains, Peu maniable
+      traits:
+        - twoHanded
     ownership:
       default: 0
     _stats:
-      systemId: null
-      systemVersion: null
-      coreVersion: '13.348'
+      systemId: torgeternity
+      systemVersion: 13.15.0
+      coreVersion: '13.351'
       createdTime: null
-      modifiedTime: 1758492234838
-      lastModifiedBy: l8SVzn2293lAwvMC
+      modifiedTime: 1771934373672
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: Item.Aan7zdkY9kl0RE7T
       duplicateSource: null
       exportSource: null
@@ -612,7 +611,6 @@ items:
       value: null
       bonus: 4
       equipped: true
-      equippedClass: .item-unequipped
       maxDex: 8
       minStrength: 10
       notes: Fatigues (2) ; Dex max 8
@@ -1129,7 +1127,7 @@ system:
       style="mso-spacerun: yes;">&nbsp;</span></p>
     race: dwarf
     sizeBonus: normal
-  editstate: true
+  editstate: false
 ownership:
   default: 0
   A9LyAqagoJJU3gDH: 3
@@ -1217,10 +1215,10 @@ prototypeToken:
   movementAction: null
 _stats:
   systemId: torgeternity
-  systemVersion: 3.8.1
-  coreVersion: '13.348'
+  systemVersion: 13.15.0
+  coreVersion: '13.351'
   createdTime: 1716827809381
-  modifiedTime: 1758530151159
+  modifiedTime: 1771935904036
   lastModifiedBy: BMvGTGfheqDXarjN
   compendiumSource: null
   duplicateSource: null

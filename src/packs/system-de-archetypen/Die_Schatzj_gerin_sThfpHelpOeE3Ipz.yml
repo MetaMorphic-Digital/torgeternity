@@ -316,23 +316,27 @@ items:
       chatNote: ''
       damage: 13
       damageType: ''
-      equipped: true
+      equipped:
+        carryType: held
+        handsHeld: 1
       notes: Pistole
       range: 10/25/40
       secondaryAxiom:
         selected: none
         value: null
+      traits:
+        - pistol
     ownership:
       default: 0
       9Q0XnqFwko7hRlvL: 3
       CtisFurQNe9h7ABb: 3
     _stats:
       systemId: torgeternity
-      systemVersion: 13.2.2
-      coreVersion: '13.346'
+      systemVersion: 13.15.0
+      coreVersion: '13.351'
       createdTime: 1694861223835
-      modifiedTime: 1753598842504
-      lastModifiedBy: W32Zl65V9atvPk8o
+      modifiedTime: 1771933874543
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: Compendium.te001-core-rulebook.grw-de-ausruestung.Item.uS5bsDS4zQkN7NTj
       duplicateSource: null
       exportSource: null
@@ -364,23 +368,27 @@ items:
       chatNote: ''
       damage: 13
       damageType: ''
-      equipped: true
+      equipped:
+        carryType: held
+        handsHeld: 1
       notes: Pistole
       range: 10/25/40
       secondaryAxiom:
         selected: none
         value: null
+      traits:
+        - pistol
     ownership:
       default: 0
       9Q0XnqFwko7hRlvL: 3
       CtisFurQNe9h7ABb: 3
     _stats:
       systemId: torgeternity
-      systemVersion: 13.2.2
-      coreVersion: '13.346'
+      systemVersion: 13.15.0
+      coreVersion: '13.351'
       createdTime: 1694861228288
-      modifiedTime: 1753598843607
-      lastModifiedBy: W32Zl65V9atvPk8o
+      modifiedTime: 1771933877294
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: Compendium.te001-core-rulebook.grw-de-ausruestung.Item.uS5bsDS4zQkN7NTj
       duplicateSource: null
       exportSource: null

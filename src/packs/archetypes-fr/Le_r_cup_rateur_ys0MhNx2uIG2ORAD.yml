@@ -239,7 +239,6 @@ items:
       price: '60'
       techlevel: 24
       value: 9
-      equippedClass: item-equipped
     ownership:
       default: 0
     _stats:
@@ -273,7 +272,6 @@ items:
       price: '120'
       techlevel: 21
       value: 10
-      equippedClass: item-equipped
     ownership:
       default: 0
     _stats:
@@ -310,7 +308,6 @@ items:
       value: 13
       bonus: 3
       equipped: true
-      equippedClass: item-unequipped
       maxDex: 8
       minStrength: 8
       notes: Fatigue, bonus s’ajoute à l’Esquive contre les armes à énergie.
@@ -354,18 +351,21 @@ items:
       chatNote: ''
       damage: 4
       damageType: strengthPlus
-      equipped: false
-      equippedClass: .item-unequipped
+      equipped:
+        carryType: held
+        handsHeld: 1
       notes: Déséquilibre, Deux mains
+      traits:
+        - twoHanded
     ownership:
       default: 0
     _stats:
-      systemId: null
-      systemVersion: null
-      coreVersion: '13.348'
+      systemId: torgeternity
+      systemVersion: 13.15.0
+      coreVersion: '13.351'
       createdTime: null
-      modifiedTime: 1758492248569
-      lastModifiedBy: l8SVzn2293lAwvMC
+      modifiedTime: 1771935817947
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: Compendium.te001-core-rulebook.Items.07pjHDJDrK1pESkv
       duplicateSource: null
       exportSource: null
@@ -406,20 +406,21 @@ items:
       chatNote: ''
       damage: 5
       damageType: flat
-      equipped: false
-      equippedClass: .item-unequipped
+      equipped:
+        carryType: held
+        handsHeld: 2
       minStrength: ''
       notes: Zone d’effet limitée
       range: 5 / 10 / 15
     ownership:
       default: 0
     _stats:
-      systemId: null
-      systemVersion: null
-      coreVersion: '13.348'
+      systemId: torgeternity
+      systemVersion: 13.15.0
+      coreVersion: '13.351'
       createdTime: null
-      modifiedTime: 1758492052325
-      lastModifiedBy: l8SVzn2293lAwvMC
+      modifiedTime: 1771934281172
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: Compendium.te001-core-rulebook.Items.t5x6s1AwFy1qZBpF
       duplicateSource: null
       exportSource: null
@@ -439,7 +440,6 @@ items:
       price: '5'
       techlevel: 20
       value: 3
-      equippedClass: item-equipped
     ownership:
       default: 0
       qjRKKHBumHYSfxpw: 3
@@ -567,7 +567,6 @@ items:
       techlevel: 25
       value: 19
       notes: +2 en Force avec ce bras
-      equippedClass: item-equipped
     ownership:
       default: 0
       qjRKKHBumHYSfxpw: 3
@@ -598,7 +597,6 @@ items:
       techlevel: 25
       value: 16
       notes: Les Blessures des radiations se soignent normalement.
-      equippedClass: item-equipped
     ownership:
       default: 0
       qjRKKHBumHYSfxpw: 3
@@ -1107,7 +1105,7 @@ system:
       <p class="MsoNormal">□ (3 PX) Intimidation +3</p>
     race: human
     sizeBonus: normal
-  editstate: true
+  editstate: false
 ownership:
   default: 0
   A9LyAqagoJJU3gDH: 3
@@ -1195,11 +1193,11 @@ prototypeToken:
   movementAction: null
 _stats:
   systemId: torgeternity
-  systemVersion: 13.13.2
+  systemVersion: 13.15.0
   coreVersion: '13.351'
   createdTime: 1716827809898
-  modifiedTime: 1764001575127
-  lastModifiedBy: e1DB4TK9SbDuMDS3
+  modifiedTime: 1771935912866
+  lastModifiedBy: BMvGTGfheqDXarjN
   compendiumSource: null
   duplicateSource: null
   exportSource: null

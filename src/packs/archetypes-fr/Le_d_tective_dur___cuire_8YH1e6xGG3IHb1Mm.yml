@@ -126,7 +126,6 @@ items:
       price: '0'
       techlevel: 22
       value: null
-      equippedClass: item-equipped
     ownership:
       default: 0
     _stats:
@@ -166,20 +165,23 @@ items:
       chatNote: ''
       damage: 13
       damageType: ''
-      equipped: false
-      equippedClass: .item-unequipped
+      equipped:
+        carryType: held
+        handsHeld: 1
       notes: '-Pistolet'
       range: 10/25/40
+      traits:
+        - pistol
     ownership:
       default: 0
       qjRKKHBumHYSfxpw: 3
     _stats:
-      systemId: null
-      systemVersion: null
-      coreVersion: '13.348'
+      systemId: torgeternity
+      systemVersion: 13.15.0
+      coreVersion: '13.351'
       createdTime: null
-      modifiedTime: 1758491754844
-      lastModifiedBy: l8SVzn2293lAwvMC
+      modifiedTime: 1771934162371
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: Item.iOnl5BiGmVFaCzma
       duplicateSource: null
       exportSource: null
@@ -210,20 +212,23 @@ items:
       chatNote: ''
       damage: 13
       damageType: ''
-      equipped: false
-      equippedClass: .item-unequipped
+      equipped:
+        carryType: held
+        handsHeld: 1
       notes: '-Pistolet'
       range: 10/25/40
+      traits:
+        - pistol
     ownership:
       default: 0
       qjRKKHBumHYSfxpw: 3
     _stats:
-      systemId: null
-      systemVersion: null
-      coreVersion: '13.348'
+      systemId: torgeternity
+      systemVersion: 13.15.0
+      coreVersion: '13.351'
       createdTime: null
-      modifiedTime: 1758491765359
-      lastModifiedBy: l8SVzn2293lAwvMC
+      modifiedTime: 1771934164060
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: Item.iOnl5BiGmVFaCzma
       duplicateSource: null
       exportSource: null
@@ -357,7 +362,6 @@ items:
       price: '20'
       techlevel: 22
       value: 6
-      equippedClass: item-equipped
     ownership:
       default: 0
       qjRKKHBumHYSfxpw: 3
@@ -387,7 +391,6 @@ items:
       price: '0'
       techlevel: 22
       value: null
-      equippedClass: item-equipped
     ownership:
       default: 0
       qjRKKHBumHYSfxpw: 3
@@ -423,7 +426,6 @@ items:
       price: '300'
       techlevel: 23
       value: 12
-      equippedClass: item-equipped
     ownership:
       default: 0
       qjRKKHBumHYSfxpw: 3
@@ -453,7 +455,6 @@ items:
       price: '10'
       techlevel: 20
       value: 5
-      equippedClass: item-equipped
     ownership:
       default: 0
       qjRKKHBumHYSfxpw: 3
@@ -483,7 +484,6 @@ items:
       price: '10'
       techlevel: 20
       value: 5
-      equippedClass: item-equipped
     ownership:
       default: 0
       qjRKKHBumHYSfxpw: 3
@@ -513,7 +513,6 @@ items:
       price: '0'
       techlevel: 22
       value: 0
-      equippedClass: item-equipped
     ownership:
       default: 0
       TK1vCAdCz548vBDu: 3
@@ -546,7 +545,6 @@ items:
       value: 10
       bonus: 1
       equipped: true
-      equippedClass: .item-unequipped
       maxDex: 12
       minStrength: null
       notes: Torse
@@ -1064,7 +1062,7 @@ system:
       <p class="MsoNormal">□ (5 PX) Armes &agrave; feu +5</p>
     race: human
     sizeBonus: normal
-  editstate: true
+  editstate: false
 ownership:
   default: 0
   A9LyAqagoJJU3gDH: 3
@@ -1152,11 +1150,11 @@ prototypeToken:
   movementAction: null
 _stats:
   systemId: torgeternity
-  systemVersion: 13.13.2
+  systemVersion: 13.15.0
   coreVersion: '13.351'
   createdTime: 1716827809136
-  modifiedTime: 1764001555112
-  lastModifiedBy: e1DB4TK9SbDuMDS3
+  modifiedTime: 1771935898728
+  lastModifiedBy: BMvGTGfheqDXarjN
   compendiumSource: null
   duplicateSource: null
   exportSource: null

@@ -1,5 +1,22 @@
 # TORG Eternity Changelog
 
+## 13.23.1
+
+- Update **Equipped** logic:
+  - Each item has a `usage` property ('worn' for armor, 'held' for everything else).
+  - The base equipped state for an item is that the `carryType` matches its `usage`.
+  - **Melee Weapons** with the `twoHanded` trait are only considered equipped if held in TWO hands, or held by an Actor with strength 10+.
+  - **Missile Weapons** without the `thrown` trait (new) are only considered equipped if held in TWO hands.
+  - **Firearms** without the `pistol` or `carbine` trait are only considered equipped if held in TWO hands.
+- The blue glow on the Gear tab indicates a correctly equipped item.
+- Only correctly equipped melee weapons count for the two-weapon melee defense bonus.
+- Archetypes updated where necessary with correct equipped state of their weaponry.
+- FR archetypes no longer have the skills list expanded by default.
+
+### Bug Fixes
+
+- AEs on Items should now be correctly enabled/disabled based on the equipped/unequipped status of the Item itself.
+
 ## 13.23.0
 
 - Change **equipped** on Items to now hold one of `Held` (1H or 2H), `Worn` (for armor), `Carried` or `Dropped`.

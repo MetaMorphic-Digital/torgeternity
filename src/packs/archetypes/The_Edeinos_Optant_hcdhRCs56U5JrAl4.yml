@@ -439,7 +439,9 @@ items:
       chatNote: ''
       damage: 2
       damageType: strengthPlus
-      equipped: true
+      equipped:
+        handsHeld: 1
+        carryType: held
       notes: Thrown
       secondaryAxiom:
         selected: none
@@ -455,12 +457,12 @@ items:
     _stats:
       compendiumSource: Compendium.te001-core-rulebook.Items.Item.ammMtd4GDTZAbVQx
       duplicateSource: null
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
-      systemVersion: 13.2.2
+      systemVersion: 13.15.0
       createdTime: null
-      modifiedTime: 1753599103178
-      lastModifiedBy: W32Zl65V9atvPk8o
+      modifiedTime: 1771933376990
+      lastModifiedBy: BMvGTGfheqDXarjN
       exportSource: null
     _key: '!actors.items!hcdhRCs56U5JrAl4.dhZt4ogIENT8UrvV'
   - name: Hrockt Shoot Spear
@@ -488,10 +490,14 @@ items:
       chatNote: ''
       damage: 2
       damageType: strengthPlus
-      equipped: true
+      equipped:
+        handsHeld: 1
+        carryType: held
       minStrength: ''
       notes: ''
       range: 10/20/40
+      traits:
+        - thrown
     effects: []
     folder: null
     ownership:
@@ -501,12 +507,12 @@ items:
     _stats:
       compendiumSource: Compendium.te001-core-rulebook.Items.Item.6Pb5rtY0QdIMTbRF
       duplicateSource: null
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
-      systemVersion: 13.2.2
+      systemVersion: 13.15.0
       createdTime: null
-      modifiedTime: 1753599097933
-      lastModifiedBy: W32Zl65V9atvPk8o
+      modifiedTime: 1771933381843
+      lastModifiedBy: BMvGTGfheqDXarjN
       exportSource: null
     _id: GQGV7PufpwLZ9DdV
     sort: 0

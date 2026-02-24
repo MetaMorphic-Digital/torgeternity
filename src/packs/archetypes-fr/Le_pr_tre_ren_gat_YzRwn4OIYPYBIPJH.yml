@@ -188,7 +188,6 @@ items:
       techlevel: 26
       value: 16
       notes: Les tests d’Observation et de Pistage sont Favorisés
-      equippedClass: item-equipped
     ownership:
       default: 0
     _stats:
@@ -218,7 +217,6 @@ items:
       techlevel: 26
       value: 15
       notes: Malus d’obscurité réduit de 2 points
-      equippedClass: item-equipped
     ownership:
       default: 0
     _stats:
@@ -294,7 +292,6 @@ items:
       price: '700'
       techlevel: 26
       value: 14
-      equippedClass: item-equipped
     ownership:
       default: 0
     _stats:
@@ -417,7 +414,6 @@ items:
       techlevel: 26
       value: 18
       notes: 1 en Force avec ce bras.
-      equippedClass: item-equipped
     ownership:
       default: 0
     _stats:
@@ -446,7 +442,6 @@ items:
       price: '0'
       techlevel: 5
       value: null
-      equippedClass: item-equipped
     ownership:
       default: 0
     _stats:
@@ -485,7 +480,6 @@ items:
       value: 12
       bonus: 2
       equipped: true
-      equippedClass: .item-unequipped
       maxDex: null
       minStrength: 0
       notes: ''
@@ -534,19 +528,20 @@ items:
       chatNote: ''
       damage: 14
       damageType: ''
-      equipped: false
-      equippedClass: .item-unequipped
+      equipped:
+        carryType: held
+        handsHeld: 2
       notes: Rafale courte, PA 1, intégré dans un Bras HardPlas
       range: 100 / 500 / 1000
     ownership:
       default: 0
     _stats:
-      systemId: null
-      systemVersion: null
-      coreVersion: '13.348'
+      systemId: torgeternity
+      systemVersion: 13.15.0
+      coreVersion: '13.351'
       createdTime: null
-      modifiedTime: 1758491927825
-      lastModifiedBy: l8SVzn2293lAwvMC
+      modifiedTime: 1771934252141
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: null
       duplicateSource: null
       exportSource: null
@@ -1549,7 +1544,7 @@ system:
       <p class="MsoNormal">□ (5 PX) Foi +5</p>
     race: human
     sizeBonus: normal
-  editstate: true
+  editstate: false
 ownership:
   default: 0
   A9LyAqagoJJU3gDH: 3
@@ -1637,11 +1632,11 @@ prototypeToken:
   movementAction: null
 _stats:
   systemId: torgeternity
-  systemVersion: 13.13.2
+  systemVersion: 13.15.0
   coreVersion: '13.351'
   createdTime: 1716827809520
-  modifiedTime: 1764001571971
-  lastModifiedBy: e1DB4TK9SbDuMDS3
+  modifiedTime: 1771935909553
+  lastModifiedBy: BMvGTGfheqDXarjN
   compendiumSource: null
   duplicateSource: null
   exportSource: null

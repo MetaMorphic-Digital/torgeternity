@@ -238,7 +238,9 @@ items:
       chatNote: ''
       damage: 4
       damageType: strengthPlus
-      equipped: true
+      equipped:
+        handsHeld: 1
+        carryType: held
       notes: Stagger, Two Handed
       secondaryAxiom:
         selected: none
@@ -253,11 +255,11 @@ items:
       CtisFurQNe9h7ABb: 3
     _stats:
       systemId: torgeternity
-      systemVersion: 13.2.2
-      coreVersion: '13.346'
+      systemVersion: 13.15.0
+      coreVersion: '13.351'
       createdTime: 1693914415715
-      modifiedTime: 1753599423868
-      lastModifiedBy: W32Zl65V9atvPk8o
+      modifiedTime: 1771936056549
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: Compendium.te001-core-rulebook.Items.07pjHDJDrK1pESkv
       duplicateSource: null
       exportSource: null

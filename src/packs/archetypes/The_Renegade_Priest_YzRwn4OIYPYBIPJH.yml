@@ -164,7 +164,9 @@ items:
       chatNote: ''
       damage: 14
       damageType: flat
-      equipped: true
+      equipped:
+        handsHeld: 2
+        carryType: held
       notes: Short Burst
       range: 100 / 500 / 1000
       secondaryAxiom:
@@ -178,11 +180,11 @@ items:
       CtisFurQNe9h7ABb: 3
     _stats:
       systemId: torgeternity
-      systemVersion: 13.2.2
-      coreVersion: '13.346'
+      systemVersion: 13.15.0
+      coreVersion: '13.351'
       createdTime: 1693913428828
-      modifiedTime: 1753599360129
-      lastModifiedBy: W32Zl65V9atvPk8o
+      modifiedTime: 1771932893243
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: Compendium.te001-core-rulebook.Items.3G2SVFJnklgCOnmw
       duplicateSource: null
       exportSource: null
