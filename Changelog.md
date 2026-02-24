@@ -1,5 +1,9 @@
 # TORG Eternity Changelog
 
+## NEXT
+
+- Dragging an Item to the macro bar now also passed the item type, to avoid situations where a power/perk might have the same name as an attack.
+
 ## 13.23.1
 
 - Update **Equipped** logic:
