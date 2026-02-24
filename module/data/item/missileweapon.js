@@ -23,6 +23,16 @@ export class MissileWeaponItemData extends BaseWeaponItemData {
     };
   }
 
+  static migrateData(source) {
+    if (typeof source.equipped === 'boolean') {
+      source.equipped = { carryType: source.equipped ? 'held' : 'stowed' };
+      if (source.equipped.carryType === 'held') {
+        source.equipped.handsHeld = source.traits?.includes('thrown') ? 1 : 2;
+      }
+    }
+    return super.migrateData(source);
+  }
+
   /**
    * If the item has a gunner, then return the gunner's name and skillValue
    */
@@ -35,5 +45,13 @@ export class MissileWeaponItemData extends BaseWeaponItemData {
     } else {
       return { value: this.gunnerFixedSkill }
     }
+  }
+
+  /**
+   * Missile weapons require two hands unless they have the 'thrown' trait.
+   */
+  get isEquipped() {
+    return super.isEquipped &&
+      (this.traits.has('thrown') || this.equipped.handsHeld === 2);
   }
 }

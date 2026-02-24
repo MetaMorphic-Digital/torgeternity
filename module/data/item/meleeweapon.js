@@ -19,6 +19,7 @@ export class MeleeWeaponItemData extends BaseWeaponItemData {
         source.equipped.handsHeld = source.traits?.includes('twoHanded') ? 2 : 1;
       }
     }
+    return super.migrateData(source);
   }
 
   get isEquipped() {

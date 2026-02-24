@@ -23,7 +23,8 @@ export class FirearmItemData extends MissileWeaponItemData {
   }
 
   get isEquipped() {
-    return super.isEquipped &&
+    // Can't use `super.isEquipped` since Missile Weapons have other conditions compared to Firearms
+    return this.equipped?.carryType === this.usage &&   // BaseItemData.isEquipped 
       (this.traits.has('pistol') || this.traits.has('carbine') ||
         this.equipped.handsHeld === 2);
   }

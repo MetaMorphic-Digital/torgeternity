@@ -5,8 +5,9 @@
 - Update **Equipped** logic:
   - Each item has a `usage` property ('worn' for armor, 'held' for everything else).
   - The base equipped state for an item is that the `carryType` matches its `usage`.
-  - **Firearms** without the `pistol` or `carbine` trait are only considered equipped if held in TWO hands.
   - **Melee Weapons** with the `twoHanded` trait are only considered equipped if held in TWO hands, or held by an Actor with strength 10+.
+  - **Missile Weapons** without the `thrown` trait (new) are only considered equipped if held in TWO hands.
+  - **Firearms** without the `pistol` or `carbine` trait are only considered equipped if held in TWO hands.
 - The blue glow on the Gear tab indicates a correctly equipped item.
 - Only correctly equipped melee weapons count for the two-weapon melee defense bonus.
 
