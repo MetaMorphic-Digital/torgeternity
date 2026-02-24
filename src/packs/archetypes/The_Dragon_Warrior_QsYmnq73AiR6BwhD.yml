@@ -291,6 +291,7 @@ items:
       damageType: strengthPlus
       equipped:
         handsHeld: 1
+        carryType: held
       notes: Stagger, Two Handed, Unwieldy
       traits:
         - stagger
@@ -316,7 +317,7 @@ items:
       systemId: torgeternity
       systemVersion: 13.15.0
       createdTime: 1763999075301
-      modifiedTime: 1771934381194
+      modifiedTime: 1771935785935
       lastModifiedBy: BMvGTGfheqDXarjN
     _key: '!actors.items!QsYmnq73AiR6BwhD.N6G6v7wgDhnpsIiQ'
   - name: Dragon Breath

@@ -1533,10 +1533,10 @@ prototypeToken:
   movementAction: null
 _stats:
   systemId: torgeternity
-  systemVersion: 12.2.0
-  coreVersion: '13.348'
+  systemVersion: 13.15.0
+  coreVersion: '13.351'
   createdTime: 1694867487836
-  modifiedTime: 1758529920920
+  modifiedTime: 1771935855679
   lastModifiedBy: BMvGTGfheqDXarjN
   compendiumSource: Compendium.torgeternity.archetypes.hcdhRCs56U5JrAl4
   duplicateSource: null
