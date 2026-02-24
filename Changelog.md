@@ -1,6 +1,6 @@
 # TORG Eternity Changelog
 
-## NEXT
+## 13.23.1
 
 - Update **Equipped** logic:
   - Each item has a `usage` property ('worn' for armor, 'held' for everything else).
