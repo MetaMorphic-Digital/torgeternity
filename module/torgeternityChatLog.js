@@ -91,7 +91,6 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
           </tr></thead>
           <tbody>${content}</tbody></table></div>`,
         });
-        console.log(content);
       }
     })
     return options;
