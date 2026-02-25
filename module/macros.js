@@ -806,7 +806,6 @@ export class TorgeternityMacros {
       coverModifier: 0,
       chatTitle: '',
       DN: 9,
-      diceroll: null,
       hideFavButton: true,
       unskilledTest: false,
       diceList: [10],

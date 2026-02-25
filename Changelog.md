@@ -3,6 +3,7 @@
 ## NEXT
 
 - Dragging an Item to the macro bar now also passed the item type, to avoid situations where a power/perk might have the same name as an attack.
+- Don't store `test.diceroll` inside the ChatMessage - it creates a stack overflow on Foundry V14, and isn't used anyway.
 
 ## 13.23.1
 
@@ -20,6 +21,7 @@
 ### Bug Fixes
 
 - AEs on Items should now be correctly enabled/disabled based on the equipped/unequipped status of the Item itself.
+- Do not automatically hide the "+Damage" button on a successful SOAK - only hide it if there is NO wounds/shock left to apply.
 
 ## 13.23.0
 

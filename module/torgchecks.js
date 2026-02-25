@@ -22,7 +22,8 @@ export const TestResultKey = { // with .main or .sub
 const SHADOW_STYLE = ';text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, 0px 0px 15px black;';
 
 /**
- *
+ * On entry, `test.diceroll` might contain an additional dice roll made for this test (such as BD) which need to be added
+ * to the list of dice rolled for this test (the value of the roll isn't used in this routine).
  * @param test
  */
 export async function renderSkillChat(test) {
@@ -601,7 +602,7 @@ export async function renderSkillChat(test) {
             effects
           });
 
-          if (damage.wounds || damage.shocks) target.showApplyDamage ??= true;
+          target.showApplyDamage = (damage.wounds || damage.shocks);
           target.damageDescription = damage.label;
           target.damageSubDescription =
             `${game.i18n.localize('torgeternity.chatText.check.result.damage')} ${adjustedDamage} vs. ${target.targetAdjustedToughness} ${game.i18n.localize('torgeternity.chatText.check.result.toughness')}`;
@@ -687,13 +688,17 @@ export async function renderSkillChat(test) {
     first = false;
   } // for each target
 
+  // Don't store `test.diceroll` inside the chat message
+  const rolls = test.diceroll ? [test.diceroll] : [];
+  delete test.diceroll;
+
   const rollMode = game.settings.get("core", "rollMode");
   const flavor = (rollMode === 'publicroll') ? '' : game.i18n.localize(CONFIG.Dice.rollModes[rollMode].label);
   const message = ChatMessage.create({
     speaker: ChatMessage.getSpeaker({ actor: testActor }),
     owner: test.actor,  // actually UUID
-    rolls: test.diceroll,
-    flavor: flavor,
+    rolls,
+    flavor,
     flags: {
       torgeternity: {
         test,

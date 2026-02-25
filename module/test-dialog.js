@@ -285,11 +285,7 @@ export class TestDialog extends HandlebarsApplicationMixin(ApplicationV2) {
     this.test.isOther2 = !!fields.other2Modifier;
     this.test.isOther3 = !!fields.other3Modifier;
 
-    if (this.mode === 'update') {
-
-      this.test.diceroll = null;
-
-    } else {
+    if (this.mode !== 'update') {
 
       // Set DN Descriptor unless actively defending (in which case no DN, but we set to standard to avoid problems down the line)
       if (this.test.testType === 'activeDefense') this.test.DNDescriptor = 'standard';

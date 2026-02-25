@@ -123,8 +123,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     // reRoll because favored
     test.hideFavButton = true;
 
-    const diceroll = await new Roll('1d20x10x20').evaluate();
-    test.diceroll = diceroll;
+    test.diceroll = await new Roll('1d20x10x20').evaluate();
     test.rollTotal = Math.max(test.diceroll.total, 1.1);
     test.isFav = false;
 
@@ -335,7 +334,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
       test.possibilityStyle = 'disabled';
     }
 
-    const diceroll = await new Roll('1d20x10x20').evaluate();
+    test.diceroll = await new Roll('1d20x10x20').evaluate();
     if (test.disfavored) {
       test.possibilityTotal = 0.1;
       test.disfavored = false;
@@ -344,9 +343,8 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
       // Standardly, a possibility has a minimum of 10 on the dice.
       // Certain circumstances break that rule, so holding SHIFT will not apply min 10.
       // Rolling a Possibility a second roll takes the BETTER of the two results (Nile Empire)
-      test.possibilityTotal = Math.max(10, diceroll.total, test.possibilityTotal);
+      test.possibilityTotal = Math.max(10, test.diceroll.total, test.possibilityTotal);
     }
-    test.diceroll = diceroll;
 
     // add chat note "poss spent" - include name of COSM here (if not a standard possibility)
     if (test.chatNote && test.chatNote.at[-1] !== '>') test.chatNote += ' ';
@@ -375,15 +373,14 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     test.hideFavButton = true;
 
     // Roll for Up
-    const diceroll = await new Roll('1d20x10x20').evaluate();
+    test.diceroll = await new Roll('1d20x10x20').evaluate();
     if (test.disfavored) {
       test.upTotal = 0.1;
       test.disfavored = false;
       test.chatNote += game.i18n.localize('torgeternity.sheetLabels.explosionCancelled');
     } else {
-      test.upTotal = diceroll.total;
+      test.upTotal = test.diceroll.total;
     }
-    test.diceroll = diceroll;
 
     test.chatTitle += '*';
 
@@ -406,17 +403,16 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     test.hideFavButton = true;
 
     // Roll for Possibility
-    const diceroll = await new Roll('1d20x10x20').evaluate();
+    test.diceroll = await new Roll('1d20x10x20').evaluate();
     if (test.disfavored) {
       test.heroTotal = 0.1;
       test.disfavored = false;
       test.chatNote += game.i18n.localize('torgeternity.sheetLabels.explosionCancelled');
-    } else if (diceroll.total < 10) {
+    } else if (test.diceroll.total < 10) {
       test.heroTotal = 10;
     } else {
-      test.heroTotal = diceroll.total;
+      test.heroTotal = test.diceroll.total;
     }
-    test.diceroll = diceroll;
 
     test.chatTitle += '*';
 
@@ -439,17 +435,16 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     test.hideFavButton = true;
 
     // Increase cards played by 1
-    const diceroll = await new Roll('1d20x10x20').evaluate();
+    test.diceroll = await new Roll('1d20x10x20').evaluate();
     if (test.disfavored) {
       test.dramaTotal = 0.1;
       test.disfavored = false;
       test.chatNote += game.i18n.localize('torgeternity.sheetLabels.explosionCancelled');
-    } else if (diceroll.total < 10) {
+    } else if (test.diceroll.total < 10) {
       test.dramaTotal = 10;
     } else {
-      test.dramaTotal = diceroll.total;
+      test.dramaTotal = test.diceroll.total;
     }
-    test.diceroll = diceroll;
 
     test.chatTitle += '*';
 
@@ -472,9 +467,6 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
 
     // Add 1 to cards played
     test.cardsPlayed++;
-
-    // Nullify Diceroll
-    test.diceroll = null;
 
     this.parentDeleteByTime(chatMessage);
     return renderSkillChat(test);
@@ -499,23 +491,21 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     // Hide the action total modifier buttons
     test.skillRollMenuStyle = 'hidden';
 
-    let finalValue;
     if (rollTwice) {
       // How to show both rolls on chat card and DSN?
       const roll1 = await rollBonusDie(test.trademark);
       const roll2 = await rollBonusDie(test.trademark);
-      finalValue = (roll1.value > roll2.value) ? roll1 : roll2;
+      test.diceroll = (roll1.value > roll2.value) ? roll1 : roll2;
       // if using DSN, we might fake rolling the dice for the lower result,
       // since the higher result will be rolled when the chat card is displayed.
     } else
-      finalValue = await rollBonusDie(test.trademark);
+      test.diceroll = await rollBonusDie(test.trademark);
 
-    const newDamage = testTarget.damage + finalValue.total;
+    const newDamage = testTarget.damage + test.diceroll.total;
 
     testTarget.damage = newDamage;
-    test.diceroll = finalValue;
     testTarget.amountBD += 1;
-    testTarget.bdDamageSum += finalValue.total;
+    testTarget.bdDamageSum += test.diceroll.total;
     game.messages.get(chatMessageId).delete();
 
     // No parentDeleteByTime?
@@ -642,7 +632,6 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
       return;
     }
     origtarget.soakWounds = testTarget.soakWounds;
-    origtarget.showApplyDamage = false;
     origtarget.showBD = false;
     origtest.diceroll = null;  // use existing roll number
     // Display soak information, WITHOUT the footnote about possibility spent
