@@ -576,7 +576,7 @@ async function createTorgEternityMacro(dropData, slot) {
   let macroImg = null;
 
   if (dropData.type === 'Item') {
-    command = `game.torgeternity.rollItemMacro("${document.name}");`;
+    command = `game.torgeternity.rollItemMacro("${document.name}","${document.type}");`;
     macroName = document.name;
     macroImg = document.img;
   } else {
@@ -642,12 +642,18 @@ async function createTorgEternityMacro(dropData, slot) {
  * @param {string} itemName
  * @returns {Promise}
  */
-async function rollItemMacro(itemName) {
+async function rollItemMacro(itemName, itemType) {
   const speaker = ChatMessage.getSpeaker();
-  const actor = game.actors.get(speaker.actor) ?? game.actors.tokens[speaker.token];
-  const item = actor ? actor.items.find(item => item.name === itemName) : null;
-  if (!item)
-    return ui.notifications.warn(game.i18n.localize('torgeternity.notifications.noItemNamed') + itemName);
+  let actor = game.actors.get(speaker.actor) ?? game.actors.tokens[speaker.token];
+  let item = actor ? actor.items.find(item => item.name === itemName && (!itemType || item.type === itemType)) : null;
+  if (!item) {
+    // Maybe a UUID was passed in?
+    item = fromUuidSync(itemName, { strict: false });
+    if (item)
+      actor = item.parent;
+    else
+      return ui.notifications.warn(game.i18n.localize('torgeternity.notifications.noItemNamed') + itemName);
+  }
 
   // Trigger the item roll
   switch (item.type) {

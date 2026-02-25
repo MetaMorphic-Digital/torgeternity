@@ -4703,6 +4703,8 @@ div.testInspector {
   height: 800px;
 
   table {
+    overflow: auto;
+
     thead {
       background-color: #000040;
       position: sticky;

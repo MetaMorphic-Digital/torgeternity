@@ -130,6 +130,9 @@ export class CommonActorData extends foundry.abstract.TypeDataModel {
     for (const attribute of Object.keys(this.attributes)) {
       this.attributes[attribute].value = this.attributes[attribute].base;
     }
+    for (const [_name, skill] of Object.entries(this.skills)) {
+      skill.mod = 0;
+    }
 
     this.shock.max = this.attributes.spirit.value;
     this.other.possibilities.perAct = CONFIG.torgeternity.possibilitiesPerAct;
@@ -146,7 +149,7 @@ export class CommonActorData extends foundry.abstract.TypeDataModel {
     // Derive Skill values for Storm Knights and Threats
     for (const [name, skill] of Object.entries(this.skills)) {
       const trained = skill.unskilledUse || this._source.skills[name].adds;
-      skill.value = trained ? this.attributes[skill.baseAttribute].value + skill.adds : '';
+      skill.value = trained ? this.attributes[skill.baseAttribute].value + skill.adds + (skill.mod ?? 0) : '';
     }
   }
 }

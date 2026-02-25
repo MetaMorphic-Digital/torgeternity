@@ -6,6 +6,14 @@ import { torgeternity } from '../../config.js';
  */
 export class ChatMessageTorg extends ChatMessage {
 
+  // An update of the message might make the message longer,
+  // so we need to make sure that if the chat log is scrolled to the bottom
+  // then the bottom message remains entirely visible.
+  #debounceScrollDown = foundry.utils.debounce(this.#setScrollDown.bind(this), 100);
+  #setScrollDown() {
+    ui.chat.scrollBottom();
+  }
+
   async renderHTML(options) {
     const html = await super.renderHTML(options);
     if (this.isContentVisible &&
@@ -21,6 +29,7 @@ export class ChatMessageTorg extends ChatMessage {
       const renderedTemplate = await foundry.applications.handlebars.renderTemplate(this.flags.torgeternity.template, templateData);
       html.querySelector('.message-content').innerHTML = await foundry.applications.ux.TextEditor.enrichHTML(renderedTemplate, { secrets: this.isOwner });
     }
+    if (ui.chat.isAtBottom) this.#debounceScrollDown();
     return html;
   }
 }

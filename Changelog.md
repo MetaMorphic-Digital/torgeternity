@@ -1,5 +1,20 @@
 # TORG Eternity Changelog
 
+## 13.24.0 - Item Macro Improvement, Foundry V14 skill checks working
+
+- **Item Macro Improvements**
+  - Dragging an Item to the macro bar now also passes the item type, to avoid situations where a power/perk might have the same name as an attack.
+  - Allow an Item UUID to be passed to `rollItemMacro`, in which case the Actor owning the item will be used to make the roll rather than the user's currently selected token.
+- Update existing **Chat Message** rather than deleting and creating a new one (reduces Chat Log flickering).
+  - Keep entire message visible if at bottom of chat log and the message gets bigger.
+- **Chat Message** decluttering of internal data:
+  - Don't store `test.diceroll` inside the ChatMessage - it creates a stack overflow on Foundry V14, and isn't used anyway.
+  - Reduce the amount of data stored about each target of a test (removing unused properties of attributes and skills, and changing showApplyEffects to a boolean instead of a full event object).
+- Restrict **Roll Inspector** to GMs only.
+- Prevent negative wounds inflicted on Soak.
+- Add `.mod` field to each skill, to allow its modification via Active Effects (rather than modifying `value` or `adds`).
+- Manual Damage (Shift-click on "+Damage") now updates the card in the same way as just pressing "+Damage"
+
 ## 13.23.1
 
 - Update **Equipped** logic:
@@ -16,6 +31,7 @@
 ### Bug Fixes
 
 - AEs on Items should now be correctly enabled/disabled based on the equipped/unequipped status of the Item itself.
+- Do not automatically hide the "+Damage" button on a successful SOAK - only hide it if there is NO wounds/shock left to apply.
 
 ## 13.23.0
 

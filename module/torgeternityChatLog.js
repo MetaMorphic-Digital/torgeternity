@@ -49,6 +49,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
       name: 'torgeternity.testInspector.title',
       icon: '<i class="fa-solid fa-magnifying-glass"></i>',
       condition: li => {
+        if (!game.user.isGM) return false;
         const message = game.messages.get(li.dataset.messageId);
         return message.flags?.torgeternity?.test;
       },
@@ -91,21 +92,9 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
           </tr></thead>
           <tbody>${content}</tbody></table></div>`,
         });
-        console.log(content);
       }
     })
     return options;
-  }
-  parentDeleteByTime(oldMsg) {
-    // Use time and author to find all messages related to the same test.
-    const messageIds = game.messages
-      .filter(msg => msg.author === oldMsg.author && Math.abs(msg.timestamp - oldMsg.timestamp) < 500)
-      .map(msg => msg.id);
-    if (!messageIds.length) {
-      console.warn('Failed to find any messages to delete for ', oldMsg);
-      return;
-    }
-    ChatMessage.implementation.deleteDocuments(messageIds);
   }
 
   /**
@@ -123,13 +112,11 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     // reRoll because favored
     test.hideFavButton = true;
 
-    const diceroll = await new Roll('1d20x10x20').evaluate();
-    test.diceroll = diceroll;
+    test.diceroll = await new Roll('1d20x10x20').evaluate();
     test.rollTotal = Math.max(test.diceroll.total, 1.1);
     test.isFav = false;
 
-    this.parentDeleteByTime(chatMessage);
-    return renderSkillChat(test);
+    return renderSkillChat(test, chatMessage);
   }
 
   async #chooseCosm(actor) {
@@ -335,7 +322,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
       test.possibilityStyle = 'disabled';
     }
 
-    const diceroll = await new Roll('1d20x10x20').evaluate();
+    test.diceroll = await new Roll('1d20x10x20').evaluate();
     if (test.disfavored) {
       test.possibilityTotal = 0.1;
       test.disfavored = false;
@@ -344,9 +331,8 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
       // Standardly, a possibility has a minimum of 10 on the dice.
       // Certain circumstances break that rule, so holding SHIFT will not apply min 10.
       // Rolling a Possibility a second roll takes the BETTER of the two results (Nile Empire)
-      test.possibilityTotal = Math.max(10, diceroll.total, test.possibilityTotal);
+      test.possibilityTotal = Math.max(10, test.diceroll.total, test.possibilityTotal);
     }
-    test.diceroll = diceroll;
 
     // add chat note "poss spent" - include name of COSM here (if not a standard possibility)
     if (test.chatNote && test.chatNote.at[-1] !== '>') test.chatNote += ' ';
@@ -357,8 +343,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     test.chatNote += game.i18n.localize('torgeternity.sheetLabels.possSpent');
     if (noMin10) test.chatNote += game.i18n.localize('torgeternity.sheetLabels.noMin10');
 
-    this.parentDeleteByTime(chatMessage);
-    return renderSkillChat(test);
+    return renderSkillChat(test, chatMessage);
   }
 
   /**
@@ -375,20 +360,18 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     test.hideFavButton = true;
 
     // Roll for Up
-    const diceroll = await new Roll('1d20x10x20').evaluate();
+    test.diceroll = await new Roll('1d20x10x20').evaluate();
     if (test.disfavored) {
       test.upTotal = 0.1;
       test.disfavored = false;
       test.chatNote += game.i18n.localize('torgeternity.sheetLabels.explosionCancelled');
     } else {
-      test.upTotal = diceroll.total;
+      test.upTotal = test.diceroll.total;
     }
-    test.diceroll = diceroll;
 
     test.chatTitle += '*';
 
-    this.parentDeleteByTime(chatMessage);
-    return renderSkillChat(test);
+    return renderSkillChat(test, chatMessage);
   }
 
   /**
@@ -406,22 +389,20 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     test.hideFavButton = true;
 
     // Roll for Possibility
-    const diceroll = await new Roll('1d20x10x20').evaluate();
+    test.diceroll = await new Roll('1d20x10x20').evaluate();
     if (test.disfavored) {
       test.heroTotal = 0.1;
       test.disfavored = false;
       test.chatNote += game.i18n.localize('torgeternity.sheetLabels.explosionCancelled');
-    } else if (diceroll.total < 10) {
+    } else if (test.diceroll.total < 10) {
       test.heroTotal = 10;
     } else {
-      test.heroTotal = diceroll.total;
+      test.heroTotal = test.diceroll.total;
     }
-    test.diceroll = diceroll;
 
     test.chatTitle += '*';
 
-    this.parentDeleteByTime(chatMessage);
-    return renderSkillChat(test);
+    return renderSkillChat(test, chatMessage);
   }
 
   /**
@@ -439,22 +420,20 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     test.hideFavButton = true;
 
     // Increase cards played by 1
-    const diceroll = await new Roll('1d20x10x20').evaluate();
+    test.diceroll = await new Roll('1d20x10x20').evaluate();
     if (test.disfavored) {
       test.dramaTotal = 0.1;
       test.disfavored = false;
       test.chatNote += game.i18n.localize('torgeternity.sheetLabels.explosionCancelled');
-    } else if (diceroll.total < 10) {
+    } else if (test.diceroll.total < 10) {
       test.dramaTotal = 10;
     } else {
-      test.dramaTotal = diceroll.total;
+      test.dramaTotal = test.diceroll.total;
     }
-    test.diceroll = diceroll;
 
     test.chatTitle += '*';
 
-    this.parentDeleteByTime(chatMessage);
-    return renderSkillChat(test);
+    return renderSkillChat(test, chatMessage);
   }
 
   /**
@@ -473,11 +452,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     // Add 1 to cards played
     test.cardsPlayed++;
 
-    // Nullify Diceroll
-    test.diceroll = null;
-
-    this.parentDeleteByTime(chatMessage);
-    return renderSkillChat(test);
+    return renderSkillChat(test, chatMessage);
   }
 
   /**
@@ -499,27 +474,22 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     // Hide the action total modifier buttons
     test.skillRollMenuStyle = 'hidden';
 
-    let finalValue;
     if (rollTwice) {
       // How to show both rolls on chat card and DSN?
       const roll1 = await rollBonusDie(test.trademark);
       const roll2 = await rollBonusDie(test.trademark);
-      finalValue = (roll1.value > roll2.value) ? roll1 : roll2;
+      test.diceroll = (roll1.value > roll2.value) ? roll1 : roll2;
       // if using DSN, we might fake rolling the dice for the lower result,
       // since the higher result will be rolled when the chat card is displayed.
     } else
-      finalValue = await rollBonusDie(test.trademark);
+      test.diceroll = await rollBonusDie(test.trademark);
 
-    const newDamage = testTarget.damage + finalValue.total;
-
-    testTarget.damage = newDamage;
-    test.diceroll = finalValue;
+    testTarget.damage = testTarget.damage + test.diceroll.total;
     testTarget.amountBD += 1;
-    testTarget.bdDamageSum += finalValue.total;
-    game.messages.get(chatMessageId).delete();
+    testTarget.bdDamageSum += test.diceroll.total;
 
     // No parentDeleteByTime?
-    return renderSkillChat(test);
+    return renderSkillChat(test, chatMessage);
   }
 
   /**
@@ -550,19 +520,22 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     if (event.shiftKey) return this.#adjustDamage(event);
     const { test, targetActor, testTarget, chatMessage } = getChatTarget(button);
     if (!targetActor || !testTarget) return;
-    const damage = torgDamage(testTarget.damage, testTarget.targetAdjustedToughness,
-      {
-        attackTraits: test.attackTraits,
-        defenseTraits: testTarget.defenseTraits,
-        soakWounds: testTarget.soakWounds
-      });
+    const damage = torgDamage(testTarget.damage, testTarget.targetAdjustedToughness, {
+      attackTraits: test.attackTraits,
+      defenseTraits: testTarget.defenseTraits,
+      soakWounds: testTarget.soakWounds
+    });
+    return this.#inflictDamage(chatMessage, test, testTarget, targetActor, damage);
+  }
+
+  async #inflictDamage(chatMessage, test, testTarget, targetActor, damage) {
     targetActor.applyDamages(damage.shocks, damage.wounds);
     if (targetActor.isConcentrating) {
       this.promptConcentration(targetActor);
     }
     testTarget.showApplyDamage = false;
     testTarget.showBD = false;
-    this.updateChatMessage(chatMessage, {
+    return this.updateChatMessage(chatMessage, {
       'flags.torgeternity.test.skillRollMenuStyle': 'hidden',
       'flags.torgeternity.test.targetAll': test.targetAll,
     });
@@ -642,7 +615,6 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
       return;
     }
     origtarget.soakWounds = testTarget.soakWounds;
-    origtarget.showApplyDamage = false;
     origtarget.showBD = false;
     origtest.diceroll = null;  // use existing roll number
     // Display soak information, WITHOUT the footnote about possibility spent
@@ -655,8 +627,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     });
 
     if (origmsg.isOwner) {
-      origmsg.delete();
-      return renderSkillChat(origtest);
+      return renderSkillChat(origtest, origmsg);
     } else {
       console.debug(`Sending SOAK request to GM`)
       game.socket.emit(`system.${game.system.id}`, {
@@ -671,10 +642,10 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     // Prevent Foundry's normal contextmenu handler from doing anything
     event.preventDefault();
     event.stopImmediatePropagation();
-    const { test, targetActor, testTarget } = getChatTarget(event.target);
+    const { test, targetActor, testTarget, chatMessage } = getChatTarget(event.target);
     if (!targetActor || !testTarget) return;
 
-    const newDamages = torgDamage(testTarget.damage, testTarget.targetAdjustedToughness,
+    const newDamage = torgDamage(testTarget.damage, testTarget.targetAdjustedToughness,
       {
         attackTraits: test.attackTraits,
         defenseTraits: testTarget.defenseTraits,
@@ -684,16 +655,18 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     const fields = foundry.applications.fields;
     const woundsGroup = fields.createFormGroup({
       label: game.i18n.localize('torgeternity.sheetLabels.modifyWounds'),
-      input: fields.createNumberInput({ name: 'nw', value: newDamages.wounds, initial: 0 }),
+      input: fields.createNumberInput({ name: 'numWounds', value: newDamage.wounds, initial: 0 }),
     });
 
     const shockGroup = fields.createFormGroup({
       label: game.i18n.localize('torgeternity.sheetLabels.modifyShocks'),
-      input: fields.createNumberInput({ name: 'ns', value: newDamages.shocks, initial: 0 }),
+      input: fields.createNumberInput({ name: 'numShock', value: newDamage.shocks, initial: 0 }),
     })
 
     const content = `<p>${game.i18n.localize('torgeternity.sheetLabels.modifyDamage')}</p> <hr>
     ${woundsGroup.outerHTML}${shockGroup.outerHTML}`;
+
+    const chatLog = this;  // To use inside callback
 
     DialogV2.wait({
       window: { title: 'torgeternity.sheetLabels.chooseDamage', },
@@ -703,10 +676,11 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
           action: 'go',
           icon: 'fas fa-check',
           label: 'torgeternity.submit.apply',
-          callback: async (event, button, dialog) => {
-            const wounds = button.form.elements.nw.valueAsNumber;
-            const shock = button.form.elements.ns.valueAsNumber;
-            targetActor.applyDamages(shock, wounds);
+          callback: async (_event, button, _dialog) => {
+            return chatLog.#inflictDamage(chatMessage, test, testTarget, targetActor, {
+              wounds: button.form.elements.numWounds.valueAsNumber,
+              shocks: button.form.elements.numShock.valueAsNumber
+            });
           },
         },
       ],
@@ -1007,7 +981,6 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
       const localAttr = game.i18n.localize(CONFIG.torgeternity.attributeTypes[selection]);
 
       await actor.toggleStatusEffect('unconscious', { active: true, overlay: true });
-      const attrfield = `system.attributes.${selection}.value`;
       if (result === TestResult.STANDARD) {
         await ChatMessage.create({
           speaker: ChatMessage.getSpeaker({ actor }),
