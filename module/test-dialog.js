@@ -388,6 +388,8 @@ export function oneTestTarget(token, applySize) {
 
     case 'threat':
     case 'stormknight':
+      const skills = {};
+
       return {
         type: actor.type,
         id: actor.id,
@@ -401,10 +403,14 @@ export function oneTestTarget(token, applySize) {
         defenseTraits: actor.defenseTraits,
         // then non-vehicle changes
         skills: actor.itemTypes.customSkill.reduce((acc, skill) => {
-          acc[toCamelCase(skill.name)] = { name: skill.name, ...skill.system };
+          acc[toCamelCase(skill.name)] = { value: skill.system.value, baseAttribute: skill.system.baseAttribute };
           return acc;
-        }, { ...actor.system.skills }),
-        attributes: actor.system.attributes,
+        },
+          Object.entries(actor.system.skills).reduce((acc, [skillName, skill]) => {
+            acc[skillName] = { value: skill.value, baseAttribute: skill.baseAttribute }
+            return acc;
+          }, {})),
+        attributes: Object.entries(actor.system.attributes).reduce((acc, [key, attr]) => (acc[key] = attr.value, acc), {}),
         vulnerableModifier: actor.statusModifiers.vulnerable,
         darknessModifier: actor.statusModifiers.darkness,
         isConcentrating: actor.isConcentrating,

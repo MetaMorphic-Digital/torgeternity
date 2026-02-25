@@ -946,12 +946,12 @@ function individualDN(test, target) {
     if (onTarget === 'vehicleDefense')
       return target.defenses?.vehicle ?? 0;
     if (target.attributes && Object.hasOwn(target.attributes, onTarget))
-      return target.attributes[onTarget].value + traitdefense;
+      return target.attributes[onTarget] + traitdefense;
     if (target.defenses && Object.hasOwn(target.defenses, onTarget))
       return target.defenses[onTarget] + traitdefense;
     if (target.skills && Object.hasOwn(target.skills, onTarget)) {
       const skill = target.skills[onTarget];
-      return ((skill.value && skill.value !== '-') ? skill.value : target.attributes[skill.baseAttribute].value) + traitdefense;
+      return ((skill.value && skill.value !== '-') ? skill.value : target.attributes[skill.baseAttribute]) + traitdefense;
     }
   }
 
@@ -978,9 +978,9 @@ function individualDN(test, target) {
 
     // Special Case
     case 'targetWillpowerMind':
-      return target.skills.willpower.value
-        ? target.skills.willpower.value - target.attributes.spirit.value + target.attributes.mind.value
-        : target.attributes.mind.value;
+      return target.skills.willpower?.value
+        ? target.skills.willpower.value - target.attributes.spirit + target.attributes.mind
+        : target.attributes.mind;
 
     case 'highestSpeed':
       // Find the fastest participant in the active combat
