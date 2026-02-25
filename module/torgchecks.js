@@ -821,7 +821,7 @@ export function torgDamageModifiers(result, options) {
       result.wounds = 0;
       result.shocks = 0;
     } else {
-      result.wounds -= soakWounds;
+      result.wounds = Math.max(0, result.wounds - soakWounds);
       result.shocks = 0;
     }
   }
