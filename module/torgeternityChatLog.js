@@ -484,9 +484,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     } else
       test.diceroll = await rollBonusDie(test.trademark);
 
-    const newDamage = testTarget.damage + test.diceroll.total;
-
-    testTarget.damage = newDamage;
+    testTarget.damage = testTarget.damage + test.diceroll.total;
     testTarget.amountBD += 1;
     testTarget.bdDamageSum += test.diceroll.total;
 
@@ -644,7 +642,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     const { test, targetActor, testTarget } = getChatTarget(event.target);
     if (!targetActor || !testTarget) return;
 
-    const newDamages = torgDamage(testTarget.damage, testTarget.targetAdjustedToughness,
+    const newDamage = torgDamage(testTarget.damage, testTarget.targetAdjustedToughness,
       {
         attackTraits: test.attackTraits,
         defenseTraits: testTarget.defenseTraits,
@@ -654,12 +652,12 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     const fields = foundry.applications.fields;
     const woundsGroup = fields.createFormGroup({
       label: game.i18n.localize('torgeternity.sheetLabels.modifyWounds'),
-      input: fields.createNumberInput({ name: 'nw', value: newDamages.wounds, initial: 0 }),
+      input: fields.createNumberInput({ name: 'nw', value: newDamage.wounds, initial: 0 }),
     });
 
     const shockGroup = fields.createFormGroup({
       label: game.i18n.localize('torgeternity.sheetLabels.modifyShocks'),
-      input: fields.createNumberInput({ name: 'ns', value: newDamages.shocks, initial: 0 }),
+      input: fields.createNumberInput({ name: 'ns', value: newDamage.shocks, initial: 0 }),
     })
 
     const content = `<p>${game.i18n.localize('torgeternity.sheetLabels.modifyDamage')}</p> <hr>

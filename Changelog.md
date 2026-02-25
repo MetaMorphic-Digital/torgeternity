@@ -1,6 +1,6 @@
 # TORG Eternity Changelog
 
-## NEXT
+## 13.24.0 - Item Macro Improvement, Foundry V14 skill checks working
 
 - **Item Macro Improvements**
   - Dragging an Item to the macro bar now also passes the item type, to avoid situations where a power/perk might have the same name as an attack.
