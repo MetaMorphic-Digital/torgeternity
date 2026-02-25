@@ -977,7 +977,6 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
       const localAttr = game.i18n.localize(CONFIG.torgeternity.attributeTypes[selection]);
 
       await actor.toggleStatusEffect('unconscious', { active: true, overlay: true });
-      const attrfield = `system.attributes.${selection}.value`;
       if (result === TestResult.STANDARD) {
         await ChatMessage.create({
           speaker: ChatMessage.getSpeaker({ actor }),

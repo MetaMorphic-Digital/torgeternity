@@ -82,6 +82,7 @@ export default class TorgeternityScene extends foundry.documents.Scene {
     for (const region of token.document.regions) {
       for (const behavior of region.behaviors) {
         if (behavior.active && behavior.type === 'adjustDarknessLevel') {
+          // AbstractDarknessLevelRegionShader#darknessLevel
           const M = AdjustDarknessLevelRegionBehaviorType.MODES;
           switch (behavior.system.mode) {
             case M.OVERRIDE:
