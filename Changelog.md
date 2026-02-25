@@ -2,10 +2,13 @@
 
 ## NEXT
 
-- Dragging an Item to the macro bar now also passed the item type, to avoid situations where a power/perk might have the same name as an attack.
-- Allow an Item UUID to be passed to `rollItemMacro`, in which case the Actor owning the item will be used to make the roll rather than the user's currently selected token.
-- Don't store `test.diceroll` inside the ChatMessage - it creates a stack overflow on Foundry V14, and isn't used anyway.
-- Reduce the amount of data stored about each target of a test (primarily removing unused properties of attributes and skills).
+- **Item Macro Improvements**
+  - Dragging an Item to the macro bar now also passed the item type, to avoid situations where a power/perk might have the same name as an attack.
+  - Allow an Item UUID to be passed to `rollItemMacro`, in which case the Actor owning the item will be used to make the roll rather than the user's currently selected token.
+- Update existing **Chat Message** rather than deleting and creating a new one.
+- **Chat Message** decluttering of internal data:
+  - Don't store `test.diceroll` inside the ChatMessage - it creates a stack overflow on Foundry V14, and isn't used anyway.
+  - Reduce the amount of data stored about each target of a test (removing unused properties of attributes and skills, and changing showApplyEffects to a boolean instead of a full event object).
 
 ## 13.23.1
 

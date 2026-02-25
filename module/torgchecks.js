@@ -26,7 +26,7 @@ const SHADOW_STYLE = ';text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 
  * to the list of dice rolled for this test (the value of the roll isn't used in this routine).
  * @param test
  */
-export async function renderSkillChat(test) {
+export async function renderSkillChat(test, origChatMessage) {
 
   if (CONFIG.debug.torgtestrender) console.debug('renderSkillChat', test);
 
@@ -694,20 +694,35 @@ export async function renderSkillChat(test) {
 
   const rollMode = game.settings.get("core", "rollMode");
   const flavor = (rollMode === 'publicroll') ? '' : game.i18n.localize(CONFIG.Dice.rollModes[rollMode].label);
-  const message = ChatMessage.create({
-    speaker: ChatMessage.getSpeaker({ actor: testActor }),
-    owner: test.actor,  // actually UUID
-    rolls,
-    flavor,
-    flags: {
-      torgeternity: {
-        test,
-        itemId: test.itemId,  // for Automated Animations module
-        template: 'systems/torgeternity/templates/chat/skill-card.hbs',
+  let message;
+  if (origChatMessage) {
+    message = origChatMessage.update({
+      rolls,
+      flavor,
+      flags: {
+        torgeternity: {
+          test,
+          itemId: test.itemId,  // for Automated Animations module
+          template: 'systems/torgeternity/templates/chat/skill-card.hbs',
+        },
+      },
+    })
+  } else {
+    message = ChatMessage.create({
+      speaker: ChatMessage.getSpeaker({ actor: testActor }),
+      owner: test.actor,  // actually UUID
+      rolls,
+      flavor,
+      flags: {
+        torgeternity: {
+          test,
+          itemId: test.itemId,  // for Automated Animations module
+          template: 'systems/torgeternity/templates/chat/skill-card.hbs',
+        },
       },
     },
-  },
-    { rollMode });
+      { rollMode });
+  }
 
   if (game.settings.get('torgeternity', 'unTarget')) {
     // see leftClickRelease in Foundry code

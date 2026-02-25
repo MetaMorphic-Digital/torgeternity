@@ -6,8 +6,7 @@ export default function activateSocketListeners() {
     switch (socketMessage.request) {
       case 'replaceTestCard':
         if (!game.user.isActiveGM) return;
-        game.messages.get(socketMessage.messageId).delete();
-        return renderSkillChat(socketMessage.test);
+        return renderSkillChat(socketMessage.test, game.messages.get(socketMessage.messageId));
         break;
 
       case 'updateChatMessage':

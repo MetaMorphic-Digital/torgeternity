@@ -95,17 +95,6 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     })
     return options;
   }
-  parentDeleteByTime(oldMsg) {
-    // Use time and author to find all messages related to the same test.
-    const messageIds = game.messages
-      .filter(msg => msg.author === oldMsg.author && Math.abs(msg.timestamp - oldMsg.timestamp) < 500)
-      .map(msg => msg.id);
-    if (!messageIds.length) {
-      console.warn('Failed to find any messages to delete for ', oldMsg);
-      return;
-    }
-    ChatMessage.implementation.deleteDocuments(messageIds);
-  }
 
   /**
    * @param {Event} event 
@@ -126,8 +115,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     test.rollTotal = Math.max(test.diceroll.total, 1.1);
     test.isFav = false;
 
-    this.parentDeleteByTime(chatMessage);
-    return renderSkillChat(test);
+    return renderSkillChat(test, chatMessage);
   }
 
   async #chooseCosm(actor) {
@@ -354,8 +342,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     test.chatNote += game.i18n.localize('torgeternity.sheetLabels.possSpent');
     if (noMin10) test.chatNote += game.i18n.localize('torgeternity.sheetLabels.noMin10');
 
-    this.parentDeleteByTime(chatMessage);
-    return renderSkillChat(test);
+    return renderSkillChat(test, chatMessage);
   }
 
   /**
@@ -383,8 +370,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
 
     test.chatTitle += '*';
 
-    this.parentDeleteByTime(chatMessage);
-    return renderSkillChat(test);
+    return renderSkillChat(test, chatMessage);
   }
 
   /**
@@ -415,8 +401,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
 
     test.chatTitle += '*';
 
-    this.parentDeleteByTime(chatMessage);
-    return renderSkillChat(test);
+    return renderSkillChat(test, chatMessage);
   }
 
   /**
@@ -447,8 +432,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
 
     test.chatTitle += '*';
 
-    this.parentDeleteByTime(chatMessage);
-    return renderSkillChat(test);
+    return renderSkillChat(test, chatMessage);
   }
 
   /**
@@ -467,8 +451,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     // Add 1 to cards played
     test.cardsPlayed++;
 
-    this.parentDeleteByTime(chatMessage);
-    return renderSkillChat(test);
+    return renderSkillChat(test, chatMessage);
   }
 
   /**
@@ -505,10 +488,9 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     testTarget.damage = newDamage;
     testTarget.amountBD += 1;
     testTarget.bdDamageSum += test.diceroll.total;
-    game.messages.get(chatMessageId).delete();
 
     // No parentDeleteByTime?
-    return renderSkillChat(test);
+    return renderSkillChat(test, chatMessage);
   }
 
   /**
@@ -643,8 +625,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     });
 
     if (origmsg.isOwner) {
-      origmsg.delete();
-      return renderSkillChat(origtest);
+      return renderSkillChat(origtest, origmsg);
     } else {
       console.debug(`Sending SOAK request to GM`)
       game.socket.emit(`system.${game.system.id}`, {
