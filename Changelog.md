@@ -5,7 +5,7 @@
 - **Item Macro Improvements**
   - Dragging an Item to the macro bar now also passes the item type, to avoid situations where a power/perk might have the same name as an attack.
   - Allow an Item UUID to be passed to `rollItemMacro`, in which case the Actor owning the item will be used to make the roll rather than the user's currently selected token.
-- Update existing **Chat Message** rather than deleting and creating a new one.
+- Update existing **Chat Message** rather than deleting and creating a new one (reduces Chat Log flickering).
   - Keep entire message visible if at bottom of chat log and the message gets bigger.
 - **Chat Message** decluttering of internal data:
   - Don't store `test.diceroll` inside the ChatMessage - it creates a stack overflow on Foundry V14, and isn't used anyway.
