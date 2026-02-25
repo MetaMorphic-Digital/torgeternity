@@ -149,13 +149,6 @@ export default class TorgeternityActor extends foundry.documents.Actor {
         attributes.strength.value - this.system.other.minStr
       );
 
-      // Calculate Move and Run base values
-      // Derive Skill values for Storm Knights and Threats
-      for (const [name, skill] of Object.entries(skills)) {
-        const trained = skill.unskilledUse || this._source.system.skills[name].adds;
-        skill.value = trained ? this.system.attributes[skill.baseAttribute].value + skill.adds : '';
-      }
-
       // Set base unarmed damage
 
       this.unarmed.damage = attributes.strength.value + this.unarmed.damageMod;
@@ -188,10 +181,6 @@ export default class TorgeternityActor extends foundry.documents.Actor {
 
       const trickDefenseSkill = skills.trick.value || attributes.mind.value;
       this.defenses.trick.value = trickDefenseSkill + this.defenses.trick.mod;
-
-      // Apply the moveMod effect for SKs & threats
-      this.system.other.move = this.system.attributes.dexterity.value;
-      this.system.other.run = this.system.attributes.dexterity.value * 3;
 
       const listChanges = [];
       let computeMove = this.system.other.move;

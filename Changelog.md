@@ -3,13 +3,15 @@
 ## NEXT
 
 - **Item Macro Improvements**
-  - Dragging an Item to the macro bar now also passed the item type, to avoid situations where a power/perk might have the same name as an attack.
+  - Dragging an Item to the macro bar now also passes the item type, to avoid situations where a power/perk might have the same name as an attack.
   - Allow an Item UUID to be passed to `rollItemMacro`, in which case the Actor owning the item will be used to make the roll rather than the user's currently selected token.
 - Update existing **Chat Message** rather than deleting and creating a new one.
 - **Chat Message** decluttering of internal data:
   - Don't store `test.diceroll` inside the ChatMessage - it creates a stack overflow on Foundry V14, and isn't used anyway.
   - Reduce the amount of data stored about each target of a test (removing unused properties of attributes and skills, and changing showApplyEffects to a boolean instead of a full event object).
 - Restrict **Roll Inspector** to GMs only.
+- Prevent negative wounds inflicted on Soak.
+- Add `.mod` field to each skill, to allow its modification via Active Effects (rather than modifying `value` or `adds`).
 
 ## 13.23.1
 

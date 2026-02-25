@@ -20,10 +20,8 @@ export class CustomSkillItemData extends BaseItemData {
   prepareDerivedData() {
     super.prepareDerivedData();
     const actor = this.parent?.parent;
-    if (actor instanceof Actor) {
-      this.value = this.adds + (actor.system.attributes[this.baseAttribute]?.value ?? 0);
-    } else {
-      this.value = this.adds;
-    }
+    this.value = this.adds + (this.mod ?? 0);
+    if (actor instanceof Actor)
+      this.value += (actor.system.attributes[this.baseAttribute]?.value ?? 0);
   }
 }
