@@ -520,19 +520,22 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     if (event.shiftKey) return this.#adjustDamage(event);
     const { test, targetActor, testTarget, chatMessage } = getChatTarget(button);
     if (!targetActor || !testTarget) return;
-    const damage = torgDamage(testTarget.damage, testTarget.targetAdjustedToughness,
-      {
-        attackTraits: test.attackTraits,
-        defenseTraits: testTarget.defenseTraits,
-        soakWounds: testTarget.soakWounds
-      });
+    const damage = torgDamage(testTarget.damage, testTarget.targetAdjustedToughness, {
+      attackTraits: test.attackTraits,
+      defenseTraits: testTarget.defenseTraits,
+      soakWounds: testTarget.soakWounds
+    });
+    return this.#inflictDamage(chatMessage, test, testTarget, targetActor, damage);
+  }
+
+  async #inflictDamage(chatMessage, test, testTarget, targetActor, damage) {
     targetActor.applyDamages(damage.shocks, damage.wounds);
     if (targetActor.isConcentrating) {
       this.promptConcentration(targetActor);
     }
     testTarget.showApplyDamage = false;
     testTarget.showBD = false;
-    this.updateChatMessage(chatMessage, {
+    return this.updateChatMessage(chatMessage, {
       'flags.torgeternity.test.skillRollMenuStyle': 'hidden',
       'flags.torgeternity.test.targetAll': test.targetAll,
     });
@@ -639,7 +642,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     // Prevent Foundry's normal contextmenu handler from doing anything
     event.preventDefault();
     event.stopImmediatePropagation();
-    const { test, targetActor, testTarget } = getChatTarget(event.target);
+    const { test, targetActor, testTarget, chatMessage } = getChatTarget(event.target);
     if (!targetActor || !testTarget) return;
 
     const newDamage = torgDamage(testTarget.damage, testTarget.targetAdjustedToughness,
@@ -652,16 +655,18 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     const fields = foundry.applications.fields;
     const woundsGroup = fields.createFormGroup({
       label: game.i18n.localize('torgeternity.sheetLabels.modifyWounds'),
-      input: fields.createNumberInput({ name: 'nw', value: newDamage.wounds, initial: 0 }),
+      input: fields.createNumberInput({ name: 'numWounds', value: newDamage.wounds, initial: 0 }),
     });
 
     const shockGroup = fields.createFormGroup({
       label: game.i18n.localize('torgeternity.sheetLabels.modifyShocks'),
-      input: fields.createNumberInput({ name: 'ns', value: newDamage.shocks, initial: 0 }),
+      input: fields.createNumberInput({ name: 'numShock', value: newDamage.shocks, initial: 0 }),
     })
 
     const content = `<p>${game.i18n.localize('torgeternity.sheetLabels.modifyDamage')}</p> <hr>
     ${woundsGroup.outerHTML}${shockGroup.outerHTML}`;
+
+    const chatLog = this;  // To use inside callback
 
     DialogV2.wait({
       window: { title: 'torgeternity.sheetLabels.chooseDamage', },
@@ -671,10 +676,11 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
           action: 'go',
           icon: 'fas fa-check',
           label: 'torgeternity.submit.apply',
-          callback: async (event, button, dialog) => {
-            const wounds = button.form.elements.nw.valueAsNumber;
-            const shock = button.form.elements.ns.valueAsNumber;
-            targetActor.applyDamages(shock, wounds);
+          callback: async (_event, button, _dialog) => {
+            return chatLog.#inflictDamage(chatMessage, test, testTarget, targetActor, {
+              wounds: button.form.elements.numWounds.valueAsNumber,
+              shocks: button.form.elements.numShock.valueAsNumber
+            });
           },
         },
       ],

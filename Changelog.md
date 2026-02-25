@@ -13,6 +13,7 @@
 - Restrict **Roll Inspector** to GMs only.
 - Prevent negative wounds inflicted on Soak.
 - Add `.mod` field to each skill, to allow its modification via Active Effects (rather than modifying `value` or `adds`).
+- Manual Damage (Shift-click on "+Damage") now updates the card in the same way as just pressing "+Damage"
 
 ## 13.23.1
 
