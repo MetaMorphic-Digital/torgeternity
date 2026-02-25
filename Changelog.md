@@ -9,6 +9,7 @@
 - **Chat Message** decluttering of internal data:
   - Don't store `test.diceroll` inside the ChatMessage - it creates a stack overflow on Foundry V14, and isn't used anyway.
   - Reduce the amount of data stored about each target of a test (removing unused properties of attributes and skills, and changing showApplyEffects to a boolean instead of a full event object).
+- Restrict **Roll Inspector** to GMs only.
 
 ## 13.23.1
 

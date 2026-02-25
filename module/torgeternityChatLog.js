@@ -49,6 +49,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
       name: 'torgeternity.testInspector.title',
       icon: '<i class="fa-solid fa-magnifying-glass"></i>',
       condition: li => {
+        if (!game.user.isGM) return false;
         const message = game.messages.get(li.dataset.messageId);
         return message.flags?.torgeternity?.test;
       },
