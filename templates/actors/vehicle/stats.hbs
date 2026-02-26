@@ -66,7 +66,7 @@
         <li class="item effect" data-effect-uuid="{{effect.uuid}}">
           <a class="effect-control effect-toggle {{#if effect.disabled}}effectDisabled{{/if}}"
             data-action="effectControl" data-control="toggle"
-            data-tooltip="{{localize 'torgeternity.iconeTitles.toggle'}}"
+            data-tooltip="{{effect.parent.name}}"
             {{disabled (not @root.editable)}}>
             <span class="item-name">{{effect.name}}</span>
           </a>
