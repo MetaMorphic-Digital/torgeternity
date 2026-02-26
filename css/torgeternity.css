@@ -995,6 +995,12 @@ dialog.torgeternity:not(.actor, .item) .window-content,
           &.dark {
             background-color: rgba(0, 0, 0, 0.561);
             color: white;
+
+            span.skillMod:lang(de),
+            span.skillTotal:lang(de),
+            span.skillFav:lang(de) {
+              font-size: 10px;
+            }
           }
 
           input {
@@ -1030,7 +1036,7 @@ dialog.torgeternity:not(.actor, .item) .window-content,
           }
 
           .skillMod {
-            width: 6%;
+            width: 7%;
           }
 
           .skillTotal {
