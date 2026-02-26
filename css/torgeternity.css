@@ -435,6 +435,7 @@ dialog.torgeternity:not(.actor, .item) .window-content,
       }
 
       .skills .skillAttr,
+      .skills .skillMod,
       .skills .skillAdd {
         display: none;
       }
@@ -559,19 +560,6 @@ dialog.torgeternity:not(.actor, .item) .window-content,
         margin: 20px;
         font-family: Palatino;
         font-size: 14px;
-      }
-    }
-
-    .skill-list {
-      input {
-        width: 30px;
-        height: 20px;
-        text-align: center;
-      }
-
-      li.dark {
-        background-color: rgba(0, 0, 0, 0.561);
-        color: white;
       }
     }
 
@@ -1003,11 +991,16 @@ dialog.torgeternity:not(.actor, .item) .window-content,
           position: relative;
           min-height: 25px;
 
+          &.dark {
+            background-color: rgba(0, 0, 0, 0.561);
+            color: white;
+          }
+
           input {
             border: none;
             text-align: center;
-            width: 25px;
-            height: 18px;
+            width: 30px;
+            height: 20px;
             font-family: Arial;
 
             &[type="checkbox"] {
@@ -1015,11 +1008,36 @@ dialog.torgeternity:not(.actor, .item) .window-content,
               position: relative;
               left: -25px;
               cursor: pointer;
+              width: 5px;
             }
           }
 
+          .skillName {
+            width: 30%;
+          }
+
+          .skillAttr {
+            width: 25%;
+          }
+
+          .skillAdd {
+            width: 10%;
+          }
+
+          .skillMod {
+            width: 6%;
+          }
+
+          .skillTotal {
+            width: 8%;
+            font-size: 14px;
+          }
+
+          .skillFav {
+            width: 12%;
+          }
+
           span {
-            width: 100%;
             text-align: center;
           }
 

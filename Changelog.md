@@ -3,6 +3,7 @@
 ## NEXT
 
 - Tooltip on AE toggles on first tab of Actor sheets now shows the Item/Actor which provides the AE (rather than just saying "Toggle").
+- Show `Mod` column in Skills section of Stormknight Actor Sheet (displaying modifiers from all AEs).
 
 ## 13.24.0 - Item Macro Improvement, Foundry V14 skill checks working
 
