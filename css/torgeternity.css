@@ -972,6 +972,7 @@ dialog.torgeternity:not(.actor, .item) .window-content,
         max-height: 20px;
         font-size: 13px;
         font-family: Signika;
+        text-align: center;
       }
 
       ul {
@@ -1018,6 +1019,10 @@ dialog.torgeternity:not(.actor, .item) .window-content,
 
           .skillAttr {
             width: 25%;
+
+            &:lang(de) {
+              width: 35%;
+            }
           }
 
           .skillAdd {
