@@ -1007,7 +1007,7 @@ dialog.torgeternity:not(.actor, .item) .window-content,
             border: none;
             text-align: center;
             width: 30px;
-            height: 20px;
+            height: 18px;
             font-family: Arial;
 
             &[type="checkbox"] {
