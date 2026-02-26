@@ -783,16 +783,29 @@ export default class TorgeternityActor extends foundry.documents.Actor {
   decayEffects() {
     const toUpdate = [];
     const toDelete = [];
-    for (const effect of this.effects.filter((e) => e.duration.type === 'turns')) {
-      if (effect.name === 'ActiveDefense') continue;
-      if (effect.duration.turns <= 1 && effect.duration.rounds <= 1)
-        toDelete.push(effect.id)
-      else
-        toUpdate.push({
-          _id: effect.id,
-          'duration.turns': Math.max(0, effect.duration.turns - 1),
-          'duration.rounds': Math.max(0, effect.duration.rounds - 1),
-        });
+    if (game.release.generatiion < 14) {
+      for (const effect of this.effects.filter((e) => e.duration.type === 'turns')) {
+        if (effect.name === 'ActiveDefense') continue;
+        if (effect.duration.turns <= 1 && effect.duration.rounds <= 1)
+          toDelete.push(effect.id)
+        else
+          toUpdate.push({
+            _id: effect.id,
+            'duration.turns': Math.max(0, effect.duration.turns - 1),
+            'duration.rounds': Math.max(0, effect.duration.rounds - 1),
+          });
+      }
+    } else {
+      for (const effect of this.effects.filter((e) => e.duration.expiry === 'turnEnd')) {
+        if (effect.name === 'ActiveDefense') continue;
+        if (effect.duration.value <= 1)
+          toDelete.push(effect.id)
+        else
+          toUpdate.push({
+            _id: effect.id,
+            'duration.value': Math.max(0, effect.duration.value - 1),
+          });
+      }
     }
     const promises = [];
     if (toUpdate.length) promises.push(this.updateEmbeddedDocuments('ActiveEffect', toUpdate));

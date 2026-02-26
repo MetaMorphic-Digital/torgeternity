@@ -933,7 +933,7 @@
       "activeDefense": "Aktive Verteidigung",
       "add": "Hinzufügen",
       "addOns": "Add-Ons",
-      "adds": "Fertigkeitsstufen",
+      "adds": "Stufe",
       "aimed": "Zielen",
       "aimedTooltip": "Gezielter Schuss (Nur Angriffe mit Fernkampfwaffen)",
       "allOut": "Rücksichtsloser Angriff",
@@ -1023,8 +1023,8 @@
       "explosives": "Sprengstoffe",
       "fatigue": "Ermüdung",
       "fatigueTooltip": "Anklicken, um Ermüdungsschaden anzuwenden",
-      "favDis": "Bevorzugt & benachteiligt heben sich gegeneinander auf.",
-      "favored": "Bevorzugt",
+      "favDis": "Begünstigt & benachteiligt heben sich gegeneinander auf.",
+      "favored": "Beg.",
       "favoredTitle": "Markieren, wenn die Fertigkeit begünstigt ist",
       "firearms": "Feuerwaffen",
       "firedamage": "Verursacht Feuerschaden",
@@ -1117,7 +1117,7 @@
       "shortBurst": "Kurz",
       "size": "Größe",
       "skill": "Fertigkeit",
-      "skillAdds": "Fertigkeitsstufen",
+      "skillAdds": "Stufe",
       "skillRollHint": "Für eine Probe klicken",
       "skills": "Fertigkeiten",
       "skillValue": "Fertigkeitswert",
@@ -1206,7 +1206,7 @@
       "favored": "Begünstigt",
       "favoredanddisfavored": "Begünstigt/Benachteiligt",
       "favoredTip": "Setze hier einen Haken, sofern die Probe aus welchen Gründen auch immer im Nachhinein begünstigt wird.",
-      "favoredChoice": "Bevorzugt oder nicht"
+      "favoredChoice": "Begünstigt oder nicht"
     },
     "skills": {
       "airVehicles": "Luftfahrzeuge",
