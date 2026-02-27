@@ -552,27 +552,35 @@ async function _onClickInlineDamage(event) {
  * COMMON INITIALISATION
  */
 const enrichers = [
-  { pattern: InlineCheckPattern, enricher: InlineCheckEnricher },
-  { pattern: InlineConditionPattern, enricher: InlineConditionEnricher },
-  { pattern: InlineBuffPattern, enricher: InlineBuffEnricher },
-  { pattern: InlineDamagePattern, enricher: InlineDamageEnricher },
+  {
+    pattern: InlineCheckPattern,
+    enricher: InlineCheckEnricher,
+    id: 'torg-inline-check',
+    onRender: (html) => html.addEventListener('click', _onClickInlineCheck),
+  },
+  {
+    pattern: InlineConditionPattern,
+    enricher: InlineConditionEnricher,
+    id: 'torg-inline-condition',
+    onRender: (html) => html.addEventListener('click', _onClickInlineCondition),
+  },
+  {
+    pattern: InlineBuffPattern,
+    enricher: InlineBuffEnricher,
+    id: 'torg-inline-buff',
+    onRender: (html) => html.addEventListener('click', _onClickInlineBuff),
+  },
+  {
+    pattern: InlineDamagePattern,
+    enricher: InlineDamageEnricher,
+    id: 'torg-inline-damage',
+    onRender: (html) => html.addEventListener('click', _onClickInlineDamage),
+  },
 ];
 
 export default function InitEnrichers() {
   CONFIG.TextEditor.enrichers.push(...enrichers);
-  // Global listener, for any place: journals or chat
-  document.body.addEventListener('click', event => {
-    if (event.target?.closest("a.torg-inline-check"))
-      _onClickInlineCheck(event);
-    else if (event.target?.closest("a.torg-inline-condition"))
-      _onClickInlineCondition(event);
-    else if (event.target?.closest("a.torg-inline-buff"))
-      _onClickInlineBuff(event);
-    else if (event.target?.closest("a.torg-inline-damage"))
-      _onClickInlineDamage(event);
-  })
 }
-
 
 function getActors() {
   if (!canvas.ready || canvas.tokens.controlled.length === 0)

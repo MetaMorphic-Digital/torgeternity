@@ -1,6 +1,10 @@
 # TORG Eternity Changelog
 
-## 13.24.1 - "Mod" column in skills list & AE toggle tooltips
+## NEXT
+
+- Use `enricher#onRender` as the preferred way to set event handlers on inline enrichers.
+
+## 13.24.1 - Mod column in skills list & AE toggle tooltips
 
 - Tooltip on AE toggles on first tab of Actor sheets now shows the Item/Actor which provides the AE (rather than just saying "Toggle").
 - Show `Mod` column in Skills section of Stormknight Actor Sheet (displaying modifiers from all AEs).
