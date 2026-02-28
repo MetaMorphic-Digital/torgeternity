@@ -597,7 +597,7 @@ export default class TorgeternityActor extends foundry.documents.Actor {
       let eff = await this.toggleStatusEffect('veryStymied', { active: true });
       eff.update({
         origin: originid,
-        duration: { rounds: duration, turns: duration }
+        duration: { rounds: duration, turns: duration, expiry: 'turnEnd' }
       })
     }
   }
@@ -614,7 +614,7 @@ export default class TorgeternityActor extends foundry.documents.Actor {
       effect = await this.toggleStatusEffect('veryVulnerable', { active: true });
     }
     // If no origin, then it is being self-applied so needs to last to after this actor's next turn
-    effect.update({ origin, duration: { rounds: duration, turns: duration } })
+    effect.update({ origin, duration: { rounds: duration, turns: duration, expiry: 'turnEnd' } })
   }
 
   async increaseStymied(origin, duration = 1) {
@@ -633,7 +633,7 @@ export default class TorgeternityActor extends foundry.documents.Actor {
       const effect = await this.toggleStatusEffect(statusId, { active: true });
       effect.update({
         origin,
-        duration: { rounds: duration, turns: duration }
+        duration: { rounds: duration, turns: duration, expiry: 'turnEnd' }
       })
     }
   }
@@ -657,7 +657,7 @@ export default class TorgeternityActor extends foundry.documents.Actor {
       const effect = await this.toggleStatusEffect(statusId, { active: true });
       effect.update({
         origin: originid,
-        duration: { rounds: duration, turns: duration }
+        duration: { rounds: duration, turns: duration, expiry: 'turnEnd' }
       })
     }
   }
@@ -674,7 +674,7 @@ export default class TorgeternityActor extends foundry.documents.Actor {
     return this.createEmbeddedDocuments('ActiveEffect', [{
       name: 'ActiveDefense', // Add an icon to remind the defense, bigger ? Change color of Defense ?
       icon: 'icons/equipment/shield/heater-crystal-blue.webp', // To change I think, taken in Core, should have a dedicated file
-      duration: { rounds: 1 },
+      duration: { rounds: 1, expiry: 'turnEnd' },
       origin: this.uuid,
       changes: [
         {
