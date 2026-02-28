@@ -143,7 +143,7 @@ export class TestDialog extends HandlebarsApplicationMixin(ApplicationV2) {
       const combatant = game.combat?.getCombatantsByActor(actor)?.shift();
       if (combatant) {
         const bonus = combatant.currentBonus;
-        if (bonus !== undefined) this.test.bonus = bonus;
+        if (Number.isInteger(bonus)) this.test.bonus = bonus;
       }
     }
 

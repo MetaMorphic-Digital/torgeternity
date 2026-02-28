@@ -20,12 +20,18 @@ export default class TorgCombatant extends Combatant {
   async setTurnTaken(value) {
     if (value === this.turnTaken) return;
 
-    await this.update({ 'system.turnTaken': value });
     if (value) {
       // Turn has been taken
+      await this.update({
+        'system.turnTaken': value,
+        'system.multiAction': null,
+      }, { combatTurn: this.combat.turn + 1 });
+
       await this.actor.toggleStatusEffect('waiting', { active: false });
-      await this.clearCurrentBonus();
       await this.actor.decayEffects();
+    } else {
+      // Step backwards
+      await this.update({ 'system.turnTaken': value }, { combatTurn: this.combat.turn - 1 });
     }
     this.token?.object?.renderFlags.set({ refreshTurnMarker: true })
   }
@@ -36,9 +42,5 @@ export default class TorgCombatant extends Combatant {
 
   async setCurrentBonus(value) {
     return this.update({ 'system.multiAction': value });
-  }
-
-  async clearCurrentBonus() {
-    return this.update({ 'system.multiAction': null });
   }
 }
