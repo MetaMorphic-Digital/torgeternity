@@ -1,0 +1,63 @@
+<section class="tab changes{{#if tab.active}} active{{/if}} torgeternity-active-effects" data-group="{{tab.group}}" data-tab="{{tab.id}}">
+
+<div>
+  Change on Skills adds:
+  <ol class="scrollable">
+    {{#each source.system.skillsAdds as |changeSkillAdd i|}}
+    {{#with ../systemFields.skillsAdds as |skillAddsChanges|}}
+    <li class="change-row">
+      <select name="system.skillsAdds.{{i}}.key">
+        {{selectOptions skillAddsChanges.element.fields.key.choices selected=changeSkillAdd.key localize=true}}
+      </select>
+
+      <input type="text" class="value-input" name="system.skillsAdds.{{i}}.value" value="{{changeSkillAdd.value}}">
+    </li>
+    {{/with}}
+    {{/each}}
+  </ol>
+  <button type="button" class="change-button" data-action="addSkillChange">Add a skill change</button>
+</div>
+<div>
+  {{formGroup systemFields.skillsFavor value=souce.system.skillsFavor rootId=rootId localize=true name="system.skillsFavor"}}
+</div>
+{{!--
+<div>
+  Change on attribute adds:
+  <ol class="scrollable" data-attributesAdds>
+    {{#each source.system.attributesAdds as |changeAttributeAdd i|}}
+    {{#with ../systemFields.attributesAdds as |attributesAddsChanges|}}
+    <li>
+      <div class="key">
+        <select name="system.attributesAdds.{{i}}.key">
+          {{selectOptions attributesAddsChanges.element.fields.key.choices selected=changeAttributeAdd.key
+          localize=true}}
+        </select>
+      </div>
+      Value : {{changeAttributeAdd.value}}
+    </li>
+    {{/with}}
+    {{/each}}
+  </ol>
+  <button type="button" class="inline-control fa-square-plus" data-action="addAttrChange">Add an attribute change</button>
+</div>
+<div>
+  Change on attribute favor
+  <ol class="scrollable" data-attributesFavor>
+    {{#each source.system.attributesFavor as |changeAttributeFavor i|}}
+    {{#with ../systemFields.attributesFavor as |attributesFavorChanges|}}
+    <li>
+      <div class="key">
+        <select name="system.attributesAdds.{{i}}.key">
+          {{selectOptions attributesFavorChanges.element.fields.key.choices selected=changeAttributeFavor.key
+          localize=true}}
+        </select>
+      </div>
+      Value : {{changeAttributeFavor.value}}
+    </li>
+    {{/with}}
+    {{/each}}
+  </ol>    
+  <button type="button" class="inline-control fa-square-plus" data-action="addAttrFavor">Make an attribute favored</button>
+
+  </div> --}}
+</section>

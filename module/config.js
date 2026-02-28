@@ -315,6 +315,50 @@ export function initConfig() {
     faith: 'torgeternity.powerSkills.faith',
   };
 
+  torgeternity.interactionSkills = {
+    intimidation: 'torgeternity.skills.intimidation',
+    maneuver: 'torgeternity.skills.maneuver',
+    taunt: 'torgeternity.skills.taunt',
+    trick: 'torgeternity.skills.trick',
+  }
+
+  torgeternity.combatSkills = {
+    dodge: 'torgeternity.skills.dodge',
+    energyWeapons: 'torgeternity.skills.energyWeapons',
+    fireCombat: 'torgeternity.skills.fireCombat',
+    heavyWeapons: 'torgeternity.skills.heavyWeapons',
+    meleeWeapons: 'torgeternity.skills.meleeWeapons',
+    missileWeapons: 'torgeternity.skills.missileWeapons',
+    unarmedCombat: 'torgeternity.skills.unarmedCombat',
+  }
+
+  torgeternity.vehiclesSkills = {
+    airVehicles: 'torgeternity.skills.airVehicles',
+    beastRiding: 'torgeternity.skills.beastRiding',
+    landVehicles: 'torgeternity.skills.landVehicles',
+    waterVehicles: 'torgeternity.skills.waterVehicles',
+  }
+
+  torgeternity.otherSkills = {
+    computers: 'torgeternity.skills.computers',
+    evidenceAnalysis: 'torgeternity.skills.evidenceAnalysis',
+    find: 'torgeternity.skills.find',
+    firstAid: 'torgeternity.skills.firstAid',
+    language: 'torgeternity.skills.language',
+    lockpicking: 'torgeternity.skills.lockpicking',
+    medicine: 'torgeternity.skills.medicine',
+    persuasion: 'torgeternity.skills.persuasion',
+    profession: 'torgeternity.skills.profession',
+    reality: 'torgeternity.skills.reality',
+    scholar: 'torgeternity.skills.scholar',
+    science: 'torgeternity.skills.science',
+    stealth: 'torgeternity.skills.stealth',
+    streetwise: 'torgeternity.skills.streetwise',
+    survival: 'torgeternity.skills.survival',
+    tracking: 'torgeternity.skills.tracking',
+    willpower: 'torgeternity.skills.willpower',
+  }
+
   torgeternity.clearances = {
     alpha: 'torgeternity.clearances.alpha',
     beta: 'torgeternity.clearances.beta',
@@ -375,6 +419,7 @@ export function initConfig() {
     waterVehicles: 'torgeternity.skills.waterVehicles',
     willpower: 'torgeternity.skills.willpower',
   };
+
 
   torgeternity.concentrationSkills = [
     // Spells
@@ -630,6 +675,13 @@ export function initConfig() {
     ...Object.entries(torgeternity.defenseTraits).reduce((acc, ent) => { acc[ent[0]] = { label: ent[1], group: 'torgeternity.traitGroup.defense' }; return acc }, {}),
     ...Object.entries(torgeternity.meleeWeaponTraits).reduce((acc, ent) => { acc[ent[0]] = { label: ent[1], group: 'torgeternity.traitGroup.melee' }; return acc }, {}),
     ...Object.entries(torgeternity.rangedWeaponTraits).reduce((acc, ent) => { acc[ent[0]] = { label: ent[1], group: 'torgeternity.traitGroup.ranged' }; return acc }, {}),
+  }
+
+  torgeternity.allSkillsGrouped = {
+    ...Object.entries(torgeternity.combatSkills).reduce((acc, ent) => { acc[ent[0]] = { label: ent[1], group: 'torgeternity.skillGroup.power' }; return acc }, {}),
+    ...Object.entries(torgeternity.powerSkills).reduce((acc, ent) => { acc[ent[0]] = { label: ent[1], group: 'torgeternity.skillGroup.combat' }; return acc }, {}),
+    ...Object.entries(torgeternity.vehiclesSkills).reduce((acc, ent) => { acc[ent[0]] = { label: ent[1], group: 'torgeternity.skillGroup.vehicle' }; return acc }, {}),
+    ...Object.entries(torgeternity.otherSkills).reduce((acc, ent) => { acc[ent[0]] = { label: ent[1], group: 'torgeternity.skillGroup.other' }; return acc }, {}),
   }
 
 

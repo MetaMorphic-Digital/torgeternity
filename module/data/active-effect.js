@@ -2,6 +2,40 @@ import { newTraitsField } from './item/baseItemData.js';
 
 const fields = foundry.data.fields;
 
+const toFieldSchema = (choiceList) => new fields.ArrayField(
+  new fields.SchemaField({
+    key: new fields.StringField({ 
+      //required: true, 
+      choices: choiceList, 
+      initial: "" ,
+      blank:true,
+      nullable:true
+    }),
+    value: new fields.StringField({ initial: "0", blank: true }),
+    mode: new fields.NumberField({ 
+        initial: CONST.ACTIVE_EFFECT_MODES.ADD, 
+        integer: true 
+    }),
+    priority: new fields.NumberField({ initial: null, nullable: true })
+  })
+);
+
+
+const setSkillsSchema = () =>  new fields.SetField(
+    new fields.StringField({
+      blank: false,
+      choices: CONFIG.torgeternity.allSkillsGrouped,
+      textSearch: true,
+      trim: true,
+    }),
+    {
+      nullable: false,
+      required: true,
+      label: "Skills favoured",
+      initial: undefined
+    });
+
+
 /**
  * Addtional fields for TorgEternity ActiveEffect
  * 
@@ -9,13 +43,18 @@ const fields = foundry.data.fields;
  * @param {Boolean} transferOnOutcome Apply this effect to the target of the attack if the attack test has this specific outcome.
  * @param {SetField(StringField)} applyIfTrait Apply this effect to the item if the owning actor has one of these traits.
  * @param {SetField(StringField)} applyVsTrait Apply this effect to the item if the target has one of these traits.
+ * @param {SetField(StringField)} skillsFavor Wether a skill is favor by this active effect
  */
 export class TorgActiveEffectData extends (foundry.data.ActiveEffectTypeDataModel ?? foundry.abstract.TypeDataModel) {
   // Foundry 14 - change base class to foundry.data.ActiveEffectTypeDataModel
 
   static LOCALIZATION_PREFIXES = ["torgeternity.activeEffect"];
-
   static defineSchema() {
+    const skillAddChoices = Object.fromEntries(Object.entries(CONFIG.torgeternity.skills).map(([k,v]) => [(v+'.adds').replace('torgeternity', 'system'), v]))
+    //const skillFavChoices = Object.fromEntries(Object.entries(CONFIG.torgeternity.skills).map(([k,v]) => [(v).replace('torgeternity', 'system'), v]))
+    const attributesAddsChoices = Object.fromEntries(Object.entries(CONFIG.torgeternity.attributeTypes).map(([k,v]) => [(v+'.value').replace('torgeternity', 'system'), v]))
+    const attributesFavChoices = Object.fromEntries(Object.entries(CONFIG.torgeternity.attributeTypes).map(([k,v]) => [(v+'.isFav').replace('torgeternity', 'system'), v]))
+
     const schema = (game.release.generation >= 14) ? foundry.data.ActiveEffectTypeDataModel.defineSchema() : {};
     Object.assign(schema,
       {
@@ -30,7 +69,14 @@ export class TorgActiveEffectData extends (foundry.data.ActiveEffectTypeDataMode
         applyIfAttackTrait: newTraitsField(),
         applyIfDefendTrait: newTraitsField(),
         combatToggle: new fields.BooleanField({ initial: false, }),
+        skillsAdds: toFieldSchema(skillAddChoices),
+        attributesAdds: toFieldSchema(attributesAddsChoices),
+        skillsFavor: setSkillsSchema(),
+        attributesFavor: toFieldSchema(attributesFavChoices),
+        defensesChanges: toFieldSchema(CONFIG.torgeternity.defenses),
+        otherChanges: toFieldSchema(["system.possibilityPerAct"]),
       })
+    //console.log("schema", schema)
     return schema;
   }
 
@@ -46,6 +92,22 @@ export class TorgActiveEffectData extends (foundry.data.ActiveEffectTypeDataMode
    */
   get isSuppressed() {
     // Don't apply the AE to the owning actor if it is being transferred on an attack
-    return (this.transferOnAttack || this.transferOnOutcome);
+    return this.system && (this.system.transferOnAttack || this.system.transferOnOutcome);
+  }
+
+  async _preUpdate(changed, options, user) {
+    console.log("[Data] PreUpdate")
+    const result = await super._preUpdate(changed, options, user);
+    // Check if our SetField 'favoredSkills' is being updated
+    if ( "skillsFavor" in (changed.system || {}) ) {
+      const newSkillSet = changed.system.skillsFavor; // This is an Array or Set in v13
+      const effectChanges = Array.from(newSkillSet).map(skillId => ({
+        key: `system.skills.${skillId}.isFav`,
+        value: 'true',
+        mode: CONST.ACTIVE_EFFECT_MODES.OVERRIDE
+      }));
+      changed.changes = [...changed.changes, ...effectChanges]
+    }
+    return result;
   }
 }

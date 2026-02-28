@@ -4764,3 +4764,37 @@ aside.carry-type-menu {
     }
   }
 }
+
+.torgeternity-active-effects.changes {
+  .scrollable {
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* Breathing room between rows */
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    align-items: flex-start;
+  }
+
+  .change-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .change-row select {
+    flex: 8;
+    height:2rem;
+  }
+
+  .change-row .value-input {
+    flex: 1;
+    height:2rem;
+  }
+
+  .change-button {
+    border: 1px solid;
+    margin-top: 12px;
+    padding: 16px 12px;
+  }
+}

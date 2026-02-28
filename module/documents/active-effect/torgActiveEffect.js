@@ -58,7 +58,6 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
         }
       }
     }
-
     // Replace flags
     if (source.flags?.torgeternity?.transferOnAttack !== undefined) {
       source.system.transferOnAttack = source.flags.torgeternity.transferOnAttack;
@@ -69,6 +68,63 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
       delete source.flags.torgeternity.testOutcome;
     }
 
+    if(!source.changes){
+      source.changes = []
+    }
+    if(source.system.skillsFavor){
+      source.system.skillsFavor.forEach((sf) => {
+        source.changes.push({
+          key:'system.skills.'+sf+'.isFav',
+          value: 'true',
+          mode: CONST.ACTIVE_EFFECT_MODES.OVERRIDE        
+        })
+      })
+    }
+    const changesPerType = source.changes?.reduce((changesPerType, change) => {
+      // if(change.key.includes('skills') && change.key.includes('isFav')){
+      //   changesPerType.skillsFavor.push(change.key.replace('system.skills.', '').replace('.isFav', ''))
+      //   return changesPerType
+      // }
+      if(change.key.includes('attributes') && change.key.includes('isFav')){
+        changesPerType.attributesFavor.push(change)
+        return changesPerType
+      }
+      if(change.key.includes('skills') && !change.key.includes('isFav')){
+        changesPerType.skillsAdds.push(change)
+        return changesPerType
+      }
+      if(change.key.includes('attributes')){
+        changesPerType.attributesAdds.push(change)
+        return changesPerType
+      }
+      if(change.key.includes('defenses')){
+        changesPerType.defensesChanges.push(change)
+        return changesPerType
+      }
+      if(change.key.includes('other')){
+        changesPerType.otherChanges.push(change)
+        return changesPerType
+      }
+      return changesPerType
+    }, {
+      skillsAdds:[],
+      skillsFavor:[],
+      attributesAdds:[],
+      attributesFavor:[],
+      defensesChanges:[],
+      otherChanges:[]
+    })
+    if(!source.system){
+      source.system = {}
+    }
+    source.system.skillsAdds = changesPerType.skillsAdds ?? []
+    source.system.skillsFavor = source.system.skillsFavor ?? []
+    source.system.attributesAdds = changesPerType.attributesAdds ?? []
+    source.system.attributesFavor = changesPerType.attributesFavor ?? []
+    source.system.defensesChanges = changesPerType.defensesChanges ?? []
+    source.system.otherChanges = changesPerType.otherChanges ?? []
+    console.log("[Document] Data Migration")
+    console.log(source)
     return super.migrateData(source);
   }
 
@@ -84,26 +140,56 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
   }
 
   /**
-   * Return if this effect modifies the target of the test rather than the owner of the AE.
+   * Should this effect be transferred to the target on a successful attack?
+   * @param {TestResult} result 
+   * @param {Array<String> | undefined} attackTraits array of traits on the actor performing the test
+   * @param {Array<String> | undefined} defendTraits array of traits on the target of the test
+   */
+  appliesToTest(result, attackTraits, defendTraits) {
+    return (!this.disabled &&
+      (this.system.transferOnAttack && result >= TestResult.STANDARD) || (this.system.transferOnOutcome === result)) &&
+      testTraits(this.system.applyIfAttackTrait, attackTraits) &&
+      testTraits(this.system.applyIfDefendTrait, defendTraits);
+  }
+
+  /**
+   * Return if this effect has at least one change which is not merely changing the test.
    * @type {boolean}
    */
   get modifiesTarget() {
     return !this.disabled &&
-      (this.system.transferOnAttack || this.system.transferOnOutcome);
+      (this.system.transferOnAttack || this.system.transferOnOutcome) &&
+      (this.changes.find(change => !change.key.startsWith('test.')) || this.statuses.length !== 0);
   }
   static blank;
 
   /**
-   * Return a copy of this object with the various "attack" traits cleared.
+   * Return a copy of this object with the various "attack" traits cleared,
+   * and any 'test.*' changes removed from it.
    */
   copyForTarget() {
     if (!this.blank) this.blank = new TorgActiveEffect({ name: "blank" });
 
     let fx = this.toObject();
+    fx.changes = fx.changes.filter(change => !change.key.startsWith('test.'));
     return Object.assign(fx, {
       disabled: false,
       system: this.blank.system,
       origin: this.parent.uuid,
     });
   }
+}
+
+/**
+ * Return true if testTraits contains at least one of the entries in actualTraits
+ * @param {Set<String>} testTraits 
+ * @param {Array<String>} actualTraits 
+ */
+function testTraits(testTraits, actualTraits) {
+  if (!testTraits?.size) return true;
+  if (!actualTraits?.length) return false;
+  for (const trait of testTraits) {
+    if (actualTraits.includes(trait)) return true;
+  }
+  return false;
 }
