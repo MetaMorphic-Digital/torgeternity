@@ -40,6 +40,7 @@ import { ChatMessageTorg } from './documents/chat/chatMessageTorg.js';
 import * as actorDataModels from './data/actor/index.js';
 import * as itemDataModels from './data/item/index.js';
 import * as cardDataModels from './data/card/index.js';
+import { TorgCombatantData } from './data/torgCombatantData.js';
 import { TorgActiveEffectData } from './data/active-effect.js';
 import TorgActiveEffect from './documents/active-effect/torgActiveEffect.js';
 import TorgActiveEffectConfig from './sheets/torgeternityActiveEffectConfig.js';
@@ -103,6 +104,7 @@ Hooks.once('init', async function () {
   CONFIG.Combat.documentClass = torgeternityCombat;
   CONFIG.ui.combat = torgeternityCombatTracker;
   CONFIG.Combatant.documentClass = TorgCombatant;
+  CONFIG.Combatant.dataModels.base = TorgCombatantData;
   CONFIG.ChatMessage.documentClass = ChatMessageTorg;
 
   // ----scenes
