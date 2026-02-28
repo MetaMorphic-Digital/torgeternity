@@ -6,7 +6,6 @@ export class TorgCombatantData extends foundry.abstract.TypeDataModel {
     return {
       turnTaken: new fields.BooleanField({ initial: false }),
       multiAction: new fields.NumberField({ initial: null, nullable: true, integer: true }),
-      wasWaiting: new fields.BooleanField({ initial: null, nullable: true })
     }
   }
 }

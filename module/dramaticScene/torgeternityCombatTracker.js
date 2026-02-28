@@ -5,6 +5,8 @@ import TorgCombatant from './torgeternityCombatant.js';
 
 export default class torgeternityCombatTracker extends foundry.applications.sidebar.tabs.CombatTracker {
 
+  // `wasWaiting` is stored on the object only in-memory.
+
   firstFaction = 'heroes';
   secondFaction = 'villains';
 
