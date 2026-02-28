@@ -276,8 +276,8 @@ export default class TorgCombat extends Combat {
     await this.updateEmbeddedDocuments('Combatant',
       this.combatants.map((combatant) => ({
         _id: combatant.id,
-        'flags.world.turnTaken': false,
-        'flags.torgeternity.-=multiAction': null
+        'system.turnTaken': false,
+        'system.multiAction': null
       })),
       { updateAll: true });
     this.setCardsPlayable(true);
