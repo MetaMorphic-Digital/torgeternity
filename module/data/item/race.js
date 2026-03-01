@@ -1,4 +1,3 @@
-import { torgeternity } from '../../config.js';
 import { PerkItemData } from './perk.js';
 import { CustomAttackItemData } from './customAttack.js';
 import { BaseItemData } from './baseItemData.js';
@@ -23,7 +22,7 @@ export class RaceItemData extends BaseItemData {
       }),
       size: new fields.StringField({
         initial: 'normal',
-        choices: Object.keys(torgeternity.sizes),
+        choices: Object.keys(CONFIG.torgeternity.sizes),
         required: true,
       }),
       darkvision: new fields.BooleanField({ initial: false }),

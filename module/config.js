@@ -1,6 +1,8 @@
-export const torgeternity = {};
+import { TestResult } from './torgchecks.js';
 
 export function initConfig() {
+
+  const torgeternity = {};
 
   torgeternity.supportedLanguages = ['en', 'fr', 'de'];
   torgeternity.availableScreens = {
@@ -672,4 +674,105 @@ export function initConfig() {
   torgeternity.darknessDebounceMS = 100;
 
   torgeternity.carryTypes = ['held', 'worn', 'stowed', 'dropped'];
+
+  // All choices must use strings, since number 0 will be treated as undefined by {{radioBoxes}}
+  torgeternity.choices = {
+    calledShot: {
+      [0]: 'torgeternity.sheetLabels.none',
+      [-2]: '-2',
+      [-4]: '-4',
+      [-6]: '-6',
+    },
+    burst: {
+      [0]: 'torgeternity.sheetLabels.none',
+      [2]: 'torgeternity.sheetLabels.shortBurst',
+      [4]: 'torgeternity.sheetLabels.longBurst',
+      [6]: 'torgeternity.sheetLabels.heavyBurst',
+    },
+    addBDs: [0, 1, 2, 3, 4, 5],
+    movement: {
+      [0]: 'torgeternity.sheetLabels.walking',
+      [-2]: 'torgeternity.sheetLabels.running',
+    },
+    multipleActions: {
+      [0]: '1',
+      [-2]: '2',
+      [-4]: '3',
+      [-6]: '4',
+    },
+    targets: {
+      [0]: '1',
+      [-2]: '2',
+      [-4]: '3',
+      [-6]: '4',
+      [-8]: '5',
+      [-10]: '6',
+    },
+    concealment: {
+      [0]: 'torgeternity.sheetLabels.none',
+      [-2]: '-2',
+      [-4]: '-4',
+      [-6]: '-6',
+    }
+  }
+
+  // Fixed strings needed for Data Models
+  torgeternity.testOutcomeLabel = {
+    [TestResult.UNKNOWN]: "",
+    [TestResult.MISHAP]: 'torgeternity.chatText.check.result.mishape',
+    [TestResult.FAILURE]: 'torgeternity.chatText.check.result.failure',
+    [TestResult.STANDARD]: 'torgeternity.chatText.check.result.standardSuccess',
+    [TestResult.GOOD]: 'torgeternity.chatText.check.result.goodSuccess',
+    [TestResult.OUTSTANDING]: 'torgeternity.chatText.check.result.outstandingSuccess'
+  }
+
+  // Hard-coded, so that we are guaranteed to have it available immediately
+  torgeternity.cosmTypeFromLabel = {
+    "(Keins)": "none",
+    "(Ninguno)": "none",
+    "(Non)": "none",
+    "(None)": "none",
+    "(Sans cosm)": "none",
+    "Andere": "other",
+    "Autre": "other",
+    "Aysle": "aysle",
+    "Ciberpapado": "cyberpapacy",
+    "Core Earth": "coreEarth",
+    "Cyberpapacy": "cyberpapacy",
+    "Cyberpapauté": "cyberpapacy",
+    "Cyberpontifikat": "cyberpapacy",
+    "Das Lebende Land": "livingLand",
+    "Empire du Nil": "nileEmpire",
+    "Imperio Nilo": "nileEmpire",
+    "Living Land": "livingLand",
+    "Nil Imperium": "nileEmpire",
+    "Nil-Imperium": "nileEmpire",
+    "Nile Empire": "nileEmpire",
+    "Orrorsh": "orrorsh",
+    "Other": "other",
+    "Otro": "other",
+    "Pan Pacifica": "panPacifica",
+    "Prime Terre": "coreEarth",
+    "Terre-Vivante": "livingLand",
+    "Terre vivante": "livingLand",
+    "Terre Vivante": "livingLand",
+    "Tharkold": "tharkold",
+    "Tierra Base": "coreEarth",
+    "Tierra Viviente": "livingLand",
+    "Zentralerde": "coreEarth",
+  }
+
+  CONFIG.torgeternity = torgeternity;
 }
+
+Hooks.once('i18nInit', () => {
+  // Translate number magnitude strings (fast lookup for GeneralItemData.prepareBaseData)
+  CONFIG.torgeternity.magnitudeLabels = {};
+  for (const [key, value] of Object.entries(CONFIG.torgeternity.magnitudes))
+    CONFIG.torgeternity.magnitudeLabels[key] = game.i18n.localize(value);
+  for (const value of CONFIG.statusEffects) {
+    const key = `torgeternity.statusEffects.description.${value.id}`
+    const desc = game.i18n.localize(key);
+    if (desc !== key) value.description = desc;
+  }
+})

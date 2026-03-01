@@ -1,4 +1,3 @@
-import { torgeternity } from '../../config.js';
 import { BaseItemData } from './baseItemData.js';
 
 const fields = foundry.data.fields;
@@ -40,7 +39,7 @@ export class PowerItemData extends BaseItemData {
     super.prepareBaseData();
 
     if (this?.dn.length > 0 && this?.dnType.length === 0) {
-      for (const [key, value] of Object.entries(torgeternity.dnTypes)) {
+      for (const [key, value] of Object.entries(CONFIG.torgeternity.dnTypes)) {
         if (key === this?.dn) {
           this.dnType = game.i18n.localize(value);
           break;

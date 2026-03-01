@@ -1,5 +1,4 @@
 import { CommonActorData } from './common.js';
-import { torgeternity } from '../../config.js';
 
 const fields = foundry.data.fields;
 
@@ -18,12 +17,12 @@ export class ThreatData extends CommonActorData {
         description: new fields.HTMLField({ initial: '', textSearch: true }),
         sizeBonus: new fields.StringField({
           initial: 'normal',
-          choices: Object.keys(torgeternity.sizes),
+          choices: Object.keys(CONFIG.torgeternity.sizes),
           required: true,
         }),
         clearance: new fields.StringField({
           initial: 'alpha',
-          choices: Object.keys(torgeternity.clearances),
+          choices: Object.keys(CONFIG.torgeternity.clearances),
           required: false,
           textSearch: true
         }),
@@ -45,7 +44,7 @@ export class ThreatData extends CommonActorData {
       source.details.possibilityPotential ??= 'Never';
     }
     if (source?.details && Object.hasOwn(source?.details, 'sizeBonus')) {
-      source.details.sizeBonus = Object.keys(torgeternity.sizes).includes(source.details.sizeBonus)
+      source.details.sizeBonus = Object.keys(CONFIG.torgeternity.sizes).includes(source.details.sizeBonus)
         ? source.details.sizeBonus
         : 'normal';
     }

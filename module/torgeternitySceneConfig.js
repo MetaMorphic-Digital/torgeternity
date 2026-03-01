@@ -1,5 +1,3 @@
-import { torgeternity } from './config.js';
-
 /**
  *
  */
@@ -57,8 +55,8 @@ export default class torgeternitySceneConfig extends foundry.applications.sheets
     const partContext = await super._preparePartContext(partId, context, options);
     switch (partId) {
       case "cosm":
-        partContext.zones = torgeternity.zones;
-        partContext.cosmTypes = torgeternity.cosmTypes;
+        partContext.zones = CONFIG.torgeternity.zones;
+        partContext.cosmTypes = CONFIG.torgeternity.cosmTypes;
         break;
       case "lighting":
         context.torgDarkness = game.settings.get('torgeternity', 'autoDarknessPenalty');

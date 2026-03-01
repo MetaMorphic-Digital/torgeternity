@@ -1,5 +1,4 @@
 import { CommonActorData } from './common.js';
-import { torgeternity } from '../../config.js';
 import { makeAxiomsField } from '../shared.js';
 
 const fields = foundry.data.fields;
@@ -21,7 +20,7 @@ export class StormKnightData extends CommonActorData {
         race: new fields.StringField({ initial: undefined, textSearch: true }),
         sizeBonus: new fields.StringField({
           initial: 'normal',
-          choices: Object.keys(torgeternity.sizes),
+          choices: Object.keys(CONFIG.torgeternity.sizes),
           required: true,
         }),
       }),
@@ -38,12 +37,12 @@ export class StormKnightData extends CommonActorData {
    */
   static migrateData(source) {
     if (source?.details && Object.hasOwn(source?.details, 'race')) {
-      source.details.race = Object.keys(torgeternity.races).includes(source.details.race)
+      source.details.race = Object.keys(CONFIG.torgeternity.races).includes(source.details.race)
         ? source.details.race
         : 'other';
     }
     if (source?.details && Object.hasOwn(source?.details, 'sizeBonus')) {
-      source.details.sizeBonus = Object.keys(torgeternity.sizes).includes(source.details.sizeBonus)
+      source.details.sizeBonus = Object.keys(CONFIG.torgeternity.sizes).includes(source.details.sizeBonus)
         ? source.details.sizeBonus
         : 'normal';
     }
@@ -57,10 +56,10 @@ export class StormKnightData extends CommonActorData {
     super.prepareBaseData();
 
     // Set axioms based on home reality
-    this.axioms.magic = torgeternity.axiomByCosm[this.other.cosm]?.magic || this.axioms.magic;
-    this.axioms.social = torgeternity.axiomByCosm[this.other.cosm]?.social || this.axioms.social;
-    this.axioms.spirit = torgeternity.axiomByCosm[this.other.cosm]?.spirit || this.axioms.spirit;
-    this.axioms.tech = torgeternity.axiomByCosm[this.other.cosm]?.tech || this.axioms.tech;
+    this.axioms.magic = CONFIG.torgeternity.axiomByCosm[this.other.cosm]?.magic || this.axioms.magic;
+    this.axioms.social = CONFIG.torgeternity.axiomByCosm[this.other.cosm]?.social || this.axioms.social;
+    this.axioms.spirit = CONFIG.torgeternity.axiomByCosm[this.other.cosm]?.spirit || this.axioms.spirit;
+    this.axioms.tech = CONFIG.torgeternity.axiomByCosm[this.other.cosm]?.tech || this.axioms.tech;
 
     // Set clearance level
     if (this.xp.earned < 50) {

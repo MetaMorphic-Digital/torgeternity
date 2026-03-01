@@ -3,7 +3,9 @@
 ## NEXT
 
 - Use `enricher#onRender` as the preferred way to set event handlers on inline enrichers.
-- Started work on getting Groups of Combatants working. (no sorting yet)
+- Started work on getting Groups of Combatants working. (no sorting yet).
+- Get "Torg" banner in scene control back to its previous larger size.
+- Move code out of torgeternity.js file into more appropriate other files (reducing Technical Debt, you might have heard of it).
 
 ## 13.24.1 - Mod column in skills list & AE toggle tooltips
 

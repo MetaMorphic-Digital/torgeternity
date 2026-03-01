@@ -1,5 +1,3 @@
-import { torgeternity } from '../../config.js';
-
 const fields = foundry.data.fields;
 /**
  * @inheritdoc
@@ -11,7 +9,7 @@ export class CosmCardData extends foundry.abstract.TypeDataModel {
    */
   static defineSchema() {
     return {
-      cosm: new fields.StringField({ initial: 'none', choices: torgeternity.cosmTypes, textSearch: true, required: true, blank: false, nullable: false }),
+      cosm: new fields.StringField({ initial: 'none', choices: CONFIG.torgeternity.cosmTypes, textSearch: true, required: true, blank: false, nullable: false }),
     };
   }
 }

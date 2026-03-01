@@ -1,5 +1,4 @@
 import { migrateCosm, makeSkillFields } from '../shared.js';
-import { torgeternity } from '../../config.js';
 
 const fields = foundry.data.fields;
 /**
@@ -30,7 +29,7 @@ export class CommonActorData extends foundry.abstract.TypeDataModel {
         }),
       }),
       other: new fields.SchemaField({
-        cosm: new fields.StringField({ initial: 'none', choices: torgeternity.cosmTypes, textSearch: true, required: true, blank: false, nullable: false }),
+        cosm: new fields.StringField({ initial: 'none', choices: CONFIG.torgeternity.cosmTypes, textSearch: true, required: true, blank: false, nullable: false }),
         possibilities: new fields.SchemaField({
           value: new fields.NumberField({ initial: 3, integer: true, nullable: false }),
           // perAct is a derived value, modifiable by Active Effects

@@ -1,5 +1,5 @@
 'use strict';
-import { initConfig, torgeternity } from './config.js';
+import { initConfig } from './config.js';
 import TorgeternityChatLog from './torgeternityChatLog.js';
 import TorgeternityItem from './documents/item/torgeternityItem.js';
 import TorgeternityActor from './documents/actor/torgeternityActor.js';
@@ -14,7 +14,6 @@ import TorgeternityPlayerList from './users/TorgeternityPlayerList.js';
 import torgeternitySceneConfig from './torgeternitySceneConfig.js';
 import torgeternityNav from './torgeternityNav.js';
 import { registerTorgSettings } from './settings.js';
-import { TestResult } from './torgchecks.js';
 import TorgCombatant from './dramaticScene/torgeternityCombatant.js';
 import TorgCombatantGroup from './dramaticScene/torgeternityCombatantGroup.js';
 import { registerDiceSoNice } from './modsupport/dice-so-nice.js';
@@ -66,7 +65,7 @@ Hooks.once('init', async function () {
   initHotbarMacros();
   initTextEdidor();
   initProseMirrorEditor();
-  CONFIG.torgeternity = torgeternity;
+
   CONFIG.Item.documentClass = TorgeternityItem;
   CONFIG.Actor.documentClass = TorgeternityActor;
   CONFIG.ActiveEffect.documentClass = TorgActiveEffect;
@@ -74,8 +73,8 @@ Hooks.once('init', async function () {
   CONFIG.Actor.dataModels = actorDataModels.config;
   CONFIG.Item.dataModels = itemDataModels.config;
   CONFIG.Card.dataModels = cardDataModels.config;
-  CONFIG.statusEffects = torgeternity.statusEffects;
-  CONFIG.attributeTypes = torgeternity.attributeTypes;
+  CONFIG.statusEffects = CONFIG.torgeternity.statusEffects;
+  CONFIG.attributeTypes = CONFIG.torgeternity.attributeTypes;
   CONFIG.Token.rulerClass = TorgEternityTokenRuler;
   CONFIG.Token.objectClass = TorgEternityToken;
   CONFIG.Scene.documentClass = TorgeternityScene;
@@ -122,7 +121,7 @@ Hooks.once('init', async function () {
   // ---cards
   CONFIG.Card.documentClass = torgeternityCard;
   CONFIG.Cards.documentClass = torgeternityCards;
-  CONFIG.cardTypes = torgeternity.cardTypes;
+  CONFIG.cardTypes = CONFIG.torgeternity.cardTypes;
 
   ui.macroHub = new MacroHub();
   ui.GMScreen = new GMScreen();
@@ -167,47 +166,6 @@ Hooks.once('init', async function () {
     makeDefault: true,
   });
 
-  // All choices must use strings, since number 0 will be treated as undefined by {{radioBoxes}}
-  CONFIG.torgeternity.choices = {
-    calledShot: {
-      [0]: 'torgeternity.sheetLabels.none',
-      [-2]: '-2',
-      [-4]: '-4',
-      [-6]: '-6',
-    },
-    burst: {
-      [0]: 'torgeternity.sheetLabels.none',
-      [2]: 'torgeternity.sheetLabels.shortBurst',
-      [4]: 'torgeternity.sheetLabels.longBurst',
-      [6]: 'torgeternity.sheetLabels.heavyBurst',
-    },
-    addBDs: [0, 1, 2, 3, 4, 5],
-    movement: {
-      [0]: 'torgeternity.sheetLabels.walking',
-      [-2]: 'torgeternity.sheetLabels.running',
-    },
-    multipleActions: {
-      [0]: '1',
-      [-2]: '2',
-      [-4]: '3',
-      [-6]: '4',
-    },
-    targets: {
-      [0]: '1',
-      [-2]: '2',
-      [-4]: '3',
-      [-6]: '4',
-      [-8]: '5',
-      [-10]: '6',
-    },
-    concealment: {
-      [0]: 'torgeternity.sheetLabels.none',
-      [-2]: '-2',
-      [-4]: '-4',
-      [-6]: '-6',
-    }
-  }
-
   // ----------preloading handlebars templates
   preloadTemplates();
   // adding special torg buttons
@@ -218,16 +176,6 @@ Hooks.once('init', async function () {
   // Foundry#initializePacks is called just before the 'setup' hook
   // But needs to be after 'ready' to set properties on compendiums.
   initHideCompendium();
-
-  // Fixed strings needed for Data Models
-  CONFIG.torgeternity.testOutcomeLabel = {
-    [TestResult.UNKNOWN]: "",
-    [TestResult.MISHAP]: 'torgeternity.chatText.check.result.mishape',
-    [TestResult.FAILURE]: 'torgeternity.chatText.check.result.failure',
-    [TestResult.STANDARD]: 'torgeternity.chatText.check.result.standardSuccess',
-    [TestResult.GOOD]: 'torgeternity.chatText.check.result.goodSuccess',
-    [TestResult.OUTSTANDING]: 'torgeternity.chatText.check.result.outstandingSuccess'
-  }
 
   // ---Core Foundry expects typeLabels to be translation keys
   CONFIG.Actor.typeLabels = {
@@ -260,56 +208,7 @@ Hooks.once('init', async function () {
     vehicleAddOn: 'torgeternity.itemSheetDescriptions.vehicleAddOn',
     race: 'torgeternity.itemSheetDescriptions.race',
   };
-
-  // Hard-coded, so that we are guaranteed to have it available immediately
-  CONFIG.torgeternity.cosmTypeFromLabel = {
-    "(Keins)": "none",
-    "(Ninguno)": "none",
-    "(Non)": "none",
-    "(None)": "none",
-    "(Sans cosm)": "none",
-    "Andere": "other",
-    "Autre": "other",
-    "Aysle": "aysle",
-    "Ciberpapado": "cyberpapacy",
-    "Core Earth": "coreEarth",
-    "Cyberpapacy": "cyberpapacy",
-    "Cyberpapauté": "cyberpapacy",
-    "Cyberpontifikat": "cyberpapacy",
-    "Das Lebende Land": "livingLand",
-    "Empire du Nil": "nileEmpire",
-    "Imperio Nilo": "nileEmpire",
-    "Living Land": "livingLand",
-    "Nil Imperium": "nileEmpire",
-    "Nil-Imperium": "nileEmpire",
-    "Nile Empire": "nileEmpire",
-    "Orrorsh": "orrorsh",
-    "Other": "other",
-    "Otro": "other",
-    "Pan Pacifica": "panPacifica",
-    "Prime Terre": "coreEarth",
-    "Terre-Vivante": "livingLand",
-    "Terre vivante": "livingLand",
-    "Terre Vivante": "livingLand",
-    "Tharkold": "tharkold",
-    "Tierra Base": "coreEarth",
-    "Tierra Viviente": "livingLand",
-    "Zentralerde": "coreEarth",
-  }
-
 });
-
-Hooks.once('i18nInit', () => {
-  // Translate number magnitude strings (fast lookup for GeneralItemData.prepareBaseData)
-  CONFIG.torgeternity.magnitudeLabels = {};
-  for (const [key, value] of Object.entries(CONFIG.torgeternity.magnitudes))
-    CONFIG.torgeternity.magnitudeLabels[key] = game.i18n.localize(value);
-  for (const value of CONFIG.statusEffects) {
-    const key = `torgeternity.statusEffects.description.${value.id}`
-    const desc = game.i18n.localize(key);
-    if (desc !== key) value.description = desc;
-  }
-})
 
 Hooks.once('setup', async function () {
 
@@ -361,9 +260,9 @@ Hooks.on('ready', async function () {
 
   // ----load template for welcome message depending on supported languages
   let lang = game.settings.get('core', 'language');
-  if (torgeternity.supportedLanguages.indexOf(lang) === -1) lang = 'en';
+  if (CONFIG.torgeternity.supportedLanguages.indexOf(lang) === -1) lang = 'en';
 
-  torgeternity.welcomeMessage = await foundry.applications.handlebars.renderTemplate(
+  CONFIG.torgeternity.welcomeMessage = await foundry.applications.handlebars.renderTemplate(
     `systems/torgeternity/templates/welcomeMessage/${lang}.hbs`
   );
   // Provide function to show the welcome message at any time.
@@ -543,7 +442,7 @@ Hooks.on('renderJournalEntryPageSheet', (sheet, element, document, options) => {
 function showWelcomeMessage() {
   DialogV2.confirm({
     window: { title: 'Welcome to the Torg Eternity System for Foundry VTT!', },
-    content: torgeternity.welcomeMessage,
+    content: CONFIG.torgeternity.welcomeMessage,
     yes: {
       icon: 'fas fa-check',
       label: 'torgeternity.submit.OK',

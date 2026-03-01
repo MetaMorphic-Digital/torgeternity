@@ -1,5 +1,3 @@
-import { torgeternity } from '../config.js';
-
 const FATIGUED_FACTION_FLAG = 'fatiguedFaction';
 const IS_DRAMATIC_FLAG = 'isDramatic';
 
@@ -229,7 +227,7 @@ export default class TorgCombat extends Combat {
     const card = this.currentDrama;
     if (!card) return "No Drama Card Active";
 
-    const lookup = (a) => game.i18n.localize(torgeternity.dramaConflicts[a]);
+    const lookup = (a) => game.i18n.localize(CONFIG.torgeternity.dramaConflicts[a]);
     const H = game.i18n.localize('torgeternity.dramaCard.heroesConflict');
     const V = game.i18n.localize('torgeternity.dramaCard.villainsConflict');
     if (this.isDramatic) {
@@ -248,14 +246,14 @@ export default class TorgCombat extends Combat {
   get approvedActionsText() {
     const card = this.currentDrama;
     if (!card) return "No Drama Card Active";
-    return this.approvedActions.map(one => game.i18n.localize(torgeternity.dramaActions[one])).join('/');
+    return this.approvedActions.map(one => game.i18n.localize(CONFIG.torgeternity.dramaActions[one])).join('/');
   }
 
   get dsrText() {
     const dsr = this.currentDrama?.system.dsrLine;
     if (!dsr) return "No Drama Card Active";
     const first = dsr.at(0);
-    return (first === first.toUpperCase()) ? dsr.split('').join(' ') : game.i18n.localize(torgeternity.dramaActions[dsr]);
+    return (first === first.toUpperCase()) ? dsr.split('').join(' ') : game.i18n.localize(CONFIG.torgeternity.dramaActions[dsr]);
   }
 
   get dramaRule() {
