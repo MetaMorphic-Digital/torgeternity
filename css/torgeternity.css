@@ -2395,8 +2395,17 @@ a:hover {
 }
 
 button[data-control="torg"] {
-  /*width: 56px; - Need to fix the button's alignment */
-  height: 30px;
+  padding: 0;
+
+  img {
+    position: absolute;
+    width: 50px;
+  }
+}
+
+button[data-control="torg22"] {
+  /* Need to fix the button's alignment */
+  width: 56px;
   background-image: url(../images/te-logo.webp);
   background-size: 100%;
   background-position: center;
