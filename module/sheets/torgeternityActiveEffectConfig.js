@@ -19,10 +19,10 @@ export default class TorgActiveEffectConfig extends foundry.applications.sheets.
     duration: {
       template: "templates/sheets/active-effect/duration.hbs"
     },
-    changes: {
-      template: "templates/sheets/active-effect/changes.hbs",
-      scrollable: ["ol[data-changes]"]
-    },
+    // changes: {
+    //   template: "templates/sheets/active-effect/changes.hbs",
+    //   scrollable: ["ol[data-changes]"]
+    // },
     torgChanges: {
       template: "systems/torgeternity_dev/templates/active_effects/torg_changes.hbs",
       scrollable: ["ol[data-changes]"]
@@ -47,16 +47,16 @@ export default class TorgActiveEffectConfig extends foundry.applications.sheets.
           id: "duration",
           icon: "fa-solid fa-clock"
         },
-        {
-          id: "changes",
-          icon: "fa-solid fa-gears"
-        },
+        // {
+        //   id: "changes",
+        //   icon: "fa-solid fa-gears"
+        // },
         {
           id: "torgChanges",
           icon: "fa-solid fa-gears"
         },
       ],
-      initial: "torgChanges",
+      initial: "details",
       labelPrefix: "EFFECT.TABS"
     },
   };

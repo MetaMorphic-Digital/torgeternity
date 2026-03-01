@@ -1178,6 +1178,12 @@
       "additionalDamage": "+ Schaden",
       "bonusDice": "BW im Voraus würfeln"
     },
+    "skillGroup": {
+      "combat": "Kampf",
+      "power": "Kräfte",
+      "vehicle": "Fahrzeuge",
+      "other": "Sonstiges"
+    },
     "sizes": {
       "large": "Groß",
       "normal": "Durchschnittlich",

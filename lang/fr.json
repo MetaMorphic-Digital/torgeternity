@@ -1178,6 +1178,12 @@
       "additionalDamage": "Dommages additionels",
       "bonusDice": "DB lancés par avance"
     },
+    "skillGroup": {
+      "combat": "Combat",
+      "power": "Pouvoirs",
+      "vehicle": "Véhicules",
+      "other": "Autres"
+    },
     "sizes": {
       "large": "Grande",
       "normal": "Normale",

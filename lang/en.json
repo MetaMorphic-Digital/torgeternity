@@ -1172,6 +1172,12 @@
       "additionalDamage": "Additional damage preset",
       "bonusDice": "Rolled Bonus-Dice in advance"
     },
+    "skillGroup": {
+      "combat": "Combat",
+      "power": "Power",
+      "vehicle": "Vehicles",
+      "other": "Other"
+    },
     "sizes": {
       "large": "Large",
       "normal": "Normal",
