@@ -2971,6 +2971,19 @@ nav#controls,
   }
 
   ol {
+
+    h3.combatantGroup {
+      padding: 0.4em;
+      background: url(../images/tab-header.webp);
+      background-size: 100% 100%;
+      text-align: center;
+      margin: 5px 0px 0px 0px;
+
+      button {
+        display: inline;
+      }
+    }
+
     h3.waiting {
       padding: 0.75em;
       background: url(../images/active_tab_back.webp);
@@ -2978,6 +2991,7 @@ nav#controls,
       text-align: center;
       margin: 5px 0px 0px 0px;
     }
+
 
     li.combatant {
       border-radius: 0px;

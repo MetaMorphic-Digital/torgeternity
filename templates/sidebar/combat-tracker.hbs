@@ -81,14 +81,33 @@
     </li>
   {{/inline}}
 
+  {{#*inline "oneTurn"}}
+    {{#if isGroup}}
+      <li>
+        <h3 class="combatantGroup">{{name}}<button type="button"
+            class="inline-control combatant-control icon fa-solid fa-xmark"
+            data-action="deleteGroup" data-tooltip="Delete Group" data-combatant-group-id="{{id}}"></button></h3>
+        <ol>
+          {{#each members}}
+            {{> combatant}}
+          {{/each}}
+        </ol>
+      </li>
+    {{else}}
+      {{#unless group}}
+        {{> combatant}}
+      {{/unless}}
+    {{/if}}
+  {{/inline}}
+
   {{#each activeTurns}}
-    {{> combatant}}
+    {{> oneTurn}}
   {{/each}}
 
   {{#if waiting}}
     <h3 class="waiting">{{localize 'torgeternity.combat.waitingCombatants'}}</h3>
     {{#each waiting}}
-      {{> combatant}}
+      {{> oneTurn}}
     {{/each}}
   {{/if}}
 </ol>
