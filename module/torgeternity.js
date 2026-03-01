@@ -9,7 +9,6 @@ import TorgeternityActorSheet from './sheets/torgeternityActorSheet.js';
 import { preloadTemplates } from './preloadTemplates.js';
 import torgeternityCombat from './dramaticScene/torgeternityCombat.js';
 import torgeternityCombatTracker from './dramaticScene/torgeternityCombatTracker.js';
-// Disabling Player List extension until it can be updated for version 10
 import TorgeternityPlayerList from './users/TorgeternityPlayerList.js';
 import torgeternitySceneConfig from './torgeternitySceneConfig.js';
 import torgeternityNav from './torgeternityNav.js';

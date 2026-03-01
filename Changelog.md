@@ -6,6 +6,8 @@
 - Started work on getting Groups of Combatants working. (no sorting yet).
 - Get "Torg" banner in scene control back to its previous larger size.
 - Move code out of torgeternity.js file into more appropriate other files (reducing Technical Debt, you might have heard of it).
+- Update all github URLs to point to 'MetaMorphic-Digital' instead of 'gmmatt'.
+- The ChatLog entries now hold all dice rolled so far for each test so that Dice-So-Nice will display all the dice being rolled.
 
 ## 13.24.1 - Mod column in skills list & AE toggle tooltips
 

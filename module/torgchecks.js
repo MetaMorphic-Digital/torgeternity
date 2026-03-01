@@ -30,6 +30,8 @@ export async function renderSkillChat(test, origChatMessage) {
 
   if (CONFIG.debug.torgtestrender) console.debug('renderSkillChat', test);
 
+  const dicerolled = test.dicerolled ? test.dicerolled : test.diceroll ? [test.diceroll] : [];
+
   for (const [key, value] of Object.entries(test)) {
     if (typeof value !== 'string' || !value.length) continue;
     const num = Number(value);
@@ -102,6 +104,7 @@ export async function renderSkillChat(test, origChatMessage) {
       const dice = test.unskilledTest ? '1d20x10' : '1d20x10x20';
 
       test.diceroll = await new Roll(dice).evaluate();
+      dicerolled.push(test.diceroll);
       if (test.isFav && test.disfavored) {
         test.isFav = false;
         test.disfavored = false;
@@ -586,6 +589,7 @@ export async function renderSkillChat(test, origChatMessage) {
           // Add BDs if applicable as this should only be rolled if the test is successful
           if (target.addBDs && !test.explicitBonus) {
             const iteratedRoll = await rollBonusDie(test.trademark, target.addBDs);
+            dicerolled.push(iteratedRoll);
             const bdDamage = iteratedRoll.total;
             test.bonusDiceList = test.bonusDiceList ? test.bonusDiceList.concat(iteratedRoll.dice[0].results) : iteratedRoll.dice[0].results;
             target.amountBD += target.addBDs;
@@ -691,13 +695,14 @@ export async function renderSkillChat(test, origChatMessage) {
   } // for each target
 
   // Don't store `test.diceroll` inside the chat message
-  const rolls = test.diceroll ? [test.diceroll] : [];
+  const newroll = test.diceroll;
   delete test.diceroll;
 
   const rollMode = game.settings.get("core", "rollMode");
   const flavor = (rollMode === 'publicroll') ? '' : game.i18n.localize(CONFIG.Dice.rollModes[rollMode].label);
   let message;
   if (origChatMessage) {
+    const rolls = dicerolled ? origChatMessage.rolls.concat(dicerolled) : origChatMessage.rolls;
     message = origChatMessage.update({
       rolls,
       flavor,
@@ -713,7 +718,7 @@ export async function renderSkillChat(test, origChatMessage) {
     message = ChatMessage.create({
       speaker: ChatMessage.getSpeaker({ actor: testActor }),
       owner: test.actor,  // actually UUID
-      rolls,
+      rolls: dicerolled,
       flavor,
       flags: {
         torgeternity: {
