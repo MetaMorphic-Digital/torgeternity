@@ -135,44 +135,37 @@ Hooks.once('init', async function () {
   // all settings after config
   registerTorgSettings();
   // ---register items and actors
-  foundry.documents.collections.Items.unregisterSheet('core', foundry.appv1.sheets.ItemSheet);
   foundry.documents.collections.Items.registerSheet('torgeternity', TorgeternityItemSheet, {
     label: "Torg Eternity Item Sheet",
     makeDefault: true,
   });
 
-  foundry.documents.collections.Actors.unregisterSheet('core', foundry.appv1.sheets.ActorSheet);
   foundry.documents.collections.Actors.registerSheet('torgeternity', TorgeternityActorSheet, {
     label: "Torg Eternity Actor Sheet",
     makeDefault: true,
   });
 
   // ---register cards
-  foundry.applications.apps.DocumentSheetConfig.unregisterSheet(Cards, 'core', foundry.applications.sheets.CardHandConfig);
   foundry.applications.apps.DocumentSheetConfig.registerSheet(Cards, 'torgeternity', torgeternityPlayerHand, {
     label: 'Torg Eternity Player Hand',
     types: ['hand'],
     makeDefault: true,
   });
-  foundry.applications.apps.DocumentSheetConfig.unregisterSheet(Cards, 'core', foundry.applications.sheets.CardPileConfig);
   foundry.applications.apps.DocumentSheetConfig.registerSheet(Cards, 'torgeternity', torgeternityPile, {
     label: 'Torg Eternity Pile',
     types: ['pile'],
     makeDefault: true,
   });
-  foundry.applications.apps.DocumentSheetConfig.unregisterSheet(Cards, 'core', foundry.applications.sheets.CardDeckConfig);
   foundry.applications.apps.DocumentSheetConfig.registerSheet(Cards, 'torgeternity', torgeternityDeck, {
     label: 'Torg Eternity Deck',
     types: ['deck'],
     makeDefault: true,
   });
-  foundry.applications.apps.DocumentSheetConfig.unregisterSheet(Card, 'core', foundry.applications.sheets.CardConfig);
   foundry.applications.apps.DocumentSheetConfig.registerSheet(Card, 'torgeternity', torgeternityCardConfig, {
     label: 'Torg Eternity Card Configuration',
     types: ['destiny', 'drama', 'cosm'],
     makeDefault: true,
   });
-  foundry.applications.apps.DocumentSheetConfig.unregisterSheet(ActiveEffect, 'core', foundry.applications.sheets.ActiveEffectConfig);
   foundry.applications.apps.DocumentSheetConfig.registerSheet(ActiveEffect, 'torgeternity', TorgActiveEffectConfig, {
     label: 'Torg Active Effect Configuration',
     makeDefault: true,
