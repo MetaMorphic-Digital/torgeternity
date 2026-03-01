@@ -10,12 +10,25 @@ export default function initTorgControlButtons() {
    */
   CONFIG.Canvas.layers.torgeternity = { layerClass: foundry.canvas.layers.ControlsLayer, group: 'primary' };
 
+  Hooks.on('renderSceneControls', (sceneControls, html, context, options) => {
+    // getSceneControlButtons doesn't allow an IMG for the button.
+    //if (!options.isFirstRender) return;
+
+    const parent = html.querySelector('button[data-control="torg"]');
+    if (!parent || parent.hasChildNodes()) return;
+
+    const image = document.createElement('img');
+    image.classList.add('torgIcon');
+    image.src = 'systems/torgeternity/images/te-logo.webp';
+    parent.appendChild(image);
+  })
+
   Hooks.on('getSceneControlButtons', (controls) => {
 
     controls.torg = {
       name: 'torg',
       title: 'TORG',
-      icon: 'torg',
+      icon: 'torg',  // background set to the correct image via CSS
       layer: 'torgeternity',
       //activeTool: "playerHand",  // It will trigger the tool button!
       tools: {

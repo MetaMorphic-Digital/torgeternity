@@ -529,10 +529,13 @@ Hooks.on("renderSettings", async (app, html) => {
   })
 })
 
+/*
+ * Enforce Light theme for journals
+ */
 Hooks.on('renderJournalEntrySheet', (sheet, element, document, options) => {
   element?.classList.add('themed', 'theme-light');
 })
-
+// and for page editor app
 Hooks.on('renderJournalEntryPageSheet', (sheet, element, document, options) => {
   element?.classList.add('themed', 'theme-light');
 })
@@ -563,18 +566,6 @@ function showWelcomeMessage() {
     }
   });
 }
-
-Hooks.on('renderSceneControls', (sceneControls, html, context, options) => {
-  //if (!options.isFirstRender) return;
-
-  const parent = html.querySelector('button[data-control="torg"]');
-  if (!parent || parent.hasChildNodes()) return;
-
-  const image = document.createElement('img');
-  image.classList.add('torgIcon');
-  image.src = 'systems/torgeternity/images/te-logo.webp';
-  parent.appendChild(image);
-})
 
 /*
  * External Module Support
