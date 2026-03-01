@@ -30,7 +30,7 @@ import initTorgControlButtons from './controlButtons.js';
 import createTorgShortcuts from './keybinding.js';
 import GMScreen from './GMScreen.js';
 import { setUpCardPiles } from './cards/setUpCardPiles.js';
-import { explode, reroll } from './explode.js';
+import { TorgDie } from './torgdie.js';
 import { activateStandartScene } from './activateStandartScene.js';
 import { torgMigration } from './migrations.js';
 import initTextEdidor from './initTextEditor.js';
@@ -83,6 +83,7 @@ Hooks.once('init', async function () {
   CONFIG.Token.rulerClass = TorgEternityTokenRuler;
   CONFIG.Token.objectClass = TorgEternityToken;
   CONFIG.Scene.documentClass = TorgeternityScene;
+  CONFIG.Dice.terms.d = TorgDie;
 
   // Indexable Compendiums
   CONFIG.Actor.compendiumIndexFields.push(
@@ -359,10 +360,6 @@ Hooks.on('ready', async function () {
 
   // migration script
   if (game.user.isGM) torgMigration();
-
-  // monkey-patch explosion method for die rolls
-  foundry.dice.terms.Die.prototype.explode = explode;
-  foundry.dice.terms.Die.prototype.reroll = reroll;
 
   // adding gmScreen to UI
   ui.GMScreen = new GMScreen();
