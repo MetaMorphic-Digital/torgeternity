@@ -17,6 +17,7 @@ import { registerTorgSettings } from './settings.js';
 import { rollAttack, rollPower, TestResult } from './torgchecks.js';
 import { modifyTokenBars } from './tokenBars.js';
 import TorgCombatant from './dramaticScene/torgeternityCombatant.js';
+import TorgCombatantGroup from './dramaticScene/torgeternityCombatantGroup.js';
 import { registerDiceSoNice } from './modsupport/dice-so-nice.js';
 import torgeternityPlayerHand from './cards/torgeternityPlayerHand.js';
 import torgeternityPile from './cards/torgeternityPile.js';
@@ -105,6 +106,7 @@ Hooks.once('init', async function () {
   CONFIG.ui.combat = torgeternityCombatTracker;
   CONFIG.Combatant.documentClass = TorgCombatant;
   CONFIG.Combatant.dataModels.base = TorgCombatantData;
+  CONFIG.CombatantGroup.documentClass = TorgCombatantGroup;
   CONFIG.ChatMessage.documentClass = ChatMessageTorg;
 
   // ----scenes

@@ -34,6 +34,7 @@ export default class torgeternityCombatTracker extends foundry.applications.side
       "dramaSetback": torgeternityCombatTracker.#onDramaSetback,
       "dramaStymied": torgeternityCombatTracker.#onDramaStymied,
       "dramaSurge": torgeternityCombatTracker.#onDramaSurge,
+      "deleteGroup": torgeternityCombatTracker.#askDeleteGroup,
     }
   }
 
@@ -68,6 +69,22 @@ export default class torgeternityCombatTracker extends foundry.applications.side
     if (!this.viewed) return;
     this.viewed.updateCurrentDisposition();
     context.activeTurns = context.turns?.filter(c => !c.isWaiting) ?? [];
+    const combat = this.viewed;
+    if (!combat) return;
+
+    let index = combat.turns.length;
+    for (const group of combat.groups) {
+      let members = [];
+      for (const combatant of group.members)
+        members.push(await this._prepareTurnContext(combat, combatant, index++));
+
+      context.activeTurns.push({
+        id: group.id,
+        name: group.name,
+        isGroup: true,
+        members
+      });
+    }
     context.waiting = context.turns?.filter(c => c.isWaiting) ?? [];
   }
 
@@ -100,6 +117,7 @@ export default class torgeternityCombatTracker extends foundry.applications.side
       [CONST.TOKEN_DISPOSITIONS.FRIENDLY]: "friendly",
     }
     context.dsrStage = combatant.flags?.torgeternity?.dsrStage;
+    context.group = combatant.group;
 
     // Remove "active" class from combatants since we don't use it, 
     // and Foundry's core CSS causes it to mess up the card hover function.
@@ -127,13 +145,62 @@ export default class torgeternityCombatTracker extends foundry.applications.side
       icon: '<i class="fa-solid fa-random"></i>',
       condition: game.user.isGM && !!this.viewed,
       callback: () => this.viewed.resetDramaDeck()
+    }, {
+      name: "torgeternity.CombatantGroup.newGroup",
+      icon: '<i class="fa-solid fa-random"></i>',
+      condition: game.user.isGM && !!this.viewed,
+      callback: async () => {
+        const groupName = await foundry.applications.api.DialogV2.prompt({
+          window: { title: "Combatant Group Creation" },
+          content: '<input name="groupName" type="string" autofocus>',
+          ok: {
+            label: "Create Group",
+            callback: (event, button, dialog) => button.form.elements.groupName.value
+          }
+        });
+        if (groupName) this.viewed.createGroup(groupName);
+      }
     });
     return options;
   }
 
   _getEntryContextOptions() {
-    return super._getEntryContextOptions().filter(
-      opt => opt.name !== 'COMBAT.CombatantReroll' && opt.name !== 'COMBAT.CombatantClear')
+    const getCombatant = li => this.viewed.combatants.get(li.dataset.combatantId);
+    function canAddToGroup(li) {
+      const combatant = getCombatant(li);
+      return !combatant?.group &&
+        !!combat.groups.find(group => group.disposition === undefined || group.disposition === combatant.token.disposition);
+    }
+
+    const options = super._getEntryContextOptions().filter(
+      opt => opt.name !== 'COMBAT.CombatantReroll' && opt.name !== 'COMBAT.CombatantClear');
+
+    const combat = this.viewed;
+
+    options.push(
+      {
+        name: "torgeternity.CombatantGroup.removeFromGroup",
+        icon: '<i class="fa-solid fa-xmark"></i>',
+        condition: li => game.user.isGM && !!this.viewed && getCombatant(li).group,
+        callback: async li => {
+          const combatant = getCombatant(li);
+          combatant.group.removeCombatant(combatant);
+        }
+      },
+      {
+        name: "torgeternity.CombatantGroup.addToGroup",
+        icon: '<i class="fa-solid google-plus"></i>',
+        condition: li => game.user.isGM && !!this.viewed && canAddToGroup(li),
+        callback: torgeternityCombatTracker.#askAddToGroup.bind(this, false),
+      },
+      {
+        name: "torgeternity.CombatantGroup.addAllToGroup",
+        icon: '<i class="fa-solid google-plus"></i>',
+        condition: li => game.user.isGM && !!this.viewed && canAddToGroup(li),
+        callback: torgeternityCombatTracker.#askAddToGroup.bind(this, true),
+      })
+
+    return options;
   }
 
   /**
@@ -302,5 +369,58 @@ export default class torgeternityCombatTracker extends foundry.applications.side
    */
   static #onDramaSurge(_event, button) {
     this.viewed.dramaSurge(button.dataset.faction)
+  }
+
+  static async #askDeleteGroup(event, button) {
+    const group = this.viewed.groups.get(button.dataset.combatantGroupId);
+    if (!group) return;
+    if (await foundry.applications.api.DialogV2.confirm({
+      content: game.i18n.format('torgeternity.CombatantGroup.reallyDelete', group.name),
+      rejectClose: false,
+      modal: true
+    }))
+      return this.viewed.deleteGroup(group);
+  }
+
+  static async #askAddToGroup(askAll, li) {
+    const combat = this.viewed;
+    const combatant = combat.combatants.get(li.dataset.combatantId); // getCombatant(li)
+    let combatants;
+    if (askAll) {
+      if (combatant.actor.type === 'stormknight') {
+        combatants = combat.combatants.filter(combatant => combatant.actor.type === 'stormknight');
+      } else {
+        const matchid = combatant.actor._source._id;
+        combatants = combat.combatants.filter(combatant => combatant.actor._source._id === matchid);
+      }
+    } else
+      combatants = [combatant];
+
+    const validDisposition = combatant.token.disposition;
+    const validGroups = combat.groups.filter(group => group.disposition === undefined || group.disposition === validDisposition);
+    if (validGroups.length < 1)
+      return ui.notifications.info('torgeternity.CombatantGroup.noValidGroup', { localize: true });
+
+    // Only one group? Then add immediately to that group
+    if (validGroups.length === 1)
+      return combat.groups.contents[0].addCombatants(combatants);
+
+    const select = foundry.applications.fields.createSelectInput({
+      name: 'groupName',
+      options: validGroups.map(group => { return { value: group.id, label: group.name } })
+    });
+    const groupId = await foundry.applications.api.DialogV2.prompt({
+      window: { title: "torgeternity.CombatantGroup.whichGroup" },
+      content: select.outerHTML,
+      ok: {
+        label: "torgeternity.submit.apply",
+        callback: (event, button, dialog) => button.form.elements.groupName.value
+      }
+    });
+
+    if (!groupId) return;
+    const group = combat.groups.get(groupId);
+    if (!group) return;
+    return group.addCombatants(combatants);
   }
 }

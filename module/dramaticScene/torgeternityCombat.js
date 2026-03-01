@@ -158,6 +158,22 @@ export default class TorgCombat extends Combat {
   }
 
   /**
+   * 
+   * @param {String} groupName 
+   */
+  async createGroup(groupName) {
+    return foundry.documents.CombatantGroup.implementation.create({ name: groupName }, { parent: this });
+  }
+
+  /**
+   * 
+   * @param {TorgCombatantGroup} group 
+   */
+  async deleteGroup(group) {
+    return group.delete();
+  }
+
+  /**
    * Extra work when a drama card is drawn
    */
 
@@ -484,8 +500,8 @@ export default class TorgCombat extends Combat {
 
   // Sort by initiative, and then by name.
   _sortCombatants(a, b) {
-    const ia = Number.isNumeric(a.initiative) ? a.initiative : -Infinity;
-    const ib = Number.isNumeric(b.initiative) ? b.initiative : -Infinity;
+    const ia = (a.group && Number.isNumeric(a.group.initiative)) ? a.group.initiative : Number.isNumeric(a.initiative) ? a.initiative : -Infinity;
+    const ib = (b.group && Number.isNumeric(b.group.initiative)) ? b.group.initiative : Number.isNumeric(b.initiative) ? b.initiative : -Infinity;
     if (ia === ib)
       return (a.name < b.name) ? -1 : 1;
     else

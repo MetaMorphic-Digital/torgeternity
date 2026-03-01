@@ -1445,6 +1445,15 @@
         "buttonTitle": "MacroHub",
         "title": "The Torg Eternity Macro Hub"
       }
+    },
+    "CombatantGroup": {
+      "whichGroup": "Which Group?",
+      "reallyDelete": "Really delete group '{group}?",
+      "addToGroup": "Add to Group",
+      "addAllToGroup": "Add All of this type to Group",
+      "removeFromGroup": "Remove from Group",
+      "newGroup": "Create New Combat Group",
+      "noValidGroup": "No valid group for this combatant"
     }
   },
   "SCENE.FIELDS": {

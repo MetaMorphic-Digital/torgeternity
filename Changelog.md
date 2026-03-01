@@ -3,6 +3,7 @@
 ## NEXT
 
 - Use `enricher#onRender` as the preferred way to set event handlers on inline enrichers.
+- Started work on getting Groups of Combatants working. (no sorting yet)
 
 ## 13.24.1 - Mod column in skills list & AE toggle tooltips
 
