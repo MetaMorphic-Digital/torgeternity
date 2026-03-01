@@ -71,7 +71,7 @@ const attributeSetSchema = () => new fields.SetField(
  * @param {SetField(StringField)} applyVsTrait Apply this effect to the item if the target has one of these traits.
  * @param {SetField(StringField)} skillsFavor Wether a skill is favor by this active effect
  */
-export class TorgActiveEffectData extends(foundry.data.ActiveEffectTypeDataModel ?? foundry.abstract.TypeDataModel) {
+export class TorgActiveEffectData extends (foundry.data.ActiveEffectTypeDataModel ?? foundry.abstract.TypeDataModel) {
   // Foundry 14 - change base class to foundry.data.ActiveEffectTypeDataModel
 
   static LOCALIZATION_PREFIXES = ["torgeternity.activeEffect"];
@@ -111,10 +111,8 @@ export class TorgActiveEffectData extends(foundry.data.ActiveEffectTypeDataModel
   }
 
   static migrateData(source) {
-    if (source.applyIfAttackTrait) source.applyIfAttackTrait = source.applyIfAttackTrait.map(t => (t ===
-      'supernnaturalEvil') ? 'supernaturalEvil' : t)
-    if (source.applyIfDefendTrait) source.applyIfDefendTrait = source.applyIfDefendTrait.map(t => (t ===
-      'supernnaturalEvil') ? 'supernaturalEvil' : t)
+    if (source.applyIfAttackTrait) source.applyIfAttackTrait = source.applyIfAttackTrait.map(t => (t === 'supernnaturalEvil') ? 'supernaturalEvil' : t)
+    if (source.applyIfDefendTrait) source.applyIfDefendTrait = source.applyIfDefendTrait.map(t => (t === 'supernnaturalEvil') ? 'supernaturalEvil' : t)
     const migrated = super.migrateData(source);
     return migrated
   }
@@ -127,5 +125,4 @@ export class TorgActiveEffectData extends(foundry.data.ActiveEffectTypeDataModel
     // Don't apply the AE to the owning actor if it is being transferred on an attack
     return this.system && (this.system.transferOnAttack || this.system.transferOnOutcome);
   }
-
 }
