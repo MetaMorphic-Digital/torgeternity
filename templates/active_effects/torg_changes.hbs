@@ -1,11 +1,13 @@
-<section class="tab changes{{#if tab.active}} active{{/if}} torgeternity-active-effects" data-group="{{tab.group}}" data-tab="{{tab.id}}">
-
+<section class="tab changes{{#if tab.active}} active{{/if}} torgeternity-active-effects scrollable" data-group="{{tab.group}}" data-tab="{{tab.id}}">
+<div class="torgchange-section">
+<h3>Skills:</h3>
 <div>
-  Change on Skills adds:
+  <h4>Change on Skills adds:</h4>
   <ol class="scrollable">
     {{#each source.system.skillsAdds as |changeSkillAdd i|}}
     {{#with ../systemFields.skillsAdds as |skillAddsChanges|}}
     <li class="change-row" data-skill-adds-index="{{i}}">
+      <input type="hidden" name="system.skillsAdds.{{i}}._id" value="{{changeSkillAdd._id}}"/>
       <select name="system.skillsAdds.{{i}}.key">
         {{selectOptions skillAddsChanges.element.fields.key.choices selected=changeSkillAdd.key localize=true}}
       </select>
@@ -23,12 +25,16 @@
 <div>
   {{formGroup systemFields.skillsFavor value=source.system.skillsFavor rootId=rootId localize=true name="system.skillsFavor"}}
 </div>
+</div>
+<div class="torgchange-section">
+  <h3>Attributes:</h3>
 <div>
-  Change on Attribute Value:
+  <h4>Change on Attribute Value:</h4>
   <ol class="scrollable">
     {{#each source.system.attributesAdds as |changeAttrAdds i|}}
     {{#with ../systemFields.attributesAdds as |attributesChanges|}}
     <li class="change-row" data-attributes-adds-index="{{i}}">
+      <input type="hidden" name="system.attributesAdds.{{i}}._id" value="{{changeAttrAdds._id}}" />
       <select name="system.attributesAdds.{{i}}.key">
         {{selectOptions attributesChanges.element.fields.key.choices selected=changeAttrAdds.key localize=true}}
       </select>
@@ -42,10 +48,11 @@
     {{/with}}
     {{/each}}
   </ol>
-  <button type="button" class="change-button" data-action="addAttributesChange">Add a skill change</button>
+  <button type="button" class="change-button" data-action="addAttributesChange">Add an attribute change</button>
 </div>
 <div>
   {{formGroup systemFields.attributesFavor value=source.system.attributesFavor rootId=rootId localize=true
   name="system.attributesFavor"}}
+</div>
 </div>
 </section>

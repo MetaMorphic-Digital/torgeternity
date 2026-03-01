@@ -11,7 +11,6 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
    * @returns {object} the migrated data object
    */
   static migrateData(source) {
-    console.log("Migrating Data", source)
     if (Object.hasOwn(source, 'changes')) {
       const migrationDictionary = {
         // SK and Threat attribute modifiers
@@ -96,9 +95,9 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
     if(source.system?.skillsAdds && source.changes !== undefined){
       const changesToUpdate = source.changes.filter((c) => (c.key.includes('skills') && !c.key.includes('.isFav')) ? false : true)
       source.system.skillsAdds.forEach((sa) => {
-        const changeExists = changesToUpdate.find((c) => c.key === sa.key)
+        const changeExists = changesToUpdate.find((c) => c._id === sa._id)
         if(!changeExists){
-          changesToUpdate.push(sa)
+          changesToUpdate.push({...sa, _id: foundry.utils.randomID()})
         }
       })
       source.changes = changesToUpdate
@@ -122,9 +121,9 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
     if(source.system?.attributesAdds && source.changes !== undefined){
       const changesToUpdate = source.changes.filter((c) => (c.key.includes('attributes') && !c.key.includes('.isFav')) ? false : true)
       source.system.attributesAdds.forEach((aa) => {
-        const changeExists = changesToUpdate.find((c) => c.key === aa.key)
+        const changeExists = changesToUpdate.find((c) => c._id === aa._id)
         if(!changeExists){
-          changesToUpdate.push(aa)
+          changesToUpdate.push({...aa, _id: foundry.utils.randomID()})
         }
       })
       source.changes = changesToUpdate
