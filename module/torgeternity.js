@@ -15,7 +15,6 @@ import torgeternitySceneConfig from './torgeternitySceneConfig.js';
 import torgeternityNav from './torgeternityNav.js';
 import { registerTorgSettings } from './settings.js';
 import { rollAttack, rollPower, TestResult } from './torgchecks.js';
-import { modifyTokenBars } from './tokenBars.js';
 import TorgCombatant from './dramaticScene/torgeternityCombatant.js';
 import TorgCombatantGroup from './dramaticScene/torgeternityCombatantGroup.js';
 import { registerDiceSoNice } from './modsupport/dice-so-nice.js';
@@ -327,7 +326,6 @@ Hooks.once('setup', async function () {
   // Choose the best document type for creation (minimise clicks)
   CONFIG.Actor.defaultType = (game.user.isGM) ? 'threat' : 'stormknight';
 
-  modifyTokenBars();
   InitEnrichers();
   // changing stutus marker
   // preparing status marker
@@ -354,10 +352,6 @@ Hooks.once('setup', async function () {
 
   if (game.settings.get('torgeternity', 'showEffectsPanel'))
     new EffectsPanel();
-});
-
-Hooks.once('diceSoNiceReady', (dice3d) => {
-  registerDiceSoNice(dice3d);
 });
 
 // -------------once everything ready
@@ -838,16 +832,6 @@ async function rollSkillMacro(skillName, attributeName, isInteractionAttack, DND
   return TestDialog.wait(test, { useTargets: true });
 }
 
-// change the generic threat token to match the cosm's one if it's set in the scene
-Hooks.on('preCreateToken', async (document, data, options, userId) => {
-  if (document.texture.src.includes('systems/torgeternity/images/characters/threat')) {
-    const cosm = canvas.scene.cosm;
-    // not cosmTypes, because that includes 'none'
-    if (cosm && Object.hasOwn(CONFIG.torgeternity.cosmDecks, cosm))
-      document.updateSource({ 'texture.src': 'systems/torgeternity/images/characters/threat-' + cosm + '.Token.webp' });
-  }
-});
-
 Hooks.on('getActorContextOptions', async (actorDir, menuItems) => {
 
   menuItems.unshift({
@@ -974,6 +958,11 @@ function TorgIsSvg(value) {
   return value.endsWith('.svg') ? 'svg' : '';
 }
 
+/*
+ * External Module Support
+ */
 Hooks.once("item-piles-ready", setupItemPiles);
 
 Hooks.once('tokenActionHudCoreApiReady', setupTokenActionHud);
+
+Hooks.once('diceSoNiceReady', dice3d => registerDiceSoNice(dice3d));
