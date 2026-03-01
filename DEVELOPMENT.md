@@ -43,6 +43,6 @@ it is also possible to directly edit the yml files in src/packs
 #### on Foundry:
 - use [this link](https://foundryvtt.com/packages/torgeternity/edit)
   - Version Number: natural
-  - Package Manifest URL: release-URL with system.json, for example: https://github.com/gmmatt/torgeternity/releases/download/3.6.2/system.json
-  - Release Notes: From 3.7.0 it's always https://github.com/gmmatt/torgeternity/blob/master/Changelog.md
+  - Package Manifest URL: release-URL with system.json, for example: https://github.com/MetaMorphic-Digital/torgeternity/releases/download/3.6.2/system.json
+  - Release Notes: From 3.7.0 it's always https://github.com/MetaMorphic-Digital/torgeternity/blob/master/Changelog.md
   - Foundry-Versions like in system.json

@@ -498,7 +498,7 @@ Hooks.on("renderSettings", async (app, html) => {
             label: 'torgeternity.dialogWindow.externalLinks.bug',
             callback: () => {
               ui.notifications.info(game.i18n.localize('torgeternity.notifications.openIssue'));
-              window.open('https://github.com/gmmatt/torgeternity/issues/new', '_blank');
+              window.open('https://github.com/MetaMorphic-Digital/torgeternity/issues/new', '_blank');
             },
           },
           {
