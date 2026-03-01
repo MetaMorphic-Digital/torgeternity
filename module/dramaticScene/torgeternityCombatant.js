@@ -43,4 +43,11 @@ export default class TorgCombatant extends Combatant {
   async setCurrentBonus(value) {
     return this.update({ 'system.multiAction': value });
   }
+
+  _prepareGroup() {
+    super._prepareGroup();
+    if (!this.group) return;
+    this.group.isWaiting &&= this.isWaiting;
+    this.group.turnTaken &&= this.turnTaken;
+  }
 }

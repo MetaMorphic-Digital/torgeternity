@@ -81,18 +81,42 @@
     </li>
   {{/inline}}
 
-  {{#*inline "oneTurn"}}
-    {{#if isGroup}}
-      <li>
-        <h3 class="combatantGroup">{{name}}<button type="button"
-            class="inline-control combatant-control icon fa-solid fa-xmark"
-            data-action="deleteGroup" data-tooltip="Delete Group" data-combatant-group-id="{{id}}"></button></h3>
+  {{#*inline "combatantGroup"}}
+    <li class="combatantGroup" data-group-id="{{id}}">
+      <details {{isOpen}} data-action="toggleGroup">
+        <summary>
+          <h3 class="disposition{{disposition}}">
+            {{#if hidden}}
+              <a class="fa-solid fa-eye-slash" data-action="toggleHiddenGroup"></a>
+            {{/if}}
+            {{name}}
+            {{#if defeated}}
+              <a class="fa-solid fa-skull" data-action="toggleDefeatedGroup"></a>
+            {{else}}
+              {{#if defeatedCount}} ({{defeatedCount}} of {{members.length}} <a class="fa-solid fa-skull"
+                  data-action="toggleDefeatedGroup"></a>)
+              {{/if}}
+            {{/if}}
+            {{#if turnTaken}}
+              <a class="fa-solid fa-check has-played"></a>
+            {{/if}}
+            <button type="button"
+              class="inline-control combatant-control icon fa-solid fa-xmark"
+              data-action="deleteGroup" data-tooltip="Delete Group" data-combatant-group-id="{{id}}"></button>
+          </h3>
+        </summary>
         <ol>
           {{#each members}}
             {{> combatant}}
           {{/each}}
         </ol>
-      </li>
+      </details>
+    </li>
+  {{/inline}}
+
+  {{#*inline "oneTurn"}}
+    {{#if isGroup}}
+      {{> combatantGroup}}
     {{else}}
       {{#unless group}}
         {{> combatant}}

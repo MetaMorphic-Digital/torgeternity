@@ -2981,12 +2981,23 @@ nav#controls,
 
   ol {
 
-    h3.combatantGroup {
-      padding: 0.4em;
-      background: url(../images/tab-header.webp);
-      background-size: 100% 100%;
-      text-align: center;
-      margin: 5px 0px 0px 0px;
+    li.combatantGroup {
+      summary::marker {
+        content: "";
+      }
+
+      h3 {
+        padding: 0.4em;
+        background: url(../images/tab-header.webp);
+
+        &.disposition-1 {
+          filter: grayscale(0.75);
+        }
+
+        background-size: 100% 100%;
+        text-align: center;
+        margin: 5px 0px 0px 0px;
+      }
 
       button {
         display: inline;

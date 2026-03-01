@@ -35,6 +35,9 @@ export default class torgeternityCombatTracker extends foundry.applications.side
       "dramaStymied": torgeternityCombatTracker.#onDramaStymied,
       "dramaSurge": torgeternityCombatTracker.#onDramaSurge,
       "deleteGroup": torgeternityCombatTracker.#askDeleteGroup,
+      "toggleGroup": torgeternityCombatTracker.#onToggleGroup,
+      "toggleHiddenGroup": torgeternityCombatTracker.#onToggleHiddenGroup,
+      "toggleDefeatedGroup": torgeternityCombatTracker.#onToggleDefeatedGroup,
     }
   }
 
@@ -68,24 +71,51 @@ export default class torgeternityCombatTracker extends foundry.applications.side
     await super._prepareTrackerContext(context, options);
     if (!this.viewed) return;
     this.viewed.updateCurrentDisposition();
-    context.activeTurns = context.turns?.filter(c => !c.isWaiting) ?? [];
     const combat = this.viewed;
     if (!combat) return;
 
-    let index = combat.turns.length;
+    await this._prepareGroupContext(context, combat);
+
+    context.activeTurns = context.turns?.filter(c => !c.isWaiting) ?? [];
+    context.waiting = context.turns?.filter(c => c.isWaiting && (c.isGroup || !c.group)) ?? [];
+  }
+
+  async _prepareGroupContext(context, combat) {
+    let index = context.turns.length;
+    const whoFirst = await combat.getFlag('torgeternity', 'combatFirstDisposition');
+
     for (const group of combat.groups) {
       let members = [];
       for (const combatant of group.members)
         members.push(await this._prepareTurnContext(combat, combatant, index++));
 
-      context.activeTurns.push({
+      const groupTurn = {
         id: group.id,
         name: group.name,
+        disposition: group.disposition,
+        isOpen: group.isOpen ? "open" : "",
         isGroup: true,
-        members
-      });
+        defeated: group.members.size && group.defeated,
+        hidden: group.hidden,
+        isWaiting: group.isWaiting,
+        turnTaken: group.turnTaken,
+        defeatedCount: group.members.filter(m => m.isDefeated).size, // Set
+        members,
+      };
+
+      // Find correct position in context.turns
+      let done = false;
+      const groupInit = (group.disposition === CONST.TOKEN_DISPOSITIONS.NEUTRAL) ? 1 : (group.disposition === whoFirst) ? 3 : 2;
+      for (const [idx, entry] of Object.entries(context.turns)) {
+        if (entry.isGroup || entry.group) continue;
+        if (groupInit > Number(entry.initiative)) {
+          context.turns.splice(idx, 0, groupTurn);
+          done = true;
+          break;
+        }
+      }
+      if (!done) context.turns.push(groupTurn);
     }
-    context.waiting = context.turns?.filter(c => c.isWaiting) ?? [];
   }
 
   async _prepareTurnContext(combat, combatant, index) {
@@ -182,10 +212,7 @@ export default class torgeternityCombatTracker extends foundry.applications.side
         name: "torgeternity.CombatantGroup.removeFromGroup",
         icon: '<i class="fa-solid fa-xmark"></i>',
         condition: li => game.user.isGM && !!this.viewed && getCombatant(li).group,
-        callback: async li => {
-          const combatant = getCombatant(li);
-          combatant.group.removeCombatant(combatant);
-        }
+        callback: async li => getCombatant(li)?.update({ group: null }),
       },
       {
         name: "torgeternity.CombatantGroup.addToGroup",
@@ -382,6 +409,31 @@ export default class torgeternityCombatTracker extends foundry.applications.side
       return this.viewed.deleteGroup(group);
   }
 
+  static async #onToggleGroup(event, button) {
+    const group = this.viewed.groups.get(button.closest('li.combatantGroup')?.dataset.groupId);
+    if (group) group.isOpen = !button.open;
+  }
+
+  static async #onToggleHiddenGroup(event, button) {
+    const group = this.viewed.groups.get(button.closest('li.combatantGroup')?.dataset.groupId);
+    if (!group) return;
+    const newState = !group.hidden;
+    for (const combatant of group.members)
+      combatant.update({ hidden: newState });
+  }
+
+  static async #onToggleDefeatedGroup(event, button) {
+    const group = this.viewed.groups.get(button.closest('li.combatantGroup')?.dataset.groupId);
+    if (!group) return;
+    const isDefeated = !group.defeated;
+    for (const combatant of group.members) {
+      if (combatant.isDefeated === isDefeated) continue;
+      await combatant.update({ defeated: isDefeated });
+      const defeatedId = CONFIG.specialStatusEffects.DEFEATED;
+      await combatant.actor?.toggleStatusEffect(defeatedId, { overlay: true, active: isDefeated });
+    }
+  }
+
   static async #askAddToGroup(askAll, li) {
     const combat = this.viewed;
     const combatant = combat.combatants.get(li.dataset.combatantId); // getCombatant(li)
@@ -402,25 +454,26 @@ export default class torgeternityCombatTracker extends foundry.applications.side
       return ui.notifications.info('torgeternity.CombatantGroup.noValidGroup', { localize: true });
 
     // Only one group? Then add immediately to that group
-    if (validGroups.length === 1)
-      return combat.groups.contents[0].addCombatants(combatants);
-
-    const select = foundry.applications.fields.createSelectInput({
-      name: 'groupName',
-      options: validGroups.map(group => { return { value: group.id, label: group.name } })
-    });
-    const groupId = await foundry.applications.api.DialogV2.prompt({
-      window: { title: "torgeternity.CombatantGroup.whichGroup" },
-      content: select.outerHTML,
-      ok: {
-        label: "torgeternity.submit.apply",
-        callback: (event, button, dialog) => button.form.elements.groupName.value
-      }
-    });
-
-    if (!groupId) return;
-    const group = combat.groups.get(groupId);
-    if (!group) return;
-    return group.addCombatants(combatants);
+    let group;
+    if (validGroups.length === 1) {
+      group = validGroups[0];
+    } else {
+      const select = foundry.applications.fields.createSelectInput({
+        name: 'groupName',
+        options: validGroups.map(group => { return { value: group.id, label: group.name } })
+      });
+      const groupId = await foundry.applications.api.DialogV2.prompt({
+        window: { title: "torgeternity.CombatantGroup.whichGroup" },
+        content: select.outerHTML,
+        ok: {
+          label: "torgeternity.submit.apply",
+          callback: (event, button, dialog) => button.form.elements.groupName.value
+        }
+      });
+      if (!groupId) return;
+      group = combat.groups.get(groupId);
+    }
+    if (group)
+      combatants.map(combatant => combatant.update({ group }));
   }
 }
