@@ -3,11 +3,19 @@
 ## NEXT
 
 - Use `enricher#onRender` as the preferred way to set event handlers on inline enrichers.
-- Started work on getting Groups of Combatants working. (no sorting yet).
 - Get "Torg" banner in scene control back to its previous larger size.
 - Move code out of torgeternity.js file into more appropriate other files (reducing Technical Debt, you might have heard of it).
 - Update all github URLs to point to 'MetaMorphic-Digital' instead of 'gmmatt'.
 - The ChatLog entries now hold all dice rolled so far for each test so that Dice-So-Nice will display all the dice being rolled.
+- Started work on getting **Groups of Combatants** working. (no sorting yet).
+  - Create a new group from the three-dot drop-down menu on the Combat Tracker ("Create New Combat Group")
+  - Right-click on a combatant to add it to a group; or all Combatants for the same base Actor (e.g. all Ghosts) to the same group.
+  - Each group can hold only either Heroes OR villains OR neutrals.
+  - If more than one group is available, then a prompt will allow you to choose which group.
+  - TODO: the group entry shows the number of defeated members in the group (blank until at least 1 defeated).
+  - TODO: show the "turn taken" marker for the group - click to toggle "turn taken" for all group members.
+  - TODO: if ALL members are waiting, then place group in the waiting section - click to toggle "waiting" for all group members.
+  - TODO: The group is placed at the bottom of the group for the group's faction (or the bottom of the combat tracker).
 
 ## 13.24.1 - Mod column in skills list & AE toggle tooltips
 
