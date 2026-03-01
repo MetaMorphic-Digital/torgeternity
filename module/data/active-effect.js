@@ -5,11 +5,10 @@ const fields = foundry.data.fields;
 const toFieldSchema = (choiceList) => new fields.ArrayField(
   new fields.SchemaField({
     key: new fields.StringField({ 
-      //required: true, 
       choices: choiceList, 
-      initial: "" ,
-      blank:true,
-      nullable:true
+      initial: "",
+      blank:false,
+      nullable:false
     }),
     value: new fields.StringField({ initial: "0", blank: true }),
     mode: new fields.NumberField({ 
@@ -51,7 +50,6 @@ export class TorgActiveEffectData extends (foundry.data.ActiveEffectTypeDataMode
   static LOCALIZATION_PREFIXES = ["torgeternity.activeEffect"];
   static defineSchema() {
     const skillAddChoices = Object.fromEntries(Object.entries(CONFIG.torgeternity.skills).map(([k,v]) => [(v+'.adds').replace('torgeternity', 'system'), v]))
-    //const skillFavChoices = Object.fromEntries(Object.entries(CONFIG.torgeternity.skills).map(([k,v]) => [(v).replace('torgeternity', 'system'), v]))
     const attributesAddsChoices = Object.fromEntries(Object.entries(CONFIG.torgeternity.attributeTypes).map(([k,v]) => [(v+'.value').replace('torgeternity', 'system'), v]))
     const attributesFavChoices = Object.fromEntries(Object.entries(CONFIG.torgeternity.attributeTypes).map(([k,v]) => [(v+'.isFav').replace('torgeternity', 'system'), v]))
 
@@ -70,13 +68,12 @@ export class TorgActiveEffectData extends (foundry.data.ActiveEffectTypeDataMode
         applyIfDefendTrait: newTraitsField(),
         combatToggle: new fields.BooleanField({ initial: false, }),
         skillsAdds: toFieldSchema(skillAddChoices),
-        attributesAdds: toFieldSchema(attributesAddsChoices),
+        // attributesAdds: toFieldSchema(attributesAddsChoices),
         skillsFavor: setSkillsSchema(),
-        attributesFavor: toFieldSchema(attributesFavChoices),
-        defensesChanges: toFieldSchema(CONFIG.torgeternity.defenses),
-        otherChanges: toFieldSchema(["system.possibilityPerAct"]),
+        // attributesFavor: toFieldSchema(attributesFavChoices),
+        // defensesChanges: toFieldSchema(CONFIG.torgeternity.defenses),
+        // otherChanges: toFieldSchema(["system.possibilityPerAct"]),
       })
-    //console.log("schema", schema)
     return schema;
   }
 
@@ -95,19 +92,4 @@ export class TorgActiveEffectData extends (foundry.data.ActiveEffectTypeDataMode
     return this.system && (this.system.transferOnAttack || this.system.transferOnOutcome);
   }
 
-  async _preUpdate(changed, options, user) {
-    console.log("[Data] PreUpdate")
-    const result = await super._preUpdate(changed, options, user);
-    // Check if our SetField 'favoredSkills' is being updated
-    if ( "skillsFavor" in (changed.system || {}) ) {
-      const newSkillSet = changed.system.skillsFavor; // This is an Array or Set in v13
-      const effectChanges = Array.from(newSkillSet).map(skillId => ({
-        key: `system.skills.${skillId}.isFav`,
-        value: 'true',
-        mode: CONST.ACTIVE_EFFECT_MODES.OVERRIDE
-      }));
-      changed.changes = [...changed.changes, ...effectChanges]
-    }
-    return result;
-  }
 }

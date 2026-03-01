@@ -11,6 +11,7 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
    * @returns {object} the migrated data object
    */
   static migrateData(source) {
+    console.log("Migrating Data", source)
     if (Object.hasOwn(source, 'changes')) {
       const migrationDictionary = {
         // SK and Threat attribute modifiers
@@ -68,63 +69,82 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
       delete source.flags.torgeternity.testOutcome;
     }
 
+    // Reassign system attributes, attribute, defenses and others to comprehensible foundry changes
     if(!source.changes){
       source.changes = []
     }
-    if(source.system.skillsFavor){
-      source.system.skillsFavor.forEach((sf) => {
-        source.changes.push({
-          key:'system.skills.'+sf+'.isFav',
-          value: 'true',
-          mode: CONST.ACTIVE_EFFECT_MODES.OVERRIDE        
-        })
-      })
+    if(!source.system){
+      source.system = {}
     }
+    if(source.system?.skillsFavor){
+      const changesToUpdate = source.changes.filter((c) => (c.key.includes('skills') && c.key.includes('.isFav')) ? false : true)
+      source.system.skillsFavor.forEach((sf) => {
+        const changeAlreadyExists = changesToUpdate.find(c => c.key.includes(sf)) 
+        if(!changeAlreadyExists){
+          changesToUpdate.push({
+            key:'system.skills.'+sf.replace('skillFavor.', '')+'.isFav',
+            value: 'true',
+            mode: CONST.ACTIVE_EFFECT_MODES.OVERRIDE        
+          })
+        }
+      })
+      source.changes = changesToUpdate
+    }
+    
+    if(source.system?.skillsAdds){
+      const changesToUpdate = source.changes.filter((c) => (c.key.includes('skills') && !c.key.includes('.isFav')) ? false : true)
+      source.system.skillsAdds.forEach((sa) => {
+        const changeExists = changesToUpdate.find((c) => c.key === sa.key)
+        if(!changeExists){
+          changesToUpdate.push(sa)
+        }
+      })
+      source.changes = changesToUpdate
+    }
+
+    // Reassign changes to system skills, attribute, defenses and other to ensure
+    // backward compatibility
     const changesPerType = source.changes?.reduce((changesPerType, change) => {
-      // if(change.key.includes('skills') && change.key.includes('isFav')){
-      //   changesPerType.skillsFavor.push(change.key.replace('system.skills.', '').replace('.isFav', ''))
-      //   return changesPerType
-      // }
-      if(change.key.includes('attributes') && change.key.includes('isFav')){
-        changesPerType.attributesFavor.push(change)
+      if(change.key.includes('skills') && change.key.includes('isFav')){
+        changesPerType.skillsFavor.push(change.key.replace('system.skills.', 'skillFavor.').replace('.isFav', ''))
         return changesPerType
       }
+      // if(change.key.includes('attributes') && change.key.includes('isFav')){
+      //   changesPerType.attributesFavor.push(change)
+      //   return changesPerType
+      // }
       if(change.key.includes('skills') && !change.key.includes('isFav')){
         changesPerType.skillsAdds.push(change)
         return changesPerType
       }
-      if(change.key.includes('attributes')){
-        changesPerType.attributesAdds.push(change)
-        return changesPerType
-      }
-      if(change.key.includes('defenses')){
-        changesPerType.defensesChanges.push(change)
-        return changesPerType
-      }
-      if(change.key.includes('other')){
-        changesPerType.otherChanges.push(change)
-        return changesPerType
-      }
+      // }
+      // if(change.key.includes('attributes')){
+      //   changesPerType.attributesAdds.push(change)
+      //   return changesPerType
+      // }
+      // if(change.key.includes('defenses')){
+      //   changesPerType.defensesChanges.push(change)
+      //   return changesPerType
+      // }
+      // if(change.key.includes('other')){
+      //   changesPerType.otherChanges.push(change)
+      //   return changesPerType
+      // }
       return changesPerType
     }, {
       skillsAdds:[],
       skillsFavor:[],
-      attributesAdds:[],
-      attributesFavor:[],
-      defensesChanges:[],
-      otherChanges:[]
+      // attributesAdds:[],
+      // attributesFavor:[],
+      // defensesChanges:[],
+      // otherChanges:[]
     })
-    if(!source.system){
-      source.system = {}
-    }
     source.system.skillsAdds = changesPerType.skillsAdds ?? []
-    source.system.skillsFavor = source.system.skillsFavor ?? []
-    source.system.attributesAdds = changesPerType.attributesAdds ?? []
-    source.system.attributesFavor = changesPerType.attributesFavor ?? []
-    source.system.defensesChanges = changesPerType.defensesChanges ?? []
-    source.system.otherChanges = changesPerType.otherChanges ?? []
-    console.log("[Document] Data Migration")
-    console.log(source)
+    source.system.skillsFavor = changesPerType.skillsFavor ?? []
+    // source.system.attributesAdds = changesPerType.attributesAdds ?? []
+    // source.system.attributesFavor = changesPerType.attributesFavor ?? []
+    // source.system.defensesChanges = changesPerType.defensesChanges ?? []
+    // source.system.otherChanges = changesPerType.otherChanges ?? []
     return super.migrateData(source);
   }
 

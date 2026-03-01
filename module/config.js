@@ -678,10 +678,10 @@ export function initConfig() {
   }
 
   torgeternity.allSkillsGrouped = {
-    ...Object.entries(torgeternity.combatSkills).reduce((acc, ent) => { acc[ent[0]] = { label: ent[1], group: 'torgeternity.skillGroup.power' }; return acc }, {}),
-    ...Object.entries(torgeternity.powerSkills).reduce((acc, ent) => { acc[ent[0]] = { label: ent[1], group: 'torgeternity.skillGroup.combat' }; return acc }, {}),
-    ...Object.entries(torgeternity.vehiclesSkills).reduce((acc, ent) => { acc[ent[0]] = { label: ent[1], group: 'torgeternity.skillGroup.vehicle' }; return acc }, {}),
-    ...Object.entries(torgeternity.otherSkills).reduce((acc, ent) => { acc[ent[0]] = { label: ent[1], group: 'torgeternity.skillGroup.other' }; return acc }, {}),
+    ...Object.entries(torgeternity.combatSkills).reduce((acc, ent) => { acc['skillFavor.'+ent[0]] = { label: ent[1], group: 'torgeternity.skillGroup.combat' }; return acc }, {}),
+    ...Object.entries(torgeternity.powerSkills).reduce((acc, ent) => { acc['skillFavor.'+ent[0]] = { label: ent[1], group: 'torgeternity.skillGroup.power' }; return acc }, {}),
+    ...Object.entries(torgeternity.vehiclesSkills).reduce((acc, ent) => { acc['skillFavor.'+ent[0]] = { label: ent[1], group: 'torgeternity.skillGroup.vehicle' }; return acc }, {}),
+    ...Object.entries(torgeternity.otherSkills).reduce((acc, ent) => { acc['skillFavor.'+ent[0]] = { label: ent[1], group: 'torgeternity.skillGroup.other' }; return acc }, {}),
   }
 
 
