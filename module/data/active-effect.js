@@ -33,6 +33,19 @@ const setSkillsSchema = () =>  new fields.SetField(
       label: "Skills favoured",
       initial: undefined
     });
+  
+  const attributeSetSchema = () => new fields.SetField(
+    new fields.StringField({
+      blank: false,
+      choices: CONFIG.torgeternity.attributesFavorAndLabel,
+      textSearch: true,
+      trim: true}),
+      {
+      nullable: false,
+      required: true,
+      label: "Attributes favoured",
+      initial: undefined
+      })
 
 
 /**
@@ -68,11 +81,11 @@ export class TorgActiveEffectData extends (foundry.data.ActiveEffectTypeDataMode
         applyIfDefendTrait: newTraitsField(),
         combatToggle: new fields.BooleanField({ initial: false, }),
         skillsAdds: toFieldSchema(skillAddChoices),
-        // attributesAdds: toFieldSchema(attributesAddsChoices),
+        attributesAdds: toFieldSchema(attributesAddsChoices),
         skillsFavor: setSkillsSchema(),
-        // attributesFavor: toFieldSchema(attributesFavChoices),
-        // defensesChanges: toFieldSchema(CONFIG.torgeternity.defenses),
-        // otherChanges: toFieldSchema(["system.possibilityPerAct"]),
+        attributesFavor: attributeSetSchema(),
+        defensesChanges: toFieldSchema(CONFIG.torgeternity.defenses),
+        otherChanges: toFieldSchema(["system.possibilityPerAct"]),
       })
     return schema;
   }
@@ -80,7 +93,10 @@ export class TorgActiveEffectData extends (foundry.data.ActiveEffectTypeDataMode
   static migrateData(source) {
     if (source.applyIfAttackTrait) source.applyIfAttackTrait = source.applyIfAttackTrait.map(t => (t === 'supernnaturalEvil') ? 'supernaturalEvil' : t)
     if (source.applyIfDefendTrait) source.applyIfDefendTrait = source.applyIfDefendTrait.map(t => (t === 'supernnaturalEvil') ? 'supernaturalEvil' : t)
-    return super.migrateData(source);
+    console.log("before AE migrate by foundry", source)
+    const migrated = super.migrateData(source);
+    console.log("After migrate by foundry", migrated)
+    return migrated
   }
 
   /**

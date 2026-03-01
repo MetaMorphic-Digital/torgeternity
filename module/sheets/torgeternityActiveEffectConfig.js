@@ -42,7 +42,9 @@ export default class TorgActiveEffectConfig extends foundry.applications.sheets.
     },
     actions: {
       addSkillAddsChange: this.#onAddSkillAddsChange,
-      deleteSkillAddsChange: this.#onDeleteSkillAddsChange
+      deleteSkillAddsChange: this.#onDeleteSkillAddsChange,
+      addAttributesChange: this.#onAddAttributeChange,
+      deleteAttributesChange: this.#onDeleteAttributesChange
     }
   };
 
@@ -90,6 +92,48 @@ export default class TorgActiveEffectConfig extends foundry.applications.sheets.
         system: {
           ...wholeChange,
           skillsAdds: changes
+        }
+      }
+    });
+  }
+
+  /* ----------------------------------------- */
+  /**
+   * Add a new skill change to the skill changes array
+   * @this {ActiveEffectConfig}
+   * @type {ApplicationClickAction}
+   */
+  static async #onAddAttributeChange() {
+    const submitData = this._processFormData(null, this.form, new FormDataExtended(this.form));
+    const wholeChange = Object.values(submitData.system)
+    const attributesAddsChanges = Object.values(submitData.system.attributesAdds || {});
+    attributesAddsChanges.push({key: "system.attributes.strength.value", value: 0 }); // Push a default value otherwise recounciliation will skip it.
+    return this.submit({updateData: {
+        system: {
+          ...wholeChange,
+          attributesAdds : attributesAddsChanges
+        }
+      }
+    })
+  }
+
+  /* ----------------------------------------- */
+  /**
+   * Delete a change from the skills changes array.
+   * @this {ActiveEffectConfig}
+   * @type {ApplicationClickAction}
+   */
+  static async #onDeleteAttributesChange(event) {
+    const submitData = this._processFormData(null, this.form, new FormDataExtended(this.form));
+    const wholeChange = Object.values(submitData.system)
+    const changes = Object.values(submitData.system.attributesAdds);
+    const row = event.target.closest("li");
+    const index = Number(row.dataset.attributesAddsIndex) || 0;
+    changes.splice(index, 1);
+    return this.submit({updateData: {
+        system: {
+          ...wholeChange,
+          attributesAdds: changes
         }
       }
     });

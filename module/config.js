@@ -684,6 +684,14 @@ export function initConfig() {
     ...Object.entries(torgeternity.otherSkills).reduce((acc, ent) => { acc['skillFavor.'+ent[0]] = { label: ent[1], group: 'torgeternity.skillGroup.other' }; return acc }, {}),
   }
 
+  torgeternity.attributesFavorAndLabel = {
+    "attrFavor.charisma": {label: 'torgeternity.attributes.charisma'},
+    "attrFavor.dexterity": {label: 'torgeternity.attributes.dexterity'},
+    "attrFavor.mind": {label: 'torgeternity.attributes.mind'},
+    "attrFavor.spirit": {label: 'torgeternity.attributes.spirit'},
+    "attrFavor.strength": {label: 'torgeternity.attributes.strength'},
+  }
+
 
   torgeternity.specificItemTraits = {
     // ammunition

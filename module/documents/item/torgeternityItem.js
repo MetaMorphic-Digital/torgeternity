@@ -102,6 +102,7 @@ export default class TorgeternityItem extends foundry.documents.Item {
         source.system.gunnerFixedSkill = parseInt(source.system.gunner.skillValue);
       delete source.system.gunner;
     }
+    console.log("before item migration", source)
     return super.migrateData(source);
   }
 
