@@ -13,10 +13,17 @@
   - Right-click on a combatant to add it to a group; or all Combatants for the same base Actor (e.g. all Ghosts) to the same group.
   - Each group can hold only either Heroes OR villains OR neutrals.
   - If more than one group is available, then a prompt will allow you to choose which group.
-  - Show the "turn taken" marker for the group - click to toggle "turn taken" for all group members.
   - The group is placed at the bottom of the group for the group's faction (or the bottom of the combat tracker).
   - The group entry shows the number of active (not defeated) members in the group.
   - If ALL members are waiting, then place group in the waiting section - click to toggle "waiting" for all group members.
+  - Same token icons are available for the group as are available for individual combatants:
+    - Hover over group header to highlight tokens of all members of the group
+    - Toggle Turn Complete
+    - Toggle Visibility
+    - Toggle Defeated
+    - Toggle Waiting
+    - Ping Tokens
+  - TODO: name as Input field (to allow editing)
 
 ## 13.24.1 - Mod column in skills list & AE toggle tooltips
 

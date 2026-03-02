@@ -10,6 +10,8 @@ export default class torgeternityCombatTracker extends foundry.applications.side
   firstFaction = 'heroes';
   secondFaction = 'villains';
 
+  #highlightedGroup = [];
+
   static PARTS = {
     header: { template: "systems/torgeternity/templates/sidebar/combat-tracker-header.hbs" },
     tracker: { template: 'systems/torgeternity/templates/sidebar/combat-tracker.hbs' },
@@ -39,6 +41,8 @@ export default class torgeternityCombatTracker extends foundry.applications.side
       "toggleGroup": torgeternityCombatTracker.#onToggleGroup,
       "toggleHiddenGroup": torgeternityCombatTracker.#onToggleHiddenGroup,
       "toggleDefeatedGroup": torgeternityCombatTracker.#onToggleDefeatedGroup,
+      "pingCombatantGroup": torgeternityCombatTracker.#onPingCombatantGroup,
+      "toggleWaitingGroup": torgeternityCombatTracker.#onToggleWaitingGroup,
     }
   }
 
@@ -92,11 +96,15 @@ export default class torgeternityCombatTracker extends foundry.applications.side
       const numDefeated = group.members.filter(m => m.isDefeated).size;
       const isDefeated = group.members.size && numDefeated === group.members.size;
       const isWaiting = !group.members.find(m => !m.isWaiting);
+      const isOwner = !group.members.find(m => !m.isOwner);
+      const canPing = game.user.hasPermission("PING_CANVAS") && group.members.find(m => m.sceneId === canvas.scene?.id);
       const groupTurn = {
         id: group.id,
         name: group.name,
         disposition: group.disposition,
         initiative: group.members.first()?.initiative,
+        isOwner,
+        canPing,
         isOpen: group.isOpen ? "open" : "",
         isGroup: true,
         isDefeated,
@@ -234,6 +242,51 @@ export default class torgeternityCombatTracker extends foundry.applications.side
 
     return options;
   }
+
+  _attachFrameListeners() {
+    super._attachFrameListeners();
+
+  }
+
+  _onCombatantHoverIn(event) {
+    if (event.target.closest(".combatant[data-combatant-id]")) return super._onCombatantHoverIn(event);
+    const { groupId } = event.target.closest(".combatantGroup[data-group-id]")?.dataset ?? {};
+    console.log(`hoverIn group ${groupId}`)
+
+    const group = this.viewed.groups.get(groupId);
+    if (!group) return;
+    this.#highlightedGroup = [];
+    let first = true;
+    for (const combatant of group.members) {
+      const token = combatant.token?.object;
+      if (token && token._canHover(game.user, event) && this._isTokenVisible(token)) {
+        token._onHoverIn(event, { hoverOutOthers: first });
+        first = false;
+        this.#highlightedGroup.push(token);
+      }
+    }
+  }
+
+  _onCombatantHoverOut(event) {
+    if (event.target.closest(".combatant[data-combatant-id]")) return super._onCombatantHoverOut(event);
+    const { groupId } = event.target.closest(".combatantGroup[data-group-id]")?.dataset ?? {};
+    console.log(`hoverOut group ${groupId}`)
+
+    const group = this.viewed.groups.get(groupId);
+    if (!group) return;
+
+    for (const token of this.#highlightedGroup) {
+      token?._onHoverOut(event);
+    }
+    this.#highlightedGroup = [];
+  }
+
+  _onPingCombatantGroup(combatant) {
+  }
+
+  //
+  // ACTIONS
+  //
 
   /**
    * A player has pressed the button at the bottom of the combat tracker to end "their" turn.
@@ -403,6 +456,10 @@ export default class torgeternityCombatTracker extends foundry.applications.side
     this.viewed.dramaSurge(button.dataset.faction)
   }
 
+  //
+  // ACTIONS for CombatantGroup
+  //
+
   static async #askDeleteGroup(event, button) {
     const group = this.viewed.groups.get(button.dataset.combatantGroupId);
     if (!group) return;
@@ -449,6 +506,26 @@ export default class torgeternityCombatTracker extends foundry.applications.side
       const defeatedId = CONFIG.specialStatusEffects.DEFEATED;
       await combatant.actor?.toggleStatusEffect(defeatedId, { overlay: true, active: isDefeated });
     }
+  }
+
+  static async #onPingCombatantGroup(event, button) {
+    const group = this.viewed.groups.get(button.closest('li.combatantGroup')?.dataset.groupId);
+    if (group) group.isOpen = !button.open;
+
+    return Promise.all(group.members.map(combatant => {
+      const token = combatant.token?.object;
+      if (!token || !this._isTokenVisible(token)) {
+        ui.notifications.warn("COMBAT.WarnNonVisibleToken", { localize: true });
+        return;
+      }
+      return canvas.ping(token.center);
+    }))
+  }
+
+  static async #onToggleWaitingGroup(event, button) {
+    const group = this.viewed.groups.get(button.closest('li.combatantGroup')?.dataset.groupId);
+    if (group) group.isOpen = !button.open;
+    return Promise.all(group.members.map(combatant => combatant.actor.toggleStatusEffect('waiting')))
   }
 
   static async #askAddToGroup(askAll, li) {
