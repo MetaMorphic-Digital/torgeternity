@@ -6,7 +6,7 @@
   "EFFECT": {
     "TABS": {
       "torg": "Torg Eternity",
-      "torgChanges": "Changes"
+      "torgChanges": "Torg Changes"
     }
   },
   "CHAT": {
@@ -344,7 +344,19 @@
       "taunt": "Provocation",
       "trick": "Ruse",
       "armor": "Armure",
-      "toughness": "Résistance"
+      "toughness": "Résistance",
+      "damageTraits" : {
+        "energyArmor": "Armure contre Arme à Énergie",
+        "energyDefense": "Résistance contre Arme à Énergie",
+        "fireArmor": "Armure contre Feu",
+        "fireDefense": "Résistance au Feu",
+        "forceArmor": "Armure contre les dégâts de Force",
+        "forceDefense": "Réistance au dégât de Force",
+        "iceArmor": "Armure contre le Froid",
+        "iceDefense": "Résistance au Froid",
+        "lightningArmor": "Armure contre l'Électricité",
+        "lightningDefense": "Résistance aux dégât Électrique"
+      }
     },
     "dialogPrompts": {
       "cardPooled": "Réserve d'action",

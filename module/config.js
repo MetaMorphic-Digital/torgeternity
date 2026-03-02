@@ -704,6 +704,19 @@ export function initConfig() {
     "defenses.toughness": {label: 'torgeternity.defenses.toughness'},
   }
 
+  torgeternity.defensesAgainstElementAndLabel = {
+    "defenses.damageTraits.energyArmor" : {label: 'torgeternity.defenses.damageTraits.energyArmor'},
+    "defenses.damageTraits.energyDefense" : {label: 'torgeternity.defenses.damageTraits.energyDefense'},
+    "defenses.damageTraits.fireArmor" : {label: 'torgeternity.defenses.damageTraits.fireArmor'},
+    "defenses.damageTraits.fireDefense" : {label: 'torgeternity.defenses.damageTraits.fireDefense'},
+    "defenses.damageTraits.forceArmor" : {label: 'torgeternity.defenses.damageTraits.forceArmor'},
+    "defenses.damageTraits.forceDefense" : {label: 'torgeternity.defenses.damageTraits.forceDefense'},
+    "defenses.damageTraits.iceArmor" : {label: 'torgeternity.defenses.damageTraits.iceArmor'},
+    "defenses.damageTraits.iceDefense" : {label: 'torgeternity.defenses.damageTraits.iceDefense'},
+    "defenses.damageTraits.lightningArmor" : {label: 'torgeternity.defenses.damageTraits.lightningArmor'},
+    "defenses.damageTraits.lightningDefense" : {label: 'torgeternity.defenses.damageTraits.lightningDefense'},
+  }
+
 
   torgeternity.specificItemTraits = {
     // ammunition

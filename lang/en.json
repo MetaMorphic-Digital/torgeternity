@@ -6,7 +6,7 @@
   "EFFECT": {
     "TABS": {
       "torg": "Torg Eternity",
-      "torgChanges": "Changes"
+      "torgChanges": "Torg Changes"
     }
   },
   "TYPES": {
@@ -338,7 +338,19 @@
       "taunt": "Taunt",
       "trick": "Trick",
       "armor": "Armor",
-      "toughness": "Toughness"
+      "toughness": "Toughness",
+      "damageTraits" : {
+        "energyArmor": "Armor against Energy Damage",
+        "energyDefense": "Toughness against Energy Dame",
+        "fireArmor": "Armor against Fire Damage",
+        "fireDefense": "Toughness against Fire Damage",
+        "forceArmor": "Armor against Force Damage",
+        "forceDefense": "Toughness against Force Damage",
+        "iceArmor": "Armor against Ice Damage",
+        "iceDefense": "Toughness against Ice Damage",
+        "lightningArmor": "Armor against Lightning Damage",
+        "lightningDefense": "Toughness against Lightning Damage"
+      }
     },
     "dialogPrompts": {
       "cardPooled": "In Pool?",

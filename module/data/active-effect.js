@@ -89,6 +89,34 @@ const defensesModSchema = () => new fields.ArrayField(
   })
 );
 
+const elementalDefensesModSchema = () => new fields.ArrayField(
+  new fields.SchemaField({
+    _id: new fields.StringField({
+      initial: foundry.utils.randomID(),
+      blank: true,
+      nullable: true,
+    }),
+    key: new fields.StringField({
+      choices: CONFIG.torgeternity.defensesAgainstElementAndLabel,
+      initial: "",
+      blank: true,
+      nullable: false
+    }),
+    value: new fields.StringField({
+      initial: "0",
+      blank: true
+    }),
+    mode: new fields.NumberField({
+      initial: CONST.ACTIVE_EFFECT_MODES.ADD,
+      integer: true
+    }),
+    priority: new fields.NumberField({
+      initial: null,
+      nullable: true
+    })
+  })
+);
+
 
 
 /**
@@ -105,12 +133,11 @@ export class TorgActiveEffectData extends (foundry.data.ActiveEffectTypeDataMode
 
   static LOCALIZATION_PREFIXES = ["torgeternity.activeEffect"];
   static defineSchema() {
-    const skillAddChoices = Object.fromEntries(Object.entries(CONFIG.torgeternity.skills).map(([k, v]) => [(v +
-      '.adds').replace('torgeternity', 'system'), v]))
+    const skillAddChoices = Object.fromEntries(Object.entries(CONFIG.torgeternity.skills)
+    .map(([k, v]) => [(v + '.adds').replace('torgeternity', 'system'), v]))
 
-    const attributesAddsChoices = Object.fromEntries(Object.entries(CONFIG.torgeternity.attributeTypes).map(([k,
-      v
-    ]) => [(v + '.value').replace('torgeternity', 'system'), v]))
+    const attributesAddsChoices = Object.fromEntries(Object.entries(CONFIG.torgeternity.attributeTypes)
+    .map(([k,v]) => [(v + '.value').replace('torgeternity', 'system'), v]))
 
     const schema = (game.release.generation >= 14) ? foundry.data.ActiveEffectTypeDataModel.defineSchema() : {};
     Object.assign(schema, {
@@ -134,6 +161,7 @@ export class TorgActiveEffectData extends (foundry.data.ActiveEffectTypeDataMode
       skillsFavor: setSkillsSchema(),
       attributesFavor: attributeSetSchema(),
       defensesChanges: defensesModSchema(),
+      elementalDefenses: elementalDefensesModSchema(),
       otherChanges: toFieldSchema(["system.possibilityPerAct"]),
     })
     return schema;

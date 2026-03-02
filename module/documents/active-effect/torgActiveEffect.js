@@ -1,4 +1,5 @@
 import { TestResult } from '../../torgchecks.js';
+import { torgeternity as config} from '../../config.js';
 
 /**
  * Extend the basic ActiveEffect model with migrations and TORG specific handling
@@ -72,6 +73,7 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
       source.system.transferOnOutcome = source.flags.torgeternity.testOutcome;
       delete source.flags.torgeternity.testOutcome;
     }
+
     // No changes made to systemField or changes, we can safely return the
     // parent migration
     if(!source.system && !source.changes){
@@ -110,12 +112,12 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
     }
 
     if(source.system?.attributesFavor && source.changes !== undefined){
-      const changesToUpdate = source.changes.filter((c) => (c.key.includes('attributes') && c.key.includes('.isFav')) ? false : true)
+      const changesToUpdate = source.changes.filter((c) => (c.key.includes('attributes') && c.key.includes('IsFav')) ? false : true)
       source.system.attributesFavor.forEach((af) => {
         const changeAlreadyExists = changesToUpdate.find(c => c.key.includes(af)) 
         if(!changeAlreadyExists){
           changesToUpdate.push({
-            key:'system.attributes.'+af.replace('attrFavor.', '')+'.isFav',
+            key:'system.attributes.'+af.replace('attrFavor.', '')+'IsFav',
             value: 'true',
             mode: CONST.ACTIVE_EFFECT_MODES.OVERRIDE,
             _id: foundry.utils.randomID()        
@@ -126,7 +128,7 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
     }
     
     if(source.system?.attributesAdds && source.changes !== undefined){
-      const changesToUpdate = source.changes.filter((c) => (c.key.includes('attributes') && !c.key.includes('.isFav')) ? false : true)
+      const changesToUpdate = source.changes.filter((c) => (c.key.includes('attributes') && !c.key.includes('IsFav')) ? false : true)
       source.system.attributesAdds.forEach((aa) => {
         const changeExists = changesToUpdate.find((c) => c._id === aa._id)
         if(!changeExists){
@@ -137,7 +139,7 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
     }
 
     if(source.system?.defensesChanges && source.changes !== undefined){
-      const changesToUpdate = source.changes.filter((c) => (c.key.includes('defenses')) ? false : true)
+      const changesToUpdate = source.changes.filter((c) => (c.key.includes('defenses') && !c.key.includes('damageTraits')) ? false : true)
       source.system.defensesChanges.forEach((dc) => {
         const changeExists = changesToUpdate.find((c) => c._id === dc._id)
         if(!changeExists){
@@ -146,54 +148,71 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
       })
       source.changes = changesToUpdate
     }
+
+    if(source.system?.elementalDefenses && source.changes !== undefined){
+      const changesToUpdate = source.changes.filter((c) => (c.key.includes('defenses') && c.key.includes('damageTraits')) ? false : true)
+      source.system.elementalDefenses.forEach((ed) => {
+        const changeExists = changesToUpdate.find((c) => c._id === ed._id)
+        if(!changeExists){
+          changesToUpdate.push({...ed, _id: foundry.utils.randomID()})
+        }
+      })
+      source.changes = changesToUpdate
+    }
     // Reassign changes to system skills, attribute, defenses and other to ensure
     // backward compatibility an UI stay compatible
     if(source.changes !== undefined){
-    const changesPerType = source.changes?.reduce((changesPerType, change) => {
-      if(change.key.includes('skills') && change.key.includes('isFav')){
-        changesPerType.skillsFavor.push(change.key.replace('system.skills.', 'skillFavor.').replace('.isFav', ''))
+      const changesPerType = source.changes?.reduce((changesPerType, change) => {
+        if(change.key.includes('skills') && change.key.includes('isFav')){
+          changesPerType.skillsFavor.push(change.key.replace('system.skills.', 'skillFavor.').replace('.isFav', ''))
+          return changesPerType
+        }
+        if(change.key.includes('attributes') && change.key.includes('IsFav')){
+          changesPerType.attributesFavor.push(change.key.replace('system.attributes.', 'attrFavor.').replace('IsFav', ''))
+          console.log(changesPerType)
+          return changesPerType
+        }
+        if(change.key.includes('skills') && !change.key.includes('isFav')){
+          changesPerType.skillsAdds.push(change)
+          return changesPerType
+        }
+        if(change.key.includes('attributes') && !change.key.includes('IsFav')){
+          changesPerType.attributesAdds.push(change)
+          return changesPerType
+        }
+        if(change.key.includes('defenses') && !change.key.includes('damageTraits')){
+          changesPerType.defensesChanges.push(change)
+          return changesPerType
+        }
+        if(change.key.includes('defenses') && change.key.includes('damageTraits')){
+          changesPerType.elementalDefenses.push(change)
+          return changesPerType
+        }
+        if(change.key.includes('other')){
+          changesPerType.otherChanges.push(change)
+          return changesPerType
+        }
         return changesPerType
+      }, {
+        skillsAdds:[],
+        skillsFavor:[],
+        attributesAdds:[],
+        attributesFavor:[],
+        defensesChanges:[],
+        elementalDefenses:[],
+        otherChanges:[]
+      })
+      // Reassign for UI
+      source.system = {
+        ...(source.system ??{}), // Keep other fields change not manage by migration (attackTraits, etc.)
+        skillsAdds : changesPerType.skillsAdds ?? [],
+        skillsFavor : changesPerType.skillsFavor ?? [],
+        attributesAdds : changesPerType.attributesAdds ?? [],
+        attributesFavor : changesPerType.attributesFavor ?? [],
+        defensesChanges : changesPerType.defensesChanges ?? [],
+        elementalDefenses: changesPerType.elementalDefenses ?? [],
+        otherChanges : changesPerType.otherChanges ?? [],
       }
-      if(change.key.includes('attributes') && change.key.includes('isFav')){
-        changesPerType.attributesFavor.push(change.key.replace('system.attributes.', 'attrFavor.').replace('.isFav', ''))
-        return changesPerType
-      }
-      if(change.key.includes('skills') && !change.key.includes('isFav')){
-        changesPerType.skillsAdds.push(change)
-        return changesPerType
-      }
-      if(change.key.includes('attributes') && !change.key.includes('isFav')){
-        changesPerType.attributesAdds.push(change)
-        return changesPerType
-      }
-      if(change.key.includes('defenses')){
-        changesPerType.defensesChanges.push(change)
-        return changesPerType
-      }
-      if(change.key.includes('other')){
-        changesPerType.otherChanges.push(change)
-        return changesPerType
-      }
-      return changesPerType
-    }, {
-      skillsAdds:[],
-      skillsFavor:[],
-      attributesAdds:[],
-      attributesFavor:[],
-      defensesChanges:[],
-      otherChanges:[]
-    })
-    // Reassign for UI
-    source.system = {
-      ...(source.system ??{}), // Keep other fields change not manage by migration (attackTraits, etc.)
-      skillsAdds : changesPerType.skillsAdds ?? [],
-      skillsFavor : changesPerType.skillsFavor ?? [],
-      attributesAdds : changesPerType.attributesAdds ?? [],
-      attributesFavor : changesPerType.attributesFavor ?? [],
-      defensesChanges : changesPerType.defensesChanges ?? [],
-      otherChanges : changesPerType.otherChanges ?? [],
-    }
-
     }
     return super.migrateData(source);
   }

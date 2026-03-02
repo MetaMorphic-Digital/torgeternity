@@ -19,18 +19,18 @@ export default class TorgActiveEffectConfig extends foundry.applications.sheets.
     duration: {
       template: "templates/sheets/active-effect/duration.hbs"
     },
-    // changes: {
-    //   template: "templates/sheets/active-effect/changes.hbs",
-    //   scrollable: ["ol[data-changes]"]
-    // },
+    changes: {
+      template: "templates/sheets/active-effect/changes.hbs",
+      scrollable: ["ol[data-changes]"]
+    },
     torgChanges: {
       template: "systems/torgeternity_dev/templates/active_effects/torg_changes.hbs",
-      scrollable: ["ol[data-changes]"]
     },
     footer: {
       template: "templates/generic/form-footer.hbs"
     }
   };
+
 
   /** @override */
   static TABS = {
@@ -47,14 +47,14 @@ export default class TorgActiveEffectConfig extends foundry.applications.sheets.
           id: "duration",
           icon: "fa-solid fa-clock"
         },
-        // {
-        //   id: "changes",
-        //   icon: "fa-solid fa-gears"
-        // },
+        {
+          id: "changes",
+          icon: "fa-solid fa-gear"
+        },
         {
           id: "torgChanges",
-          icon: "fa-solid fa-gears"
-        },
+          icon: "fa-solid fa-gear"
+        }
       ],
       initial: "details",
       labelPrefix: "EFFECT.TABS"
@@ -70,11 +70,11 @@ export default class TorgActiveEffectConfig extends foundry.applications.sheets.
       icon: "fa-solid fa-person-rays"
     },
     position: {
-      width: 560
+      width: 600 // bigger to avoid breaking tabs
     },
     form: {
-      closeOnSubmit: false,
-      submitOnChange: true,
+      closeOnSubmit: true,
+      submitOnChange: false,
     },
     actions: {
       addSkillAddsChange: this.#onAddSkillAddsChange,
@@ -82,7 +82,9 @@ export default class TorgActiveEffectConfig extends foundry.applications.sheets.
       addAttributesChange: this.#onAddAttributeChange,
       deleteAttributesChange: this.#onDeleteAttributesChange,
       addDefensesMod: this.#onAddDefensesMod,
-      deleteDefenseMod: this.#onDeleteDenfensesMod,
+      deleteDefenseMod: this.#onDeleteDefensesMod,
+      addElemDefenses: this.#onAddElemDefensesMod,
+      deleteElemDefense: this.#onDeleteElemDefensesMod
     }
   };
 
@@ -221,7 +223,7 @@ export default class TorgActiveEffectConfig extends foundry.applications.sheets.
    * @this {ActiveEffectConfig}
    * @type {ApplicationClickAction}
    */
-  static async #onDeleteDenfensesMod(event) {
+  static async #onDeleteDefensesMod(event) {
     const submitData = this._processFormData(null, this.form, new FormDataExtended(this.form));
     const wholeChange = Object.values(submitData.system)
     const changes = Object.values(submitData.system.defensesChanges);
@@ -233,6 +235,54 @@ export default class TorgActiveEffectConfig extends foundry.applications.sheets.
         system: {
           ...wholeChange,
           defensesChanges: changes
+        }
+      }
+    });
+  }
+
+  /* ----------------------------------------- */
+  /**
+   * Add a new elemental defenses modifier to the elemental defense changes array
+   * @this {ActiveEffectConfig}
+   * @type {ApplicationClickAction}
+   */
+  static async #onAddElemDefensesMod() {
+    const submitData = this._processFormData(null, this.form, new FormDataExtended(this.form));
+    const wholeChange = Object.values(submitData.system)
+    const elementalDefensesChanges = Object.values(submitData.system.elementalDefenses || {});
+    elementalDefensesChanges.push({
+      key: "defenses.damageTraits.energyArmor",
+      value: 0,
+      _id: foundry.utils.randomID()
+    }); // Push a default value otherwise recounciliation will skip it.
+    return this.submit({
+      updateData: {
+        system: {
+          ...wholeChange,
+          elementalDefenses: elementalDefensesChanges
+        }
+      }
+    })
+  }
+
+  /* ----------------------------------------- */
+  /**
+   * Delete a change from the defenses mod array
+   * @this {ActiveEffectConfig}
+   * @type {ApplicationClickAction}
+   */
+  static async #onDeleteElemDefensesMod(event) {
+    const submitData = this._processFormData(null, this.form, new FormDataExtended(this.form));
+    const wholeChange = Object.values(submitData.system)
+    const changes = Object.values(submitData.system.elementalDefenses);
+    const row = event.target.closest("li");
+    const index = Number(row.dataset.elementalDefenses) || 0;
+    changes.splice(index, 1);
+    return this.submit({
+      updateData: {
+        system: {
+          ...wholeChange,
+          elementalDefenses: changes
         }
       }
     });

@@ -4847,7 +4847,7 @@ aside.carry-type-menu {
 
     h4{
       color: var(--color-form-label);
-      margin: -1rem 0 0 0;
+      margin: 12px 0;
     }
   }
 }
