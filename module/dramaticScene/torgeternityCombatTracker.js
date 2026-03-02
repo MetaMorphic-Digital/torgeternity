@@ -83,7 +83,6 @@ export default class torgeternityCombatTracker extends foundry.applications.side
 
   async _prepareGroupContext(context, combat) {
     let index = context.turns.length;
-    const whoFirst = await combat.getFlag('torgeternity', 'combatFirstDisposition');
 
     for (const group of combat.groups) {
       let members = [];
@@ -97,6 +96,7 @@ export default class torgeternityCombatTracker extends foundry.applications.side
         id: group.id,
         name: group.name,
         disposition: group.disposition,
+        initiative: group.members.first()?.initiative,
         isOpen: group.isOpen ? "open" : "",
         isGroup: true,
         isDefeated,
@@ -112,10 +112,8 @@ export default class torgeternityCombatTracker extends foundry.applications.side
 
       // Find correct position in context.turns
       let done = false;
-      const groupInit = (group.disposition === CONST.TOKEN_DISPOSITIONS.NEUTRAL) ? 1 : (group.disposition === whoFirst) ? 3 : 2;
       for (const [idx, entry] of Object.entries(context.turns)) {
-        if (entry.isGroup || entry.group) continue;
-        if (groupInit > Number(entry.initiative)) {
+        if (!entry.group && groupTurn.initiative > Number(entry.initiative)) {
           context.turns.splice(idx, 0, groupTurn);
           done = true;
           break;
