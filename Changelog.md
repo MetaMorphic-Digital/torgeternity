@@ -14,8 +14,8 @@
   - If more than one group is available, then a prompt will allow you to choose which group.
   - Show the "turn taken" marker for the group - click to toggle "turn taken" for all group members.
   - The group is placed at the bottom of the group for the group's faction (or the bottom of the combat tracker).
-  - TODO: the group entry shows the number of defeated members in the group (blank until at least 1 defeated).
-  - TODO: if ALL members are waiting, then place group in the waiting section - click to toggle "waiting" for all group members.
+  - The group entry shows the number of active (not defeated) members in the group.
+  - If ALL members are waiting, then place group in the waiting section - click to toggle "waiting" for all group members.
 
 ## 13.24.1 - Mod column in skills list & AE toggle tooltips
 

@@ -16,11 +16,13 @@ export default class TorgCombatantGroup extends foundry.documents.CombatantGroup
   }
 
   get isOpen() {
-    return this.flags?.torgeternity?.isOpen ?? true;
+    if (!this.parent.openGroups) this.parent.openGroups = {};
+    return this.parent.openGroups[this.id];
   }
 
   set isOpen(value) {
-    this.setFlag('torgeternity', 'isOpen', value);
+    if (!this.parent.openGroups) this.parent.openGroups = {};
+    this.parent.openGroups[this.id] = value;
   }
 
   get disposition() {
@@ -30,6 +32,8 @@ export default class TorgCombatantGroup extends foundry.documents.CombatantGroup
   _onCreate(changed, options, userId) {
     // Ensure Combat Tracker is updated on change of Combatant Groups
     if (this.parent.isView) ui.combat.render();
+    if (!this.parent.openGroups) this.parent.openGroups = {};
+    this.parent.openGroups[this.id] = true;
   }
 
   _onUpdate(changed, options, userId) {
@@ -43,5 +47,6 @@ export default class TorgCombatantGroup extends foundry.documents.CombatantGroup
       combatant.update({ group: null });
     // Ensure Combat Tracker is updated on change of Combatant Groups
     if (this.parent.isView) ui.combat.render();
+    delete this.parent.openGroups[this.id];
   }
 }
