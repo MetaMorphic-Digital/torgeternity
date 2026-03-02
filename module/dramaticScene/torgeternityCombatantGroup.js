@@ -17,6 +17,7 @@ export default class TorgCombatantGroup extends foundry.documents.CombatantGroup
 
   get isOpen() {
     if (!this.parent.openGroups) this.parent.openGroups = {};
+    if (!Object.hasOwn(this.parent.openGroups, this.id)) this.parent.openGroups[this.id] = true;
     return this.parent.openGroups[this.id];
   }
 
