@@ -111,7 +111,9 @@
         </summary>
         <ol>
           {{#each members}}
-            {{> combatant}}
+            {{#if (or @root.user.isGM (not hidden))}}
+              {{> combatant}}
+            {{/if}}
           {{/each}}
         </ol>
       </details>
@@ -119,12 +121,14 @@
   {{/inline}}
 
   {{#*inline "oneTurn"}}
-    {{#if isGroup}}
-      {{> combatantGroup}}
-    {{else}}
-      {{#unless group}}
-        {{> combatant}}
-      {{/unless}}
+    {{#if (or @root.user.isGM (not hidden))}}
+      {{#if isGroup}}
+        {{> combatantGroup}}
+      {{else}}
+        {{#unless group}}
+          {{> combatant}}
+        {{/unless}}
+      {{/if}}
     {{/if}}
   {{/inline}}
 
