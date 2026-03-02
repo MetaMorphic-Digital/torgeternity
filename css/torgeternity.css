@@ -3008,7 +3008,10 @@ nav#controls,
             border: 0;
             background: transparent;
             field-sizing: content;
-            width: 100%;
+
+            @supports not (field-sizing: content) {
+              width: 100%;
+            }
           }
         }
       }
@@ -3023,6 +3026,7 @@ nav#controls,
 
       .combatant-controls {
         line-height: 20px;
+        column-gap: 0px;
       }
 
       .combatant-control {

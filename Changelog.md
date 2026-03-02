@@ -1,9 +1,9 @@
 # TORG Eternity Changelog
 
-## NEXT
+## 13.25.0 - Combat Groups, DSN extra rolls, Hidden Combatants
 
 - Use `enricher#onRender` as the preferred way to set event handlers on inline enrichers.
-- Get "Torg" banner in scene control back to its previous larger size.
+- Get "Torg" banner in scene controls back to its previous larger size.
 - Move code out of torgeternity.js file into more appropriate other files (reducing Technical Debt, you might have heard of it).
 - Update all github URLs to point to 'MetaMorphic-Digital' instead of 'gmmatt'.
 - The ChatLog entries now hold all dice rolled so far for each test so that Dice-So-Nice will display all the dice being rolled.

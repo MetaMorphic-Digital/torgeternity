@@ -468,10 +468,10 @@ export default class torgeternityCombatTracker extends foundry.applications.side
   }
 
   static async #askDeleteGroup(event, button) {
-    const group = this.viewed.groups.get(button.dataset.combatantGroupId);
+    const group = this.viewed.groups.get(event.target.closest("[data-group-id]")?.dataset.groupId);
     if (!group) return;
     if (await foundry.applications.api.DialogV2.confirm({
-      content: game.i18n.format('torgeternity.CombatantGroup.reallyDelete', group.name),
+      content: game.i18n.format('torgeternity.CombatantGroup.reallyDelete', { group: group.name }),
       rejectClose: false,
       modal: true
     }))

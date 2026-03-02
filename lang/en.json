@@ -1448,7 +1448,7 @@
     },
     "CombatantGroup": {
       "whichGroup": "Which Group?",
-      "reallyDelete": "Really delete group '{group}?",
+      "reallyDelete": "Really delete group '{group}'?",
       "addToGroup": "Add to Group",
       "addAllToGroup": "Add All of this type to Group",
       "removeFromGroup": "Remove from Group",
