@@ -6,8 +6,7 @@
         <img class="token-image" src="{{img}}" alt="{{name}}" loading="lazy">
         <div class="token-name flexcol">
           <h4>{{name}}</h4>
-          <div class="combatant-controls flexrow">
-
+          <div class="combatant-controls flexrow" style="flex-wrap: nowrap">
             <button type="button" {{#unless isOwner}}disabled{{/unless}}
               class="inline-control combatant-control icon has-played fa-solid fa-check {{#if turnTaken}}playedOK{{/if}}"
               data-action="hasPlayed" data-tooltip
@@ -81,41 +80,43 @@
   {{/inline}}
 
   {{#*inline "combatantGroup"}}
-    <li class="combatantGroup {{css}}" data-group-id="{{id}}">
+    <li class="combatantGroup disposition{{disposition}} {{css}}" data-group-id="{{id}}">
       <details {{isOpen}} data-action="toggleGroup">
-        <summary>
-          <div class="flexrow">
-            <h3 class="disposition{{disposition}}">{{name}}</h3>
-            <span class="activeCount">({{#if activeCount}}{{activeCount}}/{{/if}}{{members.length}})</span>
-            <button type="button"
-              class="inline-control combatant-control icon has-played fa-solid fa-check {{#if turnTaken}}playedOK{{/if}}"
-              data-action="hasPlayedGroup" data-tooltip
-              aria-label="{{ localize 'torgeternity.combat.hasPlayedTooltip' }}"></button>
-            {{#if @root.user.isGM}}
-              <button type="button"
-                class="inline-control combatant-control icon fa-solid fa-eye-slash {{#if hidden}}active{{/if}}"
-                data-action="toggleHiddenGroup" data-tooltip aria-label="{{ localize 'COMBAT.ToggleVis' }}"></button>
-              <button type="button"
-                class="inline-control combatant-control icon fa-solid fa-skull {{#if isDefeated}}active{{/if}}"
-                data-action="toggleDefeatedGroup" data-tooltip
-                aria-label="{{ localize 'COMBAT.ToggleDead' }}"></button>
-            {{/if}}
-            <button type="button" {{#unless isOwner}}disabled{{/unless}}
-              class="inline-control combatant-control icon fa-solid fa-clock-rotate-left {{#if isWaiting}}active{{/if}}"
-              data-action="toggleWaitingGroup" data-tooltip
-              aria-label="{{ localize 'torgeternity.combat.toggleWaiting' }}">
-            </button>
-            {{#if canPing}}
-              <button type="button" class="inline-control combatant-control icon fa-solid fa-bullseye-arrow"
-                data-action="pingCombatantGroup" data-tooltip
-                aria-label="{{ localize 'COMBAT.PingCombatant' }}"></button>
-            {{/if}}
-            {{#if @root.user.isGM}}
-              <button type="button"
-                class="inline-control combatant-control icon fa-solid fa-xmark"
-                data-action="deleteGroup" data-tooltip="Delete Group" data-combatant-group-id="{{id}}"></button>
-            {{/if}}
-
+        <summary class="disposition{{disposition}}">
+          <div class="flexrow" style="flex-wrap: nowrap">
+            <h3><input type="string" class="groupName" value="{{name}}" {{#unless @root.user.isGM}}readonly{{/unless}}>
+            </h3>
+            <div class="combatant-controls flexrow flex0" style="flex-wrap: nowrap">
+              <span class="activeCount">({{#if activeCount}}{{activeCount}}/{{/if}}{{members.length}})</span>
+              <button type="button" {{#unless isOwner}}disabled{{/unless}}
+                class="inline-control combatant-control icon has-played fa-solid fa-check {{#if turnTaken}}playedOK{{/if}}"
+                data-action="hasPlayedGroup" data-tooltip
+                aria-label="{{ localize 'torgeternity.combat.hasPlayedTooltip' }}"></button>
+              {{#if @root.user.isGM}}
+                <button type="button"
+                  class="inline-control combatant-control icon fa-solid fa-eye-slash {{#if hidden}}active{{/if}}"
+                  data-action="toggleHiddenGroup" data-tooltip aria-label="{{ localize 'COMBAT.ToggleVis' }}"></button>
+                <button type="button"
+                  class="inline-control combatant-control icon fa-solid fa-skull {{#if isDefeated}}active{{/if}}"
+                  data-action="toggleDefeatedGroup" data-tooltip
+                  aria-label="{{ localize 'COMBAT.ToggleDead' }}"></button>
+              {{/if}}
+              <button type="button" {{#unless isOwner}}disabled{{/unless}}
+                class="inline-control combatant-control icon fa-solid fa-clock-rotate-left {{#if isWaiting}}active{{/if}}"
+                data-action="toggleWaitingGroup" data-tooltip
+                aria-label="{{ localize 'torgeternity.combat.toggleWaiting' }}">
+              </button>
+              {{#if canPing}}
+                <button type="button" class="inline-control combatant-control icon fa-solid fa-bullseye-arrow"
+                  data-action="pingCombatantGroup" data-tooltip
+                  aria-label="{{ localize 'COMBAT.PingCombatant' }}"></button>
+              {{/if}}
+              {{#if @root.user.isGM}}
+                <button type="button"
+                  class="inline-control combatant-control icon fa-solid fa-xmark"
+                  data-action="deleteGroup" data-tooltip="Delete Group" data-combatant-group-id="{{id}}"></button>
+              {{/if}}
+            </div>
           </div>
         </summary>
         <ol>

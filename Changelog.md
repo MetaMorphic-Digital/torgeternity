@@ -10,6 +10,7 @@
 - Combatants which are marked as hidden by a GM are not visible in the Combat Log of non-GM players.
 - Started work on getting **Groups of Combatants** working. (no sorting yet).
   - Create a new group from the three-dot drop-down menu on the Combat Tracker ("Create New Combat Group")
+  - Rename a group by directly editing its name.
   - Right-click on a combatant to add it to a group; or all Combatants for the same base Actor (e.g. all Ghosts) to the same group.
   - Each group can hold only either Heroes OR villains OR neutrals.
   - If more than one group is available, then a prompt will allow you to choose which group.
@@ -23,7 +24,6 @@
     - Toggle Defeated
     - Toggle Waiting
     - Ping Tokens
-  - TODO: name as Input field (to allow editing)
 
 ## 13.24.1 - Mod column in skills list & AE toggle tooltips
 

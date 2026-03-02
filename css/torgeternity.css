@@ -2995,14 +2995,21 @@ nav#controls,
         &>div {
           margin: 0 1.5em 0 1.5em;
         }
-      }
-
-      h3 {
-        text-align: left;
-        margin: 0;
 
         &.disposition-1 {
           filter: grayscale(0.75);
+        }
+
+        h3 {
+          text-align: left;
+          margin: 0;
+
+          input {
+            border: 0;
+            background: transparent;
+            field-sizing: content;
+            width: 100%;
+          }
         }
       }
 

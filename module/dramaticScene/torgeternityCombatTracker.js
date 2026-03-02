@@ -46,6 +46,13 @@ export default class torgeternityCombatTracker extends foundry.applications.side
     }
   }
 
+
+  _onChangeInput(event) {
+    const input = event.target;
+    if (!input.classList.contains('groupName')) return super._onChangeInput(event);
+    return this._onChangeGroupName(event);
+  }
+
   async _prepareCombatContext(context, options) {
     // for HEADER and FOOTER
     await super._prepareCombatContext(context, options);
@@ -241,11 +248,6 @@ export default class torgeternityCombatTracker extends foundry.applications.side
       })
 
     return options;
-  }
-
-  _attachFrameListeners() {
-    super._attachFrameListeners();
-
   }
 
   _onCombatantHoverIn(event) {
@@ -459,6 +461,11 @@ export default class torgeternityCombatTracker extends foundry.applications.side
   //
   // ACTIONS for CombatantGroup
   //
+
+  async _onChangeGroupName(event) {
+    const group = this.viewed.groups.get(event.target.closest("[data-group-id]")?.dataset.groupId);
+    if (group) return group.update({ name: event.target.value });
+  }
 
   static async #askDeleteGroup(event, button) {
     const group = this.viewed.groups.get(button.dataset.combatantGroupId);
