@@ -3006,6 +3006,10 @@ nav#controls,
         }
       }
 
+      span.activeCount {
+        max-width: 4rem;
+      }
+
       button {
         display: inline;
       }
