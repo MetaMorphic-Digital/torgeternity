@@ -84,7 +84,9 @@ export default class TorgActiveEffectConfig extends foundry.applications.sheets.
       addDefensesMod: this.#onAddDefensesMod,
       deleteDefenseMod: this.#onDeleteDefensesMod,
       addElemDefenses: this.#onAddElemDefensesMod,
-      deleteElemDefense: this.#onDeleteElemDefensesMod
+      deleteElemDefense: this.#onDeleteElemDefensesMod,
+      deleteOtherChange: this.#onDeleteOtherChange,
+      addOtherChange: this.#onAddOtherChange,
     }
   };
 
@@ -283,6 +285,54 @@ export default class TorgActiveEffectConfig extends foundry.applications.sheets.
         system: {
           ...wholeChange,
           elementalDefenses: changes
+        }
+      }
+    });
+  }
+
+ /* ----------------------------------------- */
+  /**
+   * Add a new elemental defenses modifier to the elemental defense changes array
+   * @this {ActiveEffectConfig}
+   * @type {ApplicationClickAction}
+   */
+  static async #onAddOtherChange() {
+    const submitData = this._processFormData(null, this.form, new FormDataExtended(this.form));
+    const wholeChange = Object.values(submitData.system)
+    const otherChanges = Object.values(submitData.system.otherChanges || {});
+    otherChanges.push({
+      key: "system.other.moveMod",
+      value: 0,
+      _id: foundry.utils.randomID()
+    }); // Push a default value otherwise recounciliation will skip it.
+    return this.submit({
+      updateData: {
+        system: {
+          ...wholeChange,
+          otherChanges: otherChanges
+        }
+      }
+    })
+  }
+
+  /* ----------------------------------------- */
+  /**
+   * Delete a change from the defenses mod array
+   * @this {ActiveEffectConfig}
+   * @type {ApplicationClickAction}
+   */
+  static async #onDeleteOtherChange(event) {
+    const submitData = this._processFormData(null, this.form, new FormDataExtended(this.form));
+    const wholeChange = Object.values(submitData.system)
+    const changes = Object.values(submitData.system.otherChanges);
+    const row = event.target.closest("li");
+    const index = Number(row.dataset.otherChanges) || 0;
+    changes.splice(index, 1);
+    return this.submit({
+      updateData: {
+        system: {
+          ...wholeChange,
+          otherChanges: changes
         }
       }
     });

@@ -1,6 +1,16 @@
 import { TestResult } from '../../torgchecks.js';
 import { torgeternity as config} from '../../config.js';
 
+const OTHER_AE_KEY_FRAGMENTS = [
+"system.other",
+"fatigue",
+"system.shock",
+"system.wounds",
+"test",
+"system.axioms",
+"targetModifiers",
+]
+
 /**
  * Extend the basic ActiveEffect model with migrations and TORG specific handling
  */
@@ -159,6 +169,17 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
       })
       source.changes = changesToUpdate
     }
+
+    if(source.system?.otherChanges && source.changes !== undefined){
+      const changesToUpdate = source.changes.filter((c) => (OTHER_AE_KEY_FRAGMENTS.some(otherKey => c.key.includes(otherKey))) ? false : true)
+      source.system.otherChanges.forEach((ed) => {
+        const changeExists = changesToUpdate.find((c) => c._id === ed._id)
+        if(!changeExists){
+          changesToUpdate.push({...ed, _id: foundry.utils.randomID()})
+        }
+      })
+      source.changes = changesToUpdate
+    }
     // Reassign changes to system skills, attribute, defenses and other to ensure
     // backward compatibility an UI stay compatible
     if(source.changes !== undefined){
@@ -169,7 +190,6 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
         }
         if(change.key.includes('attributes') && change.key.includes('IsFav')){
           changesPerType.attributesFavor.push(change.key.replace('system.attributes.', 'attrFavor.').replace('IsFav', ''))
-          console.log(changesPerType)
           return changesPerType
         }
         if(change.key.includes('skills') && !change.key.includes('isFav')){
@@ -188,11 +208,8 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
           changesPerType.elementalDefenses.push(change)
           return changesPerType
         }
-        if(change.key.includes('other')){
           changesPerType.otherChanges.push(change)
           return changesPerType
-        }
-        return changesPerType
       }, {
         skillsAdds:[],
         skillsFavor:[],
@@ -202,6 +219,7 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
         elementalDefenses:[],
         otherChanges:[]
       })
+      console.log(source)
       // Reassign for UI
       source.system = {
         ...(source.system ??{}), // Keep other fields change not manage by migration (attackTraits, etc.)

@@ -682,6 +682,13 @@
       "reachedMaximumAttr": "You have reached the attribute maximum specified by your race. A further increase is not possible.",
       "clipEmpty": "This ammunition is empty and cannot be used for reloading."
     },
+    "otherActiveEffectsChanges": {
+      "movement": "Movement",
+      "health": "Heatlh",
+      "damageAndTest": "Damages and Test",
+      "axiomsAndReality": "Axioms and Reality",
+      "others": "Others"
+    },
     "packs": {
       "basicRules": "torgeternity.basic-rules",
       "decks": "torgeternity.core-card-set"

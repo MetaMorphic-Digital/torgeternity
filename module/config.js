@@ -717,6 +717,33 @@ export function initConfig() {
     "defenses.damageTraits.lightningDefense" : {label: 'torgeternity.defenses.damageTraits.lightningDefense'},
   }
 
+  torgeternity.otherChangesGroupedWithLabels = {
+    //Movement
+    "system.other.moveMod" : {label : "Move", group:"torgeternity.otherActiveEffectsChanges.movement"},
+    "system.other.runMod" : {label : "Run", group:"torgeternity.otherActiveEffectsChanges.movement"},
+    //Health
+    "fatigue": {label :"Fatigue", group:"torgeternity.otherActiveEffectsChanges.health"},
+    "system.shock.max": {label :"Schock Max", group:"torgeternity.otherActiveEffectsChanges.health"},
+    "system.wounds.max": {label :"Wounds Max", group:"torgeternity.otherActiveEffectsChanges.health"},
+    //Damage and Tests
+    "system.unarmedDamageMod" : {label:"Unarmed Damage", group:"torgeternity.otherActiveEffectsChanges.damageAndTest"},
+    "test.damage" : {label:"Test Damage", group:"torgeternity.otherActiveEffectsChanges.damageAndTest"},
+    "test.weaponAP" : {label:"Weapon Armor Piercing", group:"torgeternity.otherActiveEffectsChanges.damageAndTest"},
+    "test.wounds" : {label:"Test Wounds", group:"torgeternity.otherActiveEffectsChanges.damageAndTest"},
+    "test.shock" : {label:"Test Schock", group:"torgeternity.otherActiveEffectsChanges.damageAndTest"},
+    //Axioms and Reality
+    "system.axioms.magic": {label:"Magic Axiom", group:"torgeternity.otherActiveEffectsChanges.axiomsAndReality"},
+    "system.axioms.social": {label:"Social Axiom", group:"torgeternity.otherActiveEffectsChanges.axiomsAndReality"},
+    "system.axioms.spirit": {label:"Spirit Axiom", group:"torgeternity.otherActiveEffectsChanges.axiomsAndReality"},
+    "system.axioms.tech": {label:"Tech Axiom", group:"torgeternity.otherActiveEffectsChanges.axiomsAndReality"},
+    "system.other.possibilities.perAct": {label:"Possibilities per act", group:"torgeternity.otherActiveEffectsChanges.axiomsAndReality"},
+    //Others
+    "system.other.maxDex":{label:"Max Dexterity", group:"torgeternity.otherActiveEffectsChanges.others"},
+    "system.other.minStr":{label:"Min Strength", group:"torgeternity.otherActiveEffectsChanges.others"},
+    "targetModifiers.darkness": {label:"Darkness Modifier", group:"torgeternity.otherActiveEffectsChanges.others"}
+  }
+
+
 
   torgeternity.specificItemTraits = {
     // ammunition

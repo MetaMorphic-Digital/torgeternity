@@ -688,6 +688,13 @@
       "reachedMaximumAttr": "Tu as atteint le maximum d'attributs que ton peuple a défini. Une augmentation supplémentaire n'est pas possible.",
       "clipEmpty": "Ces munitions sont vides et ne peuvent pas être utilisées pour recharger."
     },
+    "otherActiveEffectsChanges": {
+      "movement": "Déplacement",
+      "health": "Santé",
+      "damageAndTest": "Dégât et Tests",
+      "axiomsAndReality": "Axiomes and Réalité",
+      "others": "Autres"
+    },
     "packs": {
       "basicRules": "torgeternity.basic-rules-fr",
       "decks": "torgeternity.core-card-set-fr"

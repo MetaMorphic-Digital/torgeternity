@@ -688,6 +688,13 @@
       "reachedMaximumAttr": "Du hast das Attributsmaximum, dass dein Volk vorgibt, erreicht. Eine weitere Erhöhung ist nicht möglich.",
       "clipEmpty": "Diese Munition ist leer und kann nicht zum Nachladen verwendet werden."
     },
+    "otherActiveEffectsChanges": {
+      "movement": "Movement",
+      "health": "Heatlh",
+      "damageAndTest": "Damages and Test",
+      "axiomsAndReality": "Axioms and Reality",
+      "others": "Others"
+    },
     "packs": {
       "basicRules": "torgeternity.system-de-basisregeln",
       "decks": "torgeternity.system-de-grundkarten"
