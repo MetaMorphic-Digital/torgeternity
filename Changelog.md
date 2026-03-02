@@ -7,6 +7,7 @@
 - Move code out of torgeternity.js file into more appropriate other files (reducing Technical Debt, you might have heard of it).
 - Update all github URLs to point to 'MetaMorphic-Digital' instead of 'gmmatt'.
 - The ChatLog entries now hold all dice rolled so far for each test so that Dice-So-Nice will display all the dice being rolled.
+- Combatants which are marked as hidden by a GM are not visible in the Combat Log of non-GM players.
 - Started work on getting **Groups of Combatants** working. (no sorting yet).
   - Create a new group from the three-dot drop-down menu on the Combat Tracker ("Create New Combat Group")
   - Right-click on a combatant to add it to a group; or all Combatants for the same base Actor (e.g. all Ghosts) to the same group.
