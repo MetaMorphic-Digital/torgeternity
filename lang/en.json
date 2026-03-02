@@ -329,6 +329,17 @@
         "sub": "You get one final, dramatic action before expiring (ignoring wound penalties)"
       }
     },
+    "defenses": {
+      "dodge": "Dodge",
+      "meleeWeapons": "Melee Weapons",
+      "unarmedCombat": "Unarmed Combat",
+      "intimidation": "Intimidation",
+      "maneuver": "Maneuver",
+      "taunt": "Taunt",
+      "trick": "Trick",
+      "armor": "Armor",
+      "toughness": "Toughness"
+    },
     "dialogPrompts": {
       "cardPooled": "In Pool?",
       "cosmDeckDialogLabel": "Draw",

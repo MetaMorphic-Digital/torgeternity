@@ -335,6 +335,17 @@
         "sub": "Vous pouvez effectuer une dernière action dramatique avant d’expirer. Vous ignorez les malus des Blessures pour ce dernier effort héroïque."
       }
     },
+    "defenses": {
+      "dodge": "Esquive",
+      "meleeWeapons": "Défense en mélée",
+      "unarmedCombat": "Défense à mains nues",
+      "intimidation": "Intimidation",
+      "maneuver": "Manœuvre",
+      "taunt": "Provocation",
+      "trick": "Ruse",
+      "armor": "Armure",
+      "toughness": "Résistance"
+    },
     "dialogPrompts": {
       "cardPooled": "Réserve d'action",
       "cosmDeckDialogLabel": "Piocher",

@@ -61,6 +61,35 @@ const attributeSetSchema = () => new fields.SetField(
   }
 )
 
+const defensesModSchema = () => new fields.ArrayField(
+  new fields.SchemaField({
+    _id: new fields.StringField({
+      initial: foundry.utils.randomID(),
+      blank: true,
+      nullable: true,
+    }),
+    key: new fields.StringField({
+      choices: CONFIG.torgeternity.defensesModAndLabel,
+      initial: "",
+      blank: true,
+      nullable: false
+    }),
+    value: new fields.StringField({
+      initial: "0",
+      blank: true
+    }),
+    mode: new fields.NumberField({
+      initial: CONST.ACTIVE_EFFECT_MODES.ADD,
+      integer: true
+    }),
+    priority: new fields.NumberField({
+      initial: null,
+      nullable: true
+    })
+  })
+);
+
+
 
 /**
  * Addtional fields for TorgEternity ActiveEffect
@@ -104,7 +133,7 @@ export class TorgActiveEffectData extends (foundry.data.ActiveEffectTypeDataMode
       attributesAdds: toFieldSchema(attributesAddsChoices),
       skillsFavor: setSkillsSchema(),
       attributesFavor: attributeSetSchema(),
-      defensesChanges: toFieldSchema(CONFIG.torgeternity.defenses),
+      defensesChanges: defensesModSchema(),
       otherChanges: toFieldSchema(["system.possibilityPerAct"]),
     })
     return schema;

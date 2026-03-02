@@ -80,7 +80,9 @@ export default class TorgActiveEffectConfig extends foundry.applications.sheets.
       addSkillAddsChange: this.#onAddSkillAddsChange,
       deleteSkillAddsChange: this.#onDeleteSkillAddsChange,
       addAttributesChange: this.#onAddAttributeChange,
-      deleteAttributesChange: this.#onDeleteAttributesChange
+      deleteAttributesChange: this.#onDeleteAttributesChange,
+      addDefensesMod: this.#onAddDefensesMod,
+      deleteDefenseMod: this.#onDeleteDenfensesMod,
     }
   };
 
@@ -141,7 +143,7 @@ export default class TorgActiveEffectConfig extends foundry.applications.sheets.
 
   /* ----------------------------------------- */
   /**
-   * Add a new skill change to the skill changes array
+   * Add a new Attribute change to the attributes changes array
    * @this {ActiveEffectConfig}
    * @type {ApplicationClickAction}
    */
@@ -166,7 +168,7 @@ export default class TorgActiveEffectConfig extends foundry.applications.sheets.
 
   /* ----------------------------------------- */
   /**
-   * Delete a change from the skills changes array.
+   * Delete a change from the attrributes changes array.
    * @this {ActiveEffectConfig}
    * @type {ApplicationClickAction}
    */
@@ -182,6 +184,55 @@ export default class TorgActiveEffectConfig extends foundry.applications.sheets.
         system: {
           ...wholeChange,
           attributesAdds: changes
+        }
+      }
+    });
+  }
+
+/* ----------------------------------------- */
+  /**
+   * Add a new defenses modifier to the defenses changes array
+   * @this {ActiveEffectConfig}
+   * @type {ApplicationClickAction}
+   */
+  static async #onAddDefensesMod() {
+    const submitData = this._processFormData(null, this.form, new FormDataExtended(this.form));
+    const wholeChange = Object.values(submitData.system)
+    const defensesModChanges = Object.values(submitData.system.defensesChanges || {});
+    defensesModChanges.push({
+      key: "defenses.dodge.mod",
+      value: 0,
+      _id: foundry.utils.randomID()
+    }); // Push a default value otherwise recounciliation will skip it.
+    console.log(defensesModChanges)
+    return this.submit({
+      updateData: {
+        system: {
+          ...wholeChange,
+          defensesChanges: defensesModChanges
+        }
+      }
+    })
+  }
+
+  /* ----------------------------------------- */
+  /**
+   * Delete a change from the defenses mod array
+   * @this {ActiveEffectConfig}
+   * @type {ApplicationClickAction}
+   */
+  static async #onDeleteDenfensesMod(event) {
+    const submitData = this._processFormData(null, this.form, new FormDataExtended(this.form));
+    const wholeChange = Object.values(submitData.system)
+    const changes = Object.values(submitData.system.defensesChanges);
+    const row = event.target.closest("li");
+    const index = Number(row.dataset.defensesModIndex) || 0;
+    changes.splice(index, 1);
+    return this.submit({
+      updateData: {
+        system: {
+          ...wholeChange,
+          defensesChanges: changes
         }
       }
     });

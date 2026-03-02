@@ -117,7 +117,10 @@ export default class TorgeternityActor extends foundry.documents.Actor {
    * @inheritdoc
    */
   prepareDerivedData() {
+    console.log("applied effect (prior derived)", this.appliedEffects)
     super.prepareDerivedData();
+    console.log("applied effect (after derived)", this.appliedEffects)
+
     // Here Effects are applied, whatever follow cannot be directly affected by Effects
 
     // apply status effects (note that base values of 0 might have been modified by Active Effects)

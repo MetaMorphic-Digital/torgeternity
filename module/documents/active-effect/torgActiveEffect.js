@@ -11,6 +11,7 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
    * @returns {object} the migrated data object
    */
   static migrateData(source) {
+    console.log("Migrating Data", source)
     if (Object.hasOwn(source, 'changes')) {
       const migrationDictionary = {
         // SK and Threat attribute modifiers
@@ -57,6 +58,10 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
           change.value = change.value.toLowerCase();
         }
       }
+      // Assign to each changes a randomID as the default schema for those doesn't yield one
+      for(const change of source.changes){
+        change._id = foundry.utils.randomID()
+      }
     } 
     // Replace flags
     if (source.flags?.torgeternity?.transferOnAttack !== undefined) {
@@ -85,7 +90,8 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
           changesToUpdate.push({
             key:'system.skills.'+sf.replace('skillFavor.', '')+'.isFav',
             value: 'true',
-            mode: CONST.ACTIVE_EFFECT_MODES.OVERRIDE        
+            mode: CONST.ACTIVE_EFFECT_MODES.OVERRIDE,
+            _id: foundry.utils.randomID()        
           })
         }
       })
@@ -111,7 +117,8 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
           changesToUpdate.push({
             key:'system.attributes.'+af.replace('attrFavor.', '')+'.isFav',
             value: 'true',
-            mode: CONST.ACTIVE_EFFECT_MODES.OVERRIDE        
+            mode: CONST.ACTIVE_EFFECT_MODES.OVERRIDE,
+            _id: foundry.utils.randomID()        
           })
         }
       })
@@ -129,6 +136,16 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
       source.changes = changesToUpdate
     }
 
+    if(source.system?.defensesChanges && source.changes !== undefined){
+      const changesToUpdate = source.changes.filter((c) => (c.key.includes('defenses')) ? false : true)
+      source.system.defensesChanges.forEach((dc) => {
+        const changeExists = changesToUpdate.find((c) => c._id === dc._id)
+        if(!changeExists){
+          changesToUpdate.push({...dc, _id: foundry.utils.randomID()})
+        }
+      })
+      source.changes = changesToUpdate
+    }
     // Reassign changes to system skills, attribute, defenses and other to ensure
     // backward compatibility an UI stay compatible
     if(source.changes !== undefined){

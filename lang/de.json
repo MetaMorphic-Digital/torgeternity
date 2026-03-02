@@ -335,6 +335,17 @@
         "sub": "Das Opfer erhält sofort eine letzte, dramatische Aktion, bevor es abtritt. Verwundungsmalusse werden hierbei ignoriert."
       }
     },
+    "defenses": {
+      "dodge": "Ausweichen",
+      "meleeWeapons": "Nahkampfwaffe",
+      "unarmedCombat": "Waffenloser Kampf",
+      "intimidation": "Einschüchtern",
+      "maneuver": "Manövrieren",
+      "taunt": "Verspotten",
+      "trick": "Tricksen",
+      "armor": "Rüstung",
+      "toughness": "Robustheit"
+    },
     "dialogPrompts": {
       "cardPooled": "Im Aktionenpool?",
       "cosmDeckDialogLabel": "Ziehe",

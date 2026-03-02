@@ -692,6 +692,18 @@ export function initConfig() {
     "attrFavor.strength": {label: 'torgeternity.attributes.strength'},
   }
 
+  torgeternity.defensesModAndLabel = {
+    "defenses.dodge.mod": {label: 'torgeternity.defenses.dodge'},
+    "defenses.meleeWeapons.mod": {label: 'torgeternity.defenses.meleeWeapons'},
+    "defenses.unarmedCombat.mod": {label: 'torgeternity.defenses.unarmedCombat'},
+    "defenses.intimidation.mod": {label: 'torgeternity.defenses.intimidation'},
+    "defenses.maneuver.mod": {label: 'torgeternity.defenses.maneuver'},
+    "defenses.taunt.mod": {label: 'torgeternity.defenses.taunt'},
+    "defenses.trick.mod": {label: 'torgeternity.defenses.trick'},
+    "defenses.armor": {label: 'torgeternity.defenses.armor'},
+    "defenses.toughness": {label: 'torgeternity.defenses.toughness'},
+  }
+
 
   torgeternity.specificItemTraits = {
     // ammunition
