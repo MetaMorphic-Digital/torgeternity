@@ -22,6 +22,7 @@ export default class torgeternityCombatTracker extends foundry.applications.side
     actions: {
       'toggleDramatic': torgeternityCombatTracker.#toggleDramatic,
       'hasPlayed': torgeternityCombatTracker.#onHasPlayed,
+      'hasPlayedGroup': torgeternityCombatTracker.#onHasPlayedGroup,
       'toggleWaiting': torgeternityCombatTracker.#onToggleWaiting,
       'dsrCounter': torgeternityCombatTracker.#incStage,
       'playerDsrCounter': torgeternityCombatTracker.#incPlayerStage,
@@ -89,19 +90,25 @@ export default class torgeternityCombatTracker extends foundry.applications.side
       for (const combatant of group.members)
         members.push(await this._prepareTurnContext(combat, combatant, index++));
 
+      const numDefeated = group.members.filter(m => m.isDefeated).size;
+      const isDefeated = group.members.size && numDefeated === group.members.size;
+      const isWaiting = !group.members.find(m => !m.isWaiting);
       const groupTurn = {
         id: group.id,
         name: group.name,
         disposition: group.disposition,
         isOpen: group.isOpen ? "open" : "",
         isGroup: true,
-        defeated: group.members.size && group.defeated,
+        isDefeated,
         hidden: group.hidden,
-        isWaiting: group.isWaiting,
+        isWaiting,
         turnTaken: group.turnTaken,
-        defeatedCount: group.members.filter(m => m.isDefeated).size, // Set
+        activeCount: numDefeated && (group.members.size - numDefeated), // Set
         members,
       };
+      const css = [];
+      if (group.turnTaken) css.push(' turnDone');
+      groupTurn.css = css.join(" ");
 
       // Find correct position in context.turns
       let done = false;
@@ -412,6 +419,18 @@ export default class torgeternityCombatTracker extends foundry.applications.side
   static async #onToggleGroup(event, button) {
     const group = this.viewed.groups.get(button.closest('li.combatantGroup')?.dataset.groupId);
     if (group) group.isOpen = !button.open;
+  }
+
+  static async #onHasPlayedGroup(event, button) {
+    const group = this.viewed.groups.get(button.closest('li.combatantGroup')?.dataset.groupId);
+    if (!group) return;
+    const turnTaken = !group.turnTaken;
+
+    for (const combatant of group.members) {
+      if (combatant.turnTaken === turnTaken) continue;
+      await combatant.setTurnTaken(turnTaken);
+      if (turnTaken) this.viewed.dramaEndOfTurn(combatant);
+    }
   }
 
   static async #onToggleHiddenGroup(event, button) {

@@ -2986,21 +2986,37 @@ nav#controls,
         content: "";
       }
 
-      h3 {
+      summary {
         padding: 0.4em;
         background: url(../images/tab-header.webp);
+        background-size: 100% 100%;
+        margin: 5px 0px 0px 0px;
+
+        &>div {
+          margin: 0 1.5em 0 1.5em;
+        }
+      }
+
+      h3 {
+        text-align: left;
+        margin: 0;
 
         &.disposition-1 {
           filter: grayscale(0.75);
         }
-
-        background-size: 100% 100%;
-        text-align: center;
-        margin: 5px 0px 0px 0px;
       }
 
       button {
         display: inline;
+      }
+
+      .combatant-controls {
+        line-height: 20px;
+      }
+
+      .combatant-control {
+        font-size: 14px;
+        text-shadow: 1px 1px 4px var(--color-shadow-dark);
       }
     }
 
@@ -3012,10 +3028,18 @@ nav#controls,
       margin: 5px 0px 0px 0px;
     }
 
+    li.combatant {
+      border-left: 5px solid black;
 
+      &:not(.turnDone) {
+        border-left: 5px solid rgba(255, 255, 0, 0.836);
+      }
+    }
+
+    li.combatantGroup,
     li.combatant {
       border-radius: 0px;
-      border-left: 5px solid black;
+
       padding: 0px;
       column-gap: normal;
 
@@ -3058,12 +3082,9 @@ nav#controls,
         text-shadow: 1px 1px 4px var(--color-shadow-dark);
 
         &[data-action="toggleWaiting"] {
+          max-width: 24px;
           padding: 0 0.25rem;
         }
-      }
-
-      &:not(.turnDone) {
-        border-left: 5px solid rgba(255, 255, 0, 0.836);
       }
 
       &.friendly:not(:hover) {
