@@ -1453,13 +1453,13 @@
       }
     },
     "CombatantGroup": {
-      "whichGroup": "Which Group?",
-      "reallyDelete": "Really delete group '{group}'?",
-      "addToGroup": "Add to Group",
-      "addAllToGroup": "Add All of this type to Group",
-      "removeFromGroup": "Remove from Group",
-      "newGroup": "Create New Combat Group",
-      "noValidGroup": "No valid group for this combatant"
+      "addToGroup": "Ajouter au groupe",
+      "addAllToGroup": "Ajouter tous les acteurs de ce type au groupe",
+      "removeFromGroup": "Supprimer du groupe",
+      "newGroup": "Créer un groupe",
+      "whichGroup": "Quel groupe?",
+      "reallyDelete": "Confirmer la suppression du groupe '{group}'?",
+      "noValidGroup": "Pas de groupe valide pour ce combattant"
     }
   },
   "SCENE.FIELDS": {
