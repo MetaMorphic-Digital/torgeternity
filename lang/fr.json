@@ -513,6 +513,7 @@
       "criticalProblem": "Problème critique",
       "possibleSetback": "Revers possible",
       "shuffleDeck": "Mélanger le paquet d'Action",
+      "replaceDrama": "Replace Drama Card",
       "getPreviousDrama": "Récupérer la carte d'Action précédente"
     },
     "enhancements": {

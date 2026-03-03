@@ -186,6 +186,11 @@ export default class torgeternityCombatTracker extends foundry.applications.side
     const options = super._getCombatContextOptions().filter(
       opt => opt.name !== 'COMBAT.InitiativeReset');
     options.unshift({
+      name: "torgeternity.dramaCard.replaceDrama",
+      icon: '<i class="fa-solid fa-rotate-right"></i>',
+      condition: game.user.isGM && !!this.viewed,
+      callback: () => this.viewed.drawDramaCard()
+    }, {
       name: "torgeternity.dramaCard.getPreviousDrama",
       icon: '<i class="fa-solid fa-up-down"></i>',
       condition: game.user.isGM && !!this.viewed,

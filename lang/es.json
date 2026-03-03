@@ -513,6 +513,7 @@
       "criticalProblem": "Problema Crítico",
       "possibleSetback": "Posible Contratiempo",
       "shuffleDeck": "Barajar mazo de Drama",
+      "replaceDrama": "Replace Drama Card",
       "getPreviousDrama": "Recuperar carta de Drama anterior"
     },
     "enhancements": {

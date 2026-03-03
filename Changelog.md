@@ -3,6 +3,7 @@
 ## 13.25.2 - Bug Fixes
 
 - Stymied & Vulnerable should be removed when an Actor ends its turn.
+- Add option to draw a new Drama Card without advancing the turn (e.g. Seize Initiative)
 
 ## 13.25.1 - Simpler Group header
 
