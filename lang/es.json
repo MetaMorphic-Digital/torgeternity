@@ -1451,6 +1451,15 @@
         "buttonTitle": "MacroHub",
         "title": "Central de macros de Torg Eternity"
       }
+    },
+    "CombatantGroup": {
+      "addToGroup": "Añadir al grupo",
+      "addAllToGroup": "Añadir todos los de este tipo al grupo",
+      "removeFromGroup": "Eliminar del grupo",
+      "newGroup": "Crear nuevo grupo de combate",
+      "whichGroup": "¿Qué grupo?",
+      "reallyDelete": "¿Eliminar realmente grupo '{group}'?",
+      "noValidGroup": "No hay ningún grupo válido para este combatiente"
     }
   },
   "SCENE.FIELDS": {
