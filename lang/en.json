@@ -1200,7 +1200,51 @@
       "backlash2Tooltip": "Apply 1 shock",
       "backlash3Tooltip": "Apply Very Stymied",
       "additionalDamage": "Additional damage preset",
-      "bonusDice": "Rolled Bonus-Dice in advance"
+      "bonusDice": "Rolled Bonus-Dice in advance",
+      "activeEffect": {
+        "skills": {
+          "title": "Skills",
+          "description": "If you want to modify adds to skills or make them favored.",
+          "skillAdds": {
+            "label": "Skills adds:",
+            "cta": "+ Add a skill adds change"
+          },
+          "skillsFavour": {
+            "label": "Skills Favored:"
+          }
+        },
+        "attributes": {
+          "title": "Attributes",
+          "description": "If you want to modify attributes value or make them favored.",
+          "attributesValue": {
+            "label": "Attributes values:",
+            "cta": "+ Add an attribute value change"
+          },
+          "attributesFavor": {
+            "label": "Attributes Favored:"
+          }
+        },
+        "defenses": {
+          "title": "Defenses",
+          "description": "If you want to modify Armor or Toughness modifier globally or against certain elements",
+          "defensesMod": {
+            "label": "Defenses modifier",
+            "cta": "+ Add a Defense modifier"
+          },
+          "elements": {
+            "label": "Elemental defense",
+            "cta": "+ Add an Elemental defense modifier"
+          }
+        },
+        "other": {
+          "title": "Miscellaneous",
+          "description": "Other changes cannot be categorized such as Possibilities, Axiom, Health, Movement, etc. Those have been regrouped here.",
+          "otherChanges": {
+            "label": "Other change",
+            "cta": "+ Add a Miscellaneous change"
+          }
+        }
+      }
     },
     "skillGroup": {
       "combat": "Combat",

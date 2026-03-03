@@ -1206,7 +1206,51 @@
       "backlash2Tooltip": "Appliquer 1 Choc",
       "backlash3Tooltip": "Appliquer Très Déstabilisé",
       "additionalDamage": "Dommages additionels",
-      "bonusDice": "DB lancés par avance"
+      "bonusDice": "DB lancés par avance",
+      "activeEffect": {
+        "skills": {
+          "title": "Compétences",
+          "description": "Pour augmenter ou diminuer le rang d'une ou plusieurs compétences ou les rendre favorisées.",
+          "skillAdds": {
+            "label": "Rand de compétence:",
+            "cta": "+ Ajouter une modification de rang"
+          },
+          "skillsFavour": {
+            "label": "Compétences favorisées:"
+          }
+        },
+        "attributes": {
+          "title": "Attributes",
+          "description": "Pour augmenter ou diminuer la valeur d'un ou plusieurs attributs ou les rendre favorisés",
+          "attributesValue": {
+            "label": "Valeur d'attribut :",
+            "cta": "+ Ajouter une modification de valeur"
+          },
+          "attributesFavor": {
+            "label": "Attributs favorisés:"
+          }
+        },
+        "defenses": {
+          "title": "Défenses",
+          "description": "Pour augmenter ou dominuer les différents modificateur de défenses ainsi que les résistances aux éléments",
+          "defensesMod": {
+            "label": "Modificateur de défense",
+            "cta": "+ Ajouter un modificateur de défense"
+          },
+          "elements": {
+            "label": "Défense Élémentaire",
+            "cta": "+ Ajouter un modificateur de défense élémentaire"
+          }
+        },
+        "other": {
+          "title": "Divers",
+          "description": "Toutes les modifications ne peuvent pas être regroupée (Possibilités, Axiomes, Mouvement, Dégâts) et ont été regroupée ci-dessous",
+          "otherChanges": {
+            "label": "Autre modification",
+            "cta": "+ Ajouter une modification diverse"
+          }
+        }
+      }
     },
     "skillGroup": {
       "combat": "Combat",

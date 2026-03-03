@@ -1206,7 +1206,51 @@
       "backlash2Tooltip": "1 Schock anwenden",
       "backlash3Tooltip": "Sehr Angeschlagen anwenden",
       "additionalDamage": "+ Schaden",
-      "bonusDice": "BW im Voraus würfeln"
+      "bonusDice": "BW im Voraus würfeln",
+      "activeEffect": {
+        "skills": {
+          "title": "Fertigkeiten",
+          "description": "Wenn du Fertigkeitsboni ändern oder sie als bevorzugt markieren möchtest.",
+          "skillAdds": {
+            "label": "Fertigkeitsboni:",
+            "cta": "+ Fertigkeitsbonus hinzufügen"
+          },
+          "skillsFavour": {
+            "label": "Bevorzugte Fertigkeiten:"
+          }
+        },
+        "attributes": {
+          "title": "Attribute",
+          "description": "Wenn du Attributswerte ändern oder sie als bevorzugt markieren möchtest.",
+          "attributesValue": {
+            "label": "Attributswerte:",
+            "cta": "+ Attributswert-Änderung hinzufügen"
+          },
+          "attributesFavor": {
+            "label": "Bevorzugte Attribute:"
+          }
+        },
+        "defenses": {
+          "title": "Verteidigung",
+          "description": "Wenn du Rüstungs- oder Widerstandswerte global oder gegen bestimmte Elemente ändern möchtest.",
+          "defensesMod": {
+            "label": "Verteidigungsmodifikator",
+            "cta": "+ Verteidigungsmodifikator hinzufügen"
+          },
+          "elements": {
+            "label": "Elementare Verteidigung",
+            "cta": "+ Elementaren Verteidigungsmodifikator hinzufügen"
+          }
+        },
+        "other": {
+          "title": "Sonstiges",
+          "description": "Sonstige Änderungen, die nicht kategorisiert werden können, wie Möglichkeiten, Axiome, Gesundheit, Bewegung usw. Diese wurden hier zusammengefasst.",
+          "otherChanges": {
+            "label": "Sonstige Änderung",
+            "cta": "+ Sonstige Änderung hinzufügen"
+          }
+        }
+      }
     },
     "skillGroup": {
       "combat": "Kampf",

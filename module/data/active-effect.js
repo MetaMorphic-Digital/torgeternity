@@ -42,7 +42,7 @@ const setSkillsSchema = () => new fields.SetField(
   }), {
     nullable: false,
     required: true,
-    label: "Skills favoured",
+    label: "torgeternity.sheet.activeEffect.skills.skillsFavour.label",
     initial: undefined
   }
 );
@@ -56,7 +56,7 @@ const attributeSetSchema = () => new fields.SetField(
   }), {
     nullable: false,
     required: true,
-    label: "Attributes favoured",
+    label:  "torgeternity.sheet.activeEffect.attributes.attributesFavor.label",
     initial: undefined
   }
 )

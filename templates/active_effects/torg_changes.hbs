@@ -2,9 +2,10 @@
 <section class="tab changes{{#if tab.active}} active{{/if}} torgeternity-active-effects scrollable" data-group="{{tab.group}}" data-tab="{{tab.id}}">
 {{!-- Skills --}}
 <div class="torgchange-section">
-<h3>Skills:</h3>
+<h3>{{localize "torgeternity.sheetLabels.activeEffect.skills.title"}}</h3>
+<p>{{localize "torgeternity.sheetLabels.activeEffect.skills.description"}}</p>
 <div>
-  <h4>Change on Skills adds:</h4>
+  <h4>{{localize "torgeternity.sheetLabels.activeEffect.skills.skillAdds.label"}}</h4>
   <ol class="scrollable">
     {{#each source.system.skillsAdds as |changeSkillAdd i|}}
     {{#with ../systemFields.skillsAdds as |skillAddsChanges|}}
@@ -22,7 +23,7 @@
     {{/with}}
     {{/each}}
   </ol>
-  <button type="button" class="change-button" data-action="addSkillAddsChange">Add a skill change</button>
+  <button type="button" class="change-button" data-action="addSkillAddsChange">{{localize "torgeternity.sheetLabels.activeEffect.skills.skillAdds.cta"}}</button>
 </div>
 <div>
   {{formGroup systemFields.skillsFavor value=source.system.skillsFavor rootId=rootId localize=true name="system.skillsFavor"}}
@@ -31,9 +32,10 @@
 
 {{!-- Attributes --}}
 <div class="torgchange-section">
-  <h3>Attributes:</h3>
+<h3>{{localize "torgeternity.sheetLabels.activeEffect.attributes.title"}}</h3>
+<p>{{localize "torgeternity.sheetLabels.activeEffect.attributes.description"}}</p>
 <div>
-  <h4>Change on Attribute Value:</h4>
+  <h4>{{localize "torgeternity.sheetLabels.activeEffect.attributes.attributesValue.label"}}</h4>
   <ol class="scrollable">
     {{#each source.system.attributesAdds as |changeAttrAdds i|}}
     {{#with ../systemFields.attributesAdds as |attributesChanges|}}
@@ -52,7 +54,7 @@
     {{/with}}
     {{/each}}
   </ol>
-  <button type="button" class="change-button" data-action="addAttributesChange">Add an attribute change</button>
+  <button type="button" class="change-button" data-action="addAttributesChange">{{localize "torgeternity.sheetLabels.activeEffect.attributes.attributesValue.cta"}}</button>
 </div>
 <div>
   {{formGroup systemFields.attributesFavor value=source.system.attributesFavor rootId=rootId localize=true
@@ -62,9 +64,10 @@
 
 {{!-- Defenses --}}
 <div class="torgchange-section">
-  <h3>Defenses:</h3>
+  <h3>{{localize "torgeternity.sheetLabels.activeEffect.defenses.title"}}</h3>
+  <p>{{localize "torgeternity.sheetLabels.activeEffect.defenses.description"}}</p>
   <div>
-    <h4>Change a defense value:</h4>
+    <h4>{{localize "torgeternity.sheetLabels.activeEffect.defenses.defensesMod.label"}}</h4>
     <ol class="scrollable">
       {{#each source.system.defensesChanges as |changeDefensesMod i|}}
       {{#with ../systemFields.defensesChanges as |defensesMod|}}
@@ -84,9 +87,9 @@
       {{/with}}
       {{/each}}
     </ol>
-    <button type="button" class="change-button" data-action="addDefensesMod">Add an defense modifier</button>
+    <button type="button" class="change-button" data-action="addDefensesMod">{{localize "torgeternity.sheetLabels.activeEffect.defenses.defensesMod.cta"}}</button>
 
-    <h4>Add armor or toughness against elements:</h4>
+    <h4>{{localize "torgeternity.sheetLabels.activeEffect.defenses.elements.label"}}</h4>
     <ol class="scrollable">
       {{#each source.system.elementalDefenses as |changeElementalDef i|}}
       {{#with ../systemFields.elementalDefenses as |eleDefensesMod|}}
@@ -105,16 +108,16 @@
       {{/with}}
       {{/each}}
     </ol>
-    <button type="button" class="change-button" data-action="addElemDefenses">Add an elemental defense modifier</button>
+    <button type="button" class="change-button" data-action="addElemDefenses">{{localize "torgeternity.sheetLabels.activeEffect.defenses.elements.cta"}}</button>
   </div>
 </div>
 
 {{!-- Others --}}
 <div class="torgchange-section">
-  <h3>Others:</h3>
-  <p>Here lies what cannot be regrouped easily such as tests modifier, health modifier, axioms etc.</p>
+  <h3>{{localize "torgeternity.sheetLabels.activeEffect.other.title"}}</h3>
+  <p>{{localize "torgeternity.sheetLabels.activeEffect.other.description"}}</p>
   <div>
-    <h4>Change on Attribute Value:</h4>
+    <h4>{{localize "torgeternity.sheetLabels.activeEffect.other.otherChanges.label"}}</h4>
     <ol class="scrollable">
       {{#each source.system.otherChanges as |otherChange i|}}
       {{#with ../systemFields.otherChanges as |otherChangesField|}}
@@ -134,7 +137,7 @@
       {{/with}}
       {{/each}}
     </ol>
-    <button type="button" class="change-button" data-action="addOtherChange">Add an attribute change</button>
+    <button type="button" class="change-button" data-action="addOtherChange">{{localize "torgeternity.sheetLabels.activeEffect.other.otherChanges.cta"}}</button>
   </div>
 </div>
 </section>
