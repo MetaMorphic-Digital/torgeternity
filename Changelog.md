@@ -1,5 +1,9 @@
 # TORG Eternity Changelog
 
+## 13.25.1 - Simpler Group header
+
+- Don't use an `input` field if a group name is not editable.
+
 ## 13.25.0 - Combat Groups, DSN extra rolls, Hidden Combatants
 
 - Use `enricher#onRender` as the preferred way to set event handlers on inline enrichers.
