@@ -54,6 +54,12 @@
         "applyIfDefendTrait": {
           "label": "Appliquer le trait de défense",
           "hint": "Appliquer l'Effet uniquement si le Token attaqué (la cible) possède l'un de ces traits"
+        },
+        "skillsFavor":{
+          "label": "Compétences favorisées:"
+        },
+        "attributesFavor": {
+          "label": "Attributs favorisés:"
         }
       }
     },

@@ -48,6 +48,12 @@
         "applyIfDefendTrait": {
           "label": "Apply If Defend Trait",
           "hint": "Apply the effect only if the attacked token (the target) has one of these traits"
+        },
+        "skillsFavor":{
+          "label": "Skills Favored:"
+        },
+        "attributesFavor": {
+          "label": "Attributes Favored:"
         }
       }
     },

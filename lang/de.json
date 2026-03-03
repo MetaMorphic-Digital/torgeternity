@@ -54,6 +54,12 @@
         "applyIfDefendTrait": {
           "label": "Anwenden bei Verteidiger-Eigenschaft",
           "hint": "Effekt wird nur angewendet, wenn der angegriffene Token (das Ziel) einen der angegebenen Eigenschaften besitzt."
+        },
+        "skillsFavour": {
+          "label": "Bevorzugte Fertigkeiten:"
+        },
+        "attributesFavor": {
+          "label": "Bevorzugte Attribute:"
         }
       }
     },
