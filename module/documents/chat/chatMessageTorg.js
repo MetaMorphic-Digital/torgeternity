@@ -1,5 +1,3 @@
-import { torgeternity } from '../../config.js';
-
 /**
  * ChatMessage Implementation for Torg Eternity
  * renders the chatMessage from data every time the HTML is rendered

@@ -1451,6 +1451,15 @@
         "buttonTitle": "MacroHub",
         "title": "Répertoire Macro Torg Eternity"
       }
+    },
+    "CombatantGroup": {
+      "addToGroup": "Ajouter au groupe",
+      "addAllToGroup": "Ajouter tous les acteurs de ce type au groupe",
+      "removeFromGroup": "Supprimer du groupe",
+      "newGroup": "Créer un groupe",
+      "whichGroup": "Quel groupe?",
+      "reallyDelete": "Confirmer la suppression du groupe '{group}'?",
+      "noValidGroup": "Pas de groupe valide pour ce combattant"
     }
   },
   "SCENE.FIELDS": {

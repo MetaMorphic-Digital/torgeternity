@@ -18,7 +18,10 @@ export async function onManageActiveEffect(event, button, owner) {
           name: 'New Effect',
           icon: 'icons/svg/aura.svg',
           origin: owner.uuid,
-          'duration.rounds': li.dataset.effectType === 'temporary' ? 1 : undefined,
+          duration: {
+            rounds: li.dataset.effectType === 'temporary' ? 1 : undefined,
+            expiry: 'turnEnd'
+          },
           disabled: li.dataset.effectType === 'inactive',
         },
       ]);

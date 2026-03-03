@@ -1,5 +1,3 @@
-import { torgeternity } from '../../config.js';
-
 let deferredGunners = new Set();
 
 const torg_icons = 'systems/torgeternity/images/icons/';
@@ -52,7 +50,7 @@ export default class TorgeternityItem extends foundry.documents.Item {
         this.system.extendedNav = false;
     }
 
-    for (const [key, value] of Object.entries(torgeternity.dnTypes)) {
+    for (const [key, value] of Object.entries(CONFIG.torgeternity.dnTypes)) {
       if (key === this.system?.dn) {
         this.system.dnType = game.i18n.localize(value);
         break;

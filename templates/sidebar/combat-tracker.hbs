@@ -6,9 +6,8 @@
         <img class="token-image" src="{{img}}" alt="{{name}}" loading="lazy">
         <div class="token-name flexcol">
           <h4>{{name}}</h4>
-          <div class="combatant-controls flexrow">
-
-            <button type="button"
+          <div class="combatant-controls flexrow" style="flex-wrap: nowrap">
+            <button type="button" {{#unless isOwner}}disabled{{/unless}}
               class="inline-control combatant-control icon has-played fa-solid fa-check {{#if turnTaken}}playedOK{{/if}}"
               data-action="hasPlayed" data-tooltip
               aria-label="{{ localize 'torgeternity.combat.hasPlayedTooltip' }}"></button>
@@ -22,11 +21,10 @@
                 data-action="toggleDefeated" data-tooltip
                 aria-label="{{ localize 'COMBAT.ToggleDead' }}"></button>
             {{/if}}
-            <button type="button"
-              class="inline-control combatant-control flex0 {{#if isWaiting}}active{{/if}}"
+            <button type="button" {{#unless isOwner}}disabled{{/unless}}
+              class="inline-control combatant-control icon fa-solid fa-clock-rotate-left {{#if isWaiting}}active{{/if}}"
               data-action="toggleWaiting" data-tooltip
               aria-label="{{ localize 'torgeternity.combat.toggleWaiting' }}">
-              <img class="token-effect" src="{{waitingImg}}" />
             </button>
             {{#if canPing}}
               <button type="button" class="inline-control combatant-control icon fa-solid fa-bullseye-arrow"
@@ -81,14 +79,77 @@
     </li>
   {{/inline}}
 
+  {{#*inline "combatantGroup"}}
+    <li class="combatantGroup disposition{{disposition}} {{css}}" data-group-id="{{id}}">
+      <details {{isOpen}} data-action="toggleGroup">
+        <summary class="disposition{{disposition}}">
+          <div class="flexrow" style="flex-wrap: nowrap">
+            <h3><input type="string" class="groupName" value="{{name}}" {{#unless @root.user.isGM}}readonly{{/unless}}>
+            </h3>
+            <div class="combatant-controls flexrow flex0" style="flex-wrap: nowrap">
+              <span class="activeCount">({{#if activeCount}}{{activeCount}}/{{/if}}{{members.length}})</span>
+              <button type="button" {{#unless isOwner}}disabled{{/unless}}
+                class="inline-control combatant-control icon has-played fa-solid fa-check {{#if turnTaken}}playedOK{{/if}}"
+                data-action="hasPlayedGroup" data-tooltip
+                aria-label="{{ localize 'torgeternity.combat.hasPlayedTooltip' }}"></button>
+              {{#if @root.user.isGM}}
+                <button type="button"
+                  class="inline-control combatant-control icon fa-solid fa-eye-slash {{#if hidden}}active{{/if}}"
+                  data-action="toggleHiddenGroup" data-tooltip aria-label="{{ localize 'COMBAT.ToggleVis' }}"></button>
+                <button type="button"
+                  class="inline-control combatant-control icon fa-solid fa-skull {{#if isDefeated}}active{{/if}}"
+                  data-action="toggleDefeatedGroup" data-tooltip
+                  aria-label="{{ localize 'COMBAT.ToggleDead' }}"></button>
+              {{/if}}
+              <button type="button" {{#unless isOwner}}disabled{{/unless}}
+                class="inline-control combatant-control icon fa-solid fa-clock-rotate-left {{#if isWaiting}}active{{/if}}"
+                data-action="toggleWaitingGroup" data-tooltip
+                aria-label="{{ localize 'torgeternity.combat.toggleWaiting' }}">
+              </button>
+              {{#if canPing}}
+                <button type="button" class="inline-control combatant-control icon fa-solid fa-bullseye-arrow"
+                  data-action="pingCombatantGroup" data-tooltip
+                  aria-label="{{ localize 'COMBAT.PingCombatant' }}"></button>
+              {{/if}}
+              {{#if @root.user.isGM}}
+                <button type="button"
+                  class="inline-control combatant-control icon fa-solid fa-xmark"
+                  data-action="deleteGroup" data-tooltip="Delete Group"></button>
+              {{/if}}
+            </div>
+          </div>
+        </summary>
+        <ol>
+          {{#each members}}
+            {{#if (or @root.user.isGM (not hidden))}}
+              {{> combatant}}
+            {{/if}}
+          {{/each}}
+        </ol>
+      </details>
+    </li>
+  {{/inline}}
+
+  {{#*inline "oneTurn"}}
+    {{#if (or @root.user.isGM (not hidden))}}
+      {{#if isGroup}}
+        {{> combatantGroup}}
+      {{else}}
+        {{#unless group}}
+          {{> combatant}}
+        {{/unless}}
+      {{/if}}
+    {{/if}}
+  {{/inline}}
+
   {{#each activeTurns}}
-    {{> combatant}}
+    {{> oneTurn}}
   {{/each}}
 
   {{#if waiting}}
     <h3 class="waiting">{{localize 'torgeternity.combat.waitingCombatants'}}</h3>
     {{#each waiting}}
-      {{> combatant}}
+      {{> oneTurn}}
     {{/each}}
   {{/if}}
 </ol>

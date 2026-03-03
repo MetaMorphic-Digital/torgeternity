@@ -1,6 +1,31 @@
 # TORG Eternity Changelog
 
-## 13.24.1 - "Mod" column in skills list & AE toggle tooltips
+## 13.25.0 - Combat Groups, DSN extra rolls, Hidden Combatants
+
+- Use `enricher#onRender` as the preferred way to set event handlers on inline enrichers.
+- Get "Torg" banner in scene controls back to its previous larger size.
+- Move code out of torgeternity.js file into more appropriate other files (reducing Technical Debt, you might have heard of it).
+- Update all github URLs to point to 'MetaMorphic-Digital' instead of 'gmmatt'.
+- The ChatLog entries now hold all dice rolled so far for each test so that **Dice-So-Nice** will display all the dice being rolled.
+- Combatants which are marked as **hidden** by a GM are not visible in the Combat Log of non-GM players.
+- Started work on getting **Groups of Combatants** working. (no sorting yet).
+  - Create a new group from the three-dot drop-down menu on the Combat Tracker ("Create New Combat Group")
+  - Rename a group by directly editing its name.
+  - Right-click on a combatant to add it to a group; or all Combatants for the same base Actor (e.g. all Ghosts) to the same group.
+  - Each group can hold only either Heroes OR villains OR neutrals.
+  - If more than one group is available, then a prompt will allow you to choose which group.
+  - The group is placed at the bottom of the group for the group's faction (or the bottom of the combat tracker).
+  - The group entry shows the number of active (not defeated) members in the group.
+  - If ALL members are waiting, then place group in the waiting section - click to toggle "waiting" for all group members.
+  - Same token icons are available for the group as are available for individual combatants:
+    - Hover over group header to highlight tokens of all members of the group
+    - Toggle Turn Complete
+    - Toggle Visibility
+    - Toggle Defeated
+    - Toggle Waiting
+    - Ping Tokens
+
+## 13.24.1 - Mod column in skills list & AE toggle tooltips
 
 - Tooltip on AE toggles on first tab of Actor sheets now shows the Item/Actor which provides the AE (rather than just saying "Toggle").
 - Show `Mod` column in Skills section of Stormknight Actor Sheet (displaying modifiers from all AEs).
@@ -875,12 +900,12 @@ is replaced by the new portrait. (For unlinked Actors, this will directly affect
 
 ### Fixes
 
-- https://github.com/gmmatt/torgeternity/issues/456
-- https://github.com/gmmatt/torgeternity/issues/499
-- https://github.com/gmmatt/torgeternity/issues/500
-- Possibly https://github.com/gmmatt/torgeternity/issues/501  ?
-- https://github.com/gmmatt/torgeternity/issues/504
-- https://github.com/gmmatt/torgeternity/issues/505
+- https://github.com/MetaMorphic-Digital/torgeternity/issues/456
+- https://github.com/MetaMorphic-Digital/torgeternity/issues/499
+- https://github.com/MetaMorphic-Digital/torgeternity/issues/500
+- Possibly https://github.com/MetaMorphic-Digital/torgeternity/issues/501  ?
+- https://github.com/MetaMorphic-Digital/torgeternity/issues/504
+- https://github.com/MetaMorphic-Digital/torgeternity/issues/505
 
 ## v.13.0.0
 
@@ -891,13 +916,13 @@ is replaced by the new portrait. (For unlinked Actors, this will directly affect
   
 - Now option to surpress chat notifications on card shuffle.
 - Miracles now have the skill "Faith" selected on creation.
-- custom attacks are now possible on threats [471](https://github.com/gmmatt/torgeternity/issues/471)
-- A new macro that deals damage to targeted tokens [472](https://github.com/gmmatt/torgeternity/issues/472)
-- Giving an option to ignore ammo mechanics [#490](https://github.com/gmmatt/torgeternity/issues/490)
-- Implants now do have a secondary axiom as well [#487](https://github.com/gmmatt/torgeternity/issues/487)
-- Item price-values are now completely automatically calculated [#486](https://github.com/gmmatt/torgeternity/issues/486)
-- Nice new possiblity token images [#495](https://github.com/gmmatt/torgeternity/issues/495)
-- Shiny new Welcome Messages [#496](https://github.com/gmmatt/torgeternity/issues/496)
+- custom attacks are now possible on threats [471](https://github.com/MetaMorphic-Digital/torgeternity/issues/471)
+- A new macro that deals damage to targeted tokens [472](https://github.com/MetaMorphic-Digital/torgeternity/issues/472)
+- Giving an option to ignore ammo mechanics [#490](https://github.com/MetaMorphic-Digital/torgeternity/issues/490)
+- Implants now do have a secondary axiom as well [#487](https://github.com/MetaMorphic-Digital/torgeternity/issues/487)
+- Item price-values are now completely automatically calculated [#486](https://github.com/MetaMorphic-Digital/torgeternity/issues/486)
+- Nice new possiblity token images [#495](https://github.com/MetaMorphic-Digital/torgeternity/issues/495)
+- Shiny new Welcome Messages [#496](https://github.com/MetaMorphic-Digital/torgeternity/issues/496)
 
 ## v.12.3.9
 

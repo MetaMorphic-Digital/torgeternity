@@ -583,7 +583,7 @@ export class TorgeternityMacros {
       // only Defenses, but ALL defenses
       newEffect = {
         name: `${game.i18n.localize('torgeternity.dialogWindow.buffMacro.defenses')} / ${bonus} / ${duration} rd(s)`,
-        duration: { rounds: duration, turns: duration },
+        duration: { rounds: duration, turns: duration, expiry: 'turnEnd' },
         changes: [
           {
             key: 'defenses.dodge.mod',
@@ -631,7 +631,7 @@ export class TorgeternityMacros {
       // only physical Defenses
       newEffect = {
         name: `${game.i18n.localize('torgeternity.dialogWindow.buffMacro.physicalDefenses')} / ${bonus} / ${duration} rd(s)`,
-        duration: { rounds: duration, turns: duration },
+        duration: { rounds: duration, turns: duration, expiry: 'turnEnd' },
         changes: [
           {
             key: 'defenses.dodge.mod',
@@ -659,7 +659,7 @@ export class TorgeternityMacros {
       // preparation of attribute effect
       newEffect = {
         name: `${game.i18n.localize('torgeternity.dialogWindow.buffMacro.allAttributes')} / ${bonus} / ${duration} rd(s)`,
-        duration: { rounds: duration, turns: duration },
+        duration: { rounds: duration, turns: duration, expiry: 'turnEnd' },
         changes: [
           {
             key: 'system.attributes.mind.value',
@@ -707,7 +707,7 @@ export class TorgeternityMacros {
       // preparation of attribute effect
       newEffect = {
         name: `${game.i18n.localize('torgeternity.attributes.' + attr)} / ${bonus} / ${duration} rd(s)`,
-        duration: { rounds: duration, turns: duration },
+        duration: { rounds: duration, turns: duration, expiry: 'turnEnd' },
         changes: [
           {
             key: 'system.attributes.' + attr + '.value',

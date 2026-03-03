@@ -1,4 +1,3 @@
-import { torgeternity } from '../../config.js';
 import { getTorgValue } from '../../torgchecks.js';
 import TorgeternityActor from '../../documents/actor/torgeternityActor.js'
 import { calcPriceValue } from '../shared.js';
@@ -17,7 +16,7 @@ export class VehicleData extends foundry.abstract.TypeDataModel {
       details: new fields.SchemaField({
         sizeBonus: new fields.StringField({
           initial: 'normal',
-          choices: Object.keys(torgeternity.sizes),
+          choices: Object.keys(CONFIG.torgeternity.sizes),
           required: true,
         }),
       }),
@@ -55,13 +54,13 @@ export class VehicleData extends foundry.abstract.TypeDataModel {
    */
   static migrateData(source) {
     if (source?.details && Object.hasOwn(source?.details, 'sizeBonus')) {
-      source.details.sizeBonus = Object.keys(torgeternity.sizes).includes(source.details.sizeBonus)
+      source.details.sizeBonus = Object.keys(CONFIG.torgeternity.sizes).includes(source.details.sizeBonus)
         ? source.details.sizeBonus
         : 'normal';
     }
     if (source?.price && Object.hasOwn(source?.price, 'magnitude')) {
       source.price.dollars = String(source.price.dollars);
-      if (source.price.magnitude !== 'ones' && Object.keys(torgeternity.magnitudes).includes(source.price.magnitude))
+      if (source.price.magnitude !== 'ones' && Object.keys(CONFIG.torgeternity.magnitudes).includes(source.price.magnitude))
         source.price.dollars += CONFIG.torgeternity.magnitudeLabels[source.price.magnitude];
       delete source.price.magnitude;
     }

@@ -1451,6 +1451,15 @@
         "buttonTitle": "MacroHub",
         "title": "Der Torg Eternity Macro-Hub"
       }
+    },
+    "CombatantGroup": {
+      "addToGroup": "Zur Gruppe hinzufügen",
+      "addAllToGroup": "Alle diesen Typs zur Gruppe hinzufügen",
+      "removeFromGroup": "Aus Gruppe entfernen",
+      "newGroup": "Neue Kampfgruppe erzeugen",
+      "whichGroup": "Welche Gruppe?",
+      "reallyDelete": "Gruppe '{group}' wirklich löschen?",
+      "noValidGroup": "Keine gültige Gruppe für diesen Kampfteilnehmer"
     }
   },
   "SCENE.FIELDS": {

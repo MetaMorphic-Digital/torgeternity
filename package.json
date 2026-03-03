@@ -25,10 +25,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gmmatt/torgeternity.git"
+    "url": "git+https://github.com/MetaMorphic-Digital/torgeternity.git"
   },
   "bugs": {
-    "url": "https://github.com/gmmatt/torgeternity/issues"
+    "url": "https://github.com/MetaMorphic-Digital/torgeternity/issues"
   },
-  "homepage": "https://github.com/gmmatt/torgeternity#readme"
+  "homepage": "https://github.com/MetaMorphic-Digital/torgeternity#readme"
 }

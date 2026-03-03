@@ -2395,8 +2395,17 @@ a:hover {
 }
 
 button[data-control="torg"] {
-  /*width: 56px; - Need to fix the button's alignment */
-  height: 30px;
+  padding: 0;
+
+  img {
+    position: absolute;
+    width: 50px;
+  }
+}
+
+button[data-control="torg22"] {
+  /* Need to fix the button's alignment */
+  width: 56px;
   background-image: url(../images/te-logo.webp);
   background-size: 100%;
   background-position: center;
@@ -2971,6 +2980,61 @@ nav#controls,
   }
 
   ol {
+
+    li.combatantGroup {
+      summary::marker {
+        content: "";
+      }
+
+      summary {
+        padding: 0.4em;
+        background: url(../images/tab-header.webp);
+        background-size: 100% 100%;
+        margin: 5px 0px 0px 0px;
+
+        &>div {
+          margin: 0 1.5em 0 1.5em;
+        }
+
+        &.disposition-1 {
+          filter: grayscale(0.75);
+        }
+
+        h3 {
+          text-align: left;
+          margin: 0;
+
+          input {
+            border: 0;
+            background: transparent;
+            field-sizing: content;
+
+            @supports not (field-sizing: content) {
+              width: 100%;
+            }
+          }
+        }
+      }
+
+      span.activeCount {
+        flex: 0;
+      }
+
+      button {
+        display: inline;
+      }
+
+      .combatant-controls {
+        line-height: 20px;
+        column-gap: 0px;
+      }
+
+      .combatant-control {
+        font-size: 14px;
+        text-shadow: 1px 1px 4px var(--color-shadow-dark);
+      }
+    }
+
     h3.waiting {
       padding: 0.75em;
       background: url(../images/active_tab_back.webp);
@@ -2980,8 +3044,17 @@ nav#controls,
     }
 
     li.combatant {
-      border-radius: 0px;
       border-left: 5px solid black;
+
+      &:not(.turnDone) {
+        border-left: 5px solid rgba(255, 255, 0, 0.836);
+      }
+    }
+
+    li.combatantGroup,
+    li.combatant {
+      border-radius: 0px;
+
       padding: 0px;
       column-gap: normal;
 
@@ -3022,14 +3095,6 @@ nav#controls,
       .combatant-control {
         font-size: 14px;
         text-shadow: 1px 1px 4px var(--color-shadow-dark);
-
-        &[data-action="toggleWaiting"] {
-          padding: 0 0.25rem;
-        }
-      }
-
-      &:not(.turnDone) {
-        border-left: 5px solid rgba(255, 255, 0, 0.836);
       }
 
       &.friendly:not(:hover) {

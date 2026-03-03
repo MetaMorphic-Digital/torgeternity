@@ -1,5 +1,4 @@
 import { migrateCosm, makeAxiomsField } from '../shared.js';
-import { torgeternity } from '../../config.js';
 
 const fields = foundry.data.fields;
 
@@ -13,7 +12,7 @@ export class BaseItemData extends foundry.abstract.TypeDataModel {
  */
   static defineSchema(itemType) {
     return {
-      cosm: new fields.StringField({ initial: 'none', choices: torgeternity.cosmTypes, textSearch: true, required: true, blank: false, nullable: false }),
+      cosm: new fields.StringField({ initial: 'none', choices: CONFIG.torgeternity.cosmTypes, textSearch: true, required: true, blank: false, nullable: false }),
       description: new fields.HTMLField({ initial: '', textSearch: true }),
       traits: newTraitsField(itemType),
       axioms: makeAxiomsField()
@@ -42,7 +41,7 @@ export function newTraitsField(itemType) {
     new fields.StringField({
       // StringField options
       blank: false,
-      choices: (itemType && torgeternity.specificItemTraits[itemType]) ?? CONFIG.torgeternity.allItemTraits,
+      choices: (itemType && CONFIG.torgeternity.specificItemTraits[itemType]) ?? CONFIG.torgeternity.allItemTraits,
       textSearch: true,
       trim: true,
     }),
