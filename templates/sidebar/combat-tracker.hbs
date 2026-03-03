@@ -84,7 +84,12 @@
       <details {{isOpen}} data-action="toggleGroup">
         <summary class="disposition{{disposition}}">
           <div class="flexrow" style="flex-wrap: nowrap">
-            <h3><input type="string" class="groupName" value="{{name}}" {{#unless @root.user.isGM}}readonly{{/unless}}>
+            <h3>
+              {{#if @root.user.isGM}}
+                <input type="string" class="groupName" value="{{name}}">
+              {{else}}
+                {{name}}
+              {{/if}}
             </h3>
             <div class="combatant-controls flexrow flex0" style="flex-wrap: nowrap">
               <span class="activeCount">({{#if activeCount}}{{activeCount}}/{{/if}}{{members.length}})</span>
