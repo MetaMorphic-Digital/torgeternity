@@ -253,7 +253,6 @@ export default class torgeternityCombatTracker extends foundry.applications.side
   _onCombatantHoverIn(event) {
     if (event.target.closest(".combatant[data-combatant-id]")) return super._onCombatantHoverIn(event);
     const { groupId } = event.target.closest(".combatantGroup[data-group-id]")?.dataset ?? {};
-    console.log(`hoverIn group ${groupId}`)
 
     const group = this.viewed.groups.get(groupId);
     if (!group) return;
@@ -272,7 +271,6 @@ export default class torgeternityCombatTracker extends foundry.applications.side
   _onCombatantHoverOut(event) {
     if (event.target.closest(".combatant[data-combatant-id]")) return super._onCombatantHoverOut(event);
     const { groupId } = event.target.closest(".combatantGroup[data-group-id]")?.dataset ?? {};
-    console.log(`hoverOut group ${groupId}`)
 
     const group = this.viewed.groups.get(groupId);
     if (!group) return;
@@ -281,9 +279,6 @@ export default class torgeternityCombatTracker extends foundry.applications.side
       token?._onHoverOut(event);
     }
     this.#highlightedGroup = [];
-  }
-
-  _onPingCombatantGroup(combatant) {
   }
 
   //

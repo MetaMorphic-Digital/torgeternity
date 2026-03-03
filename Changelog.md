@@ -1,5 +1,9 @@
 # TORG Eternity Changelog
 
+## 13.25.2 - Bug Fixes
+
+- Stymied & Vulnerable should be removed when an Actor ends its turn.
+
 ## 13.25.1 - Simpler Group header
 
 - Don't use an `input` field if a group name is not editable.
