@@ -20,7 +20,6 @@ export function initConfig() {
     cosm: 'torgeternity.cardTypes.cosm',
   };
 
-
   torgeternity.dramaConflicts = {
     none: 'torgeternity.drama.none',
     flurry: 'torgeternity.drama.flurry',
@@ -45,6 +44,19 @@ export function initConfig() {
     complication: "torgeternity.dramaCard.complication",
     criticalProblem: "torgeternity.dramaCard.criticalProblem",
     possibleSetback: "torgeternity.dramaCard.possibleSetback"
+  }
+
+  torgeternity.destinyActions = {
+    bd: 'torgeternity.destinyCard.bd',
+    plus3: 'torgeternity.destinyCard.plus3',
+    plus3other: 'torgeternity.destinyCard.plus3other',
+    plus3mental: 'torgeternity.destinyCard.plus3mental',
+    plus3physical: 'torgeternity.destinyCard.plus3physical',
+    drama: 'torgeternity.destinyCard.drama',
+    glory: 'torgeternity.destinyCard.glory',
+    hero: 'torgeternity.destinyCard.hero',
+    secondWind: 'torgeternity.destinyCard.secondWind',
+    seizeInitiative: 'torgeternity.destinyCard.seizeInitiative',
   }
 
   torgeternity.attributeTypes = {

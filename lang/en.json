@@ -490,6 +490,19 @@
       "stymiedDesc": "STYMIED: All {faction} are stymied until the end of the their turn",
       "surgeDesc": "SURGE: All {faction} must check for Contradications"
     },
+    "destinyCard": {
+      "bd": "+1 BD",
+      "drama": "Drama",
+      "glory": "Glory",
+      "hero": "Hero",
+      "plus3": "+3",
+      "plus3other": "+3 to another",
+      "plus3physical": "+3 Dexterity/Strength",
+      "plus3mental": "+3 Charisma/Mind/Spirit",
+      "special": "Special Action",
+      "secondWind": "Second Wind",
+      "seizeInitiative": "Seize Initiative"
+    },
     "dramaCard": {
       "heroesFirst": "Heroes First?",
       "heroesConflict": "H:",
@@ -628,8 +641,11 @@
       "beginningMigration": "Migrating Torg system version to ",
       "defaultAction": "Default action, Gear for example",
       "dramaDeckEmpty": "The Drama Deck is empty. Reset the Drama Deck to continue.",
+      "alreadyPlayedDrama": "Drama card already played for your latest test",
+      "alreadyPlayedHero": "Hero card already played for your latest test",
       "insufficientFunds": "You do not have enough {currency} ({quantity}) to buy {item} ({price})",
       "macroTypeWarning": "You can only create macro buttons for owned Items and Attributes/Skills",
+      "tooManyTargets": "Too many targets. You need to manually apply the BD",
       "migrationRunning": "Migrating Torg system version to ",
       "moduleNotActive": "Activate the module to see description.",
       "noActiveEffectInOwnedItem": "Managing Active Effects within an Owned Item is not currently supported and will be added in a subsequent update.",
@@ -639,6 +655,7 @@
       "noRaceToDelete": "There is no race to delete.",
       "noSkillNamed": "Your controlled Actor does not have a skill named ",
       "noTarget": "No valid Target Token",
+      "noTestAvailable": "No Test for Player",
       "noTokenNorActor": "No tokens selected and no assigned character found, the macro cannot proceed.",
       "noVehicleOperator": "The targeted vehicle {a} doesn't have an operator. The test cannot proceed.",
       "notImplemented": "Not implemented at this moment",
@@ -655,6 +672,7 @@
       "noPlayers": "No active players",
       "raceExistent": "You have already chosen a race.",
       "notAPerkItem": "You attempted to assign a perk from the {a} category to this race, but it must belong to the racial category. Action has been aborted.",
+      "tooLateForPlus3": "Too late to play a +3",
       "addedRacePerkToActor": "Added {perkName}-perk to actor.",
       "reachedMaximumAttr": "You have reached the attribute maximum specified by your race. A further increase is not possible.",
       "clipEmpty": "This ammunition is empty and cannot be used for reloading."
@@ -769,6 +787,10 @@
       "animatedChat": {
         "hint": "If checked, enable chat card animations. Changing this setting will reload the app",
         "name": "Chat Card Animation"
+      },
+      "autoApplyDestinyCard": {
+        "hint": "Automatically apply the effects of a Destiny Card to the Actor's most recent test",
+        "name": "Auto-Apply Destiny Cards"
       },
       "autoDarknessPenalty": {
         "hint": "If checked, the darkness penalty on a token will be set automatically based on the scene's darkness level, regions with adjust darkness level and light/dark sources.",
@@ -1474,7 +1496,8 @@
     }
   },
   "CARD.FIELDS": {
-    "number.label": "Number"
+    "number.label": "Number",
+    "system.special": "Special Ability"
   },
   "CONTROLS": {
     "LightDim": "Transition to Dim Light",

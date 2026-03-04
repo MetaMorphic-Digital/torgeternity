@@ -34,6 +34,9 @@
       {{formGroup systemFields.rule value=source.system.rule localize=true}}
     </div>
   {{/if}}
+  {{#if (eq source.type "destiny")}}
+    {{formGroup systemFields.special value=source.system.special localize=true}}
+  {{/if}}
 
   {{formGroup fields.description value=source.description rootId=rootId elementType="textarea"}}
 
