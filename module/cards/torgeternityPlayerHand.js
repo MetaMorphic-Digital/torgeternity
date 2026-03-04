@@ -349,6 +349,7 @@ export default class torgeternityPlayerHand extends foundry.applications.sheets.
         data.decks[decks[key]] = `torgeternity.cosmDecks.${key}`;
       }
     }
+    data.cosm = decks[game.scenes.viewed.torg.cosm];
     const html = await foundry.applications.handlebars.renderTemplate(
       'systems/torgeternity/templates/cards/drawCosmDialog.hbs',
       data

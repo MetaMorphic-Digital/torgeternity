@@ -1,5 +1,9 @@
 # TORG Eternity Changelog
 
+## NEXT
+
+- In the player's Hand, the "Draw Cosm" button will default to the current scene's main cosm.
+
 ## 13.25.2 - Cosm Background Scenes + Bug Fixes
 
 - Stymied & Vulnerable should be removed when an Actor ends its turn.
