@@ -3,6 +3,7 @@
 ## NEXT
 
 - In the player's Hand, the "Draw Cosm" button will default to the current scene's main cosm.
+- Don't use a "small" font for the Action Total or Damage Total in chat messages.
 
 ## 13.25.2 - Cosm Background Scenes + Bug Fixes
 
