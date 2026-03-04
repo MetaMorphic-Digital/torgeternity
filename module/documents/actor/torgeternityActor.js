@@ -783,7 +783,7 @@ export default class TorgeternityActor extends foundry.documents.Actor {
   decayEffects() {
     const toUpdate = [];
     const toDelete = [];
-    if (game.release.generatiion < 14) {
+    if (game.release.generation < 14) {
       for (const effect of this.effects.filter((e) => e.duration.type === 'turns')) {
         if (effect.name === 'ActiveDefense') continue;
         if (effect.duration.turns <= 1 && effect.duration.rounds <= 1)

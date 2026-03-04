@@ -507,6 +507,7 @@
       "criticalProblem": "Critical Problem",
       "possibleSetback": "Possible Setback",
       "shuffleDeck": "Shuffle Drama Deck",
+      "replaceDrama": "Replace Drama Card",
       "getPreviousDrama": "Recall Previous Drama Card"
     },
     "enhancements": {

@@ -1,17 +1,15 @@
-name: Main scene
-active: false
+name: Living Land
 navigation: true
-navOrder: 0
 navName: ''
 foreground: null
-thumb: systems/torgeternity/images/thumbnails/main-scene-thumb.webp
+thumb: systems/torgeternity/images/thumbnails/living-land-thumb.webp
 width: 5797
 height: 3772
 padding: 0.25
 initial:
-  x: 3637
-  'y': 1857
-  scale: 0.27
+  x: 5000
+  'y': 3000
+  scale: 0.4
 backgroundColor: '#000000'
 grid:
   size: 100
@@ -36,20 +34,16 @@ playlistSound: null
 journal: null
 weather: ''
 folder: null
-sort: 0
 flags:
   torgeternity:
-    cosm: none
+    cosm: livingLand
     zone: pure
+    dimLightThreshold: 0.2
+    darkThreshold: 0.7
     cosm2: none
   core: {}
-_id: LxFt3CsDFSCSkASP
-ownership:
-  default: 2
-  ZuS1Anc9ORZov40T: 3
-  VAnYow5sWS9EJzo0: 3
 background:
-  src: systems/torgeternity/images/marble_bg.webp
+  src: systems/torgeternity/images/background_ll.webp
   offsetX: 0
   offsetY: 0
   scaleX: 1
@@ -63,15 +57,15 @@ background:
 foregroundElevation: null
 journalEntryPage: null
 _stats:
-  systemId: torgeternity
-  systemVersion: 13.24.1
-  coreVersion: '13.351'
-  createdTime: 1716827808907
-  modifiedTime: 1772552548667
-  lastModifiedBy: CPwBNCoOtt6eU6Hc
-  compendiumSource: Scene.wB8N2w9glm6jjIWK
+  compendiumSource: null
   duplicateSource: null
   exportSource: null
+  coreVersion: '13.351'
+  systemId: torgeternity
+  systemVersion: 13.24.1
+  createdTime: 1772552469573
+  modifiedTime: 1772552863643
+  lastModifiedBy: CPwBNCoOtt6eU6Hc
 regions: []
 environment:
   globalLight:
@@ -109,5 +103,12 @@ fog:
   colors:
     explored: null
     unexplored: null
-_key: '!scenes!LxFt3CsDFSCSkASP'
+ownership:
+  default: 0
+  CPwBNCoOtt6eU6Hc: 3
+navOrder: 0
+_id: oCl312t5VEg4sjxv
+active: false
+sort: 75000
+_key: '!scenes!oCl312t5VEg4sjxv'
 

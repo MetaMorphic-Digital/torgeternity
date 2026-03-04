@@ -186,6 +186,11 @@ export default class torgeternityCombatTracker extends foundry.applications.side
     const options = super._getCombatContextOptions().filter(
       opt => opt.name !== 'COMBAT.InitiativeReset');
     options.unshift({
+      name: "torgeternity.dramaCard.replaceDrama",
+      icon: '<i class="fa-solid fa-rotate-right"></i>',
+      condition: game.user.isGM && !!this.viewed,
+      callback: () => this.viewed.drawDramaCard()
+    }, {
       name: "torgeternity.dramaCard.getPreviousDrama",
       icon: '<i class="fa-solid fa-up-down"></i>',
       condition: game.user.isGM && !!this.viewed,
@@ -253,7 +258,6 @@ export default class torgeternityCombatTracker extends foundry.applications.side
   _onCombatantHoverIn(event) {
     if (event.target.closest(".combatant[data-combatant-id]")) return super._onCombatantHoverIn(event);
     const { groupId } = event.target.closest(".combatantGroup[data-group-id]")?.dataset ?? {};
-    console.log(`hoverIn group ${groupId}`)
 
     const group = this.viewed.groups.get(groupId);
     if (!group) return;
@@ -272,7 +276,6 @@ export default class torgeternityCombatTracker extends foundry.applications.side
   _onCombatantHoverOut(event) {
     if (event.target.closest(".combatant[data-combatant-id]")) return super._onCombatantHoverOut(event);
     const { groupId } = event.target.closest(".combatantGroup[data-group-id]")?.dataset ?? {};
-    console.log(`hoverOut group ${groupId}`)
 
     const group = this.viewed.groups.get(groupId);
     if (!group) return;
@@ -281,9 +284,6 @@ export default class torgeternityCombatTracker extends foundry.applications.side
       token?._onHoverOut(event);
     }
     this.#highlightedGroup = [];
-  }
-
-  _onPingCombatantGroup(combatant) {
   }
 
   //
