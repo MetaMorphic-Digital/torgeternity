@@ -4320,7 +4320,7 @@ document-embed .generalHeader {
       position: absolute;
       display: block;
       top: 10px;
-      right: calc(var(--sidebar-width) + 10px);
+      left: 120px;
       z-index: 1000;
       max-width: 250px;
       min-height: 100px;
