@@ -5,6 +5,7 @@
 - In the player's Hand, the "Draw Cosm" button will default to the current scene's main cosm.
 - Don't use a "small" font for the Action Total or Damage Total in chat messages.
 - The card is now visible when hovering over a pool card in a popped-out Combat Tracker.
+- BD button will now appear if a failed attack is improved into a Success.
 
 ## 13.25.2 - Cosm Background Scenes + Bug Fixes
 

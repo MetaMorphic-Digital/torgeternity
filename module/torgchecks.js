@@ -561,7 +561,7 @@ export async function renderSkillChat(test, origChatMessage) {
           target.damageDescription = game.i18n.localize('torgeternity.chatText.check.result.noDamage');
           target.damageSubDescription = game.i18n.localize('torgeternity.chatText.check.result.attackMissed');
           target.showApplyDamage = false;
-          target.showBD = false;
+          //target.showBD = false;  // hidden by default (and should remain undefined so it can be set to True if the test is improved to a Success)
           if (test.attackTraits?.includes('unwieldy')) {
             target.damageDescription += ` (${game.i18n.localize('torgeternity.traits.unwieldy')})`;
             test.showActorApplyVeryVulnerable = true;
