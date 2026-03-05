@@ -1,5 +1,10 @@
 # TORG Eternity Changelog
 
+## 13.26.1 - Bug Fixes
+
+- Prevent flooding the console with errors when no Encounter is present in the combat tracker.
+- Ensure we check the correct `combatant.combat` when displaying the context menu for combatants.
+
 ## 13.26.0 - Automated Destiny Cards + Bug Fixes
 
 - In the player's Hand, the **Draw Cosm** button will default to the current scene's main cosm.

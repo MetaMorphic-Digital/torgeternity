@@ -224,13 +224,11 @@ export default class torgeternityCombatTracker extends foundry.applications.side
     function canAddToGroup(li) {
       const combatant = getCombatant(li);
       return !combatant?.group &&
-        !!combat.groups.find(group => group.disposition === undefined || group.disposition === combatant.token.disposition);
+        !!combatant.combat.groups.find(group => group.disposition === undefined || group.disposition === combatant.token.disposition);
     }
 
     const options = super._getEntryContextOptions().filter(
       opt => opt.name !== 'COMBAT.CombatantReroll' && opt.name !== 'COMBAT.CombatantClear');
-
-    const combat = this.viewed;
 
     options.push(
       {
@@ -259,7 +257,7 @@ export default class torgeternityCombatTracker extends foundry.applications.side
     if (event.target.closest(".combatant[data-combatant-id]")) return super._onCombatantHoverIn(event);
     const { groupId } = event.target.closest(".combatantGroup[data-group-id]")?.dataset ?? {};
 
-    const group = this.viewed.groups.get(groupId);
+    const group = this.viewed?.groups.get(groupId);
     if (!group) return;
     this.#highlightedGroup = [];
     let first = true;
@@ -277,7 +275,7 @@ export default class torgeternityCombatTracker extends foundry.applications.side
     if (event.target.closest(".combatant[data-combatant-id]")) return super._onCombatantHoverOut(event);
     const { groupId } = event.target.closest(".combatantGroup[data-group-id]")?.dataset ?? {};
 
-    const group = this.viewed.groups.get(groupId);
+    const group = this.viewed?.groups.get(groupId);
     if (!group) return;
 
     for (const token of this.#highlightedGroup) {
