@@ -5,7 +5,8 @@
   },
   "EFFECT": {
     "TABS": {
-      "torg": "Torg Eternity"
+      "torg": "Torg Eternity",
+      "torgChanges": "Torg Changes"
     }
   },
   "TYPES": {
@@ -47,6 +48,12 @@
         "applyIfDefendTrait": {
           "label": "Apply If Defend Trait",
           "hint": "Apply the effect only if the attacked token (the target) has one of these traits"
+        },
+        "skillsFavor":{
+          "label": "Skills Favored:"
+        },
+        "attributesFavor": {
+          "label": "Attributes Favored:"
         }
       }
     },
@@ -326,6 +333,29 @@
       "mishap": {
         "main": "&#x1F480;&#x1F480;&#x1F480; DEATH &#x1F480;&#x1F480;&#x1F480;",
         "sub": "You get one final, dramatic action before expiring (ignoring wound penalties)"
+      }
+    },
+    "defenses": {
+      "dodge": "Dodge",
+      "meleeWeapons": "Melee Weapons",
+      "unarmedCombat": "Unarmed Combat",
+      "intimidation": "Intimidation",
+      "maneuver": "Maneuver",
+      "taunt": "Taunt",
+      "trick": "Trick",
+      "armor": "Armor",
+      "toughness": "Toughness",
+      "damageTraits" : {
+        "energyArmor": "Armor against Energy Damage",
+        "energyDefense": "Toughness against Energy Dame",
+        "fireArmor": "Armor against Fire Damage",
+        "fireDefense": "Toughness against Fire Damage",
+        "forceArmor": "Armor against Force Damage",
+        "forceDefense": "Toughness against Force Damage",
+        "iceArmor": "Armor against Ice Damage",
+        "iceDefense": "Toughness against Ice Damage",
+        "lightningArmor": "Armor against Lightning Damage",
+        "lightningDefense": "Toughness against Lightning Damage"
       }
     },
     "dialogPrompts": {
@@ -684,6 +714,13 @@
       "addedRacePerkToActor": "Added {perkName}-perk to actor.",
       "reachedMaximumAttr": "You have reached the attribute maximum specified by your race. A further increase is not possible.",
       "clipEmpty": "This ammunition is empty and cannot be used for reloading."
+    },
+    "otherActiveEffectsChanges": {
+      "movement": "Movement",
+      "health": "Heatlh",
+      "damageAndTest": "Damages and Test",
+      "axiomsAndReality": "Axioms and Reality",
+      "others": "Others"
     },
     "packs": {
       "basicRules": "torgeternity.basic-rules",
@@ -1200,7 +1237,57 @@
       "backlash2Tooltip": "Apply 1 shock",
       "backlash3Tooltip": "Apply Very Stymied",
       "additionalDamage": "Additional damage preset",
-      "bonusDice": "Rolled Bonus-Dice in advance"
+      "bonusDice": "Rolled Bonus-Dice in advance",
+      "activeEffect": {
+        "skills": {
+          "title": "Skills",
+          "description": "If you want to modify adds to skills or make them favored.",
+          "skillAdds": {
+            "label": "Skills adds:",
+            "cta": "+ Add a skill adds change"
+          },
+          "skillsFavour": {
+            "label": "Skills Favored:"
+          }
+        },
+        "attributes": {
+          "title": "Attributes",
+          "description": "If you want to modify attributes value or make them favored.",
+          "attributesValue": {
+            "label": "Attributes values:",
+            "cta": "+ Add an attribute value change"
+          },
+          "attributesFavor": {
+            "label": "Attributes Favored:"
+          }
+        },
+        "defenses": {
+          "title": "Defenses",
+          "description": "If you want to modify Armor or Toughness modifier globally or against certain elements",
+          "defensesMod": {
+            "label": "Defenses modifier",
+            "cta": "+ Add a Defense modifier"
+          },
+          "elements": {
+            "label": "Elemental defense",
+            "cta": "+ Add an Elemental defense modifier"
+          }
+        },
+        "other": {
+          "title": "Miscellaneous",
+          "description": "Other changes cannot be categorized such as Possibilities, Axiom, Health, Movement, etc. Those have been regrouped here.",
+          "otherChanges": {
+            "label": "Other change",
+            "cta": "+ Add a Miscellaneous change"
+          }
+        }
+      }
+    },
+    "skillGroup": {
+      "combat": "Combat",
+      "power": "Power",
+      "vehicle": "Vehicles",
+      "other": "Other"
     },
     "sizes": {
       "large": "Large",

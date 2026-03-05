@@ -1,0 +1,143 @@
+{{!-- TODO: Split to parts! --}}
+<section class="tab changes{{#if tab.active}} active{{/if}} torgeternity-active-effects scrollable" data-group="{{tab.group}}" data-tab="{{tab.id}}">
+{{!-- Skills --}}
+<div class="torgchange-section">
+<h3>{{localize "torgeternity.sheetLabels.activeEffect.skills.title"}}</h3>
+<p>{{localize "torgeternity.sheetLabels.activeEffect.skills.description"}}</p>
+<div>
+  <h4>{{localize "torgeternity.sheetLabels.activeEffect.skills.skillAdds.label"}}</h4>
+  <ol class="scrollable">
+    {{#each source.system.skillsAdds as |changeSkillAdd i|}}
+    {{#with ../systemFields.skillsAdds as |skillAddsChanges|}}
+    <li class="change-row" data-skill-adds-index="{{i}}">
+      <input type="hidden" name="system.skillsAdds.{{i}}._id" value="{{changeSkillAdd._id}}"/>
+      <select name="system.skillsAdds.{{i}}.key">
+        {{selectOptions skillAddsChanges.element.fields.key.choices selected=changeSkillAdd.key localize=true}}
+      </select>
+
+      <input type="text" class="value-input" name="system.skillsAdds.{{i}}.value" value="{{changeSkillAdd.value}}">
+      <div class="controls">
+        <button type="button" class="inline-control icon fa-solid fa-trash" data-action="deleteSkillAddsChange"></button>
+      </div>
+    </li>
+    {{/with}}
+    {{/each}}
+  </ol>
+  <button type="button" class="change-button" data-action="addSkillAddsChange">{{localize "torgeternity.sheetLabels.activeEffect.skills.skillAdds.cta"}}</button>
+</div>
+<div>
+  {{formGroup systemFields.skillsFavor value=source.system.skillsFavor rootId=rootId localize=true name="system.skillsFavor"}}
+</div>
+</div>
+
+{{!-- Attributes --}}
+<div class="torgchange-section">
+<h3>{{localize "torgeternity.sheetLabels.activeEffect.attributes.title"}}</h3>
+<p>{{localize "torgeternity.sheetLabels.activeEffect.attributes.description"}}</p>
+<div>
+  <h4>{{localize "torgeternity.sheetLabels.activeEffect.attributes.attributesValue.label"}}</h4>
+  <ol class="scrollable">
+    {{#each source.system.attributesAdds as |changeAttrAdds i|}}
+    {{#with ../systemFields.attributesAdds as |attributesChanges|}}
+    <li class="change-row" data-attributes-adds-index="{{i}}">
+      <input type="hidden" name="system.attributesAdds.{{i}}._id" value="{{changeAttrAdds._id}}" />
+      <select name="system.attributesAdds.{{i}}.key">
+        {{selectOptions attributesChanges.element.fields.key.choices selected=changeAttrAdds.key localize=true}}
+      </select>
+
+      <input type="text" class="value-input" name="system.attributesAdds.{{i}}.value" value="{{changeAttrAdds.value}}">
+      <div class="controls">
+        <button type="button" class="inline-control icon fa-solid fa-trash"
+          data-action="deleteAttributesChange"></button>
+      </div>
+    </li>
+    {{/with}}
+    {{/each}}
+  </ol>
+  <button type="button" class="change-button" data-action="addAttributesChange">{{localize "torgeternity.sheetLabels.activeEffect.attributes.attributesValue.cta"}}</button>
+</div>
+<div>
+  {{formGroup systemFields.attributesFavor value=source.system.attributesFavor rootId=rootId localize=true
+  name="system.attributesFavor"}}
+</div>
+</div>
+
+{{!-- Defenses --}}
+<div class="torgchange-section">
+  <h3>{{localize "torgeternity.sheetLabels.activeEffect.defenses.title"}}</h3>
+  <p>{{localize "torgeternity.sheetLabels.activeEffect.defenses.description"}}</p>
+  <div>
+    <h4>{{localize "torgeternity.sheetLabels.activeEffect.defenses.defensesMod.label"}}</h4>
+    <ol class="scrollable">
+      {{#each source.system.defensesChanges as |changeDefensesMod i|}}
+      {{#with ../systemFields.defensesChanges as |defensesMod|}}
+      <li class="change-row" data-denfenses-mod-index="{{i}}">
+        <input type="hidden" name="system.defensesChanges.{{i}}._id" value="{{changeDefensesMod._id}}" />
+        <select name="system.defensesChanges.{{i}}.key">
+          {{selectOptions defensesMod.element.fields.key.choices selected=changeDefensesMod.key localize=true}}
+        </select>
+
+        <input type="text" class="value-input" name="system.defensesChanges.{{i}}.value"
+          value="{{changeDefensesMod.value}}">
+        <div class="controls">
+          <button type="button" class="inline-control icon fa-solid fa-trash"
+            data-action="deleteDefenseMod"></button>
+        </div>
+      </li>
+      {{/with}}
+      {{/each}}
+    </ol>
+    <button type="button" class="change-button" data-action="addDefensesMod">{{localize "torgeternity.sheetLabels.activeEffect.defenses.defensesMod.cta"}}</button>
+
+    <h4>{{localize "torgeternity.sheetLabels.activeEffect.defenses.elements.label"}}</h4>
+    <ol class="scrollable">
+      {{#each source.system.elementalDefenses as |changeElementalDef i|}}
+      {{#with ../systemFields.elementalDefenses as |eleDefensesMod|}}
+      <li class="change-row" data-denfenses-mod-index="{{i}}">
+        <input type="hidden" name="system.elementalDefenses.{{i}}._id" value="{{changeElementalDef._id}}" />
+        <select name="system.elementalDefenses.{{i}}.key">
+          {{selectOptions eleDefensesMod.element.fields.key.choices selected=changeElementalDef.key localize=true}}
+        </select>
+    
+        <input type="text" class="value-input" name="system.elementalDefenses.{{i}}.value"
+          value="{{changeElementalDef.value}}">
+        <div class="controls">
+          <button type="button" class="inline-control icon fa-solid fa-trash" data-action="deleteElemDefense"></button>
+        </div>
+      </li>
+      {{/with}}
+      {{/each}}
+    </ol>
+    <button type="button" class="change-button" data-action="addElemDefenses">{{localize "torgeternity.sheetLabels.activeEffect.defenses.elements.cta"}}</button>
+  </div>
+</div>
+
+{{!-- Others --}}
+<div class="torgchange-section">
+  <h3>{{localize "torgeternity.sheetLabels.activeEffect.other.title"}}</h3>
+  <p>{{localize "torgeternity.sheetLabels.activeEffect.other.description"}}</p>
+  <div>
+    <h4>{{localize "torgeternity.sheetLabels.activeEffect.other.otherChanges.label"}}</h4>
+    <ol class="scrollable">
+      {{#each source.system.otherChanges as |otherChange i|}}
+      {{#with ../systemFields.otherChanges as |otherChangesField|}}
+      <li class="change-row" data-attributes-adds-index="{{i}}">
+        <input type="hidden" name="system.otherChanges.{{i}}._id" value="{{otherChange._id}}" />
+        <select name="system.otherChanges.{{i}}.key">
+          {{selectOptions otherChangesField.element.fields.key.choices selected=otherChange.key localize=true}}
+        </select>
+
+        <input type="text" class="value-input" name="system.otherChanges.{{i}}.value"
+          value="{{otherChange.value}}">
+        <div class="controls">
+          <button type="button" class="inline-control icon fa-solid fa-trash"
+            data-action="deleteOtherChange"></button>
+        </div>
+      </li>
+      {{/with}}
+      {{/each}}
+    </ol>
+    <button type="button" class="change-button" data-action="addOtherChange">{{localize "torgeternity.sheetLabels.activeEffect.other.otherChanges.cta"}}</button>
+  </div>
+</div>
+</section>

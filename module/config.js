@@ -329,6 +329,50 @@ export function initConfig() {
     faith: 'torgeternity.powerSkills.faith',
   };
 
+  torgeternity.interactionSkills = {
+    intimidation: 'torgeternity.skills.intimidation',
+    maneuver: 'torgeternity.skills.maneuver',
+    taunt: 'torgeternity.skills.taunt',
+    trick: 'torgeternity.skills.trick',
+  }
+
+  torgeternity.combatSkills = {
+    dodge: 'torgeternity.skills.dodge',
+    energyWeapons: 'torgeternity.skills.energyWeapons',
+    fireCombat: 'torgeternity.skills.fireCombat',
+    heavyWeapons: 'torgeternity.skills.heavyWeapons',
+    meleeWeapons: 'torgeternity.skills.meleeWeapons',
+    missileWeapons: 'torgeternity.skills.missileWeapons',
+    unarmedCombat: 'torgeternity.skills.unarmedCombat',
+  }
+
+  torgeternity.vehiclesSkills = {
+    airVehicles: 'torgeternity.skills.airVehicles',
+    beastRiding: 'torgeternity.skills.beastRiding',
+    landVehicles: 'torgeternity.skills.landVehicles',
+    waterVehicles: 'torgeternity.skills.waterVehicles',
+  }
+
+  torgeternity.otherSkills = {
+    computers: 'torgeternity.skills.computers',
+    evidenceAnalysis: 'torgeternity.skills.evidenceAnalysis',
+    find: 'torgeternity.skills.find',
+    firstAid: 'torgeternity.skills.firstAid',
+    language: 'torgeternity.skills.language',
+    lockpicking: 'torgeternity.skills.lockpicking',
+    medicine: 'torgeternity.skills.medicine',
+    persuasion: 'torgeternity.skills.persuasion',
+    profession: 'torgeternity.skills.profession',
+    reality: 'torgeternity.skills.reality',
+    scholar: 'torgeternity.skills.scholar',
+    science: 'torgeternity.skills.science',
+    stealth: 'torgeternity.skills.stealth',
+    streetwise: 'torgeternity.skills.streetwise',
+    survival: 'torgeternity.skills.survival',
+    tracking: 'torgeternity.skills.tracking',
+    willpower: 'torgeternity.skills.willpower',
+  }
+
   torgeternity.clearances = {
     alpha: 'torgeternity.clearances.alpha',
     beta: 'torgeternity.clearances.beta',
@@ -389,6 +433,7 @@ export function initConfig() {
     waterVehicles: 'torgeternity.skills.waterVehicles',
     willpower: 'torgeternity.skills.willpower',
   };
+
 
   torgeternity.concentrationSkills = [
     // Spells
@@ -645,6 +690,73 @@ export function initConfig() {
     ...Object.entries(torgeternity.meleeWeaponTraits).reduce((acc, ent) => { acc[ent[0]] = { label: ent[1], group: 'torgeternity.traitGroup.melee' }; return acc }, {}),
     ...Object.entries(torgeternity.rangedWeaponTraits).reduce((acc, ent) => { acc[ent[0]] = { label: ent[1], group: 'torgeternity.traitGroup.ranged' }; return acc }, {}),
   }
+
+  torgeternity.allSkillsGrouped = {
+    ...Object.entries(torgeternity.combatSkills).reduce((acc, ent) => { acc['skillFavor.'+ent[0]] = { label: ent[1], group: 'torgeternity.skillGroup.combat' }; return acc }, {}),
+    ...Object.entries(torgeternity.powerSkills).reduce((acc, ent) => { acc['skillFavor.'+ent[0]] = { label: ent[1], group: 'torgeternity.skillGroup.power' }; return acc }, {}),
+    ...Object.entries(torgeternity.vehiclesSkills).reduce((acc, ent) => { acc['skillFavor.'+ent[0]] = { label: ent[1], group: 'torgeternity.skillGroup.vehicle' }; return acc }, {}),
+    ...Object.entries(torgeternity.otherSkills).reduce((acc, ent) => { acc['skillFavor.'+ent[0]] = { label: ent[1], group: 'torgeternity.skillGroup.other' }; return acc }, {}),
+  }
+
+  torgeternity.attributesFavorAndLabel = {
+    "attrFavor.charisma": {label: 'torgeternity.attributes.charisma'},
+    "attrFavor.dexterity": {label: 'torgeternity.attributes.dexterity'},
+    "attrFavor.mind": {label: 'torgeternity.attributes.mind'},
+    "attrFavor.spirit": {label: 'torgeternity.attributes.spirit'},
+    "attrFavor.strength": {label: 'torgeternity.attributes.strength'},
+  }
+
+  torgeternity.defensesModAndLabel = {
+    "defenses.dodge.mod": {label: 'torgeternity.defenses.dodge'},
+    "defenses.meleeWeapons.mod": {label: 'torgeternity.defenses.meleeWeapons'},
+    "defenses.unarmedCombat.mod": {label: 'torgeternity.defenses.unarmedCombat'},
+    "defenses.intimidation.mod": {label: 'torgeternity.defenses.intimidation'},
+    "defenses.maneuver.mod": {label: 'torgeternity.defenses.maneuver'},
+    "defenses.taunt.mod": {label: 'torgeternity.defenses.taunt'},
+    "defenses.trick.mod": {label: 'torgeternity.defenses.trick'},
+    "defenses.armor": {label: 'torgeternity.defenses.armor'},
+    "defenses.toughness": {label: 'torgeternity.defenses.toughness'},
+  }
+
+  torgeternity.defensesAgainstElementAndLabel = {
+    "defenses.damageTraits.energyArmor" : {label: 'torgeternity.defenses.damageTraits.energyArmor'},
+    "defenses.damageTraits.energyDefense" : {label: 'torgeternity.defenses.damageTraits.energyDefense'},
+    "defenses.damageTraits.fireArmor" : {label: 'torgeternity.defenses.damageTraits.fireArmor'},
+    "defenses.damageTraits.fireDefense" : {label: 'torgeternity.defenses.damageTraits.fireDefense'},
+    "defenses.damageTraits.forceArmor" : {label: 'torgeternity.defenses.damageTraits.forceArmor'},
+    "defenses.damageTraits.forceDefense" : {label: 'torgeternity.defenses.damageTraits.forceDefense'},
+    "defenses.damageTraits.iceArmor" : {label: 'torgeternity.defenses.damageTraits.iceArmor'},
+    "defenses.damageTraits.iceDefense" : {label: 'torgeternity.defenses.damageTraits.iceDefense'},
+    "defenses.damageTraits.lightningArmor" : {label: 'torgeternity.defenses.damageTraits.lightningArmor'},
+    "defenses.damageTraits.lightningDefense" : {label: 'torgeternity.defenses.damageTraits.lightningDefense'},
+  }
+
+  torgeternity.otherChangesGroupedWithLabels = {
+    //Movement
+    "system.other.moveMod" : {label : "Move", group:"torgeternity.otherActiveEffectsChanges.movement"},
+    "system.other.runMod" : {label : "Run", group:"torgeternity.otherActiveEffectsChanges.movement"},
+    //Health
+    "fatigue": {label :"Fatigue", group:"torgeternity.otherActiveEffectsChanges.health"},
+    "system.shock.max": {label :"Schock Max", group:"torgeternity.otherActiveEffectsChanges.health"},
+    "system.wounds.max": {label :"Wounds Max", group:"torgeternity.otherActiveEffectsChanges.health"},
+    //Damage and Tests
+    "system.unarmedDamageMod" : {label:"Unarmed Damage", group:"torgeternity.otherActiveEffectsChanges.damageAndTest"},
+    "test.damage" : {label:"Test Damage", group:"torgeternity.otherActiveEffectsChanges.damageAndTest"},
+    "test.weaponAP" : {label:"Weapon Armor Piercing", group:"torgeternity.otherActiveEffectsChanges.damageAndTest"},
+    "test.wounds" : {label:"Test Wounds", group:"torgeternity.otherActiveEffectsChanges.damageAndTest"},
+    "test.shock" : {label:"Test Schock", group:"torgeternity.otherActiveEffectsChanges.damageAndTest"},
+    //Axioms and Reality
+    "system.axioms.magic": {label:"Magic Axiom", group:"torgeternity.otherActiveEffectsChanges.axiomsAndReality"},
+    "system.axioms.social": {label:"Social Axiom", group:"torgeternity.otherActiveEffectsChanges.axiomsAndReality"},
+    "system.axioms.spirit": {label:"Spirit Axiom", group:"torgeternity.otherActiveEffectsChanges.axiomsAndReality"},
+    "system.axioms.tech": {label:"Tech Axiom", group:"torgeternity.otherActiveEffectsChanges.axiomsAndReality"},
+    "system.other.possibilities.perAct": {label:"Possibilities per act", group:"torgeternity.otherActiveEffectsChanges.axiomsAndReality"},
+    //Others
+    "system.other.maxDex":{label:"Max Dexterity", group:"torgeternity.otherActiveEffectsChanges.others"},
+    "system.other.minStr":{label:"Min Strength", group:"torgeternity.otherActiveEffectsChanges.others"},
+    "targetModifiers.darkness": {label:"Darkness Modifier", group:"torgeternity.otherActiveEffectsChanges.others"}
+  }
+
 
 
   torgeternity.specificItemTraits = {

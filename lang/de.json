@@ -5,7 +5,8 @@
   },
   "EFFECT": {
     "TABS": {
-      "torg": "Torg Eternity"
+      "torg": "Torg Eternity",
+      "torgChanges": "Torg Changes"
     }
   },
   "CHAT": {
@@ -53,6 +54,12 @@
         "applyIfDefendTrait": {
           "label": "Anwenden bei Verteidiger-Eigenschaft",
           "hint": "Effekt wird nur angewendet, wenn der angegriffene Token (das Ziel) einen der angegebenen Eigenschaften besitzt."
+        },
+        "skillsFavour": {
+          "label": "Bevorzugte Fertigkeiten:"
+        },
+        "attributesFavor": {
+          "label": "Bevorzugte Attribute:"
         }
       }
     },
@@ -332,6 +339,29 @@
       "mishap": {
         "main": "&#x1F480;&#x1F480;&#x1F480; {name} stirbt! &#x1F480;&#x1F480;&#x1F480;",
         "sub": "Das Opfer erhält sofort eine letzte, dramatische Aktion, bevor es abtritt. Verwundungsmalusse werden hierbei ignoriert."
+      }
+    },
+    "defenses": {
+      "dodge": "Ausweichen",
+      "meleeWeapons": "Nahkampfwaffe",
+      "unarmedCombat": "Waffenloser Kampf",
+      "intimidation": "Einschüchtern",
+      "maneuver": "Manövrieren",
+      "taunt": "Verspotten",
+      "trick": "Tricksen",
+      "armor": "Rüstung",
+      "toughness": "Robustheit",
+      "damageTraits" : {
+        "energyArmor": "Rüstung gegen Energieschaden",
+        "energyDefense": "Resistenz gegen Energieschaden",
+        "fireArmor": "Rüstung gegen Feuerschaden",
+        "fireDefense": "Resistenz gegen Feuerschaden",
+        "forceArmor": "Rüstung gegen Kraftschaden",
+        "forceDefense": "Resistenz gegen Kraftschaden",
+        "iceArmor": "Rüstung gegen Eisschaden",
+        "iceDefense": "Resistenz gegen Eisschaden",
+        "lightningArmor": "Rüstung gegen Blitzschaden",
+        "lightningDefense": "Resistenz gegen Blitzschaden"
       }
     },
     "dialogPrompts": {
@@ -664,6 +694,13 @@
       "addedRacePerkToActor": "{perkName}-Vorzug dem Charakter hinzugefügt.",
       "reachedMaximumAttr": "Du hast das Attributsmaximum, dass dein Volk vorgibt, erreicht. Eine weitere Erhöhung ist nicht möglich.",
       "clipEmpty": "Diese Munition ist leer und kann nicht zum Nachladen verwendet werden."
+    },
+    "otherActiveEffectsChanges": {
+      "movement": "Movement",
+      "health": "Heatlh",
+      "damageAndTest": "Damages and Test",
+      "axiomsAndReality": "Axioms and Reality",
+      "others": "Others"
     },
     "packs": {
       "basicRules": "torgeternity.system-de-basisregeln",
@@ -1176,7 +1213,57 @@
       "backlash2Tooltip": "1 Schock anwenden",
       "backlash3Tooltip": "Sehr Angeschlagen anwenden",
       "additionalDamage": "+ Schaden",
-      "bonusDice": "BW im Voraus würfeln"
+      "bonusDice": "BW im Voraus würfeln",
+      "activeEffect": {
+        "skills": {
+          "title": "Fertigkeiten",
+          "description": "Wenn du Fertigkeitsboni ändern oder sie als bevorzugt markieren möchtest.",
+          "skillAdds": {
+            "label": "Fertigkeitsboni:",
+            "cta": "+ Fertigkeitsbonus hinzufügen"
+          },
+          "skillsFavour": {
+            "label": "Bevorzugte Fertigkeiten:"
+          }
+        },
+        "attributes": {
+          "title": "Attribute",
+          "description": "Wenn du Attributswerte ändern oder sie als bevorzugt markieren möchtest.",
+          "attributesValue": {
+            "label": "Attributswerte:",
+            "cta": "+ Attributswert-Änderung hinzufügen"
+          },
+          "attributesFavor": {
+            "label": "Bevorzugte Attribute:"
+          }
+        },
+        "defenses": {
+          "title": "Verteidigung",
+          "description": "Wenn du Rüstungs- oder Widerstandswerte global oder gegen bestimmte Elemente ändern möchtest.",
+          "defensesMod": {
+            "label": "Verteidigungsmodifikator",
+            "cta": "+ Verteidigungsmodifikator hinzufügen"
+          },
+          "elements": {
+            "label": "Elementare Verteidigung",
+            "cta": "+ Elementaren Verteidigungsmodifikator hinzufügen"
+          }
+        },
+        "other": {
+          "title": "Sonstiges",
+          "description": "Sonstige Änderungen, die nicht kategorisiert werden können, wie Möglichkeiten, Axiome, Gesundheit, Bewegung usw. Diese wurden hier zusammengefasst.",
+          "otherChanges": {
+            "label": "Sonstige Änderung",
+            "cta": "+ Sonstige Änderung hinzufügen"
+          }
+        }
+      }
+    },
+    "skillGroup": {
+      "combat": "Kampf",
+      "power": "Kräfte",
+      "vehicle": "Fahrzeuge",
+      "other": "Sonstiges"
     },
     "sizes": {
       "large": "Groß",

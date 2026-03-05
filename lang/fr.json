@@ -5,7 +5,8 @@
   },
   "EFFECT": {
     "TABS": {
-      "torg": "Torg Eternity"
+      "torg": "Torg Eternity",
+      "torgChanges": "Torg Changes"
     }
   },
   "CHAT": {
@@ -53,6 +54,12 @@
         "applyIfDefendTrait": {
           "label": "Appliquer le trait de défense",
           "hint": "Appliquer l'Effet uniquement si le Token attaqué (la cible) possède l'un de ces traits"
+        },
+        "skillsFavor":{
+          "label": "Compétences favorisées:"
+        },
+        "attributesFavor": {
+          "label": "Attributs favorisés:"
         }
       }
     },
@@ -332,6 +339,29 @@
       "mishap": {
         "main": "&#x1F480;&#x1F480;&#x1F480; MORT &#x1F480;&#x1F480;&#x1F480;",
         "sub": "Vous pouvez effectuer une dernière action dramatique avant d’expirer. Vous ignorez les malus des Blessures pour ce dernier effort héroïque."
+      }
+    },
+    "defenses": {
+      "dodge": "Esquive",
+      "meleeWeapons": "Défense en mélée",
+      "unarmedCombat": "Défense à mains nues",
+      "intimidation": "Intimidation",
+      "maneuver": "Manœuvre",
+      "taunt": "Provocation",
+      "trick": "Ruse",
+      "armor": "Armure",
+      "toughness": "Résistance",
+      "damageTraits" : {
+        "energyArmor": "Armure contre Arme à Énergie",
+        "energyDefense": "Résistance contre Arme à Énergie",
+        "fireArmor": "Armure contre Feu",
+        "fireDefense": "Résistance au Feu",
+        "forceArmor": "Armure contre les dégâts de Force",
+        "forceDefense": "Réistance au dégât de Force",
+        "iceArmor": "Armure contre le Froid",
+        "iceDefense": "Résistance au Froid",
+        "lightningArmor": "Armure contre l'Électricité",
+        "lightningDefense": "Résistance aux dégât Électrique"
       }
     },
     "dialogPrompts": {
@@ -664,6 +694,13 @@
       "addedRacePerkToActor": "Ajouté {perkName}-Atout à l'acteur.",
       "reachedMaximumAttr": "Tu as atteint le maximum d'attributs que ton peuple a défini. Une augmentation supplémentaire n'est pas possible.",
       "clipEmpty": "Ces munitions sont vides et ne peuvent pas être utilisées pour recharger."
+    },
+    "otherActiveEffectsChanges": {
+      "movement": "Déplacement",
+      "health": "Santé",
+      "damageAndTest": "Dégât et Tests",
+      "axiomsAndReality": "Axiomes and Réalité",
+      "others": "Autres"
     },
     "packs": {
       "basicRules": "torgeternity.basic-rules-fr",
@@ -1176,7 +1213,57 @@
       "backlash2Tooltip": "Appliquer 1 Choc",
       "backlash3Tooltip": "Appliquer Très Déstabilisé",
       "additionalDamage": "Dommages additionels",
-      "bonusDice": "DB lancés par avance"
+      "bonusDice": "DB lancés par avance",
+      "activeEffect": {
+        "skills": {
+          "title": "Compétences",
+          "description": "Pour augmenter ou diminuer le rang d'une ou plusieurs compétences ou les rendre favorisées.",
+          "skillAdds": {
+            "label": "Rand de compétence:",
+            "cta": "+ Ajouter une modification de rang"
+          },
+          "skillsFavour": {
+            "label": "Compétences favorisées:"
+          }
+        },
+        "attributes": {
+          "title": "Attributes",
+          "description": "Pour augmenter ou diminuer la valeur d'un ou plusieurs attributs ou les rendre favorisés",
+          "attributesValue": {
+            "label": "Valeur d'attribut :",
+            "cta": "+ Ajouter une modification de valeur"
+          },
+          "attributesFavor": {
+            "label": "Attributs favorisés:"
+          }
+        },
+        "defenses": {
+          "title": "Défenses",
+          "description": "Pour augmenter ou dominuer les différents modificateur de défenses ainsi que les résistances aux éléments",
+          "defensesMod": {
+            "label": "Modificateur de défense",
+            "cta": "+ Ajouter un modificateur de défense"
+          },
+          "elements": {
+            "label": "Défense Élémentaire",
+            "cta": "+ Ajouter un modificateur de défense élémentaire"
+          }
+        },
+        "other": {
+          "title": "Divers",
+          "description": "Toutes les modifications ne peuvent pas être regroupée (Possibilités, Axiomes, Mouvement, Dégâts) et ont été regroupée ci-dessous",
+          "otherChanges": {
+            "label": "Autre modification",
+            "cta": "+ Ajouter une modification diverse"
+          }
+        }
+      }
+    },
+    "skillGroup": {
+      "combat": "Combat",
+      "power": "Pouvoirs",
+      "vehicle": "Véhicules",
+      "other": "Autres"
     },
     "sizes": {
       "large": "Grande",
