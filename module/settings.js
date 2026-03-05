@@ -216,6 +216,15 @@ export function registerTorgSettings() {
     default: true,
   });
 
+  game.settings.register('torgeternity', 'autoApplyDestinyCard', {
+    name: 'torgeternity.settingMenu.autoApplyDestinyCard.name',
+    hint: 'torgeternity.settingMenu.autoApplyDestinyCard.hint',
+    scope: 'client',
+    config: true,
+    type: Boolean,
+    default: true,
+  });
+
   game.settings.register('torgeternity', 'shuffleMessageSurpress', {
     name: 'torgeternity.settingMenu.shuffleMessageSurpress.name',
     hint: 'torgeternity.settingMenu.shuffleMessageSurpress.hint',

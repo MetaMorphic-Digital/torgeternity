@@ -104,7 +104,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
    */
   static async #onFavored(event, button) {
     event.preventDefault();
-    const { chatMessageId, chatMessage, test } = getMessage(button);
+    const { chatMessage, test } = getMessage(button);
     if (!chatMessage.isAuthor && !game.user.isGM) {
       return;
     }
@@ -234,7 +234,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
  */
   static async #onPossibility(event, button) {
     event.preventDefault();
-    const { chatMessageId, chatMessage, test } = getMessage(button);
+    const { chatMessage, test } = getMessage(button);
     if (!chatMessage.isAuthor && !game.user.isGM) {
       return;
     }
@@ -357,6 +357,10 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     if (!chatMessage.isAuthor && !game.user.isGM) {
       return;
     }
+    return TorgeternityChatLog.doUp(test, chatMessage);
+  }
+
+  static async doUp(test, chatMessage) {
     test.hideFavButton = true;
 
     // Roll for Up
@@ -370,7 +374,6 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     }
 
     test.chatTitle += '*';
-
     return renderSkillChat(test, chatMessage);
   }
 
@@ -382,10 +385,14 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
  */
   static async #onHero(event, button) {
     event.preventDefault();
-    const { chatMessageId, chatMessage, test } = getMessage(button);
+    const { chatMessage, test } = getMessage(button);
     if (!chatMessage.isAuthor && !game.user.isGM) {
       return;
     }
+    return TorgeternityChatLog.doHero(test, chatMessage);
+  }
+
+  static async doHero(test, chatMessage) {
     test.hideFavButton = true;
 
     // Roll for Possibility
@@ -401,7 +408,6 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     }
 
     test.chatTitle += '*';
-
     return renderSkillChat(test, chatMessage);
   }
 
@@ -417,6 +423,10 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     if (!chatMessage.isAuthor && !game.user.isGM) {
       return;
     }
+    return TorgeternityChatLog.doDrama(test, chatMessage);
+  }
+
+  static async doDrama(test, chatMessage) {
     test.hideFavButton = true;
 
     // Increase cards played by 1
@@ -432,7 +442,6 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     }
 
     test.chatTitle += '*';
-
     return renderSkillChat(test, chatMessage);
   }
 
@@ -447,11 +456,13 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     if (!chatMessage.isAuthor && !game.user.isGM) {
       return;
     }
-    test.hideFavButton = true;
+    return TorgeternityChatLog.doPlus3(test, chatMessage);
+  }
 
+  static async doPlus3(test, chatMessage) {
+    test.hideFavButton = true;
     // Add 1 to cards played
     test.cardsPlayed++;
-
     return renderSkillChat(test, chatMessage);
   }
 
@@ -466,11 +477,14 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
   static async #onBd(event, button) {
     event.preventDefault();
     const rollTwice = event.shiftKey;
-    const { chatMessageId, chatMessage, test, testTarget } = getChatTarget(button);
+    const { chatMessage, test, testTarget } = getChatTarget(button);
     if (!chatMessage.isAuthor && !game.user.isGM) {
       return;
     }
+    return TorgeternityChatLog.doBd(test, chatMessage, testTarget, rollTwice);
+  }
 
+  static async doBd(test, chatMessage, testTarget, rollTwice = false) {
     // Hide the action total modifier buttons
     test.skillRollMenuStyle = 'hidden';
     test.dicerolled = [];
@@ -1025,10 +1039,9 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
  * @returns 
  */
 function getMessage(button) {
-  const chatMessageId = button.closest('.chat-message').dataset.messageId;
-  const chatMessage = game.messages.get(chatMessageId);
-  const test = chatMessage.flags.torgeternity?.test;
-  return { chatMessageId, chatMessage, test };
+  const chatMessage = game.messages.get(button.closest('.chat-message').dataset.messageId);
+  const test = chatMessage?.flags?.torgeternity?.test;
+  return { chatMessage, test };
 }
 
 /**

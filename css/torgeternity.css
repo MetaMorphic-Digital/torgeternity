@@ -3323,7 +3323,6 @@ document-embed .generalHeader {
     text-align: center;
     font-family: "Palatino Linotype";
     font-style: italic;
-    font-size: small;
     padding: 0px;
     margin: 0px;
   }
@@ -4321,7 +4320,7 @@ document-embed .generalHeader {
       position: absolute;
       display: block;
       top: 10px;
-      right: calc(var(--sidebar-width) + 10px);
+      left: 120px;
       z-index: 1000;
       max-width: 250px;
       min-height: 100px;

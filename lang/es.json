@@ -496,6 +496,32 @@
       "stymiedDesc": "IMPEDIDOS: todos los {faction} están Impedidos hasta el final de su turno",
       "surgeDesc": "SOBRECARGA: todos los {faction} deben comprobar si sufren alguna Contradicción"
     },
+    "destinyCard": {
+      "bd": "+1 BD",
+      "drama": "Drama",
+      "glory": "Gloria",
+      "hero": "Héroe",
+      "plus3": "+3",
+      "plus3other": "+3 a otro",
+      "plus3physical": "+3 Destreza/Fuerza",
+      "plus3mental": "+3 Carisma/Mente/Espíritu",
+      "special": "Acción especial",
+      "secondWind": "Tomar aire",
+      "seizeInitiative": "Tomar la iniciativa",
+      "notify": {
+        "alreadyPlayedDrama": "Ya se ha jugado una carta de Drama para tu última prueba",
+        "alreadyPlayedHero": "Ya se ha jugado una carta de Héroe para tu última prueba",
+        "noTestAvailable": "No hay prueba del jugador",
+        "plus3notMental": "No se ha aplicado el +3 porque la prueba no es de Carisma/Mente/Espíritu",
+        "plus3notPhysical": "No se ha aplicado el +3 porque la prueba no es de Destreza/Fuerza",
+        "secondWindNoShock": "{name} no tiene shock que recuperar",
+        "secondWindRecovery": "{name} recupera {shock} shock{extra}",
+        "secondWindNotKO": ", y ya no está Noqueado",
+        "tooLateForBD": "Muy tarde para aplicar un DB",
+        "noLongerModifyActionTotal": "Muy tarde para modificar el total de acción",
+        "tooManyTargets": "Demasiados objetivos. Tienes que aplicar los DB manualmente"
+      }
+    },
     "dramaCard": {
       "heroesFirst": "¿Héroes primero?",
       "heroesConflict": "H:",
@@ -775,6 +801,10 @@
       "animatedChat": {
         "hint": "Activo: se muestra un efecto de animación en las tarjetas del chat. AVISO: Esto fuerza que la aplicación se vuelva a cargar.",
         "name": "Animación de tarjetas del chat"
+      },
+      "autoApplyDestinyCard": {
+        "hint": "Aplica automáticamente los efectos de una carta de Destino a la prueba más reciente de un actor",
+        "name": "Aplicar automáticamente cartas de Destino"
       },
       "autoDarknessPenalty": {
         "hint": "Si está activado, la penalización por oscuridad de una ficha se calculará automáticamente en base al nivel de oscuridad de una escena, sus regiones con ajuste de nivel de oscuridad y las fuentes de luz/oscuridad.",
@@ -1480,7 +1510,8 @@
     }
   },
   "CARD.FIELDS": {
-    "number.label": "Número"
+    "number.label": "Número",
+    "system.special": "Acción especial"
   },
   "CONTROLS": {
     "LightDim": "Transición a luz tenue",

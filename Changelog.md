@@ -1,5 +1,31 @@
 # TORG Eternity Changelog
 
+## 13.26.0 - Automated Destiny Cards + Bug Fixes
+
+- In the player's Hand, the **Draw Cosm** button will default to the current scene's main cosm.
+- Don't use a **small font** for the Action Total or Damage Total in chat messages.
+- The card is now visible when hovering over a pool card in a **popped-out Combat Tracker**.
+- BD button will now appear if a failed attack is improved into a Success.
+- Only reduce **ammo** the first time renderSkillChat is called, not on possibility/up/hero/drama/etc.
+- Provide automation for some **Destiny Cards** (game system option to disable).
+  - Automation on an individual play can be avoided by holding SHIFT while pressing the Play Card button.
+  - The automation is triggered as soon as the card is played from the hand.
+  - If the automation fails, the card is still used (and left to the player/GM to resolve).
+  - Cards that affect a check are applied to the most recent check in the chat log for that Actor.
+  - New field in the Card Config app for Destiny cards allow the card type to be set.
+  - The `Destiny Deck` supplied with the base system has had cards updated with the relevant Special Action.
+- The available automation:
+  - `Second Wind` - recovers up to 5 shock, and removes K.O. (no chat card required).
+  - `+3 for Dexterity/Strength` - only if the system detects use of a Dexterity or Strength skill.
+  - `+3 for Charisma/Mind/Spirit` - only if the system detects use of a Dexterity or Strength skill.
+  - `+3` - the same as pressing the button in the chat card.
+  - `hero` - the same as pressing the button in the chat card.
+  - `drama` - the same as pressing the button in the chat card.
+  - `+1 BD` - if only one target is in the chat card, then the same as pressing the button in the chat card.
+  - Definition for future implementation:
+    - `Seize Initiative` (it needs to filter the request through the GM).
+    - `plus3other` (needs to prompt user, then filter request through GM).
+
 ## 13.25.2 - Cosm Background Scenes + Bug Fixes
 
 - Stymied & Vulnerable should be removed when an Actor ends its turn.

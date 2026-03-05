@@ -73,6 +73,27 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
   }
 
   /**
+   * Foundry V14 requires start.combatant to point to THIS token's combatant
+   * and start.turn to be null (to prevent counting individual player turns)
+   * 
+   * @inheritdoc
+   */
+  async _preCreate(data, options, user) {
+    const allowed = await super._preCreate(data, options, user);
+    if (allowed === false) return false;
+
+    if (game.release.generation >= 14) {
+      const combatant = game.combat.getCombatantsByActor(this.actor ?? "")?.[0];
+      this.updateSource({
+        start: {
+          combatant: combatant?.id ?? null,
+          turn: null,
+        }
+      })
+    }
+  }
+
+  /**
    * Our own version, since this.origin might not point to the correct thing.
    */
   get sourceName() {

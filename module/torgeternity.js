@@ -69,6 +69,7 @@ Hooks.once('init', async function () {
   CONFIG.Actor.documentClass = TorgeternityActor;
   CONFIG.ActiveEffect.documentClass = TorgActiveEffect;
   CONFIG.ActiveEffect.dataModels.base = TorgActiveEffectData;
+  CONFIG.ActiveEffect.expiryAction = "delete"; // Foundry V14
   CONFIG.Actor.dataModels = actorDataModels.config;
   CONFIG.Item.dataModels = itemDataModels.config;
   CONFIG.Card.dataModels = cardDataModels.config;

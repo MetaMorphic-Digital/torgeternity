@@ -490,6 +490,32 @@
       "stymiedDesc": "STYMIED: All {faction} are stymied until the end of the their turn",
       "surgeDesc": "SURGE: All {faction} must check for Contradications"
     },
+    "destinyCard": {
+      "bd": "+1 BD",
+      "drama": "Drama",
+      "glory": "Glory",
+      "hero": "Hero",
+      "plus3": "+3",
+      "plus3other": "+3 to another",
+      "plus3physical": "+3 Dexterity/Strength",
+      "plus3mental": "+3 Charisma/Mind/Spirit",
+      "special": "Special Action",
+      "secondWind": "Second Wind",
+      "seizeInitiative": "Seize Initiative",
+      "notify": {
+        "alreadyPlayedDrama": "Drama card already played for your latest test",
+        "alreadyPlayedHero": "Hero card already played for your latest test",
+        "noTestAvailable": "No Test for Player",
+        "plus3notMental": "+3 not applied since test not Charisma/Mind/Spirit",
+        "plus3notPhysical": "+3 not applied since test not Dexterity/Strength",
+        "secondWindNoShock": "{name} has no shock to recover",
+        "secondWindRecovery": "{name} recovers {shock} shock{extra}",
+        "secondWindNotKO": ", and is no longer K.O",
+        "tooLateForBD": "Too late to apply a BD",
+        "noLongerModifyActionTotal": "Too late to modify the Action Total",
+        "tooManyTargets": "Too many targets. You need to manually apply the BD"
+      }
+    },
     "dramaCard": {
       "heroesFirst": "Heroes First?",
       "heroesConflict": "H:",
@@ -769,6 +795,10 @@
       "animatedChat": {
         "hint": "If checked, enable chat card animations. Changing this setting will reload the app",
         "name": "Chat Card Animation"
+      },
+      "autoApplyDestinyCard": {
+        "hint": "Automatically apply the effects of a Destiny Card to the Actor's most recent test",
+        "name": "Auto-Apply Destiny Cards"
       },
       "autoDarknessPenalty": {
         "hint": "If checked, the darkness penalty on a token will be set automatically based on the scene's darkness level, regions with adjust darkness level and light/dark sources.",
@@ -1474,7 +1504,8 @@
     }
   },
   "CARD.FIELDS": {
-    "number.label": "Number"
+    "number.label": "Number",
+    "system.special": "Special Ability"
   },
   "CONTROLS": {
     "LightDim": "Transition to Dim Light",
