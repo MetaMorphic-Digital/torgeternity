@@ -68,6 +68,49 @@ export async function renderSkillChat(test, origChatMessage) {
   const useHighestDN = game.settings.get('torgeternity', 'uniqueDN') ? await highestDN(test) : undefined;
   const singleResult = (useHighestDN || (!test.isAttack && test.targetAll[0].dummyTarget));
 
+  // Do we display the unskilled label for a Storm Knight?
+  test.unskilledTest = (testActor.type === 'stormknight' &&
+    test.testType !== 'custom' &&
+    test.testType !== 'attribute' &&
+    test.testType !== 'activeDefense' &&
+    test.testType !== 'activeDefenseUpdate' &&
+    !test.customSkill &&
+    !testActor.system.skills[test.skillName].adds);
+
+  if (!test.plus3Type) {
+    let attribute;
+    switch (test.testType) {
+      case 'custom':  // unknown attribute
+        break;
+      case 'attribute':
+        attribute = test.skillName;
+        break;
+      case 'activeDefense':  // no attribute
+        break;
+      case 'activeDefenseUpdate': // no attribute
+        break;
+      case 'skill':
+      case 'interactionAttack':
+      case 'attack':
+        {
+          const skillData = testActor.system.skills[test.skillName] || testActor.items.get(test.skillName)?.system;
+          if (skillData) attribute = skillData.baseAttribute;
+          break;
+        }
+    }
+    if (attribute) {
+      switch (attribute) {
+        case 'charisma':
+        case 'mind':
+        case 'spirit':
+          test.plus3type = 'mental';
+        case 'strength':
+        case 'dexterity':
+          test.plus3type = 'physical';
+      }
+    }
+  }
+
   let first = true;
   for (const target of test.targetAll) {
     test.sizeModifier = target.sizeModifier ?? 0;
@@ -88,15 +131,6 @@ export async function renderSkillChat(test, origChatMessage) {
 
     //
     // -----------------------Determine Bonus---------------------------- //
-
-    // Do we display the unskilled label for a Storm Knight?
-    test.unskilledTest = (testActor.type === 'stormknight' &&
-      test.testType !== 'custom' &&
-      test.testType !== 'attribute' &&
-      test.testType !== 'activeDefense' &&
-      test.testType !== 'activeDefenseUpdate' &&
-      !test.customSkill &&
-      !testActor.system.skills[test.skillName].adds);
 
     // Generate roll, if needed
     if (test.rollTotal === 0 && !test.explicitBonus) {

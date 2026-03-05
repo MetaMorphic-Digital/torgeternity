@@ -1,4 +1,5 @@
 import torgeternityDeck from './torgeternityDeck.js';
+import TorgeternityChatLog from '../torgeternityChatLog.js';
 
 const { DialogV2 } = foundry.applications.api;
 
@@ -229,6 +230,100 @@ export default class torgeternityPlayerHand extends foundry.applications.sheets.
             <span class="card-name">${game.i18n.localize('torgeternity.chatText.playsCard')} ${card.name}</span>
             </div>`,
           });
+
+          // Update the owner's most recent chat card if a Drama, Hero or +3 card
+          const special = card.system?.special;
+          if (special && game.settings.get('torgeternity', 'autoApplyDestinyCard')) {
+
+            // Some don't require a previous chat card
+            if (special === 'secondWind') {
+              const actor = game.actors.get(this.document?.flags?.torgeternity?.defaultHand);
+              if (!actor) return;
+              const shock = actor.system.shock?.value;
+              if (!shock) {
+                return ChatMessage.create({
+                  content: game.i18n.format('torgeternity.destinyCard.secondWindNoShock', { name: actor.name })
+                });
+              }
+              const recovery = Math.min(shock, 5);
+              await actor.update({ 'system.shock.value': shock - recovery });
+              let extra = '';
+              if (actor.hasStatusEffect('unconscious')) {
+                extra = game.i18n.localize('torgeternity.destinyCard.secondWindNotKO');
+                actor.toggleStatusEffect('unconscious', { active: false });
+              }
+
+              return ChatMessage.create({
+                content: game.i18n.format('torgeternity.destinyCard.secondWindRecovery', {
+                  name: actor.name,
+                  shock: recovery,
+                  extra,
+                })
+              });
+            }
+
+            // Reverse search through messages for first owned message
+            let idx = game.messages.size;
+            let chatMessage;
+            while (idx-- > 0) {
+              chatMessage = game.messages.contents[idx];
+              if (chatMessage.isAuthor && chatMessage.flags?.torgeternity?.test) break;
+            }
+            if (!chatMessage) break;
+            const test = chatMessage.flags.torgeternity?.test;
+            if (!test) return ui.notifications.info('torgeternity.notifications.noTestAvailable', { localize: true });
+
+            switch (special) {
+              case 'plus3':  // TorgeternityChatLog#onPlus3
+              case 'plus3physical':  // TorgeternityChatLog#onPlus3
+              case 'plus3mental':  // TorgeternityChatLog#onPlus3
+                switch (special) {
+                  case 'plus3physical':
+                    if (test.plus3type && test.plus3type !== 'physical')
+                      return ui.notifications.info('torgeternity.notifications.plus3notPhysical', { localize: true });
+                    break;
+                  case 'plus3mental':
+                    if (test.plus3type && test.plus3type !== 'mental')
+                      return ui.notifications.info('torgeternity.notifications.plus3notMental', { localize: true });
+                    break;
+                }
+                // Check for MENTAL or PHYSICAL (test.attribute)
+                if (test.hidePlus3 || test.skillRollMenuStyle === 'hidden')
+                  return ui.notifications.info('torgeternity.notifications.tooLateForPlus3', { localize: true })
+                return TorgeternityChatLog.doPlus3(test, chatMessage);
+
+              case 'plus3other':
+                console.debug(`Destiny card '${special}' not automated yet`)
+                break;
+
+              case 'hero': // TorgeternityChatLog#onHero
+                if (test.heroTotal)
+                  return ui.notifications.info('torgeternity.notifications.alreadyPlayedHero', { localize: true });
+                return TorgeternityChatLog.doHero(test, chatMessage);
+
+              case 'drama': // TorgeternityChatLog#onDrama
+                if (test.dramaTotal)
+                  return ui.notifications.info('torgeternity.notifications.alreadyPlayedDrama', { localize: true });
+                return TorgeternityChatLog.doDrama(test, chatMessage);
+
+              case 'bd': // TorgeternityChatLog#onBd
+                if (test.targetAll.length > 1)
+                  return ui.notifications.info('torgeternity.notifications.tooManyTargets', { localize: true });
+                return TorgeternityChatLog.doBd(test, chatMessage, test.targetAll[0]);
+
+              case 'secondWind': // already handled
+                break;
+
+              case 'seizeInitiative':
+                // PROMPT: keep drama card for another round, or draw a new drama card immediately
+                console.debug(`Destiny card '${special}' not automated yet`)
+                break;
+
+              default:
+                console.debug(`Destiny card '${special}' unknown`)
+                break;
+            }
+          }
           break;
         }
     }
@@ -304,7 +399,7 @@ export default class torgeternityPlayerHand extends foundry.applications.sheets.
         .filter(cards => cards.type === 'hand' && cards.testUserPermission(game.user, 'LIMITED'));
     }
     if (!cards.length)
-      return ui.notifications.warn(game.i18n.localize('torgeternity.notifications.noHands'));
+      return ui.notifications.warn('torgeternity.notifications.noHands', { localize: true });
 
     // Construct the dialog HTML
     const html = await foundry.applications.handlebars.renderTemplate('systems/torgeternity/templates/cards/playerPassDialog.hbs',

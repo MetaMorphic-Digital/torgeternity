@@ -501,7 +501,10 @@
       "plus3mental": "+3 Charisma/Mind/Spirit",
       "special": "Special Action",
       "secondWind": "Second Wind",
-      "seizeInitiative": "Seize Initiative"
+      "seizeInitiative": "Seize Initiative",
+      "secondWindNoShock": "{name} has no shock to recover",
+      "secondWindRecovery": "{name} recovers {shock} shock{extra}",
+      "secondWindNotKO": ", and is no longer K.O"
     },
     "dramaCard": {
       "heroesFirst": "Heroes First?",
@@ -670,6 +673,8 @@
       "noCapacity": "{a} can't pilote this kind of vehicle!",
       "noFight": "No active combat, or not started",
       "noPlayers": "No active players",
+      "plus3notMental": "+3 not applied since test not Charisma/Mind/Spirit",
+      "plus3notPhysical": "+3 not applied since test not Dexterity/Strength",
       "raceExistent": "You have already chosen a race.",
       "notAPerkItem": "You attempted to assign a perk from the {a} category to this race, but it must belong to the racial category. Action has been aborted.",
       "tooLateForPlus3": "Too late to play a +3",
