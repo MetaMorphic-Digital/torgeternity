@@ -14,6 +14,7 @@
   - Cards that affect a check are applied to the most recent check in the chat log for that Actor.
   - New field in the Card Config app for Destiny cards allow the card type to be set.
   - The `Destiny Deck` supplied with the base system has had cards updated with the relevant Special Action.
+- The available automation:
   - `Second Wind` - recovers up to 5 shock, and removes K.O. (no chat card required).
   - `+3 for Dexterity/Strength` - only if the system detects use of a Dexterity or Strength skill.
   - `+3 for Charisma/Mind/Spirit` - only if the system detects use of a Dexterity or Strength skill.
