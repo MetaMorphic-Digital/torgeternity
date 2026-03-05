@@ -200,7 +200,7 @@ export default class torgeternityPlayerHand extends foundry.applications.sheets.
         break;
       case 'discard':
         {
-          if (_event.shiftKey) {
+          if (event.shiftKey) {
             card.recall();
             break;
           }
