@@ -1,6 +1,6 @@
 # TORG Eternity Changelog
 
-## NEXT
+## 13.26.0 - Automated Destiny Cards + Bug Fixes
 
 - In the player's Hand, the **Draw Cosm** button will default to the current scene's main cosm.
 - Don't use a **small font** for the Action Total or Damage Total in chat messages.
