@@ -8,6 +8,7 @@
 - BD button will now appear if a failed attack is improved into a Success.
 - Only reduce **ammo** the first time renderSkillChat is called, not on possibility/up/hero/drama/etc.
 - Provide automation for some **Destiny Cards** (game system option to disable).
+  - Automation on an individual play can be avoided by holding SHIFT while pressing the Play Card button.
   - The automation is triggered as soon as the card is played from the hand.
   - If the automation fails, the card is still used (and left to the player/GM to resolve).
   - Cards that affect a check are applied to the most recent check in the chat log for that Actor.
@@ -19,8 +20,10 @@
   - `+3` - the same as pressing the button in the chat card.
   - `hero` - the same as pressing the button in the chat card.
   - `drama` - the same as pressing the button in the chat card.
-  - `+1 BD` - the same as pressing the button in the chat card.
-  - Definition for future implementation: `Seize Initiative` (it needs to filter the request through the GM).
+  - `+1 BD` - if only one target is in the chat card, then the same as pressing the button in the chat card.
+  - Definition for future implementation:
+    - `Seize Initiative` (it needs to filter the request through the GM).
+    - `plus3other` (needs to prompt user, then filter request through GM).
 
 ## 13.25.2 - Cosm Background Scenes + Bug Fixes
 

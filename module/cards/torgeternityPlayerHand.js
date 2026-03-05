@@ -148,7 +148,7 @@ export default class torgeternityPlayerHand extends foundry.applications.sheets.
    * @param event
    * @this {torgeternityPlayerHand}
    */
-  static async #onControlCard(_event, button) {
+  static async #onControlCard(event, button) {
     const li = button.closest("li[data-card-id]");
     const stack = this.document;
     const card = stack.cards.get(li?.dataset.cardId);
@@ -233,28 +233,32 @@ export default class torgeternityPlayerHand extends foundry.applications.sheets.
 
           // Update the owner's most recent chat card if a Drama, Hero or +3 card
           const special = card.system?.special;
-          if (special && game.settings.get('torgeternity', 'autoApplyDestinyCard')) {
+          if (special &&
+            game.settings.get('torgeternity', 'autoApplyDestinyCard') &&
+            !event.shiftKey) {
+
+            const actorId = this.document?.flags?.torgeternity?.defaultHand;
 
             // Some don't require a previous chat card
             if (special === 'secondWind') {
-              const actor = game.actors.get(this.document?.flags?.torgeternity?.defaultHand);
+              const actor = game.actors.get(actorId);
               if (!actor) return;
               const shock = actor.system.shock?.value;
               if (!shock) {
                 return ChatMessage.create({
-                  content: game.i18n.format('torgeternity.destinyCard.secondWindNoShock', { name: actor.name })
+                  content: game.i18n.format('torgeternity.destinyCard.notify.secondWindNoShock', { name: actor.name })
                 });
               }
               const recovery = Math.min(shock, 5);
               await actor.update({ 'system.shock.value': shock - recovery });
               let extra = '';
               if (actor.hasStatusEffect('unconscious')) {
-                extra = game.i18n.localize('torgeternity.destinyCard.secondWindNotKO');
+                extra = game.i18n.localize('torgeternity.destinyCard.notify.secondWindNotKO');
                 actor.toggleStatusEffect('unconscious', { active: false });
               }
 
               return ChatMessage.create({
-                content: game.i18n.format('torgeternity.destinyCard.secondWindRecovery', {
+                content: game.i18n.format('torgeternity.destinyCard.notify.secondWindRecovery', {
                   name: actor.name,
                   shock: recovery,
                   extra,
@@ -263,33 +267,34 @@ export default class torgeternityPlayerHand extends foundry.applications.sheets.
             }
 
             // Reverse search through messages for first owned message
+            const actorUuid = `Actor.${actorId}`;
             let idx = game.messages.size;
             let chatMessage;
             while (idx-- > 0) {
               chatMessage = game.messages.contents[idx];
-              if (chatMessage.isAuthor && chatMessage.flags?.torgeternity?.test) break;
+              if (chatMessage.flags?.torgeternity?.test?.actor === actorUuid) break;
             }
             if (!chatMessage) break;
             const test = chatMessage.flags.torgeternity?.test;
-            if (!test) return ui.notifications.info('torgeternity.notifications.noTestAvailable', { localize: true });
+            if (!test) return ui.notifications.info('torgeternity.destinyCard.notify.noTestAvailable', { localize: true });
 
             switch (special) {
               case 'plus3':  // TorgeternityChatLog#onPlus3
-              case 'plus3physical':  // TorgeternityChatLog#onPlus3
-              case 'plus3mental':  // TorgeternityChatLog#onPlus3
+              case 'plus3physical':
+              case 'plus3mental':
                 switch (special) {
                   case 'plus3physical':
                     if (test.plus3type && test.plus3type !== 'physical')
-                      return ui.notifications.info('torgeternity.notifications.plus3notPhysical', { localize: true });
+                      return ui.notifications.info('torgeternity.destinyCard.notify.plus3notPhysical', { localize: true });
                     break;
                   case 'plus3mental':
                     if (test.plus3type && test.plus3type !== 'mental')
-                      return ui.notifications.info('torgeternity.notifications.plus3notMental', { localize: true });
+                      return ui.notifications.info('torgeternity.destinyCard.notify.plus3notMental', { localize: true });
                     break;
                 }
                 // Check for MENTAL or PHYSICAL (test.attribute)
-                if (test.hidePlus3 || test.skillRollMenuStyle === 'hidden')
-                  return ui.notifications.info('torgeternity.notifications.tooLateForPlus3', { localize: true })
+                if (test.skillRollMenuStyle === 'hidden')
+                  return ui.notifications.info('torgeternity.destinyCard.notify.noLongerModifyActionTotal', { localize: true })
                 return TorgeternityChatLog.doPlus3(test, chatMessage);
 
               case 'plus3other':
@@ -297,19 +302,28 @@ export default class torgeternityPlayerHand extends foundry.applications.sheets.
                 break;
 
               case 'hero': // TorgeternityChatLog#onHero
-                if (test.heroTotal)
-                  return ui.notifications.info('torgeternity.notifications.alreadyPlayedHero', { localize: true });
+                if (test.skillRollMenuStyle === 'hidden')
+                  return ui.notifications.info('torgeternity.destinyCard.notify.noLongerModifyActionTotal', { localize: true });
+                if (test.heroTotal || test.skillRollMenuStyle === 'hidden')
+                  return ui.notifications.info('torgeternity.destinyCard.notify.alreadyPlayedHero', { localize: true });
                 return TorgeternityChatLog.doHero(test, chatMessage);
 
               case 'drama': // TorgeternityChatLog#onDrama
-                if (test.dramaTotal)
-                  return ui.notifications.info('torgeternity.notifications.alreadyPlayedDrama', { localize: true });
+                if (test.skillRollMenuStyle === 'hidden')
+                  return ui.notifications.info('torgeternity.destinyCard.notify.noLongerModifyActionTotal', { localize: true });
+                if (test.dramaTotal || test.skillRollMenuStyle === 'hidden')
+                  return ui.notifications.info('torgeternity.destinyCard.notify.alreadyPlayedDrama', { localize: true });
                 return TorgeternityChatLog.doDrama(test, chatMessage);
 
               case 'bd': // TorgeternityChatLog#onBd
-                if (test.targetAll.length > 1)
-                  return ui.notifications.info('torgeternity.notifications.tooManyTargets', { localize: true });
-                return TorgeternityChatLog.doBd(test, chatMessage, test.targetAll[0]);
+                {
+                  if (test.targetAll.length > 1)
+                    return ui.notifications.info('torgeternity.destinyCard.notify.tooManyTargets', { localize: true });
+                  const target = test.targetAll[0];
+                  if (target.showBD === false)
+                    return ui.notifications.info('torgeternity.destinyCard.notify.tooLateForBD', { localize: true });
+                  return TorgeternityChatLog.doBd(test, chatMessage, target);
+                }
 
               case 'secondWind': // already handled
                 break;
