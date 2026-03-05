@@ -496,6 +496,32 @@
       "stymiedDesc": "ANGESCHLAGEN: Alle {faction} zählt bis zum Ende des eigenen Zuges als Angeschlagen",
       "surgeDesc": "WELLE: Alle {faction} muss eine Probe für Widersprüche durchführen"
     },
+    "destinyCard": {
+      "bd": "+1 BW",
+      "drama": "Drama",
+      "glory": "Ruhm",
+      "hero": "Held",
+      "plus3": "+3",
+      "plus3other": "+3 zu Anderen",
+      "plus3physical": "+3 Geschicklichkeit/Stärke",
+      "plus3mental": "+3 Charisma/Verstand/Geist",
+      "special": "Spezialaktion",
+      "secondWind": "Neue Kraft",
+      "seizeInitiative": "Initiative ergreifen",
+      "notify": {
+        "alreadyPlayedDrama": "Drama für deine letzte Probe bereits gespielt",
+        "alreadyPlayedHero": "Heldenhaft für deine letzte Probe bereits gespielt",
+        "noTestAvailable": "Keine Probe für Spieler",
+        "plus3notMental": "+3 nicht angewandt, da Probe nicht Charisma/Verstand/Geist nutzt",
+        "plus3notPhysical": "+3 nicht angewandt, da Probe nicht Geschicklichkeit/Stärke nutzt",
+        "secondWindNoShock": "{name} hat keinen Schockschaden zu heilen",
+        "secondWindRecovery": "{name} heilt {shock} Schock{extra}",
+        "secondWindNotKO": ", und ist nicht länger KO",
+        "tooLateForBD": "Zu spät um BW anzuwenden",
+        "noLongerModifyActionTotal": "Zu spät um das Gesamtergebnis zu ändern",
+        "tooManyTargets": "Zu viele Ziele. BW müssen manuell angewandt werden"
+      }
+    },
     "dramaCard": {
       "heroesFirst": "Helden zuerst?",
       "heroesConflict": "H:",
@@ -775,6 +801,10 @@
       "animatedChat": {
         "hint": "Wenn ausgewählt, wird die Einblendung der Chatfenster animiert.",
         "name": "Animation der Chat-Fenster"
+      },
+      "autoApplyDestinyCard": {
+        "hint": "Effekt von Schicksalskarten automatisch auf die letzte Probe des Charakters anwenden",
+        "name": "Schicksalskarten automatisch anwenden"
       },
       "autoDarknessPenalty": {
         "hint": "Wende für Token automatisch die Dunkelheitsmalusse anhand der Dunkelheitseinstellung der Szene oder Regionen mit angepasster Dunkelheitsstufe und Licht/Dunkelheitsquellen an.",
@@ -1480,7 +1510,8 @@
     }
   },
   "CARD.FIELDS": {
-    "number.label": "Nummer"
+    "number.label": "Nummer",
+    "system.special": "Spezialaktion"
   },
   "CONTROLS": {
     "LightDay": "Übergang zu taghellen Lichtverhältnissen",

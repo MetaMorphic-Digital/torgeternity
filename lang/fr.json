@@ -496,6 +496,32 @@
       "stymiedDesc": "DÉSTABILISÉ: Tous les {faction} sont Déstabilisés jusqu'à la fin de leur tour",
       "surgeDesc": "DÉFERLEMENT: Tous les {faction} doivent effectuer un test de Contradiction"
     },
+    "destinyCard": {
+      "bd": "+1 DB",
+      "drama": "Drame",
+      "glory": "Gloire",
+      "hero": "Héros",
+      "plus3": "+3",
+      "plus3other": "+3 de soutien",
+      "plus3physical": "+3 Dextérité/Force",
+      "plus3mental": "+3 Charisme/Raison/Esprit",
+      "special": "Action spéciale",
+      "secondWind": "Second souffle",
+      "seizeInitiative": "Prise d'initiative",
+      "notify": {
+        "alreadyPlayedDrama": "Carte Drame déjà jouée pour votre dernier test",
+        "alreadyPlayedHero": "Carte Héros déjà jouée pour votre dernier test",
+        "noTestAvailable": "Pas de test pour ce joueur",
+        "plus3notMental": "+3 non appliqué, pas un test de Charisme/Raison/Esprit",
+        "plus3notPhysical": "+3 non appliqué, pas un test de Dextérité/Force",
+        "secondWindNoShock": "{name} n'a pas de points de Chocs à récupérer",
+        "secondWindRecovery": "{name} récupère {shock} points de Chocs{extra}",
+        "secondWindNotKO": ", et n'est plus KO",
+        "tooLateForBD": "Trop tard pour ajouter un DB",
+        "noLongerModifyActionTotal": "Trop tard pour modifier votre Total d'action",
+        "tooManyTargets": "Trop de cibles. Les DBs doivent être appliqués manuellement"
+      }
+    },
     "dramaCard": {
       "heroesFirst": "Initiative aux Héros?",
       "heroesConflict": "H:",
@@ -775,6 +801,10 @@
       "animatedChat": {
         "hint": "Si sélectionné, les messages de la discussion apparaîtront avec une animation. Changer ce paramètre rafraîchira le navigateur ou l'application.",
         "name": "Animation des messages de la discussion"
+      },
+      "autoApplyDestinyCard": {
+        "hint": "Applique automatiquement les effets des cartes de Destin sur le dernier test effectué par un acteur",
+        "name": "Automatisation des cartes de Destin"
       },
       "autoDarknessPenalty": {
         "hint": "Si coché, la pénalité de luminosité des Tokens sera automatiquement ajustée par le paramètre 'Niveau d'obscurité' d'une Scène, par l'ajustement paramétré d'une Région, et par les sources de lumière/obscurité configurées.",
@@ -1480,7 +1510,8 @@
     }
   },
   "CARD.FIELDS": {
-    "number.label": "Nombre"
+    "number.label": "Nombre",
+    "system.special": "Action spéciale"
   },
   "CONTROLS": {
     "LightDim": "Transition vers Pénombre",
