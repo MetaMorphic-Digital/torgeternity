@@ -1,5 +1,9 @@
 # TORG Eternity Changelog
 
+## 13.26.2 - Bug Fix
+
+- Install this if you want to discard cards from your hand.
+
 ## 13.26.1 - Bug Fixes
 
 - Prevent flooding the console with errors when no Encounter is present in the combat tracker.
