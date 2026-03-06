@@ -461,7 +461,7 @@ export default class TorgCombat extends Combat {
         chatOutput += `<li>${actor.name} ${game.i18n.localize('torgeternity.macros.fatigueMacroCharAlreadyKO')}</li>`;
       }
 
-      const shockIncrease = actor.fatigue;
+      const shockIncrease = actor.system.fatigue;
       const applyResult = actor.applyDamages(/*shock*/ shockIncrease, /*wounds*/ 0);
 
       chatOutput += `<li>${actor.name}: ${shockIncrease} ${game.i18n.localize('torgeternity.sheetLabels.shock')}`;

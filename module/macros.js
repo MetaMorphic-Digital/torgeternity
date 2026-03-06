@@ -81,7 +81,7 @@ export class TorgeternityMacros {
         continue;
       }
 
-      const shockIncrease = actor.fatigue;
+      const shockIncrease = actor.system.fatigue;
       const applyResult = token.actor.applyDamages(/*shock*/ shockIncrease, /*wounds*/ 0);
 
       chatOutput += `<li>${actor.name}: ${shockIncrease} ${game.i18n.localize('torgeternity.sheetLabels.shock')}`;
@@ -240,7 +240,7 @@ export class TorgeternityMacros {
 
       chatOutput += `<ul>`;
       for (const token of game.user.targets) {
-        const tokenDamage = torgDamage(diceroll.total, token.actor.defenses.toughness,
+        const tokenDamage = torgDamage(diceroll.total, token.actor.system.defenses.toughness,
           { defenseTraits: token.actor.defenseTraits });
         chatOutput += `<li>${game.i18n.localize('torgeternity.macros.bonusDieMacroResult3')}  ${token.document.name} `;
         chatOutput += (tokenDamage.shocks > 0) ?
@@ -394,9 +394,9 @@ export class TorgeternityMacros {
       DNDescriptor: 'standard',
       unskilledUse: realitySkill.unskilledUse,
       woundModifier: -_actor.system.wounds.value,
-      stymiedModifier: _actor.statusModifiers.stymied,
-      vulnerableModifier: _actor.statusModifiers.vulnerable,
-      waitingModifier: _actor.statusModifiers.waiting,
+      stymiedModifier: _actor.system.statusModifiers.stymied,
+      vulnerableModifier: _actor.system.statusModifiers.vulnerable,
+      waitingModifier: _actor.system.statusModifiers.waiting,
       type: 'skill',
       isOther1: game.scenes.active && game.scenes.active.torg.cosm !== 'none',
       other1Description: game.i18n.localize('torgeternity.macros.reconnectMacroZoneModifier'),
@@ -586,37 +586,37 @@ export class TorgeternityMacros {
         duration: { rounds: duration, turns: duration, expiry: 'turnEnd' },
         changes: [
           {
-            key: 'defenses.dodge.mod',
+            key: 'system.defenses.dodge.mod',
             value: bonus,
             mode: CONST.ACTIVE_EFFECT_MODES.ADD,
           },
           {
-            key: 'defenses.meleeWeapons.mod',
+            key: 'system.defenses.meleeWeapons.mod',
             value: bonus,
             mode: CONST.ACTIVE_EFFECT_MODES.ADD,
           },
           {
-            key: 'defenses.unarmedCombat.mod',
+            key: 'system.defenses.unarmedCombat.mod',
             value: bonus,
             mode: CONST.ACTIVE_EFFECT_MODES.ADD,
           },
           {
-            key: 'defenses.intimidation.mod',
+            key: 'system.defenses.intimidation.mod',
             value: bonus,
             mode: CONST.ACTIVE_EFFECT_MODES.ADD,
           },
           {
-            key: 'defenses.maneuver.mod',
+            key: 'system.defenses.maneuver.mod',
             value: bonus,
             mode: CONST.ACTIVE_EFFECT_MODES.ADD,
           },
           {
-            key: 'defenses.taunt.mod',
+            key: 'system.defenses.taunt.mod',
             value: bonus,
             mode: CONST.ACTIVE_EFFECT_MODES.ADD,
           },
           {
-            key: 'defenses.trick.mod',
+            key: 'system.defenses.trick.mod',
             value: bonus,
             mode: CONST.ACTIVE_EFFECT_MODES.ADD,
           },
@@ -634,17 +634,17 @@ export class TorgeternityMacros {
         duration: { rounds: duration, turns: duration, expiry: 'turnEnd' },
         changes: [
           {
-            key: 'defenses.dodge.mod',
+            key: 'system.defenses.dodge.mod',
             value: bonus,
             mode: CONST.ACTIVE_EFFECT_MODES.ADD,
           },
           {
-            key: 'defenses.meleeWeapons.mod',
+            key: 'system.defenses.meleeWeapons.mod',
             value: bonus,
             mode: CONST.ACTIVE_EFFECT_MODES.ADD,
           },
           {
-            key: 'defenses.unarmedCombat.mod',
+            key: 'system.defenses.unarmedCombat.mod',
             value: bonus,
             mode: CONST.ACTIVE_EFFECT_MODES.ADD,
           },

@@ -127,7 +127,7 @@ function _onClickInlineCheck(event) {
 
   // use 'actor' simply to get the full list of attributes, defenses and skills
   if (Object.hasOwn(CONFIG.torgeternity.attributeTypes, test.dn) ||
-    Object.hasOwn(actor.defenses, test.dn) ||
+    Object.hasOwn(actor.system.defenses, test.dn) ||
     Object.hasOwn(CONFIG.torgeternity.skills, test.dn)) {
     test.DNDescriptor = `target${test.dn.capitalize()}`;
   } else {
@@ -518,8 +518,8 @@ async function _onClickInlineDamage(event) {
   }
   chatOutput += `<p> ${game.i18n.localize('torgeternity.macros.fatigueMacroDealtDamage')}</p> <ul>`;
   for (const actor of actors) {
-    let toughness = actor.defenses.toughness -
-      (dataset.ignoreArmor ? actor.defenses.armor : (Math.min(dataset.ap ?? 0, actor.defenses.armor)));
+    let toughness = actor.system.defenses.toughness -
+      (dataset.ignoreArmor ? actor.system.defenses.armor : (Math.min(dataset.ap ?? 0, actor.system.defenses.armor)));
 
     // for damage, need to adjust for AP and armour?
     const attackTraits = dataset.traits?.split(',');

@@ -506,7 +506,6 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     testTarget.amountBD += 1;
     testTarget.bdDamageSum += test.diceroll.total;
 
-    // No parentDeleteByTime?
     return renderSkillChat(test, chatMessage);
   }
 

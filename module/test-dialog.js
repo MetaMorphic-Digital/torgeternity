@@ -179,14 +179,14 @@ export class TestDialog extends HandlebarsApplicationMixin(ApplicationV2) {
     // The wound penalties are never more than -3, regardless on how many wounds a token can suffer / have. CrB p. 117
     context.test.woundModifier = -Math.min(myActor.system.wounds.value ?? 0, 3);
 
-    context.test.stymiedModifier = myActor.statusModifiers.stymied;
-    context.test.waitingModifier = myActor.statusModifiers.waiting;
-    context.test.targetDarknessModifier = myActor.targetModifiers.darkness;
+    context.test.stymiedModifier = myActor.system.statusModifiers.stymied;
+    context.test.waitingModifier = myActor.system.statusModifiers.waiting;
+    context.test.targetDarknessModifier = myActor.system.targetModifiers.darkness;
 
     // Concentrating modifier applies in Concentration Checks and specific skills
     if (context.test.isConcentrationCheck ||
       CONFIG.torgeternity.concentrationSkills.includes(context.test.skillName)) {
-      context.test.concentratingModifier = myActor.statusModifiers.concentrating;
+      context.test.concentratingModifier = myActor.system.statusModifiers.concentrating;
     }
     const testItem = this.test.itemId && myActor.items.get(this.test.itemId);
     context.test.requiresConcentration = testItem?.requiresConcentration;
@@ -354,7 +354,9 @@ export function oneTestTarget(token, applySize) {
     }
   }
 
-  const damageDefenses = Object.entries(actor.defenses.damageTraits).filter(([_key, value]) => value).reduce((acc, [key, value]) => (acc[key] = value, acc), {})
+  const damageDefenses = Object.entries(actor.system.defenses.damageTraits)
+    .filter(([_key, value]) => value)
+    .reduce((acc, [key, value]) => (acc[key] = value, acc), {})
 
   // Set vehicle defense if needed
   switch (actor.type) {
@@ -367,8 +369,8 @@ export function oneTestTarget(token, applySize) {
         targetPic: actor.img,
         targetName: token.name,
         sizeModifier: sizeModifier,
-        toughness: actor.defenses.toughness,
-        armor: actor.defenses.armor,
+        toughness: actor.system.defenses.toughness,
+        armor: actor.system.defenses.armor,
         armorTraits: [],
         amountBD: 0,
         bdDamageSum: 0,
@@ -398,8 +400,8 @@ export function oneTestTarget(token, applySize) {
         targetPic: actor.img,
         targetName: token.name,
         sizeModifier: sizeModifier,
-        toughness: actor.defenses.toughness,
-        armor: actor.defenses.armor,
+        toughness: actor.system.defenses.toughness,
+        armor: actor.system.defenses.armor,
         defenseTraits: actor.defenseTraits,
         // then non-vehicle changes
         skills: actor.itemTypes.customSkill.reduce((acc, skill) => {
@@ -411,20 +413,20 @@ export function oneTestTarget(token, applySize) {
             return acc;
           }, {})),
         attributes: Object.entries(actor.system.attributes).reduce((acc, [key, attr]) => (acc[key] = attr.value, acc), {}),
-        vulnerableModifier: actor.statusModifiers.vulnerable,
-        darknessModifier: actor.statusModifiers.darkness,
+        vulnerableModifier: actor.system.statusModifiers.vulnerable,
+        darknessModifier: actor.system.statusModifiers.darkness,
         isConcentrating: actor.isConcentrating,
         amountBD: 0,
         bdDamageSum: 0,
         defenses: {
           ...damageDefenses,
-          dodge: actor.defenses.dodge.value,
-          unarmedCombat: actor.defenses.unarmedCombat.value,
-          meleeWeapons: actor.defenses.meleeWeapons.value,
-          intimidation: actor.defenses.intimidation.value,
-          maneuver: actor.defenses.maneuver.value,
-          taunt: actor.defenses.taunt.value,
-          trick: actor.defenses.trick.value,
+          dodge: actor.system.defenses.dodge.value,
+          unarmedCombat: actor.system.defenses.unarmedCombat.value,
+          meleeWeapons: actor.system.defenses.meleeWeapons.value,
+          intimidation: actor.system.defenses.intimidation.value,
+          maneuver: actor.system.defenses.maneuver.value,
+          taunt: actor.system.defenses.taunt.value,
+          trick: actor.system.defenses.trick.value,
           activeDefense: !!actor.activeDefense
         },
       };

@@ -39,49 +39,49 @@
           <h4>{{localize "torgeternity.sheetLabels.defenses"}}</h4>
           <p>
             <span>{{localize "torgeternity.skills.dodge"}} :</span>
-            <span>{{user.character.defenses.dodge.value}}</span>
+            <span>{{user.character.system.defenses.dodge.value}}</span>
           </p>
           <p>
             <span>{{localize "torgeternity.skills.meleeWeapons"}} :</span>
-            <span>{{user.character.defenses.meleeWeapons.value}}</span>
+            <span>{{user.character.system.defenses.meleeWeapons.value}}</span>
           </p>
           <p>
             <span>{{localize "torgeternity.skills.unarmedCombat"}} :</span>
-            <span>{{user.character.defenses.unarmedCombat.value}}</span>
+            <span>{{user.character.system.defenses.unarmedCombat.value}}</span>
           </p>
           <p>
             <span>{{localize "torgeternity.skills.intimidation"}} :</span>
-            <span>{{user.character.defenses.intimidation.value}}</span>
+            <span>{{user.character.system.defenses.intimidation.value}}</span>
           </p>
           <p>
             <span>{{localize "torgeternity.skills.maneuver"}} :</span>
-            <span>{{user.character.defenses.maneuver.value}}</span>
+            <span>{{user.character.system.defenses.maneuver.value}}</span>
           </p>
           <p>
             <span>{{localize "torgeternity.skills.taunt"}} :</span>
-            <span>{{user.character.defenses.taunt.value}}</span>
+            <span>{{user.character.system.defenses.taunt.value}}</span>
           </p>
           <p>
             <span>{{localize "torgeternity.skills.trick"}}:</span>
-            <span>{{user.character.defenses.trick.value}}</span>
+            <span>{{user.character.system.defenses.trick.value}}</span>
           </p>
         </div>
         <div class="flexrow">
-          {{#if user.character.statusModifiers.vulnerable}}
+          {{#if user.character.system.statusModifiers.vulnerable}}
             <p>
               {{localize "torgeternity.vulnerableStates.vulnerable"}} :
-              {{user.character.statusModifiers.vulnerable}}
+              {{user.character.system.statusModifiers.vulnerable}}
             </p>
-          {{/if}} {{#if user.character.statusModifiers.stymied}}
+          {{/if}} {{#if user.character.system.statusModifiers.stymied}}
             <p>
               {{localize "torgeternity.stymiedStates.stymied"}} :
-              {{user.character.statusModifiers.stymied}}
+              {{user.character.system.statusModifiers.stymied}}
             </p>
           {{/if}}
-          {{#if user.character.statusModifiers.concentrating}}
+          {{#if user.character.system.statusModifiers.concentrating}}
             <p>
               {{localize "torgeternity.statusEffects.concentrating"}} :
-              {{user.character.statusModifiers.concentrating}}
+              {{user.character.system.statusModifiers.concentrating}}
             </p>
           {{/if}}
         </div>

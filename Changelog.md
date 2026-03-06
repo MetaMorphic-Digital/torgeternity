@@ -3,6 +3,9 @@
 ## NEXT
 
 - Macros etc can roll a bonus die with `await game.torgeternity.rollBonusDie` (which returns a Roll).
+- Move some data from `Actor` to `Actor.system` so that all the Torg-specific data is available in `Actor.getRollData()`
+  - It allows all attributes to be used in manual dice rolls, e.g. `/r d20 + @statusModifiers.concentrating`
+  - This is important for Active Effects in Foundry 14, so that Cloud of Darkness can have a modifier to Toughness of `-@statusModifiers.darkness`
 
 ## 13.26.2 - Bug Fix
 

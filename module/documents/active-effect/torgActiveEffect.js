@@ -12,6 +12,12 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
    */
   static migrateData(source) {
     if (Object.hasOwn(source, 'changes')) {
+      const needSystemPrefix = [
+        'statusModifiers.',
+        'targetModifiers.',
+        'defenses.',
+        'unarmed.'
+      ];
       const migrationDictionary = {
         // SK and Threat attribute modifiers
         'system.attributes.charisma': 'system.attributes.charisma.value',
@@ -20,24 +26,24 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
         'system.attributes.dexterity': 'system.attributes.dexterity.value',
         'system.attributes.spirit': 'system.attributes.spirit.value',
         // SK and Threat general path cleaning
-        'system.other.fatigue': 'fatigue',
-        'system.fatigue': 'fatigue',
-        'system.unarmedDamage': 'unarmed.damageMod',
-        'system.unarmedDamageMod': 'unarmed.damageMod',
+        'system.other.fatigue': 'system.fatigue',
+        'fatigue': 'system.fatigue',
+        'system.unarmedDamage': 'system.unarmed.damageMod',
+        'system.unarmedDamageMod': 'system.unarmed.damageMod',
         // SK and Threat defense modifiers
-        'system.dodgeDefenseMod': 'defenses.dodge.mod',
-        'system.meleeWeaponsDefenseMod': 'defenses.meleeWeapons.mod',
-        'system.unarmedCombatDefenseMod': 'defenses.unarmedCombat.mod',
-        'system.intimidationDefenseMod': 'defenses.intimidation.mod',
-        'system.maneuverDefenseMod': 'defenses.maneuver.mod',
-        'system.tauntDefenseMod': 'defenses.taunt.mod',
-        'system.trickDefenseMod': 'defenses.trick.mod',
+        'system.dodgeDefenseMod': 'system.defenses.dodge.mod',
+        'system.meleeWeaponsDefenseMod': 'system.defenses.meleeWeapons.mod',
+        'system.unarmedCombatDefenseMod': 'system.defenses.unarmedCombat.mod',
+        'system.intimidationDefenseMod': 'system.defenses.intimidation.mod',
+        'system.maneuverDefenseMod': 'system.defenses.maneuver.mod',
+        'system.tauntDefenseMod': 'system.defenses.taunt.mod',
+        'system.trickDefenseMod': 'system.defenses.trick.mod',
         // SK and Threat armor and toughness
-        'system.other.armor': 'defenses.armor',
-        'system.other.toughness': 'defenses.toughness',
+        'system.other.armor': 'system.defenses.armor',
+        'system.other.toughness': 'system.defenses.toughness',
         // Vehicle armor and toughness
-        'system.armor': 'defenses.armor',
-        'system.toughness': 'defenses.toughness',
+        'system.armor': 'system.defenses.armor',
+        'system.toughness': 'system.defenses.toughness',
         // modify maxDex and minStr
         'system.maxDex': 'system.other.maxDex',
         'system.minStr': 'system.other.minStr',
@@ -46,7 +52,10 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
         'system.other.possibilities': 'system.other.possibilities.perAct',
       };
       for (const change of source.changes) {
-        if (Object.hasOwn(migrationDictionary, change.key)) {
+        if (needSystemPrefix.find(prefix => change.key.startsWith(prefix))) {
+          change.key = `system.${change.key}`;
+        }
+        else if (Object.hasOwn(migrationDictionary, change.key)) {
           change.key = migrationDictionary[change.key];
         }
       }

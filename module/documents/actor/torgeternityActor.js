@@ -30,216 +30,6 @@ export default class TorgeternityActor extends foundry.documents.Actor {
   /* -------------------------------------------- */
 
   /**
-   * @inheritdoc
-   */
-  prepareBaseData() {
-    if (game.release.generation >= 14) super.prepareBaseData();  // Foundry 14+
-
-    // Here Effects are not yet applied
-    if (this.type !== 'vehicle') {
-      // initialize the worn armor and shield bonus
-      const wornArmor = this.itemTypes.armor.find((a) => a.isEquipped);
-      const heldShield = this.itemTypes.shield.find((a) => a.isEquipped);
-      const shieldBonus = heldShield?.system?.bonus ?? 0;
-
-      this.fatigue = 2 + (wornArmor?.system?.fatigue ?? 0);
-      this.system.other.maxDex = wornArmor?.system?.maxDex ?? 0;
-      const highestMinStrWeapons = Math.max(...this.equippedMelees?.map((m) => m.system.minStrength)) ?? 0;
-      this.system.other.minStr = Math.max(
-        wornArmor?.system?.minStrength ?? 0,
-        heldShield?.system?.minStrength ?? 0,
-        highestMinStrWeapons);
-      // TODO: If we allow more than 1 wornArmor and an array is to be expected, then we need to change that here.
-      // 'value' of each field is set in prepareDerivedData
-      this.defenses = {
-        dodge: { value: 0, mod: shieldBonus },
-        meleeWeapons: { value: 0, mod: shieldBonus },
-        unarmedCombat: { value: 0, mod: 0 },
-        intimidation: { value: 0, mod: 0 },
-        maneuver: { value: 0, mod: 0 },
-        taunt: { value: 0, mod: 0 },
-        trick: { value: 0, mod: 0 },
-        toughness: this.system.attributes.strength.value,
-        armor: wornArmor?.system?.bonus ?? 0,
-        shield: shieldBonus
-      };
-      this.unarmed = { damage: 0, damageMod: 0 };
-
-      if (this.type === 'stormknight') {
-        if (this.race) {
-          for (const attribute of Object.keys(this.race.system.attributeMaximum)) {
-            this.system.attributes[attribute].maximum = this.race.system.attributeMaximum[attribute];
-          }
-          this.system.details.race = this.race.name;
-        } else {
-          this.system.details.race = game.i18n.localize('torgeternity.sheetLabels.noRace');
-        }
-      }
-
-    } else {
-      // vehicle
-      this.defenses = {
-        toughness: this.system.toughness,
-        armor: this.system.armor,
-      };
-    }
-
-    this.statusModifiers = {
-      stymied: 0,
-      vulnerable: 0,
-      darkness: 0,
-      waiting: 0,
-      concentrating: 0,
-    };
-
-    this.targetModifiers = {
-      darkness: 0,
-    };
-
-    this.defenses.damageTraits = {
-      // Armor: addition armor of the defender when damage is of the indicated type
-      energyArmor: 0,
-      fireArmor: 0,
-      forceArmor: 0,
-      iceArmor: 0,
-      lightningArmor: 0,
-      // Defense: increases the Defense skill of the defender when damage is of the indicated type
-      energyDefense: 0,
-      fireDefense: 0,
-      forceDefense: 0,
-      iceDefense: 0,
-      lightningDefense: 0
-    }
-  }
-
-
-  /**
-   * @inheritdoc
-   */
-  prepareDerivedData() {
-    super.prepareDerivedData();
-    // Here Effects are applied, whatever follow cannot be directly affected by Effects
-
-    // apply status effects (note that base values of 0 might have been modified by Active Effects)
-    this.statusModifiers.stymied += this.statuses.has('veryStymied') ? -4 : this.statuses.has('stymied') ? -2 : 0;
-    this.statusModifiers.vulnerable += this.statuses.has('veryVulnerable') ? 4 : this.statuses.has('vulnerable') ? 2 : 0;
-    this.statusModifiers.darkness += this.statuses.has('pitchBlack') ? -6 : this.statuses.has('dark') ? -4 : this.statuses.has('dim') ? -2 : 0;
-    this.statusModifiers.waiting += this.statuses.has('waiting') ? -2 : 0;
-    this.statusModifiers.concentrating += this.appliedEffects.filter(ef => ef.statuses.has('concentrating')).length * -2;
-
-    // Place limits on the modifiers (can't cross the 0 boundary)
-    if (this.statusModifiers.stymied > 0) this.statusModifiers.stymied = 0;
-    if (this.statusModifiers.darkness > 0) this.statusModifiers.darkness = 0;
-    if (this.statusModifiers.waiting > 0) this.statusModifiers.waiting = 0;
-    if (this.statusModifiers.concentrating > 0) this.statusModifiers.concentrating = 0;
-    if (this.statusModifiers.vulnerable < 0) this.statusModifiers.vulnerable = 0;
-
-    // Skillsets
-    if (this.type !== 'vehicle') {
-      const skills = this.system.skills;
-      const attributes = this.system.attributes;
-      // by RAW, FIRST you checkout for maxDex, THEN minStr. Doing this into DerivedData means, it takes place after AE's were applied, making sure, this cannot get higher than armor's limitations.
-      // only apply if a maxDex value is set
-      attributes.dexterity.value =
-        this.system.other.maxDex > 0
-          ? Math.min(attributes.dexterity.value, this.system.other.maxDex)
-          : attributes.dexterity.value;
-      attributes.dexterity.value += Math.min(
-        0,
-        attributes.strength.value - this.system.other.minStr
-      );
-
-      // Set base unarmed damage
-
-      this.unarmed.damage = attributes.strength.value + this.unarmed.damageMod;
-
-      // claculate final toughness
-      this.defenses.toughness += this.defenses.armor;
-
-      // Set Defensive Values based on modified skills and attributes
-
-      const dodgeDefenseSkill = skills.dodge.value || attributes.dexterity.value;
-      this.defenses.dodge.value = dodgeDefenseSkill + this.defenses.dodge.mod;
-
-      const meleeWeaponsDefenseSkill = skills.meleeWeapons.value || attributes.dexterity.value;
-      this.defenses.meleeWeapons.value = meleeWeaponsDefenseSkill + this.defenses.meleeWeapons.mod;
-      // (Core pg 126) Wielding TWO melee weapons increases melee weapons defense by 2.
-      if (this.type !== 'vehicle' && this.equippedMelees?.length > 1)
-        this.defenses.meleeWeapons.value += 2;
-
-      const unarmedCombatDefenseSkill = skills.unarmedCombat.value || attributes.dexterity.value;
-      this.defenses.unarmedCombat.value = unarmedCombatDefenseSkill + this.defenses.unarmedCombat.mod;
-
-      const intimidationDefenseSkill = skills.intimidation.value || attributes.spirit.value;
-      this.defenses.intimidation.value = intimidationDefenseSkill + this.defenses.intimidation.mod;
-
-      const maneuverDefenseSkill = skills.maneuver.value || attributes.dexterity.value;
-      this.defenses.maneuver.value = maneuverDefenseSkill + this.defenses.maneuver.mod;
-
-      const tauntDefenseSkill = skills.taunt.value || attributes.charisma.value;
-      this.defenses.taunt.value = tauntDefenseSkill + this.defenses.taunt.mod;
-
-      const trickDefenseSkill = skills.trick.value || attributes.mind.value;
-      this.defenses.trick.value = trickDefenseSkill + this.defenses.trick.mod;
-
-      const listChanges = [];
-      let computeMove = this.system.other.move;
-      this.appliedEffects.forEach((ef) =>
-        ef.changes.forEach((k) => { if (k.key === 'system.other.moveMod') listChanges.push(k); })
-      );
-      // Modify +/-
-      listChanges
-        .filter((ef) => ef.mode === CONST.ACTIVE_EFFECT_MODES.ADD)
-        .forEach((ef) => { computeMove += parseInt(ef.value); });
-      // Modify x
-      listChanges
-        .filter((ef) => ef.mode === CONST.ACTIVE_EFFECT_MODES.MULTIPLY)
-        .forEach((ef) => { computeMove = parseInt(computeMove * ef.value); });
-      // Modify minimum
-      listChanges
-        .filter((ef) => ef.mode === CONST.ACTIVE_EFFECT_MODES.UPGRADE)
-        .forEach((ef) => { computeMove = Math.max(computeMove, parseInt(ef.value)); });
-      // Modify maximum
-      listChanges
-        .filter((ef) => ef.mode === CONST.ACTIVE_EFFECT_MODES.DOWNGRADE)
-        .forEach((ef) => { computeMove = Math.min(computeMove, parseInt(ef.value)); });
-      // Modify Fixed
-      listChanges
-        .filter((ef) => ef.mode === CONST.ACTIVE_EFFECT_MODES.OVERRIDE)
-        .forEach((ef) => { computeMove = parseInt(ef.value); });
-      this.system.other.move = computeMove;
-      //
-      // Apply the runMod effect
-      const listRun = [];
-      let computeRun = this.system.other.run;
-      this.appliedEffects.forEach((ef) =>
-        ef.changes.forEach((k) => { if (k.key === 'system.other.runMod') listRun.push(k); })
-      );
-      // Modify +/-
-      listRun
-        .filter((ef) => ef.mode === CONST.ACTIVE_EFFECT_MODES.ADD)
-        .forEach((ef) => { computeRun += parseInt(ef.value); });
-      // Modify x
-      listRun
-        .filter((ef) => ef.mode === CONST.ACTIVE_EFFECT_MODES.MULTIPLY)
-        .forEach((ef) => { computeRun = parseInt(computeRun * ef.value); });
-      // Modify minimum
-      listRun
-        .filter((ef) => ef.mode === CONST.ACTIVE_EFFECT_MODES.UPGRADE)
-        .forEach((ef) => { computeRun = Math.max(computeRun, parseInt(ef.value)); });
-      // Modify maximum
-      listRun
-        .filter((ef) => ef.mode === CONST.ACTIVE_EFFECT_MODES.DOWNGRADE)
-        .forEach((ef) => { computeRun = Math.min(computeRun, parseInt(ef.value)); });
-      // Modify Fixed
-      listRun
-        .filter((ef) => ef.mode === CONST.ACTIVE_EFFECT_MODES.OVERRIDE)
-        .forEach((ef) => { computeRun = parseInt(ef.value); });
-      this.system.other.run = computeRun;
-    }
-  }
-
-  /**
    * On creation of a stormknight, create a corresponding card hand.
    * @inheritDoc
    */
@@ -256,18 +46,11 @@ export default class TorgeternityActor extends foundry.documents.Actor {
    * @inheritDoc
    */
   async modifyTokenAttribute(attribute, value, isDelta = false, isBar = true) {
-    if (attribute !== 'shock' && attribute !== 'wounds') {
-      return super.modifyTokenAttribute(attribute, value, isDelta, isBar);
-    }
-
-    // Mostly the same as core Foundry
-    const attr = foundry.utils.getProperty(this.system, attribute);
-    const current = isBar ? attr.value : attr;
-    const update = isDelta ? current + value : value;
-    if (update === current) return this;
-    let updates = { [`system.${attribute}.value`]: update };   // NO Math.clamp
-    const allowed = Hooks.call("modifyTokenAttribute", { attribute, value, isDelta, isBar }, updates, this);
-    return allowed !== false ? this.update(updates) : this;
+    // clamping is performed when isBar is true
+    if (attribute === 'shock' || attribute == 'wounds')
+      return super.modifyTokenAttribute(`${attribute}.value`, value, isDelta, false);
+    else
+      return super.modifyTokenAttribute(attribute, value, isDelta, localIsBar);
   }
 
   /**
@@ -535,7 +318,7 @@ export default class TorgeternityActor extends foundry.documents.Actor {
   }
 
   get isConcentrating() {
-    return this.statusModifiers.concentrating !== 0;
+    return this.system.statusModifiers.concentrating !== 0;
   }
 
   /**
@@ -679,49 +462,49 @@ export default class TorgeternityActor extends foundry.documents.Actor {
       changes: [
         {
           // Modify all existing "basic" defense in block
-          key: 'defenses.dodge.mod', // Should need other work for defense vs powers
+          key: 'system.defenses.dodge.mod', // Should need other work for defense vs powers
           value: bonus, // that don't target xxDefense
           priority: 20, // Create a data.ADB that store the bonus ?
           mode: CONST.ACTIVE_EFFECT_MODES.ADD,
         },
         {
-          key: 'defenses.intimidation.mod',
+          key: 'system.defenses.intimidation.mod',
           value: bonus,
           priority: 20,
           mode: CONST.ACTIVE_EFFECT_MODES.ADD,
         },
         {
-          key: 'defenses.maneuver.mod',
+          key: 'system.defenses.maneuver.mod',
           value: bonus,
           priority: 20,
           mode: CONST.ACTIVE_EFFECT_MODES.ADD,
         },
         {
-          key: 'defenses.meleeWeapons.mod',
+          key: 'system.defenses.meleeWeapons.mod',
           value: bonus,
           priority: 20,
           mode: CONST.ACTIVE_EFFECT_MODES.ADD,
         },
         {
-          key: 'defenses.taunt.mod',
+          key: 'system.defenses.taunt.mod',
           value: bonus,
           priority: 20,
           mode: CONST.ACTIVE_EFFECT_MODES.ADD,
         },
         {
-          key: 'defenses.trick.mod',
+          key: 'system.defenses.trick.mod',
           value: bonus,
           priority: 20,
           mode: CONST.ACTIVE_EFFECT_MODES.ADD,
         },
         {
-          key: 'defenses.unarmedCombat.mod',
+          key: 'system.defenses.unarmedCombat.mod',
           value: bonus,
           priority: 20,
           mode: CONST.ACTIVE_EFFECT_MODES.ADD,
         },
         {
-          key: 'defenses.toughness',
+          key: 'system.defenses.toughness',
           value: shieldBonus,
           priority: 20,
           mode: CONST.ACTIVE_EFFECT_MODES.ADD,

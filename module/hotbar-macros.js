@@ -231,7 +231,7 @@ async function rollSkillMacro(skillName, attributeName, isInteractionAttack, DND
     DNfixed: fixedNumber,
     unskilledUse: skill.unskilledUse,
     woundModifier: parseInt(-actor.system.wounds.value),
-    stymiedModifier: actor.statusModifiers.stymied,
+    stymiedModifier: actor.system.statusModifiers.stymied,
     darknessModifier: 0, // parseInt(actor.system.darknessModifier),
     type: 'skill',
     bdDamageSum: 0,
@@ -244,7 +244,7 @@ async function rollSkillMacro(skillName, attributeName, isInteractionAttack, DND
     //test.amountBD = 0;
     test.isAttack = true;
     test.unskilledUse = true;
-    test.damage = actor.unarmed.damage;
+    test.damage = actor.system.unarmed.damage;
     test.weaponAP = 0;
     test.applyArmor = true;
     test.applySize = true;
