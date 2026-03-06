@@ -52,6 +52,7 @@ import setupItemPiles from './modsupport/item-piles.js';
 import setupTokenActionHud from './modsupport/token-action-hud.js';
 import { initHandlebarsHelpers } from './hb-helpers.js';
 import { initHotbarMacros } from './hotbar-macros.js';
+import { rollBonusDie } from './torgchecks.js';
 
 const { DialogV2 } = foundry.applications.api;
 
@@ -272,6 +273,8 @@ Hooks.on('ready', async function () {
   if (game.settings.get('torgeternity', 'welcomeMessage') === true) {
     showWelcomeMessage();
   }
+
+  game.torgeternity.rollBonusDie = rollBonusDie;
 
   // ------Ask about hiding nonlocal compendium
   if (
