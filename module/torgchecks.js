@@ -137,7 +137,7 @@ export async function renderSkillChat(test, origChatMessage) {
       // Generate dice roll
       const dice = test.unskilledTest ? '1d20x10' : '1d20x10x20';
 
-      test.diceroll = await new Roll(dice).evaluate();
+      test.diceroll = await foundry.dice.Roll.create(dice).evaluate();
       dicerolled.push(test.diceroll);
       if (test.isFav && test.disfavored) {
         test.isFav = false;
@@ -792,7 +792,8 @@ function torgBonus(rollTotal) {
  * @param {Number} amount The amount of BDs that is ought to roll
  */
 export async function rollBonusDie(isTrademark, amount = 1) {
-  return new Roll(`${amount}d6${isTrademark ? 'rr1' : ''}x6max5`).evaluate();
+  // roll twice and keep highest:  {d6x5max5, d6x5max5}kh
+  return foundry.dice.Roll.create(`${amount}d6${isTrademark ? 'rr1' : ''}x6max5`).evaluate();
 }
 
 /**

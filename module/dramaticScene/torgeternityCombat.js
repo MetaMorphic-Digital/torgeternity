@@ -538,9 +538,9 @@ export default class TorgCombat extends Combat {
       })
     }
 
-    // Perform the roll
+    // Perform the roll (a single d20 roll, no exploding)
     const rollData = actor ? actor.getRollData() : {};
-    const roll = await foundry.dice.Roll.create(`d20cs>${limit}`, rollData).roll();
+    const roll = await foundry.dice.Roll.create(`d20cs>${limit}`, rollData).evaluate();
     console.log(roll);
     const success = roll.result === '1';
 
@@ -573,6 +573,7 @@ export default class TorgCombat extends Combat {
 
     return ChatMessage.create({
       speaker: ChatMessage.getSpeaker({ actor }),
+      rolls: roll,
       content
     })
   }

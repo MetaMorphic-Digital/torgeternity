@@ -112,7 +112,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     // reRoll because favored
     test.hideFavButton = true;
 
-    test.diceroll = await new Roll('1d20x10x20').evaluate();
+    test.diceroll = await foundry.dice.Roll.create('1d20x10x20').evaluate();
     test.rollTotal = Math.max(test.diceroll.total, 1.1);
     test.isFav = false;
 
@@ -322,7 +322,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
       test.possibilityStyle = 'disabled';
     }
 
-    test.diceroll = await new Roll('1d20x10x20').evaluate();
+    test.diceroll = await foundry.dice.Roll.create('1d20x10x20').evaluate();
     if (test.disfavored) {
       test.possibilityTotal = 0.1;
       test.disfavored = false;
@@ -364,7 +364,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     test.hideFavButton = true;
 
     // Roll for Up
-    test.diceroll = await new Roll('1d20x10x20').evaluate();
+    test.diceroll = await foundry.dice.Roll.create('1d20x10x20').evaluate();
     if (test.disfavored) {
       test.upTotal = 0.1;
       test.disfavored = false;
@@ -396,7 +396,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     test.hideFavButton = true;
 
     // Roll for Possibility
-    test.diceroll = await new Roll('1d20x10x20').evaluate();
+    test.diceroll = await foundry.dice.Roll.create('1d20x10x20').evaluate();
     if (test.disfavored) {
       test.heroTotal = 0.1;
       test.disfavored = false;
@@ -430,7 +430,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     test.hideFavButton = true;
 
     // Increase cards played by 1
-    test.diceroll = await new Roll('1d20x10x20').evaluate();
+    test.diceroll = await foundry.dice.Roll.create('1d20x10x20').evaluate();
     if (test.disfavored) {
       test.dramaTotal = 0.1;
       test.disfavored = false;
