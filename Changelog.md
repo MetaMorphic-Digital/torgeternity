@@ -1,5 +1,9 @@
 # TORG Eternity Changelog
 
+## NEXT
+
+- Macros etc can roll a bonus die with `await game.torgeternity.rollBonusDie` (which returns a Roll).
+
 ## 13.26.2 - Bug Fix
 
 - Install this if you want to discard cards from your hand.
