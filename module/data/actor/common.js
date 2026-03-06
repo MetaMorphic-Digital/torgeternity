@@ -131,9 +131,11 @@ export class CommonActorData extends BaseActorData {
     // register value of attributes so we can work further with this
     for (const attribute of Object.keys(this.attributes)) {
       this.attributes[attribute].value = this.attributes[attribute].base;
+      this.attributes[attribute].isFav = false;
     }
     for (const [_name, skill] of Object.entries(this.skills)) {
       skill.mod = 0;
+      skill.isFav = false;
     }
 
     this.shock.max = this.attributes.spirit.value;

@@ -915,7 +915,7 @@ export async function soakDamages(soaker, origMessageId) {
     //actorType: soaker.system.type,
     isFav:
       soaker.system.skills[skillName]?.isFav ||
-      soaker.system.attributes[skillName + 'IsFav'] ||
+      soaker.system.attributes[skillName]?.isFav ||
       false,
     skillName: skillName,
     skillValue: skillValue,
@@ -1215,7 +1215,7 @@ export async function rollAttribute(actor, attributeName) {
     actor: actor,
     skillName: attributeName,
     skillValue: actor.system.attributes[attributeName].value,
-    isFav: actor.system.attributes?.[attributeName + 'IsFav']
+    isFav: actor.system.attributes[attributeName].isFav
   }, { useTargets: true });
 }
 
@@ -1376,7 +1376,7 @@ export async function rollTapping(actor, item) {
     actor: actor,
     isFav:
       skillData.isFav ||
-      actor.system.attributes?.[skillName + 'IsFav'],
+      actor.system.attributes?.[skillName].isFav,
     skillName: skillName,
     skillValue: skillValue,
     chatTitle: game.i18n.localize('torgeternity.chatText.tapping'),

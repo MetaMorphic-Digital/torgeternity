@@ -174,7 +174,7 @@ function _onClickInlineCheck(event) {
       skillName: attributeName,
       skillAdds: 0,
       skillValue: attribute.value,
-      isFav: actor.system.attributes[attributeName + 'IsFav'],
+      isFav: actor.system.attributes[attributeName].isFav,
       unskilledUse: true,
     }, { inplace: true });
 

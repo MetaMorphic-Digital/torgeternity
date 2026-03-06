@@ -1,5 +1,3 @@
-import { TestResult } from '../../torgchecks.js';
-
 /**
  * Extend the basic ActiveEffect model with migrations and TORG specific handling
  */
@@ -16,7 +14,7 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
         'statusModifiers.',
         'targetModifiers.',
         'defenses.',
-        'unarmed.'
+        'unarmed.',
       ];
       const migrationDictionary = {
         // SK and Threat attribute modifiers
@@ -52,18 +50,16 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
         'system.other.possibilities': 'system.other.possibilities.perAct',
       };
       for (const change of source.changes) {
-        if (needSystemPrefix.find(prefix => change.key.startsWith(prefix))) {
+        if (needSystemPrefix.find(prefix => change.key.startsWith(prefix)))
           change.key = `system.${change.key}`;
-        }
-        else if (Object.hasOwn(migrationDictionary, change.key)) {
+        else if (Object.hasOwn(migrationDictionary, change.key))
           change.key = migrationDictionary[change.key];
-        }
+        else if (change.key.endsWith('IsFav'))
+          change.key = change.key.replace(/IsFav$/, '.isFav');
       }
       for (const change of source.changes) {
-        if (change.key.includes('.isFav') && (change.value === '1' || change.value === '0')) {
-          change.value = change.value === '1' ? 'true' : 'false';
-        } else if (change.key.includes('.isFav') && (change.value === 'True' || change.value === 'False')) {
-          change.value = change.value.toLowerCase();
+        if (change.key.endsWith('.isFav')) {
+          change.value = (change.value === '1' || change.value === 'True' || change.value === 'true') ? 'true' : 'false'
         }
       }
     }

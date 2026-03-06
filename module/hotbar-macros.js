@@ -199,7 +199,7 @@ async function rollSkillMacro(skillName, attributeName, isInteractionAttack, DND
       baseAttribute: attributeNameKey,
       adds: 0,
       value: attribute,
-      isFav: actor.system.attributes[attributeNameKey + 'IsFav'],
+      isFav: actor.system.attributes[attributeNameKey].isFav,
       groupName: 'other',
       unskilledUse: true,
     };
