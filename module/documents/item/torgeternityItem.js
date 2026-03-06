@@ -189,7 +189,7 @@ export default class TorgeternityItem extends foundry.documents.Item {
   }
 
   get isEquipped() {
-    return this.system.isEquipped;
+    return this.system.isEquipped && !this.isDisconnected;
   }
 
   /**
