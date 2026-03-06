@@ -183,6 +183,13 @@ export default class TorgeternityActor extends foundry.documents.Actor {
     }
   }
 
+  _onEmbeddedDocumentChange() {
+    // Ensure after a Disconnect (or other status change) that all visible things are updated
+    this._safePrepareData();
+    if (this.apps)
+      Object.values(this.apps).forEach(app => app.render());
+  }
+
   /**
    * When a stormknight is deleted, delete the corresponding player hand
    * @inheritDoc
