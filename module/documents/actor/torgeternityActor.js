@@ -132,11 +132,7 @@ export default class TorgeternityActor extends foundry.documents.Actor {
     super._onUpdate(changed, options, userId);
 
     if (this.type === 'stormknight') {
-      let hand = this.getDefaultHand();
-      // If there is no hand for that SK, and a GM is online, create one
-      if (!hand && game.user.isActiveGM) {
-        hand = this.createDefaultHand();
-      }
+      const hand = this.getDefaultHand();
       // If the update includes permissions, sync them to the hand
       if (hand && changed['==ownership'] && game.userId === userId) {
         // DO NOT PUT ANYTHING ELSE IN THIS UPDATE! diff:false, recursive:false can easily nuke stuff
