@@ -1,7 +1,7 @@
 <h2>
   <a
-    class="activeDefense-roll{{#if document.system.defenses.isActivelyDefending}}-glow{{/if}}"
-    data-action="activeDefenseRoll{{#if document.system.defenses.isActivelyDefending}}Glow{{/if}}"
+    class="activeDefense-roll{{#if isActivelyDefending}}-glow{{/if}}"
+    data-action="activeDefenseRoll{{#if isActivelyDefending}}Glow{{/if}}"
     data-tooltip='{{localize "torgeternity.sheetLabels.defensesTip"}}' {{disabled (not @root.editable)}}>
     {{localize 'torgeternity.sheetLabels.defenses'}}
   </a>
