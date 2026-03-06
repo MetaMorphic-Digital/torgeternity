@@ -226,7 +226,7 @@ export class TorgeternityMacros {
         return;
       }
 
-      const diceroll = await new Roll(`${diceAmount}d6x6max5`).evaluate();
+      const diceroll = await foundry.dice.Roll.create(`${diceAmount}d6x6max5`).evaluate();
 
       let chatOutput = `<p>${game.i18n.localize('torgeternity.macros.bonusDieMacroResult1')} 
       ${diceAmount} ${game.i18n.localize('torgeternity.chatText.bonusDice')} 
@@ -235,7 +235,10 @@ export class TorgeternityMacros {
       if (game.user.targets.size === 0) {
         chatOutput += `<p>${game.i18n.localize('torgeternity.macros.bonusDieMacroNoTokenTargeted')}</p>`;
         console.log('No targets, creating chat Message, leaving Macro.');
-        return ChatMessage.create({ content: chatOutput });
+        return ChatMessage.create({
+          content: chatOutput,
+          rolls: diceroll
+        });
       }
 
       chatOutput += `<ul>`;
@@ -250,7 +253,10 @@ export class TorgeternityMacros {
       }
       chatOutput += '</ul>';
 
-      return ChatMessage.create({ content: chatOutput });
+      return ChatMessage.create({
+        content: chatOutput,
+        rolls: diceroll
+      });
     } catch (e) {
       ui.notifications.error(e.message);
     }
