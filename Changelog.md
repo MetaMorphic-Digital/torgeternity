@@ -6,10 +6,10 @@
 - When `Disconnected`, any Items which are contradictions are marked as NOT equipped (and therefore won't affect the Actor's stats, e.g. armor is ignored)
 - Macros etc can roll a bonus die with `await game.torgeternity.rollBonusDie()` (which returns a Roll).
   - `await game.torgeternity.rollBonusDie(isFavored {=false}, numDice {=1})` 
-- Rolling BDs from MacroHub now show up with Dice-So-Nice.
+- A few more cases are fixed where Dice-So-Nice was not rolling 3D dice.
 - Move some data from `Actor` to `Actor.system` so that all the Torg-specific data is available in `Actor.getRollData()`
   - It allows all attributes to be used in manual dice rolls, e.g. `/r d20 + @statusModifiers.concentrating`
-  - This is important for Active Effects in Foundry 14, so that Cloud of Darkness can have a modifier to Toughness of `-@statusModifiers.darkness`
+  - This is important for Active Effects in Foundry 14, so that Cloud of Darkness can have a change that subtracts `@statusModifiers.darkness` from Toughness (currently V14 uses "+" to subtract!)
 
 ## 13.26.2 - Bug Fix
 
