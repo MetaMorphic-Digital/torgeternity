@@ -140,7 +140,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     // Maybe no minimum 10?
     content += `<hr><p><label><input type="checkbox" name="noMin10">${game.i18n.localize('torgeternity.chatText.possibilityNoMin10')}</label>`
 
-    return await DialogV2.wait({
+    return DialogV2.wait({
       window: { title: "torgeternity.chatText.possibilityChoiceTitle" },
       position: { width: "auto" },
       classes: ["torgeternity"],

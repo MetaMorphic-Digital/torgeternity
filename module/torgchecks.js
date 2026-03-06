@@ -788,11 +788,11 @@ function torgBonus(rollTotal) {
 
 /**
  *
- * @param isTrademark Is this roll with the perk of trademark weapon?
- * @param amount The amount of BDs that is ought to roll
+ * @param {Boolean} isTrademark Is this roll with the perk of trademark weapon?
+ * @param {Number} amount The amount of BDs that is ought to roll
  */
 export async function rollBonusDie(isTrademark, amount = 1) {
-  return await new Roll(`${amount}d6${isTrademark ? 'rr1' : ''}x6max5`).evaluate();
+  return new Roll(`${amount}d6${isTrademark ? 'rr1' : ''}x6max5`).evaluate();
 }
 
 /**

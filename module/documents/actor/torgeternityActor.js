@@ -212,7 +212,7 @@ export default class TorgeternityActor extends foundry.documents.Actor {
    */
   async createDefaultHand() {
     // creating a card hand then render it
-    return await Cards.create({
+    return Cards.create({
       name: this.name,
       type: 'hand',
       ownership: this.getHandOwnership(),
