@@ -76,7 +76,7 @@
       {{localize 'torgeternity.sheetLabels.toughness'}}
     </span>
     <span class="sidebar-statline-right" style="display: block">
-      {{document.defenses.toughness}} &nbsp; &lpar;{{document.defenses.armor}}&rpar;
+      {{document.system.defenses.toughness}} &nbsp; &lpar;{{document.system.defenses.armor}}&rpar;
     </span>
   </div>
   <hr />
@@ -95,7 +95,7 @@
 
   <div
     class="sidebar-heading activeDefense-roll{{#if document.system.defenses.isActivelyDefending}}-glow{{/if}}"
-    data-action="activeDefenseRoll{{#if document.defenses.isActivelyDefending}}Glow{{/if}}"
+    data-action="activeDefenseRoll{{#if document.system.defenses.isActivelyDefending}}Glow{{/if}}"
     data-tooltip='{{localize "torgeternity.sheetLabels.defensesTip"}}' {{disabled (not @root.editable)}}>
     <i class="fas fa-shield"></i>
     {{localize 'torgeternity.sheetLabels.defenses'}}
