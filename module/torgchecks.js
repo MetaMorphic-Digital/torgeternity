@@ -823,13 +823,14 @@ export function torgDamage(damage, toughness, options) {
 /**
  * 
  * @param {String} fieldname 
- * @param {Number} origvalue 
+ * @param {Number} fromvalue 
  * @param {ActiveEffects[]} effects 
  * @returns 
  */
 
 export function applyNumericEffects(fieldname, origvalue, effects) {
-  if (!effects) return origvalue;
+  let value = origvalue;
+  if (!effects) return value;
 
   // Get changes into a sorted list in priority order
   const changes = effects.filter(fx => fx && !fx.modifiesTarget)
@@ -840,14 +841,14 @@ export function applyNumericEffects(fieldname, origvalue, effects) {
     for (const change of changes) {
       // DataModel.applyField
       // DataField.applyChange
-      const value = parseInt(change.value);
-      if (isNaN(value)) continue;  // value MUST be a number
+      const delta = parseInt(change.value);
+      if (isNaN(delta)) continue;  // value MUST be a number
       switch (change.mode) {
-        case CONST.ACTIVE_EFFECT_MODES.ADD: origvalue += value; break;
-        case CONST.ACTIVE_EFFECT_MODES.MULTIPLY: origvalue *= value; break;
-        case CONST.ACTIVE_EFFECT_MODES.OVERRIDE: origvalue = value; break;
-        case CONST.ACTIVE_EFFECT_MODES.UPGRADE: origvalue = Math.max(origvalue, value); break;
-        case CONST.ACTIVE_EFFECT_MODES.DOWNGRADE: origvalue = Math.min(origvalue, value); break;
+        case CONST.ACTIVE_EFFECT_MODES.ADD: value += delta; break;
+        case CONST.ACTIVE_EFFECT_MODES.MULTIPLY: value *= delta; break;
+        case CONST.ACTIVE_EFFECT_MODES.OVERRIDE: value = delta; break;
+        case CONST.ACTIVE_EFFECT_MODES.UPGRADE: value = Math.max(value, delta); break;
+        case CONST.ACTIVE_EFFECT_MODES.DOWNGRADE: value = Math.min(value, delta); break;
         default:  // custom
       }
     }
@@ -855,20 +856,20 @@ export function applyNumericEffects(fieldname, origvalue, effects) {
     for (const change of changes) {
       // DataModel.applyField
       // DataField.applyChange
-      const value = parseInt(change.value);
-      if (isNaN(value)) continue;  // value MUST be a number
+      const delta = parseInt(change.value);
+      if (isNaN(delta)) continue;  // value MUST be a number
       switch (change.mode) {
-        case "add": origvalue += value; break;
-        case "subtract": origvalue -= value; break;
-        case "multiply": origvalue *= value; break;
-        case "override": origvalue = value; break;
-        case "upgrade": origvalue = Math.max(origvalue, value); break;
-        case "downgrade": origvalue = Math.min(origvalue, value); break;
+        case "add": value += delta; break;
+        case "subtract": value -= delta; break;
+        case "multiply": value *= delta; break;
+        case "override": value = delta; break;
+        case "upgrade": value = Math.max(value, delta); break;
+        case "downgrade": value = Math.min(value, delta); break;
         default:  // custom
       }
     }
   }
-  return origvalue;
+  return value;
 }
 
 export function torgDamageModifiers(result, options) {
@@ -1510,8 +1511,11 @@ export function checkUnskilled(skillValue, skillName, actor) {
  */
 function appliesToTest(effect, test, target) {
   if (effect.disabled) return false;
-  if (!testTraits(effect.system.applyIfAttackTrait, test.attackTraits)) return false;
-  if (!testTraits(effect.system.applyIfDefendTrait, target?.defenseTraits)) return false;
+  if (!effect.modifiesTarget) {
+    // These are irrelevant if this effect is going to be transferred to the target.
+    if (!testTraits(effect.system.applyIfAttackTrait, test.attackTraits)) return false;
+    if (!testTraits(effect.system.applyIfDefendTrait, target?.defenseTraits)) return false;
+  }
   const result = test.result;
   // If transferred, then applies to test
   if (effect.system.transferOnAttack) return result >= TestResult.STANDARD;

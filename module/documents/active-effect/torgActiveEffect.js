@@ -117,22 +117,21 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
     return !this.disabled &&
       (this.system.transferOnAttack || this.system.transferOnOutcome);
   }
-  static blank;
 
   /**
    * Return a copy of this object with the various "attack" traits cleared.
    */
   copyForTarget() {
-    if (!this.blank) this.blank = new TorgActiveEffect({ name: "blank" });
-
     let fx = this.toObject();
+    // Override some values
     return Object.assign(fx, {
       disabled: false,
       system: {
-        ...this.blank.system,
-        combatToggle: this.system.combatToggle,
+        transferOnAttack: false,
+        transferOnOutcome: null,
+        // keep applyIfAttackTrait, applyIfDefendTrait, combatToggle
       },
-      origin: this.parent.uuid,
+      origin: this.parent.uuid,  // the originating Item
     });
   }
 }
