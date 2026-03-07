@@ -831,46 +831,40 @@ export function torgDamage(damage, toughness, options) {
 export function applyNumericEffects(fieldname, origvalue, effects) {
   if (!effects) return origvalue;
 
+  // Get changes into a sorted list in priority order
+  const changes = effects.filter(fx => fx && !fx.modifiesTarget)
+    .map(fx => fx.changes.filter(ch => ch.key === fieldname)).flat(1)
+    .sort((a, b) => (a.priority ?? (a.mode * 10)) - (b.priority ?? (b.mode * 10)));
+
   if (game.release.generation < 14) {
-    for (const effect of effects) {
-      if (!effect || effect.modifiesTarget) continue;  // fromUuidSync failed
-      for (const change of effect.changes) {
-        if (change.key === fieldname) {
-          // DataModel.applyField
-          // DataField.applyChange
-          const value = parseInt(change.value);
-          if (isNaN(value)) continue;  // value MUST be a number
-          const modes = CONST.ACTIVE_EFFECT_MODES;
-          switch (change.mode) {
-            case modes.ADD: origvalue += value; break;
-            case modes.MULTIPLY: origvalue *= value; break;
-            case modes.OVERRIDE: origvalue = value; break;
-            case modes.UPGRADE: origvalue = Math.max(origvalue, value); break;
-            case modes.DOWNGRADE: origvalue = Math.min(origvalue, value); break;
-            default:  // custom
-          }
-        }
+    for (const change of changes) {
+      // DataModel.applyField
+      // DataField.applyChange
+      const value = parseInt(change.value);
+      if (isNaN(value)) continue;  // value MUST be a number
+      switch (change.mode) {
+        case CONST.ACTIVE_EFFECT_MODES.ADD: origvalue += value; break;
+        case CONST.ACTIVE_EFFECT_MODES.MULTIPLY: origvalue *= value; break;
+        case CONST.ACTIVE_EFFECT_MODES.OVERRIDE: origvalue = value; break;
+        case CONST.ACTIVE_EFFECT_MODES.UPGRADE: origvalue = Math.max(origvalue, value); break;
+        case CONST.ACTIVE_EFFECT_MODES.DOWNGRADE: origvalue = Math.min(origvalue, value); break;
+        default:  // custom
       }
     }
   } else {
-    for (const effect of effects) {
-      if (!effect || effect.modifiesTarget) continue;  // fromUuidSync failed
-      for (const change of effect.changes) {
-        if (change.key === fieldname) {
-          // DataModel.applyField
-          // DataField.applyChange
-          const value = parseInt(change.value);
-          if (isNaN(value)) continue;  // value MUST be a number
-          switch (change.mode) {
-            case "add": origvalue += value; break;
-            case "subtract": origvalue -= value; break;
-            case "multiply": origvalue *= value; break;
-            case "override": origvalue = value; break;
-            case "upgrade": origvalue = Math.max(origvalue, value); break;
-            case "downgrade": origvalue = Math.min(origvalue, value); break;
-            default:  // custom
-          }
-        }
+    for (const change of changes) {
+      // DataModel.applyField
+      // DataField.applyChange
+      const value = parseInt(change.value);
+      if (isNaN(value)) continue;  // value MUST be a number
+      switch (change.mode) {
+        case "add": origvalue += value; break;
+        case "subtract": origvalue -= value; break;
+        case "multiply": origvalue *= value; break;
+        case "override": origvalue = value; break;
+        case "upgrade": origvalue = Math.max(origvalue, value); break;
+        case "downgrade": origvalue = Math.min(origvalue, value); break;
+        default:  // custom
       }
     }
   }

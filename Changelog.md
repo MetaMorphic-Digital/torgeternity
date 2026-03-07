@@ -9,6 +9,8 @@
 - Macros etc can roll a bonus die with `await game.torgeternity.rollBonusDie()` (which returns a Roll).
   - `await game.torgeternity.rollBonusDie(isFavored {=false}, numDice {=1})` 
 - A few more cases are fixed where Dice-So-Nice was not rolling 3D dice.
+- Use one common `applyNumericEffects` routine (this affects the application of `system.other.moveMod` and `system.other.runMod`)
+  - Multiple Effects which modify `system.other.MoveMod` and `system.other.runMod` or any of the `test.X` attributes are now processed in order of `priority` field on AEs.
 - Move some data from `Actor` to `Actor.system` so that all the Torg-specific data is available in `Actor.getRollData()` (targetModifiers, statusModifiers, defenses)
   - It allows all attributes to be used in manual dice rolls, e.g. `/r d20 + @statusModifiers.concentrating`
   - This is important for Active Effects in Foundry 14, so that Cloud of Darkness can have a change that subtracts `@statusModifiers.darkness` from Toughness (currently V14 uses "+" to subtract!)
