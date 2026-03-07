@@ -1,8 +1,10 @@
 # TORG Eternity Changelog
 
-## NEXT
+## 13.27.0 - Active Effects & ignore Disconnected Items
 
-- Do NOT cancel "Display as Combat Toggle" when transferring an effect to the target.
+- When an Active Effect is configured to be transferred to the target
+  - `Display as Combat Toggle`, `Apply if Attack/Defend Trait` are transferred to the target, and are NOT applied to the original test.
+  - Wording of the various fields have been improved on the Active Effect Config sheet.
 - Status Effects now have the attribute changes directly stored in the AE (to allow modification by other AEs), and defined in `CONFIG.statusEffects`.
 - Favoured attributes are now modified by AEs using a key like `system.attributes.strength.isFav` (not strengthIsFav)
 - When `Disconnected`, any Items which are contradictions are marked as NOT equipped (and therefore won't affect the Actor's stats, e.g. armor is ignored)
