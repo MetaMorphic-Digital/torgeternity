@@ -128,7 +128,10 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
     let fx = this.toObject();
     return Object.assign(fx, {
       disabled: false,
-      system: this.blank.system,
+      system: {
+        ...this.blank.system,
+        combatToggle: this.system.combatToggle,
+      },
       origin: this.parent.uuid,
     });
   }

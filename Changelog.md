@@ -2,6 +2,7 @@
 
 ## NEXT
 
+- Do NOT cancel "Display as Combat Toggle" when transferring an effect to the target.
 - Favoured attributes are now modified by AEs using a key like `system.attributes.strength.isFav` (not strengthIsFav)
 - When `Disconnected`, any Items which are contradictions are marked as NOT equipped (and therefore won't affect the Actor's stats, e.g. armor is ignored)
 - Macros etc can roll a bonus die with `await game.torgeternity.rollBonusDie()` (which returns a Roll).
