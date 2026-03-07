@@ -1,5 +1,6 @@
 import { migrateCosm, makeSkillFields } from '../shared.js';
 import { BaseActorData } from './base.js';
+import { applyNumericEffects } from '../../torgchecks.js';
 
 const fields = foundry.data.fields;
 /**
@@ -222,60 +223,8 @@ export class CommonActorData extends BaseActorData {
     const trickDefenseSkill = skills.trick.value || attributes.mind.value;
     this.defenses.trick.value = trickDefenseSkill + this.defenses.trick.mod;
 
-    const listMove = [];
-    let computeMove = this.attributes.dexterity.value;
-    actor.appliedEffects.forEach((ef) =>
-      ef.changes.forEach((k) => { if (k.key === 'system.other.moveMod') listMove.push(k); })
-    );
-    // Modify +/-
-    listMove
-      .filter((ef) => ef.mode === CONST.ACTIVE_EFFECT_MODES.ADD)
-      .forEach((ef) => { computeMove += parseInt(ef.value); });
-    // Modify x
-    listMove
-      .filter((ef) => ef.mode === CONST.ACTIVE_EFFECT_MODES.MULTIPLY)
-      .forEach((ef) => { computeMove = parseInt(computeMove * ef.value); });
-    // Modify minimum
-    listMove
-      .filter((ef) => ef.mode === CONST.ACTIVE_EFFECT_MODES.UPGRADE)
-      .forEach((ef) => { computeMove = Math.max(computeMove, parseInt(ef.value)); });
-    // Modify maximum
-    listMove
-      .filter((ef) => ef.mode === CONST.ACTIVE_EFFECT_MODES.DOWNGRADE)
-      .forEach((ef) => { computeMove = Math.min(computeMove, parseInt(ef.value)); });
-    // Modify Fixed
-    listMove
-      .filter((ef) => ef.mode === CONST.ACTIVE_EFFECT_MODES.OVERRIDE)
-      .forEach((ef) => { computeMove = parseInt(ef.value); });
-    this.other.move = computeMove;
-    //
-    // Apply the runMod effect
-    const listRun = [];
-    let computeRun = this.attributes.dexterity.value * 3;  // NOT this.other.move * 3 (pg 114)
-    actor.appliedEffects.forEach((ef) =>
-      ef.changes.forEach((k) => { if (k.key === 'system.other.runMod') listRun.push(k); })
-    );
-    // Modify +/-
-    listRun
-      .filter((ef) => ef.mode === CONST.ACTIVE_EFFECT_MODES.ADD)
-      .forEach((ef) => { computeRun += parseInt(ef.value); });
-    // Modify x
-    listRun
-      .filter((ef) => ef.mode === CONST.ACTIVE_EFFECT_MODES.MULTIPLY)
-      .forEach((ef) => { computeRun = parseInt(computeRun * ef.value); });
-    // Modify minimum
-    listRun
-      .filter((ef) => ef.mode === CONST.ACTIVE_EFFECT_MODES.UPGRADE)
-      .forEach((ef) => { computeRun = Math.max(computeRun, parseInt(ef.value)); });
-    // Modify maximum
-    listRun
-      .filter((ef) => ef.mode === CONST.ACTIVE_EFFECT_MODES.DOWNGRADE)
-      .forEach((ef) => { computeRun = Math.min(computeRun, parseInt(ef.value)); });
-    // Modify Fixed
-    listRun
-      .filter((ef) => ef.mode === CONST.ACTIVE_EFFECT_MODES.OVERRIDE)
-      .forEach((ef) => { computeRun = parseInt(ef.value); });
-    this.other.run = computeRun;
+    this.other.move = applyNumericEffects('system.other.moveMod', this.attributes.dexterity.value, this.parent.appliedEffects);
+    this.other.run = applyNumericEffects('system.other.runMod', this.attributes.dexterity.value * 3, this.parent.appliedEffects);
 
     // Derive Skill values for Storm Knights and Threats
     for (const [name, skill] of Object.entries(this.skills)) {

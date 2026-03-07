@@ -1,4 +1,6 @@
 import { TestDialog, TestDialogLabel, dummyTestTargets } from './test-dialog.js';
+
+
 const { DialogV2 } = foundry.applications.api;
 
 export const TestResult = {
@@ -579,14 +581,14 @@ export async function renderSkillChat(test, origChatMessage) {
         const effects = test.effects?.map(fxid => fromUuidSync(fxid));
         if (!test.fxApplied && effects) {
           //test.fxApplied = true;
-          adjustedDamage = applyEffects('test.damage', adjustedDamage, effects);
+          adjustedDamage = applyNumericEffects('test.damage', adjustedDamage, effects);
         }
         // NOTE: target.toughness already includes target.armour
         target.targetAdjustedToughness = target.toughness - target.armor;
         // If armor and cover can assist, adjust toughness based on AP effects and cover modifier
         if (test.applyArmor) {
           const armor = target.armor + getExtraProtection(test.attackTraits, target.defenses, 'Armor');
-          const weaponAP = applyEffects('test.weaponAP', test.weaponAP, effects);
+          const weaponAP = applyNumericEffects('test.weaponAP', test.weaponAP, effects);
           target.targetAdjustedToughness += Math.max(0, armor - weaponAP) + test.coverModifier;
         }
 
@@ -818,25 +820,56 @@ export function torgDamage(damage, toughness, options) {
   return torgDamageModifiers(result, options);
 }
 
+/**
+ * 
+ * @param {String} fieldname 
+ * @param {Number} origvalue 
+ * @param {ActiveEffects[]} effects 
+ * @returns 
+ */
 
-function applyEffects(fieldname, origvalue, effects) {
+export function applyNumericEffects(fieldname, origvalue, effects) {
   if (!effects) return origvalue;
-  for (const effect of effects) {
-    if (!effect || effect.modifiesTarget) continue;  // fromUuidSync failed
-    for (const change of effect.changes) {
-      if (change.key === fieldname) {
-        // DataModel.applyField
-        // DataField.applyChange
-        const value = parseInt(change.value);
-        if (isNaN(value)) continue;  // value MUST be a number
-        const modes = CONST.ACTIVE_EFFECT_MODES;
-        switch (change.mode) {
-          case modes.ADD: origvalue += value; break;
-          case modes.MULTIPLY: origvalue *= value; break;
-          case modes.OVERRIDE: origvalue = value; break;
-          case modes.UPGRADE: origvalue = Math.max(origvalue, value); break;
-          case modes.DOWNGRADE: origvalue = Math.min(origvalue, value); break;
-          default:  // custom
+
+  if (game.release.generation < 14) {
+    for (const effect of effects) {
+      if (!effect || effect.modifiesTarget) continue;  // fromUuidSync failed
+      for (const change of effect.changes) {
+        if (change.key === fieldname) {
+          // DataModel.applyField
+          // DataField.applyChange
+          const value = parseInt(change.value);
+          if (isNaN(value)) continue;  // value MUST be a number
+          const modes = CONST.ACTIVE_EFFECT_MODES;
+          switch (change.mode) {
+            case modes.ADD: origvalue += value; break;
+            case modes.MULTIPLY: origvalue *= value; break;
+            case modes.OVERRIDE: origvalue = value; break;
+            case modes.UPGRADE: origvalue = Math.max(origvalue, value); break;
+            case modes.DOWNGRADE: origvalue = Math.min(origvalue, value); break;
+            default:  // custom
+          }
+        }
+      }
+    }
+  } else {
+    for (const effect of effects) {
+      if (!effect || effect.modifiesTarget) continue;  // fromUuidSync failed
+      for (const change of effect.changes) {
+        if (change.key === fieldname) {
+          // DataModel.applyField
+          // DataField.applyChange
+          const value = parseInt(change.value);
+          if (isNaN(value)) continue;  // value MUST be a number
+          switch (change.mode) {
+            case "add": origvalue += value; break;
+            case "subtract": origvalue -= value; break;
+            case "multiply": origvalue *= value; break;
+            case "override": origvalue = value; break;
+            case "upgrade": origvalue = Math.max(origvalue, value); break;
+            case "downgrade": origvalue = Math.min(origvalue, value); break;
+            default:  // custom
+          }
         }
       }
     }
@@ -852,8 +885,8 @@ export function torgDamageModifiers(result, options) {
 
   // Check for extra soak/wounds from AE
   if (options.effects) {
-    result.wounds = applyEffects('test.wounds', result.wounds, options.effects);
-    result.shocks = applyEffects('test.shock', result.shocks, options.effects);
+    result.wounds = applyNumericEffects('test.wounds', result.wounds, options.effects);
+    result.shocks = applyNumericEffects('test.shock', result.shocks, options.effects);
   }
 
   if (soakWounds) {
