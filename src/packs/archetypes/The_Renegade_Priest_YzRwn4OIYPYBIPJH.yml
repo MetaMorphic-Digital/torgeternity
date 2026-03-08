@@ -1058,7 +1058,7 @@ items:
         tech: 0
       cosm: none
       traits: []
-      requiresConcentration: false
+      requiresConcentration: true
     ownership:
       default: 0
       A9LyAqagoJJU3gDH: 3
@@ -1070,10 +1070,10 @@ items:
       exportSource: null
       coreVersion: '13.351'
       systemId: torgeternity
-      systemVersion: 13.13.2
+      systemVersion: 13.27.0
       createdTime: 1763999543427
-      modifiedTime: 1763999543427
-      lastModifiedBy: e1DB4TK9SbDuMDS3
+      modifiedTime: 1773010185621
+      lastModifiedBy: BMvGTGfheqDXarjN
     _key: '!actors.items!YzRwn4OIYPYBIPJH.u8AtVmCMnPyP3Ewx'
 effects: []
 folder: null
