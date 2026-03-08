@@ -2,22 +2,26 @@
 
 ## 13.27.0 - Active Effects & ignore Disconnected Items
 
-- Active Effects can now be configured to transfer to the Actor using the Item rather than only to the target.
+- Active Effects can now be configured to transfer to the attacking Actor rather than only to the target.
+- Add a new `Defend Against Trait` attribute to Active Effects to apply an AE on the TARGET when attacked by an ACTOR with a specific trait (e.g. for Ward Enemy).
 - New options of `Any Success` and `Any Failure` added to the list of AE outcomes.
 - When an Active Effect is configured to be transferred:
   - `Display as Combat Toggle`, `Apply if Attack/Defend Trait` are transferred to the target, and are NOT applied to the original test.
   - Wording of the various fields have been improved on the Active Effect Config sheet.
 - Status Effects now have the attribute changes directly stored in the AE (to allow modification by other AEs), and defined in `CONFIG.statusEffects`.
 - Favoured attributes are now modified by AEs using a key like `system.attributes.strength.isFav` (not strengthIsFav)
-- When `Disconnected`, any Items which are contradictions are marked as NOT equipped (and therefore won't affect the Actor's stats, e.g. armor is ignored)
 - Macros etc can roll a bonus die with `await game.torgeternity.rollBonusDie()` (which returns a Roll).
   - `await game.torgeternity.rollBonusDie(isFavored {=false}, numDice {=1})` 
-- A few more cases are fixed where Dice-So-Nice was not rolling 3D dice.
 - Use one common `applyNumericEffects` routine (this affects the application of `system.other.moveMod` and `system.other.runMod`)
   - Multiple Effects which modify `system.other.MoveMod` and `system.other.runMod` or any of the `test.X` attributes are now processed in order of `priority` field on AEs.
 - Move some data from `Actor` to `Actor.system` so that all the Torg-specific data is available in `Actor.getRollData()` (targetModifiers, statusModifiers, defenses)
   - It allows all attributes to be used in manual dice rolls, e.g. `/r d20 + @statusModifiers.concentrating`
   - This is important for Active Effects in Foundry 14, so that Cloud of Darkness can have a change that subtracts `@statusModifiers.darkness` from Toughness (currently V14 uses "+" to subtract!)
+
+### Bug Fixes
+- When `Disconnected`, any Items which are contradictions are marked as NOT equipped (and therefore won't affect the Actor's stats, e.g. armor is ignored)
+- The `Periculum` macro now displays damage correctly again.
+- A few more cases are fixed where Dice-So-Nice was not rolling 3D dice.
 
 ## 13.26.2 - Bug Fix
 

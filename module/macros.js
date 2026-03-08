@@ -781,6 +781,11 @@ export class TorgeternityMacros {
       },
     });
 
+    const targetAll = Array.from(game.user.targets).map(token => oneTestTarget(token));
+    for (const target of targetAll) {
+      target.damage = parseInt(info[1]);
+    }
+
     return renderSkillChat({
       testType: 'custom',
       actor: game.actors.contents[0].uuid,
@@ -806,7 +811,7 @@ export class TorgeternityMacros {
       chatNote: '',
       bdDamageSum: 0,
       hasModifiers: false,
-      targetAll: Array.from(game.user.targets).map(token => oneTestTarget(token)),
+      targetAll,
       bonus: 0,
       possibilityStyle: 'hidden',
       coverModifier: 0,
