@@ -33,14 +33,18 @@
       "value": "Valeur du champs"
     },
     "activeEffect": {
+      "transferTo": {
+        "actor": "Acteur actif",
+        "target": "Acteur cible"
+      },
       "FIELDS": {
-        "transferOnAttack": {
-          "label": "Transfert d'Effet par une Attaque",
-          "hint": "Si coché, cet Effet sera appliqué à l'Acteur ciblé par une attaque impliquant cet objet (armes ou munitions)"
-        },
         "transferOnOutcome": {
           "label": "Appliquer l'Effet correspondant au degré de réussite",
-          "hint": "Appliquer l'Effet sur le Token ciblé correspondant au degré de réussite du test impliquant cet objet"
+          "hint": "Appliquer l'Effet sur le Token ciblé correspondant au degré de réussite du test"
+        },
+        "transferTo": {
+          "label": "Transférer à",
+          "hint": "Transfert de l'Effet à l'Acteur ciblé par le test, ou à l'Acteur réalisant le test"
         },
         "combatToggle": {
           "label": "Afficher/Masquer avec les attaques",
@@ -48,11 +52,15 @@
         },
         "applyIfAttackTrait": {
           "label": "Appliquer le trait d'attaque",
-          "hint": "Appliquer l'Effet uniquement si le Token attaquant possède l'un de ces traits"
+          "hint": "Appliquer cet Effet aux tests, uniquement si le Token attaquant possède l'un de ces traits"
         },
         "applyIfDefendTrait": {
           "label": "Appliquer le trait de défense",
-          "hint": "Appliquer l'Effet uniquement si le Token attaqué (la cible) possède l'un de ces traits"
+          "hint": "Appliquer cet Effet aux tests, uniquement si le Token attaqué (la cible) possède l'un de ces traits"
+        },
+        "defendAgainstTrait": {
+          "label": "Défense contre un trait",
+          "hint": "Appliquer cet effet à la cible si l'attaquant possède un de ces traits"
         }
       }
     },
@@ -139,13 +147,15 @@
         "noTracker": "Pas de jet de Poursuite à moins d'un combat actif.",
         "result": {
           "actionTotal": "Total de l'action",
+          "anyFailure": "Tous types d'échecs",
+          "anySuccess": "Tous types de succés",
           "attackMissed": "Attaque ratée",
           "damage": "Dommages",
           "diceTotal": "Résultat des dés",
           "failure": "Échec",
           "fragileBroken": "{itemName} est fragile et se casse",
           "goodSuccess": "Succès supérieur",
-          "mishape": "Échec critique",
+          "mishap": "Échec critique",
           "new": "Résultat du nouveau jet",
           "noDamage": "Pas de dommages",
           "outstandingSuccess": "Succès spectaculaire",
@@ -975,7 +985,8 @@
       "applyDamage": "Dommages",
       "applyEffects": "Effets",
       "applyDamageTooltip": "Maj+Clic pour ajuster les dommages, Clic pour les appliquer.",
-      "applyEffectsTooltip": "Transfert les Effets pertinents aux cibles",
+      "applyEffectsActorTooltip": "Appliquer l'Effet correspondant à l'Acteur",
+      "applyEffectsTargetTooltip": "Transfert les Effets pertinents aux cibles",
       "applySoak": "Annulation des dommages",
       "applySoakTooltip": "Appliquer la réduction des dommages sur l'attaque.",
       "applyStymied": "Déstabilisé",

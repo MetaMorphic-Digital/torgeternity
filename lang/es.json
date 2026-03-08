@@ -33,26 +33,34 @@
       "value": "Valor del campo"
     },
     "activeEffect": {
+      "transferTo": {
+        "actor": "Actor",
+        "target": "Objetivo"
+      },
       "FIELDS": {
-        "transferOnAttack": {
-          "label": "Aplicar efecto al ataque",
-          "hint": "Si está marcado, este Efecto se aplicará al actor objetivo cuando el objeto al que pertenece el Efecto forme parte de un ataque (bien como arma, bien como munición)"
-        },
         "transferOnOutcome": {
-          "label": "Aplicar efecto con resultado",
-          "hint": "Aplicar el efecto a la(s) ficha(s) objetivo cuando una prueba que usa este objeto obtenga este resultado específico"
+          "label": "Transferir en función del resultado",
+          "hint": "Transfiere este efecto al/los actor(es) objetivo cuando una prueba en la que se usea este objeto tiene este resultado en concreto"
+        },
+        "transferTo": {
+          "label": "Transferir a",
+          "hint": "Indica si el efecto se transfiere al objetivo o al actor que lleva a cabo la prueba"
         },
         "combatToggle": {
           "label": "Mostrar como opción de combate",
-          "hint": "Muestra este efecto en la sección de Ataques y poderes de la hoja de actor para fácil acceso y gestionar su estado"
+          "hint": "Mostrar este efecto en la sección de Ataques y poderes de la hoja de actor para poder acceder a él más rápido activando la opción"
         },
         "applyIfAttackTrait": {
-          "label": "Aplicar si el atacante tiene rasgo",
-          "hint": "Aplicar el efecto solo si la ficha atacante tiene uno de estos rasgos"
+          "label": "Aplicar si el rasgo del atacante es",
+          "hint": "Aplicar este efecto a una prueba en la que se use este objeto SOLO si el actor ATACANTE tiene uno de estos rasgos"
         },
         "applyIfDefendTrait": {
-          "label": "Aplicar si el defensor tiene rasgo",
-          "hint": "Aplicar el efecto solo si la ficha que recibe el ataque (el objetivo) tiene uno de estos rasgos"
+          "label": "Aplicar si el rasgo del defensor es",
+          "hint": "Aplicar este efecto a una prueba en la que se use este objeto SOL si el actor OBJETIVO tiene uno de estos rasgos"
+        },
+        "defendAgainstTrait": {
+          "label": "Defend Against Trait",
+          "hint": "Apply this effect to a test when the owner is a TARGET and the attacker has one of these traits"
         }
       }
     },
@@ -139,13 +147,15 @@
         "noTracker": "No se puede usar el botón de persecuciones a menos que haya un combate activo en el tracker de combate.",
         "result": {
           "actionTotal": "TOTAL",
+          "anyFailure": "Cualquier fallo",
+          "anySuccess": "Cualquier éxito",
           "attackMissed": "Ataque Falla",
           "damage": "Daño",
           "diceTotal": "Resultado del dado",
           "failure": "Fallo",
           "fragileBroken": "El frágil {itemName} se rompe",
           "goodSuccess": "Éxito Bueno",
-          "mishape": "Percance",
+          "mishap": "Percance",
           "new": "Nuevo total de tirada",
           "noDamage": "Sin Daño",
           "outstandingSuccess": "Éxito Espectacular",
@@ -975,7 +985,8 @@
       "applyDamage": "Daño",
       "applyEffects": "Efectos",
       "applyDamageTooltip": "May + clic para modificar daño aplicado, botón izquierdo para aplicar.",
-      "applyEffectsTooltip": "Aplicar efectos activos pertinentes al/los objetivo(s)",
+      "applyEffectsActorTooltip": "Apply efectos activos relevantes al actor",
+      "applyEffectsTargetTooltip": "Aplicar efectos activos pertinentes al/los objetivo(s)",
       "applySoak": "absorción",
       "applySoakTooltip": "Aplicar al ataque las reducciones por absorción.",
       "applyStymied": "Impedido",

@@ -1,12 +1,13 @@
 import { getTorgValue } from '../../torgchecks.js';
 import TorgeternityActor from '../../documents/actor/torgeternityActor.js'
 import { calcPriceValue } from '../shared.js';
+import { BaseActorData } from './base.js';
 
 const fields = foundry.data.fields;
 /**
  * class for shared actor data between Threats and Storm Knights
  */
-export class VehicleData extends foundry.abstract.TypeDataModel {
+export class VehicleData extends BaseActorData {
   /**
    *
    * @returns {object} Schema fragment for a Storm Knight or Threat
@@ -70,11 +71,21 @@ export class VehicleData extends foundry.abstract.TypeDataModel {
     return super.migrateData(source);
   }
 
+  prepareBaseData() {
+    super.prepareBaseData();
+
+    Object.assign(this.defenses, {
+      toughness: this.toughness,
+      armor: this.armor,
+    });
+  }
+
   /**
    * Prepare derived data for Storm Knights and Threats
    */
   prepareDerivedData() {
     super.prepareDerivedData();
+
     this.price.torgValue = calcPriceValue(String(this.price.dollars));
 
     const speedValue = getTorgValue(this.topSpeed.kph) + 2;
@@ -91,6 +102,8 @@ export class VehicleData extends foundry.abstract.TypeDataModel {
     }
     this.topSpeed.penalty = speedPenalty;
   }
+
+  /* Accessors */
 
   get operatorSkill() {
     if (this.operator) {

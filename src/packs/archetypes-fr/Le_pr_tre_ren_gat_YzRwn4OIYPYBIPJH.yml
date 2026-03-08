@@ -629,7 +629,10 @@ items:
           transferOnAttack: false
           applyIfAttackTrait: []
           applyIfDefendTrait: []
-          transferOnOutcome: 3
+          transferOnOutcome: standard
+          defendAgainstTrait:
+            - supernaturalEvil
+          transferTo: target
         changes:
           - key: defenses.dodge.mod
             mode: 2
@@ -671,10 +674,10 @@ items:
           exportSource: null
           coreVersion: '13.351'
           systemId: torgeternity
-          systemVersion: 13.13.2
+          systemVersion: 13.24.1
           createdTime: 1764005323568
-          modifiedTime: 1764005564371
-          lastModifiedBy: e1DB4TK9SbDuMDS3
+          modifiedTime: 1772996085960
+          lastModifiedBy: BMvGTGfheqDXarjN
         _key: >-
           !actors.items.effects!YzRwn4OIYPYBIPJH.sMpIpI7t3K7B4ZYp.oCkSdHARo9OvqD0p
       - name: Defense +2 vs. S.Evil
@@ -696,7 +699,10 @@ items:
           transferOnAttack: false
           applyIfAttackTrait: []
           applyIfDefendTrait: []
-          transferOnOutcome: 4
+          transferOnOutcome: good
+          defendAgainstTrait:
+            - supernaturalEvil
+          transferTo: target
         changes:
           - key: defenses.dodge.mod
             mode: 2
@@ -738,13 +744,13 @@ items:
           exportSource: null
           coreVersion: '13.351'
           systemId: torgeternity
-          systemVersion: 13.13.2
+          systemVersion: 13.24.1
           createdTime: 1764005324176
-          modifiedTime: 1764005568032
-          lastModifiedBy: e1DB4TK9SbDuMDS3
+          modifiedTime: 1772996107262
+          lastModifiedBy: BMvGTGfheqDXarjN
         _key: >-
           !actors.items.effects!YzRwn4OIYPYBIPJH.sMpIpI7t3K7B4ZYp.7bGGDUxfuIIfWvPP
-      - name: New Effect
+      - name: Defense +2 vs. S.Evil
         origin: >-
           Compendium.torgeternity.archetypes-fr.Actor.YzRwn4OIYPYBIPJH.Item.sMpIpI7t3K7B4ZYp
         duration:
@@ -763,7 +769,10 @@ items:
           transferOnAttack: false
           applyIfAttackTrait: []
           applyIfDefendTrait: []
-          transferOnOutcome: 5
+          transferOnOutcome: outstanding
+          defendAgainstTrait:
+            - supernaturalEvil
+          transferTo: target
         changes:
           - key: defenses.dodge.mod
             mode: 2
@@ -805,10 +814,10 @@ items:
           exportSource: null
           coreVersion: '13.351'
           systemId: torgeternity
-          systemVersion: 13.13.2
+          systemVersion: 13.24.1
           createdTime: 1764005559439
-          modifiedTime: 1764005595100
-          lastModifiedBy: e1DB4TK9SbDuMDS3
+          modifiedTime: 1772996121311
+          lastModifiedBy: BMvGTGfheqDXarjN
         _key: >-
           !actors.items.effects!YzRwn4OIYPYBIPJH.sMpIpI7t3K7B4ZYp.HNpzcMefIwvWcGVi
     folder: null
@@ -1121,14 +1130,16 @@ system:
       base: 7
   other:
     cosm: cyberpapacy
-    possibilities: 3
+    possibilities:
+      value: 3
+    piety: 0
   skills:
     airVehicles:
       baseAttribute: dexterity
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     alteration:
@@ -1136,7 +1147,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     apportation:
@@ -1144,7 +1155,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     beastRiding:
@@ -1152,7 +1163,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     computers:
@@ -1160,7 +1171,7 @@ system:
       adds: 1
       isFav: true
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     conjuration:
@@ -1168,7 +1179,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     divination:
@@ -1176,7 +1187,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     dodge:
@@ -1184,7 +1195,7 @@ system:
       adds: 2
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     energyWeapons:
@@ -1192,7 +1203,7 @@ system:
       adds: 1
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     evidenceAnalysis:
@@ -1200,7 +1211,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     faith:
@@ -1208,7 +1219,7 @@ system:
       adds: 3
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     find:
@@ -1216,7 +1227,7 @@ system:
       adds: 1
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     fireCombat:
@@ -1224,7 +1235,7 @@ system:
       adds: 0
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     firstAid:
@@ -1232,7 +1243,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     heavyWeapons:
@@ -1240,7 +1251,7 @@ system:
       adds: 0
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     intimidation:
@@ -1248,7 +1259,7 @@ system:
       adds: 1
       isFav: false
       groupName: interaction
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     kinesis:
@@ -1256,7 +1267,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     landVehicles:
@@ -1264,7 +1275,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     language:
@@ -1272,7 +1283,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     lockpicking:
@@ -1280,7 +1291,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     maneuver:
@@ -1288,7 +1299,7 @@ system:
       adds: 0
       isFav: false
       groupName: interaction
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     medicine:
@@ -1296,7 +1307,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     meleeWeapons:
@@ -1304,7 +1315,7 @@ system:
       adds: 0
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     missileWeapons:
@@ -1312,7 +1323,7 @@ system:
       adds: 0
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     persuasion:
@@ -1320,7 +1331,7 @@ system:
       adds: 1
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     precognition:
@@ -1328,7 +1339,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     profession:
@@ -1336,7 +1347,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     reality:
@@ -1344,7 +1355,7 @@ system:
       adds: 1
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     scholar:
@@ -1352,7 +1363,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     science:
@@ -1360,7 +1371,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     stealth:
@@ -1368,7 +1379,7 @@ system:
       adds: 1
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     streetwise:
@@ -1376,7 +1387,7 @@ system:
       adds: 1
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     survival:
@@ -1384,7 +1395,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     taunt:
@@ -1392,7 +1403,7 @@ system:
       adds: 2
       isFav: false
       groupName: interaction
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     telepathy:
@@ -1400,7 +1411,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     tracking:
@@ -1408,7 +1419,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     trick:
@@ -1416,7 +1427,7 @@ system:
       adds: 0
       isFav: false
       groupName: interaction
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     unarmedCombat:
@@ -1424,7 +1435,7 @@ system:
       adds: 1
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     waterVehicles:
@@ -1432,7 +1443,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     willpower:
@@ -1440,7 +1451,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
   xp:
@@ -1452,96 +1463,7 @@ system:
     spirit: 16
     tech: 26
   details:
-    background: >-
-      <h2 class="MsoNormal">Pr&eacute;sentation</h2>
-
-      <p class="MsoNormal">Tous les pr&ecirc;tres de la Cyberpapaut&eacute; ne
-      sont pas soumis &agrave; Jean Malraux. Beaucoup croient en une
-      divinit&eacute; beaucoup plus bienveillante et mis&eacute;ricordieuse. Ces
-      &laquo; ren&eacute;gats &raquo;, comme l&rsquo;Antipape les qualifie, ont
-      r&eacute;sist&eacute; &agrave; son pouvoir totalitaire, ont
-      affront&eacute; l&rsquo;inquisition et combattent d&eacute;sormais dans
-      les rues aux c&ocirc;t&eacute;s de la R&eacute;sistance.</p>
-
-      <h2 class="MsoNormal">Tactiques</h2>
-
-      <p class="MsoNormal">Vos miracles fournissent principalement un soutien :
-      permettre &agrave; vos alli&eacute;s de continuer &agrave; combattre
-      malgr&eacute; leurs blessures ou augmenter leurs principales
-      capacit&eacute;s. L&rsquo;armure de haute technologie que vous
-      poss&eacute;dez offre une bonne protection et votre haute
-      comp&eacute;tence de R&eacute;alit&eacute; vous permet de plus facilement
-      annuler des Blessures. Le Rayon divin int&eacute;gr&eacute; &agrave; votre
-      bras peut s&rsquo;av&eacute;rer &ecirc;tre une d&eacute;sagr&eacute;able
-      surprise quand une situation d&eacute;g&eacute;n&egrave;re mais vos
-      v&eacute;ritables armes, ce sont vos comp&eacute;tences
-      d&rsquo;interaction. Persuasion peut vous &eacute;viter des ennuis et
-      Intimidation ou Provocation s&egrave;ment le chaos parmi vos adversaires
-      les plus faibles d&rsquo;esprit.</p>
-
-      <h2 class="MsoNormal"><span style="mso-spacerun:
-      yes;">&nbsp;</span>Instant fatidique</h2>
-
-      <p class="MsoNormal">Votre Instant fatidique a certainement
-      &eacute;t&eacute; une remise en question de votre foi et une crise de
-      conscience. La vision d&eacute;form&eacute;e et cruelle du Cyberpape a
-      r&eacute;veill&eacute; le lion qui sommeille en vous et a
-      d&eacute;clench&eacute; la transition qui vous a conduit du pr&ecirc;tre
-      au Chevalier des Temp&ecirc;tes. Ou peut-&ecirc;tre avez-vous simplement
-      pri&eacute; pour une intervention divine. Le Tout Puissant oeuvre de bien
-      myst&eacute;rieuse mani&egrave;re et, au lieu d&rsquo;abattre vos ennemis,
-      IL vous a conf&eacute;r&eacute; le pouvoir de combattre pour la
-      justice.</p>
-
-      <h2 class="MsoNormal">Citation</h2>
-
-      <p class="MsoNormal">&laquo; Ce n&rsquo;est pas par mes yeux que je vois
-      le monde tel qu&rsquo;il est v&eacute;ritablement, c&rsquo;est par ma foi.
-      &raquo;</p>
-
-      <h2 class="MsoNormal">Description</h2>
-
-      <p class="MsoNormal">Le col blanc est un symbole bien connu de
-      l&rsquo;&eacute;glise aussi bien sur la Prime Terre qu&rsquo;&agrave;
-      Magna Verita. En fonction du rang du pr&ecirc;tre et de la r&eacute;gion
-      o&ugrave; il exerce, l&rsquo;&eacute;tole port&eacute;e &agrave; la
-      ceinture a une couleur diff&eacute;rente. La v&ocirc;tre est rouge et elle
-      vous a &eacute;t&eacute; remise pour votre travail et vos m&eacute;rites.
-      L&rsquo;oeil cybern&eacute;tique est un mod&egrave;le Bellevue, une
-      am&eacute;lioration assez commune dans la Cyberpapaut&eacute; mais aussi
-      une source potentielle de probl&egrave;mes si les autorit&eacute;s
-      comprennent qu&rsquo;elle a &eacute;t&eacute; d&eacute;connect&eacute;e du
-      R&eacute;seau Divin.</p>
-
-      <h2 class="MsoNormal">Objectif</h2>
-
-      <p class="MsoNormal">R&eacute;pandre l&rsquo;amour et le pardon de Dieu.
-      Il y a tant de gens soumis &agrave; la vision de la religion de Jean
-      Malraux ; le vrai fid&egrave;le doit contrer ce poison avec
-      humilit&eacute; et bont&eacute;.</p>
-
-      <h2 class="MsoNormal">Noms</h2>
-
-      <p class="MsoNormal">Claude, Damien, Dominique, Francis, Honor&eacute;,
-      Marc, Pascal, Tristan, Xavier</p>
-
-      <h2 class="MsoNormal">Piste de progression (optionnelle)</h2>
-
-      <p class="MsoNormal">□ (5 PX) Prot&eacute;g&eacute;</p>
-
-      <p class="MsoNormal">□ (7 PX) Miracles (&Eacute;clair)</p>
-
-      <p class="MsoNormal">□ (1 PX) Ruse +1</p>
-
-      <p class="MsoNormal">□ (2 PX) Persuasion +2</p>
-
-      <p class="MsoNormal">□ (3 PX) R&eacute;alit&eacute; +3</p>
-
-      <p class="MsoNormal">□ (3 PX) Provocation +3</p>
-
-      <p class="MsoNormal">□ (4 PX) Foi +4</p>
-
-      <p class="MsoNormal">□ (5 PX) Foi +5</p>
+    background: "<h2 class=\"MsoNormal\">Présentation</h2>\n<p class=\"MsoNormal\">Tous les prêtres de la Cyberpapauté ne sont pas soumis à Jean Malraux. Beaucoup croient en une divinité beaucoup plus bienveillante et miséricordieuse. Ces « renégats », comme l’Antipape les qualifie, ont résisté à son pouvoir totalitaire, ont affronté l’inquisition et combattent désormais dans les rues aux côtés de la Résistance.</p>\n<h2 class=\"MsoNormal\">Tactiques</h2>\n<p class=\"MsoNormal\">Vos miracles fournissent principalement un soutien : permettre à vos alliés de continuer à combattre malgré leurs blessures ou augmenter leurs principales capacités. L’armure de haute technologie que vous possédez offre une bonne protection et votre haute compétence de Réalité vous permet de plus facilement annuler des Blessures. Le Rayon divin intégré à votre bras peut s’avérer être une désagréable surprise quand une situation dégénère mais vos véritables armes, ce sont vos compétences d’interaction. Persuasion peut vous éviter des ennuis et Intimidation ou Provocation sèment le chaos parmi vos adversaires les plus faibles d’esprit.</p>\n<h2 class=\"MsoNormal\"><span style=\"mso-spacerun:yes\">\_</span>Instant fatidique</h2>\n<p class=\"MsoNormal\">Votre Instant fatidique a certainement été une remise en question de votre foi et une crise de conscience. La vision déformée et cruelle du Cyberpape a réveillé le lion qui sommeille en vous et a déclenché la transition qui vous a conduit du prêtre au Chevalier des Tempêtes. Ou peut-être avez-vous simplement prié pour une intervention divine. Le Tout Puissant oeuvre de bien mystérieuse manière et, au lieu d’abattre vos ennemis, IL vous a conféré le pouvoir de combattre pour la justice.</p>\n<h2 class=\"MsoNormal\">Citation</h2>\n<p class=\"MsoNormal\">« Ce n’est pas par mes yeux que je vois le monde tel qu’il est véritablement, c’est par ma foi. »</p>\n<h2 class=\"MsoNormal\">Description</h2>\n<p class=\"MsoNormal\">Le col blanc est un symbole bien connu de l’église aussi bien sur la Prime Terre qu’à Magna Verita. En fonction du rang du prêtre et de la région où il exerce, l’étole portée à la ceinture a une couleur différente. La vôtre est rouge et elle vous a été remise pour votre travail et vos mérites. L’oeil cybernétique est un modèle Bellevue, une amélioration assez commune dans la Cyberpapauté mais aussi une source potentielle de problèmes si les autorités comprennent qu’elle a été déconnectée du Réseau Divin.</p>\n<h2 class=\"MsoNormal\">Objectif</h2>\n<p class=\"MsoNormal\">Répandre l’amour et le pardon de Dieu. Il y a tant de gens soumis à la vision de la religion de Jean Malraux ; le vrai fidèle doit contrer ce poison avec humilité et bonté.</p>\n<h2 class=\"MsoNormal\">Noms</h2>\n<p class=\"MsoNormal\">Claude, Damien, Dominique, Francis, Honoré, Marc, Pascal, Tristan, Xavier</p>\n<h2 class=\"MsoNormal\">Piste de progression (optionnelle)</h2>\n<p class=\"MsoNormal\">□ (5 PX) Protégé</p>\n<p class=\"MsoNormal\">□ (7 PX) Miracles (Éclair)</p>\n<p class=\"MsoNormal\">□ (1 PX) Ruse +1</p>\n<p class=\"MsoNormal\">□ (2 PX) Persuasion +2</p>\n<p class=\"MsoNormal\">□ (3 PX) Réalité +3</p>\n<p class=\"MsoNormal\">□ (3 PX) Provocation +3</p>\n<p class=\"MsoNormal\">□ (4 PX) Foi +4</p>\n<p class=\"MsoNormal\">□ (5 PX) Foi +5</p>"
     race: human
     sizeBonus: normal
   editstate: false
@@ -1632,10 +1554,10 @@ prototypeToken:
   movementAction: null
 _stats:
   systemId: torgeternity
-  systemVersion: 13.15.0
+  systemVersion: 13.27.0
   coreVersion: '13.351'
   createdTime: 1716827809520
-  modifiedTime: 1771935909553
+  modifiedTime: 1773001234622
   lastModifiedBy: BMvGTGfheqDXarjN
   compendiumSource: null
   duplicateSource: null

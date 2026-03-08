@@ -1,5 +1,6 @@
 import { renderSkillChat } from './torgchecks.js';
 import TorgeternityActor from './documents/actor/torgeternityActor.js';
+import { applyNumericEffects } from './torgchecks.js';
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api
 
 function toCamelCase(from) {
@@ -140,6 +141,12 @@ export class TestDialog extends HandlebarsApplicationMixin(ApplicationV2) {
         this.test.requiresConcentration = item.system.requiresConcentration;
       }
 
+      this.test.attackTraits = item ? Array.from(item.system.traits) : [];
+      if (item?.system?.loadedAmmo) {
+        const ammo = actor.items.get(item?.system.loadedAmmo);
+        if (ammo) this.test.attackTraits.push(...Array.from(ammo.system.traits));
+      }
+
       const combatant = game.combat?.getCombatantsByActor(actor)?.shift();
       if (combatant) {
         const bonus = combatant.currentBonus;
@@ -179,14 +186,14 @@ export class TestDialog extends HandlebarsApplicationMixin(ApplicationV2) {
     // The wound penalties are never more than -3, regardless on how many wounds a token can suffer / have. CrB p. 117
     context.test.woundModifier = -Math.min(myActor.system.wounds.value ?? 0, 3);
 
-    context.test.stymiedModifier = myActor.statusModifiers.stymied;
-    context.test.waitingModifier = myActor.statusModifiers.waiting;
-    context.test.targetDarknessModifier = myActor.targetModifiers.darkness;
+    context.test.stymiedModifier = myActor.system.statusModifiers.stymied;
+    context.test.waitingModifier = myActor.system.statusModifiers.waiting;
+    context.test.targetDarknessModifier = myActor.system.targetModifiers.darkness;
 
     // Concentrating modifier applies in Concentration Checks and specific skills
     if (context.test.isConcentrationCheck ||
       CONFIG.torgeternity.concentrationSkills.includes(context.test.skillName)) {
-      context.test.concentratingModifier = myActor.statusModifiers.concentrating;
+      context.test.concentratingModifier = myActor.system.statusModifiers.concentrating;
     }
     const testItem = this.test.itemId && myActor.items.get(this.test.itemId);
     context.test.requiresConcentration = testItem?.requiresConcentration;
@@ -221,7 +228,7 @@ export class TestDialog extends HandlebarsApplicationMixin(ApplicationV2) {
     context.test.combinedAction.participants ??= game.canvas?.tokens?.controlled?.length || 1;
 
     if (context.test.targetPresent && context.test.testType !== 'soak') {
-      context.test.targetAll = targets.map(token => oneTestTarget(token, this.test.applySize));
+      context.test.targetAll = targets.map(token => oneTestTarget(token, this.test.applySize, this.test.attackTraits, myActor.defenseTraits));
       context.test.sizeModifier = Math.max(...context.test.targetAll.map(target => target.sizeModifier));
       context.test.vulnerableModifier = Math.max(...context.test.targetAll.map(target => target.vulnerableModifier));
       context.test.darknessModifier = Math.min(0, Math.min(...context.test.targetAll.map(target => target.darknessModifier)) + context.test.targetDarknessModifier);
@@ -304,11 +311,6 @@ export class TestDialog extends HandlebarsApplicationMixin(ApplicationV2) {
           ui.notifications.warn(game.i18n.localize('torgeternity.chatText.notSufficientAmmo'));
           return;
         }
-        this.test.attackTraits = myItem ? Array.from(myItem.system.traits) : [];
-        if (myItem?.system?.loadedAmmo) {
-          const ammo = myActor.items.get(myItem?.system.loadedAmmo);
-          if (ammo) this.test.attackTraits.push(...Array.from(ammo.system.traits));
-        }
 
         // Add Cover Modifier
         this.test.addBDs ??= 0;
@@ -337,8 +339,15 @@ export function dummyTestTargets() {
   }];
 }
 
-
-export function oneTestTarget(token, applySize) {
+/**
+ * 
+ * @param {TorgeternityToken} token 
+ * @param {Boolean} applySize 
+ * @param {Set[String]} attackTraits attackTraits of the attacker (if any)
+ * @param {Set[String]} defenseTraits defenseTraits of the attacker (if any)
+ * @returns 
+ */
+export function oneTestTarget(token, applySize, attackTraits, defenseTraits) {
   const actor = token.actor;
 
   let sizeModifier;
@@ -354,7 +363,9 @@ export function oneTestTarget(token, applySize) {
     }
   }
 
-  const damageDefenses = Object.entries(actor.defenses.damageTraits).filter(([_key, value]) => value).reduce((acc, [key, value]) => (acc[key] = value, acc), {})
+  const damageDefenses = Object.entries(actor.system.defenses.damageTraits)
+    .filter(([_key, value]) => value)
+    .reduce((acc, [key, value]) => (acc[key] = value, acc), {})
 
   // Set vehicle defense if needed
   switch (actor.type) {
@@ -367,8 +378,8 @@ export function oneTestTarget(token, applySize) {
         targetPic: actor.img,
         targetName: token.name,
         sizeModifier: sizeModifier,
-        toughness: actor.defenses.toughness,
-        armor: actor.defenses.armor,
+        toughness: actor.system.defenses.toughness,
+        armor: actor.system.defenses.armor,
         armorTraits: [],
         amountBD: 0,
         bdDamageSum: 0,
@@ -388,46 +399,77 @@ export function oneTestTarget(token, applySize) {
 
     case 'threat':
     case 'stormknight':
-      const skills = {};
-
-      return {
-        type: actor.type,
-        id: actor.id,
-        actorUuid: actor.uuid,
-        uuid: token.document.uuid,
-        targetPic: actor.img,
-        targetName: token.name,
-        sizeModifier: sizeModifier,
-        toughness: actor.defenses.toughness,
-        armor: actor.defenses.armor,
-        defenseTraits: actor.defenseTraits,
-        // then non-vehicle changes
-        skills: actor.itemTypes.customSkill.reduce((acc, skill) => {
-          acc[toCamelCase(skill.name)] = { value: skill.system.value, baseAttribute: skill.system.baseAttribute };
-          return acc;
-        },
-          Object.entries(actor.system.skills).reduce((acc, [skillName, skill]) => {
-            acc[skillName] = { value: skill.value, baseAttribute: skill.baseAttribute }
+      {
+        const result = {
+          type: actor.type,
+          id: actor.id,
+          actorUuid: actor.uuid,
+          uuid: token.document.uuid,
+          targetPic: actor.img,
+          targetName: token.name,
+          sizeModifier: sizeModifier,
+          toughness: actor.system.defenses.toughness,
+          armor: actor.system.defenses.armor,
+          defenseTraits: actor.defenseTraits,
+          // then non-vehicle changes
+          skills: actor.itemTypes.customSkill.reduce((acc, skill) => {
+            acc[toCamelCase(skill.name)] = { value: skill.system.value, baseAttribute: skill.system.baseAttribute };
             return acc;
-          }, {})),
-        attributes: Object.entries(actor.system.attributes).reduce((acc, [key, attr]) => (acc[key] = attr.value, acc), {}),
-        vulnerableModifier: actor.statusModifiers.vulnerable,
-        darknessModifier: actor.statusModifiers.darkness,
-        isConcentrating: actor.isConcentrating,
-        amountBD: 0,
-        bdDamageSum: 0,
-        defenses: {
-          ...damageDefenses,
-          dodge: actor.defenses.dodge.value,
-          unarmedCombat: actor.defenses.unarmedCombat.value,
-          meleeWeapons: actor.defenses.meleeWeapons.value,
-          intimidation: actor.defenses.intimidation.value,
-          maneuver: actor.defenses.maneuver.value,
-          taunt: actor.defenses.taunt.value,
-          trick: actor.defenses.trick.value,
-          activeDefense: !!actor.activeDefense
-        },
-      };
+          },
+            Object.entries(actor.system.skills).reduce((acc, [skillName, skill]) => {
+              acc[skillName] = { value: skill.value, baseAttribute: skill.baseAttribute }
+              return acc;
+            }, {})),
+          attributes: Object.entries(actor.system.attributes).reduce((acc, [key, attr]) => (acc[key] = attr.value, acc), {}),
+          vulnerableModifier: actor.system.statusModifiers.vulnerable,
+          darknessModifier: actor.system.statusModifiers.darkness,
+          isConcentrating: actor.isConcentrating,
+          amountBD: 0,
+          bdDamageSum: 0,
+          defenses: {
+            ...damageDefenses,
+            dodge: actor.system.defenses.dodge.value,
+            unarmedCombat: actor.system.defenses.unarmedCombat.value,
+            meleeWeapons: actor.system.defenses.meleeWeapons.value,
+            intimidation: actor.system.defenses.intimidation.value,
+            maneuver: actor.system.defenses.maneuver.value,
+            taunt: actor.system.defenses.taunt.value,
+            trick: actor.system.defenses.trick.value,
+            activeDefense: !!actor.activeDefense
+          },
+        };
+
+        // Check for any AEs on the defender with the `defendAgainstTrait` set
+        if (attackTraits?.length || defenseTraits?.length) {
+          const effects = [];
+          for (const effect of actor.allApplicableEffects()) {
+            // It will be suppressed, so effect.active will return false
+            if (!effect.disabled && !effect.system.transferOnOutcome) {
+              for (const trait of effect.system.defendAgainstTrait) {
+                if (attackTraits?.includes(trait) || defenseTraits?.includes(trait))
+                  effects.push(effect);
+              }
+            }
+          }
+          const changekeys = effects.map(effect => effect.changes).flat().reduce((set, change) => set.add(change.key), new Set());
+          for (const changekey of changekeys) {
+            const MAPPING = {
+              'system.defenses.toughness': 'toughness',
+              'system.defenses.armor': 'armor',
+              'system.statusModifiers.vulnerable': 'vulnerableModifier',
+              'system.statusModifiers.darkness': 'darknessModifier',
+            }
+            const field = MAPPING[changekey] ?? changekey.replace(/^system./, '').replace(/.mod$/, '');
+            const value = foundry.utils.getProperty(result, field);
+            if (typeof value !== 'number') {
+              console.warn(`Non-numeric field referenced in changes of defendAgainstTrait: '${field}'`)
+            }
+            foundry.utils.setProperty(result, field, applyNumericEffects(changekey, value, effects));
+          }
+        }
+
+        return result;
+      }
 
     default:
       console.warn(`Unknown actor type ${oneTestTarget}`);

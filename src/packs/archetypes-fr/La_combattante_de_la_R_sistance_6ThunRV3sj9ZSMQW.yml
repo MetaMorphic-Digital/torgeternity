@@ -595,7 +595,8 @@ items:
           transferOnAttack: true
           applyIfAttackTrait: []
           applyIfDefendTrait: []
-          transferOnOutcome: 0
+          transferOnOutcome: anySuccess
+          transferTo: target
         changes:
           - key: system.skills.maneuver.isFav
             mode: 5
@@ -613,10 +614,10 @@ items:
           exportSource: null
           coreVersion: '13.351'
           systemId: torgeternity
-          systemVersion: 13.13.2
+          systemVersion: 13.24.1
           createdTime: 1764004506577
-          modifiedTime: 1764004551011
-          lastModifiedBy: e1DB4TK9SbDuMDS3
+          modifiedTime: 1772996734459
+          lastModifiedBy: BMvGTGfheqDXarjN
         _key: >-
           !actors.items.effects!6ThunRV3sj9ZSMQW.HA3ZNV6zpDV4OeJ3.cbzBtqSY0Q7hnIra
     folder: null
@@ -777,14 +778,16 @@ system:
       base: 7
   other:
     cosm: tharkold
-    possibilities: 3
+    possibilities:
+      value: 3
+    piety: 0
   skills:
     airVehicles:
       baseAttribute: dexterity
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     alteration:
@@ -792,7 +795,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     apportation:
@@ -800,7 +803,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     beastRiding:
@@ -808,7 +811,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     computers:
@@ -816,7 +819,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     conjuration:
@@ -824,7 +827,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     divination:
@@ -832,7 +835,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     dodge:
@@ -840,7 +843,7 @@ system:
       adds: 2
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     energyWeapons:
@@ -848,7 +851,7 @@ system:
       adds: 1
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     evidenceAnalysis:
@@ -856,7 +859,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     faith:
@@ -864,7 +867,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     find:
@@ -872,7 +875,7 @@ system:
       adds: 1
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     fireCombat:
@@ -880,7 +883,7 @@ system:
       adds: 1
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     firstAid:
@@ -888,7 +891,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     heavyWeapons:
@@ -896,7 +899,7 @@ system:
       adds: 0
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     intimidation:
@@ -904,7 +907,7 @@ system:
       adds: 0
       isFav: false
       groupName: interaction
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     kinesis:
@@ -912,7 +915,7 @@ system:
       adds: 3
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     landVehicles:
@@ -920,7 +923,7 @@ system:
       adds: 1
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     language:
@@ -928,7 +931,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     lockpicking:
@@ -936,7 +939,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     maneuver:
@@ -944,7 +947,7 @@ system:
       adds: 0
       isFav: false
       groupName: interaction
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     medicine:
@@ -952,7 +955,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     meleeWeapons:
@@ -960,7 +963,7 @@ system:
       adds: 0
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     missileWeapons:
@@ -968,7 +971,7 @@ system:
       adds: 0
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     persuasion:
@@ -976,7 +979,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     precognition:
@@ -984,7 +987,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     profession:
@@ -992,7 +995,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     reality:
@@ -1000,7 +1003,7 @@ system:
       adds: 2
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     scholar:
@@ -1008,7 +1011,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     science:
@@ -1016,7 +1019,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     stealth:
@@ -1024,7 +1027,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     streetwise:
@@ -1032,7 +1035,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     survival:
@@ -1040,7 +1043,7 @@ system:
       adds: 1
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     taunt:
@@ -1048,7 +1051,7 @@ system:
       adds: 1
       isFav: false
       groupName: interaction
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     telepathy:
@@ -1056,7 +1059,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     tracking:
@@ -1064,7 +1067,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     trick:
@@ -1072,7 +1075,7 @@ system:
       adds: 1
       isFav: false
       groupName: interaction
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     unarmedCombat:
@@ -1080,7 +1083,7 @@ system:
       adds: 1
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     waterVehicles:
@@ -1088,7 +1091,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     willpower:
@@ -1096,7 +1099,7 @@ system:
       adds: 1
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
   xp:
@@ -1109,70 +1112,59 @@ system:
     tech: 25
   details:
     background: >-
-      <h2>Pr&eacute;sentation</h2>
+      <h2>Présentation</h2>
 
-      <p class="MsoNormal">La Race d&eacute;signe les humains natifs de
-      Tharkold. Ils sont les esclaves des technod&eacute;mons qui r&egrave;gnent
-      sur eux depuis des si&egrave;cles. Depuis que la Race a &eacute;t&eacute;
-      soumise, la r&eacute;sistance est active mais la puissance des
-      technod&eacute;mons a limit&eacute; ses actions &agrave; de simples
-      op&eacute;rations de survie, jusqu&rsquo;&agrave; aujourd&rsquo;hui.
-      L&rsquo;attaque de Tharkold contre la Prime Terre a &eacute;t&eacute; une
-      occasion en or et d&eacute;sormais des membres de la r&eacute;sistance
-      profitent de cette opportunit&eacute; et en tirent profit.</p>
+      <p class="MsoNormal">La Race désigne les humains natifs de Tharkold. Ils
+      sont les esclaves des technodémons qui règnent sur eux depuis des siècles.
+      Depuis que la Race a été soumise, la résistance est active mais la
+      puissance des technodémons a limité ses actions à de simples opérations de
+      survie, jusqu’à aujourd’hui. L’attaque de Tharkold contre la Prime Terre a
+      été une occasion en or et désormais des membres de la résistance profitent
+      de cette opportunité et en tirent profit.</p>
 
       <h2>Tactiques</h2>
 
       <p class="MsoNormal">Votre Thav-9 est un pistolet-mitrailleur redoutable
-      et sa puissance de feu compense votre relative inexp&eacute;rience dans
-      son maniement. Votre v&eacute;ritable talent r&eacute;side dans les
-      pouvoirs psychiques. Stimulation est &eacute;puisant mais
-      l&rsquo;augmentation de votre Dext&eacute;rit&eacute; permet
-      d&rsquo;am&eacute;liorer vos attaques et vos d&eacute;fenses et
-      l&rsquo;augmentation de votre Force am&eacute;liore votre
-      R&eacute;sistance et vos dommages en m&ecirc;l&eacute;e. La valeur de Dex
-      Max de votre armure est suffisamment &eacute;lev&eacute;e pour vous
-      permettre de tirer pleinement profit des deux bonus.
-      T&eacute;l&eacute;kin&eacute;sie vous permet d&rsquo;&ecirc;tre
-      polyvalente et d&rsquo;utiliser votre gantelet de souffrance pour des
-      attaques de lutte &agrave; distance ; utilisez Kin&eacute;sie pour
-      attaquer et utiliser votre Raison au lieu de votre Force pour vos
-      dommages. Votre arme secr&egrave;te est votre potentiel en commandement.
-      Soutien peut annuler les effets n&eacute;gatifs d&rsquo;une Carte
-      d&rsquo;Action (tels que D&eacute;sorient&eacute;s, Fatigu&eacute;s ou
-      m&ecirc;me D&eacute;ferlement) et inverser le cours de la bataille.
-      Instant fatidique Une existence de servitude a pris fin quand vous vous
-      &ecirc;tes dress&eacute;e pour d&eacute;fendre un autre esclave et que
-      vous avez dit &laquo; non ! &raquo; aux technod&eacute;mons. En cet
-      instant vous avez aussi d&eacute;bloqu&eacute; les pouvoirs psioniques qui
-      vous ont permis &agrave; tous les deux de survivre. Sinon, cet instant
-      fatidique a pu se produire quand vous &ecirc;tes arriv&eacute;e sur la
-      Prime Terre, quand l&rsquo;Axiome Tech inf&eacute;rieur a
-      d&eacute;sactiv&eacute; votre collier d&rsquo;esclave et que vous avez
-      initi&eacute; une petite r&eacute;bellion.</p>
+      et sa puissance de feu compense votre relative inexpérience dans son
+      maniement. Votre véritable talent réside dans les pouvoirs psychiques.
+      Stimulation est épuisant mais l’augmentation de votre Dextérité permet
+      d’améliorer vos attaques et vos défenses et l’augmentation de votre Force
+      améliore votre Résistance et vos dommages en mêlée. La valeur de Dex Max
+      de votre armure est suffisamment élevée pour vous permettre de tirer
+      pleinement profit des deux bonus. Télékinésie vous permet d’être
+      polyvalente et d’utiliser votre gantelet de souffrance pour des attaques
+      de lutte à distance ; utilisez Kinésie pour attaquer et utiliser votre
+      Raison au lieu de votre Force pour vos dommages. Votre arme secrète est
+      votre potentiel en commandement. Soutien peut annuler les effets négatifs
+      d’une Carte d’Action (tels que Désorientés, Fatigués ou même Déferlement)
+      et inverser le cours de la bataille. Instant fatidique Une existence de
+      servitude a pris fin quand vous vous êtes dressée pour défendre un autre
+      esclave et que vous avez dit « non ! » aux technodémons. En cet instant
+      vous avez aussi débloqué les pouvoirs psioniques qui vous ont permis à
+      tous les deux de survivre. Sinon, cet instant fatidique a pu se produire
+      quand vous êtes arrivée sur la Prime Terre, quand l’Axiome Tech inférieur
+      a désactivé votre collier d’esclave et que vous avez initié une petite
+      rébellion.</p>
 
       <h2>Citation</h2>
 
-      <p class="MsoNormal">&laquo; D&eacute;barrassez-vous de vos cha&icirc;nes
-      et battez-vous ! Combattez avec votre esprit, avec vos armes ou m&ecirc;me
-      &agrave; mains nues s&rsquo;il le faut. &raquo;</p>
+      <p class="MsoNormal">« Débarrassez-vous de vos chaînes et battez-vous !
+      Combattez avec votre esprit, avec vos armes ou même à mains nues s’il le
+      faut. »</p>
 
       <h2>Description</h2>
 
-      <p class="MsoNormal">Les membres de la r&eacute;sistance portent des
-      armures rafistol&eacute;es avec tout ce qu&rsquo;ils trouvent. Les
-      ressources sont rares &agrave; Tharkold et la situation est &agrave; peine
-      meilleure sur Terre. Mais malgr&eacute; son aspect miteux, votre
-      accoutrement vous prot&egrave;ge bien. Vous &ecirc;tes
-      d&eacute;termin&eacute;e et passionn&eacute;e, aussi les gens vous
-      prennent au s&eacute;rieux.</p>
+      <p class="MsoNormal">Les membres de la résistance portent des armures
+      rafistolées avec tout ce qu’ils trouvent. Les ressources sont rares à
+      Tharkold et la situation est à peine meilleure sur Terre. Mais malgré son
+      aspect miteux, votre accoutrement vous protège bien. Vous êtes déterminée
+      et passionnée, aussi les gens vous prennent au sérieux.</p>
 
       <h2>Objectif</h2>
 
-      <p class="MsoNormal">Le but ultime de la r&eacute;sistance est de
-      lib&eacute;rer la Race et tous les peuples, aujourd&rsquo;hui et &agrave;
-      jamais. Les Seigneurs de R&eacute;alit&eacute; sont tous des obstacles
-      pour atteindre cet objectif</p>
+      <p class="MsoNormal">Le but ultime de la résistance est de libérer la Race
+      et tous les peuples, aujourd’hui et à jamais. Les Seigneurs de Réalité
+      sont tous des obstacles pour atteindre cet objectif</p>
 
       <h2>Noms</h2>
 
@@ -1181,21 +1173,21 @@ system:
 
       <h2>Piste de progression (optionnelle)</h2>
 
-      <p class="MsoNormal">□ (5 PX) Psionique (&Eacute;tranglement)</p>
+      <p class="MsoNormal">□ (5 PX) Psionique (Étranglement)</p>
 
       <p class="MsoNormal">□ (7 PX) Chef naturel</p>
 
       <p class="MsoNormal">□ (1 PX) Persuasion +1</p>
 
-      <p class="MsoNormal">□ (2 PX) Armes &agrave; feu +2</p>
+      <p class="MsoNormal">□ (2 PX) Armes à feu +2</p>
 
-      <p class="MsoNormal">□ (3 PX) Armes &agrave; feu +3</p>
+      <p class="MsoNormal">□ (3 PX) Armes à feu +3</p>
 
-      <p class="MsoNormal">□ (4 PX) Kin&eacute;sie +4</p>
+      <p class="MsoNormal">□ (4 PX) Kinésie +4</p>
 
-      <p class="MsoNormal">□ (5 PX) Kin&eacute;sie +5</p>
+      <p class="MsoNormal">□ (5 PX) Kinésie +5</p>
 
-      <p class="MsoNormal">□ (3 PX) R&eacute;alit&eacute; +3</p>
+      <p class="MsoNormal">□ (3 PX) Réalité +3</p>
     race: human
     sizeBonus: normal
   editstate: false
@@ -1286,11 +1278,11 @@ prototypeToken:
   movementAction: null
 _stats:
   systemId: torgeternity
-  systemVersion: 13.13.2
+  systemVersion: 13.27.0
   coreVersion: '13.351'
   createdTime: 1716827809021
-  modifiedTime: 1764001542411
-  lastModifiedBy: e1DB4TK9SbDuMDS3
+  modifiedTime: 1773001234611
+  lastModifiedBy: BMvGTGfheqDXarjN
   compendiumSource: null
   duplicateSource: null
   exportSource: null

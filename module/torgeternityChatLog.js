@@ -25,7 +25,8 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
       'applyDam': TorgeternityChatLog.#applyDamage,
       'soakDam': TorgeternityChatLog.#soakDamage,
       'applySoak': TorgeternityChatLog.#applySoak,
-      'applyEffects': TorgeternityChatLog.#applyEffects,
+      'applyEffectsActor': TorgeternityChatLog.#applyEffectsActor,
+      'applyEffectsTarget': TorgeternityChatLog.#applyEffectsTarget,
       'applyItemEffect': TorgeternityChatLog.#applyItemEffect,
       'applyStymied': TorgeternityChatLog.#applyStymied,
       'applyVulnerable': TorgeternityChatLog.#applyTargetVulnerable,
@@ -112,7 +113,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     // reRoll because favored
     test.hideFavButton = true;
 
-    test.diceroll = await new Roll('1d20x10x20').evaluate();
+    test.diceroll = await foundry.dice.Roll.create('1d20x10x20').evaluate();
     test.rollTotal = Math.max(test.diceroll.total, 1.1);
     test.isFav = false;
 
@@ -140,7 +141,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     // Maybe no minimum 10?
     content += `<hr><p><label><input type="checkbox" name="noMin10">${game.i18n.localize('torgeternity.chatText.possibilityNoMin10')}</label>`
 
-    return await DialogV2.wait({
+    return DialogV2.wait({
       window: { title: "torgeternity.chatText.possibilityChoiceTitle" },
       position: { width: "auto" },
       classes: ["torgeternity"],
@@ -322,7 +323,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
       test.possibilityStyle = 'disabled';
     }
 
-    test.diceroll = await new Roll('1d20x10x20').evaluate();
+    test.diceroll = await foundry.dice.Roll.create('1d20x10x20').evaluate();
     if (test.disfavored) {
       test.possibilityTotal = 0.1;
       test.disfavored = false;
@@ -364,7 +365,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     test.hideFavButton = true;
 
     // Roll for Up
-    test.diceroll = await new Roll('1d20x10x20').evaluate();
+    test.diceroll = await foundry.dice.Roll.create('1d20x10x20').evaluate();
     if (test.disfavored) {
       test.upTotal = 0.1;
       test.disfavored = false;
@@ -396,7 +397,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     test.hideFavButton = true;
 
     // Roll for Possibility
-    test.diceroll = await new Roll('1d20x10x20').evaluate();
+    test.diceroll = await foundry.dice.Roll.create('1d20x10x20').evaluate();
     if (test.disfavored) {
       test.heroTotal = 0.1;
       test.disfavored = false;
@@ -430,7 +431,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     test.hideFavButton = true;
 
     // Increase cards played by 1
-    test.diceroll = await new Roll('1d20x10x20').evaluate();
+    test.diceroll = await foundry.dice.Roll.create('1d20x10x20').evaluate();
     if (test.disfavored) {
       test.dramaTotal = 0.1;
       test.disfavored = false;
@@ -506,7 +507,6 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     testTarget.amountBD += 1;
     testTarget.bdDamageSum += test.diceroll.total;
 
-    // No parentDeleteByTime?
     return renderSkillChat(test, chatMessage);
   }
 
@@ -707,11 +707,33 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
   }
 
   /**
+   * Transfer the listed effects to the Actor doing the test
    * @param {Event} event 
    * @param {HTMLButtonElement} button 
  * @this {TorgeternityChatLog}
  */
-  static async #applyEffects(event, button) {
+  static async #applyEffectsActor(event, button) {
+    event.preventDefault();
+    const { test, actor } = getChatActor(button);
+    if (!actor) return;
+
+    // Transfer Effects from the Weapon (& Ammo) to the target.
+    const effects = test.effects
+      .map(uuid => fromUuidSync(uuid, { strict: false }))
+      .filter(fx => fx?.transfersToActor)
+      .map(fx => fx.copyForTransfer());
+
+    if (effects.length)
+      actor.createEmbeddedDocuments('ActiveEffect', effects);
+  }
+
+  /**
+   * Transfer the effects to the indicated target
+   * @param {Event} event 
+   * @param {HTMLButtonElement} button 
+ * @this {TorgeternityChatLog}
+ */
+  static async #applyEffectsTarget(event, button) {
     event.preventDefault();
     const { test, targetActor } = getChatTarget(button);
     if (!targetActor) return;
@@ -719,8 +741,8 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     // Transfer Effects from the Weapon (& Ammo) to the target.
     const effects = test.effects
       .map(uuid => fromUuidSync(uuid, { strict: false }))
-      .filter(fx => fx?.modifiesTarget)
-      .map(fx => fx.copyForTarget());
+      .filter(fx => fx?.transfersToTarget)
+      .map(fx => fx.copyForTransfer());
 
     if (effects.length)
       targetActor.createEmbeddedDocuments('ActiveEffect', effects);
@@ -755,10 +777,11 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
       else
         await targetActor.increaseStymied(test.actor);
 
-      testTarget.showApplyStymied = false;
-      this.updateChatMessage(chatMessage, {
-        'flags.torgeternity.test.targetAll': test.targetAll  // TODO : potential clash, since entire array updated
-      })
+      // Don't hide Stymied button, in case of Good or better result
+      //testTarget.showApplyStymied = false;
+      //this.updateChatMessage(chatMessage, {
+      //  'flags.torgeternity.test.targetAll': test.targetAll  // TODO : potential clash, since entire array updated
+      //})
 
       if (test.testType === 'interactionAttack' && targetActor.isConcentrating)
         this.promptConcentration(targetActor);
@@ -779,10 +802,12 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
       else
         await targetActor.increaseVulnerable(test.actor);
 
-      testTarget.showApplyVulnerable = false;
-      this.updateChatMessage(chatMessage, {
-        'flags.torgeternity.test.targetAll': test.targetAll  // TODO : potential clash, since entire array updated
-      })
+      // Better results might allow it to be pressed more than once
+      //testTarget.showApplyVulnerable = false;
+      //this.updateChatMessage(chatMessage, {
+      //  'flags.torgeternity.test.targetAll': test.targetAll  // TODO : potential clash, since entire array updated
+      //})
+
       if (test.testType === 'interactionAttack' && targetActor.isConcentrating)
         this.promptConcentration(targetActor);
     }
@@ -913,6 +938,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     test.isFav = !!test.isFav;
     test.unskilledUse = !!test.unSkilledUse;
     test.skillValue = Number(test.skillValue);
+    test.skillAdds = Number(test.skillAdds);
     test.isConcentrationCheck = true;
 
     const result = await TestDialog.wait(test);

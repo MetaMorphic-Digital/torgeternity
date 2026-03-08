@@ -1,5 +1,3 @@
-import { TestResult } from '../../torgchecks.js';
-
 /**
  * Extend the basic ActiveEffect model with migrations and TORG specific handling
  */
@@ -12,6 +10,12 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
    */
   static migrateData(source) {
     if (Object.hasOwn(source, 'changes')) {
+      const needSystemPrefix = [
+        'statusModifiers.',
+        'targetModifiers.',
+        'defenses.',
+        'unarmed.',
+      ];
       const migrationDictionary = {
         // SK and Threat attribute modifiers
         'system.attributes.charisma': 'system.attributes.charisma.value',
@@ -20,24 +24,24 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
         'system.attributes.dexterity': 'system.attributes.dexterity.value',
         'system.attributes.spirit': 'system.attributes.spirit.value',
         // SK and Threat general path cleaning
-        'system.other.fatigue': 'fatigue',
-        'system.fatigue': 'fatigue',
-        'system.unarmedDamage': 'unarmed.damageMod',
-        'system.unarmedDamageMod': 'unarmed.damageMod',
+        'system.other.fatigue': 'system.fatigue',
+        'fatigue': 'system.fatigue',
+        'system.unarmedDamage': 'system.unarmed.damageMod',
+        'system.unarmedDamageMod': 'system.unarmed.damageMod',
         // SK and Threat defense modifiers
-        'system.dodgeDefenseMod': 'defenses.dodge.mod',
-        'system.meleeWeaponsDefenseMod': 'defenses.meleeWeapons.mod',
-        'system.unarmedCombatDefenseMod': 'defenses.unarmedCombat.mod',
-        'system.intimidationDefenseMod': 'defenses.intimidation.mod',
-        'system.maneuverDefenseMod': 'defenses.maneuver.mod',
-        'system.tauntDefenseMod': 'defenses.taunt.mod',
-        'system.trickDefenseMod': 'defenses.trick.mod',
+        'system.dodgeDefenseMod': 'system.defenses.dodge.mod',
+        'system.meleeWeaponsDefenseMod': 'system.defenses.meleeWeapons.mod',
+        'system.unarmedCombatDefenseMod': 'system.defenses.unarmedCombat.mod',
+        'system.intimidationDefenseMod': 'system.defenses.intimidation.mod',
+        'system.maneuverDefenseMod': 'system.defenses.maneuver.mod',
+        'system.tauntDefenseMod': 'system.defenses.taunt.mod',
+        'system.trickDefenseMod': 'system.defenses.trick.mod',
         // SK and Threat armor and toughness
-        'system.other.armor': 'defenses.armor',
-        'system.other.toughness': 'defenses.toughness',
+        'system.other.armor': 'system.defenses.armor',
+        'system.other.toughness': 'system.defenses.toughness',
         // Vehicle armor and toughness
-        'system.armor': 'defenses.armor',
-        'system.toughness': 'defenses.toughness',
+        'system.armor': 'system.defenses.armor',
+        'system.toughness': 'system.defenses.toughness',
         // modify maxDex and minStr
         'system.maxDex': 'system.other.maxDex',
         'system.minStr': 'system.other.minStr',
@@ -46,27 +50,30 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
         'system.other.possibilities': 'system.other.possibilities.perAct',
       };
       for (const change of source.changes) {
-        if (Object.hasOwn(migrationDictionary, change.key)) {
+        if (needSystemPrefix.find(prefix => change.key.startsWith(prefix)))
+          change.key = `system.${change.key}`;
+        else if (Object.hasOwn(migrationDictionary, change.key))
           change.key = migrationDictionary[change.key];
-        }
+        else if (change.key.endsWith('IsFav'))
+          change.key = change.key.replace(/IsFav$/, '.isFav');
       }
       for (const change of source.changes) {
-        if (change.key.includes('.isFav') && (change.value === '1' || change.value === '0')) {
-          change.value = change.value === '1' ? 'true' : 'false';
-        } else if (change.key.includes('.isFav') && (change.value === 'True' || change.value === 'False')) {
-          change.value = change.value.toLowerCase();
+        if (change.key.endsWith('.isFav')) {
+          change.value = (change.value === '1' || change.value === 'True' || change.value === 'true') ? 'true' : 'false'
         }
       }
     }
 
     // Replace flags
-    if (source.flags?.torgeternity?.transferOnAttack !== undefined) {
-      source.system.transferOnAttack = source.flags.torgeternity.transferOnAttack;
-      delete source.flags.torgeternity.transferOnAttack;
-    }
-    if (source.flags?.torgeternity?.testOutcome !== undefined) {
-      source.system.transferOnOutcome = source.flags.torgeternity.testOutcome;
-      delete source.flags.torgeternity.testOutcome;
+    if (source.flags?.torgeternity) {
+      if (source.flags.torgeternity.testOutcome) {
+        source.system.transferOnOutcome = source.flags.torgeternity.testOutcome;
+        delete source.flags.torgeternity.testOutcome;
+      }
+      if (source.flags.torgeternity.transferOnAttack === true) {
+        source.system.transferOnAttack = source.flags.torgeternity.transferOnAttack;
+        delete source.flags.torgeternity.transferOnAttack;
+      }
     }
 
     return super.migrateData(source);
@@ -108,23 +115,28 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
    * Return if this effect modifies the target of the test rather than the owner of the AE.
    * @type {boolean}
    */
-  get modifiesTarget() {
-    return !this.disabled &&
-      (this.system.transferOnAttack || this.system.transferOnOutcome);
+  get transfersToTarget() {
+    return !this.disabled && this.system.transferOnOutcome && this.system.transferTo === 'target';
   }
-  static blank;
+
+  get transfersToActor() {
+    return !this.disabled && this.system.transferOnOutcome && this.system.transferTo === 'actor';
+  }
 
   /**
    * Return a copy of this object with the various "attack" traits cleared.
    */
-  copyForTarget() {
-    if (!this.blank) this.blank = new TorgActiveEffect({ name: "blank" });
-
-    let fx = this.toObject();
-    return Object.assign(fx, {
-      disabled: false,
-      system: this.blank.system,
-      origin: this.parent.uuid,
-    });
+  copyForTransfer() {
+    // Override some values
+    return foundry.utils.mergeObject(this.toObject(),
+      {
+        disabled: false,
+        system: {
+          transferOnOutcome: null,
+          transferTo: '',
+        },
+        origin: this.parent.uuid,  // the originating Item
+      },
+      { replace: true, recursive: true });
   }
 }

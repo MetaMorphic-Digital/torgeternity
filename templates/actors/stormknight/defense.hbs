@@ -1,7 +1,7 @@
 <h2>
   <a
-    class="activeDefense-roll{{#if document.defenses.isActivelyDefending}}-glow{{/if}}"
-    data-action="activeDefenseRoll{{#if document.defenses.isActivelyDefending}}Glow{{/if}}"
+    class="activeDefense-roll{{#if isActivelyDefending}}-glow{{/if}}"
+    data-action="activeDefenseRoll{{#if isActivelyDefending}}Glow{{/if}}"
     data-tooltip='{{localize "torgeternity.sheetLabels.defensesTip"}}' {{disabled (not @root.editable)}}>
     {{localize 'torgeternity.sheetLabels.defenses'}}
   </a>
@@ -9,30 +9,30 @@
 <div class="stats-div">
   <p>
     <span class="main-label">{{localize "torgeternity.skills.dodge"}}</span>
-    <span class="main-label">{{document.defenses.dodge.value}}</span>
+    <span class="main-label">{{document.system.defenses.dodge.value}}</span>
   </p>
   <p>
     <span class="main-label">{{localize "torgeternity.skills.meleeWeapons"}}</span>
-    <span class="main-label">{{document.defenses.meleeWeapons.value}}</span>
+    <span class="main-label">{{document.system.defenses.meleeWeapons.value}}</span>
   </p>
   <p>
     <span class="main-label">{{localize "torgeternity.skills.unarmedCombat"}}</span>
-    <span class="main-label">{{document.defenses.unarmedCombat.value}}</span>
+    <span class="main-label">{{document.system.defenses.unarmedCombat.value}}</span>
   </p>
   <p>
     <span class="main-label">{{localize "torgeternity.skills.intimidation"}}</span>
-    <span class="main-label">{{document.defenses.intimidation.value}}</span>
+    <span class="main-label">{{document.system.defenses.intimidation.value}}</span>
   </p>
   <p>
     <span class="main-label">{{localize "torgeternity.skills.maneuver"}}</span>
-    <span class="main-label">{{document.defenses.maneuver.value}}</span>
+    <span class="main-label">{{document.system.defenses.maneuver.value}}</span>
   </p>
   <p>
     <span class="main-label">{{localize "torgeternity.skills.taunt"}}</span>
-    <span class="main-label">{{document.defenses.taunt.value}}</span>
+    <span class="main-label">{{document.system.defenses.taunt.value}}</span>
   </p>
   <p>
     <span class="main-label">{{localize "torgeternity.skills.trick"}}</span>
-    <span class="main-label">{{document.defenses.trick.value}}</span>
+    <span class="main-label">{{document.system.defenses.trick.value}}</span>
   </p>
 </div>

@@ -27,26 +27,26 @@
   </li>
 
   <li class="attribut-block">
-    <span class="other-label" data-skill-value="{{document.defenses.toughness}}">
+    <span class="other-label" data-skill-value="{{document.system.defenses.toughness}}">
       {{localize 'torgeternity.sheetLabels.toughness'}}
     </span>
-    <input type="number" value="{{document.defenses.toughness}}" data-dtype="Number" disabled />
+    <input type="number" value="{{document.system.defenses.toughness}}" data-dtype="Number" disabled />
   </li>
 
   <li class="attribut-block">
-    <span class="other-label" data-skill-value="{{document.defenses.armor}}">
+    <span class="other-label" data-skill-value="{{document.system.defenses.armor}}">
       {{localize 'torgeternity.sheetLabels.armor'}}
     </span>
-    <input type="number" value="{{document.defenses.armor}}" data-dtype="Number" disabled />
+    <input type="number" value="{{document.system.defenses.armor}}" data-dtype="Number" disabled />
   </li>
 
   <li class="attribut-block">
     <a
       class="attribut-block apply-fatigue" data-action="applyFatigue" {{disabled (not @root.editable)}}
-      data-fatigue="{{document.fatigue}}"
+      data-fatigue="{{document.system.fatigue}}"
       data-tooltip="{{localize 'torgeternity.sheetLabels.fatigueTooltip'}}">
       {{localize 'torgeternity.sheetLabels.fatigue'}}
     </a>
-    <input type="number" value="{{document.fatigue}}" data-dtype="Number" disabled />
+    <input type="number" value="{{document.system.fatigue}}" data-dtype="Number" disabled />
   </li>
 </ul>

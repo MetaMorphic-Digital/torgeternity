@@ -33,26 +33,34 @@
       "value": "Feldwert"
     },
     "activeEffect": {
+      "transferTo": {
+        "actor": "Charakter",
+        "target": "Ziel"
+      },
       "FIELDS": {
-        "transferOnAttack": {
-          "label": "Effekt bei Angriff anwenden",
-          "hint": "Dieser Effekt wird für das ausgewählte Ziel angewendet, falls der Gegenstand dieses Effekts für den Angriff genutzt wurde (entweder als Waffe oder Munition)"
-        },
         "transferOnOutcome": {
-          "label": "Effect je nach Ergebnis anwenden",
-          "hint": "Je nach Probenergebnis mit diesem Gegenstand den passenden Effekt auf den Zieltoken anwenden"
+          "label": "Zuweisen bei Ergebnis",
+          "hint": "Weise diesen Effekt dem Ziel zu, wenn eine Probe mit diesem Gegenstand das definierte Ergebnis erreicht"
+        },
+        "transferTo": {
+          "label": "Zuweisen zu",
+          "hint": "Entweder dieser Effekt ist dem Ziel zugewiesen oder der Charakter führt die Probe durch"
         },
         "combatToggle": {
-          "label": "Als Angriffsoption anzeigen",
-          "hint": "Diesen Effekt am Charakterbogen unter Angriffe anzeigen um einfaches Umschalten zu ermöglichen"
+          "label": "Anzeigen als Aktivierungsoption",
+          "hint": "Zeige diesen Effekt im Charakterbogen unter Angriffe an um schnelleres Umschalten des Status zu erleichtern"
         },
         "applyIfAttackTrait": {
-          "label": "Anwenden bei Angreifer-Eigenschaft",
-          "hint": "Effekt wird nur angewendet, wenn der Angriffer-Token einen der angegebenen Eigenschaften besitzt."
+          "label": "Anwenden bei Angriffseigenschaft",
+          "hint": "Wende diesen Effekt bei einer Probe mit diesem Gegenstand NUR an, wenn der ANGREIFENDE Charakter eine dieser Eigenschaften hat"
         },
         "applyIfDefendTrait": {
-          "label": "Anwenden bei Verteidiger-Eigenschaft",
-          "hint": "Effekt wird nur angewendet, wenn der angegriffene Token (das Ziel) einen der angegebenen Eigenschaften besitzt."
+          "label": "Anwenden bei Verteidigungseigenschaft",
+          "hint": "Wende diesen Effekt bei einer Probe mit diesem Gegenstand NUR an, wenn der ZIEL-Charakter eine dieser Eigenschaften hat"
+        },
+        "defendAgainstTrait": {
+          "label": "Verteidigung gegen Eigenschaft",
+          "hint": "Wende diesen Effekt an, wenn der Besitzer das ZIEL ist und der Angreifer eine der angegebenen Eigenschaften hat"
         }
       }
     },
@@ -139,13 +147,15 @@
         "noTracker": "Der Verfolgungsjagd-Button kann so lange nicht verwendet werden, bis es einen aktiven Kampf im Begegnungsstracker gibt.",
         "result": {
           "actionTotal": "Aktion insgesamt",
+          "anyFailure": "Jeder Fehlschlag",
+          "anySuccess": "Jeder Erfolg",
           "attackMissed": "Angriff verfehlt",
           "damage": "Schaden",
           "diceTotal": "Würfelergebnis",
           "failure": "Fehlschlag",
           "fragileBroken": "{itemName} zerbricht",
           "goodSuccess": "Guter Erfolg",
-          "mishape": "Patzer",
+          "mishap": "Patzer",
           "new": "Neue Summe",
           "noDamage": "Kein Schaden",
           "outstandingSuccess": "Hervorragender Erfolg",
@@ -975,7 +985,8 @@
       "applyDamage": "Schaden",
       "applyEffects": "Effekte",
       "applyDamageTooltip": "Linksklick zum anwenden, Shiftklick zum modifizieren.",
-      "applyEffectsTooltip": "Wende den passenden Aktiven Effekt auf die Ziele an",
+      "applyEffectsActorTooltip": "Wende entsprechenden Aktiven Effekt auf Charakter an",
+      "applyEffectsTargetTooltip": "Wende den passenden Aktiven Effekt auf die Ziele an",
       "applySoak": "Schaden wegstecken anwenden",
       "applySoakTooltip": "Wende die Reduktion des Schadens dieses Angriffs an.",
       "applyStymied": "Angeschlagen",

@@ -153,7 +153,7 @@ items:
             mode: 5
             value: '1'
             priority: null
-        disabled: true
+        disabled: false
         duration:
           startTime: null
           seconds: null
@@ -163,25 +163,26 @@ items:
           startRound: null
           startTurn: null
         origin: Compendium.te001-core-rulebook.grw-de-ausruestung.GPs2FHE83EfpBIfZ
-        transfer: true
+        transfer: false
         flags: {}
         tint: '#ffffff'
         name: Fertigkeitsbegünstigung
         description: ''
         statuses: []
         _stats:
-          coreVersion: '13.345'
-          systemId: null
-          systemVersion: null
+          coreVersion: '13.351'
+          systemId: torgeternity
+          systemVersion: 13.24.1
           createdTime: null
-          modifiedTime: null
-          lastModifiedBy: null
+          modifiedTime: 1772996508166
+          lastModifiedBy: BMvGTGfheqDXarjN
           compendiumSource: null
           duplicateSource: null
           exportSource: null
         img: icons/svg/aura.svg
         type: base
-        system: {}
+        system:
+          transferOnOutcome: anySuccess
         sort: 0
         _key: >-
           !actors.items.effects!4maHTlnkLTHmuYpB.GLGvMUxF3Aydcn8g.UBMPRmdexcJIvmed
@@ -1119,14 +1120,16 @@ system:
       base: 11
   other:
     cosm: aysle
-    possibilities: 3
+    possibilities:
+      value: 3
+    piety: 0
   skills:
     airVehicles:
       baseAttribute: dexterity
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     alteration:
@@ -1134,7 +1137,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     apportation:
@@ -1142,7 +1145,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     beastRiding:
@@ -1150,7 +1153,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     computers:
@@ -1158,7 +1161,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     conjuration:
@@ -1166,7 +1169,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     divination:
@@ -1174,7 +1177,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     dodge:
@@ -1182,7 +1185,7 @@ system:
       adds: 1
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     energyWeapons:
@@ -1190,7 +1193,7 @@ system:
       adds: 0
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     evidenceAnalysis:
@@ -1198,7 +1201,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     faith:
@@ -1206,7 +1209,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     find:
@@ -1214,7 +1217,7 @@ system:
       adds: 1
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     fireCombat:
@@ -1222,7 +1225,7 @@ system:
       adds: 0
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     firstAid:
@@ -1230,7 +1233,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     heavyWeapons:
@@ -1238,7 +1241,7 @@ system:
       adds: 0
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     intimidation:
@@ -1246,7 +1249,7 @@ system:
       adds: 2
       isFav: false
       groupName: interaction
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     kinesis:
@@ -1254,7 +1257,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     landVehicles:
@@ -1262,7 +1265,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     language:
@@ -1270,7 +1273,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     lockpicking:
@@ -1278,7 +1281,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     maneuver:
@@ -1286,7 +1289,7 @@ system:
       adds: 1
       isFav: false
       groupName: interaction
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     medicine:
@@ -1294,7 +1297,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     meleeWeapons:
@@ -1302,7 +1305,7 @@ system:
       adds: 3
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     missileWeapons:
@@ -1310,7 +1313,7 @@ system:
       adds: 2
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     persuasion:
@@ -1318,7 +1321,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     precognition:
@@ -1326,7 +1329,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     profession:
@@ -1334,7 +1337,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     reality:
@@ -1342,7 +1345,7 @@ system:
       adds: 1
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     scholar:
@@ -1350,7 +1353,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     science:
@@ -1358,7 +1361,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     stealth:
@@ -1366,7 +1369,7 @@ system:
       adds: 1
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     streetwise:
@@ -1374,7 +1377,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     survival:
@@ -1382,7 +1385,7 @@ system:
       adds: 1
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     taunt:
@@ -1390,7 +1393,7 @@ system:
       adds: 2
       isFav: false
       groupName: interaction
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     telepathy:
@@ -1398,7 +1401,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     tracking:
@@ -1406,7 +1409,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     trick:
@@ -1414,7 +1417,7 @@ system:
       adds: 0
       isFav: false
       groupName: interaction
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     unarmedCombat:
@@ -1422,7 +1425,7 @@ system:
       adds: 0
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     waterVehicles:
@@ -1430,7 +1433,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     willpower:
@@ -1438,7 +1441,7 @@ system:
       adds: 1
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
   xp:
@@ -1541,10 +1544,10 @@ prototypeToken:
   movementAction: null
 _stats:
   systemId: torgeternity
-  systemVersion: 13.15.0
+  systemVersion: 13.27.0
   coreVersion: '13.351'
   createdTime: 1694866052812
-  modifiedTime: 1768218571226
+  modifiedTime: 1773001234689
   lastModifiedBy: BMvGTGfheqDXarjN
   compendiumSource: Compendium.torgeternity.archetypes.QsYmnq73AiR6BwhD
   duplicateSource: null

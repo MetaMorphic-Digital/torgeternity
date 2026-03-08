@@ -370,7 +370,52 @@ items:
     flags:
       core: {}
     img: systems/torgeternity/images/icons/gear-icon.webp
-    effects: []
+    effects:
+      - name: Caltrops
+        origin: >-
+          Compendium.torgeternity.archetypes-fr.Actor.QsYmnq73AiR6BwhD.Item.F2DgHaQHYRxdQU4b
+        duration:
+          startTime: null
+          combat: null
+          seconds: null
+          rounds: null
+          turns: null
+          startRound: null
+          startTurn: null
+        disabled: false
+        img: icons/svg/aura.svg
+        _id: Q51qBpQRHkhPFOu4
+        type: base
+        system:
+          transferOnOutcome: anySuccess
+          transferTo: target
+          applyIfAttackTrait: []
+          applyIfDefendTrait: []
+          defendAgainstTrait: []
+          combatToggle: false
+        changes:
+          - key: system.skills.maneuver.isFav
+            mode: 5
+            value: 'true'
+            priority: null
+        description: ''
+        tint: '#ffffff'
+        transfer: true
+        statuses: []
+        sort: 0
+        flags: {}
+        _stats:
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+          coreVersion: '13.351'
+          systemId: torgeternity
+          systemVersion: 13.24.1
+          createdTime: 1772996647722
+          modifiedTime: 1772996668010
+          lastModifiedBy: BMvGTGfheqDXarjN
+        _key: >-
+          !actors.items.effects!QsYmnq73AiR6BwhD.F2DgHaQHYRxdQU4b.Q51qBpQRHkhPFOu4
     folder: null
     system:
       cosm: Aysle
@@ -700,14 +745,16 @@ system:
       base: 11
   other:
     cosm: aysle
-    possibilities: 3
+    possibilities:
+      value: 3
+    piety: 0
   skills:
     airVehicles:
       baseAttribute: dexterity
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     alteration:
@@ -715,7 +762,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     apportation:
@@ -723,7 +770,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     beastRiding:
@@ -731,7 +778,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     computers:
@@ -739,7 +786,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     conjuration:
@@ -747,7 +794,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     divination:
@@ -755,7 +802,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     dodge:
@@ -763,7 +810,7 @@ system:
       adds: 1
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     energyWeapons:
@@ -771,7 +818,7 @@ system:
       adds: 0
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     evidenceAnalysis:
@@ -779,7 +826,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     faith:
@@ -787,7 +834,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     find:
@@ -795,7 +842,7 @@ system:
       adds: 1
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     fireCombat:
@@ -803,7 +850,7 @@ system:
       adds: 0
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     firstAid:
@@ -811,7 +858,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     heavyWeapons:
@@ -819,7 +866,7 @@ system:
       adds: 0
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     intimidation:
@@ -827,7 +874,7 @@ system:
       adds: 2
       isFav: false
       groupName: interaction
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     kinesis:
@@ -835,7 +882,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     landVehicles:
@@ -843,7 +890,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     language:
@@ -851,7 +898,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     lockpicking:
@@ -859,7 +906,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     maneuver:
@@ -867,7 +914,7 @@ system:
       adds: 1
       isFav: false
       groupName: interaction
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     medicine:
@@ -875,7 +922,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     meleeWeapons:
@@ -883,7 +930,7 @@ system:
       adds: 3
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     missileWeapons:
@@ -891,7 +938,7 @@ system:
       adds: 2
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     persuasion:
@@ -899,7 +946,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     precognition:
@@ -907,7 +954,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     profession:
@@ -915,7 +962,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     reality:
@@ -923,7 +970,7 @@ system:
       adds: 1
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     scholar:
@@ -931,7 +978,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     science:
@@ -939,7 +986,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     stealth:
@@ -947,7 +994,7 @@ system:
       adds: 1
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     streetwise:
@@ -955,7 +1002,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     survival:
@@ -963,7 +1010,7 @@ system:
       adds: 1
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     taunt:
@@ -971,7 +1018,7 @@ system:
       adds: 2
       isFav: false
       groupName: interaction
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     telepathy:
@@ -979,7 +1026,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     tracking:
@@ -987,7 +1034,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     trick:
@@ -995,7 +1042,7 @@ system:
       adds: 0
       isFav: false
       groupName: interaction
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     unarmedCombat:
@@ -1003,7 +1050,7 @@ system:
       adds: 0
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     waterVehicles:
@@ -1011,7 +1058,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     willpower:
@@ -1019,7 +1066,7 @@ system:
       adds: 1
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
   xp:
@@ -1031,100 +1078,7 @@ system:
     spirit: 18
     tech: 14
   details:
-    background: >-
-      <h2 class="MsoNormal">Pr&eacute;sentation</h2>
-
-      <p class="MsoNormal">Les nains d&rsquo;Aysle ont presque &eacute;t&eacute;
-      enti&egrave;rement extermin&eacute;s par les forces d&rsquo;Uthorion. Les
-      quelques survivants partagent l&rsquo;amertume et la rage d&rsquo;un
-      peuple agonisant et sont dot&eacute;s des capacit&eacute;s martiales de se
-      venger. Les champions des nains, les meilleurs des meilleurs, portent des
-      armures sp&eacute;ciales afin de prot&eacute;ger et de venger leur
-      peuple.</p>
-
-      <p class="MsoNormal">L&rsquo;armure du Guerrier dragon est la quintessence
-      de l&rsquo;ing&eacute;niosit&eacute; et de la magie de votre peuple.
-      Chaque tenue est unique, laborieusement forg&eacute;e avec des
-      m&eacute;taux rares, grav&eacute;e de runes et &eacute;quip&eacute;e
-      d&rsquo;armes et de gadgets modernes. Les nains consid&egrave;rent les
-      dragons comme l&rsquo;incarnation du courroux et de la puissance aussi, ce
-      n&rsquo;est pas un hasard si ces tenues sont d&eacute;cor&eacute;es de
-      repr&eacute;sentations de dragons et de symboles qui leur sont
-      associ&eacute;s.</p>
-
-      <h2 class="MsoNormal">Tactiques</h2>
-
-      <p class="MsoNormal">Vous &ecirc;tes un combattant de premi&egrave;re
-      ligne tr&egrave;s r&eacute;sistant. Votre R&eacute;sistance tr&egrave;s
-      &eacute;lev&eacute;e implique que la plupart des ennemis ne peuvent
-      m&ecirc;me pas vous infliger de points de Choc sans avoir beaucoup de
-      chance ou des armes perforantes. Votre grande hache vous permet de vous
-      d&eacute;barrasser rapidement de la plupart de vos ennemis tandis que le
-      Souffle de dragon est d&eacute;vastateur contre des groupes
-      d&rsquo;adversaires qui ont une Esquive faible. Utilisez Intimidation pour
-      rendre un adversaire Vuln&eacute;rable s&rsquo;il est difficile de le
-      toucher, ou &agrave; chaque fois que c&rsquo;est une Action
-      approuv&eacute;e afin de gagner de puissantes Cartes de Destin.</p>
-
-      <h2 class="MsoNormal">Instant fatidique</h2>
-
-      <p class="MsoNormal">Cela fait probablement quelque temps que vous
-      &ecirc;tes un Chevalier des Temp&ecirc;tes. Votre Instant fatidique a pu
-      se produire au cours de l&rsquo;une des batailles contre les hordes
-      d&rsquo;Uthorion, un combat au cours duquel tout semblait perdu mais
-      o&ugrave; vous avez tenu bon et vous avez repouss&eacute; l&rsquo;assaut.
-      Ou peut-&ecirc;tre avez-vous v&eacute;cu un Instant fatidique plus
-      personnel quand un membre du clan ou un &ecirc;tre aim&eacute; a eu besoin
-      d&rsquo;&ecirc;tre sauv&eacute; au cours d&rsquo;une mission a priori
-      impossible.</p>
-
-      <h2 class="MsoNormal">Citation</h2>
-
-      <p class="MsoNormal">&laquo; En fait, la plupart des probl&egrave;mes
-      peuvent &ecirc;tre r&eacute;solus avec une hache de guerre. Laissez-moi
-      vous montrer comment. &raquo;</p>
-
-      <h2 class="MsoNormal">Description</h2>
-
-      <p class="MsoNormal">Le nain &agrave; l&rsquo;int&eacute;rieur de
-      l&rsquo;armure a sans doute des s&eacute;quelles mentales et physiques
-      mais comme il ne la retire jamais, personne ne peut en &ecirc;tre
-      s&ucirc;r. Des cheveux n&eacute;glig&eacute;s et une attitude bourrue sont
-      les expressions communes du sentiment de d&eacute;faite et
-      d&rsquo;&eacute;chec qui impr&egrave;gne leur civilisation an&eacute;antie
-      et la plupart des nains sont sombres, fatalistes et hargneux.</p>
-
-      <h2 class="MsoNormal">Objectif</h2>
-
-      <p class="MsoNormal">Alors que la plupart des autres Chevaliers des
-      Temp&ecirc;tes combattent pour la libert&eacute; ou pour des
-      id&eacute;aux, vous &ecirc;tes obs&eacute;d&eacute; par la vengeance. Vous
-      ne pouvez sauver votre peuple, tout du moins pour la plupart des nains
-      concern&eacute;s, mais il vous reste du temps pour vous venger.</p>
-
-      <h2 class="MsoNormal">Noms</h2>
-
-      <p class="MsoNormal">Artala, Bran, Gudrun, Gunnar, Isode, Juki le Rouge,
-      Karn d&rsquo;Ungbar, Milla, Tworek, Zisa</p>
-
-      <h2 class="MsoNormal">Piste de progression (optionnelle)</h2>
-
-      <p class="MsoNormal">□ (5 PX) Abandonn&eacute;</p>
-
-      <p class="MsoNormal">□(7 PX) Barbe</p>
-
-      <p class="MsoNormal">□ (1 PX) Premiers soins +1</p>
-
-      <p class="MsoNormal">□ (2 PX) R&eacute;alit&eacute; +2</p>
-
-      <p class="MsoNormal">□ (3 PX) Intimidation +3</p>
-
-      <p class="MsoNormal">□ (3 PX) Armes de jet +3</p>
-
-      <p class="MsoNormal">□ (4 PX) Armes de m&ecirc;l&eacute;e +4</p>
-
-      <p class="MsoNormal">□ (5 PX) Armes de m&ecirc;l&eacute;e +5 <span
-      style="mso-spacerun: yes;">&nbsp;</span></p>
+    background: "<h2 class=\"MsoNormal\">Présentation</h2>\n<p class=\"MsoNormal\">Les nains d’Aysle ont presque été entièrement exterminés par les forces d’Uthorion. Les quelques survivants partagent l’amertume et la rage d’un peuple agonisant et sont dotés des capacités martiales de se venger. Les champions des nains, les meilleurs des meilleurs, portent des armures spéciales afin de protéger et de venger leur peuple.</p>\n<p class=\"MsoNormal\">L’armure du Guerrier dragon est la quintessence de l’ingéniosité et de la magie de votre peuple. Chaque tenue est unique, laborieusement forgée avec des métaux rares, gravée de runes et équipée d’armes et de gadgets modernes. Les nains considèrent les dragons comme l’incarnation du courroux et de la puissance aussi, ce n’est pas un hasard si ces tenues sont décorées de représentations de dragons et de symboles qui leur sont associés.</p>\n<h2 class=\"MsoNormal\">Tactiques</h2>\n<p class=\"MsoNormal\">Vous êtes un combattant de première ligne très résistant. Votre Résistance très élevée implique que la plupart des ennemis ne peuvent même pas vous infliger de points de Choc sans avoir beaucoup de chance ou des armes perforantes. Votre grande hache vous permet de vous débarrasser rapidement de la plupart de vos ennemis tandis que le Souffle de dragon est dévastateur contre des groupes d’adversaires qui ont une Esquive faible. Utilisez Intimidation pour rendre un adversaire Vulnérable s’il est difficile de le toucher, ou à chaque fois que c’est une Action approuvée afin de gagner de puissantes Cartes de Destin.</p>\n<h2 class=\"MsoNormal\">Instant fatidique</h2>\n<p class=\"MsoNormal\">Cela fait probablement quelque temps que vous êtes un Chevalier des Tempêtes. Votre Instant fatidique a pu se produire au cours de l’une des batailles contre les hordes d’Uthorion, un combat au cours duquel tout semblait perdu mais où vous avez tenu bon et vous avez repoussé l’assaut. Ou peut-être avez-vous vécu un Instant fatidique plus personnel quand un membre du clan ou un être aimé a eu besoin d’être sauvé au cours d’une mission a priori impossible.</p>\n<h2 class=\"MsoNormal\">Citation</h2>\n<p class=\"MsoNormal\">« En fait, la plupart des problèmes peuvent être résolus avec une hache de guerre. Laissez-moi vous montrer comment. »</p>\n<h2 class=\"MsoNormal\">Description</h2>\n<p class=\"MsoNormal\">Le nain à l’intérieur de l’armure a sans doute des séquelles mentales et physiques mais comme il ne la retire jamais, personne ne peut en être sûr. Des cheveux négligés et une attitude bourrue sont les expressions communes du sentiment de défaite et d’échec qui imprègne leur civilisation anéantie et la plupart des nains sont sombres, fatalistes et hargneux.</p>\n<h2 class=\"MsoNormal\">Objectif</h2>\n<p class=\"MsoNormal\">Alors que la plupart des autres Chevaliers des Tempêtes combattent pour la liberté ou pour des idéaux, vous êtes obsédé par la vengeance. Vous ne pouvez sauver votre peuple, tout du moins pour la plupart des nains concernés, mais il vous reste du temps pour vous venger.</p>\n<h2 class=\"MsoNormal\">Noms</h2>\n<p class=\"MsoNormal\">Artala, Bran, Gudrun, Gunnar, Isode, Juki le Rouge, Karn d’Ungbar, Milla, Tworek, Zisa</p>\n<h2 class=\"MsoNormal\">Piste de progression (optionnelle)</h2>\n<p class=\"MsoNormal\">□ (5 PX) Abandonné</p>\n<p class=\"MsoNormal\">□(7 PX) Barbe</p>\n<p class=\"MsoNormal\">□ (1 PX) Premiers soins +1</p>\n<p class=\"MsoNormal\">□ (2 PX) Réalité +2</p>\n<p class=\"MsoNormal\">□ (3 PX) Intimidation +3</p>\n<p class=\"MsoNormal\">□ (3 PX) Armes de jet +3</p>\n<p class=\"MsoNormal\">□ (4 PX) Armes de mêlée +4</p>\n<p class=\"MsoNormal\">□ (5 PX) Armes de mêlée +5 <span style=\"mso-spacerun:yes\">\_</span></p>"
     race: dwarf
     sizeBonus: normal
   editstate: false
@@ -1215,10 +1169,10 @@ prototypeToken:
   movementAction: null
 _stats:
   systemId: torgeternity
-  systemVersion: 13.15.0
+  systemVersion: 13.27.0
   coreVersion: '13.351'
   createdTime: 1716827809381
-  modifiedTime: 1771935904036
+  modifiedTime: 1773001234619
   lastModifiedBy: BMvGTGfheqDXarjN
   compendiumSource: null
   duplicateSource: null

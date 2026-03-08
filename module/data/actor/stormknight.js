@@ -73,5 +73,15 @@ export class StormKnightData extends CommonActorData {
     } else {
       this.details.clearance = 'omega';
     }
+
+    const race = this.parent.race;
+    if (race) {
+      for (const attribute of Object.keys(race.system.attributeMaximum)) {
+        this.attributes[attribute].maximum = race.system.attributeMaximum[attribute];
+      }
+      this.details.race = race.name;
+    } else {
+      this.details.race = game.i18n.localize('torgeternity.sheetLabels.noRace');
+    }
   }
 }

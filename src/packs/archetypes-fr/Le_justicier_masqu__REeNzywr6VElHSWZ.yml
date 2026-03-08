@@ -626,14 +626,16 @@ system:
       base: 8
   other:
     cosm: nileEmpire
-    possibilities: 3
+    possibilities:
+      value: 3
+    piety: 0
   skills:
     airVehicles:
       baseAttribute: dexterity
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     alteration:
@@ -641,7 +643,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     apportation:
@@ -649,7 +651,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     beastRiding:
@@ -657,7 +659,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     computers:
@@ -665,7 +667,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     conjuration:
@@ -673,7 +675,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     divination:
@@ -681,7 +683,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     dodge:
@@ -689,7 +691,7 @@ system:
       adds: 2
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     energyWeapons:
@@ -697,7 +699,7 @@ system:
       adds: 0
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     evidenceAnalysis:
@@ -705,7 +707,7 @@ system:
       adds: 1
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     faith:
@@ -713,7 +715,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     find:
@@ -721,7 +723,7 @@ system:
       adds: 2
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     fireCombat:
@@ -729,7 +731,7 @@ system:
       adds: 2
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     firstAid:
@@ -737,7 +739,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     heavyWeapons:
@@ -745,7 +747,7 @@ system:
       adds: 0
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     intimidation:
@@ -753,7 +755,7 @@ system:
       adds: 3
       isFav: false
       groupName: interaction
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     kinesis:
@@ -761,7 +763,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     landVehicles:
@@ -769,7 +771,7 @@ system:
       adds: 1
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     language:
@@ -777,7 +779,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     lockpicking:
@@ -785,7 +787,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     maneuver:
@@ -793,7 +795,7 @@ system:
       adds: 0
       isFav: false
       groupName: interaction
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     medicine:
@@ -801,7 +803,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     meleeWeapons:
@@ -809,7 +811,7 @@ system:
       adds: 0
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     missileWeapons:
@@ -817,7 +819,7 @@ system:
       adds: 0
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     persuasion:
@@ -825,7 +827,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     precognition:
@@ -833,7 +835,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     profession:
@@ -841,7 +843,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     reality:
@@ -849,7 +851,7 @@ system:
       adds: 1
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     scholar:
@@ -857,7 +859,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     science:
@@ -865,7 +867,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     stealth:
@@ -873,7 +875,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     streetwise:
@@ -881,7 +883,7 @@ system:
       adds: 1
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     survival:
@@ -889,7 +891,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     taunt:
@@ -897,7 +899,7 @@ system:
       adds: 1
       isFav: false
       groupName: interaction
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     telepathy:
@@ -905,7 +907,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     tracking:
@@ -913,7 +915,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     trick:
@@ -921,7 +923,7 @@ system:
       adds: 0
       isFav: false
       groupName: interaction
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     unarmedCombat:
@@ -929,7 +931,7 @@ system:
       adds: 2
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     waterVehicles:
@@ -937,7 +939,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     willpower:
@@ -945,7 +947,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
   xp:
@@ -957,128 +959,7 @@ system:
     spirit: 18
     tech: 20
   details:
-    background: >-
-      <p class="MsoNormal">&nbsp;</p>
-
-      <h2 class="MsoNormal">Pr&eacute;sentation</h2>
-
-      <p>&nbsp;</p>
-
-      <p class="MsoNormal">Un groupe de femmes et d&rsquo;hommes
-      myst&eacute;rieux s&rsquo;est constitu&eacute; pour mettre un terme au
-      r&egrave;gne tyrannique du Pharaon M&ouml;bius. Ces h&eacute;ros sont
-      bas&eacute;s au Caire mais ils voyagent &agrave; travers le monde pour
-      combattre le mal. Ils s&rsquo;entourent de myst&egrave;res et se voilent
-      le visage pour prot&eacute;ger leurs proches ou pour tromper la police
-      secr&egrave;te de M&ouml;bius. &Ecirc;tre un h&eacute;ros est un choix
-      p&eacute;rilleux surtout dans un monde dirig&eacute; par des vilains.
-      Quelques rares justiciers viennent de Terra, le monde natal des
-      envahisseurs, mais la plupart sont des citoyens transform&eacute;s de la
-      Prime Terre.</p>
-
-      <p>&nbsp;</p>
-
-      <h2 class="MsoNormal">Tactiques</h2>
-
-      <p>&nbsp;</p>
-
-      <p class="MsoNormal">Vous &ecirc;tes un tireur d&rsquo;&eacute;lite et
-      vous savez aussi vous battre avec vos poings. Cependant, c&rsquo;est
-      l&rsquo;Intimidation votre v&eacute;ritable arme. Avec un rang aussi
-      &eacute;lev&eacute;, le r&eacute;sultat Choix du Joueur est assez
-      fr&eacute;quent ce qui vous permet au minimum d&rsquo;annuler la prochaine
-      action du vilain et peut vous autoriser &agrave; faire fuir un adversaire.
-      Votre bon niveau en R&eacute;alit&eacute; vous permet d&rsquo;annuler les
-      dommages assez facilement. Et sous votre masque, vous &ecirc;tes un
-      d&eacute;tective plut&ocirc;t dou&eacute;. Si vos adversaires
-      effray&eacute;s refusent de parler, vos comp&eacute;tences de
-      D&eacute;brouillardise ou d&rsquo;Analyse d&rsquo;indices peuvent vous
-      permettre de trouver des indices.</p>
-
-      <p>&nbsp;</p>
-
-      <h2 class="MsoNormal">Instant fatidique</h2>
-
-      <p>&nbsp;</p>
-
-      <p class="MsoNormal">Vous &eacute;tiez autrefois un citoyen ordinaire mais
-      le m&ecirc;me &eacute;v&eacute;nement qui a catalys&eacute; vos pouvoirs a
-      &eacute;galement &eacute;t&eacute; le d&eacute;clencheur de votre Instant
-      fatidique. Peut-&ecirc;tre &eacute;tiez-vous au bon endroit, au bon moment
-      pour emp&ecirc;cher les sbires de M&ouml;bius de piller une tombe
-      pr&egrave;s du Caire, une tombe qui contenait un linceul fun&eacute;raire
-      que vous portez d&eacute;sormais comme une cape. Ou peut-&ecirc;tre un
-      h&eacute;ros plus ancien a &eacute;t&eacute; vaincu et vous avez
-      d&eacute;cid&eacute; d&rsquo;assumer ses responsabilit&eacute;s pour le
-      venger.</p>
-
-      <p>&nbsp;</p>
-
-      <h2 class="MsoNormal">Citation</h2>
-
-      <p>&nbsp;</p>
-
-      <p class="MsoNormal">&laquo; De quoi avez-vous peur ? &raquo;</p>
-
-      <p>&nbsp;</p>
-
-      <h2 class="MsoNormal">Description</h2>
-
-      <p>&nbsp;</p>
-
-      <p class="MsoNormal">Un masque noir et une cape en lambeaux sont des
-      accessoires n&eacute;cessaires, &agrave; moins que vous agissiez sous
-      votre identit&eacute; secr&egrave;te. Ils peuvent &ecirc;tre la source
-      magique de votre pouvoir d&rsquo;effroi ou peut-&ecirc;tre qu&rsquo;un
-      gadget &agrave; votre ceinture &eacute;met une sorte de champ provoquant
-      la peur. Vous vous exprimez souvent d&rsquo;une voix grave et basse en
-      affichant un air sinistre. Vos boutades ou plaisanteries occasionnelles
-      rappellent &agrave; tous qu&rsquo;il y a un &ecirc;tre humain sous le
-      masque.</p>
-
-      <p>&nbsp;</p>
-
-      <h2 class="MsoNormal">Objectif</h2>
-
-      <p>&nbsp;</p>
-
-      <p class="MsoNormal">La justice est votre objectif. Qu&rsquo;il
-      s&rsquo;agisse des petits forfaits des voleurs ordinaires ou des
-      atrocit&eacute;s des Seigneurs de R&eacute;alit&eacute;, le mal doit
-      &ecirc;tre combattu et les coupables punis.</p>
-
-      <p>&nbsp;</p>
-
-      <h2 class="MsoNormal">Noms</h2>
-
-      <p>&nbsp;</p>
-
-      <p class="MsoNormal">Capitaine Fant&ocirc;me, Apparition &Eacute;carlate,
-      Terreur Nocturne, Spectre Rouge, le Linceul</p>
-
-      <p>&nbsp;</p>
-
-      <h2 class="MsoNormal"><span style="mso-spacerun: yes;">&nbsp;</span>Piste
-      de progression (optionnelle)</h2>
-
-      <p>&nbsp;</p>
-
-      <p>□ (5 PX) Super Attribut (Esprit +1)</p>
-
-      <p class="MsoNormal">□ (7 PX) Arme de pr&eacute;dilection (pistolet
-      Mauser)</p>
-
-      <p class="MsoNormal">□ (2 PX) R&eacute;alit&eacute; +2</p>
-
-      <p class="MsoNormal">□ (3 PX) Armes &agrave; feu +3</p>
-
-      <p class="MsoNormal">□ (3 PX) Combat &agrave; mains nues +3</p>
-
-      <p class="MsoNormal">□ (4 PX) Armes &agrave; feu +4</p>
-
-      <p class="MsoNormal">□ (6 PX) Intimidation +6</p>
-
-      <p>&nbsp;</p>
+    background: "<p class=\"MsoNormal\">\_</p>\n<h2 class=\"MsoNormal\">Présentation</h2>\n<p>\_</p>\n<p class=\"MsoNormal\">Un groupe de femmes et d’hommes mystérieux s’est constitué pour mettre un terme au règne tyrannique du Pharaon Möbius. Ces héros sont basés au Caire mais ils voyagent à travers le monde pour combattre le mal. Ils s’entourent de mystères et se voilent le visage pour protéger leurs proches ou pour tromper la police secrète de Möbius. Être un héros est un choix périlleux surtout dans un monde dirigé par des vilains. Quelques rares justiciers viennent de Terra, le monde natal des envahisseurs, mais la plupart sont des citoyens transformés de la Prime Terre.</p>\n<p>\_</p>\n<h2 class=\"MsoNormal\">Tactiques</h2>\n<p>\_</p>\n<p class=\"MsoNormal\">Vous êtes un tireur d’élite et vous savez aussi vous battre avec vos poings. Cependant, c’est l’Intimidation votre véritable arme. Avec un rang aussi élevé, le résultat Choix du Joueur est assez fréquent ce qui vous permet au minimum d’annuler la prochaine action du vilain et peut vous autoriser à faire fuir un adversaire. Votre bon niveau en Réalité vous permet d’annuler les dommages assez facilement. Et sous votre masque, vous êtes un détective plutôt doué. Si vos adversaires effrayés refusent de parler, vos compétences de Débrouillardise ou d’Analyse d’indices peuvent vous permettre de trouver des indices.</p>\n<p>\_</p>\n<h2 class=\"MsoNormal\">Instant fatidique</h2>\n<p>\_</p>\n<p class=\"MsoNormal\">Vous étiez autrefois un citoyen ordinaire mais le même événement qui a catalysé vos pouvoirs a également été le déclencheur de votre Instant fatidique. Peut-être étiez-vous au bon endroit, au bon moment pour empêcher les sbires de Möbius de piller une tombe près du Caire, une tombe qui contenait un linceul funéraire que vous portez désormais comme une cape. Ou peut-être un héros plus ancien a été vaincu et vous avez décidé d’assumer ses responsabilités pour le venger.</p>\n<p>\_</p>\n<h2 class=\"MsoNormal\">Citation</h2>\n<p>\_</p>\n<p class=\"MsoNormal\">« De quoi avez-vous peur ? »</p>\n<p>\_</p>\n<h2 class=\"MsoNormal\">Description</h2>\n<p>\_</p>\n<p class=\"MsoNormal\">Un masque noir et une cape en lambeaux sont des accessoires nécessaires, à moins que vous agissiez sous votre identité secrète. Ils peuvent être la source magique de votre pouvoir d’effroi ou peut-être qu’un gadget à votre ceinture émet une sorte de champ provoquant la peur. Vous vous exprimez souvent d’une voix grave et basse en affichant un air sinistre. Vos boutades ou plaisanteries occasionnelles rappellent à tous qu’il y a un être humain sous le masque.</p>\n<p>\_</p>\n<h2 class=\"MsoNormal\">Objectif</h2>\n<p>\_</p>\n<p class=\"MsoNormal\">La justice est votre objectif. Qu’il s’agisse des petits forfaits des voleurs ordinaires ou des atrocités des Seigneurs de Réalité, le mal doit être combattu et les coupables punis.</p>\n<p>\_</p>\n<h2 class=\"MsoNormal\">Noms</h2>\n<p>\_</p>\n<p class=\"MsoNormal\">Capitaine Fantôme, Apparition Écarlate, Terreur Nocturne, Spectre Rouge, le Linceul</p>\n<p>\_</p>\n<h2 class=\"MsoNormal\"><span style=\"mso-spacerun:yes\">\_</span>Piste de progression (optionnelle)</h2>\n<p>\_</p>\n<p>□ (5 PX) Super Attribut (Esprit +1)</p>\n<p class=\"MsoNormal\">□ (7 PX) Arme de prédilection (pistolet Mauser)</p>\n<p class=\"MsoNormal\">□ (2 PX) Réalité +2</p>\n<p class=\"MsoNormal\">□ (3 PX) Armes à feu +3</p>\n<p class=\"MsoNormal\">□ (3 PX) Combat à mains nues +3</p>\n<p class=\"MsoNormal\">□ (4 PX) Armes à feu +4</p>\n<p class=\"MsoNormal\">□ (6 PX) Intimidation +6</p>\n<p>\_</p>"
     race: human
     sizeBonus: normal
   editstate: false
@@ -1169,10 +1050,10 @@ prototypeToken:
   movementAction: null
 _stats:
   systemId: torgeternity
-  systemVersion: 13.15.0
+  systemVersion: 13.27.0
   coreVersion: '13.351'
   createdTime: 1716827809436
-  modifiedTime: 1771935907044
+  modifiedTime: 1773001234620
   lastModifiedBy: BMvGTGfheqDXarjN
   compendiumSource: null
   duplicateSource: null

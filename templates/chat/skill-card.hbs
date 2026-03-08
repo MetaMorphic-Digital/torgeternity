@@ -195,7 +195,7 @@
         </div>
       {{/unless}}
 
-      {{#if (and ownsActor (or showApplySoak showReconnect showActorApplyVeryVulnerable showBacklashButtons))}}
+      {{#if (and ownsActor (or showApplySoak showReconnect showActorApplyVeryVulnerable showBacklashButtons showApplyEffects))}}
         <p class="applyButtons">
           {{#if showApplySoak}}
             <a class="button roll-button" data-action="applySoak"
@@ -226,6 +226,12 @@
               data-tooltip="{{localize 'torgeternity.sheetLabels.backlash3Tooltip'}}">
               <i class="fa-solid fa-person-rays"></i>
               {{localize 'torgeternity.sheetLabels.backlash3'}}</a>
+          {{/if}}
+          {{#if showApplyEffects}}
+            <a class="button roll-button" data-action="applyEffectsActor"
+              data-tooltip="{{localize 'torgeternity.sheetLabels.applyEffectsActorTooltip'}}">
+              <i class="fa-solid fa-person-rays"></i>
+              {{localize 'torgeternity.sheetLabels.applyEffects'}}</a>
           {{/if}}
         </p>
       {{/if}}
@@ -296,8 +302,8 @@
                         {{localize 'torgeternity.sheetLabels.applyDamage'}}</a>
                     {{/if}}
                     {{#if this.showApplyEffects}}
-                      <a class="button roll-button" data-action="applyEffects"
-                        data-tooltip="{{localize 'torgeternity.sheetLabels.applyEffectsTooltip'}}">
+                      <a class="button roll-button" data-action="applyEffectsTarget"
+                        data-tooltip="{{localize 'torgeternity.sheetLabels.applyEffectsTargetTooltip'}}">
                         <i class="fa-solid fa-person-rays"></i>
                         {{localize 'torgeternity.sheetLabels.applyEffects'}}</a>
                     {{/if}}

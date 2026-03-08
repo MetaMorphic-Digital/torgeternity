@@ -323,7 +323,7 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
     context.disableXP = !game.user.isGM && game.settings.get('torgeternity', 'disableXP');
 
     // is the actor actively defending at the moment?
-    context.document.defenses.isActivelyDefending = !!this.actor.activeDefense;
+    context.isActivelyDefending = !!this.actor.activeDefense;
 
     context.ignoreAmmo = game.settings.get('torgeternity', 'ignoreAmmo');
 
@@ -756,8 +756,8 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
       skillName: 'Vehicle Chase',
       skillValue: Number(button.dataset.skillValue),
       DNDescriptor: 'highestSpeed',
-      vehicleSpeed: button.dataset.speed,
-      maneuverModifier: button.dataset.maneuver,
+      vehicleSpeed: Number(button.dataset.speed),
+      maneuverModifier: Number(button.dataset.maneuver),
     }, { useTargets: true });
   }
 
@@ -773,8 +773,8 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
       actor: this.actor,
       skillName: 'Vehicle Operation',
       skillValue: Number(button.dataset.skillValue),
-      vehicleSpeed: button.dataset.speed,
-      maneuverModifier: button.dataset.maneuver,
+      vehicleSpeed: Number(button.dataset.speed),
+      maneuverModifier: Number(button.dataset.maneuver),
     }, { useTargets: true });
   }
 
@@ -794,8 +794,8 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
       skillName: 'Vehicle Stunt',
       skillValue: Number(button.dataset.skillValue),
       DNDescriptor: dnDescriptor,
-      vehicleSpeed: button.dataset.speed,
-      maneuverModifier: button.dataset.maneuver,
+      vehicleSpeed: Number(button.dataset.speed),
+      maneuverModifier: Number(button.dataset.maneuver),
     }, { useTargets: true });
   }
 
@@ -849,7 +849,7 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
       skillValue: null,
       unskilledUse: true,
       type: 'activeDefense',
-    }, { useTargets: true });
+    }, { useTargets: false });
   }
 
   /**
@@ -875,7 +875,7 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
       darknessModifier: 0,
       DNDescriptor: 'standard',
       type: 'activeDefense',
-      targetAll: game.user.targets.map(token => oneTestTarget(token)), // for renderSkillChat
+      targetAll: [], // for renderSkillChat
       applySize: false,
       attackOptions: false,
       combinedAction: {

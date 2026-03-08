@@ -747,14 +747,16 @@ system:
       base: 7
   other:
     cosm: coreEarth
-    possibilities: 3
+    possibilities:
+      value: 3
+    piety: 0
   skills:
     airVehicles:
       baseAttribute: dexterity
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     alteration:
@@ -762,7 +764,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     apportation:
@@ -770,7 +772,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     beastRiding:
@@ -778,7 +780,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     computers:
@@ -786,7 +788,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     conjuration:
@@ -794,7 +796,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     divination:
@@ -802,7 +804,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     dodge:
@@ -810,7 +812,7 @@ system:
       adds: 2
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     energyWeapons:
@@ -818,7 +820,7 @@ system:
       adds: 0
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     evidenceAnalysis:
@@ -826,7 +828,7 @@ system:
       adds: 1
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     faith:
@@ -834,7 +836,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     find:
@@ -842,7 +844,7 @@ system:
       adds: 2
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     fireCombat:
@@ -850,7 +852,7 @@ system:
       adds: 2
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     firstAid:
@@ -858,7 +860,7 @@ system:
       adds: 1
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     heavyWeapons:
@@ -866,7 +868,7 @@ system:
       adds: 0
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     intimidation:
@@ -874,7 +876,7 @@ system:
       adds: 0
       isFav: false
       groupName: interaction
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     kinesis:
@@ -882,7 +884,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     landVehicles:
@@ -890,7 +892,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     language:
@@ -898,7 +900,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     lockpicking:
@@ -906,7 +908,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     maneuver:
@@ -914,7 +916,7 @@ system:
       adds: 1
       isFav: false
       groupName: interaction
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     medicine:
@@ -922,7 +924,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     meleeWeapons:
@@ -930,7 +932,7 @@ system:
       adds: 1
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     missileWeapons:
@@ -938,7 +940,7 @@ system:
       adds: 0
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     persuasion:
@@ -946,7 +948,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     precognition:
@@ -954,7 +956,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     profession:
@@ -962,7 +964,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     reality:
@@ -970,7 +972,7 @@ system:
       adds: 2
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     scholar:
@@ -978,7 +980,7 @@ system:
       adds: 1
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     science:
@@ -986,7 +988,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     stealth:
@@ -994,7 +996,7 @@ system:
       adds: 1
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     streetwise:
@@ -1002,7 +1004,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     survival:
@@ -1010,7 +1012,7 @@ system:
       adds: 1
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     taunt:
@@ -1018,7 +1020,7 @@ system:
       adds: 0
       isFav: false
       groupName: interaction
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     telepathy:
@@ -1026,7 +1028,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     tracking:
@@ -1034,7 +1036,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     trick:
@@ -1042,7 +1044,7 @@ system:
       adds: 1
       isFav: false
       groupName: interaction
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     unarmedCombat:
@@ -1050,7 +1052,7 @@ system:
       adds: 0
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     waterVehicles:
@@ -1058,7 +1060,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     willpower:
@@ -1066,7 +1068,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
   xp:
@@ -1078,132 +1080,7 @@ system:
     spirit: 10
     tech: 23
   details:
-    background: >-
-      <h2>Pr&eacute;sentation</h2>
-
-      <p class="MsoNormal">Avant les Guerres des Possibilit&eacute;s, vous vous
-      int&eacute;ressiez &agrave;<span style="mso-spacerun: yes;">&nbsp;&nbsp;
-      </span>l&rsquo;arch&eacute;ologie mais ce n&rsquo;&eacute;tait pas votre
-      carri&egrave;re. Alors que le<span style="mso-spacerun: yes;">&nbsp;&nbsp;
-      </span>monde &eacute;tait en train de changer, les tombes, les cryptes
-      et<span style="mso-spacerun: yes;">&nbsp;&nbsp; </span>les temples sur
-      toute la plan&egrave;te sont devenus des sources<span style="mso-spacerun:
-      yes;">&nbsp;&nbsp; </span>de danger et de pouvoir. Vous avez
-      &eacute;galement chang&eacute; et<span style="mso-spacerun:
-      yes;">&nbsp;&nbsp; </span>d&eacute;sormais vous &ecirc;tes suffisamment
-      rapide, rus&eacute;e et brave<span style="mso-spacerun: yes;">&nbsp;&nbsp;
-      </span>pour aller trouver des reliques dans ces sites.<span
-      style="mso-spacerun: yes;">&nbsp;&nbsp; </span>La r&eacute;compense en
-      vaut largement le risque. Certains<span style="mso-spacerun:
-      yes;">&nbsp;&nbsp; </span>endroits sombres renferment des informations sur
-      les<span style="mso-spacerun: yes;">&nbsp;&nbsp; </span>Pillards de
-      R&eacute;alit&eacute;s ou sur les monstres qui les servent.<span
-      style="mso-spacerun: yes;">&nbsp;&nbsp; </span>D&rsquo;autres contiennent
-      des tr&eacute;sors et ceux qui ont le plus de<span style="mso-spacerun:
-      yes;">&nbsp;&nbsp; </span>valeur sont des artefacts appel&eacute;s les
-      Fragments d&rsquo;&Eacute;ternit&eacute;,<span style="mso-spacerun:
-      yes;">&nbsp;&nbsp; </span>que recherchent
-      d&eacute;sesp&eacute;r&eacute;ment aussi bien le Conseil de<span
-      style="mso-spacerun: yes;">&nbsp;&nbsp; </span>Delphes que les Seigneurs
-      de R&eacute;alit&eacute;.<span style="mso-spacerun:
-      yes;">&nbsp;</span></p>
-
-      <h2 class="MsoNormal"><span class="Titre2Car"><span style="font-size:
-      14.0pt; line-height: 107%;">Tactiques</span></span></h2>
-
-      <p class="MsoNormal">Votre haute Dext&eacute;rit&eacute; et votre rang en
-      Esquive vous<span style="mso-spacerun: yes;">&nbsp;&nbsp;
-      </span>permettent de prendre de grands risques et,
-      g&eacute;n&eacute;ralement,<span style="mso-spacerun: yes;">&nbsp;&nbsp;
-      </span>de vous en tirer sans une &eacute;gratignure. Vous
-      n&rsquo;&ecirc;tes pas aussi<span style="mso-spacerun: yes;">&nbsp;&nbsp;
-      </span>dou&eacute;e en d&eacute;fense en m&ecirc;l&eacute;e, aussi gardez
-      vos distances<span style="mso-spacerun: yes;">&nbsp;&nbsp; </span>quand
-      cela est possible. Votre machette est une arme de<span
-      style="mso-spacerun: yes;">&nbsp;&nbsp; </span>dernier recours mais elle
-      est assez pratique utilis&eacute;e avec<span style="mso-spacerun:
-      yes;">&nbsp;&nbsp; </span>votre pistolet pour b&eacute;n&eacute;ficier de
-      votre d&eacute;fense en Armes de<span style="mso-spacerun:
-      yes;">&nbsp;&nbsp; </span>m&ecirc;l&eacute;e contre des ennemis proches.
-      Votre autre option est de<span style="mso-spacerun: yes;">&nbsp;&nbsp;
-      </span>faire feu avec deux pistolets &agrave; la fois, ce qui vous
-      conf&egrave;re un<span style="mso-spacerun: yes;">&nbsp;&nbsp;
-      </span>bonus de +2 pour toucher !<span style="mso-spacerun:
-      yes;">&nbsp;&nbsp; </span>Utilisez Manoeuvre pour pi&eacute;ger vos
-      adversaires surtout s&rsquo;il<span style="mso-spacerun:
-      yes;">&nbsp;&nbsp; </span>s&rsquo;agit d&rsquo;une Action
-      approuv&eacute;e.<span style="mso-spacerun: yes;">&nbsp;&nbsp; </span></p>
-
-      <h2>Instant fatidique</h2>
-
-      <p class="MsoNormal">Quand la Nuit des Hurlements s&rsquo;est abattue,
-      vous avez<span style="mso-spacerun: yes;">&nbsp;&nbsp;
-      </span>apport&eacute; votre aide au cours de la premi&egrave;re vague
-      de<span style="mso-spacerun: yes;">&nbsp;&nbsp; </span>d&eacute;vastation.
-      Quand les monstres sont arriv&eacute;s, tous les<span style="mso-spacerun:
-      yes;">&nbsp;&nbsp; </span>autres sont morts. Votre Instant fatidique a pu
-      se produire<span style="mso-spacerun: yes;">&nbsp;&nbsp; </span>au moment
-      o&ugrave; vous avez combattu ces cr&eacute;atures et que<span
-      style="mso-spacerun: yes;">&nbsp;&nbsp; </span>vous en avez vaincu une en
-      l&rsquo;attirant dans un pi&egrave;ge. Ou il<span style="mso-spacerun:
-      yes;">&nbsp;&nbsp; </span>a pu se produire quand vous avez
-      transport&eacute; une victime<span style="mso-spacerun: yes;">&nbsp;&nbsp;
-      </span>bless&eacute;e &agrave; l&rsquo;abri.<span style="mso-spacerun:
-      yes;">&nbsp; </span></p>
-
-      <h2><span style="mso-spacerun: yes;">&nbsp;</span>Citation</h2>
-
-      <p class="MsoNormal">&laquo; Sa place est dans un mus&eacute;e ! Enfin,
-      peut-&ecirc;tre pas, mais il est hors de question que vous l&rsquo;ayez !
-      &raquo;</p>
-
-      <h2>Description</h2>
-
-      <p class="MsoNormal">Vous &ecirc;tes &agrave; la mode et vous
-      pr&eacute;f&eacute;rez les couleurs vives<span style="mso-spacerun:
-      yes;">&nbsp;&nbsp; </span>et un m&eacute;lange &eacute;clectique
-      d&rsquo;efficacit&eacute; moderne et de<span style="mso-spacerun:
-      yes;">&nbsp;&nbsp; </span>style traditionnel. Vous &ecirc;tes
-      t&eacute;m&eacute;raire, sinc&egrave;re et calme.<span
-      style="mso-spacerun: yes;">&nbsp;&nbsp; </span>Secr&egrave;tement, vous
-      adorez agacer les Victoriens.</p>
-
-      <h2>Objectif</h2>
-
-      <p class="MsoNormal">Les Fragments d&rsquo;&Eacute;ternit&eacute; sont des
-      artefacts importants.<span style="mso-spacerun: yes;">&nbsp;&nbsp;
-      </span>Pas uniquement d&rsquo;un point de vue culturel mais pour les<span
-      style="mso-spacerun: yes;">&nbsp;&nbsp; </span>indices qu&rsquo;ils
-      renferment sur la mani&egrave;re dont fonctionne la<span
-      style="mso-spacerun: yes;">&nbsp;&nbsp; </span>r&eacute;alit&eacute; et le
-      pouvoir dont ils sont dot&eacute;s. Quoi qu&rsquo;ils puissent<span
-      style="mso-spacerun: yes;">&nbsp;&nbsp; </span>&ecirc;tre, vous devez les
-      trouver et &eacute;viter qu&rsquo;ils ne tombent<span style="mso-spacerun:
-      yes;">&nbsp;&nbsp; </span>entre les mains des Seigneurs de
-      R&eacute;alit&eacute;.</p>
-
-      <h2>Noms</h2>
-
-      <p class="MsoNormal">Anishaa, Bhaanu, Dara, Ganjan, Kantha, Maalya, Navya,
-      Padma, Rahel</p>
-
-      <h2>Piste de progression (optionnelle)</h2>
-
-      <p class="MsoNormal">□ (5 PX) Conscience environnementale</p>
-
-      <p class="MsoNormal">□ (7 PX) Endurance</p>
-
-      <p class="MsoNormal">□ (1 PX) Foi +1</p>
-
-      <p class="MsoNormal">□ (2 PX) Sciences humaines +2</p>
-
-      <p class="MsoNormal">□ (3 PX) Armes &agrave; feu +3</p>
-
-      <p class="MsoNormal">□ (3 PX) R&eacute;alit&eacute; +3</p>
-
-      <p class="MsoNormal">□ (4 PX) Esquive +4</p>
-
-      <p class="MsoNormal">□ (5 PX) Esquive +5</p>
+    background: "<h2>Présentation</h2>\n<p class=\"MsoNormal\">Avant les Guerres des Possibilités, vous vous intéressiez à<span style=\"mso-spacerun:yes\">\_\_ </span>l’archéologie mais ce n’était pas votre carrière. Alors que le<span style=\"mso-spacerun:yes\">\_\_ </span>monde était en train de changer, les tombes, les cryptes et<span style=\"mso-spacerun:yes\">\_\_ </span>les temples sur toute la planète sont devenus des sources<span style=\"mso-spacerun:yes\">\_\_ </span>de danger et de pouvoir. Vous avez également changé et<span style=\"mso-spacerun:yes\">\_\_ </span>désormais vous êtes suffisamment rapide, rusée et brave<span style=\"mso-spacerun:yes\">\_\_ </span>pour aller trouver des reliques dans ces sites.<span style=\"mso-spacerun:yes\">\_\_ </span>La récompense en vaut largement le risque. Certains<span style=\"mso-spacerun:yes\">\_\_ </span>endroits sombres renferment des informations sur les<span style=\"mso-spacerun:yes\">\_\_ </span>Pillards de Réalités ou sur les monstres qui les servent.<span style=\"mso-spacerun:yes\">\_\_ </span>D’autres contiennent des trésors et ceux qui ont le plus de<span style=\"mso-spacerun:yes\">\_\_ </span>valeur sont des artefacts appelés les Fragments d’Éternité,<span style=\"mso-spacerun:yes\">\_\_ </span>que recherchent désespérément aussi bien le Conseil de<span style=\"mso-spacerun:yes\">\_\_ </span>Delphes que les Seigneurs de Réalité.<span style=\"mso-spacerun:yes\">\_</span></p>\n<h2 class=\"MsoNormal\"><span class=\"Titre2Car\"><span style=\"font-size:14.0pt;line-height:107%\">Tactiques</span></span></h2>\n<p class=\"MsoNormal\">Votre haute Dextérité et votre rang en Esquive vous<span style=\"mso-spacerun:yes\">\_\_ </span>permettent de prendre de grands risques et, généralement,<span style=\"mso-spacerun:yes\">\_\_ </span>de vous en tirer sans une égratignure. Vous n’êtes pas aussi<span style=\"mso-spacerun:yes\">\_\_ </span>douée en défense en mêlée, aussi gardez vos distances<span style=\"mso-spacerun:yes\">\_\_ </span>quand cela est possible. Votre machette est une arme de<span style=\"mso-spacerun:yes\">\_\_ </span>dernier recours mais elle est assez pratique utilisée avec<span style=\"mso-spacerun:yes\">\_\_ </span>votre pistolet pour bénéficier de votre défense en Armes de<span style=\"mso-spacerun:yes\">\_\_ </span>mêlée contre des ennemis proches. Votre autre option est de<span style=\"mso-spacerun:yes\">\_\_ </span>faire feu avec deux pistolets à la fois, ce qui vous confère un<span style=\"mso-spacerun:yes\">\_\_ </span>bonus de +2 pour toucher !<span style=\"mso-spacerun:yes\">\_\_ </span>Utilisez Manoeuvre pour piéger vos adversaires surtout s’il<span style=\"mso-spacerun:yes\">\_\_ </span>s’agit d’une Action approuvée.<span style=\"mso-spacerun:yes\">\_\_ </span></p>\n<h2>Instant fatidique</h2>\n<p class=\"MsoNormal\">Quand la Nuit des Hurlements s’est abattue, vous avez<span style=\"mso-spacerun:yes\">\_\_ </span>apporté votre aide au cours de la première vague de<span style=\"mso-spacerun:yes\">\_\_ </span>dévastation. Quand les monstres sont arrivés, tous les<span style=\"mso-spacerun:yes\">\_\_ </span>autres sont morts. Votre Instant fatidique a pu se produire<span style=\"mso-spacerun:yes\">\_\_ </span>au moment où vous avez combattu ces créatures et que<span style=\"mso-spacerun:yes\">\_\_ </span>vous en avez vaincu une en l’attirant dans un piège. Ou il<span style=\"mso-spacerun:yes\">\_\_ </span>a pu se produire quand vous avez transporté une victime<span style=\"mso-spacerun:yes\">\_\_ </span>blessée à l’abri.<span style=\"mso-spacerun:yes\">\_ </span></p>\n<h2><span style=\"mso-spacerun:yes\">\_</span>Citation</h2>\n<p class=\"MsoNormal\">« Sa place est dans un musée ! Enfin, peut-être pas, mais il est hors de question que vous l’ayez ! »</p>\n<h2>Description</h2>\n<p class=\"MsoNormal\">Vous êtes à la mode et vous préférez les couleurs vives<span style=\"mso-spacerun:yes\">\_\_ </span>et un mélange éclectique d’efficacité moderne et de<span style=\"mso-spacerun:yes\">\_\_ </span>style traditionnel. Vous êtes téméraire, sincère et calme.<span style=\"mso-spacerun:yes\">\_\_ </span>Secrètement, vous adorez agacer les Victoriens.</p>\n<h2>Objectif</h2>\n<p class=\"MsoNormal\">Les Fragments d’Éternité sont des artefacts importants.<span style=\"mso-spacerun:yes\">\_\_ </span>Pas uniquement d’un point de vue culturel mais pour les<span style=\"mso-spacerun:yes\">\_\_ </span>indices qu’ils renferment sur la manière dont fonctionne la<span style=\"mso-spacerun:yes\">\_\_ </span>réalité et le pouvoir dont ils sont dotés. Quoi qu’ils puissent<span style=\"mso-spacerun:yes\">\_\_ </span>être, vous devez les trouver et éviter qu’ils ne tombent<span style=\"mso-spacerun:yes\">\_\_ </span>entre les mains des Seigneurs de Réalité.</p>\n<h2>Noms</h2>\n<p class=\"MsoNormal\">Anishaa, Bhaanu, Dara, Ganjan, Kantha, Maalya, Navya, Padma, Rahel</p>\n<h2>Piste de progression (optionnelle)</h2>\n<p class=\"MsoNormal\">□ (5 PX) Conscience environnementale</p>\n<p class=\"MsoNormal\">□ (7 PX) Endurance</p>\n<p class=\"MsoNormal\">□ (1 PX) Foi +1</p>\n<p class=\"MsoNormal\">□ (2 PX) Sciences humaines +2</p>\n<p class=\"MsoNormal\">□ (3 PX) Armes à feu +3</p>\n<p class=\"MsoNormal\">□ (3 PX) Réalité +3</p>\n<p class=\"MsoNormal\">□ (4 PX) Esquive +4</p>\n<p class=\"MsoNormal\">□ (5 PX) Esquive +5</p>"
     race: human
     sizeBonus: normal
   editstate: false
@@ -1294,10 +1171,10 @@ prototypeToken:
   movementAction: null
 _stats:
   systemId: torgeternity
-  systemVersion: 13.15.0
+  systemVersion: 13.27.0
   coreVersion: '13.351'
   createdTime: 1716827809839
-  modifiedTime: 1771935887186
+  modifiedTime: 1773001234628
   lastModifiedBy: BMvGTGfheqDXarjN
   compendiumSource: null
   duplicateSource: null

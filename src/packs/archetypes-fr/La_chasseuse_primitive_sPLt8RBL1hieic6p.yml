@@ -523,14 +523,16 @@ system:
       base: 10
   other:
     cosm: livingLand
-    possibilities: 3
+    possibilities:
+      value: 3
+    piety: 0
   skills:
     airVehicles:
       baseAttribute: dexterity
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     alteration:
@@ -538,7 +540,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     apportation:
@@ -546,7 +548,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     beastRiding:
@@ -554,7 +556,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     computers:
@@ -562,7 +564,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     conjuration:
@@ -570,7 +572,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     divination:
@@ -578,7 +580,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     dodge:
@@ -586,7 +588,7 @@ system:
       adds: 1
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     energyWeapons:
@@ -594,7 +596,7 @@ system:
       adds: 0
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     evidenceAnalysis:
@@ -602,7 +604,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     faith:
@@ -610,7 +612,7 @@ system:
       adds: 1
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     find:
@@ -618,7 +620,7 @@ system:
       adds: 1
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     fireCombat:
@@ -626,7 +628,7 @@ system:
       adds: 0
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     firstAid:
@@ -634,7 +636,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     heavyWeapons:
@@ -642,7 +644,7 @@ system:
       adds: 0
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     intimidation:
@@ -650,7 +652,7 @@ system:
       adds: 1
       isFav: false
       groupName: interaction
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     kinesis:
@@ -658,7 +660,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     landVehicles:
@@ -666,7 +668,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     language:
@@ -674,7 +676,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     lockpicking:
@@ -682,7 +684,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     maneuver:
@@ -690,7 +692,7 @@ system:
       adds: 1
       isFav: false
       groupName: interaction
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     medicine:
@@ -698,7 +700,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     meleeWeapons:
@@ -706,7 +708,7 @@ system:
       adds: 3
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     missileWeapons:
@@ -714,7 +716,7 @@ system:
       adds: 2
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     persuasion:
@@ -722,7 +724,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     precognition:
@@ -730,7 +732,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     profession:
@@ -738,7 +740,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     reality:
@@ -746,7 +748,7 @@ system:
       adds: 1
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     scholar:
@@ -754,7 +756,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     science:
@@ -762,7 +764,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     stealth:
@@ -770,7 +772,7 @@ system:
       adds: 1
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     streetwise:
@@ -778,7 +780,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     survival:
@@ -786,7 +788,7 @@ system:
       adds: 2
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     taunt:
@@ -794,7 +796,7 @@ system:
       adds: 0
       isFav: false
       groupName: interaction
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     telepathy:
@@ -802,7 +804,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     tracking:
@@ -810,7 +812,7 @@ system:
       adds: 1
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     trick:
@@ -818,7 +820,7 @@ system:
       adds: 0
       isFav: false
       groupName: interaction
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     unarmedCombat:
@@ -826,7 +828,7 @@ system:
       adds: 1
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     waterVehicles:
@@ -834,7 +836,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     willpower:
@@ -842,7 +844,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
   xp:
@@ -855,75 +857,65 @@ system:
     tech: 6
   details:
     background: >-
-      <h2 class="MsoNormal">Pr&eacute;sentation</h2>
+      <h2 class="MsoNormal">Présentation</h2>
 
-      <p class="MsoNormal">Les humains transform&eacute;s pour
-      s&rsquo;int&eacute;grer &agrave; la r&eacute;alit&eacute; de la Terre
-      Vivante ne deviennent pas des n&eacute;andertaliens comme le
-      pr&eacute;tendent certaines rumeurs. Ils demeurent compl&egrave;tement
-      humains mais sont d&eacute;sormais parfaitement adapt&eacute;s &agrave;
-      leur environnement hostile et au faible Axiome Social qui rend certaines
-      pens&eacute;es contradictoires. Ils ont encore des souvenirs vagues et
-      troublants de leur ancienne vie mais la plupart n&rsquo;ont tout
-      simplement aucun sens. Ces humains entendent &eacute;galement la voix de
-      Lanala et, comme les edeinos, ils la v&eacute;n&egrave;rent. Les
-      fid&egrave;les sont connus sous le nom de &laquo; jakkats &raquo;, ceux
-      qui suivent la voie du Keta Kalles. La d&eacute;votion des jakkats
-      s&rsquo;illustre en savourant chaque sensation offerte par la vie.</p>
+      <p class="MsoNormal">Les humains transformés pour s’intégrer à la réalité
+      de la Terre Vivante ne deviennent pas des néandertaliens comme le
+      prétendent certaines rumeurs. Ils demeurent complètement humains mais sont
+      désormais parfaitement adaptés à leur environnement hostile et au faible
+      Axiome Social qui rend certaines pensées contradictoires. Ils ont encore
+      des souvenirs vagues et troublants de leur ancienne vie mais la plupart
+      n’ont tout simplement aucun sens. Ces humains entendent également la voix
+      de Lanala et, comme les edeinos, ils la vénèrent. Les fidèles sont connus
+      sous le nom de « jakkats », ceux qui suivent la voie du Keta Kalles. La
+      dévotion des jakkats s’illustre en savourant chaque sensation offerte par
+      la vie.</p>
 
       <h2 class="MsoNormal">Tactiques</h2>
 
-      <p class="MsoNormal">G&eacute;n&eacute;ralement, vous vous rapprochez et
-      vous embrochez ou matraquez votre adversaire jusqu&rsquo;&agrave; ce
-      qu&rsquo;il ne bouge plus. Vous pouvez lancer votre lance dans les rares
-      cas o&ugrave; vous ne voulez pas vous approcher de votre cible.
-      L&rsquo;Attaque totale est souvent une bonne option soit pour
-      d&eacute;clencher l&rsquo;Atout Implacable, soit pour prendre avantage de
-      la Loi de la Sauvagerie l&agrave; o&ugrave; elle est applicable. Votre
-      interaction offensive de choix est la Manoeuvre bien qu&rsquo;Intimidation
-      soit efficace aussi. Votre compagnon Chat &agrave; dents de sabre
-      n&rsquo;a pas la taille d&rsquo;un v&eacute;ritable tigre mais ses griffes
-      sont mortelles. Utilisez sa Manoeuvre pour pr&eacute;parer vos propres
-      attaques. Prudence avec votre compagnon ; s&rsquo;il est tu&eacute;, il
-      peut se passer beaucoup de temps avant qu&rsquo;un autre ne le
-      remplace.</p>
+      <p class="MsoNormal">Généralement, vous vous rapprochez et vous embrochez
+      ou matraquez votre adversaire jusqu’à ce qu’il ne bouge plus. Vous pouvez
+      lancer votre lance dans les rares cas où vous ne voulez pas vous approcher
+      de votre cible. L’Attaque totale est souvent une bonne option soit pour
+      déclencher l’Atout Implacable, soit pour prendre avantage de la Loi de la
+      Sauvagerie là où elle est applicable. Votre interaction offensive de choix
+      est la Manoeuvre bien qu’Intimidation soit efficace aussi. Votre compagnon
+      Chat à dents de sabre n’a pas la taille d’un véritable tigre mais ses
+      griffes sont mortelles. Utilisez sa Manoeuvre pour préparer vos propres
+      attaques. Prudence avec votre compagnon ; s’il est tué, il peut se passer
+      beaucoup de temps avant qu’un autre ne le remplace.</p>
 
       <h2 class="MsoNormal">Instant fatidique</h2>
 
-      <p class="MsoNormal">Avant que les ponts maelstr&ouml;m ne
-      s&rsquo;abattent, vous viviez une existence ordinaire avec un travail que
-      vous aimiez. Apr&egrave;s votre transformation, vous avez conserv&eacute;
-      une &eacute;tincelle d&rsquo;ind&eacute;pendance. Quand les gens faibles
-      de votre ancienne vie ont &eacute;t&eacute; attaqu&eacute;s, vous avez agi
-      et vous &ecirc;tes devenue autre chose. Il est aussi possible que vous
-      vous soyez transform&eacute;e &agrave; cause d&rsquo;un acte
-      h&eacute;ro&iuml;que comme si Lanala ou une autre force avait su que vous
-      aviez besoin d&rsquo;&ecirc;tre plus forte et d&rsquo;avoir des
-      comp&eacute;tences mortelles pour aller combattre les Seigneurs de
-      R&eacute;alit&eacute;.</p>
+      <p class="MsoNormal">Avant que les ponts maelström ne s’abattent, vous
+      viviez une existence ordinaire avec un travail que vous aimiez. Après
+      votre transformation, vous avez conservé une étincelle d’indépendance.
+      Quand les gens faibles de votre ancienne vie ont été attaqués, vous avez
+      agi et vous êtes devenue autre chose. Il est aussi possible que vous vous
+      soyez transformée à cause d’un acte héroïque comme si Lanala ou une autre
+      force avait su que vous aviez besoin d’être plus forte et d’avoir des
+      compétences mortelles pour aller combattre les Seigneurs de Réalité.</p>
 
       <h2 class="MsoNormal">Citation</h2>
 
-      <p class="MsoNormal">&laquo; Comment pouvez-vous vous battre en portant
-      toutes ces... choses ?! &raquo;</p>
+      <p class="MsoNormal">« Comment pouvez-vous vous battre en portant toutes
+      ces... choses ?! »</p>
 
       <h2 class="MsoNormal">Description</h2>
 
-      <p class="MsoNormal">Les jakkats ne portent pas beaucoup de
-      v&ecirc;tements. Ils pr&eacute;f&egrave;rent le cuir, les crocs et les
-      ossements car ces choses &eacute;taient autrefois vivantes. Vous aimez
-      aussi les peintures corporelles dont les couleurs vous rappellent
-      &eacute;trangement votre pr&eacute;c&eacute;dente vie. La plupart des
-      humains vous trouvent agressive et brutale mais tr&egrave;s attirante
+      <p class="MsoNormal">Les jakkats ne portent pas beaucoup de vêtements. Ils
+      préfèrent le cuir, les crocs et les ossements car ces choses étaient
+      autrefois vivantes. Vous aimez aussi les peintures corporelles dont les
+      couleurs vous rappellent étrangement votre précédente vie. La plupart des
+      humains vous trouvent agressive et brutale mais très attirante
       physiquement.</p>
 
       <h2 class="MsoNormal">Objectif</h2>
 
-      <p class="MsoNormal">Les guerres, la politique et les organisations
-      n&rsquo;ont aucun sens pour vous. La seule chose qui compte, c&rsquo;est
-      combattre l&rsquo;ennemi ici et maintenant. Les cons&eacute;quences sont
-      compliqu&eacute;es, des choses impr&eacute;visibles qu&rsquo;il vaut mieux
-      laisser aux divinit&eacute;s et aux magiciens.</p>
+      <p class="MsoNormal">Les guerres, la politique et les organisations n’ont
+      aucun sens pour vous. La seule chose qui compte, c’est combattre l’ennemi
+      ici et maintenant. Les conséquences sont compliquées, des choses
+      imprévisibles qu’il vaut mieux laisser aux divinités et aux magiciens.</p>
 
       <h2 class="MsoNormal">Noms</h2>
 
@@ -936,11 +928,11 @@ system:
 
       <p class="MsoNormal">□ (7 PX) Tornade</p>
 
-      <p class="MsoNormal">□ (9 PX) Dur &agrave; cuire</p>
+      <p class="MsoNormal">□ (9 PX) Dur à cuire</p>
 
-      <p class="MsoNormal">□ (4 PX) Armes de m&ecirc;l&eacute;e +4</p>
+      <p class="MsoNormal">□ (4 PX) Armes de mêlée +4</p>
 
-      <p class="MsoNormal">□ (5 PX) Armes de m&ecirc;l&eacute;e +5</p>
+      <p class="MsoNormal">□ (5 PX) Armes de mêlée +5</p>
     race: human
     sizeBonus: normal
   editstate: false
@@ -1031,10 +1023,10 @@ prototypeToken:
   movementAction: null
 _stats:
   systemId: torgeternity
-  systemVersion: 13.15.0
+  systemVersion: 13.27.0
   coreVersion: '13.351'
   createdTime: 1716827809787
-  modifiedTime: 1771935884737
+  modifiedTime: 1773001234627
   lastModifiedBy: BMvGTGfheqDXarjN
   compendiumSource: null
   duplicateSource: null

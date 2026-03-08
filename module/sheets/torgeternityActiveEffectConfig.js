@@ -29,7 +29,22 @@ export default class TorgActiveEffectConfig extends foundry.applications.sheets.
     const partContext = await super._preparePartContext(partId, context);
     if (partId === 'torg') {
       partContext.systemFields = this.document.system.schema.fields;
+      partContext.transferToClass = this.document.system.transferOnOutcome ? '' : 'hidden';
     }
     return partContext;
+  }
+
+  _onChangeForm(formConfig, event) {
+    const outcome = event.target;
+    if (outcome.name === 'system.transferOnOutcome') {
+      const transferTo = this.element.querySelector('div.form-group:has(select[name="system.transferTo"])');
+      if (transferTo) {
+        if (outcome.value)
+          transferTo.classList.remove('hidden')
+        else
+          transferTo.classList.add('hidden')
+      }
+    }
+    super._onChangeForm(formConfig, event);
   }
 }

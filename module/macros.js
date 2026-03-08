@@ -81,7 +81,7 @@ export class TorgeternityMacros {
         continue;
       }
 
-      const shockIncrease = actor.fatigue;
+      const shockIncrease = actor.system.fatigue;
       const applyResult = token.actor.applyDamages(/*shock*/ shockIncrease, /*wounds*/ 0);
 
       chatOutput += `<li>${actor.name}: ${shockIncrease} ${game.i18n.localize('torgeternity.sheetLabels.shock')}`;
@@ -226,7 +226,7 @@ export class TorgeternityMacros {
         return;
       }
 
-      const diceroll = await new Roll(`${diceAmount}d6x6max5`).evaluate();
+      const diceroll = await foundry.dice.Roll.create(`${diceAmount}d6x6max5`).evaluate();
 
       let chatOutput = `<p>${game.i18n.localize('torgeternity.macros.bonusDieMacroResult1')} 
       ${diceAmount} ${game.i18n.localize('torgeternity.chatText.bonusDice')} 
@@ -235,12 +235,15 @@ export class TorgeternityMacros {
       if (game.user.targets.size === 0) {
         chatOutput += `<p>${game.i18n.localize('torgeternity.macros.bonusDieMacroNoTokenTargeted')}</p>`;
         console.log('No targets, creating chat Message, leaving Macro.');
-        return ChatMessage.create({ content: chatOutput });
+        return ChatMessage.create({
+          content: chatOutput,
+          rolls: diceroll
+        });
       }
 
       chatOutput += `<ul>`;
       for (const token of game.user.targets) {
-        const tokenDamage = torgDamage(diceroll.total, token.actor.defenses.toughness,
+        const tokenDamage = torgDamage(diceroll.total, token.actor.system.defenses.toughness,
           { defenseTraits: token.actor.defenseTraits });
         chatOutput += `<li>${game.i18n.localize('torgeternity.macros.bonusDieMacroResult3')}  ${token.document.name} `;
         chatOutput += (tokenDamage.shocks > 0) ?
@@ -250,7 +253,10 @@ export class TorgeternityMacros {
       }
       chatOutput += '</ul>';
 
-      return ChatMessage.create({ content: chatOutput });
+      return ChatMessage.create({
+        content: chatOutput,
+        rolls: diceroll
+      });
     } catch (e) {
       ui.notifications.error(e.message);
     }
@@ -394,9 +400,9 @@ export class TorgeternityMacros {
       DNDescriptor: 'standard',
       unskilledUse: realitySkill.unskilledUse,
       woundModifier: -_actor.system.wounds.value,
-      stymiedModifier: _actor.statusModifiers.stymied,
-      vulnerableModifier: _actor.statusModifiers.vulnerable,
-      waitingModifier: _actor.statusModifiers.waiting,
+      stymiedModifier: _actor.system.statusModifiers.stymied,
+      vulnerableModifier: _actor.system.statusModifiers.vulnerable,
+      waitingModifier: _actor.system.statusModifiers.waiting,
       type: 'skill',
       isOther1: game.scenes.active && game.scenes.active.torg.cosm !== 'none',
       other1Description: game.i18n.localize('torgeternity.macros.reconnectMacroZoneModifier'),
@@ -586,37 +592,37 @@ export class TorgeternityMacros {
         duration: { rounds: duration, turns: duration, expiry: 'turnEnd' },
         changes: [
           {
-            key: 'defenses.dodge.mod',
+            key: 'system.defenses.dodge.mod',
             value: bonus,
             mode: CONST.ACTIVE_EFFECT_MODES.ADD,
           },
           {
-            key: 'defenses.meleeWeapons.mod',
+            key: 'system.defenses.meleeWeapons.mod',
             value: bonus,
             mode: CONST.ACTIVE_EFFECT_MODES.ADD,
           },
           {
-            key: 'defenses.unarmedCombat.mod',
+            key: 'system.defenses.unarmedCombat.mod',
             value: bonus,
             mode: CONST.ACTIVE_EFFECT_MODES.ADD,
           },
           {
-            key: 'defenses.intimidation.mod',
+            key: 'system.defenses.intimidation.mod',
             value: bonus,
             mode: CONST.ACTIVE_EFFECT_MODES.ADD,
           },
           {
-            key: 'defenses.maneuver.mod',
+            key: 'system.defenses.maneuver.mod',
             value: bonus,
             mode: CONST.ACTIVE_EFFECT_MODES.ADD,
           },
           {
-            key: 'defenses.taunt.mod',
+            key: 'system.defenses.taunt.mod',
             value: bonus,
             mode: CONST.ACTIVE_EFFECT_MODES.ADD,
           },
           {
-            key: 'defenses.trick.mod',
+            key: 'system.defenses.trick.mod',
             value: bonus,
             mode: CONST.ACTIVE_EFFECT_MODES.ADD,
           },
@@ -634,17 +640,17 @@ export class TorgeternityMacros {
         duration: { rounds: duration, turns: duration, expiry: 'turnEnd' },
         changes: [
           {
-            key: 'defenses.dodge.mod',
+            key: 'system.defenses.dodge.mod',
             value: bonus,
             mode: CONST.ACTIVE_EFFECT_MODES.ADD,
           },
           {
-            key: 'defenses.meleeWeapons.mod',
+            key: 'system.defenses.meleeWeapons.mod',
             value: bonus,
             mode: CONST.ACTIVE_EFFECT_MODES.ADD,
           },
           {
-            key: 'defenses.unarmedCombat.mod',
+            key: 'system.defenses.unarmedCombat.mod',
             value: bonus,
             mode: CONST.ACTIVE_EFFECT_MODES.ADD,
           },
@@ -775,6 +781,11 @@ export class TorgeternityMacros {
       },
     });
 
+    const targetAll = Array.from(game.user.targets).map(token => oneTestTarget(token));
+    for (const target of targetAll) {
+      target.damage = parseInt(info[1]);
+    }
+
     return renderSkillChat({
       testType: 'custom',
       actor: game.actors.contents[0].uuid,
@@ -800,7 +811,7 @@ export class TorgeternityMacros {
       chatNote: '',
       bdDamageSum: 0,
       hasModifiers: false,
-      targetAll: Array.from(game.user.targets).map(token => oneTestTarget(token)),
+      targetAll,
       bonus: 0,
       possibilityStyle: 'hidden',
       coverModifier: 0,
@@ -810,6 +821,7 @@ export class TorgeternityMacros {
       unskilledTest: false,
       diceList: [10],
       combinedRollTotal: 10,
+      combinedAction: { participants: 1 },
       modifiers: 0,
       modifierText: '',
       cardsPlayed: 0,

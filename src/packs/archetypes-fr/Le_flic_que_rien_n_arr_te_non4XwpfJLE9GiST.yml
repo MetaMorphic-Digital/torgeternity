@@ -593,14 +593,16 @@ system:
       base: 8
   other:
     cosm: coreEarth
-    possibilities: 3
+    possibilities:
+      value: 3
+    piety: 0
   skills:
     airVehicles:
       baseAttribute: dexterity
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     alteration:
@@ -608,7 +610,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     apportation:
@@ -616,7 +618,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     beastRiding:
@@ -624,7 +626,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     computers:
@@ -632,7 +634,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     conjuration:
@@ -640,7 +642,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     divination:
@@ -648,7 +650,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     dodge:
@@ -656,7 +658,7 @@ system:
       adds: 1
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     energyWeapons:
@@ -664,7 +666,7 @@ system:
       adds: 0
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     evidenceAnalysis:
@@ -672,7 +674,7 @@ system:
       adds: 1
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     faith:
@@ -680,7 +682,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     find:
@@ -688,7 +690,7 @@ system:
       adds: 1
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     fireCombat:
@@ -696,7 +698,7 @@ system:
       adds: 2
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     firstAid:
@@ -704,7 +706,7 @@ system:
       adds: 1
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     heavyWeapons:
@@ -712,7 +714,7 @@ system:
       adds: 0
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     intimidation:
@@ -720,7 +722,7 @@ system:
       adds: 3
       isFav: false
       groupName: interaction
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     kinesis:
@@ -728,7 +730,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     landVehicles:
@@ -736,7 +738,7 @@ system:
       adds: 1
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     language:
@@ -744,7 +746,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     lockpicking:
@@ -752,7 +754,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     maneuver:
@@ -760,7 +762,7 @@ system:
       adds: 0
       isFav: false
       groupName: interaction
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     medicine:
@@ -768,7 +770,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     meleeWeapons:
@@ -776,7 +778,7 @@ system:
       adds: 1
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     missileWeapons:
@@ -784,7 +786,7 @@ system:
       adds: 0
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     persuasion:
@@ -792,7 +794,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     precognition:
@@ -800,7 +802,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     profession:
@@ -808,7 +810,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     reality:
@@ -816,7 +818,7 @@ system:
       adds: 2
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     scholar:
@@ -824,7 +826,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     science:
@@ -832,7 +834,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     stealth:
@@ -840,7 +842,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     streetwise:
@@ -848,7 +850,7 @@ system:
       adds: 2
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     survival:
@@ -856,7 +858,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     taunt:
@@ -864,7 +866,7 @@ system:
       adds: 0
       isFav: false
       groupName: interaction
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     telepathy:
@@ -872,7 +874,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     tracking:
@@ -880,7 +882,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     trick:
@@ -888,7 +890,7 @@ system:
       adds: 0
       isFav: false
       groupName: interaction
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     unarmedCombat:
@@ -896,7 +898,7 @@ system:
       adds: 1
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     waterVehicles:
@@ -904,7 +906,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     willpower:
@@ -912,7 +914,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
   xp:
@@ -925,76 +927,67 @@ system:
     tech: 23
   details:
     background: >-
-      <h2 class="MsoNormal">Pr&eacute;sentation</h2>
+      <h2 class="MsoNormal">Présentation</h2>
 
-      <p class="MsoNormal">M&ecirc;me avant l&rsquo;invasion des Seigneurs de
-      R&eacute;alit&eacute;, il y avait sur la Prime Terre des h&eacute;ros
-      capables d&rsquo;exploits incroyables. Certains passaient leur temps
-      &agrave; combattre des groupes de criminels, de mercenaires ou des
-      psychopathes. Vous &eacute;tiez l&rsquo;une de ces h&eacute;ro&iuml;nes et
-      vaincre de v&eacute;ritables petites arm&eacute;es de m&eacute;chants
-      faisait juste partie de votre travail.</p>
+      <p class="MsoNormal">Même avant l’invasion des Seigneurs de Réalité, il y
+      avait sur la Prime Terre des héros capables d’exploits incroyables.
+      Certains passaient leur temps à combattre des groupes de criminels, de
+      mercenaires ou des psychopathes. Vous étiez l’une de ces héroïnes et
+      vaincre de véritables petites armées de méchants faisait juste partie de
+      votre travail.</p>
 
-      <p class="MsoNormal">Les Pillards de R&eacute;alit&eacute; sont une menace
-      d&rsquo;une tout autre ampleur. Les gangs, les cartels et m&ecirc;me les
-      conspirateurs ne vous ont jamais fait reculer, alors pourquoi le
-      feriez-vous maintenant ? Comme votre (ancien) partenaire vous l&rsquo;a
-      dit autrefois, rien ne peut vous arr&ecirc;ter.</p>
+      <p class="MsoNormal">Les Pillards de Réalité sont une menace d’une tout
+      autre ampleur. Les gangs, les cartels et même les conspirateurs ne vous
+      ont jamais fait reculer, alors pourquoi le feriez-vous maintenant ? Comme
+      votre (ancien) partenaire vous l’a dit autrefois, rien ne peut vous
+      arrêter.</p>
 
       <h2 class="MsoNormal">Tactiques</h2>
 
-      <p class="MsoNormal">Vous savez vous servir des armes &agrave; feu et vous
-      &ecirc;tes suffisamment r&eacute;sistante pour encaisser quelques coups
-      sans avoir besoin d&rsquo;annuler des dommages... ce que vous savez
-      tr&egrave;s bien faire. Si vous vous retrouvez en m&ecirc;l&eacute;e,
-      essayez de saisir vos adversaires pour les immobiliser plut&ocirc;t que
-      d&rsquo;infliger des dommages.</p>
+      <p class="MsoNormal">Vous savez vous servir des armes à feu et vous êtes
+      suffisamment résistante pour encaisser quelques coups sans avoir besoin
+      d’annuler des dommages... ce que vous savez très bien faire. Si vous vous
+      retrouvez en mêlée, essayez de saisir vos adversaires pour les immobiliser
+      plutôt que d’infliger des dommages.</p>
 
-      <p class="MsoNormal">Le Contre est votre arme secr&egrave;te.
-      Emp&ecirc;cher un Tourmenteur de booster ses attaques en bloquant cette
-      capacit&eacute; n&rsquo;est pas n&eacute;gligeable et peut changer le
-      cours d&rsquo;un combat. Utilisez Intimidation pour affaiblir vos
-      adversaires. S&rsquo;ils sont D&eacute;stabilis&eacute;s ils subissent des
-      malus et s&rsquo;ils sont Vuln&eacute;rables vous b&eacute;n&eacute;ficiez
-      de bonus. Puisque Contre n&eacute;cessite un test de
-      R&eacute;alit&eacute;, vous pouvez tirer profit des deux !</p>
+      <p class="MsoNormal">Le Contre est votre arme secrète. Empêcher un
+      Tourmenteur de booster ses attaques en bloquant cette capacité n’est pas
+      négligeable et peut changer le cours d’un combat. Utilisez Intimidation
+      pour affaiblir vos adversaires. S’ils sont Déstabilisés ils subissent des
+      malus et s’ils sont Vulnérables vous bénéficiez de bonus. Puisque Contre
+      nécessite un test de Réalité, vous pouvez tirer profit des deux !</p>
 
       <h2 class="MsoNormal">Instant fatidique</h2>
 
-      <p class="MsoNormal">Des dizaines d&rsquo;incidents peuvent avoir
-      provoqu&eacute; votre &eacute;volution du statut
-      d&rsquo;h&eacute;ro&iuml;ne &agrave; celui de Chevalier des
-      Temp&ecirc;tes. Il se peut que ce soit &agrave; cause du Tourmenteur
-      ren&eacute;gat qui a utilis&eacute; ses pouvoirs pour constituer un
-      nouveau cartel de la drogue. Ou peut-&ecirc;tre est-ce &agrave; cause de
-      cette fois o&ugrave; vous avez immobilis&eacute; et menott&eacute; un
-      raptor... les gens en parlent encore.</p>
+      <p class="MsoNormal">Des dizaines d’incidents peuvent avoir provoqué votre
+      évolution du statut d’héroïne à celui de Chevalier des Tempêtes. Il se
+      peut que ce soit à cause du Tourmenteur renégat qui a utilisé ses pouvoirs
+      pour constituer un nouveau cartel de la drogue. Ou peut-être est-ce à
+      cause de cette fois où vous avez immobilisé et menotté un raptor... les
+      gens en parlent encore.</p>
 
       <h2 class="MsoNormal">Citation</h2>
 
-      <p class="MsoNormal">&laquo; Pose ce truc vert qui brille par terre et met
-      les mains sur la t&ecirc;te. &raquo;</p>
+      <p class="MsoNormal">« Pose ce truc vert qui brille par terre et met les
+      mains sur la tête. »</p>
 
       <h2 class="MsoNormal">Description</h2>
 
-      <p class="MsoNormal">Il est important de porter encore l&rsquo;uniforme
-      m&ecirc;me hors de votre juridiction ou dans des endroits
-      transform&eacute;s. C&rsquo;est un symbole de normalit&eacute; et
-      d&rsquo;autorit&eacute; et le gilet pare-balles est utile. La police
-      n&rsquo;est pas appr&eacute;ci&eacute;e, ni respect&eacute;e par tout le
-      monde mais le simple fait de voir votre uniforme bleu et votre badge peut
-      en ramener certains &agrave; la r&eacute;alit&eacute;. Une attitude
-      brusque et un regard s&eacute;v&egrave;re renforcent le sentiment de force
-      qui &eacute;mane de vous.</p>
+      <p class="MsoNormal">Il est important de porter encore l’uniforme même
+      hors de votre juridiction ou dans des endroits transformés. C’est un
+      symbole de normalité et d’autorité et le gilet pare-balles est utile. La
+      police n’est pas appréciée, ni respectée par tout le monde mais le simple
+      fait de voir votre uniforme bleu et votre badge peut en ramener certains à
+      la réalité. Une attitude brusque et un regard sévère renforcent le
+      sentiment de force qui émane de vous.</p>
 
       <h2 class="MsoNormal">Objectif</h2>
 
-      <p class="MsoNormal">Le Flic que rien n&rsquo;arr&ecirc;te veut juste que
-      les choses reviennent &agrave; la normale. La R&eacute;alit&eacute; est
-      &eacute;galement soumise &agrave; des lois et ces envahisseurs les
-      enfreignent. Gardez les pieds sur terre, arr&ecirc;tez les m&eacute;chants
-      et prot&eacute;gez les pauvres innocents qui se retrouvent au milieu de ce
-      cirque.</p>
+      <p class="MsoNormal">Le Flic que rien n’arrête veut juste que les choses
+      reviennent à la normale. La Réalité est également soumise à des lois et
+      ces envahisseurs les enfreignent. Gardez les pieds sur terre, arrêtez les
+      méchants et protégez les pauvres innocents qui se retrouvent au milieu de
+      ce cirque.</p>
 
       <h2 class="MsoNormal">Noms</h2>
 
@@ -1003,21 +996,21 @@ system:
 
       <h2 class="MsoNormal">Piste de progression (optionnelle)</h2>
 
-      <p class="MsoNormal">□ (5 PX) Obstin&eacute;</p>
+      <p class="MsoNormal">□ (5 PX) Obstiné</p>
 
-      <p class="MsoNormal">□ (7 PX) Dur &agrave; cuire</p>
+      <p class="MsoNormal">□ (7 PX) Dur à cuire</p>
 
       <p class="MsoNormal">□ (1 PX) Crochetage +1</p>
 
-      <p class="MsoNormal">□ (2 PX) D&eacute;brouillardise +2</p>
+      <p class="MsoNormal">□ (2 PX) Débrouillardise +2</p>
 
-      <p class="MsoNormal">□ (3 PX) Armes &agrave; feu +3</p>
+      <p class="MsoNormal">□ (3 PX) Armes à feu +3</p>
 
-      <p class="MsoNormal">□ (3 PX) R&eacute;alit&eacute; +3</p>
+      <p class="MsoNormal">□ (3 PX) Réalité +3</p>
 
-      <p class="MsoNormal">□ (4 PX) Armes &agrave; feu +4</p>
+      <p class="MsoNormal">□ (4 PX) Armes à feu +4</p>
 
-      <p class="MsoNormal">□ (5 PX) Armes &agrave; feu +5</p>
+      <p class="MsoNormal">□ (5 PX) Armes à feu +5</p>
     race: human
     sizeBonus: normal
   editstate: false
@@ -1108,10 +1101,10 @@ prototypeToken:
   movementAction: null
 _stats:
   systemId: torgeternity
-  systemVersion: 13.15.0
+  systemVersion: 13.27.0
   coreVersion: '13.351'
   createdTime: 1716827809742
-  modifiedTime: 1771935900597
+  modifiedTime: 1773001234626
   lastModifiedBy: BMvGTGfheqDXarjN
   compendiumSource: null
   duplicateSource: null

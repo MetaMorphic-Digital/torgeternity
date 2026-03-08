@@ -1,4 +1,6 @@
 import { TestDialog, TestDialogLabel, dummyTestTargets } from './test-dialog.js';
+
+
 const { DialogV2 } = foundry.applications.api;
 
 export const TestResult = {
@@ -93,7 +95,7 @@ export async function renderSkillChat(test, origChatMessage) {
       case 'interactionAttack':
       case 'attack':
         {
-          const skillData = testActor.system.skills[test.skillName] || testActor.items.get(test.skillName)?.system;
+          const skillData = (testActor.type === 'vehicle') ? testItem.system.gunnerSkill : testActor.system.skills[test.skillName] || testActor.items.get(test.skillName)?.system;
           if (skillData) attribute = skillData.baseAttribute;
           break;
         }
@@ -137,7 +139,7 @@ export async function renderSkillChat(test, origChatMessage) {
       // Generate dice roll
       const dice = test.unskilledTest ? '1d20x10' : '1d20x10x20';
 
-      test.diceroll = await new Roll(dice).evaluate();
+      test.diceroll = await foundry.dice.Roll.create(dice).evaluate();
       dicerolled.push(test.diceroll);
       if (test.isFav && test.disfavored) {
         test.isFav = false;
@@ -381,7 +383,8 @@ export async function renderSkillChat(test, origChatMessage) {
       modifiers.push(modifierString('torgeternity.stats.speedModifier', test.speedModifier));
     }
 
-    test.combinedAction.torgBonus = getTorgValue(test.combinedAction.participants);
+    if (!test.combinedAction) test.combinedAction = {};
+    test.combinedAction.torgBonus = getTorgValue(test.combinedAction.participants ?? 1);
     if (test.combinedAction.torgBonus > 0) {
       test.modifiers += test.combinedAction.torgBonus;
       modifiers.push(modifierString('torgeternity.chatText.check.modifier.combinedAction', test.combinedAction.torgBonus));
@@ -449,7 +452,8 @@ export async function renderSkillChat(test, origChatMessage) {
         if (ammo) test.effects.push(...ammo.effects.filter(ef => appliesToTest(ef, test, target)).map(ef => ef.uuid));
       }
     }
-    target.showApplyEffects = !!test.effects.map(fx => fromUuidSync(fx)).find(fx => fx.modifiesTarget);
+    test.showApplyEffects = !!test.effects.map(fx => fromUuidSync(fx)).find(fx => fx.transfersToActor);
+    target.showApplyEffects = !!test.effects.map(fx => fromUuidSync(fx)).find(fx => fx.transfersToTarget);
 
     // Approved Action Processing
     test.successfulDefendApprovedAction = false;
@@ -491,8 +495,8 @@ export async function renderSkillChat(test, origChatMessage) {
     ) {
       // Roll 1 and not defense = Mishap
       test.result = TestResult.MISHAP;
-      test.resultText = game.i18n.localize('torgeternity.chatText.check.result.mishape');
-      if (test?.attackTraits?.includes('fragile')) {
+      test.resultText = game.i18n.localize('torgeternity.chatText.check.result.mishap');
+      if (test.attackTraits?.includes('fragile')) {
         test.extraResult = game.i18n.format('torgeternity.chatText.check.result.fragileBroken', { itemName: testItem.name });
       }
       if (useColorBlind) {
@@ -579,14 +583,14 @@ export async function renderSkillChat(test, origChatMessage) {
         const effects = test.effects?.map(fxid => fromUuidSync(fxid));
         if (!test.fxApplied && effects) {
           //test.fxApplied = true;
-          adjustedDamage = applyEffects('test.damage', adjustedDamage, effects);
+          adjustedDamage = applyNumericEffects('test.damage', adjustedDamage, effects);
         }
         // NOTE: target.toughness already includes target.armour
         target.targetAdjustedToughness = target.toughness - target.armor;
         // If armor and cover can assist, adjust toughness based on AP effects and cover modifier
         if (test.applyArmor) {
           const armor = target.armor + getExtraProtection(test.attackTraits, target.defenses, 'Armor');
-          const weaponAP = applyEffects('test.weaponAP', test.weaponAP, effects);
+          const weaponAP = applyNumericEffects('test.weaponAP', test.weaponAP, effects);
           target.targetAdjustedToughness += Math.max(0, armor - weaponAP) + test.coverModifier;
         }
 
@@ -788,11 +792,12 @@ function torgBonus(rollTotal) {
 
 /**
  *
- * @param isTrademark Is this roll with the perk of trademark weapon?
- * @param amount The amount of BDs that is ought to roll
+ * @param {Boolean} isTrademark Is this roll with the perk of trademark weapon?
+ * @param {Number} amount The amount of BDs that is ought to roll
  */
 export async function rollBonusDie(isTrademark, amount = 1) {
-  return await new Roll(`${amount}d6${isTrademark ? 'rr1' : ''}x6max5`).evaluate();
+  // roll twice and keep highest:  {d6x5max5, d6x5max5}kh
+  return foundry.dice.Roll.create(`${amount}d6${isTrademark ? 'rr1' : ''}x6max5`).evaluate();
 }
 
 /**
@@ -817,30 +822,56 @@ export function torgDamage(damage, toughness, options) {
   return torgDamageModifiers(result, options);
 }
 
+/**
+ * 
+ * @param {String} fieldname 
+ * @param {Number} fromvalue 
+ * @param {ActiveEffects[]} effects 
+ * @returns 
+ */
 
-function applyEffects(fieldname, origvalue, effects) {
-  if (!effects) return origvalue;
-  for (const effect of effects) {
-    if (!effect || effect.modifiesTarget) continue;  // fromUuidSync failed
-    for (const change of effect.changes) {
-      if (change.key === fieldname) {
-        // DataModel.applyField
-        // DataField.applyChange
-        const value = parseInt(change.value);
-        if (isNaN(value)) continue;  // value MUST be a number
-        const modes = CONST.ACTIVE_EFFECT_MODES;
-        switch (change.mode) {
-          case modes.ADD: origvalue += value; break;
-          case modes.MULTIPLY: origvalue *= value; break;
-          case modes.OVERRIDE: origvalue = value; break;
-          case modes.UPGRADE: origvalue = Math.max(origvalue, value); break;
-          case modes.DOWNGRADE: origvalue = Math.min(origvalue, value); break;
-          default:  // custom
-        }
+export function applyNumericEffects(fieldname, origvalue, effects) {
+  let value = origvalue;
+  if (!effects) return value;
+
+  // Get changes into a sorted list in priority order
+  const changes = effects.filter(fx => fx && !fx.transferOnOutcome)
+    .map(fx => fx.changes.filter(ch => ch.key === fieldname)).flat(1)
+    .sort((a, b) => (a.priority ?? (a.mode * 10)) - (b.priority ?? (b.mode * 10)));
+
+  if (game.release.generation < 14) {
+    for (const change of changes) {
+      // DataModel.applyField
+      // DataField.applyChange
+      const delta = parseInt(change.value);
+      if (isNaN(delta)) continue;  // value MUST be a number
+      switch (change.mode) {
+        case CONST.ACTIVE_EFFECT_MODES.ADD: value += delta; break;
+        case CONST.ACTIVE_EFFECT_MODES.MULTIPLY: value *= delta; break;
+        case CONST.ACTIVE_EFFECT_MODES.OVERRIDE: value = delta; break;
+        case CONST.ACTIVE_EFFECT_MODES.UPGRADE: value = Math.max(value, delta); break;
+        case CONST.ACTIVE_EFFECT_MODES.DOWNGRADE: value = Math.min(value, delta); break;
+        default:  // custom
+      }
+    }
+  } else {
+    for (const change of changes) {
+      // DataModel.applyField
+      // DataField.applyChange
+      const delta = parseInt(change.value);
+      if (isNaN(delta)) continue;  // value MUST be a number
+      switch (change.mode) {
+        case "add": value += delta; break;
+        case "subtract": value -= delta; break;
+        case "multiply": value *= delta; break;
+        case "override": value = delta; break;
+        case "upgrade": value = Math.max(value, delta); break;
+        case "downgrade": value = Math.min(value, delta); break;
+        default:  // custom
       }
     }
   }
-  return origvalue;
+  return value;
 }
 
 export function torgDamageModifiers(result, options) {
@@ -851,8 +882,8 @@ export function torgDamageModifiers(result, options) {
 
   // Check for extra soak/wounds from AE
   if (options.effects) {
-    result.wounds = applyEffects('test.wounds', result.wounds, options.effects);
-    result.shocks = applyEffects('test.shock', result.shocks, options.effects);
+    result.wounds = applyNumericEffects('test.wounds', result.wounds, options.effects);
+    result.shocks = applyNumericEffects('test.shock', result.shocks, options.effects);
   }
 
   if (soakWounds) {
@@ -915,7 +946,7 @@ export async function soakDamages(soaker, origMessageId) {
     //actorType: soaker.system.type,
     isFav:
       soaker.system.skills[skillName]?.isFav ||
-      soaker.system.attributes[skillName + 'IsFav'] ||
+      soaker.system.attributes[skillName]?.isFav ||
       false,
     skillName: skillName,
     skillValue: skillValue,
@@ -1215,7 +1246,7 @@ export async function rollAttribute(actor, attributeName) {
     actor: actor,
     skillName: attributeName,
     skillValue: actor.system.attributes[attributeName].value,
-    isFav: actor.system.attributes?.[attributeName + 'IsFav']
+    isFav: actor.system.attributes[attributeName].isFav
   }, { useTargets: true });
 }
 
@@ -1291,7 +1322,7 @@ export async function rollUnarmedAttack(actor, skillName) {
     skillName: skillName,
     skillValue: actor.system.skills[skillName]?.value ?? actor.system.attributes.dexterity.value,
     unskilledUse: true,
-    damage: actor.unarmed.damage,
+    damage: actor.system.unarmed.damage,
     weaponAP: 0,
     applyArmor: true,
     DNDescriptor: dnDescriptor,
@@ -1376,7 +1407,7 @@ export async function rollTapping(actor, item) {
     actor: actor,
     isFav:
       skillData.isFav ||
-      actor.system.attributes?.[skillName + 'IsFav'],
+      actor.system.attributes?.[skillName].isFav,
     skillName: skillName,
     skillValue: skillValue,
     chatTitle: game.i18n.localize('torgeternity.chatText.tapping'),
@@ -1482,12 +1513,24 @@ export function checkUnskilled(skillValue, skillName, actor) {
  */
 function appliesToTest(effect, test, target) {
   if (effect.disabled) return false;
+  if (effect.system.transferOnOutcome) {
+    // If transferred, then applies to test
+    const result = test.result;
+    switch (effect.system.transferOnOutcome) {
+      case 'anySuccess': return result >= TestResult.STANDARD;
+      case 'anyFailure': return result < TestResult.STANDARD;
+      case 'mishap': return result === TestResult.MISHAP;
+      case 'failure': return result === TestResult.FAILURE;
+      case 'standard': return result === TestResult.STANDARD;
+      case 'good': return result === TestResult.GOOD;
+      case 'outstanding': return result === TestResult.OUTSTANDING;
+      default:
+        console.warn(`Ignoring unknown transferOnOutcome value: '${effect.system.transferOnOutcome}'`);
+    }
+  }
+  // These are irrelevant if this effect is going to be transferred to the target.
   if (!testTraits(effect.system.applyIfAttackTrait, test.attackTraits)) return false;
   if (!testTraits(effect.system.applyIfDefendTrait, target?.defenseTraits)) return false;
-  const result = test.result;
-  // If transferred, then applies to test
-  if (effect.system.transferOnAttack) return result >= TestResult.STANDARD;
-  if (effect.system.transferOnOutcome) return effect.system.transferOnOutcome === result;
   // Not transferred, but might affect the result. (e.g. 'test.damage' or 'test.weaponAP')
   return effect.changes.find(change => change.key.startsWith('test.'));
 }

@@ -39,6 +39,8 @@ export default class TorgeternityItem extends foundry.documents.Item {
    *
    */
   prepareBaseData() {
+    super.prepareBaseData();
+
     // Handle perk-related data
     switch (this.type) {
       case 'perk':
@@ -189,7 +191,7 @@ export default class TorgeternityItem extends foundry.documents.Item {
   }
 
   get isEquipped() {
-    return this.system.isEquipped;
+    return this.system.isEquipped && !this.isDisconnected;
   }
 
   /**

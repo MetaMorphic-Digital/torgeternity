@@ -614,14 +614,16 @@ system:
       base: 6
   other:
     cosm: cyberpapacy
-    possibilities: 3
+    possibilities:
+      value: 3
+    piety: 0
   skills:
     airVehicles:
       baseAttribute: dexterity
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     alteration:
@@ -629,7 +631,7 @@ system:
       adds: 3
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     apportation:
@@ -637,7 +639,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     beastRiding:
@@ -645,7 +647,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     computers:
@@ -653,7 +655,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     conjuration:
@@ -661,7 +663,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     divination:
@@ -669,7 +671,7 @@ system:
       adds: 2
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     dodge:
@@ -677,7 +679,7 @@ system:
       adds: 2
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     energyWeapons:
@@ -685,7 +687,7 @@ system:
       adds: 0
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     evidenceAnalysis:
@@ -693,7 +695,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     faith:
@@ -701,7 +703,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     find:
@@ -709,7 +711,7 @@ system:
       adds: 1
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     fireCombat:
@@ -717,7 +719,7 @@ system:
       adds: 1
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     firstAid:
@@ -725,7 +727,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     heavyWeapons:
@@ -733,7 +735,7 @@ system:
       adds: 0
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     intimidation:
@@ -741,7 +743,7 @@ system:
       adds: 1
       isFav: false
       groupName: interaction
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     kinesis:
@@ -749,7 +751,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     landVehicles:
@@ -757,7 +759,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     language:
@@ -765,7 +767,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     lockpicking:
@@ -773,7 +775,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     maneuver:
@@ -781,7 +783,7 @@ system:
       adds: 0
       isFav: false
       groupName: interaction
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     medicine:
@@ -789,7 +791,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     meleeWeapons:
@@ -797,7 +799,7 @@ system:
       adds: 0
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     missileWeapons:
@@ -805,7 +807,7 @@ system:
       adds: 0
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     persuasion:
@@ -813,7 +815,7 @@ system:
       adds: 1
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     precognition:
@@ -821,7 +823,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     profession:
@@ -829,7 +831,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     reality:
@@ -837,7 +839,7 @@ system:
       adds: 1
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     scholar:
@@ -845,7 +847,7 @@ system:
       adds: 1
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     science:
@@ -853,7 +855,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     stealth:
@@ -861,7 +863,7 @@ system:
       adds: 1
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     streetwise:
@@ -869,7 +871,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     survival:
@@ -877,7 +879,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     taunt:
@@ -885,7 +887,7 @@ system:
       adds: 0
       isFav: false
       groupName: interaction
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     telepathy:
@@ -893,7 +895,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     tracking:
@@ -901,7 +903,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     trick:
@@ -909,7 +911,7 @@ system:
       adds: 1
       isFav: false
       groupName: interaction
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     unarmedCombat:
@@ -917,7 +919,7 @@ system:
       adds: 1
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     waterVehicles:
@@ -925,7 +927,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     willpower:
@@ -933,7 +935,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
   xp:
@@ -945,103 +947,7 @@ system:
     spirit: 16
     tech: 26
   details:
-    background: >-
-      <h2 class="MsoNormal">Pr&eacute;sentation</h2>
-
-      <p class="MsoNormal">Les sorci&egrave;res ont diff&eacute;rentes origines
-      &agrave; travers l&rsquo;Europe et se basent sur des croyances diverses
-      mais certaines sont v&eacute;ritablement parvenues &agrave; exploiter
-      l&rsquo;Axiome Magie latent et sont capables de lancer des sorts que ne
-      pourrait supporter la Prime Terre.</p>
-
-      <p class="MsoNormal">Un tel pouvoir est une menace pour Malraux qui a
-      d&eacute;clar&eacute; que tous ceux qui pratiquaient la magie
-      &eacute;taient des h&eacute;r&eacute;tiques. Vous &ecirc;tes
-      d&rsquo;accord et vous avez d&eacute;cid&eacute; d&rsquo;utiliser vos
-      pouvoirs pour prot&eacute;ger les opprim&eacute;s et renverser le
-      tyrannique Antipape.</p>
-
-      <p class="MsoNormal">Naturellement, l&rsquo;aide de toutes ces
-      technologies modernes est la bienvenue.</p>
-
-      <h2 class="MsoNormal">Tactiques</h2>
-
-      <p class="MsoNormal"><em> Am&eacute;lioration </em>est un sort puissant et
-      polyvalent. Accro&icirc;tre la Force de vos alli&eacute;s augmente les
-      dommages qu&rsquo;ils infligent en m&ecirc;l&eacute;e tandis
-      qu&rsquo;am&eacute;liorer leur Dext&eacute;rit&eacute; renforce leurs
-      attaques et leurs d&eacute;fenses. De m&ecirc;me, Diminution est le
-      fl&eacute;au de vos ennemis car ce sort r&eacute;duit leurs attaques ainsi
-      que leur r&eacute;sistance contre d&rsquo;autres sorts.</p>
-
-      <p class="MsoNormal">Et vous pouvez aussi vous appuyer sur Intimidation et
-      Ruse. Tirez profit du haut niveau d&rsquo;Axiome Tech de la
-      Cyberpapaut&eacute; pour renforcer votre magie avec de puissantes armes
-      &agrave; feu et armures. L&rsquo;Hexxer permet de r&eacute;duire
-      l&rsquo;effet du Contrecoup associ&eacute; &agrave; la Cyberpapaut&eacute;
-      et peut m&ecirc;me vous permettre d&rsquo;en tirer profit.</p>
-
-      <h2 class="MsoNormal">Instant fatidique</h2>
-
-      <p class="MsoNormal">Le r&eacute;gime de Malraux opprime tous ceux qui ne
-      sont pas d&rsquo;accord avec ses dictats. Beaucoup ont
-      r&eacute;sist&eacute; et ont succomb&eacute; aux l&eacute;gions corrompues
-      de la Police de l&rsquo;&Eacute;glise. Vous vous &ecirc;tes dress&eacute;e
-      contre l&rsquo;oppression et au cours de votre combat vous &ecirc;tes
-      pass&eacute;e du statut de rebelle &agrave; celui
-      d&rsquo;h&eacute;ro&iuml;ne puis de Chevalier des Temp&ecirc;tes.</p>
-
-      <h2 class="MsoNormal">Citation</h2>
-
-      <p class="MsoNormal">&laquo; Abracadabra pourrait bien &ecirc;tre la
-      derni&egrave;re chose que vous entendrez, mon ami. &raquo;</p>
-
-      <h2 class="MsoNormal">Description</h2>
-
-      <p class="MsoNormal">Quand vous le pouvez, vous vous cachez dans la foule
-      ou dans les ombres. Si on vous examine attentivement, votre Hexxer trahira
-      votre nature. C&rsquo;est un implant ill&eacute;gal qui n&rsquo;a
-      qu&rsquo;une seule fonction : d&eacute;fier l&rsquo;interdiction de la
-      sorcellerie d&eacute;cr&eacute;t&eacute;e par Malraux !</p>
-
-      <p class="MsoNormal">Une fois que vous laissez tomber votre
-      d&eacute;guisement ou votre capuche, votre pouvoir
-      d&eacute;cha&icirc;n&eacute; s&egrave;me la terreur.</p>
-
-      <h2 class="MsoNormal">Objectif</h2>
-
-      <p class="MsoNormal">Vous vous battez pour votre libert&eacute; et vous
-      combattez l&rsquo;autoritarisme, surtout le r&eacute;gime oppressif de
-      Malraux.</p>
-
-      <h2 class="MsoNormal">Noms</h2>
-
-      <p class="MsoNormal">Aure, Blaize, Faye, Gaea, Jean, Marion, Nicola,
-      Paige, Sable, Viola</p>
-
-      <h2 class="MsoNormal">Piste de progression (optionnelle)</h2>
-
-      <ul>
-
-      <li class="MsoNormal">□ (5 PX) Lanceur de sorts (Vision)</li>
-
-      <li class="MsoNormal">□ (7 PX) Lanceur de sorts (Orientation)</li>
-
-      <li class="MsoNormal">□ (1 PX) Provocation +1</li>
-
-      <li class="MsoNormal">□ (2 PX) Combat &agrave; mains nues +2</li>
-
-      <li class="MsoNormal">□ (3 PX) Divination +3</li>
-
-      <li class="MsoNormal">□ (3 PX) Esquive +3</li>
-
-      <li class="MsoNormal">□ (4 PX) Alt&eacute;ration +4</li>
-
-      <li class="MsoNormal">□ (5 PX) Alt&eacute;ration +5</li>
-
-      </ul>
-
-      <h2>&nbsp;</h2>
+    background: "<h2 class=\"MsoNormal\">Présentation</h2>\n<p class=\"MsoNormal\">Les sorcières ont différentes origines à travers l’Europe et se basent sur des croyances diverses mais certaines sont véritablement parvenues à exploiter l’Axiome Magie latent et sont capables de lancer des sorts que ne pourrait supporter la Prime Terre.</p>\n<p class=\"MsoNormal\">Un tel pouvoir est une menace pour Malraux qui a déclaré que tous ceux qui pratiquaient la magie étaient des hérétiques. Vous êtes d’accord et vous avez décidé d’utiliser vos pouvoirs pour protéger les opprimés et renverser le tyrannique Antipape.</p>\n<p class=\"MsoNormal\">Naturellement, l’aide de toutes ces technologies modernes est la bienvenue.</p>\n<h2 class=\"MsoNormal\">Tactiques</h2>\n<p class=\"MsoNormal\"><em> Amélioration </em>est un sort puissant et polyvalent. Accroître la Force de vos alliés augmente les dommages qu’ils infligent en mêlée tandis qu’améliorer leur Dextérité renforce leurs attaques et leurs défenses. De même, Diminution est le fléau de vos ennemis car ce sort réduit leurs attaques ainsi que leur résistance contre d’autres sorts.</p>\n<p class=\"MsoNormal\">Et vous pouvez aussi vous appuyer sur Intimidation et Ruse. Tirez profit du haut niveau d’Axiome Tech de la Cyberpapauté pour renforcer votre magie avec de puissantes armes à feu et armures. L’Hexxer permet de réduire l’effet du Contrecoup associé à la Cyberpapauté et peut même vous permettre d’en tirer profit.</p>\n<h2 class=\"MsoNormal\">Instant fatidique</h2>\n<p class=\"MsoNormal\">Le régime de Malraux opprime tous ceux qui ne sont pas d’accord avec ses dictats. Beaucoup ont résisté et ont succombé aux légions corrompues de la Police de l’Église. Vous vous êtes dressée contre l’oppression et au cours de votre combat vous êtes passée du statut de rebelle à celui d’héroïne puis de Chevalier des Tempêtes.</p>\n<h2 class=\"MsoNormal\">Citation</h2>\n<p class=\"MsoNormal\">« Abracadabra pourrait bien être la dernière chose que vous entendrez, mon ami. »</p>\n<h2 class=\"MsoNormal\">Description</h2>\n<p class=\"MsoNormal\">Quand vous le pouvez, vous vous cachez dans la foule ou dans les ombres. Si on vous examine attentivement, votre Hexxer trahira votre nature. C’est un implant illégal qui n’a qu’une seule fonction : défier l’interdiction de la sorcellerie décrétée par Malraux !</p>\n<p class=\"MsoNormal\">Une fois que vous laissez tomber votre déguisement ou votre capuche, votre pouvoir déchaîné sème la terreur.</p>\n<h2 class=\"MsoNormal\">Objectif</h2>\n<p class=\"MsoNormal\">Vous vous battez pour votre liberté et vous combattez l’autoritarisme, surtout le régime oppressif de Malraux.</p>\n<h2 class=\"MsoNormal\">Noms</h2>\n<p class=\"MsoNormal\">Aure, Blaize, Faye, Gaea, Jean, Marion, Nicola, Paige, Sable, Viola</p>\n<h2 class=\"MsoNormal\">Piste de progression (optionnelle)</h2>\n<ul>\n<li class=\"MsoNormal\">□ (5 PX) Lanceur de sorts (Vision)</li>\n<li class=\"MsoNormal\">□ (7 PX) Lanceur de sorts (Orientation)</li>\n<li class=\"MsoNormal\">□ (1 PX) Provocation +1</li>\n<li class=\"MsoNormal\">□ (2 PX) Combat à mains nues +2</li>\n<li class=\"MsoNormal\">□ (3 PX) Divination +3</li>\n<li class=\"MsoNormal\">□ (3 PX) Esquive +3</li>\n<li class=\"MsoNormal\">□ (4 PX) Altération +4</li>\n<li class=\"MsoNormal\">□ (5 PX) Altération +5</li>\n</ul>\n<h2>\_</h2>"
     race: human
     sizeBonus: normal
   editstate: false
@@ -1132,10 +1038,10 @@ prototypeToken:
   movementAction: null
 _stats:
   systemId: torgeternity
-  systemVersion: 13.15.0
+  systemVersion: 13.27.0
   coreVersion: '13.351'
   createdTime: 1716827809277
-  modifiedTime: 1771935890757
+  modifiedTime: 1773001234617
   lastModifiedBy: BMvGTGfheqDXarjN
   compendiumSource: null
   duplicateSource: null

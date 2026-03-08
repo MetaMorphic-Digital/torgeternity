@@ -76,7 +76,7 @@
       {{localize 'torgeternity.sheetLabels.toughness'}}
     </span>
     <span class="sidebar-statline-right" style="display: block">
-      {{document.defenses.toughness}} &nbsp; &lpar;{{document.defenses.armor}}&rpar;
+      {{document.system.defenses.toughness}} &nbsp; &lpar;{{document.system.defenses.armor}}&rpar;
     </span>
   </div>
   <hr />
@@ -94,8 +94,8 @@
   <hr />
 
   <div
-    class="sidebar-heading activeDefense-roll{{#if document.defenses.isActivelyDefending}}-glow{{/if}}"
-    data-action="activeDefenseRoll{{#if document.defenses.isActivelyDefending}}Glow{{/if}}"
+    class="sidebar-heading activeDefense-roll{{#if isActivelyDefending}}-glow{{/if}}"
+    data-action="activeDefenseRoll{{#if isActivelyDefending}}Glow{{/if}}"
     data-tooltip='{{localize "torgeternity.sheetLabels.defensesTip"}}' {{disabled (not @root.editable)}}>
     <i class="fas fa-shield"></i>
     {{localize 'torgeternity.sheetLabels.defenses'}}
@@ -103,36 +103,36 @@
 
   <div class="sidebar-statline">
     <span class="sidebar-statline-left">{{localize 'torgeternity.sheetLabels.melee'}}</span>
-    <span class="sidebar-statline-right">{{document.defenses.meleeWeapons.value}}</span>
+    <span class="sidebar-statline-right">{{document.system.defenses.meleeWeapons.value}}</span>
   </div>
 
   <div class="sidebar-statline">
     <span class="sidebar-statline-left">{{localize 'torgeternity.skills.dodge'}}</span>
-    <span class="sidebar-statline-right">{{document.defenses.dodge.value}}</span>
+    <span class="sidebar-statline-right">{{document.system.defenses.dodge.value}}</span>
   </div>
 
   <div class="sidebar-statline">
     <span class="sidebar-statline-left">{{localize 'torgeternity.sheetLabels.unarmed'}}</span>
-    <span class="sidebar-statline-right">{{document.defenses.unarmedCombat.value}}</span>
+    <span class="sidebar-statline-right">{{document.system.defenses.unarmedCombat.value}}</span>
   </div>
 
   <div class="sidebar-statline">
     <span class="sidebar-statline-left">{{localize 'torgeternity.skills.intimidation'}}</span>
-    <span class="sidebar-statline-right">{{document.defenses.intimidation.value}}</span>
+    <span class="sidebar-statline-right">{{document.system.defenses.intimidation.value}}</span>
   </div>
 
   <div class="sidebar-statline">
     <span class="sidebar-statline-left">{{localize 'torgeternity.skills.maneuver'}}</span>
-    <span class="sidebar-statline-right">{{document.defenses.maneuver.value}}</span>
+    <span class="sidebar-statline-right">{{document.system.defenses.maneuver.value}}</span>
   </div>
 
   <div class="sidebar-statline">
     <span class="sidebar-statline-left">{{localize 'torgeternity.skills.taunt'}}</span>
-    <span class="sidebar-statline-right">{{document.defenses.taunt.value}}</span>
+    <span class="sidebar-statline-right">{{document.system.defenses.taunt.value}}</span>
   </div>
 
   <div class="sidebar-statline">
     <span class="sidebar-statline-left">{{localize 'torgeternity.skills.trick'}}</span>
-    <span class="sidebar-statline-right">{{document.defenses.trick.value}}</span>
+    <span class="sidebar-statline-right">{{document.system.defenses.trick.value}}</span>
   </div>
 </div>

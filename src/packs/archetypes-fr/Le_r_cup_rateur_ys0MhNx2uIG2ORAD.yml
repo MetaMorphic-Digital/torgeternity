@@ -681,14 +681,16 @@ system:
       base: 12
   other:
     cosm: tharkold
-    possibilities: 3
+    possibilities:
+      value: 3
+    piety: 0
   skills:
     airVehicles:
       baseAttribute: dexterity
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     alteration:
@@ -696,7 +698,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     apportation:
@@ -704,7 +706,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     beastRiding:
@@ -712,7 +714,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     computers:
@@ -720,7 +722,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     conjuration:
@@ -728,7 +730,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     divination:
@@ -736,7 +738,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     dodge:
@@ -744,7 +746,7 @@ system:
       adds: 1
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     energyWeapons:
@@ -752,7 +754,7 @@ system:
       adds: 0
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     evidenceAnalysis:
@@ -760,7 +762,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     faith:
@@ -768,7 +770,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     find:
@@ -776,7 +778,7 @@ system:
       adds: 2
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     fireCombat:
@@ -784,7 +786,7 @@ system:
       adds: 1
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     firstAid:
@@ -792,7 +794,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     heavyWeapons:
@@ -800,7 +802,7 @@ system:
       adds: 1
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     intimidation:
@@ -808,7 +810,7 @@ system:
       adds: 2
       isFav: false
       groupName: interaction
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     kinesis:
@@ -816,7 +818,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     landVehicles:
@@ -824,7 +826,7 @@ system:
       adds: 1
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     language:
@@ -832,7 +834,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     lockpicking:
@@ -840,7 +842,7 @@ system:
       adds: 1
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     maneuver:
@@ -848,7 +850,7 @@ system:
       adds: 0
       isFav: false
       groupName: interaction
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     medicine:
@@ -856,7 +858,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     meleeWeapons:
@@ -864,7 +866,7 @@ system:
       adds: 3
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     missileWeapons:
@@ -872,7 +874,7 @@ system:
       adds: 1
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     persuasion:
@@ -880,7 +882,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     precognition:
@@ -888,7 +890,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     profession:
@@ -896,7 +898,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     reality:
@@ -904,7 +906,7 @@ system:
       adds: 1
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     scholar:
@@ -912,7 +914,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     science:
@@ -920,7 +922,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     stealth:
@@ -928,7 +930,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     streetwise:
@@ -936,7 +938,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     survival:
@@ -944,7 +946,7 @@ system:
       adds: 1
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     taunt:
@@ -952,7 +954,7 @@ system:
       adds: 1
       isFav: false
       groupName: interaction
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     telepathy:
@@ -960,7 +962,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     tracking:
@@ -968,7 +970,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     trick:
@@ -976,7 +978,7 @@ system:
       adds: 0
       isFav: false
       groupName: interaction
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     unarmedCombat:
@@ -984,7 +986,7 @@ system:
       adds: 0
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     waterVehicles:
@@ -992,7 +994,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     willpower:
@@ -1000,7 +1002,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
   xp:
@@ -1013,73 +1015,62 @@ system:
     tech: 25
   details:
     background: >-
-      <h2>Pr&eacute;sentation</h2>
+      <h2>Présentation</h2>
 
-      <p class="MsoNormal">Quand les Russes ont d&eacute;truit le pont
-      maelstr&ouml;m de Tharkold avec une arme nucl&eacute;aire, les
-      retomb&eacute;es ont &eacute;t&eacute; d&eacute;vastatrices pour les deux
-      camps. De robustes humains errent d&eacute;sormais sur la vaste Terre
-      d&eacute;vast&eacute;e &agrave; la recherche d&rsquo;appareils utiles des
-      technod&eacute;mons qu&rsquo;ils peuvent r&eacute;cup&eacute;rer, vendre
-      ou utiliser.</p>
+      <p class="MsoNormal">Quand les Russes ont détruit le pont maelström de
+      Tharkold avec une arme nucléaire, les retombées ont été dévastatrices pour
+      les deux camps. De robustes humains errent désormais sur la vaste Terre
+      dévastée à la recherche d’appareils utiles des technodémons qu’ils peuvent
+      récupérer, vendre ou utiliser.</p>
 
-      <p class="MsoNormal">Vous &eacute;tiez autrefois soldat dans
-      l&rsquo;arm&eacute;e russe mais les horreurs de la Bataille de Moscou et
-      votre immense d&eacute;ception quand le gouvernement a
-      d&eacute;cid&eacute; de coop&eacute;rer avec les technod&eacute;mons ont
-      mis un terme &agrave; votre engagement.</p>
+      <p class="MsoNormal">Vous étiez autrefois soldat dans l’armée russe mais
+      les horreurs de la Bataille de Moscou et votre immense déception quand le
+      gouvernement a décidé de coopérer avec les technodémons ont mis un terme à
+      votre engagement.</p>
 
       <h2>Tactiques</h2>
 
-      <p class="MsoNormal">Votre Marteau d&rsquo;impact est une arme
-      extr&ecirc;mement puissante surtout mani&eacute;e avec votre Force
-      &eacute;lev&eacute;e. Votre meilleure strat&eacute;gie est souvent de
-      foncer au milieu des ennemis et d&rsquo;utiliser votre arme. Votre bras
-      cybern&eacute;tique donne encore plus de Force &agrave; vos attaques. Vos
-      attaques d&rsquo;interactions ne sont pas tr&egrave;s efficaces
-      compar&eacute;es &agrave; votre marteau mais cela vaut la peine de tenter
-      le coup quand ce sont des Actions approuv&eacute;es. Si vos adversaires
-      restent hors de port&eacute;e, essayez de trouver des armes &agrave; feu
-      abandonn&eacute;es ou utilisez Intimidation contre eux.</p>
+      <p class="MsoNormal">Votre Marteau d’impact est une arme extrêmement
+      puissante surtout maniée avec votre Force élevée. Votre meilleure
+      stratégie est souvent de foncer au milieu des ennemis et d’utiliser votre
+      arme. Votre bras cybernétique donne encore plus de Force à vos attaques.
+      Vos attaques d’interactions ne sont pas très efficaces comparées à votre
+      marteau mais cela vaut la peine de tenter le coup quand ce sont des
+      Actions approuvées. Si vos adversaires restent hors de portée, essayez de
+      trouver des armes à feu abandonnées ou utilisez Intimidation contre
+      eux.</p>
 
       <h2>Instant fatidique</h2>
 
-      <p class="MsoNormal">Apr&egrave;s la Bataille de Moscou, la
-      d&eacute;sertion a &eacute;t&eacute; votre seule option. Vous avez
-      ressenti l&rsquo;appel de la Terre d&eacute;vast&eacute;e, un lieu
-      o&ugrave; mourir dignement loin des affres de la politique et de la
-      trahison. Mais au lieu d&rsquo;y perdre la vie, vous y avez trouv&eacute;
-      des gens, des d&eacute;sesp&eacute;r&eacute;s confront&eacute;s aux
-      abominations engendr&eacute;es par les retomb&eacute;es. Tuer une de ces
-      b&ecirc;tes a pu d&eacute;clencher votre transformation en Chevalier des
-      Temp&ecirc;tes ou peut-&ecirc;tre est-ce parce que vous avez sauv&eacute;
-      cette famille sans rien lui demander.</p>
+      <p class="MsoNormal">Après la Bataille de Moscou, la désertion a été votre
+      seule option. Vous avez ressenti l’appel de la Terre dévastée, un lieu où
+      mourir dignement loin des affres de la politique et de la trahison. Mais
+      au lieu d’y perdre la vie, vous y avez trouvé des gens, des désespérés
+      confrontés aux abominations engendrées par les retombées. Tuer une de ces
+      bêtes a pu déclencher votre transformation en Chevalier des Tempêtes ou
+      peut-être est-ce parce que vous avez sauvé cette famille sans rien lui
+      demander.</p>
 
       <h2>Citation</h2>
 
-      <p class="MsoNormal">&laquo; Il y a un dicton russe qui dit : &laquo; la
-      vengeance est un plat qui se mange froid. &raquo; Il fait tr&egrave;s
-      froid en Russie, mudak. &raquo;</p>
+      <p class="MsoNormal">« Il y a un dicton russe qui dit : « la vengeance est
+      un plat qui se mange froid. » Il fait très froid en Russie, mudak. »</p>
 
       <h2>Description</h2>
 
-      <p class="MsoNormal">Vous &ecirc;tes grand, large d&rsquo;&eacute;paules
-      et avec la carrure d&rsquo;unvtank. Tous ceux qui vivent sur la Terre
-      d&eacute;vast&eacute;e portent lesvm&ecirc;mes v&ecirc;tements, des tenues
-      et des armures constitu&eacute;es de tout ce qui est assez
-      r&eacute;sistant et pratique. Vous pr&eacute;tendez &ecirc;tre cynique et
-      sarcastique mais en fait vous &ecirc;tes optimiste et id&eacute;aliste.
-      Impossible de dissimuler votre Marteau d&rsquo;impact, une arme
-      d&eacute;mesur&eacute;e con&ccedil;ue pour les technod&eacute;mons.
-      M&ecirc;me quand vous ne l&rsquo;utilisez pas, il vrombit d&rsquo;une
-      sinistre &eacute;nergie.</p>
+      <p class="MsoNormal">Vous êtes grand, large d’épaules et avec la carrure
+      d’unvtank. Tous ceux qui vivent sur la Terre dévastée portent lesvmêmes
+      vêtements, des tenues et des armures constituées de tout ce qui est assez
+      résistant et pratique. Vous prétendez être cynique et sarcastique mais en
+      fait vous êtes optimiste et idéaliste. Impossible de dissimuler votre
+      Marteau d’impact, une arme démesurée conçue pour les technodémons. Même
+      quand vous ne l’utilisez pas, il vrombit d’une sinistre énergie.</p>
 
       <h2>Objectif</h2>
 
-      <p class="MsoNormal">L&rsquo;amiti&eacute; et la loyaut&eacute; sont au
-      coeur de toutes vos actions m&ecirc;me si vous ne le dites &agrave;
-      personne. Vous vous pr&eacute;tendez cupide pour ne pas montrer que vous
-      avez un coeur tendre.</p>
+      <p class="MsoNormal">L’amitié et la loyauté sont au coeur de toutes vos
+      actions même si vous ne le dites à personne. Vous vous prétendez cupide
+      pour ne pas montrer que vous avez un coeur tendre.</p>
 
       <h2>Noms</h2>
 
@@ -1088,7 +1079,7 @@ system:
 
       <h2>Piste de progression (optionnelle)</h2>
 
-      <p class="MsoNormal">□ (1 PX) Armes &agrave; &eacute;nergie +1</p>
+      <p class="MsoNormal">□ (1 PX) Armes à énergie +1</p>
 
       <p class="MsoNormal">□ (5 PX) Occultech (Supresseur sensoriel Vav)</p>
 
@@ -1098,9 +1089,9 @@ system:
 
       <p class="MsoNormal">□ (3 PX) Observation +3</p>
 
-      <p class="MsoNormal">□ (4 PX) Armes de m&ecirc;l&eacute;e +4</p>
+      <p class="MsoNormal">□ (4 PX) Armes de mêlée +4</p>
 
-      <p class="MsoNormal">□ (5 PX) Armes de m&ecirc;l&eacute;e +5</p>
+      <p class="MsoNormal">□ (5 PX) Armes de mêlée +5</p>
 
       <p class="MsoNormal">□ (3 PX) Intimidation +3</p>
     race: human
@@ -1193,10 +1184,10 @@ prototypeToken:
   movementAction: null
 _stats:
   systemId: torgeternity
-  systemVersion: 13.15.0
+  systemVersion: 13.27.0
   coreVersion: '13.351'
   createdTime: 1716827809898
-  modifiedTime: 1771935912866
+  modifiedTime: 1773001234629
   lastModifiedBy: BMvGTGfheqDXarjN
   compendiumSource: null
   duplicateSource: null
