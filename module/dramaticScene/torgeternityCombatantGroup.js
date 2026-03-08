@@ -30,14 +30,16 @@ export default class TorgCombatantGroup extends foundry.documents.CombatantGroup
     return this.members.size ? this.members.first().token.disposition : undefined;
   }
 
-  _onCreate(changed, options, userId) {
+  _onCreate(data, options, userId) {
+    super._onCreate(data, options, userId);
     // Ensure Combat Tracker is updated on change of Combatant Groups
-    if (this.parent.isView) ui.combat.render();
     if (!this.parent.openGroups) this.parent.openGroups = {};
     this.parent.openGroups[this.id] = true;
+    if (this.parent.isView) ui.combat.render();
   }
 
   _onUpdate(changed, options, userId) {
+    super._onUpdate(changed, options, userId);
     // Ensure Combat Tracker is updated on change of Combatant Groups
     if (this.parent.isView) ui.combat.render();
   }
@@ -49,5 +51,6 @@ export default class TorgCombatantGroup extends foundry.documents.CombatantGroup
     // Ensure Combat Tracker is updated on change of Combatant Groups
     if (this.parent.isView) ui.combat.render();
     delete this.parent.openGroups[this.id];
+    super._onDelete(options, userId);
   }
 }

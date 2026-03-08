@@ -184,6 +184,7 @@ export default class TorgeternityActor extends foundry.documents.Actor {
     this._safePrepareData();
     if (this.apps)
       Object.values(this.apps).forEach(app => app.render());
+    super._onEmbeddedDocumentChange();
   }
 
   /**

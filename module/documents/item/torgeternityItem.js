@@ -39,6 +39,8 @@ export default class TorgeternityItem extends foundry.documents.Item {
    *
    */
   prepareBaseData() {
+    super.prepareBaseData();
+
     // Handle perk-related data
     switch (this.type) {
       case 'perk':
