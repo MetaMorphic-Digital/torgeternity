@@ -849,7 +849,7 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
       skillValue: null,
       unskilledUse: true,
       type: 'activeDefense',
-    }, { useTargets: true });
+    }, { useTargets: false });
   }
 
   /**
