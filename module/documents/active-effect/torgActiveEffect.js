@@ -127,15 +127,16 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
    * Return a copy of this object with the various "attack" traits cleared.
    */
   copyForTransfer() {
-    let fx = this.toObject();
     // Override some values
-    return Object.assign(fx, {
-      disabled: false,
-      system: {
-        transferOnOutcome: null,
-        transferTo: '',
+    return foundry.utils.mergeObject(this.toObject(),
+      {
+        disabled: false,
+        system: {
+          transferOnOutcome: null,
+          transferTo: '',
+        },
+        origin: this.parent.uuid,  // the originating Item
       },
-      origin: this.parent.uuid,  // the originating Item
-    });
+      { replace: true, recursive: true });
   }
 }

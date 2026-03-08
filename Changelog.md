@@ -1,6 +1,6 @@
 # TORG Eternity Changelog
 
-## 13.27.0 - Active Effects & ignore Disconnected Items
+## 13.27.0 - Active Effects, Roll Data & ignore Disconnected Items
 
 - Active Effects can now be configured to transfer to the attacking Actor rather than only to the target.
 - Add a new `Defend Against Trait` attribute to Active Effects to apply an AE on the TARGET when attacked by an ACTOR with a specific trait (e.g. for Ward Enemy).
