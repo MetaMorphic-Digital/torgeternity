@@ -27,6 +27,7 @@ Move some data from `Actor` to `Actor.system` so that all the Torg-specific data
 - When `Disconnected`, any Items which are contradictions are marked as NOT equipped (and therefore won't affect the Actor's stats, e.g. armor is ignored)
 - The `Periculum` macro now displays damage correctly again.
 - A few more cases are fixed where Dice-So-Nice was not rolling 3D dice.
+- Chat card for `Active Defense` should not show any targets.
 
 ## 13.26.2 - Bug Fix
 
