@@ -44,14 +44,15 @@ export class TorgActiveEffectData extends (foundry.data.ActiveEffectTypeDataMode
   }
 
   static migrateData(source) {
-    if (typeof source.transferOnOutcome === 'number') {
+
+    if (typeof source.transferOnOutcome === 'number' && source.transferOnOutcome !== 0) {
       // map TestResult to string
       const conversion = ['', 'mishap', 'failure', 'standard', 'good', 'outstanding'];
       source.transferOnOutcome = conversion[source.transferOnOutcome] ?? '';
     } else if (source.transferOnAttack)
       source.transferOnOutcome = 'anySuccess';
     if (source.transferOnOutcome && !source.transferTo) source.transferTo = 'target';
-    if (source.transferOnAttack) delete source.transferOnAttack;
+    delete source.transferOnAttack;
 
     if (source.applyIfAttackTrait) source.applyIfAttackTrait = source.applyIfAttackTrait.map(t => (t === 'supernnaturalEvil') ? 'supernaturalEvil' : t)
     if (source.applyIfDefendTrait) source.applyIfDefendTrait = source.applyIfDefendTrait.map(t => (t === 'supernnaturalEvil') ? 'supernaturalEvil' : t)
