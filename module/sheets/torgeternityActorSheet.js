@@ -875,7 +875,7 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
       darknessModifier: 0,
       DNDescriptor: 'standard',
       type: 'activeDefense',
-      targetAll: game.user.targets.map(token => oneTestTarget(token)), // for renderSkillChat
+      targetAll: [], // for renderSkillChat
       applySize: false,
       attackOptions: false,
       combinedAction: {
