@@ -65,13 +65,15 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
     }
 
     // Replace flags
-    if (source.flags?.torgeternity?.transferOnAttack === true) {
-      source.system.transferOnOutcome = CONFIG.torgeternity.testOutcomeAnySuccess;
-      delete source.flags.torgeternity.transferOnAttack;
-    }
-    if (source.flags?.torgeternity?.testOutcome) {
-      source.system.transferOnOutcome = source.flags.torgeternity.testOutcome;
-      delete source.flags.torgeternity.testOutcome;
+    if (source.flags?.torgeternity) {
+      if (source.flags.torgeternity.testOutcome) {
+        source.system.transferOnOutcome = source.flags.torgeternity.testOutcome;
+        delete source.flags.torgeternity.testOutcome;
+      }
+      if (source.flags.torgeternity.transferOnAttack === true) {
+        source.system.transferOnAttack = source.flags.torgeternity.transferOnAttack;
+        delete source.flags.torgeternity.transferOnAttack;
+      }
     }
 
     return super.migrateData(source);

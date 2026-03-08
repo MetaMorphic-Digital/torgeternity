@@ -32,10 +32,6 @@
           "label": "Display as Combat Toggle",
           "hint": "Display this effect in the Attacks and Powers section of the Actor sheet for quicker access to toggling its active state"
         },
-        "transferOnAttack": {
-          "label": "Transfer on Success",
-          "hint": "Transfer this effect to the target Actor(s) when a test using this Item is successful (any level of success). Leave unchecked if a specific success level is required (use the next option instead)."
-        },
         "transferOnOutcome": {
           "label": "Transfer on Outcome",
           "hint": "Transfer this effect to the target Actor(s) with a test using this Item has this particular outcome"
@@ -133,6 +129,7 @@
         "noTracker": "Cannot use chase button unless there is an active combat in the combat tracker.",
         "result": {
           "actionTotal": "Action Total",
+          "anyFailure": "Any Failure",
           "anySuccess": "Any Success",
           "attackMissed": "Attack Missed",
           "damage": "Damage",
@@ -140,7 +137,7 @@
           "failure": "Failure",
           "fragileBroken": "The fragile {itemName} breaks",
           "goodSuccess": "Good Success",
-          "mishape": "Mishap",
+          "mishap": "Mishap",
           "new": "New Roll Total",
           "noDamage": "No Damage",
           "outstandingSuccess": "Outstanding Success",

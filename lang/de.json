@@ -34,10 +34,6 @@
     },
     "activeEffect": {
       "FIELDS": {
-        "transferOnAttack": {
-          "label": "Effekt bei Angriff anwenden",
-          "hint": "Dieser Effekt wird für das ausgewählte Ziel angewendet, falls der Gegenstand dieses Effekts für den Angriff genutzt wurde (entweder als Waffe oder Munition)"
-        },
         "transferOnOutcome": {
           "label": "Effect je nach Ergebnis anwenden",
           "hint": "Je nach Probenergebnis mit diesem Gegenstand den passenden Effekt auf den Zieltoken anwenden"
@@ -139,6 +135,7 @@
         "noTracker": "Der Verfolgungsjagd-Button kann so lange nicht verwendet werden, bis es einen aktiven Kampf im Begegnungsstracker gibt.",
         "result": {
           "actionTotal": "Aktion insgesamt",
+          "anyFailure": "Any Failure",
           "anySuccess": "Any Success",
           "attackMissed": "Angriff verfehlt",
           "damage": "Schaden",
@@ -146,7 +143,7 @@
           "failure": "Fehlschlag",
           "fragileBroken": "{itemName} zerbricht",
           "goodSuccess": "Guter Erfolg",
-          "mishape": "Patzer",
+          "mishap": "Patzer",
           "new": "Neue Summe",
           "noDamage": "Kein Schaden",
           "outstandingSuccess": "Hervorragender Erfolg",

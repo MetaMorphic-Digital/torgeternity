@@ -741,13 +741,14 @@ export function initConfig() {
   // Fixed strings needed for Data Models
   torgeternity.testOutcomeAnySuccess = 100;
   torgeternity.testOutcomeLabel = {
-    [TestResult.UNKNOWN]: "",
-    [TestResult.MISHAP]: 'torgeternity.chatText.check.result.mishape',
-    [TestResult.FAILURE]: 'torgeternity.chatText.check.result.failure',
-    [TestResult.STANDARD]: 'torgeternity.chatText.check.result.standardSuccess',
-    [TestResult.GOOD]: 'torgeternity.chatText.check.result.goodSuccess',
-    [TestResult.OUTSTANDING]: 'torgeternity.chatText.check.result.outstandingSuccess',
-    [torgeternity.testOutcomeAnySuccess]: 'torgeternity.chatText.check.result.anySuccess'
+    [""]: '',
+    mishap: 'torgeternity.chatText.check.result.mishap',
+    failure: 'torgeternity.chatText.check.result.failure',
+    standard: 'torgeternity.chatText.check.result.standardSuccess',
+    good: 'torgeternity.chatText.check.result.goodSuccess',
+    outstanding: 'torgeternity.chatText.check.result.outstandingSuccess',
+    anySuccess: 'torgeternity.chatText.check.result.anySuccess',
+    anyFailure: 'torgeternity.chatText.check.result.anyFailure',
   }
 
   // Hard-coded, so that we are guaranteed to have it available immediately

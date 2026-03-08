@@ -493,7 +493,7 @@ export async function renderSkillChat(test, origChatMessage) {
     ) {
       // Roll 1 and not defense = Mishap
       test.result = TestResult.MISHAP;
-      test.resultText = game.i18n.localize('torgeternity.chatText.check.result.mishape');
+      test.resultText = game.i18n.localize('torgeternity.chatText.check.result.mishap');
       if (test?.attackTraits?.includes('fragile')) {
         test.extraResult = game.i18n.format('torgeternity.chatText.check.result.fragileBroken', { itemName: testItem.name });
       }
@@ -1511,11 +1511,20 @@ export function checkUnskilled(skillValue, skillName, actor) {
  */
 function appliesToTest(effect, test, target) {
   if (effect.disabled) return false;
-  if (effect.modifiesTarget) {
+  if (effect.system.transferOnOutcome) {
     // If transferred, then applies to test
     const result = test.result;
-    if (effect.system.transferOnOutcome === CONFIG.torgeternity.testOutcomeAnySuccess) return result >= TestResult.STANDARD;
-    return effect.system.transferOnOutcome === result;
+    switch (effect.system.transferOnOutcome) {
+      case 'anySuccess': return result >= TestResult.STANDARD;
+      case 'anyFailure': return result < TestResult.STANDARD;
+      case 'mishap': return result === TestResult.MISHAP;
+      case 'failure': return result === TestResult.FAILURE;
+      case 'standard': return result === TestResult.STANDARD;
+      case 'good': return result === TestResult.GOOD;
+      case 'outstanding': return result === TestResult.OUTSTANDING;
+      default:
+        console.warn(`Ignoring unknown transferOnOutcome value: '${effect.system.transferOnOutcome}'`);
+    }
   }
   // These are irrelevant if this effect is going to be transferred to the target.
   if (!testTraits(effect.system.applyIfAttackTrait, test.attackTraits)) return false;

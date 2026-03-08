@@ -34,10 +34,6 @@
     },
     "activeEffect": {
       "FIELDS": {
-        "transferOnAttack": {
-          "label": "Transfert d'Effet par une Attaque",
-          "hint": "Si coché, cet Effet sera appliqué à l'Acteur ciblé par une attaque impliquant cet objet (armes ou munitions)"
-        },
         "transferOnOutcome": {
           "label": "Appliquer l'Effet correspondant au degré de réussite",
           "hint": "Appliquer l'Effet sur le Token ciblé correspondant au degré de réussite du test impliquant cet objet"
@@ -139,6 +135,7 @@
         "noTracker": "Pas de jet de Poursuite à moins d'un combat actif.",
         "result": {
           "actionTotal": "Total de l'action",
+          "anyFailure": "Any Failure",
           "anySuccess": "Any Success",
           "attackMissed": "Attaque ratée",
           "damage": "Dommages",
@@ -146,7 +143,7 @@
           "failure": "Échec",
           "fragileBroken": "{itemName} est fragile et se casse",
           "goodSuccess": "Succès supérieur",
-          "mishape": "Échec critique",
+          "mishap": "Échec critique",
           "new": "Résultat du nouveau jet",
           "noDamage": "Pas de dommages",
           "outstandingSuccess": "Succès spectaculaire",
