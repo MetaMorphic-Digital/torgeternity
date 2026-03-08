@@ -59,8 +59,8 @@
           "hint": "Wende diesen Effekt bei einer Probe mit diesem Gegenstand NUR an, wenn der ZIEL-Charakter eine dieser Eigenschaften hat"
         },
         "defendAgainstTrait": {
-          "label": "Defend Against Trait",
-          "hint": "Apply this effect to a test when the owner is a TARGET and the attacker has one of these traits"
+          "label": "Verteidigung gegen Eigenschaft",
+          "hint": "Wende diesen Effekt an, wenn der Besitzer das ZIEL ist und der Angreifer eine der angegebenen Eigenschaften hat"
         }
       }
     },
