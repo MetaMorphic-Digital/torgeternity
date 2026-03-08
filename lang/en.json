@@ -27,6 +27,10 @@
       "value": "Field Value"
     },
     "activeEffect": {
+      "transferTo": {
+        "actor": "Actor",
+        "target": "Target"
+      },
       "FIELDS": {
         "combatToggle": {
           "label": "Display as Combat Toggle",
@@ -35,6 +39,10 @@
         "transferOnOutcome": {
           "label": "Transfer on Outcome",
           "hint": "Transfer this effect to the target Actor(s) with a test using this Item has this particular outcome"
+        },
+        "transferTo": {
+          "label": "Transfer To",
+          "hint": "Whether this effect is transferred to the target, or the actor performing the test"
         },
         "applyIfAttackTrait": {
           "label": "Apply If Attack Trait",
@@ -967,7 +975,8 @@
       "applyDamage": "Damage",
       "applyEffects": "Effects",
       "applyDamageTooltip": "Shift-click to modify applied damage, Normal click to apply.",
-      "applyEffectsTooltip": "Apply relevant Active Effects to target(s)",
+      "applyEffectsActorTooltip": "Apply relevant Active Effects to Actor",
+      "applyEffectsTargetTooltip": "Apply relevant Active Effects to target(s)",
       "applySoak": "Apply Soak",
       "applySoakTooltip": "Apply the soak reductions to the attack.",
       "applyStymied": "Stymied",

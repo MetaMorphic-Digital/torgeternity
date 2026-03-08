@@ -33,10 +33,18 @@
       "value": "Valor del campo"
     },
     "activeEffect": {
+      "transferTo": {
+        "actor": "Actor",
+        "target": "Target"
+      },
       "FIELDS": {
         "transferOnOutcome": {
           "label": "Aplicar efecto con resultado",
           "hint": "Aplicar el efecto a la(s) ficha(s) objetivo cuando una prueba que usa este objeto obtenga este resultado específico"
+        },
+        "transferTo": {
+          "label": "Transfer To",
+          "hint": "Whether this effect is transferred to the target, or the actor performing the test"
         },
         "combatToggle": {
           "label": "Mostrar como opción de combate",
@@ -973,7 +981,8 @@
       "applyDamage": "Daño",
       "applyEffects": "Efectos",
       "applyDamageTooltip": "May + clic para modificar daño aplicado, botón izquierdo para aplicar.",
-      "applyEffectsTooltip": "Aplicar efectos activos pertinentes al/los objetivo(s)",
+      "applyEffectsActorTooltip": "Aplicar efectos activos pertinentes al/los objetivo(s)",
+      "applyEffectsTargetTooltip": "Aplicar efectos activos pertinentes al/los objetivo(s)",
       "applySoak": "absorción",
       "applySoakTooltip": "Aplicar al ataque las reducciones por absorción.",
       "applyStymied": "Impedido",

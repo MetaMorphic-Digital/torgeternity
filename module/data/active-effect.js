@@ -22,8 +22,18 @@ export class TorgActiveEffectData extends (foundry.data.ActiveEffectTypeDataMode
         // ...foundry.data.ActiveEffectTypeDataModel.defineSchema(),    // Foundry 14+
         transferOnOutcome: new fields.StringField({
           choices: CONFIG.torgeternity.testOutcomeLabel,
-          initial: null,
-          nullable: true,
+          required: true,
+          initial: '',
+          blank: true
+        }),
+        transferTo: new fields.StringField({
+          choices: {
+            'actor': 'torgeternity.activeEffect.transferTo.actor',
+            'target': 'torgeternity.activeEffect.transferTo.target'
+          },
+          required: true,
+          initial: 'target',
+          blank: false
         }),
         applyIfAttackTrait: newTraitsField(),
         applyIfDefendTrait: newTraitsField(),
@@ -39,10 +49,12 @@ export class TorgActiveEffectData extends (foundry.data.ActiveEffectTypeDataMode
       source.transferOnOutcome = conversion[source.transferOnOutcome] ?? '';
     } else if (source.transferOnAttack)
       source.transferOnOutcome = 'anySuccess';
+    if (source.transferOnOutcome && !source.transferTo) source.transferTo = 'target';
     if (source.transferOnAttack) delete source.transferOnAttack;
 
     if (source.applyIfAttackTrait) source.applyIfAttackTrait = source.applyIfAttackTrait.map(t => (t === 'supernnaturalEvil') ? 'supernaturalEvil' : t)
     if (source.applyIfDefendTrait) source.applyIfDefendTrait = source.applyIfDefendTrait.map(t => (t === 'supernnaturalEvil') ? 'supernaturalEvil' : t)
+
     return super.migrateData(source);
   }
 

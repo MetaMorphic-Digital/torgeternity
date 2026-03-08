@@ -451,7 +451,8 @@ export async function renderSkillChat(test, origChatMessage) {
         if (ammo) test.effects.push(...ammo.effects.filter(ef => appliesToTest(ef, test, target)).map(ef => ef.uuid));
       }
     }
-    target.showApplyEffects = !!test.effects.map(fx => fromUuidSync(fx)).find(fx => fx.modifiesTarget);
+    test.showApplyEffects = !!test.effects.map(fx => fromUuidSync(fx)).find(fx => fx.transfersToActor);
+    target.showApplyEffects = !!test.effects.map(fx => fromUuidSync(fx)).find(fx => fx.transfersToTarget);
 
     // Approved Action Processing
     test.successfulDefendApprovedAction = false;
@@ -833,7 +834,7 @@ export function applyNumericEffects(fieldname, origvalue, effects) {
   if (!effects) return value;
 
   // Get changes into a sorted list in priority order
-  const changes = effects.filter(fx => fx && !fx.modifiesTarget)
+  const changes = effects.filter(fx => fx && !fx.transferOnOutcome)
     .map(fx => fx.changes.filter(ch => ch.key === fieldname)).flat(1)
     .sort((a, b) => (a.priority ?? (a.mode * 10)) - (b.priority ?? (b.mode * 10)));
 

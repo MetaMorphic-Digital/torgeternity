@@ -33,10 +33,18 @@
       "value": "Valeur du champs"
     },
     "activeEffect": {
+      "transferTo": {
+        "actor": "Actor",
+        "target": "Target"
+      },
       "FIELDS": {
         "transferOnOutcome": {
           "label": "Appliquer l'Effet correspondant au degré de réussite",
           "hint": "Appliquer l'Effet sur le Token ciblé correspondant au degré de réussite du test impliquant cet objet"
+        },
+        "transferTo": {
+          "label": "Transfer To",
+          "hint": "Whether this effect is transferred to the target, or the actor performing the test"
         },
         "combatToggle": {
           "label": "Afficher/Masquer avec les attaques",
@@ -973,7 +981,8 @@
       "applyDamage": "Dommages",
       "applyEffects": "Effets",
       "applyDamageTooltip": "Maj+Clic pour ajuster les dommages, Clic pour les appliquer.",
-      "applyEffectsTooltip": "Transfert les Effets pertinents aux cibles",
+      "applyEffectsActorTooltip": "Transfert les Effets pertinents aux cibles",
+      "applyEffectsTargetTooltip": "Transfert les Effets pertinents aux cibles",
       "applySoak": "Annulation des dommages",
       "applySoakTooltip": "Appliquer la réduction des dommages sur l'attaque.",
       "applyStymied": "Déstabilisé",

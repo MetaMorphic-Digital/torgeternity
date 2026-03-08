@@ -115,20 +115,25 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
    * Return if this effect modifies the target of the test rather than the owner of the AE.
    * @type {boolean}
    */
-  get modifiesTarget() {
-    return !this.disabled && this.system.transferOnOutcome;
+  get transfersToTarget() {
+    return !this.disabled && this.system.transferOnOutcome && this.system.transferTo === 'target';
+  }
+
+  get transfersToActor() {
+    return !this.disabled && this.system.transferOnOutcome && this.system.transferTo === 'actor';
   }
 
   /**
    * Return a copy of this object with the various "attack" traits cleared.
    */
-  copyForTarget() {
+  copyForTransfer() {
     let fx = this.toObject();
     // Override some values
     return Object.assign(fx, {
       disabled: false,
       system: {
         transferOnOutcome: null,
+        transferTo: '',
         // keep applyIfAttackTrait, applyIfDefendTrait, combatToggle
       },
       origin: this.parent.uuid,  // the originating Item

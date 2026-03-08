@@ -2,7 +2,9 @@
 
 ## 13.27.0 - Active Effects & ignore Disconnected Items
 
-- When an Active Effect is configured to be transferred to the target
+- Active Effects can now be configured to transfer to the Actor using the Item rather than only to the target.
+- New options of `Any Success` and `Any Failure` added to the list of AE outcomes.
+- When an Active Effect is configured to be transferred:
   - `Display as Combat Toggle`, `Apply if Attack/Defend Trait` are transferred to the target, and are NOT applied to the original test.
   - Wording of the various fields have been improved on the Active Effect Config sheet.
 - Status Effects now have the attribute changes directly stored in the AE (to allow modification by other AEs), and defined in `CONFIG.statusEffects`.

@@ -25,7 +25,8 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
       'applyDam': TorgeternityChatLog.#applyDamage,
       'soakDam': TorgeternityChatLog.#soakDamage,
       'applySoak': TorgeternityChatLog.#applySoak,
-      'applyEffects': TorgeternityChatLog.#applyEffects,
+      'applyEffectsActor': TorgeternityChatLog.#applyEffectsActor,
+      'applyEffectsTarget': TorgeternityChatLog.#applyEffectsTarget,
       'applyItemEffect': TorgeternityChatLog.#applyItemEffect,
       'applyStymied': TorgeternityChatLog.#applyStymied,
       'applyVulnerable': TorgeternityChatLog.#applyTargetVulnerable,
@@ -706,11 +707,33 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
   }
 
   /**
+   * Transfer the listed effects to the Actor doing the test
    * @param {Event} event 
    * @param {HTMLButtonElement} button 
  * @this {TorgeternityChatLog}
  */
-  static async #applyEffects(event, button) {
+  static async #applyEffectsActor(event, button) {
+    event.preventDefault();
+    const { test, actor } = getChatActor(button);
+    if (!actor) return;
+
+    // Transfer Effects from the Weapon (& Ammo) to the target.
+    const effects = test.effects
+      .map(uuid => fromUuidSync(uuid, { strict: false }))
+      .filter(fx => fx?.transfersToActor)
+      .map(fx => fx.copyForTransfer());
+
+    if (effects.length)
+      actor.createEmbeddedDocuments('ActiveEffect', effects);
+  }
+
+  /**
+   * Transfer the effects to the indicated target
+   * @param {Event} event 
+   * @param {HTMLButtonElement} button 
+ * @this {TorgeternityChatLog}
+ */
+  static async #applyEffectsTarget(event, button) {
     event.preventDefault();
     const { test, targetActor } = getChatTarget(button);
     if (!targetActor) return;
@@ -718,8 +741,8 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     // Transfer Effects from the Weapon (& Ammo) to the target.
     const effects = test.effects
       .map(uuid => fromUuidSync(uuid, { strict: false }))
-      .filter(fx => fx?.modifiesTarget)
-      .map(fx => fx.copyForTarget());
+      .filter(fx => fx?.transfersToTarget)
+      .map(fx => fx.copyForTransfer());
 
     if (effects.length)
       targetActor.createEmbeddedDocuments('ActiveEffect', effects);
