@@ -40,7 +40,7 @@
       "FIELDS": {
         "transferOnOutcome": {
           "label": "Appliquer l'Effet correspondant au degré de réussite",
-          "hint": "Appliquer l'Effet sur le Token ciblé correspondant au degré de réussite du test impliquant cet objet"
+          "hint": "Appliquer l'Effet sur le Token ciblé correspondant au degré de réussite du test"
         },
         "transferTo": {
           "label": "Transférer à",
@@ -52,11 +52,11 @@
         },
         "applyIfAttackTrait": {
           "label": "Appliquer le trait d'attaque",
-          "hint": "Appliquer cet Effet aux tests impliquant cet objet, uniquement si le Token attaquant possède l'un de ces traits"
+          "hint": "Appliquer cet Effet aux tests, uniquement si le Token attaquant possède l'un de ces traits"
         },
         "applyIfDefendTrait": {
           "label": "Appliquer le trait de défense",
-          "hint": "Appliquer cet Effet aux tests impliquant cet objet, uniquement si le Token attaqué (la cible) possède l'un de ces traits"
+          "hint": "Appliquer cet Effet aux tests, uniquement si le Token attaqué (la cible) possède l'un de ces traits"
         },
         "defendAgainstTrait": {
           "label": "Défense contre un trait",
@@ -147,7 +147,7 @@
         "noTracker": "Pas de jet de Poursuite à moins d'un combat actif.",
         "result": {
           "actionTotal": "Total de l'action",
-          "anyFailure": "Tous types d'echecs",
+          "anyFailure": "Tous types d'échecs",
           "anySuccess": "Tous types de succés",
           "attackMissed": "Attaque ratée",
           "damage": "Dommages",
