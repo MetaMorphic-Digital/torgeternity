@@ -133,6 +133,7 @@
         "noTracker": "Cannot use chase button unless there is an active combat in the combat tracker.",
         "result": {
           "actionTotal": "Action Total",
+          "anySuccess": "Any Success",
           "attackMissed": "Attack Missed",
           "damage": "Damage",
           "diceTotal": "Dice Total",

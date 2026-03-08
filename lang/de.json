@@ -139,6 +139,7 @@
         "noTracker": "Der Verfolgungsjagd-Button kann so lange nicht verwendet werden, bis es einen aktiven Kampf im Begegnungsstracker gibt.",
         "result": {
           "actionTotal": "Aktion insgesamt",
+          "anySuccess": "Any Success",
           "attackMissed": "Angriff verfehlt",
           "damage": "Schaden",
           "diceTotal": "Würfelergebnis",

@@ -1511,15 +1511,15 @@ export function checkUnskilled(skillValue, skillName, actor) {
  */
 function appliesToTest(effect, test, target) {
   if (effect.disabled) return false;
-  if (!effect.modifiesTarget) {
-    // These are irrelevant if this effect is going to be transferred to the target.
-    if (!testTraits(effect.system.applyIfAttackTrait, test.attackTraits)) return false;
-    if (!testTraits(effect.system.applyIfDefendTrait, target?.defenseTraits)) return false;
+  if (effect.modifiesTarget) {
+    // If transferred, then applies to test
+    const result = test.result;
+    if (effect.system.transferOnOutcome === CONFIG.torgeternity.testOutcomeAnySuccess) return result >= TestResult.STANDARD;
+    return effect.system.transferOnOutcome === result;
   }
-  const result = test.result;
-  // If transferred, then applies to test
-  if (effect.system.transferOnAttack) return result >= TestResult.STANDARD;
-  if (effect.system.transferOnOutcome) return effect.system.transferOnOutcome === result;
+  // These are irrelevant if this effect is going to be transferred to the target.
+  if (!testTraits(effect.system.applyIfAttackTrait, test.attackTraits)) return false;
+  if (!testTraits(effect.system.applyIfDefendTrait, target?.defenseTraits)) return false;
   // Not transferred, but might affect the result. (e.g. 'test.damage' or 'test.weaponAP')
   return effect.changes.find(change => change.key.startsWith('test.'));
 }

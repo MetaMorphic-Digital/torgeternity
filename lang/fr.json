@@ -139,6 +139,7 @@
         "noTracker": "Pas de jet de Poursuite à moins d'un combat actif.",
         "result": {
           "actionTotal": "Total de l'action",
+          "anySuccess": "Any Success",
           "attackMissed": "Attaque ratée",
           "damage": "Dommages",
           "diceTotal": "Résultat des dés",

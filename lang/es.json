@@ -139,6 +139,7 @@
         "noTracker": "No se puede usar el botón de persecuciones a menos que haya un combate activo en el tracker de combate.",
         "result": {
           "actionTotal": "TOTAL",
+          "anySuccess": "Any Success",
           "attackMissed": "Ataque Falla",
           "damage": "Daño",
           "diceTotal": "Resultado del dado",

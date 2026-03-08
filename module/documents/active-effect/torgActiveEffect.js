@@ -65,11 +65,11 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
     }
 
     // Replace flags
-    if (source.flags?.torgeternity?.transferOnAttack !== undefined) {
-      source.system.transferOnAttack = source.flags.torgeternity.transferOnAttack;
+    if (source.flags?.torgeternity?.transferOnAttack === true) {
+      source.system.transferOnOutcome = CONFIG.torgeternity.testOutcomeAnySuccess;
       delete source.flags.torgeternity.transferOnAttack;
     }
-    if (source.flags?.torgeternity?.testOutcome !== undefined) {
+    if (source.flags?.torgeternity?.testOutcome) {
       source.system.transferOnOutcome = source.flags.torgeternity.testOutcome;
       delete source.flags.torgeternity.testOutcome;
     }
@@ -114,8 +114,7 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
    * @type {boolean}
    */
   get modifiesTarget() {
-    return !this.disabled &&
-      (this.system.transferOnAttack || this.system.transferOnOutcome);
+    return !this.disabled && this.system.transferOnOutcome;
   }
 
   /**
@@ -127,7 +126,6 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
     return Object.assign(fx, {
       disabled: false,
       system: {
-        transferOnAttack: false,
         transferOnOutcome: null,
         // keep applyIfAttackTrait, applyIfDefendTrait, combatToggle
       },

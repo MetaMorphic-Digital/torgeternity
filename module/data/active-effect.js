@@ -5,7 +5,7 @@ const fields = foundry.data.fields;
 /**
  * Addtional fields for TorgEternity ActiveEffect
  * 
- * @param {Boolean} transferOnAttack Apply this effect to the target of the attack if the attack is successful.
+ * @param {Boolean} combatToggle Add AE to the Attack/Power section on first tab of Actor sheet.
  * @param {Boolean} transferOnOutcome Apply this effect to the target of the attack if the attack test has this specific outcome.
  * @param {SetField(StringField)} applyIfTrait Apply this effect to the item if the owning actor has one of these traits.
  * @param {SetField(StringField)} applyVsTrait Apply this effect to the item if the target has one of these traits.
@@ -20,7 +20,6 @@ export class TorgActiveEffectData extends (foundry.data.ActiveEffectTypeDataMode
     Object.assign(schema,
       {
         // ...foundry.data.ActiveEffectTypeDataModel.defineSchema(),    // Foundry 14+
-        transferOnAttack: new fields.BooleanField({ initial: false, }),
         transferOnOutcome: new fields.NumberField({
           choices: CONFIG.torgeternity.testOutcomeLabel,
           initial: null,
@@ -35,6 +34,7 @@ export class TorgActiveEffectData extends (foundry.data.ActiveEffectTypeDataMode
   }
 
   static migrateData(source) {
+    if (source.transferOnAttack === true) source.transferOnOutcome = CONFIG.torgeternity.testOutcomeAnySuccess;
     if (source.applyIfAttackTrait) source.applyIfAttackTrait = source.applyIfAttackTrait.map(t => (t === 'supernnaturalEvil') ? 'supernaturalEvil' : t)
     if (source.applyIfDefendTrait) source.applyIfDefendTrait = source.applyIfDefendTrait.map(t => (t === 'supernnaturalEvil') ? 'supernaturalEvil' : t)
     return super.migrateData(source);
@@ -46,6 +46,6 @@ export class TorgActiveEffectData extends (foundry.data.ActiveEffectTypeDataMode
    */
   get isSuppressed() {
     // Don't apply the AE to the owning actor if it is being transferred on an attack
-    return (this.transferOnAttack || this.transferOnOutcome);
+    return !!this.transferOnOutcome;
   }
 }
