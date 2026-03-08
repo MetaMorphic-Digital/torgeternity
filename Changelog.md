@@ -2,19 +2,18 @@
 
 ## 13.27.0 - Active Effects, Roll Data & ignore Disconnected Items
 
-NOTE: You will need to remove and re-add the status on all tokens (the modifiers for each status are now stored in the status definition).
+**NOTE:** You will need to remove and re-add any status effects on all tokens (the modifiers for each status are now stored in the status definition so that they can be modified by Active Effects).
 
-Lots of improvements to Active Effects:
-- Wording of the various settings in the `Torg Eternity` tab of Active Effects have been improved (and clarified).
+Lots of improvements to Active Effects (AEs):
+- Wording of the various settings in the `Torg Eternity` tab of AEs have been improved (and clarified).
 - `Transfer on Attack` has been removed (since it was causing confusion). It has been replaced by two additional options in the "Transfer on Outcome" field, `Any Success` and `Any Failure`.
-- Active Effects can now be configured to transfer to the attacking Actor rather than only to the target (See `Transfer To` once you've set `Transfer on Outcome`)
-- Add a new `Defend Against Trait` attribute to Active Effects so that having this effect on the TARGET of a test will apply this effect if the ATTACKER has one of the traits listed in this field (e.g. for Ward Enemy).
-- When an Active Effect is configured to be transferred, the AE does not affect the original actor or item; their effects are disabled until it gets transferred to another actor.
+- AEs can now be configured to transfer to the attacking Actor rather than only to the target (See `Transfer To` once you've set `Transfer on Outcome`)
+- Add a new `Defend Against Trait` attribute to AEs so that having this effect on the TARGET of a test will apply this effect if the ATTACKER has one of the traits listed in this field (e.g. for Ward Enemy).
+- When an AE has a `Transfer on Outcome`, the AE does not affect the original actor or item; its effects are disabled until it gets transferred to another actor.
 - `Status Effects` now have the attribute changes directly stored in the AE (to allow modification by other AEs), and defined in `CONFIG.statusEffects`.
-  - You will have to remove and re-add any statuses that are currently on tokens to get the new effects.
 - Favoured attributes are now modified by AEs using a key like `system.attributes.strength.isFav` (not strengthIsFav)
 - Use one common `applyNumericEffects` routine (this affects the application of `system.other.moveMod` and `system.other.runMod`)
-  - Multiple Effects which modify `system.other.MoveMod` and `system.other.runMod` or any of the `test.X` attributes are now processed in order of `priority` field on AEs.
+  - Multiple Effects which modify `system.other.MoveMod` and `system.other.runMod` or any of the `test.X` attributes are now processed in order of the `priority` field on AE changes.
 
 Move some data from `Actor` to `Actor.system` so that all the Torg-specific data is available in `Actor.getRollData()` (targetModifiers, statusModifiers, defenses)
   - It allows all attributes to be used in manual dice rolls, e.g. `/r d20 + @statusModifiers.concentrating`
@@ -29,6 +28,7 @@ Move some data from `Actor` to `Actor.system` so that all the Torg-specific data
 - A few more cases are fixed where Dice-So-Nice was not rolling 3D dice.
 - Chat card for `Active Defense` should not show any targets.
 - Don't remove the apply Stymied or apply Vulnerable buttons from the chat card after use - since Good interaction attacks can apply the same twice.
+- `Vehicle Weapons` can be used once again.
 
 ## 13.26.2 - Bug Fix
 
