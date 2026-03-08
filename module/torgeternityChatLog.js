@@ -777,10 +777,11 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
       else
         await targetActor.increaseStymied(test.actor);
 
-      testTarget.showApplyStymied = false;
-      this.updateChatMessage(chatMessage, {
-        'flags.torgeternity.test.targetAll': test.targetAll  // TODO : potential clash, since entire array updated
-      })
+      // Don't hide Stymied button, in case of Good or better result
+      //testTarget.showApplyStymied = false;
+      //this.updateChatMessage(chatMessage, {
+      //  'flags.torgeternity.test.targetAll': test.targetAll  // TODO : potential clash, since entire array updated
+      //})
 
       if (test.testType === 'interactionAttack' && targetActor.isConcentrating)
         this.promptConcentration(targetActor);
@@ -801,10 +802,12 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
       else
         await targetActor.increaseVulnerable(test.actor);
 
-      testTarget.showApplyVulnerable = false;
-      this.updateChatMessage(chatMessage, {
-        'flags.torgeternity.test.targetAll': test.targetAll  // TODO : potential clash, since entire array updated
-      })
+      // Better results might allow it to be pressed more than once
+      //testTarget.showApplyVulnerable = false;
+      //this.updateChatMessage(chatMessage, {
+      //  'flags.torgeternity.test.targetAll': test.targetAll  // TODO : potential clash, since entire array updated
+      //})
+
       if (test.testType === 'interactionAttack' && targetActor.isConcentrating)
         this.promptConcentration(targetActor);
     }

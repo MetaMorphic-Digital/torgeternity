@@ -28,6 +28,7 @@ Move some data from `Actor` to `Actor.system` so that all the Torg-specific data
 - The `Periculum` macro now displays damage correctly again.
 - A few more cases are fixed where Dice-So-Nice was not rolling 3D dice.
 - Chat card for `Active Defense` should not show any targets.
+- Don't remove the apply Stymied or apply Vulnerable buttons from the chat card after use - since Good interaction attacks can apply the same twice.
 
 ## 13.26.2 - Bug Fix
 
