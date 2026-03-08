@@ -838,7 +838,10 @@ items:
           transferOnAttack: false
           applyIfAttackTrait: []
           applyIfDefendTrait: []
-          transferOnOutcome: 3
+          transferOnOutcome: standard
+          defendAgainstTrait:
+            - supernaturalEvil
+          transferTo: target
         changes:
           - key: defenses.dodge.mod
             mode: 2
@@ -880,9 +883,9 @@ items:
           exportSource: null
           coreVersion: '13.351'
           systemId: torgeternity
-          systemVersion: 13.13.2
-          lastModifiedBy: e1DB4TK9SbDuMDS3
-          modifiedTime: 1764005555772
+          systemVersion: 13.24.1
+          lastModifiedBy: BMvGTGfheqDXarjN
+          modifiedTime: 1772996033507
         _key: >-
           !actors.items.effects!YzRwn4OIYPYBIPJH.u8AtVmCMnPyP3Ewx.GSvs51kXblsK9vbL
       - name: Defense +2 vs. S.Evil
@@ -903,7 +906,10 @@ items:
           transferOnAttack: false
           applyIfAttackTrait: []
           applyIfDefendTrait: []
-          transferOnOutcome: 4
+          transferOnOutcome: good
+          defendAgainstTrait:
+            - supernaturalEvil
+          transferTo: target
         changes:
           - key: defenses.dodge.mod
             mode: 2
@@ -945,9 +951,9 @@ items:
           exportSource: null
           coreVersion: '13.351'
           systemId: torgeternity
-          systemVersion: 13.13.2
-          lastModifiedBy: e1DB4TK9SbDuMDS3
-          modifiedTime: 1764005552228
+          systemVersion: 13.24.1
+          lastModifiedBy: BMvGTGfheqDXarjN
+          modifiedTime: 1772996050432
         _key: >-
           !actors.items.effects!YzRwn4OIYPYBIPJH.u8AtVmCMnPyP3Ewx.1sFNCaYPVnPw3WR5
       - name: Defense +2 vs. S.Evil
@@ -969,7 +975,10 @@ items:
           transferOnAttack: false
           applyIfAttackTrait: []
           applyIfDefendTrait: []
-          transferOnOutcome: 5
+          transferOnOutcome: outstanding
+          defendAgainstTrait:
+            - supernaturalEvil
+          transferTo: target
         changes:
           - key: defenses.dodge.mod
             mode: 2
@@ -1011,10 +1020,10 @@ items:
           exportSource: null
           coreVersion: '13.351'
           systemId: torgeternity
-          systemVersion: 13.13.2
+          systemVersion: 13.24.1
           createdTime: 1764005509388
-          modifiedTime: 1764005550181
-          lastModifiedBy: e1DB4TK9SbDuMDS3
+          modifiedTime: 1772996063147
+          lastModifiedBy: BMvGTGfheqDXarjN
         _key: >-
           !actors.items.effects!YzRwn4OIYPYBIPJH.u8AtVmCMnPyP3Ewx.uOIcMumCKCINeU6I
     folder: 1nWuSow2h5hzSie4
@@ -1599,11 +1608,11 @@ prototypeToken:
   movementAction: null
 _stats:
   systemId: torgeternity
-  systemVersion: 12.2.0
-  coreVersion: '13.348'
+  systemVersion: 13.24.1
+  coreVersion: '13.351'
   createdTime: 1693913382916
-  modifiedTime: 1758529214882
-  lastModifiedBy: l8SVzn2293lAwvMC
+  modifiedTime: 1772996991548
+  lastModifiedBy: BMvGTGfheqDXarjN
   compendiumSource: null
   duplicateSource: null
   exportSource: null

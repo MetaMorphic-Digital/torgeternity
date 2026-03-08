@@ -595,7 +595,8 @@ items:
           transferOnAttack: true
           applyIfAttackTrait: []
           applyIfDefendTrait: []
-          transferOnOutcome: 0
+          transferOnOutcome: anySuccess
+          transferTo: target
         changes:
           - key: system.skills.maneuver.isFav
             mode: 5
@@ -613,10 +614,10 @@ items:
           exportSource: null
           coreVersion: '13.351'
           systemId: torgeternity
-          systemVersion: 13.13.2
+          systemVersion: 13.24.1
           createdTime: 1764004506577
-          modifiedTime: 1764004551011
-          lastModifiedBy: e1DB4TK9SbDuMDS3
+          modifiedTime: 1772996734459
+          lastModifiedBy: BMvGTGfheqDXarjN
         _key: >-
           !actors.items.effects!6ThunRV3sj9ZSMQW.HA3ZNV6zpDV4OeJ3.cbzBtqSY0Q7hnIra
     folder: null
@@ -1286,11 +1287,11 @@ prototypeToken:
   movementAction: null
 _stats:
   systemId: torgeternity
-  systemVersion: 13.13.2
+  systemVersion: 13.24.1
   coreVersion: '13.351'
   createdTime: 1716827809021
-  modifiedTime: 1764001542411
-  lastModifiedBy: e1DB4TK9SbDuMDS3
+  modifiedTime: 1772996991601
+  lastModifiedBy: BMvGTGfheqDXarjN
   compendiumSource: null
   duplicateSource: null
   exportSource: null

@@ -629,7 +629,10 @@ items:
           transferOnAttack: false
           applyIfAttackTrait: []
           applyIfDefendTrait: []
-          transferOnOutcome: 3
+          transferOnOutcome: standard
+          defendAgainstTrait:
+            - supernaturalEvil
+          transferTo: target
         changes:
           - key: defenses.dodge.mod
             mode: 2
@@ -671,10 +674,10 @@ items:
           exportSource: null
           coreVersion: '13.351'
           systemId: torgeternity
-          systemVersion: 13.13.2
+          systemVersion: 13.24.1
           createdTime: 1764005323568
-          modifiedTime: 1764005564371
-          lastModifiedBy: e1DB4TK9SbDuMDS3
+          modifiedTime: 1772996085960
+          lastModifiedBy: BMvGTGfheqDXarjN
         _key: >-
           !actors.items.effects!YzRwn4OIYPYBIPJH.sMpIpI7t3K7B4ZYp.oCkSdHARo9OvqD0p
       - name: Defense +2 vs. S.Evil
@@ -696,7 +699,10 @@ items:
           transferOnAttack: false
           applyIfAttackTrait: []
           applyIfDefendTrait: []
-          transferOnOutcome: 4
+          transferOnOutcome: good
+          defendAgainstTrait:
+            - supernaturalEvil
+          transferTo: target
         changes:
           - key: defenses.dodge.mod
             mode: 2
@@ -738,13 +744,13 @@ items:
           exportSource: null
           coreVersion: '13.351'
           systemId: torgeternity
-          systemVersion: 13.13.2
+          systemVersion: 13.24.1
           createdTime: 1764005324176
-          modifiedTime: 1764005568032
-          lastModifiedBy: e1DB4TK9SbDuMDS3
+          modifiedTime: 1772996107262
+          lastModifiedBy: BMvGTGfheqDXarjN
         _key: >-
           !actors.items.effects!YzRwn4OIYPYBIPJH.sMpIpI7t3K7B4ZYp.7bGGDUxfuIIfWvPP
-      - name: New Effect
+      - name: Defense +2 vs. S.Evil
         origin: >-
           Compendium.torgeternity.archetypes-fr.Actor.YzRwn4OIYPYBIPJH.Item.sMpIpI7t3K7B4ZYp
         duration:
@@ -763,7 +769,10 @@ items:
           transferOnAttack: false
           applyIfAttackTrait: []
           applyIfDefendTrait: []
-          transferOnOutcome: 5
+          transferOnOutcome: outstanding
+          defendAgainstTrait:
+            - supernaturalEvil
+          transferTo: target
         changes:
           - key: defenses.dodge.mod
             mode: 2
@@ -805,10 +814,10 @@ items:
           exportSource: null
           coreVersion: '13.351'
           systemId: torgeternity
-          systemVersion: 13.13.2
+          systemVersion: 13.24.1
           createdTime: 1764005559439
-          modifiedTime: 1764005595100
-          lastModifiedBy: e1DB4TK9SbDuMDS3
+          modifiedTime: 1772996121311
+          lastModifiedBy: BMvGTGfheqDXarjN
         _key: >-
           !actors.items.effects!YzRwn4OIYPYBIPJH.sMpIpI7t3K7B4ZYp.HNpzcMefIwvWcGVi
     folder: null
@@ -1632,10 +1641,10 @@ prototypeToken:
   movementAction: null
 _stats:
   systemId: torgeternity
-  systemVersion: 13.15.0
+  systemVersion: 13.24.1
   coreVersion: '13.351'
   createdTime: 1716827809520
-  modifiedTime: 1771935909553
+  modifiedTime: 1772996991609
   lastModifiedBy: BMvGTGfheqDXarjN
   compendiumSource: null
   duplicateSource: null

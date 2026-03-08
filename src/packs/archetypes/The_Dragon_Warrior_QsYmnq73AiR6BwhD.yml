@@ -471,16 +471,16 @@ items:
           exportSource: null
           coreVersion: '13.351'
           systemId: torgeternity
-          systemVersion: 13.13.2
-          lastModifiedBy: e1DB4TK9SbDuMDS3
-          modifiedTime: 1764001100992
+          systemVersion: 13.24.1
+          lastModifiedBy: BMvGTGfheqDXarjN
+          modifiedTime: 1772996934485
         img: icons/svg/aura.svg
         type: base
         system:
           transferOnAttack: true
           applyIfAttackTrait: []
           applyIfDefendTrait: []
-          transferOnOutcome: 0
+          transferOnOutcome: anySuccess
         sort: 0
         _key: >-
           !actors.items.effects!QsYmnq73AiR6BwhD.KKJPrdjO5sFkhZzF.qNNSmAnRkG0Ot2Yf
@@ -1580,10 +1580,10 @@ prototypeToken:
   movementAction: null
 _stats:
   systemId: torgeternity
-  systemVersion: 13.15.0
+  systemVersion: 13.24.1
   coreVersion: '13.351'
   createdTime: 1693900608203
-  modifiedTime: 1768218272534
+  modifiedTime: 1772996991546
   lastModifiedBy: BMvGTGfheqDXarjN
   compendiumSource: null
   duplicateSource: null

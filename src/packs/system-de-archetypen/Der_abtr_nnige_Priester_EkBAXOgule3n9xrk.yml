@@ -440,15 +440,31 @@ items:
     effects:
       - _id: ecbVOFBMML58Ojlw
         changes:
-          - key: system.dodgeDefense
+          - key: system.defenses.dodge.mod
             mode: 2
             value: '1'
             priority: null
-          - key: system.meleeWeaponsDefense
+          - key: system.defenses.meleeWeapons.mod
             mode: 2
             value: '1'
             priority: null
-          - key: system.unarmedCombatDefense
+          - key: system.defenses.unarmedCombat.mod
+            mode: 2
+            value: '1'
+            priority: null
+          - key: system.defenses.intimidation.mod
+            mode: 2
+            value: '1'
+            priority: null
+          - key: system.defenses.maneuver.mod
+            mode: 2
+            value: '1'
+            priority: null
+          - key: system.defenses.taunt.mod
+            mode: 2
+            value: '1'
+            priority: null
+          - key: system.defenses.trick.mod
             mode: 2
             value: '1'
             priority: null
@@ -462,39 +478,59 @@ items:
           startRound: null
           startTurn: null
         origin: Compendium.te001-core-rulebook.grw-de-kraefte.geTWA7krOqHuXpxk
-        transfer: true
+        transfer: false
         flags: {}
         tint: '#ffffff'
-        name: Standard
+        name: Feind abwehren (Standard)
         description: ''
         statuses: []
         _stats:
-          coreVersion: '13.345'
-          systemId: null
-          systemVersion: null
+          coreVersion: '13.351'
+          systemId: torgeternity
+          systemVersion: 13.24.1
           createdTime: null
-          modifiedTime: null
-          lastModifiedBy: null
+          modifiedTime: 1772995709353
+          lastModifiedBy: BMvGTGfheqDXarjN
           compendiumSource: null
           duplicateSource: null
           exportSource: null
         img: icons/svg/aura.svg
         type: base
-        system: {}
+        system:
+          defendAgainstTrait:
+            - supernaturalEvil
+          transferOnOutcome: standard
+          transferTo: target
         sort: 0
         _key: >-
           !actors.items.effects!EkBAXOgule3n9xrk.ET9NNtB5uofc4WlR.ecbVOFBMML58Ojlw
       - _id: RiLW8E5gMhnrThkX
         changes:
-          - key: system.dodgeDefense
+          - key: system.defenses.dodge.mod
             mode: 2
             value: '2'
             priority: null
-          - key: system.meleeWeaponsDefense
+          - key: system.defenses.meleeWeapons.mod
             mode: 2
             value: '2'
             priority: null
-          - key: system.unarmedCombatDefense
+          - key: system.defenses.unarmedCombat.mod
+            mode: 2
+            value: '2'
+            priority: null
+          - key: system.defenses.intimidation.mod
+            mode: 2
+            value: '2'
+            priority: null
+          - key: system.defenses.maneuver.mod
+            mode: 2
+            value: '2'
+            priority: null
+          - key: system.defenses.taunt.mod
+            mode: 2
+            value: '2'
+            priority: null
+          - key: system.defenses.trick.mod
             mode: 2
             value: '2'
             priority: null
@@ -508,41 +544,60 @@ items:
           startRound: null
           startTurn: null
         origin: Compendium.te001-core-rulebook.grw-de-kraefte.geTWA7krOqHuXpxk
-        transfer: true
+        transfer: false
         flags: {}
         tint: '#ffffff'
-        name: Gut
+        name: Feind abwehren (Gut)
         description: ''
         statuses: []
         _stats:
-          coreVersion: '13.345'
-          systemId: null
-          systemVersion: null
+          coreVersion: '13.351'
+          systemId: torgeternity
+          systemVersion: 13.24.1
           createdTime: null
-          modifiedTime: null
-          lastModifiedBy: null
+          modifiedTime: 1772995713085
+          lastModifiedBy: BMvGTGfheqDXarjN
           compendiumSource: null
           duplicateSource: null
           exportSource: null
         img: icons/svg/aura.svg
         type: base
-        system: {}
+        system:
+          defendAgainstTrait:
+            - supernaturalEvil
+          transferOnOutcome: good
         sort: 0
         _key: >-
           !actors.items.effects!EkBAXOgule3n9xrk.ET9NNtB5uofc4WlR.RiLW8E5gMhnrThkX
       - _id: b6m8CEDITRqrCBzU
         changes:
-          - key: system.dodgeDefense
+          - key: system.defenses.dodge.mod
             mode: 2
-            value: '3'
+            value: '2'
             priority: null
-          - key: system.meleeWeaponsDefense
+          - key: system.defenses.meleeWeapons.mod
             mode: 2
-            value: '3'
+            value: '2'
             priority: null
           - key: system.unarmedCombatDefense
             mode: 2
-            value: '3'
+            value: '2'
+            priority: null
+          - key: system.defenses.intimidation.mod
+            mode: 2
+            value: '2'
+            priority: null
+          - key: system.defenses.maneuver.mod
+            mode: 2
+            value: '2'
+            priority: null
+          - key: system.defenses.taunt.mod
+            mode: 2
+            value: '2'
+            priority: null
+          - key: system.defenses.trick.mod
+            mode: 2
+            value: '2'
             priority: null
         disabled: true
         duration:
@@ -554,25 +609,28 @@ items:
           startRound: null
           startTurn: null
         origin: Compendium.te001-core-rulebook.grw-de-kraefte.geTWA7krOqHuXpxk
-        transfer: true
+        transfer: false
         flags: {}
         tint: '#ffffff'
-        name: Hervorragend
+        name: Feind abwehren (Hervorragend)
         description: ''
         statuses: []
         _stats:
-          coreVersion: '13.345'
-          systemId: null
-          systemVersion: null
+          coreVersion: '13.351'
+          systemId: torgeternity
+          systemVersion: 13.24.1
           createdTime: null
-          modifiedTime: null
-          lastModifiedBy: null
+          modifiedTime: 1772995717231
+          lastModifiedBy: BMvGTGfheqDXarjN
           compendiumSource: null
           duplicateSource: null
           exportSource: null
         img: icons/svg/aura.svg
         type: base
-        system: {}
+        system:
+          defendAgainstTrait:
+            - supernaturalEvil
+          transferOnOutcome: outstanding
         sort: 0
         _key: >-
           !actors.items.effects!EkBAXOgule3n9xrk.ET9NNtB5uofc4WlR.b6m8CEDITRqrCBzU
@@ -1476,10 +1534,10 @@ prototypeToken:
   movementAction: null
 _stats:
   systemId: torgeternity
-  systemVersion: 12.2.0
-  coreVersion: '13.348'
+  systemVersion: 13.24.1
+  coreVersion: '13.351'
   createdTime: 1694867208350
-  modifiedTime: 1758529914568
+  modifiedTime: 1772996991672
   lastModifiedBy: BMvGTGfheqDXarjN
   compendiumSource: Compendium.torgeternity.archetypes.YzRwn4OIYPYBIPJH
   duplicateSource: null

@@ -542,7 +542,7 @@ items:
             mode: 5
             value: '1'
             priority: null
-        disabled: true
+        disabled: false
         duration:
           startTime: null
           seconds: null
@@ -552,25 +552,26 @@ items:
           startRound: null
           startTurn: null
         origin: Compendium.te001-core-rulebook.grw-de-ausruestung.GPs2FHE83EfpBIfZ
-        transfer: true
+        transfer: false
         flags: {}
         tint: '#ffffff'
         name: Fertigkeitsbegünstigung
         description: ''
         statuses: []
         _stats:
-          coreVersion: '13.345'
-          systemId: null
-          systemVersion: null
+          coreVersion: '13.351'
+          systemId: torgeternity
+          systemVersion: 13.24.1
           createdTime: null
-          modifiedTime: null
-          lastModifiedBy: null
+          modifiedTime: 1772996521880
+          lastModifiedBy: BMvGTGfheqDXarjN
           compendiumSource: null
           duplicateSource: null
           exportSource: null
         img: icons/svg/aura.svg
         type: base
-        system: {}
+        system:
+          transferOnOutcome: anySuccess
         sort: 0
         _key: >-
           !actors.items.effects!54xKJBBQREaETwap.lntlAp4VUb9lNjTJ.UBMPRmdexcJIvmed
@@ -1243,10 +1244,10 @@ prototypeToken:
   movementAction: null
 _stats:
   systemId: torgeternity
-  systemVersion: 12.2.0
-  coreVersion: '13.348'
+  systemVersion: 13.24.1
+  coreVersion: '13.351'
   createdTime: 1694867975270
-  modifiedTime: 1758529901872
+  modifiedTime: 1772996991669
   lastModifiedBy: BMvGTGfheqDXarjN
   compendiumSource: Compendium.torgeternity.archetypes.8KlJAaxeijOcrJKN
   duplicateSource: null

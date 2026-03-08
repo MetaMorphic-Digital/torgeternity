@@ -370,7 +370,52 @@ items:
     flags:
       core: {}
     img: systems/torgeternity/images/icons/gear-icon.webp
-    effects: []
+    effects:
+      - name: Caltrops
+        origin: >-
+          Compendium.torgeternity.archetypes-fr.Actor.QsYmnq73AiR6BwhD.Item.F2DgHaQHYRxdQU4b
+        duration:
+          startTime: null
+          combat: null
+          seconds: null
+          rounds: null
+          turns: null
+          startRound: null
+          startTurn: null
+        disabled: false
+        img: icons/svg/aura.svg
+        _id: Q51qBpQRHkhPFOu4
+        type: base
+        system:
+          transferOnOutcome: anySuccess
+          transferTo: target
+          applyIfAttackTrait: []
+          applyIfDefendTrait: []
+          defendAgainstTrait: []
+          combatToggle: false
+        changes:
+          - key: system.skills.maneuver.isFav
+            mode: 5
+            value: 'true'
+            priority: null
+        description: ''
+        tint: '#ffffff'
+        transfer: true
+        statuses: []
+        sort: 0
+        flags: {}
+        _stats:
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+          coreVersion: '13.351'
+          systemId: torgeternity
+          systemVersion: 13.24.1
+          createdTime: 1772996647722
+          modifiedTime: 1772996668010
+          lastModifiedBy: BMvGTGfheqDXarjN
+        _key: >-
+          !actors.items.effects!QsYmnq73AiR6BwhD.F2DgHaQHYRxdQU4b.Q51qBpQRHkhPFOu4
     folder: null
     system:
       cosm: Aysle
@@ -1215,10 +1260,10 @@ prototypeToken:
   movementAction: null
 _stats:
   systemId: torgeternity
-  systemVersion: 13.15.0
+  systemVersion: 13.24.1
   coreVersion: '13.351'
   createdTime: 1716827809381
-  modifiedTime: 1771935904036
+  modifiedTime: 1772996991607
   lastModifiedBy: BMvGTGfheqDXarjN
   compendiumSource: null
   duplicateSource: null
