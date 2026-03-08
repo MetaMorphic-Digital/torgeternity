@@ -57,6 +57,10 @@
         "applyIfDefendTrait": {
           "label": "Aplicar si el rasgo del defensor es",
           "hint": "Aplicar este efecto a una prueba en la que se use este objeto SOL si el actor OBJETIVO tiene uno de estos rasgos"
+        },
+        "defendAgainstTrait": {
+          "label": "Defend Against Trait",
+          "hint": "Apply this effect to a test when the owner is a TARGET and the attacker has one of these traits"
         }
       }
     },

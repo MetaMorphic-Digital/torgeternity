@@ -57,6 +57,10 @@
         "applyIfDefendTrait": {
           "label": "Appliquer le trait de défense",
           "hint": "Appliquer l'Effet uniquement si le Token attaqué (la cible) possède l'un de ces traits"
+        },
+        "defendAgainstTrait": {
+          "label": "Defend Against Trait",
+          "hint": "Apply this effect to a test when the owner is a TARGET and the attacker has one of these traits"
         }
       }
     },

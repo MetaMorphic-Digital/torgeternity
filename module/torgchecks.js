@@ -383,7 +383,8 @@ export async function renderSkillChat(test, origChatMessage) {
       modifiers.push(modifierString('torgeternity.stats.speedModifier', test.speedModifier));
     }
 
-    test.combinedAction.torgBonus = getTorgValue(test.combinedAction.participants);
+    if (!test.combinedAction) test.combinedAction = {};
+    test.combinedAction.torgBonus = getTorgValue(test.combinedAction.participants ?? 1);
     if (test.combinedAction.torgBonus > 0) {
       test.modifiers += test.combinedAction.torgBonus;
       modifiers.push(modifierString('torgeternity.chatText.check.modifier.combinedAction', test.combinedAction.torgBonus));
@@ -495,7 +496,7 @@ export async function renderSkillChat(test, origChatMessage) {
       // Roll 1 and not defense = Mishap
       test.result = TestResult.MISHAP;
       test.resultText = game.i18n.localize('torgeternity.chatText.check.result.mishap');
-      if (test?.attackTraits?.includes('fragile')) {
+      if (test.attackTraits?.includes('fragile')) {
         test.extraResult = game.i18n.format('torgeternity.chatText.check.result.fragileBroken', { itemName: testItem.name });
       }
       if (useColorBlind) {

@@ -51,6 +51,10 @@
         "applyIfDefendTrait": {
           "label": "Apply If Defend Trait",
           "hint": "Apply this effect to a test using this Item ONLY if the TARGET Actor has one of these traits"
+        },
+        "defendAgainstTrait": {
+          "label": "Defend Against Trait",
+          "hint": "Apply this effect to a test when the owner is a TARGET and the attacker has one of these traits"
         }
       }
     },

@@ -134,7 +134,6 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
       system: {
         transferOnOutcome: null,
         transferTo: '',
-        // keep applyIfAttackTrait, applyIfDefendTrait, combatToggle
       },
       origin: this.parent.uuid,  // the originating Item
     });

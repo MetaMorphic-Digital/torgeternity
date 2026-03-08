@@ -816,6 +816,7 @@ export class TorgeternityMacros {
       unskilledTest: false,
       diceList: [10],
       combinedRollTotal: 10,
+      combinedAction: { participants: 1 },
       modifiers: 0,
       modifierText: '',
       cardsPlayed: 0,

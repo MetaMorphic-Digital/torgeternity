@@ -37,6 +37,7 @@ export class TorgActiveEffectData extends (foundry.data.ActiveEffectTypeDataMode
         }),
         applyIfAttackTrait: newTraitsField(),
         applyIfDefendTrait: newTraitsField(),
+        defendAgainstTrait: newTraitsField(),
         combatToggle: new fields.BooleanField({ initial: false, }),
       })
     return schema;
@@ -64,6 +65,6 @@ export class TorgActiveEffectData extends (foundry.data.ActiveEffectTypeDataMode
    */
   get isSuppressed() {
     // Don't apply the AE to the owning actor if it is being transferred on an attack
-    return !!this.transferOnOutcome;
+    return !!this.transferOnOutcome || !!this.defendAgainstTrait;
   }
 }
