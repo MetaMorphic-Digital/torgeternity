@@ -648,14 +648,16 @@ system:
       base: 6
   other:
     cosm: nileEmpire
-    possibilities: 3
+    possibilities:
+      value: 3
+    piety: 0
   skills:
     airVehicles:
       baseAttribute: dexterity
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     alteration:
@@ -663,7 +665,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     apportation:
@@ -671,7 +673,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     beastRiding:
@@ -679,7 +681,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     computers:
@@ -687,7 +689,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     conjuration:
@@ -695,7 +697,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     divination:
@@ -703,7 +705,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     dodge:
@@ -711,7 +713,7 @@ system:
       adds: 2
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     energyWeapons:
@@ -719,7 +721,7 @@ system:
       adds: 2
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     evidenceAnalysis:
@@ -727,7 +729,7 @@ system:
       adds: 1
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     faith:
@@ -735,7 +737,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     find:
@@ -743,7 +745,7 @@ system:
       adds: 1
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     fireCombat:
@@ -751,7 +753,7 @@ system:
       adds: 0
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     firstAid:
@@ -759,7 +761,7 @@ system:
       adds: 1
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     heavyWeapons:
@@ -767,7 +769,7 @@ system:
       adds: 0
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     intimidation:
@@ -775,7 +777,7 @@ system:
       adds: 0
       isFav: false
       groupName: interaction
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     kinesis:
@@ -783,7 +785,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     landVehicles:
@@ -791,7 +793,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     language:
@@ -799,7 +801,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     lockpicking:
@@ -807,7 +809,7 @@ system:
       adds: 1
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     maneuver:
@@ -815,7 +817,7 @@ system:
       adds: 0
       isFav: false
       groupName: interaction
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     medicine:
@@ -823,7 +825,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     meleeWeapons:
@@ -831,7 +833,7 @@ system:
       adds: 0
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     missileWeapons:
@@ -839,7 +841,7 @@ system:
       adds: 0
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     persuasion:
@@ -847,7 +849,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     precognition:
@@ -855,7 +857,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     profession:
@@ -863,7 +865,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     reality:
@@ -871,7 +873,7 @@ system:
       adds: 2
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     scholar:
@@ -879,7 +881,7 @@ system:
       adds: 1
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     science:
@@ -887,7 +889,7 @@ system:
       adds: 3
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     stealth:
@@ -895,7 +897,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     streetwise:
@@ -903,7 +905,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     survival:
@@ -911,7 +913,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     taunt:
@@ -919,7 +921,7 @@ system:
       adds: 1
       isFav: false
       groupName: interaction
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     telepathy:
@@ -927,7 +929,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     tracking:
@@ -935,7 +937,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     trick:
@@ -943,7 +945,7 @@ system:
       adds: 1
       isFav: false
       groupName: interaction
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     unarmedCombat:
@@ -951,7 +953,7 @@ system:
       adds: 0
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     waterVehicles:
@@ -959,7 +961,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     willpower:
@@ -967,7 +969,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
   xp:
@@ -979,99 +981,7 @@ system:
     spirit: 18
     tech: 20
   details:
-    background: >-
-      <h2>Pr&eacute;sentation</h2>
-
-      <p class="MsoNormal">Vous &eacute;tiez brillante et peut-&ecirc;tre un peu
-      excentrique m&ecirc;me avant les Guerres des Possibilit&eacute;s.
-      Apr&egrave;s votre transformation pour vous conformer &agrave; la
-      r&eacute;alit&eacute; pulp de l&rsquo;Empire du Nil, tout est devenu
-      possible. Les lois immuables de la physique sont d&eacute;sormais de
-      simples principes. Vous poussez cette nouvelle libert&eacute;
-      jusqu&rsquo;&agrave; ses limites en inventant d&rsquo;incroyables
-      appareils &eacute;lectroniques et en les utilisant contre les Pillards de
-      R&eacute;alit&eacute;s.&nbsp;</p>
-
-      <h2>Tactiques</h2>
-
-      <p>&nbsp;</p>
-
-      <p class="MsoNormal">Votre &eacute;lectro-rayon est efficace mais il peut
-      se d&eacute;charger s&rsquo;il est utilis&eacute; contre trop de cibles
-      trop rapidement. Votre interaction offensive Ruse est
-      particuli&egrave;rement d&eacute;vastatrice. De nombreux adversaires sont
-      faibles face &agrave; la Ruse et un r&eacute;sultat &laquo;Choix du
-      Joueur&raquo; peut &eacute;liminer des ennemis encore plus puissants dans
-      les bonnes circonstances.</p>
-
-      <p class="MsoNormal">Tant que votre Champ de force est
-      op&eacute;rationnel, vous pouvez utiliser ses charges pour annuler des
-      Blessures. Il peut bloquer deux points de Choc m&ecirc;me s&rsquo;il
-      n&rsquo;y a pas de Blessures mais il est pr&eacute;f&eacute;rable
-      d&rsquo;&eacute;conomiser ces charges. Une fois votre Champ de force
-      &eacute;puis&eacute;, ou si une D&eacute;connexion malencontreuse le
-      d&eacute;sactive, vous &ecirc;tes extr&ecirc;mement vuln&eacute;rable aux
-      dommages. Si possible, conservez des Cartes de Destin telles que
-      Volont&eacute; ou Action pour vous aider &agrave; vous
-      Reconnecter&nbsp;</p>
-
-      <h2>Instant fatidique</h2>
-
-      <p class="MsoNormal">Confront&eacute;e &agrave; l&rsquo;assaut
-      d&rsquo;envahisseurs au Caire, vous vous &ecirc;tes tourn&eacute;e vers la
-      science pour riposter et au cours d&rsquo;un moment d&rsquo;incroyable
-      inspiration (et un Instant fatidique) vous avez transform&eacute; un
-      t&eacute;l&eacute;phone, une lampe &agrave; lave et un s&eacute;choir en
-      un projecteur d&rsquo;&eacute;nergie mortelle. Vous pouvez aussi avoir
-      subi votre transformation en d&eacute;truisant de vieilles inventions
-      avant qu&rsquo;elles ne tombent entre les mains de M&ouml;bius et de ses
-      hordes&nbsp;</p>
-
-      <h2>Citation</h2>
-
-      <p class="MsoNormal">"Ouah ! Qui aurait pu pr&eacute;voir qu&rsquo;une
-      soudaine inversion de la polarit&eacute; provoque une telle explosion !
-      Enfin, &agrave; part moi, bien entendu. Car c&rsquo;est exactement ce que
-      j&rsquo;avais pr&eacute;vu. "</p>
-
-      <h2>Description</h2>
-
-      <p class="MsoNormal">Votre blouse en caoutchouc vulcanis&eacute; vous sert
-      &agrave; travailler mais dessous vous &ecirc;tes toujours habill&eacute;e
-      pour faire la f&ecirc;te. Vos lunettes sont &agrave; la mode dans toutes
-      les situations. Vous &ecirc;tes tr&egrave;s intelligente et tr&egrave;s
-      &eacute;duqu&eacute;e. Vous &ecirc;tes confiante, joyeuse et totalement
-      bizarre.&nbsp;</p>
-
-      <h2>Objectif</h2>
-
-      <p class="MsoNormal">La connaissance est le seul moyen d&rsquo;obtenir la
-      victoire et parfois, il faut faire des sacrifices pour atteindre cet
-      objectif. Sauver les gens et s&rsquo;amuser sont des priorit&eacute;s mais
-      la Science est toujours en t&ecirc;te de liste.&nbsp;</p>
-
-      <h2>Noms</h2>
-
-      <p>Capitaine Condensateur, Dr Foudre, Joy Buzzer, Professeur Diode,
-      L&rsquo;&Eacute;tincelle</p>
-
-      <h2>Piste de progression (optionnelle)</h2>
-
-      <ul>
-
-      <li>5 PX) Conscience environnementale</li>
-
-      <li>(7 PX) Champ de force (5 charges)</li>
-
-      <li>&nbsp;(9 PX) &Eacute;lectro-rayon (10 charges)</li>
-
-      <li>&nbsp;(3 PX) Esquive +3</li>
-
-      <li>&nbsp;(3 PX) Armes &agrave; &eacute;nergie +3</li>
-
-      <li>&nbsp;(3 PX) R&eacute;alit&eacute; +3</li>
-
-      </ul>
+    background: "<h2>Présentation</h2>\n<p class=\"MsoNormal\">Vous étiez brillante et peut-être un peu excentrique même avant les Guerres des Possibilités. Après votre transformation pour vous conformer à la réalité pulp de l’Empire du Nil, tout est devenu possible. Les lois immuables de la physique sont désormais de simples principes. Vous poussez cette nouvelle liberté jusqu’à ses limites en inventant d’incroyables appareils électroniques et en les utilisant contre les Pillards de Réalités.\_</p>\n<h2>Tactiques</h2>\n<p>\_</p>\n<p class=\"MsoNormal\">Votre électro-rayon est efficace mais il peut se décharger s’il est utilisé contre trop de cibles trop rapidement. Votre interaction offensive Ruse est particulièrement dévastatrice. De nombreux adversaires sont faibles face à la Ruse et un résultat «Choix du Joueur» peut éliminer des ennemis encore plus puissants dans les bonnes circonstances.</p>\n<p class=\"MsoNormal\">Tant que votre Champ de force est opérationnel, vous pouvez utiliser ses charges pour annuler des Blessures. Il peut bloquer deux points de Choc même s’il n’y a pas de Blessures mais il est préférable d’économiser ces charges. Une fois votre Champ de force épuisé, ou si une Déconnexion malencontreuse le désactive, vous êtes extrêmement vulnérable aux dommages. Si possible, conservez des Cartes de Destin telles que Volonté ou Action pour vous aider à vous Reconnecter\_</p>\n<h2>Instant fatidique</h2>\n<p class=\"MsoNormal\">Confrontée à l’assaut d’envahisseurs au Caire, vous vous êtes tournée vers la science pour riposter et au cours d’un moment d’incroyable inspiration (et un Instant fatidique) vous avez transformé un téléphone, une lampe à lave et un séchoir en un projecteur d’énergie mortelle. Vous pouvez aussi avoir subi votre transformation en détruisant de vieilles inventions avant qu’elles ne tombent entre les mains de Möbius et de ses hordes\_</p>\n<h2>Citation</h2>\n<p class=\"MsoNormal\">\"Ouah ! Qui aurait pu prévoir qu’une soudaine inversion de la polarité provoque une telle explosion ! Enfin, à part moi, bien entendu. Car c’est exactement ce que j’avais prévu. \"</p>\n<h2>Description</h2>\n<p class=\"MsoNormal\">Votre blouse en caoutchouc vulcanisé vous sert à travailler mais dessous vous êtes toujours habillée pour faire la fête. Vos lunettes sont à la mode dans toutes les situations. Vous êtes très intelligente et très éduquée. Vous êtes confiante, joyeuse et totalement bizarre.\_</p>\n<h2>Objectif</h2>\n<p class=\"MsoNormal\">La connaissance est le seul moyen d’obtenir la victoire et parfois, il faut faire des sacrifices pour atteindre cet objectif. Sauver les gens et s’amuser sont des priorités mais la Science est toujours en tête de liste.\_</p>\n<h2>Noms</h2>\n<p>Capitaine Condensateur, Dr Foudre, Joy Buzzer, Professeur Diode, L’Étincelle</p>\n<h2>Piste de progression (optionnelle)</h2>\n<ul>\n<li>5 PX) Conscience environnementale</li>\n<li>(7 PX) Champ de force (5 charges)</li>\n<li>\_(9 PX) Électro-rayon (10 charges)</li>\n<li>\_(3 PX) Esquive +3</li>\n<li>\_(3 PX) Armes à énergie +3</li>\n<li>\_(3 PX) Réalité +3</li>\n</ul>"
     race: human
     sizeBonus: normal
   editstate: false
@@ -1162,10 +1072,10 @@ prototypeToken:
   movementAction: null
 _stats:
   systemId: torgeternity
-  systemVersion: 13.15.0
+  systemVersion: 13.27.0
   coreVersion: '13.351'
   createdTime: 1716827809182
-  modifiedTime: 1771935740808
+  modifiedTime: 1773001234614
   lastModifiedBy: BMvGTGfheqDXarjN
   compendiumSource: null
   duplicateSource: null

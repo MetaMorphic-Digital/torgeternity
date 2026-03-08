@@ -633,14 +633,16 @@ system:
       base: 8
   other:
     cosm: panPacifica
-    possibilities: 3
+    possibilities:
+      value: 3
+    piety: 0
   skills:
     airVehicles:
       baseAttribute: dexterity
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     alteration:
@@ -648,7 +650,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     apportation:
@@ -656,7 +658,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     beastRiding:
@@ -664,7 +666,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     computers:
@@ -672,7 +674,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     conjuration:
@@ -680,7 +682,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     divination:
@@ -688,7 +690,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     dodge:
@@ -696,7 +698,7 @@ system:
       adds: 2
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     energyWeapons:
@@ -704,7 +706,7 @@ system:
       adds: 0
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     evidenceAnalysis:
@@ -712,7 +714,7 @@ system:
       adds: 1
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     faith:
@@ -720,7 +722,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     find:
@@ -728,7 +730,7 @@ system:
       adds: 1
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     fireCombat:
@@ -736,7 +738,7 @@ system:
       adds: 2
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     firstAid:
@@ -744,7 +746,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     heavyWeapons:
@@ -752,7 +754,7 @@ system:
       adds: 0
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     intimidation:
@@ -760,7 +762,7 @@ system:
       adds: 1
       isFav: false
       groupName: interaction
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     kinesis:
@@ -768,7 +770,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     landVehicles:
@@ -776,7 +778,7 @@ system:
       adds: 1
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     language:
@@ -784,7 +786,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     lockpicking:
@@ -792,7 +794,7 @@ system:
       adds: 1
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     maneuver:
@@ -800,7 +802,7 @@ system:
       adds: 1
       isFav: false
       groupName: interaction
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     medicine:
@@ -808,7 +810,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     meleeWeapons:
@@ -816,7 +818,7 @@ system:
       adds: 0
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     missileWeapons:
@@ -824,7 +826,7 @@ system:
       adds: 0
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     persuasion:
@@ -832,7 +834,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     precognition:
@@ -840,7 +842,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     profession:
@@ -848,7 +850,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     reality:
@@ -856,7 +858,7 @@ system:
       adds: 1
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     scholar:
@@ -864,7 +866,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     science:
@@ -872,7 +874,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     stealth:
@@ -880,7 +882,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     streetwise:
@@ -888,7 +890,7 @@ system:
       adds: 1
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     survival:
@@ -896,7 +898,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     taunt:
@@ -904,7 +906,7 @@ system:
       adds: 1
       isFav: false
       groupName: interaction
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     telepathy:
@@ -912,7 +914,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     tracking:
@@ -920,7 +922,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     trick:
@@ -928,7 +930,7 @@ system:
       adds: 0
       isFav: false
       groupName: interaction
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     unarmedCombat:
@@ -936,7 +938,7 @@ system:
       adds: 3
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     waterVehicles:
@@ -944,7 +946,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     willpower:
@@ -952,7 +954,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
   xp:
@@ -965,78 +967,70 @@ system:
     tech: 24
   details:
     background: >-
-      <h2>Pr&eacute;sentation</h2>
+      <h2>Présentation</h2>
 
-      <p class="MsoNormal">Des ann&eacute;es pass&eacute;es dans les rues de
-      Hong Kong vous ont endurci et vous &ecirc;tes devenu une arme fatale.
-      Devenir un Chevalier des Temp&ecirc;tes n&rsquo;a fait
-      qu&rsquo;accro&icirc;tre vos capacit&eacute;s. Mais en tout premier lieu,
-      vous &ecirc;tes un enqu&ecirc;teur. Vous avez &eacute;t&eacute;
-      entra&icirc;n&eacute; pour suivre des pistes, interroger des
-      t&eacute;moins et faire r&eacute;gner la loi et l&rsquo;ordre. Quand les
-      criminels r&eacute;sistent &agrave; leur arrestation, ce qu&rsquo;ils font
-      toujours, les choses d&eacute;g&eacute;n&egrave;rent rapidement et vous
-      avez alors recours &agrave; vos autres comp&eacute;tences.</p>
+      <p class="MsoNormal">Des années passées dans les rues de Hong Kong vous
+      ont endurci et vous êtes devenu une arme fatale. Devenir un Chevalier des
+      Tempêtes n’a fait qu’accroître vos capacités. Mais en tout premier lieu,
+      vous êtes un enquêteur. Vous avez été entraîné pour suivre des pistes,
+      interroger des témoins et faire régner la loi et l’ordre. Quand les
+      criminels résistent à leur arrestation, ce qu’ils font toujours, les
+      choses dégénèrent rapidement et vous avez alors recours à vos autres
+      compétences.</p>
 
       <h2>Tactiques</h2>
 
-      <p class="MsoNormal">Vous &ecirc;tes un tireur &eacute;lite et vous avez
-      la puissance de feu d&rsquo;une petite arm&eacute;e quand vous utilisez
-      vos deux pistolets 9 mm. Vos comp&eacute;tences &eacute;lev&eacute;es en
-      Esquive et en Combat &agrave; mains nues vous permettent de vous
-      d&eacute;fendre contre des adversaires proches ou &eacute;loign&eacute;s.
-      Manoeuvre est votre principale interaction offensive, essayez d&rsquo;y
-      avoir recours &agrave; chaque fois que c&rsquo;est une Action
-      approuv&eacute;e. L&rsquo;Atout Parade offensive vous permet de riposter
-      contre un attaquant qui vous rate en m&ecirc;l&eacute;e, tant que vous
-      avez des points de Choc &agrave; d&eacute;penser. Vous pouvez avoir
-      recours &agrave; une attaque en m&ecirc;l&eacute;e m&ecirc;me quand vous
-      &ecirc;tes &eacute;quip&eacute; de vos deux pistolets ; vous utilisez vos
-      pieds ou vos &eacute;paules.</p>
+      <p class="MsoNormal">Vous êtes un tireur élite et vous avez la puissance
+      de feu d’une petite armée quand vous utilisez vos deux pistolets 9 mm. Vos
+      compétences élevées en Esquive et en Combat à mains nues vous permettent
+      de vous défendre contre des adversaires proches ou éloignés. Manoeuvre est
+      votre principale interaction offensive, essayez d’y avoir recours à chaque
+      fois que c’est une Action approuvée. L’Atout Parade offensive vous permet
+      de riposter contre un attaquant qui vous rate en mêlée, tant que vous avez
+      des points de Choc à dépenser. Vous pouvez avoir recours à une attaque en
+      mêlée même quand vous êtes équipé de vos deux pistolets ; vous utilisez
+      vos pieds ou vos épaules.</p>
 
       <h2>Instant fatidique</h2>
 
-      <p class="MsoNormal">Quelque chose d&rsquo;important se pr&eacute;parait
-      et une corporation appel&eacute;e &laquo; Kanawa &raquo; &eacute;tait au
-      centre de cette affaire. Vos sup&eacute;rieurs vous ont menac&eacute; de
-      vous suspendre et de laisser tomber. Quelqu&rsquo;un a m&ecirc;me
-      essay&eacute; de vous tuer. Vous n&rsquo;avez pas laiss&eacute; tomber
-      m&ecirc;me apr&egrave;s le d&eacute;but de la Contagion et votre
-      d&eacute;termination a provoqu&eacute; en vous une subtile transformation.
-      Sinon, ce changement peut s&rsquo;&ecirc;tre produit en prot&eacute;geant
-      un groupe de r&eacute;fugi&eacute;s soi-disant infect&eacute;s d&rsquo;une
-      &laquo;&eacute;quipe de confinement&raquo; de Kanawa.</p>
+      <p class="MsoNormal">Quelque chose d’important se préparait et une
+      corporation appelée « Kanawa » était au centre de cette affaire. Vos
+      supérieurs vous ont menacé de vous suspendre et de laisser tomber.
+      Quelqu’un a même essayé de vous tuer. Vous n’avez pas laissé tomber même
+      après le début de la Contagion et votre détermination a provoqué en vous
+      une subtile transformation. Sinon, ce changement peut s’être produit en
+      protégeant un groupe de réfugiés soi-disant infectés d’une «équipe de
+      confinement» de Kanawa.</p>
 
       <h2>Citation</h2>
 
-      <p class="MsoNormal">&laquo; Que ce soient des jiangshis, des criminels ou
-      des envahisseurs d&rsquo;une autre r&eacute;alit&eacute;, une balle peut
-      toujours faire la diff&eacute;rence. &raquo;</p>
+      <p class="MsoNormal">« Que ce soient des jiangshis, des criminels ou des
+      envahisseurs d’une autre réalité, une balle peut toujours faire la
+      différence. »</p>
 
       <h2>Description</h2>
 
-      <p class="MsoNormal">On peut se moquer de votre veste en cuir mais
-      c&rsquo;est un v&ecirc;tement qui ne se d&eacute;mode pas. De plus, elle
-      dissimule vos deux holsters d&rsquo;&eacute;paule. Votre badge est utile
-      &agrave; Hong Kong dans votre juridiction mais il peut aussi vous aider
-      dans d&rsquo;autres r&eacute;gions du Pan-Pacifica tant que les gens ne
-      l&rsquo;examinent pas de trop pr&egrave;s. Vous &ecirc;tes
-      v&eacute;h&eacute;ment et vous ne supportez pas qu&rsquo;on manque de
-      respect &agrave; vous ou &agrave; votre badge.</p>
+      <p class="MsoNormal">On peut se moquer de votre veste en cuir mais c’est
+      un vêtement qui ne se démode pas. De plus, elle dissimule vos deux
+      holsters d’épaule. Votre badge est utile à Hong Kong dans votre
+      juridiction mais il peut aussi vous aider dans d’autres régions du
+      Pan-Pacifica tant que les gens ne l’examinent pas de trop près. Vous êtes
+      véhément et vous ne supportez pas qu’on manque de respect à vous ou à
+      votre badge.</p>
 
       <h2>Objectif</h2>
 
       <p class="MsoNormal">La Kanawa Corporation cache quelque chose, un lien
       avec</p>
 
-      <p class="MsoNormal">les autres Pillards de R&eacute;alit&eacute;s ou avec
-      la Contagion. Quoi</p>
+      <p class="MsoNormal">les autres Pillards de Réalités ou avec la Contagion.
+      Quoi</p>
 
-      <p class="MsoNormal">qu&rsquo;il se passe, cela pourrait &eacute;branler
-      tout le Pan-Pacifica.</p>
+      <p class="MsoNormal">qu’il se passe, cela pourrait ébranler tout le
+      Pan-Pacifica.</p>
 
-      <p class="MsoNormal">Bonne ou mauvaise, votre boulot est de
-      d&eacute;couvrir la v&eacute;rit&eacute;.</p>
+      <p class="MsoNormal">Bonne ou mauvaise, votre boulot est de découvrir la
+      vérité.</p>
 
       <h2>Noms</h2>
 
@@ -1051,15 +1045,15 @@ system:
 
       <p class="MsoNormal">□ (1 PX) Persuasion +1</p>
 
-      <p class="MsoNormal">□ (2 PX) R&eacute;alit&eacute; +2</p>
+      <p class="MsoNormal">□ (2 PX) Réalité +2</p>
 
       <p class="MsoNormal">□ (3 PX) Esquive +3</p>
 
-      <p class="MsoNormal">□ (3 PX) Combat &agrave; mains nues +3</p>
+      <p class="MsoNormal">□ (3 PX) Combat à mains nues +3</p>
 
-      <p class="MsoNormal">□ (4 PX) Armes &agrave; feu +4</p>
+      <p class="MsoNormal">□ (4 PX) Armes à feu +4</p>
 
-      <p class="MsoNormal">□ (5 PX) Armes &agrave; feu +5</p>
+      <p class="MsoNormal">□ (5 PX) Armes à feu +5</p>
     race: human
     sizeBonus: normal
   editstate: false
@@ -1150,10 +1144,10 @@ prototypeToken:
   movementAction: null
 _stats:
   systemId: torgeternity
-  systemVersion: 13.15.0
+  systemVersion: 13.27.0
   coreVersion: '13.351'
   createdTime: 1716827809136
-  modifiedTime: 1771935898728
+  modifiedTime: 1773001234614
   lastModifiedBy: BMvGTGfheqDXarjN
   compendiumSource: null
   duplicateSource: null

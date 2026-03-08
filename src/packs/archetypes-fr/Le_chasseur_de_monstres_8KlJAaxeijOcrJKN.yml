@@ -636,14 +636,16 @@ system:
       base: 8
   other:
     cosm: orrorsh
-    possibilities: 3
+    possibilities:
+      value: 3
+    piety: 0
   skills:
     airVehicles:
       baseAttribute: dexterity
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     alteration:
@@ -651,7 +653,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     apportation:
@@ -659,7 +661,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     beastRiding:
@@ -667,7 +669,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     computers:
@@ -675,7 +677,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     conjuration:
@@ -683,7 +685,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     divination:
@@ -691,7 +693,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     dodge:
@@ -699,7 +701,7 @@ system:
       adds: 1
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     energyWeapons:
@@ -707,7 +709,7 @@ system:
       adds: 0
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     evidenceAnalysis:
@@ -715,7 +717,7 @@ system:
       adds: 1
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     faith:
@@ -723,7 +725,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     find:
@@ -731,7 +733,7 @@ system:
       adds: 1
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     fireCombat:
@@ -739,7 +741,7 @@ system:
       adds: 3
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     firstAid:
@@ -747,7 +749,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     heavyWeapons:
@@ -755,7 +757,7 @@ system:
       adds: 0
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     intimidation:
@@ -763,7 +765,7 @@ system:
       adds: 2
       isFav: false
       groupName: interaction
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     kinesis:
@@ -771,7 +773,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     landVehicles:
@@ -779,7 +781,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     language:
@@ -787,7 +789,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     lockpicking:
@@ -795,7 +797,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     maneuver:
@@ -803,7 +805,7 @@ system:
       adds: 1
       isFav: false
       groupName: interaction
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     medicine:
@@ -811,7 +813,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     meleeWeapons:
@@ -819,7 +821,7 @@ system:
       adds: 1
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     missileWeapons:
@@ -827,7 +829,7 @@ system:
       adds: 0
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     persuasion:
@@ -835,7 +837,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     precognition:
@@ -843,7 +845,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     profession:
@@ -851,7 +853,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     reality:
@@ -859,7 +861,7 @@ system:
       adds: 1
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     scholar:
@@ -867,7 +869,7 @@ system:
       adds: 1
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     science:
@@ -875,7 +877,7 @@ system:
       adds: 2
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     stealth:
@@ -883,7 +885,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     streetwise:
@@ -891,7 +893,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     survival:
@@ -899,7 +901,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     taunt:
@@ -907,7 +909,7 @@ system:
       adds: 0
       isFav: false
       groupName: interaction
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     telepathy:
@@ -915,7 +917,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     tracking:
@@ -923,7 +925,7 @@ system:
       adds: 1
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     trick:
@@ -931,7 +933,7 @@ system:
       adds: 0
       isFav: false
       groupName: interaction
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     unarmedCombat:
@@ -939,7 +941,7 @@ system:
       adds: 0
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     waterVehicles:
@@ -947,7 +949,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     willpower:
@@ -955,7 +957,7 @@ system:
       adds: 1
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
   xp:
@@ -967,117 +969,7 @@ system:
     spirit: 16
     tech: 18
   details:
-    background: >-
-      <h2>Pr&eacute;sentation</h2>
-
-      <p class="MsoNormal"><span style="mso-spacerun: yes;">&nbsp;</span>Vous
-      &ecirc;tes un Victorien et votre monde, Ga&eacute;a, est ravag&eacute; par
-      les horreurs du D&eacute;charn&eacute;. Vous avez refus&eacute;
-      d&rsquo;&ecirc;tre soumis &agrave; la terreur alors vous avez
-      ripost&eacute;. Contre toute attente, vous avez surv&eacute;cu et les
-      diff&eacute;rents gadgets, les astuces et les armes sp&eacute;ciales que
-      vous avez acquis au fil des ann&eacute;es de combat vous ont permis de
-      r&eacute;tablir l&rsquo;&eacute;quilibre.</p>
-
-      <p class="MsoNormal">Quand le D&eacute;charn&eacute; a rassembl&eacute;
-      ses sombres hordes pour franchir les ponts maelstr&ouml;m afin de
-      d&eacute;cha&icirc;ner sa fureur sur la Prime Terre, vous avez
-      d&eacute;cid&eacute; de les suivre pour les harceler comme vous
-      l&rsquo;avez toujours fait.</p>
-
-      <h2>Tactiques</h2>
-
-      <p class="MsoNormal">Les cartouches sp&eacute;ciales de votre fusil tueur
-      vous conf&egrave;rent une grande puissance de feu et une grande souplesse
-      contre des ennemis pr&eacute;cis, m&ecirc;me en dehors d&rsquo;Orrorsh.
-      &Agrave; chaque fois que vous le pouvez, renseignez-vous pour savoir quels
-      types d&rsquo;adversaires vous risquez de rencontrer et pr&eacute;parez
-      votre &eacute;quipement en cons&eacute;quence. Les Cartouches d&rsquo;eau
-      b&eacute;nite sont efficaces contre les gospogs, un ennemi commun
-      employ&eacute; par tous les Seigneurs de R&eacute;alit&eacute;. M&ecirc;me
-      une fois toutes vos cartouches sp&eacute;cialis&eacute;es
-      utilis&eacute;es, vos munitions standards demeurent assez puissantes. Vous
-      &ecirc;tes tr&egrave;s r&eacute;sistant &agrave; la peur et &agrave;
-      l&rsquo;Intimidation mais tr&egrave;s vuln&eacute;rable aux interactions
-      offensives de Provocation. Les Victoriens sont notoirement hautains et ne
-      supportent pas les insultes.</p>
-
-      <h2><span style="mso-spacerun: yes;">&nbsp;</span>Instant fatidique</h2>
-
-      <p class="MsoNormal">Votre Instant fatidique s&rsquo;est produit il y a
-      tr&egrave;s longtemps sur Ga&eacute;a. Peut-&ecirc;tre &agrave; cause
-      d&rsquo;un loup-garou ou d&rsquo;un vampire. Quoi qu&rsquo;il en soit,
-      c&rsquo;&eacute;tait une abomination engendr&eacute;e par la malfaisance
-      du D&eacute;charn&eacute;. La traquer jusqu&rsquo;&agrave; sa
-      tani&egrave;re &eacute;tait t&eacute;m&eacute;raire mais cela a
-      d&eacute;clench&eacute; un changement en vous. En tant que Chevalier des
-      Temp&ecirc;tes vous avez d&eacute;sormais le pouvoir de
-      r&eacute;pliquer.</p>
-
-      <h2>Citation</h2>
-
-      <p class="MsoNormal">&laquo; Il est plus facile de ne plus avoir peur
-      d&rsquo;une chose une fois que vous avez le pouvoir de la d&eacute;truire.
-      &raquo;</p>
-
-      <h2><span style="mso-spacerun: yes;">&nbsp;</span>Description</h2>
-
-      <p class="MsoNormal">*Combattre des monstres est une profession dangereuse
-      et vos diff&eacute;rentes cicatrices sont l&agrave; pour en
-      t&eacute;moigner. Seules certaines de ces cicatrices sont visibles. Les
-      Victoriens pr&eacute;f&egrave;rent les tenues modestes couvrant tout leur
-      corps m&ecirc;me quand il fait extr&ecirc;mement chaud et vous ne faites
-      pas exception &agrave; la r&egrave;gle. Votre manteau si particulier,
-      constitu&eacute; d&rsquo;un cuir &eacute;trange, et votre fusil tueur
-      d&eacute;mesur&eacute; et d&eacute;cor&eacute; trahissent votre
-      profession.</p>
-
-      <h2>Objectif</h2>
-
-      <p class="MsoNormal"><span style="mso-spacerun: yes;">&nbsp; </span>La
-      destruction du mal est un imp&eacute;ratif. Si on les laisse<span
-      style="mso-spacerun: yes;">&nbsp;&nbsp; </span>prosp&eacute;rer, les
-      monstres deviennent encore plus puissants<span style="mso-spacerun:
-      yes;">&nbsp;&nbsp; </span>et vils. Les Seigneurs de R&eacute;alit&eacute;,
-      malgr&eacute; toutes leurs ruses<span style="mso-spacerun:
-      yes;">&nbsp;&nbsp; </span>et leurs faux semblants, ne sont que des
-      monstres que vous<span style="mso-spacerun: yes;">&nbsp;&nbsp;
-      </span>devez traquer et exterminer.</p>
-
-      <h2><span style="mso-spacerun: yes;">&nbsp; </span>Noms</h2>
-
-      <p class="MsoNormal"><span style="mso-spacerun: yes;">&nbsp;
-      </span>Ashton, Aubrey, Eli, Harper, Marion, Prester, Tanner,<span
-      style="mso-spacerun: yes;">&nbsp;&nbsp; </span>Thomas, Winter<span
-      style="mso-spacerun: yes;">&nbsp;&nbsp; </span></p>
-
-      <h2>Piste de progression (optionnelle)<span style="mso-spacerun:
-      yes;">&nbsp; </span></h2>
-
-      <p class="MsoNormal"><span style="mso-spacerun: yes;">&nbsp;</span>□ (5
-      PX) Tireur d&rsquo;&eacute;lite<span style="mso-spacerun:
-      yes;">&nbsp;&nbsp; </span></p>
-
-      <p class="MsoNormal">□ (7 PX) Armurier (Cartouches explosives)<span
-      style="mso-spacerun: yes;">&nbsp;&nbsp;</span></p>
-
-      <p class="MsoNormal"><span style="mso-spacerun: yes;"> </span>□ (1 PX)
-      Ruse +1<span style="mso-spacerun: yes;">&nbsp;&nbsp; </span></p>
-
-      <p class="MsoNormal">□ (2 PX) Manoeuvre +2<span style="mso-spacerun:
-      yes;">&nbsp;&nbsp; </span></p>
-
-      <p class="MsoNormal">□ (3 PX) Intimidation +3<span style="mso-spacerun:
-      yes;">&nbsp;&nbsp; </span></p>
-
-      <p class="MsoNormal">□ (3 PX) Armes de m&ecirc;l&eacute;e +3<span
-      style="mso-spacerun: yes;">&nbsp;&nbsp; </span></p>
-
-      <p class="MsoNormal">□ (4 PX) Armes &agrave; feu +4<span
-      style="mso-spacerun: yes;">&nbsp;&nbsp; </span></p>
-
-      <p class="MsoNormal">□ (5 PX) Armes &agrave; feu +5<span
-      style="mso-spacerun: yes;">&nbsp;&nbsp; </span></p>
+    background: "<h2>Présentation</h2>\n<p class=\"MsoNormal\"><span style=\"mso-spacerun:yes\">\_</span>Vous êtes un Victorien et votre monde, Gaéa, est ravagé par les horreurs du Décharné. Vous avez refusé d’être soumis à la terreur alors vous avez riposté. Contre toute attente, vous avez survécu et les différents gadgets, les astuces et les armes spéciales que vous avez acquis au fil des années de combat vous ont permis de rétablir l’équilibre.</p>\n<p class=\"MsoNormal\">Quand le Décharné a rassemblé ses sombres hordes pour franchir les ponts maelström afin de déchaîner sa fureur sur la Prime Terre, vous avez décidé de les suivre pour les harceler comme vous l’avez toujours fait.</p>\n<h2>Tactiques</h2>\n<p class=\"MsoNormal\">Les cartouches spéciales de votre fusil tueur vous confèrent une grande puissance de feu et une grande souplesse contre des ennemis précis, même en dehors d’Orrorsh. À chaque fois que vous le pouvez, renseignez-vous pour savoir quels types d’adversaires vous risquez de rencontrer et préparez votre équipement en conséquence. Les Cartouches d’eau bénite sont efficaces contre les gospogs, un ennemi commun employé par tous les Seigneurs de Réalité. Même une fois toutes vos cartouches spécialisées utilisées, vos munitions standards demeurent assez puissantes. Vous êtes très résistant à la peur et à l’Intimidation mais très vulnérable aux interactions offensives de Provocation. Les Victoriens sont notoirement hautains et ne supportent pas les insultes.</p>\n<h2><span style=\"mso-spacerun:yes\">\_</span>Instant fatidique</h2>\n<p class=\"MsoNormal\">Votre Instant fatidique s’est produit il y a très longtemps sur Gaéa. Peut-être à cause d’un loup-garou ou d’un vampire. Quoi qu’il en soit, c’était une abomination engendrée par la malfaisance du Décharné. La traquer jusqu’à sa tanière était téméraire mais cela a déclenché un changement en vous. En tant que Chevalier des Tempêtes vous avez désormais le pouvoir de répliquer.</p>\n<h2>Citation</h2>\n<p class=\"MsoNormal\">« Il est plus facile de ne plus avoir peur d’une chose une fois que vous avez le pouvoir de la détruire. »</p>\n<h2><span style=\"mso-spacerun:yes\">\_</span>Description</h2>\n<p class=\"MsoNormal\">*Combattre des monstres est une profession dangereuse et vos différentes cicatrices sont là pour en témoigner. Seules certaines de ces cicatrices sont visibles. Les Victoriens préfèrent les tenues modestes couvrant tout leur corps même quand il fait extrêmement chaud et vous ne faites pas exception à la règle. Votre manteau si particulier, constitué d’un cuir étrange, et votre fusil tueur démesuré et décoré trahissent votre profession.</p>\n<h2>Objectif</h2>\n<p class=\"MsoNormal\"><span style=\"mso-spacerun:yes\">\_ </span>La destruction du mal est un impératif. Si on les laisse<span style=\"mso-spacerun:yes\">\_\_ </span>prospérer, les monstres deviennent encore plus puissants<span style=\"mso-spacerun:yes\">\_\_ </span>et vils. Les Seigneurs de Réalité, malgré toutes leurs ruses<span style=\"mso-spacerun:yes\">\_\_ </span>et leurs faux semblants, ne sont que des monstres que vous<span style=\"mso-spacerun:yes\">\_\_ </span>devez traquer et exterminer.</p>\n<h2><span style=\"mso-spacerun:yes\">\_ </span>Noms</h2>\n<p class=\"MsoNormal\"><span style=\"mso-spacerun:yes\">\_ </span>Ashton, Aubrey, Eli, Harper, Marion, Prester, Tanner,<span style=\"mso-spacerun:yes\">\_\_ </span>Thomas, Winter<span style=\"mso-spacerun:yes\">\_\_ </span></p>\n<h2>Piste de progression (optionnelle)<span style=\"mso-spacerun:yes\">\_ </span></h2>\n<p class=\"MsoNormal\"><span style=\"mso-spacerun:yes\">\_</span>□ (5 PX) Tireur d’élite<span style=\"mso-spacerun:yes\">\_\_ </span></p>\n<p class=\"MsoNormal\">□ (7 PX) Armurier (Cartouches explosives)<span style=\"mso-spacerun:yes\">\_\_</span></p>\n<p class=\"MsoNormal\"><span style=\"mso-spacerun:yes\"> </span>□ (1 PX) Ruse +1<span style=\"mso-spacerun:yes\">\_\_ </span></p>\n<p class=\"MsoNormal\">□ (2 PX) Manoeuvre +2<span style=\"mso-spacerun:yes\">\_\_ </span></p>\n<p class=\"MsoNormal\">□ (3 PX) Intimidation +3<span style=\"mso-spacerun:yes\">\_\_ </span></p>\n<p class=\"MsoNormal\">□ (3 PX) Armes de mêlée +3<span style=\"mso-spacerun:yes\">\_\_ </span></p>\n<p class=\"MsoNormal\">□ (4 PX) Armes à feu +4<span style=\"mso-spacerun:yes\">\_\_ </span></p>\n<p class=\"MsoNormal\">□ (5 PX) Armes à feu +5<span style=\"mso-spacerun:yes\">\_\_ </span></p>"
     race: human
     sizeBonus: normal
   editstate: false
@@ -1168,10 +1060,10 @@ prototypeToken:
   movementAction: null
 _stats:
   systemId: torgeternity
-  systemVersion: 13.24.1
+  systemVersion: 13.27.0
   coreVersion: '13.351'
   createdTime: 1716827809076
-  modifiedTime: 1772996991601
+  modifiedTime: 1773001234612
   lastModifiedBy: BMvGTGfheqDXarjN
   compendiumSource: null
   duplicateSource: null

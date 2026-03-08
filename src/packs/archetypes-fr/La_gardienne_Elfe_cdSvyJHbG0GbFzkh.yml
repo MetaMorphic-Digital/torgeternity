@@ -1000,14 +1000,16 @@ system:
       base: 7
   other:
     cosm: aysle
-    possibilities: 3
+    possibilities:
+      value: 3
+    piety: 0
   skills:
     airVehicles:
       baseAttribute: dexterity
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     alteration:
@@ -1015,7 +1017,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     apportation:
@@ -1023,7 +1025,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     beastRiding:
@@ -1031,7 +1033,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     computers:
@@ -1039,7 +1041,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     conjuration:
@@ -1047,7 +1049,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     divination:
@@ -1055,7 +1057,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     dodge:
@@ -1063,7 +1065,7 @@ system:
       adds: 2
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     energyWeapons:
@@ -1071,7 +1073,7 @@ system:
       adds: 0
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     evidenceAnalysis:
@@ -1079,7 +1081,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     faith:
@@ -1087,7 +1089,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     find:
@@ -1095,7 +1097,7 @@ system:
       adds: 2
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     fireCombat:
@@ -1103,7 +1105,7 @@ system:
       adds: 0
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     firstAid:
@@ -1111,7 +1113,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     heavyWeapons:
@@ -1119,7 +1121,7 @@ system:
       adds: 0
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     intimidation:
@@ -1127,7 +1129,7 @@ system:
       adds: 0
       isFav: false
       groupName: interaction
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     kinesis:
@@ -1135,7 +1137,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     landVehicles:
@@ -1143,7 +1145,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     language:
@@ -1151,7 +1153,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     lockpicking:
@@ -1159,7 +1161,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     maneuver:
@@ -1167,7 +1169,7 @@ system:
       adds: 1
       isFav: false
       groupName: interaction
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     medicine:
@@ -1175,7 +1177,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     meleeWeapons:
@@ -1183,7 +1185,7 @@ system:
       adds: 1
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     missileWeapons:
@@ -1191,7 +1193,7 @@ system:
       adds: 3
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     persuasion:
@@ -1199,7 +1201,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     precognition:
@@ -1207,7 +1209,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     profession:
@@ -1215,7 +1217,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     reality:
@@ -1223,7 +1225,7 @@ system:
       adds: 1
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     scholar:
@@ -1231,7 +1233,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     science:
@@ -1239,7 +1241,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     stealth:
@@ -1247,7 +1249,7 @@ system:
       adds: 2
       isFav: true
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     streetwise:
@@ -1255,7 +1257,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     survival:
@@ -1263,7 +1265,7 @@ system:
       adds: 1
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     taunt:
@@ -1271,7 +1273,7 @@ system:
       adds: 0
       isFav: false
       groupName: interaction
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     telepathy:
@@ -1279,7 +1281,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     tracking:
@@ -1287,7 +1289,7 @@ system:
       adds: 2
       isFav: true
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     trick:
@@ -1295,7 +1297,7 @@ system:
       adds: 1
       isFav: false
       groupName: interaction
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     unarmedCombat:
@@ -1303,7 +1305,7 @@ system:
       adds: 0
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     waterVehicles:
@@ -1311,7 +1313,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     willpower:
@@ -1319,7 +1321,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
   xp:
@@ -1331,102 +1333,7 @@ system:
     spirit: 18
     tech: 14
   details:
-    background: >-
-      <h2 class="MsoNormal">Pr&eacute;sentation</h2>
-
-      <p class="MsoNormal">Les Gardiens sont des chasseurs et des protecteurs
-      d&rsquo;Aysle qui hantent les for&ecirc;ts comme des fant&ocirc;mes,
-      frappant les ennemis des elfes avec discr&eacute;tion et ruse. Les arcs
-      longs et les manteaux verts sont embl&eacute;matiques des Gardiens ainsi
-      que les rares loups blancs que bon nombre d&rsquo;entre eux ont comme
-      compagnons.</p>
-
-      <h2 class="MsoNormal">Tactiques</h2>
-
-      <p class="MsoNormal">Vous &ecirc;tes une combattante qui excelle dans le
-      combat &agrave; distance. Vous pouvez toujours utiliser votre
-      &eacute;p&eacute;e longue mais il est g&eacute;n&eacute;ralement
-      pr&eacute;f&eacute;rable de vous fier &agrave; votre arc. Encocher une
-      fl&egrave;che vous demande une action simple aussi vous pouvez cibler deux
-      &agrave; trois adversaires avec une seule attaque.</p>
-
-      <p class="MsoNormal">Une des tactiques que les Gardiens appr&eacute;cient
-      est d&rsquo;&eacute;viter que leur loup soit engag&eacute; en combat
-      direct et qu&rsquo;il soit l&agrave; pour intimider des adversaires. Cela
-      peut rendre l&rsquo;ennemi Vuln&eacute;rable &agrave; une attaque avec
-      votre arc.</p>
-
-      <p class="MsoNormal">Si des adversaires parviennent &agrave; s&rsquo;en
-      prendre &agrave; votre ami &agrave; poils, utilisez la D&eacute;fense
-      active pour le prot&eacute;ger ou annuler les dommages gr&acirc;ce
-      &agrave; vos Possibilit&eacute;s.</p>
-
-      <p class="MsoNormal">M&eacute;fiez-vous des Zones avec un faible Axiome
-      Magie comme celles de la Prime Terre, de la Terre Vivante et du
-      Pan-Pacifica, puisque les elfes subissent trois points de Choc en cas de
-      Fatigue.</p>
-
-      <h2 class="MsoNormal">Instant fatidique</h2>
-
-      <p class="MsoNormal">Bien que les Gardiens prot&egrave;gent les
-      for&ecirc;ts d&rsquo;Aysle des forces obscures, tr&egrave;s peu
-      d&rsquo;entre eux deviennent des Chevaliers des Temp&ecirc;tes. Votre
-      Instant fatidique s&rsquo;est certainement produit apr&egrave;s avoir
-      suivi Dame Ardinay sur Terre pour accomplir sa qu&ecirc;te
-      insens&eacute;e. Affronter vos anciens ennemis dans un endroit aussi
-      diff&eacute;rent a &eacute;veill&eacute; en vous quelque chose que la
-      protection des for&ecirc;ts de votre monde n&rsquo;avait pas
-      stimul&eacute;. Il est aussi possible que vous ayez quitt&eacute; votre
-      poste pour sauver un nain ou un humain et que vous vous soyez
-      transform&eacute;e au cours de cet instant de pur altruisme</p>
-
-      <h2 class="MsoNormal">Citation</h2>
-
-      <p class="MsoNormal">&laquo; Dans les for&ecirc;ts, toutes les
-      cr&eacute;atures sont soit des proies, soit des pr&eacute;dateurs. Je vous
-      assure que je ne suis pas une proie. &raquo;</p>
-
-      <h2 class="MsoNormal">Description</h2>
-
-      <p class="MsoNormal">Les elfes des bois sont r&eacute;put&eacute;s pour
-      &ecirc;tre discrets et timides, surtout en comparaison &agrave; leurs
-      cousins plus mystiques. Les Gardiens portent des v&ecirc;tements en cuir
-      souple ou en tissu dense tant qu&rsquo;ils peuvent se d&eacute;placer
-      silencieusement avec. Ils favorisent la couleur verte m&ecirc;me en dehors
-      des for&ecirc;ts.</p>
-
-      <h2 class="MsoNormal">Objectif</h2>
-
-      <p class="MsoNormal">Les Gardiens elfes sont au courant d&rsquo;un sombre
-      secret connu des &eacute;lites parmi les hauts elfes et ils sont venus sur
-      la Prime Terre &agrave; cause d&rsquo;un sentiment de culpabilit&eacute;
-      d&eacute;plac&eacute;. Peut-&ecirc;tre que si tous les Seigneurs de
-      R&eacute;alit&eacute; sont vaincus les peuples d&rsquo;Aysle pourront-ils
-      conna&icirc;tre la paix.</p>
-
-      <h2 class="MsoNormal">Noms</h2>
-
-      <p class="MsoNormal">Amavae, Cimbar, Feyurit, Lief, Namys of Glaed, Nuvia,
-      Rose, Tierra, Waldir</p>
-
-      <h2 class="MsoNormal">Piste de progression (optionnelle)</h2>
-
-      <p class="MsoNormal">□ (5 PX) Archer elfe</p>
-
-      <p class="MsoNormal">□ (7 PX) Tireur d&rsquo;&eacute;lite</p>
-
-      <p class="MsoNormal">□ (1 PX) Crochetage +1</p>
-
-      <p class="MsoNormal">□ (2 PX) Armes de m&ecirc;l&eacute;e +2</p>
-
-      <p class="MsoNormal">□ (3 PX) Esquive +3</p>
-
-      <p class="MsoNormal">□ (3 PX) Discr&eacute;tion +3</p>
-
-      <p class="MsoNormal">□ (4 PX) Armes de jet +4</p>
-
-      <p class="MsoNormal">□ (5 PX) Armes de jet +5 <span style="mso-spacerun:
-      yes;">&nbsp;</span></p>
+    background: "<h2 class=\"MsoNormal\">Présentation</h2>\n<p class=\"MsoNormal\">Les Gardiens sont des chasseurs et des protecteurs d’Aysle qui hantent les forêts comme des fantômes, frappant les ennemis des elfes avec discrétion et ruse. Les arcs longs et les manteaux verts sont emblématiques des Gardiens ainsi que les rares loups blancs que bon nombre d’entre eux ont comme compagnons.</p>\n<h2 class=\"MsoNormal\">Tactiques</h2>\n<p class=\"MsoNormal\">Vous êtes une combattante qui excelle dans le combat à distance. Vous pouvez toujours utiliser votre épée longue mais il est généralement préférable de vous fier à votre arc. Encocher une flèche vous demande une action simple aussi vous pouvez cibler deux à trois adversaires avec une seule attaque.</p>\n<p class=\"MsoNormal\">Une des tactiques que les Gardiens apprécient est d’éviter que leur loup soit engagé en combat direct et qu’il soit là pour intimider des adversaires. Cela peut rendre l’ennemi Vulnérable à une attaque avec votre arc.</p>\n<p class=\"MsoNormal\">Si des adversaires parviennent à s’en prendre à votre ami à poils, utilisez la Défense active pour le protéger ou annuler les dommages grâce à vos Possibilités.</p>\n<p class=\"MsoNormal\">Méfiez-vous des Zones avec un faible Axiome Magie comme celles de la Prime Terre, de la Terre Vivante et du Pan-Pacifica, puisque les elfes subissent trois points de Choc en cas de Fatigue.</p>\n<h2 class=\"MsoNormal\">Instant fatidique</h2>\n<p class=\"MsoNormal\">Bien que les Gardiens protègent les forêts d’Aysle des forces obscures, très peu d’entre eux deviennent des Chevaliers des Tempêtes. Votre Instant fatidique s’est certainement produit après avoir suivi Dame Ardinay sur Terre pour accomplir sa quête insensée. Affronter vos anciens ennemis dans un endroit aussi différent a éveillé en vous quelque chose que la protection des forêts de votre monde n’avait pas stimulé. Il est aussi possible que vous ayez quitté votre poste pour sauver un nain ou un humain et que vous vous soyez transformée au cours de cet instant de pur altruisme</p>\n<h2 class=\"MsoNormal\">Citation</h2>\n<p class=\"MsoNormal\">« Dans les forêts, toutes les créatures sont soit des proies, soit des prédateurs. Je vous assure que je ne suis pas une proie. »</p>\n<h2 class=\"MsoNormal\">Description</h2>\n<p class=\"MsoNormal\">Les elfes des bois sont réputés pour être discrets et timides, surtout en comparaison à leurs cousins plus mystiques. Les Gardiens portent des vêtements en cuir souple ou en tissu dense tant qu’ils peuvent se déplacer silencieusement avec. Ils favorisent la couleur verte même en dehors des forêts.</p>\n<h2 class=\"MsoNormal\">Objectif</h2>\n<p class=\"MsoNormal\">Les Gardiens elfes sont au courant d’un sombre secret connu des élites parmi les hauts elfes et ils sont venus sur la Prime Terre à cause d’un sentiment de culpabilité déplacé. Peut-être que si tous les Seigneurs de Réalité sont vaincus les peuples d’Aysle pourront-ils connaître la paix.</p>\n<h2 class=\"MsoNormal\">Noms</h2>\n<p class=\"MsoNormal\">Amavae, Cimbar, Feyurit, Lief, Namys of Glaed, Nuvia, Rose, Tierra, Waldir</p>\n<h2 class=\"MsoNormal\">Piste de progression (optionnelle)</h2>\n<p class=\"MsoNormal\">□ (5 PX) Archer elfe</p>\n<p class=\"MsoNormal\">□ (7 PX) Tireur d’élite</p>\n<p class=\"MsoNormal\">□ (1 PX) Crochetage +1</p>\n<p class=\"MsoNormal\">□ (2 PX) Armes de mêlée +2</p>\n<p class=\"MsoNormal\">□ (3 PX) Esquive +3</p>\n<p class=\"MsoNormal\">□ (3 PX) Discrétion +3</p>\n<p class=\"MsoNormal\">□ (4 PX) Armes de jet +4</p>\n<p class=\"MsoNormal\">□ (5 PX) Armes de jet +5 <span style=\"mso-spacerun:yes\">\_</span></p>"
     race: elf
     sizeBonus: normal
   editstate: false
@@ -1517,10 +1424,10 @@ prototypeToken:
   movementAction: null
 _stats:
   systemId: torgeternity
-  systemVersion: 13.15.0
+  systemVersion: 13.27.0
   coreVersion: '13.351'
   createdTime: 1716827809619
-  modifiedTime: 1771935893892
+  modifiedTime: 1773001234624
   lastModifiedBy: BMvGTGfheqDXarjN
   compendiumSource: null
   duplicateSource: null

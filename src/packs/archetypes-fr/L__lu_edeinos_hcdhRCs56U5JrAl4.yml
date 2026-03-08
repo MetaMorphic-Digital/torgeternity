@@ -743,14 +743,16 @@ system:
       base: 9
   other:
     cosm: livingLand
-    possibilities: 3
+    possibilities:
+      value: 3
+    piety: 0
   skills:
     airVehicles:
       baseAttribute: dexterity
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     alteration:
@@ -758,7 +760,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     apportation:
@@ -766,7 +768,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     beastRiding:
@@ -774,7 +776,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     computers:
@@ -782,7 +784,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     conjuration:
@@ -790,7 +792,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     divination:
@@ -798,7 +800,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     dodge:
@@ -806,7 +808,7 @@ system:
       adds: 1
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     energyWeapons:
@@ -814,7 +816,7 @@ system:
       adds: 0
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     evidenceAnalysis:
@@ -822,7 +824,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     faith:
@@ -830,7 +832,7 @@ system:
       adds: 3
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     find:
@@ -838,7 +840,7 @@ system:
       adds: 1
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     fireCombat:
@@ -846,7 +848,7 @@ system:
       adds: 0
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     firstAid:
@@ -854,7 +856,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     heavyWeapons:
@@ -862,7 +864,7 @@ system:
       adds: 0
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     intimidation:
@@ -870,7 +872,7 @@ system:
       adds: 1
       isFav: false
       groupName: interaction
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     kinesis:
@@ -878,7 +880,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     landVehicles:
@@ -886,7 +888,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     language:
@@ -894,7 +896,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     lockpicking:
@@ -902,7 +904,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     maneuver:
@@ -910,7 +912,7 @@ system:
       adds: 1
       isFav: false
       groupName: interaction
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     medicine:
@@ -918,7 +920,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     meleeWeapons:
@@ -926,7 +928,7 @@ system:
       adds: 2
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     missileWeapons:
@@ -934,7 +936,7 @@ system:
       adds: 1
       isFav: false
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     persuasion:
@@ -942,7 +944,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     precognition:
@@ -950,7 +952,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     profession:
@@ -958,7 +960,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     reality:
@@ -966,7 +968,7 @@ system:
       adds: 1
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     scholar:
@@ -974,7 +976,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     science:
@@ -982,7 +984,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     stealth:
@@ -990,7 +992,7 @@ system:
       adds: 2
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     streetwise:
@@ -998,7 +1000,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     survival:
@@ -1006,7 +1008,7 @@ system:
       adds: 1
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     taunt:
@@ -1014,7 +1016,7 @@ system:
       adds: 0
       isFav: false
       groupName: interaction
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     telepathy:
@@ -1022,7 +1024,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 0
+      unskilledUse: false
       isThreatSkill: false
       defenseOnly: false
     tracking:
@@ -1030,7 +1032,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     trick:
@@ -1038,7 +1040,7 @@ system:
       adds: 0
       isFav: false
       groupName: interaction
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     unarmedCombat:
@@ -1046,7 +1048,7 @@ system:
       adds: 2
       isFav: true
       groupName: combat
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     waterVehicles:
@@ -1054,7 +1056,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
     willpower:
@@ -1062,7 +1064,7 @@ system:
       adds: 0
       isFav: false
       groupName: other
-      unskilledUse: 1
+      unskilledUse: true
       isThreatSkill: false
       defenseOnly: false
   xp:
@@ -1074,97 +1076,7 @@ system:
     spirit: 24
     tech: 6
   details:
-    background: >-
-      <h2 class="MsoNormal">Pr&eacute;sentation</h2>
-
-      <p class="MsoNormal">Les habitants reptiliens de Takta Ker sont des
-      guerriers sauvages et f&eacute;roces. Leur environnement est brutal avec
-      des plantes carnivores, des cr&eacute;atures hostiles et des
-      pr&eacute;dateurs g&eacute;ants. Les edeinos ne voient aucune
-      contradiction dans le fait d&rsquo;apporter la mort &agrave; leurs ennemis
-      au nom de Lanala, la d&eacute;esse de la vie. La mort engendre la vie. La
-      d&eacute;composition des corps fertilise la terre d&rsquo;o&ugrave;
-      jaillissent de nouvelles pousses. Les &eacute;lus sont des pr&ecirc;tres
-      qui incarnent la voie de Lanala connue sous le nom de &laquo; Keta Kalles.
-      &raquo; La plupart des &eacute;lus sont rest&eacute;s loyaux &agrave;
-      Baruk Kaah mais certains estiment que le Seigneur de R&eacute;alit&eacute;
-      a abandonn&eacute; le Keta Kalles et que les fid&egrave;les de Lanala
-      doivent se dresser contre lui.</p>
-
-      <h2 class="MsoNormal">Tactiques</h2>
-
-      <p class="MsoNormal">Votre bras muscl&eacute; et votre lance en bois
-      d&rsquo;hrockt vous suffisent contre la plupart des adversaires. Face
-      &agrave; un ennemi particuli&egrave;rement tenace, le miracle Frappe peut
-      renforcer votre lance. Les interactions d&rsquo;Intimidation sont utiles
-      pour affaiblir l&rsquo;opposition. Vos d&eacute;fenses sont
-      m&eacute;diocres (vous &ecirc;tes particuli&egrave;rement
-      vuln&eacute;rable aux Provocations et aux Ruses), mais avec une bonne
-      comp&eacute;tence R&eacute;alit&eacute; vous pouvez annuler la plupart des
-      dommages.</p>
-
-      <h2 class="MsoNormal">Instant fatidique</h2>
-
-      <p class="MsoNormal">Lanala a ordonn&eacute; aux edeinos d&rsquo;apporter
-      la vie aux endroits morts des autres mondes, c&rsquo;est du moins ce que
-      pr&eacute;tend Baruk Kaah. Dans les faits, cependant, cette guerre vous
-      laisse un go&ucirc;t amer, un affront &agrave; Lanala plut&ocirc;t
-      qu&rsquo;une cons&eacute;cration. Ce sentiment s&rsquo;est
-      av&eacute;r&eacute; fond&eacute; quand votre rejet de Baruk Kaah a
-      d&eacute;clench&eacute; votre transcendance.</p>
-
-      <h2 class="MsoNormal">Citation</h2>
-
-      <p class="MsoNormal">&laquo; Je vous envie presque la souffrance que vous
-      allez ressentir. &raquo;</p>
-
-      <h2 class="MsoNormal">Description</h2>
-
-      <p class="MsoNormal">Il peut sembler &eacute;trange pour un pr&ecirc;tre
-      de la vie d&rsquo;&ecirc;tre affubl&eacute; d&rsquo;un cr&acirc;ne de
-      dinosaure et par&eacute; d&rsquo;ossements mais la mort et la
-      d&eacute;composition sont d&rsquo;autres aspects de la vie. Ce ne sont pas
-      des choses mortes, des choses en pierre ou en m&eacute;tal qui n&rsquo;ont
-      jamais &eacute;t&eacute; touch&eacute;es par Lanala, elles &eacute;taient
-      autrefois vivantes. Comme la plupart des edeinos vous &ecirc;tes
-      spontan&eacute;, vous n&rsquo;avez ni les bonnes mani&egrave;res ni les
-      limites sociales que les humains consid&egrave;rent comme acquises.</p>
-
-      <h2 class="MsoNormal">Objectif</h2>
-
-      <p class="MsoNormal">C&rsquo;est par les sensations, la souffrance, le
-      plaisir et d&rsquo;autres rares sentiments, que l&rsquo;on suit la voie de
-      Lanala. Baruk Kaah et les Seigneurs de R&eacute;alit&eacute; sont une
-      menace pour Lanala mais la chose la plus importante est de ressentir.</p>
-
-      <h2 class="MsoNormal"><span style="mso-tab-count:
-      1;">&nbsp;</span>Noms</h2>
-
-      <p class="MsoNormal" style="tab-stops: 150.75pt;">Griffe-sanglante,
-      Dathil, Longue-m&acirc;choire, Marche-lune, Dent-rasoir, Riscaran,
-      Queue-temp&ecirc;te, Regard-fou</p>
-
-      <h2 class="MsoNormal">Piste de progression (optionnelle)</h2>
-
-      <p class="MsoNormal" style="tab-stops: 150.75pt;">□ (5 PX) Peau de
-      pierre</p>
-
-      <p class="MsoNormal" style="tab-stops: 150.75pt;">□ (7 PX)
-      Prot&eacute;g&eacute;</p>
-
-      <p class="MsoNormal" style="tab-stops: 150.75pt;">□ (1 PX) Pistage +1</p>
-
-      <p class="MsoNormal" style="tab-stops: 150.75pt;">□ (2 PX) Esquive +2</p>
-
-      <p class="MsoNormal" style="tab-stops: 150.75pt;">□ (3 PX)
-      Discr&eacute;tion +3</p>
-
-      <p class="MsoNormal" style="tab-stops: 150.75pt;">□ (3 PX) Armes de
-      m&ecirc;l&eacute;e +3</p>
-
-      <p class="MsoNormal" style="tab-stops: 150.75pt;">□ (4 PX) Foi +4</p>
-
-      <p class="MsoNormal" style="tab-stops: 150.75pt;">□ (5 PX) Foi +5</p>
+    background: "<h2 class=\"MsoNormal\">Présentation</h2>\n<p class=\"MsoNormal\">Les habitants reptiliens de Takta Ker sont des guerriers sauvages et féroces. Leur environnement est brutal avec des plantes carnivores, des créatures hostiles et des prédateurs géants. Les edeinos ne voient aucune contradiction dans le fait d’apporter la mort à leurs ennemis au nom de Lanala, la déesse de la vie. La mort engendre la vie. La décomposition des corps fertilise la terre d’où jaillissent de nouvelles pousses. Les élus sont des prêtres qui incarnent la voie de Lanala connue sous le nom de « Keta Kalles. » La plupart des élus sont restés loyaux à Baruk Kaah mais certains estiment que le Seigneur de Réalité a abandonné le Keta Kalles et que les fidèles de Lanala doivent se dresser contre lui.</p>\n<h2 class=\"MsoNormal\">Tactiques</h2>\n<p class=\"MsoNormal\">Votre bras musclé et votre lance en bois d’hrockt vous suffisent contre la plupart des adversaires. Face à un ennemi particulièrement tenace, le miracle Frappe peut renforcer votre lance. Les interactions d’Intimidation sont utiles pour affaiblir l’opposition. Vos défenses sont médiocres (vous êtes particulièrement vulnérable aux Provocations et aux Ruses), mais avec une bonne compétence Réalité vous pouvez annuler la plupart des dommages.</p>\n<h2 class=\"MsoNormal\">Instant fatidique</h2>\n<p class=\"MsoNormal\">Lanala a ordonné aux edeinos d’apporter la vie aux endroits morts des autres mondes, c’est du moins ce que prétend Baruk Kaah. Dans les faits, cependant, cette guerre vous laisse un goût amer, un affront à Lanala plutôt qu’une consécration. Ce sentiment s’est avéré fondé quand votre rejet de Baruk Kaah a déclenché votre transcendance.</p>\n<h2 class=\"MsoNormal\">Citation</h2>\n<p class=\"MsoNormal\">« Je vous envie presque la souffrance que vous allez ressentir. »</p>\n<h2 class=\"MsoNormal\">Description</h2>\n<p class=\"MsoNormal\">Il peut sembler étrange pour un prêtre de la vie d’être affublé d’un crâne de dinosaure et paré d’ossements mais la mort et la décomposition sont d’autres aspects de la vie. Ce ne sont pas des choses mortes, des choses en pierre ou en métal qui n’ont jamais été touchées par Lanala, elles étaient autrefois vivantes. Comme la plupart des edeinos vous êtes spontané, vous n’avez ni les bonnes manières ni les limites sociales que les humains considèrent comme acquises.</p>\n<h2 class=\"MsoNormal\">Objectif</h2>\n<p class=\"MsoNormal\">C’est par les sensations, la souffrance, le plaisir et d’autres rares sentiments, que l’on suit la voie de Lanala. Baruk Kaah et les Seigneurs de Réalité sont une menace pour Lanala mais la chose la plus importante est de ressentir.</p>\n<h2 class=\"MsoNormal\"><span style=\"mso-tab-count:1\">\_</span>Noms</h2>\n<p class=\"MsoNormal\" style=\"tab-stops:150.75pt\">Griffe-sanglante, Dathil, Longue-mâchoire, Marche-lune, Dent-rasoir, Riscaran, Queue-tempête, Regard-fou</p>\n<h2 class=\"MsoNormal\">Piste de progression (optionnelle)</h2>\n<p class=\"MsoNormal\" style=\"tab-stops:150.75pt\">□ (5 PX) Peau de pierre</p>\n<p class=\"MsoNormal\" style=\"tab-stops:150.75pt\">□ (7 PX) Protégé</p>\n<p class=\"MsoNormal\" style=\"tab-stops:150.75pt\">□ (1 PX) Pistage +1</p>\n<p class=\"MsoNormal\" style=\"tab-stops:150.75pt\">□ (2 PX) Esquive +2</p>\n<p class=\"MsoNormal\" style=\"tab-stops:150.75pt\">□ (3 PX) Discrétion +3</p>\n<p class=\"MsoNormal\" style=\"tab-stops:150.75pt\">□ (3 PX) Armes de mêlée +3</p>\n<p class=\"MsoNormal\" style=\"tab-stops:150.75pt\">□ (4 PX) Foi +4</p>\n<p class=\"MsoNormal\" style=\"tab-stops:150.75pt\">□ (5 PX) Foi +5</p>"
     race: edeinos
     sizeBonus: normal
   editstate: false
@@ -1255,10 +1167,10 @@ prototypeToken:
   movementAction: null
 _stats:
   systemId: torgeternity
-  systemVersion: 13.15.0
+  systemVersion: 13.27.0
   coreVersion: '13.351'
   createdTime: 1716827809684
-  modifiedTime: 1771935731208
+  modifiedTime: 1773001234625
   lastModifiedBy: BMvGTGfheqDXarjN
   compendiumSource: null
   duplicateSource: null
