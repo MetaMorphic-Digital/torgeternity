@@ -45,6 +45,8 @@ export class TorgActiveEffectData extends (foundry.data.ActiveEffectTypeDataMode
 
   static migrateData(source) {
 
+    if (source.transferOnOutcome === "0" || source.transferOnOutcome === 0)
+      source.transferOnOutcome = "";
     if (typeof source.transferOnOutcome === 'number' && source.transferOnOutcome !== 0) {
       // map TestResult to string
       const conversion = ['', 'mishap', 'failure', 'standard', 'good', 'outstanding'];
@@ -66,6 +68,6 @@ export class TorgActiveEffectData extends (foundry.data.ActiveEffectTypeDataMode
    */
   get isSuppressed() {
     // Don't apply the AE to the owning actor if it is being transferred on an attack
-    return !!this.transferOnOutcome || !!this.defendAgainstTrait;
+    return !!this.transferOnOutcome || !!this.defendAgainstTrait.size;
   }
 }
