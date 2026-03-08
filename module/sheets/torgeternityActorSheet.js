@@ -756,8 +756,8 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
       skillName: 'Vehicle Chase',
       skillValue: Number(button.dataset.skillValue),
       DNDescriptor: 'highestSpeed',
-      vehicleSpeed: button.dataset.speed,
-      maneuverModifier: button.dataset.maneuver,
+      vehicleSpeed: Number(button.dataset.speed),
+      maneuverModifier: Number(button.dataset.maneuver),
     }, { useTargets: true });
   }
 
@@ -773,8 +773,8 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
       actor: this.actor,
       skillName: 'Vehicle Operation',
       skillValue: Number(button.dataset.skillValue),
-      vehicleSpeed: button.dataset.speed,
-      maneuverModifier: button.dataset.maneuver,
+      vehicleSpeed: Number(button.dataset.speed),
+      maneuverModifier: Number(button.dataset.maneuver),
     }, { useTargets: true });
   }
 
@@ -794,8 +794,8 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
       skillName: 'Vehicle Stunt',
       skillValue: Number(button.dataset.skillValue),
       DNDescriptor: dnDescriptor,
-      vehicleSpeed: button.dataset.speed,
-      maneuverModifier: button.dataset.maneuver,
+      vehicleSpeed: Number(button.dataset.speed),
+      maneuverModifier: Number(button.dataset.maneuver),
     }, { useTargets: true });
   }
 
