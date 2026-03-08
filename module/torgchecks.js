@@ -95,7 +95,7 @@ export async function renderSkillChat(test, origChatMessage) {
       case 'interactionAttack':
       case 'attack':
         {
-          const skillData = testActor.system.skills[test.skillName] || testActor.items.get(test.skillName)?.system;
+          const skillData = (testActor.type === 'vehicle') ? testItem.system.gunnerSkill : testActor.system.skills[test.skillName] || testActor.items.get(test.skillName)?.system;
           if (skillData) attribute = skillData.baseAttribute;
           break;
         }
