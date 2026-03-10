@@ -2,9 +2,10 @@
 
 ## NEXT
 
-- Add any statuses which are currently on an Actor to its list of defenseTraits.
-- Add any statuses on the attacking actor to the attackTraits for a test.
-- Add statuses to the valid list of Traits in the three trait-set fields of Active Effects.
+- Add Conditions to the list of traits for use in Active Effects:
+  - The conditions currently on the attacker can be used in "Apply If Attack Trait"
+  - The conditions currently on the target can be used in "Apply If Defend Trait" and "Defend Against Trait"
+e.g. set "Apply if Attack Trait" to have "dim", "dark", "pitch black" and changes to "test.damage", "add", "10" - and the Actor will do 10 more damage when attacking from the dark. (When adding on a weapon, ensure that "Apply Effect to Actor" is not checked if the bonus should only apply to attacks with that weapon.)
 
 ## 13.27.0 - Active Effects, Roll Data & ignore Disconnected Items
 
