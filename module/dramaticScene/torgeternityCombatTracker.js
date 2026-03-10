@@ -222,7 +222,7 @@ export default class torgeternityCombatTracker extends foundry.applications.side
     const getCombatant = li => this.viewed.combatants.get(li.dataset.combatantId);
     function canAddToGroup(li) {
       const combatant = getCombatant(li);
-      return !combatant?.group &&
+      return !combatant?.group && combatant.token &&
         !!combatant.combat.groups.find(group => group.disposition === undefined || group.disposition === combatant.token.disposition);
     }
 
@@ -330,7 +330,7 @@ export default class torgeternityCombatTracker extends foundry.applications.side
     const { combatantId } = button.closest("[data-combatant-id]")?.dataset ?? {};
     const combatant = this.viewed?.combatants.get(combatantId);
     if (!combatant) return;
-    await combatant.actor.toggleStatusEffect('waiting');
+    await combatant.actor?.toggleStatusEffect('waiting');
   }
 
   updateStage(document, force) {
@@ -529,7 +529,7 @@ export default class torgeternityCombatTracker extends foundry.applications.side
   static async #onToggleWaitingGroup(event, button) {
     const group = this.viewed.groups.get(button.closest('li.combatantGroup')?.dataset.groupId);
     if (group) group.isOpen = !button.open;
-    return Promise.all(group.members.map(combatant => combatant.actor.toggleStatusEffect('waiting')))
+    return Promise.all(group.members.map(combatant => combatant.actor?.toggleStatusEffect('waiting')))
   }
 
   static async #askAddToGroup(askAll, li) {
@@ -537,16 +537,18 @@ export default class torgeternityCombatTracker extends foundry.applications.side
     const combatant = combat.combatants.get(li.dataset.combatantId); // getCombatant(li)
     let combatants;
     if (askAll) {
-      if (combatant.actor.type === 'stormknight') {
-        combatants = combat.combatants.filter(combatant => combatant.actor.type === 'stormknight');
+      const actor = combatant.actor;
+      if (!actor) return;// The Actor has been deleted.
+      if (actor.type === 'stormknight') {
+        combatants = combat.combatants.filter(combatant => actor.type === 'stormknight');
       } else {
-        const matchid = combatant.actor._source._id;
-        combatants = combat.combatants.filter(combatant => combatant.actor._source._id === matchid);
+        const matchid = actor._source._id;
+        combatants = combat.combatants.filter(combatant => actor._source._id === matchid);
       }
     } else
       combatants = [combatant];
 
-    const validDisposition = combatant.token.disposition;
+    const validDisposition = combatant.token?.disposition;
     const validGroups = combat.groups.filter(group => group.disposition === undefined || group.disposition === validDisposition);
     if (validGroups.length < 1)
       return ui.notifications.info('torgeternity.CombatantGroup.noValidGroup', { localize: true });
