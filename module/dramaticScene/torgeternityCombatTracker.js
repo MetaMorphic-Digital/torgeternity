@@ -81,10 +81,9 @@ export default class torgeternityCombatTracker extends foundry.applications.side
 
   async _prepareTrackerContext(context, options) {
     await super._prepareTrackerContext(context, options);
-    if (!this.viewed) return;
-    this.viewed.updateCurrentDisposition();
     const combat = this.viewed;
     if (!combat) return;
+    combat.updateCurrentDisposition();
 
     await this._prepareGroupContext(context, combat);
 
@@ -188,22 +187,22 @@ export default class torgeternityCombatTracker extends foundry.applications.side
     options.unshift({
       name: "torgeternity.dramaCard.replaceDrama",
       icon: '<i class="fa-solid fa-rotate-right"></i>',
-      condition: game.user.isGM && !!this.viewed,
+      condition: () => game.user.isGM && !!this.viewed,
       callback: () => this.viewed.drawDramaCard()
     }, {
       name: "torgeternity.dramaCard.getPreviousDrama",
       icon: '<i class="fa-solid fa-up-down"></i>',
-      condition: game.user.isGM && !!this.viewed,
+      condition: () => game.user.isGM && !!this.viewed,
       callback: () => this.viewed.restorePreviousDrama()
     }, {
       name: "torgeternity.dramaCard.shuffleDeck",
       icon: '<i class="fa-solid fa-random"></i>',
-      condition: game.user.isGM && !!this.viewed,
+      condition: () => game.user.isGM && !!this.viewed,
       callback: () => this.viewed.resetDramaDeck()
     }, {
       name: "torgeternity.CombatantGroup.newGroup",
       icon: '<i class="fa-solid fa-random"></i>',
-      condition: game.user.isGM && !!this.viewed,
+      condition: () => game.user.isGM && !!this.viewed,
       callback: async () => {
         const groupName = await foundry.applications.api.DialogV2.prompt({
           window: { title: "Combatant Group Creation" },
