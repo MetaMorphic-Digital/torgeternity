@@ -1418,7 +1418,8 @@
       "defense": "Defense",
       "melee": "Melee",
       "other": "Other",
-      "ranged": "Ranged"
+      "ranged": "Ranged",
+      "statuses": "Statuses"
     },
     "vehicleTypes": {
       "air": "Air",

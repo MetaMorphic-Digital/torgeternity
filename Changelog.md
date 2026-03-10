@@ -1,5 +1,11 @@
 # TORG Eternity Changelog
 
+## NEXT
+
+- Add any statuses which are currently on an Actor to its list of defenseTraits.
+- Add any statuses on the attacking actor to the attackTraits for a test.
+- Add statuses to the valid list of Traits in the three trait-set fields of Active Effects.
+
 ## 13.27.0 - Active Effects, Roll Data & ignore Disconnected Items
 
 **NOTE:** You will need to remove and re-add any status effects on all tokens (the modifiers for each status are now stored in the status definition so that they can be modified by Active Effects).

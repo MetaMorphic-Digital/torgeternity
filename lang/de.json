@@ -1424,7 +1424,8 @@
       "defense": "Verteidigung",
       "melee": "Nahkampf",
       "other": "Andere",
-      "ranged": "Fernkampf"
+      "ranged": "Fernkampf",
+      "statuses": "Statuses"
     },
     "vehicleTypes": {
       "air": "Luft",
