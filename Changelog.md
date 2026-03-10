@@ -3,6 +3,7 @@
 ## 13.27.2 - Prevent Combat Tracker errors
 
 - Prevent an error in `updateCurrentDisposition` from preventing the Combat Tracker from rendering.
+- Prevent an error in `setTurnTaken` when an Actor is deleted but its linked token is still in a combat.
 
 ## 13.27.2 - Fix defenses using only attribute values
 
