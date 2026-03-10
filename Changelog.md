@@ -6,7 +6,7 @@
   - The conditions currently on the attacker can be used in "Apply If Attack Trait"
   - The conditions currently on the target can be used in "Apply If Defend Trait" and "Defend Against Trait"
   - e.g. set "Apply if Attack Trait" to have "dim", "dark", "pitch black" and changes to "test.damage", "add", "10" - and the Actor will do 10 more damage when attacking from the dark. (When adding on a weapon, ensure that "Apply Effect to Actor" is not checked if the bonus should only apply to attacks with that weapon.)
-- Allow Active Effects to add additional traits to an Actor, using the Attribute Key "system.extraTraits" with "Change Mode" = "Add" and "Value" set to the internal name of the trait (key from `CONFIG.torgeternity.allItemTraits`).
+- Allow Active Effects to add additional traits to an Actor, using the Attribute Key `system.extraTraits` with "Change Mode" = `Add` and "Value" set to the internal name of the trait (key from `CONFIG.torgeternity.allItemTraits`).
 - Allow an Active Effect to be active only when the owning Actor has a particular condition or (equipped) item with a particular trait.
   - For equippable Items (armor, weapons), the item must be equipped for its traits to be considered.
   - e.g. "Cloak of Darkness" effects can have "Active Only with these traits" set to "Dim" (or "Dark" or "Pitch Black") to set the appropriate bonus to toughness.
