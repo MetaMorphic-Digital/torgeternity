@@ -1,6 +1,10 @@
 # TORG Eternity Changelog
 
-## NEXT
+## 13.27.2 - Fix defenses using only attribute values
+
+- Fixes a bug where the defensees were based on the skill values BEFORE adds were added to the skill values.
+
+## 13.27.1 - More Active Effects capabilities
 
 - Add Conditions to the list of traits for use in Active Effects:
   - The conditions currently on the attacker can be used in "Apply If Attack Trait"
