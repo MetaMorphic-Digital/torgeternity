@@ -38,6 +38,10 @@
         "target": "Ziel"
       },
       "FIELDS": {
+        "activeIfTrait": {
+          "label": "Active only with these traits",
+          "hint": "This active effect will only be active if the actor has one of these traits, either a condition on the actor or a trait on an (equipped) item"
+        },
         "transferOnOutcome": {
           "label": "Zuweisen bei Ergebnis",
           "hint": "Weise diesen Effekt dem Ziel zu, wenn eine Probe mit diesem Gegenstand das definierte Ergebnis erreicht"
@@ -1052,6 +1056,7 @@
       "editableTooltip": "Vergrößere den Charakterbogen, um editierbare Werte anzuzeigen",
       "effect": "Modif.",
       "effectCreate": "Effekt erstellen",
+      "effectTestOptions": "For Tests",
       "effects": "Effekte",
       "end": "Ende",
       "enhancement": "Verbesserung",

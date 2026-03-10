@@ -638,7 +638,7 @@ export default class TorgeternityActor extends foundry.documents.Actor {
         result.push(...item.system.traits.filter(trait => Object.hasOwn(CONFIG.torgeternity.defenseTraits, trait)));
       }
     }
-    return result.concat(Array.from(this.statuses));
+    return result.concat(Array.from(this.statuses)).concat(Array.from(this.system.extraTraits));
   }
 }
 

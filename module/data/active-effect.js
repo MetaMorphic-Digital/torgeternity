@@ -1,3 +1,4 @@
+import TorgeternityActor from '../documents/actor/torgeternityActor.js';
 import { newTraitsField } from './item/baseItemData.js';
 
 const fields = foundry.data.fields;
@@ -35,6 +36,7 @@ export class TorgActiveEffectData extends (foundry.data.ActiveEffectTypeDataMode
           initial: 'target',
           blank: false
         }),
+        activeIfTrait: newTraitsField(),
         applyIfAttackTrait: newTraitsField(),
         applyIfDefendTrait: newTraitsField(),
         defendAgainstTrait: newTraitsField(),
@@ -68,6 +70,16 @@ export class TorgActiveEffectData extends (foundry.data.ActiveEffectTypeDataMode
    */
   get isSuppressed() {
     // Don't apply the AE to the owning actor if it is being transferred on an attack
-    return !!this.transferOnOutcome || !!this.defendAgainstTrait.size;
+    if (this.transferOnOutcome.length || this.defendAgainstTrait.size) return true;
+    if (!this.activeIfTrait.size) return false;
+    const actor = this.parent.parent?.actor ?? this.parent.parent;
+    if (!actor || !(actor instanceof TorgeternityActor)) return false;
+    // Quickest test is to check conditions first
+    if (this.activeIfTrait.find(status => actor.statuses.has(status))) return false;
+
+    // Look for an (equipped) item with a matching trait
+    return !actor.items.find(item => item.system.traits.size &&
+      (!item.system.canEquip || item.isEquipped) &&
+      item.system.traits.find(trait => this.activeIfTrait.has(trait)));
   }
 }

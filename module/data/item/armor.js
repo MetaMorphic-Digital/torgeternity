@@ -29,4 +29,6 @@ export class ArmorItemData extends GeneralItemData {
   get usage() {
     return 'worn';
   }
+
+  get canEquip() { return true; }
 }

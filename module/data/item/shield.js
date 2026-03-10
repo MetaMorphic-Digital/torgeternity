@@ -16,4 +16,6 @@ export class ShieldItemData extends GeneralItemData {
       notes: new fields.StringField({ initial: '' }),
     };
   }
+
+  get canEquip() { return true; }
 }

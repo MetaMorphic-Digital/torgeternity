@@ -44,6 +44,9 @@ export class BaseActorData extends foundry.abstract.TypeDataModel {
         lightningDefense: 0
       }
     }
+
+    // Traits added by Active Effects
+    this.extraTraits = [];
   }
 
   prepareDerivedData() {
