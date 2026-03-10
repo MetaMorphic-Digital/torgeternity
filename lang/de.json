@@ -38,6 +38,10 @@
         "target": "Ziel"
       },
       "FIELDS": {
+        "activeIfTrait": {
+          "label": "Nur Aktiv bei diesen Eigenschaften",
+          "hint": "Dieser Aktive Effekt ist nur aktiv, wenn der Charakter eine dieser Eigenschaften, entweder als Zustand am Charakter oder als Eigenschaft auf einem (ausgerüsteten) Gegenstand, besitzt"
+        },
         "transferOnOutcome": {
           "label": "Zuweisen bei Ergebnis",
           "hint": "Weise diesen Effekt dem Ziel zu, wenn eine Probe mit diesem Gegenstand das definierte Ergebnis erreicht"
@@ -1052,6 +1056,7 @@
       "editableTooltip": "Vergrößere den Charakterbogen, um editierbare Werte anzuzeigen",
       "effect": "Modif.",
       "effectCreate": "Effekt erstellen",
+      "effectTestOptions": "Für Proben",
       "effects": "Effekte",
       "end": "Ende",
       "enhancement": "Verbesserung",

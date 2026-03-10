@@ -1,5 +1,20 @@
 # TORG Eternity Changelog
 
+## NEXT
+
+- Add Conditions to the list of traits for use in Active Effects:
+  - The conditions currently on the attacker can be used in "Apply If Attack Trait"
+  - The conditions currently on the target can be used in "Apply If Defend Trait" and "Defend Against Trait"
+  - e.g. set "Apply if Attack Trait" to have "dim", "dark", "pitch black" and changes to "test.damage", "add", "10" - and the Actor will do 10 more damage when attacking from the dark. (When adding on a weapon, ensure that "Apply Effect to Actor" is not checked if the bonus should only apply to attacks with that weapon.)
+- Allow Active Effects to add additional traits to an Actor, using the Attribute Key `system.extraTraits` with "Change Mode" = `Add` and "Value" set to the internal name of the trait (key from `CONFIG.torgeternity.allItemTraits`).
+- Allow an Active Effect to be active only when the owning Actor has a particular condition or (equipped) item with a particular trait.
+  - For equippable Items (armor, weapons), the item must be equipped for its traits to be considered.
+  - e.g. "Cloak of Darkness" effects can have "Active Only with these traits" set to "Dim" (or "Dark" or "Pitch Black") to set the appropriate bonus to toughness.
+
+### Bug Fixes
+
+- `Painful` (+1 shock) was being applied AFTER `ignoreShock` (set shock to 0).  Painful will no longer apply if the target is immune to shock.
+
 ## 13.27.0 - Active Effects, Roll Data & ignore Disconnected Items
 
 **NOTE:** You will need to remove and re-add any status effects on all tokens (the modifiers for each status are now stored in the status definition so that they can be modified by Active Effects).

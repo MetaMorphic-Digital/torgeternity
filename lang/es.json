@@ -38,6 +38,10 @@
         "target": "Objetivo"
       },
       "FIELDS": {
+        "activeIfTrait": {
+          "label": "Activar solo con estos rasgos",
+          "hint": "Este efecto activo solo se activará si el actor tiene uno de estos rasgos, bien sea como estado sobre el actor, bien como rasgo de un objeto (equipado)"
+        },
         "transferOnOutcome": {
           "label": "Transferir en función del resultado",
           "hint": "Transfiere este efecto al/los actor(es) objetivo cuando una prueba en la que se usea este objeto tiene este resultado en concreto"
@@ -59,8 +63,8 @@
           "hint": "Aplicar este efecto a una prueba en la que se use este objeto SOL si el actor OBJETIVO tiene uno de estos rasgos"
         },
         "defendAgainstTrait": {
-          "label": "Defend Against Trait",
-          "hint": "Apply this effect to a test when the owner is a TARGET and the attacker has one of these traits"
+          "label": "Defensa contra rasgo",
+          "hint": "Aplicar este efecto a una prueba cuando el propietario es el OBJETIVO y el atacante tiene uno de estos rasgos"
         }
       }
     },
@@ -1052,6 +1056,7 @@
       "editableTooltip": "Expande la hoja de amenaza para mostrar los campos editables",
       "effect": "Efecto",
       "effectCreate": "Crear Efecto",
+      "effectTestOptions": "Para pruebas",
       "effects": "Efectos",
       "end": "Fin",
       "enhancement": "Mejora",

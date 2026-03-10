@@ -38,6 +38,10 @@
         "target": "Acteur cible"
       },
       "FIELDS": {
+        "activeIfTrait": {
+          "label": "Trait d'activation",
+          "hint": "Cet effet ne sera actif que si l'Acteur possède l'un de ces traits, soit personnellement, soit par l'intermédiaire d'un objet (équipé)"
+        },
         "transferOnOutcome": {
           "label": "Appliquer l'Effet correspondant au degré de réussite",
           "hint": "Appliquer l'Effet sur le Token ciblé correspondant au degré de réussite du test"
@@ -1052,6 +1056,7 @@
       "editableTooltip": "Agrandissez la fiche pour faire apparaître les champs éditables",
       "effect": "Effet",
       "effectCreate": "Créer un Effet",
+      "effectTestOptions": "Pour les tests",
       "effects": "Effets",
       "end": "Fin",
       "enhancement": "Amélioration",

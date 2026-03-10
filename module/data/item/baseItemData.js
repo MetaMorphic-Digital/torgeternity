@@ -34,6 +34,9 @@ export class BaseItemData extends foundry.abstract.TypeDataModel {
     }
     return super.migrateData(source);
   }
+
+  // Can this Item type be equipped?
+  get canEquip() { return false; }
 }
 
 export function newTraitsField(itemType) {
