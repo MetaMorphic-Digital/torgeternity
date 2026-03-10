@@ -71,6 +71,8 @@ export class TorgActiveEffectData extends (foundry.data.ActiveEffectTypeDataMode
   get isSuppressed() {
     // Don't apply the AE to the owning actor if it is being transferred on an attack
     if (this.transferOnOutcome.length || this.defendAgainstTrait.size) return true;
+
+    // If the trait is conditionally active, then check for traits/conditions on the owning actor (if any)
     if (!this.activeIfTrait.size) return false;
     const actor = this.parent.parent?.actor ?? this.parent.parent;
     if (!actor || !(actor instanceof TorgeternityActor)) return false;

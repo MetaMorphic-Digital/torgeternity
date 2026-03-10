@@ -190,6 +190,12 @@ export class CommonActorData extends BaseActorData {
         : attributes.dexterity.value;
     attributes.dexterity.value += Math.min(0, attributes.strength.value - this.other.minStr);
 
+    // Derive Skill values for Storm Knights and Threats (need this BEFORE setting up defenses)
+    for (const [name, skill] of Object.entries(this.skills)) {
+      const trained = skill.unskilledUse || this._source.skills[name].adds;
+      skill.value = trained ? this.attributes[skill.baseAttribute].value + skill.adds + (skill.mod ?? 0) : '';
+    }
+
     // Set base unarmed damage
 
     this.unarmed.damage = attributes.strength.value + this.unarmed.damageMod;
@@ -226,10 +232,5 @@ export class CommonActorData extends BaseActorData {
     this.other.move = applyNumericEffects('system.other.moveMod', this.attributes.dexterity.value, this.parent.appliedEffects);
     this.other.run = applyNumericEffects('system.other.runMod', this.attributes.dexterity.value * 3, this.parent.appliedEffects);
 
-    // Derive Skill values for Storm Knights and Threats
-    for (const [name, skill] of Object.entries(this.skills)) {
-      const trained = skill.unskilledUse || this._source.skills[name].adds;
-      skill.value = trained ? this.attributes[skill.baseAttribute].value + skill.adds + (skill.mod ?? 0) : '';
-    }
   }
 }
