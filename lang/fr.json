@@ -39,8 +39,8 @@
       },
       "FIELDS": {
         "activeIfTrait": {
-          "label": "Active only with these traits",
-          "hint": "This active effect will only be active if the actor has one of these traits, either a condition on the actor or a trait on an (equipped) item"
+          "label": "Trait d'activation",
+          "hint": "Cet effet ne sera actif que si l'Acteur possède l'un de ces traits, soit personnellement, soit par l'intermédiaire d'un objet (équipé)"
         },
         "transferOnOutcome": {
           "label": "Appliquer l'Effet correspondant au degré de réussite",
@@ -1056,7 +1056,7 @@
       "editableTooltip": "Agrandissez la fiche pour faire apparaître les champs éditables",
       "effect": "Effet",
       "effectCreate": "Créer un Effet",
-      "effectTestOptions": "For Tests",
+      "effectTestOptions": "Pour les tests",
       "effects": "Effets",
       "end": "Fin",
       "enhancement": "Amélioration",

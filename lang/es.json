@@ -39,8 +39,8 @@
       },
       "FIELDS": {
         "activeIfTrait": {
-          "label": "Active only with these traits",
-          "hint": "This active effect will only be active if the actor has one of these traits, either a condition on the actor or a trait on an (equipped) item"
+          "label": "Activar solo con estos rasgos",
+          "hint": "Este efecto activo solo se activará si el actor tiene uno de estos rasgos, bien sea como estado sobre el actor, bien como rasgo de un objeto (equipado)"
         },
         "transferOnOutcome": {
           "label": "Transferir en función del resultado",
@@ -1056,7 +1056,7 @@
       "editableTooltip": "Expande la hoja de amenaza para mostrar los campos editables",
       "effect": "Efecto",
       "effectCreate": "Crear Efecto",
-      "effectTestOptions": "For Tests",
+      "effectTestOptions": "Para pruebas",
       "effects": "Efectos",
       "end": "Fin",
       "enhancement": "Mejora",

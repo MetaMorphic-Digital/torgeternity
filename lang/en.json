@@ -33,8 +33,8 @@
       },
       "FIELDS": {
         "activeIfTrait": {
-          "label": "Active only with these traits",
-          "hint": "This active effect will only be active if the has actor one of these traits, either a condition on the actor or a trait on an (equipped) item"
+          "label": "Active only If",
+          "hint": "This active effect will only be active if the actor has one of these traits, either a condition on the actor or a trait on an (equipped) item"
         },
         "combatToggle": {
           "label": "Display as Combat Toggle",

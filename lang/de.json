@@ -39,8 +39,8 @@
       },
       "FIELDS": {
         "activeIfTrait": {
-          "label": "Active only with these traits",
-          "hint": "This active effect will only be active if the actor has one of these traits, either a condition on the actor or a trait on an (equipped) item"
+          "label": "Nur Aktiv bei diesen Eigenschaften",
+          "hint": "Dieser Aktive Effekt ist nur aktiv, wenn der Charakter eine dieser Eigenschaften, entweder als Zustand am Charakter oder als Eigenschaft auf einem (ausgerüsteten) Gegenstand, besitzt"
         },
         "transferOnOutcome": {
           "label": "Zuweisen bei Ergebnis",
@@ -1056,7 +1056,7 @@
       "editableTooltip": "Vergrößere den Charakterbogen, um editierbare Werte anzuzeigen",
       "effect": "Modif.",
       "effectCreate": "Effekt erstellen",
-      "effectTestOptions": "For Tests",
+      "effectTestOptions": "Für Proben",
       "effects": "Effekte",
       "end": "Ende",
       "enhancement": "Verbesserung",
