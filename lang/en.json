@@ -42,7 +42,7 @@
         },
         "transferOnOutcome": {
           "label": "Transfer on Outcome",
-          "hint": "Transfer this effect to the target Actor(s) with a test using this Item has this particular outcome"
+          "hint": "Transfer this effect to the target Actor(s) when a test using this Item has this particular outcome"
         },
         "transferTo": {
           "label": "Transfer To",
