@@ -901,6 +901,10 @@ export function torgDamageModifiers(result, options) {
     result.wounds -= 1;
     result.shocks += 3;
   }
+  if (result.shocks > 0 && traits?.includes('painful')) {
+    flags.push(game.i18n.localize('torgeternity.traits.painful'));
+    result.shocks += 1;
+  }
   if (result.wounds > 0 && traits?.includes('ignoreWounds')) {
     flags.push(game.i18n.localize('torgeternity.traits.ignoreWounds'));
     result.wounds = 0;
@@ -908,10 +912,6 @@ export function torgDamageModifiers(result, options) {
   if (result.shocks > 0 && traits?.includes('ignoreShock')) {
     flags.push(game.i18n.localize('torgeternity.traits.ignoreShock'));
     result.shocks = 0;
-  }
-  if (result.shocks > 0 && traits?.includes('painful')) {
-    flags.push(game.i18n.localize('torgeternity.traits.painful'));
-    result.shocks += 1;
   }
 
   if (result.shocks > 0 || result.wounds > 0) {
