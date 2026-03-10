@@ -1,5 +1,9 @@
 # TORG Eternity Changelog
 
+## 13.27.2 - Prevent Combat Tracker errors
+
+- Prevent an error in `updateCurrentDisposition` from preventing the Combat Tracker from rendering.
+
 ## 13.27.2 - Fix defenses using only attribute values
 
 - Fixes a bug where the defensees were based on the skill values BEFORE adds were added to the skill values.

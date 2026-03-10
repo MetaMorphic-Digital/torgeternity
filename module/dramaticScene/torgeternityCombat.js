@@ -510,12 +510,12 @@ export default class TorgCombat extends Combat {
     // Find first combatant whose turn has NOT been taken (after sorting).
     const old = this.#currentDisposition;
     const firstNotTaken = this.turns?.find(combatant => !combatant.turnTaken && !combatant.isWaiting);
-    this.#currentDisposition = firstNotTaken?.token.disposition ?? CONST.TOKEN_DISPOSITIONS.SECRET;
+    this.#currentDisposition = firstNotTaken?.token?.disposition ?? CONST.TOKEN_DISPOSITIONS.SECRET;
 
     // Combat.updateTurnMarkers won't add new ones!
     if (this.#currentDisposition != old)
       for (const combatant of this.turns)
-        if (combatant.token.rendered)
+        if (combatant.token?.rendered)
           combatant.token?.object?.renderFlags.set({ refreshTurnMarker: true });
   }
 

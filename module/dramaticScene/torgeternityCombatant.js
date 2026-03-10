@@ -27,8 +27,9 @@ export default class TorgCombatant extends Combatant {
         'system.multiAction': null,
       }, { combatTurn: this.combat.turn + 1 });
 
-      await this.actor.toggleStatusEffect('waiting', { active: false });
-      await this.actor.decayEffects();
+      // If the actor of a linked token is deleted, this.actor will be undefiend.
+      await this.actor?.toggleStatusEffect('waiting', { active: false });
+      await this.actor?.decayEffects();
     } else {
       // Step backwards
       await this.update({ 'system.turnTaken': value }, { combatTurn: this.combat.turn - 1 });
