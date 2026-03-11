@@ -2,7 +2,9 @@
 
 ## 13.27.3 - Prevent Combat Tracker errors
 
-- Try to protect against a Token or Actor being deleted whilst still in a Combat Tracker.
+- Deleting an Actor whilst its token was in the Combat Tracker was causing errors in the Combat Tracker.
+- Added some extra checks to prevent a combatant without a valid token or actor from breaking the Combat Tracker.
+- Context Menu in an Encounter should show the Torg options under the correct dynamic conditions now.
 
 ## 13.27.2 - Fix defenses using only attribute values
 
