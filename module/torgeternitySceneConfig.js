@@ -87,10 +87,13 @@ export default class torgeternitySceneConfig extends foundry.applications.sheets
       console.log('failed to find Scene Config tab for darkness levels');
       return rendered;
     }
-    console.log(globalLightEnabled);
-    const tempEl = document.createElement("div");
-    tempEl.innerHTML = await foundry.applications.handlebars.renderTemplate('systems/torgeternity/templates/scenes/scenes-lighting.hbs', context);
-    globalLightEnabled.after(...tempEl.children);
+    globalLightEnabled.after(...Object.values(this.torgFields.fields).map(value => value.toFormGroup({},
+      {
+        name: `flags.torgeternity.${value.name}`,
+        value: context.source.flags.torgeternity[value.name],
+        step: 0.05,
+        classes: 'slim'
+      })));
 
     // Change label and hint of darkness
     const maxDarkness = tab.querySelector('div.form-group:has(range-picker[name="environment.globalLight.darkness.max"]');
