@@ -3,6 +3,7 @@
 ## NEXT
 
 - Reinstate missing darkness threshold levels into Scene Config dialog.
+- Ensure that "Defence Against Trait" works with Statuses on the attacker (not just attack/defense traits).
 
 ## 13.27.3 - Prevent Combat Tracker errors
 
