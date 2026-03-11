@@ -860,7 +860,7 @@ export function applyNumericEffects(fieldname, origvalue, effects) {
       // DataField.applyChange
       const delta = parseInt(change.value);
       if (isNaN(delta)) continue;  // value MUST be a number
-      switch (change.mode) {
+      switch (change.type) {
         case "add": value += delta; break;
         case "subtract": value -= delta; break;
         case "multiply": value *= delta; break;
