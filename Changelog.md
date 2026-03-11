@@ -1,5 +1,9 @@
 # TORG Eternity Changelog
 
+## NEXT
+
+- Reinstate missing darkness threshold levels into Scene Config dialog.
+
 ## 13.27.3 - Prevent Combat Tracker errors
 
 - Deleting an Actor whilst its token was in the Combat Tracker was causing errors in the Combat Tracker.
