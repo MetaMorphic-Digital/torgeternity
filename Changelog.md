@@ -1,6 +1,6 @@
 # TORG Eternity Changelog
 
-## 13.27.2 - Prevent Combat Tracker errors
+## 13.27.3 - Prevent Combat Tracker errors
 
 - Try to protect against a Token or Actor being deleted whilst still in a Combat Tracker.
 
