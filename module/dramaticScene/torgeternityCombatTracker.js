@@ -81,10 +81,9 @@ export default class torgeternityCombatTracker extends foundry.applications.side
 
   async _prepareTrackerContext(context, options) {
     await super._prepareTrackerContext(context, options);
-    if (!this.viewed) return;
-    this.viewed.updateCurrentDisposition();
     const combat = this.viewed;
     if (!combat) return;
+    combat.updateCurrentDisposition();
 
     await this._prepareGroupContext(context, combat);
 
@@ -188,22 +187,22 @@ export default class torgeternityCombatTracker extends foundry.applications.side
     options.unshift({
       name: "torgeternity.dramaCard.replaceDrama",
       icon: '<i class="fa-solid fa-rotate-right"></i>',
-      condition: game.user.isGM && !!this.viewed,
+      condition: () => game.user.isGM && !!this.viewed,
       callback: () => this.viewed.drawDramaCard()
     }, {
       name: "torgeternity.dramaCard.getPreviousDrama",
       icon: '<i class="fa-solid fa-up-down"></i>',
-      condition: game.user.isGM && !!this.viewed,
+      condition: () => game.user.isGM && !!this.viewed,
       callback: () => this.viewed.restorePreviousDrama()
     }, {
       name: "torgeternity.dramaCard.shuffleDeck",
       icon: '<i class="fa-solid fa-random"></i>',
-      condition: game.user.isGM && !!this.viewed,
+      condition: () => game.user.isGM && !!this.viewed,
       callback: () => this.viewed.resetDramaDeck()
     }, {
       name: "torgeternity.CombatantGroup.newGroup",
       icon: '<i class="fa-solid fa-random"></i>',
-      condition: game.user.isGM && !!this.viewed,
+      condition: () => game.user.isGM && !!this.viewed,
       callback: async () => {
         const groupName = await foundry.applications.api.DialogV2.prompt({
           window: { title: "Combatant Group Creation" },
@@ -223,7 +222,7 @@ export default class torgeternityCombatTracker extends foundry.applications.side
     const getCombatant = li => this.viewed.combatants.get(li.dataset.combatantId);
     function canAddToGroup(li) {
       const combatant = getCombatant(li);
-      return !combatant?.group &&
+      return !combatant?.group && combatant.token &&
         !!combatant.combat.groups.find(group => group.disposition === undefined || group.disposition === combatant.token.disposition);
     }
 
@@ -331,7 +330,7 @@ export default class torgeternityCombatTracker extends foundry.applications.side
     const { combatantId } = button.closest("[data-combatant-id]")?.dataset ?? {};
     const combatant = this.viewed?.combatants.get(combatantId);
     if (!combatant) return;
-    await combatant.actor.toggleStatusEffect('waiting');
+    await combatant.actor?.toggleStatusEffect('waiting');
   }
 
   updateStage(document, force) {
@@ -530,7 +529,7 @@ export default class torgeternityCombatTracker extends foundry.applications.side
   static async #onToggleWaitingGroup(event, button) {
     const group = this.viewed.groups.get(button.closest('li.combatantGroup')?.dataset.groupId);
     if (group) group.isOpen = !button.open;
-    return Promise.all(group.members.map(combatant => combatant.actor.toggleStatusEffect('waiting')))
+    return Promise.all(group.members.map(combatant => combatant.actor?.toggleStatusEffect('waiting')))
   }
 
   static async #askAddToGroup(askAll, li) {
@@ -538,16 +537,18 @@ export default class torgeternityCombatTracker extends foundry.applications.side
     const combatant = combat.combatants.get(li.dataset.combatantId); // getCombatant(li)
     let combatants;
     if (askAll) {
-      if (combatant.actor.type === 'stormknight') {
-        combatants = combat.combatants.filter(combatant => combatant.actor.type === 'stormknight');
+      const actor = combatant.actor;
+      if (!actor) return;// The Actor has been deleted.
+      if (actor.type === 'stormknight') {
+        combatants = combat.combatants.filter(combatant => actor.type === 'stormknight');
       } else {
-        const matchid = combatant.actor._source._id;
-        combatants = combat.combatants.filter(combatant => combatant.actor._source._id === matchid);
+        const matchid = actor._source._id;
+        combatants = combat.combatants.filter(combatant => actor._source._id === matchid);
       }
     } else
       combatants = [combatant];
 
-    const validDisposition = combatant.token.disposition;
+    const validDisposition = combatant.token?.disposition;
     const validGroups = combat.groups.filter(group => group.disposition === undefined || group.disposition === validDisposition);
     if (validGroups.length < 1)
       return ui.notifications.info('torgeternity.CombatantGroup.noValidGroup', { localize: true });

@@ -78,8 +78,8 @@ export default class TorgCombat extends Combat {
       const whoFirst = await this.getFlag('torgeternity', 'combatFirstDisposition');
       combatant.update({ initiative: this.#getInitiative(combatant, whoFirst) });
 
-      if (combatant.token.disposition === CONST.TOKEN_DISPOSITIONS.FRIENDLY && this.heroConflict === 'confused') {
-        const hand = combatant.actor.getDefaultHand();
+      if (combatant.token?.disposition === CONST.TOKEN_DISPOSITIONS.FRIENDLY && this.heroConflict === 'confused') {
+        const hand = combatant.actor?.getDefaultHand();
         if (hand) hand.setFlag('torgeternity', 'disablePlayCards', true)
       }
 
@@ -95,7 +95,7 @@ export default class TorgCombat extends Combat {
   async _onExit(combatant) {
     // Cancel "cannot play cards"
     if (combatant.token?.disposition === CONST.TOKEN_DISPOSITIONS.FRIENDLY && this.heroConflict === 'confused') {
-      const hand = combatant.actor.getDefaultHand();
+      const hand = combatant.actor?.getDefaultHand();
       if (hand) hand.setFlag('torgeternity', 'disablePlayCards', false)
     }
     combatant.token?.object?.renderFlags.set({ refreshTurnMarker: true })
@@ -311,7 +311,7 @@ export default class TorgCombat extends Combat {
    * DRAMA DECK HANDLING
    */
   getCombatantFaction(combatant) {
-    return (combatant.token.disposition === CONST.TOKEN_DISPOSITIONS.FRIENDLY) ? 'heroes' : 'villains';
+    return (combatant.token?.disposition === CONST.TOKEN_DISPOSITIONS.FRIENDLY) ? 'heroes' : 'villains';
   }
   getFactionActors(faction) {
     const disposition = (faction === 'heroes') ? CONST.TOKEN_DISPOSITIONS.FRIENDLY : CONST.TOKEN_DISPOSITIONS.HOSTILE;
@@ -510,12 +510,12 @@ export default class TorgCombat extends Combat {
     // Find first combatant whose turn has NOT been taken (after sorting).
     const old = this.#currentDisposition;
     const firstNotTaken = this.turns?.find(combatant => !combatant.turnTaken && !combatant.isWaiting);
-    this.#currentDisposition = firstNotTaken?.token.disposition ?? CONST.TOKEN_DISPOSITIONS.SECRET;
+    this.#currentDisposition = firstNotTaken?.token?.disposition ?? CONST.TOKEN_DISPOSITIONS.SECRET;
 
     // Combat.updateTurnMarkers won't add new ones!
     if (this.#currentDisposition != old)
       for (const combatant of this.turns)
-        if (combatant.token.rendered)
+        if (combatant.token?.rendered)
           combatant.token?.object?.renderFlags.set({ refreshTurnMarker: true });
   }
 
