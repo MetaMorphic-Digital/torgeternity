@@ -229,7 +229,7 @@ export class TestDialog extends HandlebarsApplicationMixin(ApplicationV2) {
     context.test.combinedAction.participants ??= game.canvas?.tokens?.controlled?.length || 1;
 
     if (context.test.targetPresent && context.test.testType !== 'soak') {
-      context.test.targetAll = targets.map(token => oneTestTarget(token, this.test.applySize, this.test.attackTraits, myActor.defenseTraits, myActor.statuses));
+      context.test.targetAll = targets.map(token => oneTestTarget(token, this.test.applySize, this.test.attackTraits, myActor.defenseTraits));
       context.test.sizeModifier = Math.max(...context.test.targetAll.map(target => target.sizeModifier));
       context.test.vulnerableModifier = Math.max(...context.test.targetAll.map(target => target.vulnerableModifier));
       context.test.darknessModifier = Math.min(0, Math.min(...context.test.targetAll.map(target => target.darknessModifier)) + context.test.targetDarknessModifier);
@@ -348,7 +348,7 @@ export function dummyTestTargets() {
  * @param {Set[String]} defenseTraits defenseTraits of the attacker (if any)
  * @returns 
  */
-export function oneTestTarget(token, applySize, attackTraits, defenseTraits, attackerStatuses) {
+export function oneTestTarget(token, applySize, attackTraits, defenseTraits) {
   const actor = token.actor;
 
   let sizeModifier;
@@ -441,13 +441,13 @@ export function oneTestTarget(token, applySize, attackTraits, defenseTraits, att
         };
 
         // Check for any AEs on the defender with the `defendAgainstTrait` set
-        if (attackTraits?.length || defenseTraits?.length || attackerStatuses) {
+        if (attackTraits?.length || defenseTraits?.length) {
           const effects = [];
           for (const effect of actor.allApplicableEffects()) {
             // It will be suppressed, so effect.active will return false
             if (!effect.disabled && !effect.system.transferOnOutcome) {
               for (const trait of effect.system.defendAgainstTrait) {
-                if (attackTraits?.includes(trait) || defenseTraits?.includes(trait) || attackerStatuses.has(trait))
+                if (attackTraits?.includes(trait) || defenseTraits?.includes(trait))
                   effects.push(effect);
               }
             }
