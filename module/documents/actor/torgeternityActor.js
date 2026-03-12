@@ -532,14 +532,8 @@ export default class TorgeternityActor extends foundry.documents.Actor {
     //console.log(`${this.name}: new darkness state = ${darkness}`)
 
     for (const status of Object.keys(CONFIG.torgeternity.darknessModifiers)) {
-      if (this.statuses.has(status) && status !== darkness) {
-        //console.log(`${this.name}: disabling status '${status}'`)
-        await this.toggleStatusEffect(status);
-      }
-    }
-    if (darkness && !this.statuses.has(darkness)) {
-      //console.log(`${this.name}: enabling status '${darkness}'`)
-      await this.toggleStatusEffect(darkness);
+      if (status === 'none') continue;
+      await this.toggleStatusEffect(status, { active: status === darkness });
     }
   }, CONFIG.torgeternity.darknessDebounceMS)  // Wait until not called for these MS before finally handling the token
 

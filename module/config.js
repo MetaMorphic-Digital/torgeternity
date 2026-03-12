@@ -693,8 +693,10 @@ export function initConfig() {
   // animation time period for transitioning to dim light or Dark.
   torgeternity.toDimLightAnimationMS = 3000;
   torgeternity.toDarkAnimationMS = 3000;
+  CONFIG.Canvas.darknessToDaylightAnimationMS = 3000;
+  CONFIG.Canvas.daylightToDarknessAnimationMS = 3000;
   // How long to wait between calls to darknessDebounce before processing it
-  torgeternity.darknessDebounceMS = 100;
+  torgeternity.darknessDebounceMS = 200;
 
   torgeternity.carryTypes = ['held', 'worn', 'stowed', 'dropped'];
 
