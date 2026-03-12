@@ -247,6 +247,7 @@
       "omega": "Omega"
     },
     "combat": {
+      "cantStart": "Another Encounter is already in progress",
       "dramaBack": "systems/torgeternity/images/cards/drama-back.webp",
       "toggleDramatic": "Zwischen Standard- und dramatischer Szene umschalten",
       "toggleWaiting": "Warten-Zustand für diesen Kämpfer umschalten",

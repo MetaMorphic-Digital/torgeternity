@@ -3,6 +3,8 @@
 ## NEXT
 
 - Reinstate missing darkness threshold levels into Scene Config dialog.
+- Only allow one Encounter/Combat to be started at any one time.
+  - You can have more than one ready to go, but "Begin Encounter" only works for one at a time.
 
 ## 13.27.3 - Prevent Combat Tracker errors
 

@@ -264,6 +264,10 @@ export default class TorgCombat extends Combat {
    * 
    */
   async startCombat() {
+    // Don't allow a second combat to be started
+    if (game.combats.find(c => c.started))
+      return ui.notifications.warn('torgeternity.combat.cantStart', { localize: true })
+
     // Active GM draws the next available drama card
     if (game.user.isActiveGM) await this.drawDramaCard();
     return super.startCombat();

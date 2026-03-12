@@ -241,6 +241,7 @@
       "omega": "Omega"
     },
     "combat": {
+      "cantStart": "Another Encounter is already in progress",
       "dramaBack": "systems/torgeternity/images/cards/drama-back.webp",
       "toggleDramatic": "Toggle between Standard and Dramatic Combat Resolution",
       "toggleWaiting": "Toggle the Waiting state of this combatant",
