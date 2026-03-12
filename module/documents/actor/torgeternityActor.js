@@ -508,6 +508,7 @@ export default class TorgeternityActor extends foundry.documents.Actor {
           mode: CONST.ACTIVE_EFFECT_MODES.ADD,
         },
         {
+          // SHIELD bonus to Toughness
           key: 'system.defenses.toughness',
           value: shieldBonus,
           priority: 20,
