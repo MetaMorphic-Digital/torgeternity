@@ -138,6 +138,7 @@ export class CommonActorData extends BaseActorData {
     for (const [_name, skill] of Object.entries(this.skills)) {
       skill.mod = 0;
       skill.isFav = false;
+      skill.damageMod = 0;
     }
 
     this.shock.max = this.attributes.spirit.value;
@@ -171,7 +172,6 @@ export class CommonActorData extends BaseActorData {
       armor: wornArmor?.system?.bonus ?? 0,
       shield: shieldBonus
     });
-    this.unarmed = { damage: 0, damageMod: 0 };
   }
 
   /**
@@ -196,10 +196,6 @@ export class CommonActorData extends BaseActorData {
       const trained = skill.unskilledUse || this._source.skills[name].adds;
       skill.value = trained ? this.attributes[skill.baseAttribute].value + skill.adds + (skill.mod ?? 0) : '';
     }
-
-    // Set base unarmed damage
-
-    this.unarmed.damage = attributes.strength.value + this.unarmed.damageMod;
 
     // calculate final toughness
     this.defenses.toughness += this.defenses.armor;
@@ -232,6 +228,9 @@ export class CommonActorData extends BaseActorData {
 
     this.other.move = applyNumericEffects('system.other.moveMod', this.attributes.dexterity.value, this.parent.appliedEffects);
     this.other.run = applyNumericEffects('system.other.runMod', this.attributes.dexterity.value * 3, this.parent.appliedEffects);
+  }
 
+  get unarmedDamage() {
+    return this.attributes.strength.value + this.attributes.strength.damageMod + this.skills.unarmedCombat.damageMod;
   }
 }

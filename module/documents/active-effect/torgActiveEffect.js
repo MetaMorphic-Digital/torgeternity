@@ -26,8 +26,9 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
         // SK and Threat general path cleaning
         'system.other.fatigue': 'system.fatigue',
         'fatigue': 'system.fatigue',
-        'system.unarmedDamage': 'system.unarmed.damageMod',
-        'system.unarmedDamageMod': 'system.unarmed.damageMod',
+        'system.unarmedDamage': 'system.skills.unarmedCombat.damageMod',
+        'system.unarmedDamageMod': 'system.skills.unarmedCombat.damageMod',
+        'system.unarmed.damageMod': 'system.skills.unarmedCombat.damageMod',
         // SK and Threat defense modifiers
         'system.dodgeDefenseMod': 'system.defenses.dodge.mod',
         'system.meleeWeaponsDefenseMod': 'system.defenses.meleeWeapons.mod',

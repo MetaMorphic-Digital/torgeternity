@@ -2,11 +2,7 @@
 <div class="interaction-attack-list">
   <a
     class="unarmed-attack draggable" data-action="unarmedAttack" {{disabled (not @root.editable)}}
-    data-name="unarmedCombat"
-    data-base-attribute="dexterity"
-    data-adds="{{document.system.skills.unarmedCombat.adds}}"
-    data-skill-value="{{document.system.skills.unarmedCombat.value}}"
-    data-damage="{{document.system.unarmed.damage}}">
+    data-name="unarmedCombat">
     {{localize 'torgeternity.sheetLabels.unarmed'}}
   </a>
   &bull;
