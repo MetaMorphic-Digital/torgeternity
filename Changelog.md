@@ -1,5 +1,9 @@
 # TORG Eternity Changelog
 
+## NEXT 
+
+- Foundry 14: Don't let core Foundry expire turnEnd events.
+
 ## 13.27.6 - damageMod for skills
 
 - Allow skills to have a damage modifier added by an AE,  such as `system.skills.meleeWeapons.damageMod`

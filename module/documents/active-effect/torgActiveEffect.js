@@ -140,4 +140,13 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
       },
       { replace: true, recursive: true });
   }
+
+  /**
+   * Foundry 14: 
+   * Don't allow core Foundry to trigger turnEnd events.
+   */
+  isExpiryEvent(event, context) {
+    if (event === 'turnEnd') return false;
+    return super.isExpiryEvent(event, context);
+  }
 }
