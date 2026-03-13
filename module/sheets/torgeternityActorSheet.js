@@ -1,6 +1,6 @@
 import { renderSkillChat, rollAttack, rollPower, rollAttribute, rollSkill, rollUnarmedAttack, rollInteractionAttack, rollTapping } from '../torgchecks.js';
 import { onManageActiveEffect, prepareActiveEffectCategories } from '../effects.js';
-import { oneTestTarget, TestDialog } from '../test-dialog.js';
+import { TestDialog } from '../test-dialog.js';
 import TorgeternityItem from '../documents/item/torgeternityItem.js';
 import { reloadAmmo } from './torgeternityItemSheet.js';
 import { PossibilityByCosm } from '../possibilityByCosm.js';

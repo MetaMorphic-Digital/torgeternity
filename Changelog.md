@@ -1,5 +1,14 @@
 # TORG Eternity Changelog
 
+## 13.27.4 - Scene darkness levels, Effects Panel, ONE active encounter
+
+- Simplify positioning of the Effects Panel (which also means it is positioned correctly on resizing the browser window)
+- Reinstate missing darkness threshold levels into Scene Config dialog.
+- Only allow one Encounter/Combat to be started at any one time.
+  - You can have more than one ready to go, but "Begin Encounter" only works for one at a time.
+- Change transition time to Daylight or Pitch Black to 3000 ms (to match the 3 seconds for Dim/Dark transitions).
+  - Increase debounce timeout for automated darkness status to 200 ms to cope with remote servers.
+
 ## 13.27.3 - Prevent Combat Tracker errors
 
 - Deleting an Actor whilst its token was in the Combat Tracker was causing errors in the Combat Tracker.

@@ -3,11 +3,10 @@
  */
 export default class torgeternitySceneConfig extends foundry.applications.sheets.SceneConfig {
 
-  // Foundry 14 changes some tab names, so we have to be clever to support V13 and V14
-  static PARTS = {
+  // Add our COSM tab
+  static PARTS = foundry.utils.mergeObject(foundry.applications.sheets.SceneConfig.PARTS, {
     cosm: { template: `systems/torgeternity/templates/scenes/scenes-cosm.hbs` },
-    ...foundry.applications.sheets.SceneConfig.PARTS,
-  };
+  });
 
   static TABS = foundry.utils.mergeObject(foundry.applications.sheets.SceneConfig.TABS, {
     sheet: {
@@ -17,12 +16,16 @@ export default class torgeternitySceneConfig extends foundry.applications.sheets
     },
   })
 
+  /**
+   * Fix the ordering of the TABS, to have COSM as the second visible tab.
+   * @param {*} options 
+   */
   _configureRenderOptions(options) {
     super._configureRenderOptions(options);
     const pos = options.parts.indexOf('cosm');
     if (pos >= 0) {
       // Move 'cosm' tab between first and last tab
-      options.parts.splice(0, 1);
+      options.parts.splice(pos, 1);
       options.parts.splice(2, 0, 'cosm');
     }
   }
@@ -63,6 +66,42 @@ export default class torgeternitySceneConfig extends foundry.applications.sheets
         break;
     }
     return partContext;
+  }
+
+  /**
+ * Insert our own sliders into the Lighting/Visibility tab
+ * @param {*} context 
+ * @param {*} _options 
+ * @returns 
+ */
+  async _renderHTML(context, _options) {
+    const rendered = await super._renderHTML(context, _options);
+    if (!game.settings.get('torgeternity', 'autoDarknessPenalty')) return rendered;
+
+    //console.log(context, options, html);
+    const tab = rendered.lighting || rendered.visibility;
+    if (!tab) return rendered;
+
+    const globalLightEnabled = tab.querySelector('div.form-group:has(input[name="environment.globalLight.enabled"])');
+    if (!globalLightEnabled) {
+      console.log('failed to find Scene Config tab for darkness levels');
+      return rendered;
+    }
+    globalLightEnabled.after(...Object.values(this.torgFields.fields).map(value => value.toFormGroup({},
+      {
+        name: `flags.torgeternity.${value.name}`,
+        value: context.source.flags.torgeternity[value.name],
+        step: 0.05,
+        classes: 'slim'
+      })));
+
+    // Change label and hint of darkness
+    const maxDarkness = tab.querySelector('div.form-group:has(range-picker[name="environment.globalLight.darkness.max"]');
+    if (maxDarkness) {
+      maxDarkness.querySelector('label').innerText = game.i18n.localize('SCENE.FIELDS.flags.torgeternity.pitchBlackThreshold.label');
+      maxDarkness.querySelector('p.hint').innerText = game.i18n.localize('SCENE.FIELDS.flags.torgeternity.pitchBlackThreshold.hint');
+    }
+    return rendered;
   }
 
   /**

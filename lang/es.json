@@ -247,6 +247,7 @@
       "omega": "Omega"
     },
     "combat": {
+      "cantStart": "Ya hay otro encuentro en marcha",
       "dramaBack": "systems/torgeternity/images/cards/drama-back.webp",
       "toggleDramatic": "Alternar entre resolución de combate convencional y Escena Dramática",
       "toggleWaiting": "Cambiar el estado de Espera de este combatiente",
