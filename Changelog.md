@@ -3,7 +3,7 @@
 ## NEXT - damageMod for skills
 
 - Allow skills to have a damage modifier added by an AE,  such as `system.skills.meleeWeapons.damageMod`
-- Rename all `system.unarmedDamage` changes in AEs to `system.skills.unarmedCombat.damageMod`
+  - Rename all `system.unarmedDamage` changes in AEs to `system.skills.unarmedCombat.damageMod`
 - Torg effects tab of AEs will become scrollable if your browser window is too small.
 - Restore event handling in the Effects Panel.
 
