@@ -1,6 +1,6 @@
 # TORG Eternity Changelog
 
-## NEXT
+## 13.27.4 - Scene darkness levels, Effects Panel, ONE active encounter
 
 - Simplify positioning of the Effects Panel (which also means it is positioned correctly on resizing the browser window)
 - Reinstate missing darkness threshold levels into Scene Config dialog.
