@@ -16,6 +16,7 @@ export default class EffectsPanel extends HandlebarsApplicationMixin(Application
   }
 
   static DEFAULT_OPTIONS = {
+    id: 'effects-panel',
     classes: ['torgeternity', 'effects-panel', 'themed', 'theme-dark'],
     window: {
       contentClasses: ['standard-form'],

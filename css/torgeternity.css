@@ -4776,6 +4776,7 @@ div.chooseCurrency {
 
 div.torgeternity.effects-panel {
   padding: 16px 16px 16px 0;
+  pointer-events: all;
 
   div.effectsPanel {
     display: flex;
