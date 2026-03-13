@@ -1153,7 +1153,7 @@ export async function rollAttack(actor, item) {
 
   // Calculate damage caused by this weapon
   let adjustedDamage = 0;
-  const weaponDamage = parseInt(weaponData.damage);
+  const weaponDamage = parseInt(weaponData.damage) + (skillData.damageMod ?? 0);
   switch (weaponData.damageType) {
     case 'flat':
       adjustedDamage = weaponDamage;
@@ -1322,7 +1322,7 @@ export async function rollUnarmedAttack(actor, skillName) {
     skillName: skillName,
     skillValue: actor.system.skills[skillName]?.value ?? actor.system.attributes.dexterity.value,
     unskilledUse: true,
-    damage: actor.system.unarmed.damage + actor.system.attributes.strength.damageMod,
+    damage: actor.system.unarmedDamage,
     weaponAP: 0,
     applyArmor: true,
     DNDescriptor: dnDescriptor,

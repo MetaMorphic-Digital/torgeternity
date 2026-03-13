@@ -244,7 +244,7 @@ async function rollSkillMacro(skillName, attributeName, isInteractionAttack, DND
     //test.amountBD = 0;
     test.isAttack = true;
     test.unskilledUse = true;
-    test.damage = actor.system.unarmed.damage + actor.system.attributes.strength.damageMod;
+    test.damage = actor.system.unarmedDamage;
     test.weaponAP = 0;
     test.applyArmor = true;
     test.applySize = true;
