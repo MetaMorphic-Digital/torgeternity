@@ -1152,29 +1152,25 @@ export async function rollAttack(actor, item) {
   }
 
   // Calculate damage caused by this weapon
-  let adjustedDamage = 0;
-  const weaponDamage = parseInt(weaponData.damage) + (skillData.damageMod ?? 0);
+  let adjustedDamage = parseInt(weaponData.damage) + (skillData.damageMod ?? 0);
   switch (weaponData.damageType) {
     case 'flat':
-      adjustedDamage = weaponDamage;
       break;
     case 'strengthPlus':
-      adjustedDamage = attributes.strength.value + attributes.strength.damageMod + weaponDamage;
+      adjustedDamage += attributes.strength.value + attributes.strength.damageMod;
       break;
     case 'charismaPlus':
-      adjustedDamage = attributes.charisma.value + attributes.charisma.damageMod + weaponDamage;
+      adjustedDamage += attributes.charisma.value + attributes.charisma.damageMod;
       break;
     case 'dexterityPlus':
-      adjustedDamage = attributes.dexterity.value + attributes.dexterity.damageMod + weaponDamage;
+      adjustedDamage += attributes.dexterity.value + attributes.dexterity.damageMod;
       break;
     case 'mindPlus':
-      adjustedDamage = attributes.mind.value + attributes.mind.damageMod + weaponDamage;
+      adjustedDamage += attributes.mind.value + attributes.mind.damageMod;
       break;
     case 'spiritPlus':
-      adjustedDamage = attributes.spirit.value + attributes.spirit.damageMod + weaponDamage;
+      adjustedDamage += attributes.spirit.value + attributes.spirit.damageMod;
       break;
-    default:
-      adjustedDamage = weaponDamage;
   }
   let weaponAP = weaponData.ap;
 
@@ -1228,7 +1224,7 @@ export async function rollPower(actor, item) {
     skillAdds: skillData.adds,
     skillValue: Math.max(skillData.value, actor.system.attributes[skillData.baseAttribute].value),
     unskilledUse: false,
-    damage: powerData.damage,
+    damage: powerData.damage + actor.system.attributes[skillData.baseAttribute].damageMod + (skillData.damageMod ?? 0),
     weaponAP: powerData.ap,
     applyArmor: powerData.applyArmor,
     DNDescriptor: powerData.dn,

@@ -172,7 +172,6 @@ export class CommonActorData extends BaseActorData {
       armor: wornArmor?.system?.bonus ?? 0,
       shield: shieldBonus
     });
-    this.unarmed = { damage: 0, damageMod: 0 };
   }
 
   /**
