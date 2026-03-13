@@ -1322,7 +1322,7 @@ export async function rollUnarmedAttack(actor, skillName) {
     skillName: skillName,
     skillValue: actor.system.skills[skillName]?.value ?? actor.system.attributes.dexterity.value,
     unskilledUse: true,
-    damage: actor.system.unarmed.damage,
+    damage: actor.system.unarmed.damage + actor.system.attributes.strength.damageMod,
     weaponAP: 0,
     applyArmor: true,
     DNDescriptor: dnDescriptor,
