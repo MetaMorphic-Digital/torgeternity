@@ -1,5 +1,9 @@
 # TORG Eternity Changelog
 
+## NEXT
+
+- Add `system.attributes.xxx.damageMod` which can be used to increase the damage whenever that attribute is used as part of the damage calculation for an attack.
+
 ## 13.27.4 - Scene darkness levels, Effects Panel, ONE active encounter
 
 - Simplify positioning of the Effects Panel (which also means it is positioned correctly on resizing the browser window)
