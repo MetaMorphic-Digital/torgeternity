@@ -1159,19 +1159,19 @@ export async function rollAttack(actor, item) {
       adjustedDamage = weaponDamage;
       break;
     case 'strengthPlus':
-      adjustedDamage = attributes.strength.value + weaponDamage;
+      adjustedDamage = attributes.strength.value + attributes.strength.damageMod + weaponDamage;
       break;
     case 'charismaPlus':
-      adjustedDamage = attributes.charisma.value + weaponDamage;
+      adjustedDamage = attributes.charisma.value + attributes.charisma.damageMod + weaponDamage;
       break;
     case 'dexterityPlus':
-      adjustedDamage = attributes.dexterity.value + weaponDamage;
+      adjustedDamage = attributes.dexterity.value + attributes.dexterity.damageMod + weaponDamage;
       break;
     case 'mindPlus':
-      adjustedDamage = attributes.mind.value + weaponDamage;
+      adjustedDamage = attributes.mind.value + attributes.mind.damageMod + weaponDamage;
       break;
     case 'spiritPlus':
-      adjustedDamage = attributes.spirit.value + weaponDamage;
+      adjustedDamage = attributes.spirit.value + attributes.spirit.damageMod + weaponDamage;
       break;
     default:
       adjustedDamage = weaponDamage;
@@ -1322,7 +1322,7 @@ export async function rollUnarmedAttack(actor, skillName) {
     skillName: skillName,
     skillValue: actor.system.skills[skillName]?.value ?? actor.system.attributes.dexterity.value,
     unskilledUse: true,
-    damage: actor.system.unarmed.damage,
+    damage: actor.system.unarmed.damage + actor.system.attributes.strength.damageMod,
     weaponAP: 0,
     applyArmor: true,
     DNDescriptor: dnDescriptor,
