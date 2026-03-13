@@ -1,6 +1,6 @@
 # TORG Eternity Changelog
 
-## NEXT - damageMod for skills
+## 13.27.6 - damageMod for skills
 
 - Allow skills to have a damage modifier added by an AE,  such as `system.skills.meleeWeapons.damageMod`
   - Rename all `system.unarmedDamage` changes in AEs to `system.skills.unarmedCombat.damageMod`
