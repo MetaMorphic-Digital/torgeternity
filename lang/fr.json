@@ -247,7 +247,7 @@
       "omega": "Oméga"
     },
     "combat": {
-      "cantStart": "Another Encounter is already in progress",
+      "cantStart": "Une rencontre est déjà en cours",
       "dramaBack": "systems/torgeternity/images/cards/drama-back-fr.webp",
       "toggleDramatic": "Bascule le combat entre une scène Normale et une scène Dramatique",
       "toggleWaiting": "Active l'état Attendre de ce combattant",

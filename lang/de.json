@@ -247,7 +247,7 @@
       "omega": "Omega"
     },
     "combat": {
-      "cantStart": "Another Encounter is already in progress",
+      "cantStart": "Eine andere Begegnung ist bereits gestartet",
       "dramaBack": "systems/torgeternity/images/cards/drama-back.webp",
       "toggleDramatic": "Zwischen Standard- und dramatischer Szene umschalten",
       "toggleWaiting": "Warten-Zustand für diesen Kämpfer umschalten",
@@ -619,7 +619,7 @@
       "miracleRoll": "Wunder-Wurf",
       "openParty": "Öffnet die Gruppenübersicht",
       "psionicRoll": "Psionischer Wurf",
-      "reduceShock": "During combat, perform <em>Recovery</em>.<br>Out of combat, it removes <em>all</em> shock.",
+      "reduceShock": "Während eines Kampfes führt es <em>Erholung</em> aus.<br>OAußerhalb des Kampfes, entfernt es <em>allen</em> Schock.",
       "reload": "Waffe nachladen<p>(halte SHIFT für freies Nachladen)",
       "resetPoss": "Möglichkeiten zurücksetzen (SHIFT drücken um Ewigkeitssplitter einzubeziehen)",
       "resetPossibilities": "Möglichkeiten zurücksetzen",
