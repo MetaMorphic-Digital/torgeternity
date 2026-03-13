@@ -2,7 +2,7 @@
 
 ## NEXT
 
-- Add `system.attributes.xxx.damageMod` which can be used to increase the damage whenever that attribute is used as part of the damage calculation for an attack.
+- Add `system.attributes.xxx.damageMod` which can be used to increase the damage whenever that attribute is used as part of the damage calculation for an attack (based on setting in the weapon/power Item, or unarmed interaction attacks).
 
 ## 13.27.4 - Scene darkness levels, Effects Panel, ONE active encounter
 
