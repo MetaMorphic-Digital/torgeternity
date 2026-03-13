@@ -1,4 +1,4 @@
-const { ApplicationV2, HandlebarsApplicationMixin, DialogV2 } = foundry.applications.api
+const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api
 import TorgeternityActor from './documents/actor/torgeternityActor.js';
 
 export default class EffectsPanel extends HandlebarsApplicationMixin(ApplicationV2) {
@@ -13,14 +13,6 @@ export default class EffectsPanel extends HandlebarsApplicationMixin(Application
     // so only register hooks when first constructed.
     Hooks.on('controlToken', EffectsPanel.onControlToken);
     Hooks.on('refreshToken', EffectsPanel.onRefreshToken);
-
-    new ResizeObserver((entries) => {
-      if (!EffectsPanel.panel.rendered) return;
-      for (const entry of entries) {
-        const rect = entry.target.getBoundingClientRect();
-        EffectsPanel.panel.setPosition({ left: rect.left - 64, top: rect.top + 10 });
-      }
-    }).observe(foundry.ui.sidebar.element);
   }
 
   static DEFAULT_OPTIONS = {
@@ -30,7 +22,7 @@ export default class EffectsPanel extends HandlebarsApplicationMixin(Application
       frame: false,
       minimizable: false,
       resizable: false,
-      positioned: true,
+      positioned: false,
     }
   }
 
@@ -40,14 +32,17 @@ export default class EffectsPanel extends HandlebarsApplicationMixin(Application
 
   async _onRender(context, options) {
     await super._onRender(context, options);
-    const sidebar = foundry.ui.sidebar.element;
-    const rect = sidebar.getBoundingClientRect();
-    this.setPosition({ left: rect.left - 64, top: rect.top + 10 })
 
     for (const button of this.element.querySelectorAll('[data-action]'))
       button.addEventListener('pointerdown', EffectsPanel.#onClick.bind(this));
   }
 
+  _insertElement(element) {
+    const existing = document.getElementById(element.id);
+    if (existing) existing.replaceWith(element);
+    else
+      ui.sidebar.element.prepend(element);
+  }
   /**
    * @inheritDoc 
    */
