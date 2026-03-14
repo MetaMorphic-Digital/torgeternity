@@ -1406,7 +1406,8 @@
       "fireDamage": "Fire Damage",
       "forceDamage": "Force Damage",
       "iceDamage": "Ice Damage",
-      "lightningDamage": "Lightning Damage"
+      "lightningDamage": "Lightning Damage",
+      "psychicDamage": "Pyschic Damage"
     },
     "itemPurchase": {
       "free": "No Cost",

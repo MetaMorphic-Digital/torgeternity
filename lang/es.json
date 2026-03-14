@@ -1412,7 +1412,8 @@
       "fireDamage": "Daño de fuego",
       "forceDamage": "Daño de fuerza",
       "iceDamage": "Daño de hielo",
-      "lightningDamage": "Daño de relámpago"
+      "lightningDamage": "Daño de relámpago",
+      "psychicDamage": "Pyschic Damage"
     },
     "itemPurchase": {
       "free": "Sin coste",

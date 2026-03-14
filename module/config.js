@@ -647,6 +647,7 @@ export function initConfig() {
     'forceDamage': 'torgeternity.traits.forceDamage',
     'iceDamage': 'torgeternity.traits.iceDamage',
     'lightningDamage': 'torgeternity.traits.lightningDamage',
+    'psychicDamage': 'torgeternity.traits.psychicDamage',
     'thrown': 'torgeternity.traits.thrown',
   }
 

@@ -1415,7 +1415,8 @@
       "fireDamage": "Dommages de Feu",
       "forceDamage": "Dommages de Force",
       "iceDamage": "Dommages de Froid",
-      "lightningDamage": "Dommages d'Électricité"
+      "lightningDamage": "Dommages d'Électricité",
+      "psychicDamage": "Pyschic Damage"
     },
     "itemPurchase": {
       "free": "Gratuit",

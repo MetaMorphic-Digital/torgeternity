@@ -8,6 +8,10 @@
 - `system.defenses.interaction.mod` will be added to intimidation, maneuver, taunt, trick
 - Hovering over a token now highlights the combatant in the combat tracker.
 
+### Translations
+
+psychicDamage: "Psychic Damage"
+
 ## 13.27.6 - damageMod for skills
 
 - Allow skills to have a damage modifier added by an AE,  such as `system.skills.meleeWeapons.damageMod`
