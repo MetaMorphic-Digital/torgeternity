@@ -461,11 +461,32 @@ export function oneTestTarget(token, applySize, attackTraits, defenseTraits) {
               'system.statusModifiers.darkness': 'darknessModifier',
             }
             const field = MAPPING[changekey] ?? changekey.replace(/^system./, '').replace(/.mod$/, '');
-            const value = foundry.utils.getProperty(result, field);
-            if (typeof value !== 'number') {
-              console.warn(`Non-numeric field referenced in changes of defendAgainstTrait: '${field}'`)
+
+            if (field === 'defenses.all') {
+              for (const subfield of ['defenses.dodge', 'defenses.unarmedCombat', 'defenses.meleeWeapons', 'defenses.intimidation', 'defenses.maneuver', 'defenses.taunt', 'defenses.trick']) {
+                const value = foundry.utils.getProperty(result, subfield);
+                if (typeof value !== 'number')
+                  console.warn(`Non-numeric field referenced in changes of defendAgainstTrait: '${subfield}'`)
+                else
+                  foundry.utils.setProperty(result, subfield, applyNumericEffects(changekey, value, effects));
+              }
+            } else if (field === 'defenses.physical') {
+              for (const subfield of ['defenses.dodge', 'defenses.unarmedCombat', 'defenses.meleeWeapons']) {
+                const value = foundry.utils.getProperty(result, subfield);
+                if (typeof value !== 'number')
+                  console.warn(`Non-numeric field referenced in changes of defendAgainstTrait: '${subfield}'`)
+                else
+                  foundry.utils.setProperty(result, subfield, applyNumericEffects(changekey, value, effects));
+              }
+            } else {
+              const value = foundry.utils.getProperty(result, field);
+              if (typeof value !== 'number')
+                console.warn(`Non-numeric field referenced in changes of defendAgainstTrait: '${field}'`)
+              const newvalue = applyNumericEffects(changekey, value, effects);
+              foundry.utils.setProperty(result, field, newvalue);
+              // Armor should be included in the toughness value (and will be removed if required later)
+              if (field === 'armor') result.toughness += newvalue;
             }
-            foundry.utils.setProperty(result, field, applyNumericEffects(changekey, value, effects));
           }
         }
 
