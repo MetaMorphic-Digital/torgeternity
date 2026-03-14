@@ -3,6 +3,9 @@
     "discard": "Défausser",
     "display": "Montrer cette carte aux joueurs"
   },
+  "COMBAT": {
+    "End": "Fin"
+  },
   "EFFECT": {
     "TABS": {
       "torg": "Torg Eternity"
