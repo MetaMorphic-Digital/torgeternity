@@ -3,6 +3,8 @@
 ## NEXT 
 
 - Foundry 14: Don't let core Foundry expire turnEnd events.
+- `system.defenses.all.mod` will be added to all defenses (dodge, meleeWeapons, unarmedCombat, intimidation, maneuver, taunt, trick)
+- `system.defenses.physical.mod` will be added to dodge, meleeWeapons and unarmedCombat defenses.
 
 ## 13.27.6 - damageMod for skills
 
