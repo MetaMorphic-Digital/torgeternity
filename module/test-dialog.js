@@ -454,31 +454,30 @@ export function oneTestTarget(token, applySize, attackTraits, defenseTraits) {
           }
           const changekeys = effects.map(effect => effect.changes).flat().reduce((set, change) => set.add(change.key), new Set());
           for (const changekey of changekeys) {
-            const MAPPING = {
-              'system.defenses.toughness': 'toughness',
-              'system.defenses.armor': 'armor',
-              'system.statusModifiers.vulnerable': 'vulnerableModifier',
-              'system.statusModifiers.darkness': 'darknessModifier',
-            }
-            const field = MAPPING[changekey] ?? changekey.replace(/^system./, '').replace(/.mod$/, '');
-
-            if (field === 'defenses.all') {
-              for (const subfield of ['defenses.dodge', 'defenses.unarmedCombat', 'defenses.meleeWeapons', 'defenses.intimidation', 'defenses.maneuver', 'defenses.taunt', 'defenses.trick']) {
-                const value = foundry.utils.getProperty(result, subfield);
+            if (changekey === 'system.defenses.all.mod') {
+              for (const field of ['defenses.dodge', 'defenses.unarmedCombat', 'defenses.meleeWeapons', 'defenses.intimidation', 'defenses.maneuver', 'defenses.taunt', 'defenses.trick']) {
+                const value = foundry.utils.getProperty(result, field);
                 if (typeof value !== 'number')
-                  console.warn(`Non-numeric field referenced in changes of defendAgainstTrait: '${subfield}'`)
+                  console.warn(`Non-numeric field referenced in changes of defendAgainstTrait: '${field}'`)
                 else
-                  foundry.utils.setProperty(result, subfield, applyNumericEffects(changekey, value, effects));
+                  foundry.utils.setProperty(result, field, applyNumericEffects(changekey, value, effects));
               }
-            } else if (field === 'defenses.physical') {
-              for (const subfield of ['defenses.dodge', 'defenses.unarmedCombat', 'defenses.meleeWeapons']) {
-                const value = foundry.utils.getProperty(result, subfield);
+            } else if (changekey === 'system.defenses.physical.mod') {
+              for (const field of ['defenses.dodge', 'defenses.unarmedCombat', 'defenses.meleeWeapons']) {
+                const value = foundry.utils.getProperty(result, field);
                 if (typeof value !== 'number')
-                  console.warn(`Non-numeric field referenced in changes of defendAgainstTrait: '${subfield}'`)
+                  console.warn(`Non-numeric field referenced in changes of defendAgainstTrait: '${field}'`)
                 else
-                  foundry.utils.setProperty(result, subfield, applyNumericEffects(changekey, value, effects));
+                  foundry.utils.setProperty(result, field, applyNumericEffects(changekey, value, effects));
               }
             } else {
+              const MAPPING = {
+                'system.defenses.toughness': 'toughness',
+                'system.defenses.armor': 'armor',
+                'system.statusModifiers.vulnerable': 'vulnerableModifier',
+                'system.statusModifiers.darkness': 'darknessModifier',
+              }
+              const field = MAPPING[changekey] ?? changekey.replace(/^system./, '').replace(/.mod$/, '');
               const value = foundry.utils.getProperty(result, field);
               if (typeof value !== 'number')
                 console.warn(`Non-numeric field referenced in changes of defendAgainstTrait: '${field}'`)
