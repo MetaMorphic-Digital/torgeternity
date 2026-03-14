@@ -485,7 +485,7 @@ export function oneTestTarget(token, applySize, attackTraits, defenseTraits) {
               const newvalue = applyNumericEffects(changekey, value, effects);
               foundry.utils.setProperty(result, field, newvalue);
               // Armor should be included in the toughness value (and will be removed if required later)
-              if (field === 'armor') result.toughness += newvalue;
+              if (field === 'armor') result.toughness += (newvalue - value);
             }
           }
         }
