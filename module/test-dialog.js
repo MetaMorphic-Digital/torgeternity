@@ -470,6 +470,14 @@ export function oneTestTarget(token, applySize, attackTraits, defenseTraits) {
                 else
                   foundry.utils.setProperty(result, field, applyNumericEffects(changekey, value, effects));
               }
+            } else if (changekey === 'system.defenses.interaction.mod') {
+              for (const field of ['defenses.intimidation', 'defenses.maneuver', 'defenses.taunt', 'defenses.trick']) {
+                const value = foundry.utils.getProperty(result, field);
+                if (typeof value !== 'number')
+                  console.warn(`Non-numeric field referenced in changes of defendAgainstTrait: '${field}'`)
+                else
+                  foundry.utils.setProperty(result, field, applyNumericEffects(changekey, value, effects));
+              }
             } else {
               const MAPPING = {
                 'system.defenses.toughness': 'toughness',

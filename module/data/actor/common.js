@@ -162,6 +162,7 @@ export class CommonActorData extends BaseActorData {
     // 'value' of each field is set in prepareDerivedData
     Object.assign(this.defenses, {
       all: { mod: 0 },
+      interaction: { mod: 0 },
       physical: { mod: 0 },
       dodge: { value: 0, mod: shieldBonus },
       meleeWeapons: { value: 0, mod: shieldBonus },
@@ -217,16 +218,16 @@ export class CommonActorData extends BaseActorData {
     this.defenses.unarmedCombat.value = unarmedCombatDefenseSkill + this.defenses.unarmedCombat.mod + this.defenses.all.mod + this.defenses.physical.mod;
 
     const intimidationDefenseSkill = skills.intimidation.value || attributes.spirit.value;
-    this.defenses.intimidation.value = intimidationDefenseSkill + this.defenses.intimidation.mod + this.defenses.all.mod;
+    this.defenses.intimidation.value = intimidationDefenseSkill + this.defenses.intimidation.mod + this.defenses.all.mod + this.defenses.interaction.mod;
 
     const maneuverDefenseSkill = skills.maneuver.value || attributes.dexterity.value;
-    this.defenses.maneuver.value = maneuverDefenseSkill + this.defenses.maneuver.mod + this.defenses.all.mod;
+    this.defenses.maneuver.value = maneuverDefenseSkill + this.defenses.maneuver.mod + this.defenses.all.mod + this.defenses.interaction.mod;
 
     const tauntDefenseSkill = skills.taunt.value || attributes.charisma.value;
-    this.defenses.taunt.value = tauntDefenseSkill + this.defenses.taunt.mod + this.defenses.all.mod;
+    this.defenses.taunt.value = tauntDefenseSkill + this.defenses.taunt.mod + this.defenses.all.mod + this.defenses.interaction.mod;
 
     const trickDefenseSkill = skills.trick.value || attributes.mind.value;
-    this.defenses.trick.value = trickDefenseSkill + this.defenses.trick.mod + this.defenses.all.mod;
+    this.defenses.trick.value = trickDefenseSkill + this.defenses.trick.mod + this.defenses.all.mod + this.defenses.interaction.mod;
 
     this.other.move = applyNumericEffects('system.other.moveMod', this.attributes.dexterity.value, this.parent.appliedEffects);
     this.other.run = applyNumericEffects('system.other.runMod', this.attributes.dexterity.value * 3, this.parent.appliedEffects);
