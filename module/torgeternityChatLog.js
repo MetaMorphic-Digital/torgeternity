@@ -721,7 +721,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     const effects = test.effects
       .map(uuid => fromUuidSync(uuid, { strict: false }))
       .filter(fx => fx?.transfersToActor)
-      .map(fx => fx.copyForTransfer());
+      .map(fx => fx.copyForTransfer(test.concentratingId));
 
     if (effects.length)
       actor.createEmbeddedDocuments('ActiveEffect', effects);
@@ -742,7 +742,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     const effects = test.effects
       .map(uuid => fromUuidSync(uuid, { strict: false }))
       .filter(fx => fx?.transfersToTarget)
-      .map(fx => fx.copyForTransfer());
+      .map(fx => fx.copyForTransfer(test.concentratingId));
 
     if (effects.length)
       targetActor.createEmbeddedDocuments('ActiveEffect', effects);

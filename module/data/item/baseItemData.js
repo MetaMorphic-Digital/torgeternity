@@ -28,9 +28,11 @@ export class BaseItemData extends foundry.abstract.TypeDataModel {
       // Map renamed traits
       source.traits = source.traits.map(t => (t === 'supernnaturalEvil') ? 'supernaturalEvil' : t);
       // Remove invalid traits
-      const badTraits = source.traits.filter(t => !Object.hasOwn(CONFIG.torgeternity.allItemTraits, t));
-      source.traits = source.traits.filter(t => Object.hasOwn(CONFIG.torgeternity.allItemTraits, t));
-      if (badTraits.length) console.info(`Unsupported traits discarded: ${badTraits}`)
+      const validTraits = this.schema.fields.traits.element.choices;
+      const badTraits = source.traits.filter(t => !Object.hasOwn(validTraits, t));
+      source.traits = source.traits.filter(t => Object.hasOwn(validTraits, t));
+      if (badTraits.length)
+        console.warn(`Unsupported trait on ${this.name} discarded: ${badTraits}`)
     }
     return super.migrateData(source);
   }

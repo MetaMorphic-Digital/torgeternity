@@ -30,19 +30,36 @@ export default class TorgActiveEffectConfig extends foundry.applications.sheets.
     if (partId === 'torg') {
       partContext.systemFields = this.document.system.schema.fields;
       partContext.transferToClass = this.document.system.transferOnOutcome ? '' : 'hidden';
+      partContext.applyOutcomeClass = this.document.system.transferOnOutcome ? 'hidden' : '';
+      partContext.transferOutcomeClass = this.document.system.applyOnOutcome ? 'hidden' : '';
     }
     return partContext;
   }
 
   _onChangeForm(formConfig, event) {
     const outcome = event.target;
-    if (outcome.name === 'system.transferOnOutcome') {
+    if (outcome.name === 'system.applyOnOutcome') {
+      const transferTo = this.element.querySelector('div.transferGroup');
+      if (transferTo) {
+        if (outcome.value)
+          transferTo.classList.add('hidden')
+        else
+          transferTo.classList.remove('hidden')
+      }
+    } else if (outcome.name === 'system.transferOnOutcome') {
       const transferTo = this.element.querySelector('div.form-group:has(select[name="system.transferTo"])');
+      const applyTo = this.element.querySelector('div.form-group:has(select[name="system.applyOnOutcome"])');
       if (transferTo) {
         if (outcome.value)
           transferTo.classList.remove('hidden')
         else
           transferTo.classList.add('hidden')
+      }
+      if (applyTo) {
+        if (outcome.value)
+          applyTo.classList.add('hidden')
+        else
+          applyTo.classList.remove('hidden')
       }
     }
     super._onChangeForm(formConfig, event);

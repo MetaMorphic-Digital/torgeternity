@@ -37,10 +37,18 @@
         "actor": "Charakter",
         "target": "Ziel"
       },
+      "match": {
+        "and": "ALLE",
+        "or": "EINE"
+      },
       "FIELDS": {
         "activeIfTrait": {
           "label": "Nur Aktiv bei diesen Eigenschaften",
           "hint": "Dieser Aktive Effekt ist nur aktiv, wenn der Charakter eine dieser Eigenschaften, entweder als Zustand am Charakter oder als Eigenschaft auf einem (ausgerüsteten) Gegenstand, besitzt"
+        },
+        "applyOnOutcome": {
+          "label": "Anwenden bei Ergebnis",
+          "hint": "Wende diesen Effekt sofort auf dieses Probenergebnis an (z.B. test.damage oder test.weaponAP)"
         },
         "transferOnOutcome": {
           "label": "Zuweisen bei Ergebnis",
@@ -907,8 +915,8 @@
         "name": "Zielauswahl abwählen"
       },
       "useYear1PPTent": {
-        "hint": "Verwende den Pan-Pacifica Tischaufsteller nach Tag 172.",
-        "name": "Jahr-1 PP Aufsteller"
+        "hint": "Verwende die Pan-Pacifica Axiome nach Tag 172.",
+        "name": "Jahr 1 Pan-Pacifica Axiome"
       },
       "cardChatNotify": {
         "hint": "Verbirgt Kern-Foundry Chat-Benachrichtigungen wenn Torg Eternity eigene Benachrichtigungen bietet",
@@ -1412,7 +1420,8 @@
       "fireDamage": "Feuerschaden",
       "forceDamage": "Kraftschaden",
       "iceDamage": "Eisschaden",
-      "lightningDamage": "Blitzschaden"
+      "lightningDamage": "Blitzschaden",
+      "psychicDamage": "Psychischer Schaden"
     },
     "itemPurchase": {
       "free": "Keine Kosten",

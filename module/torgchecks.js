@@ -472,7 +472,7 @@ export async function renderSkillChat(test, origChatMessage) {
 
     // Concentration
     if (first && test.result >= TestResult.STANDARD && testItem?.system.requiresConcentration) {
-      await testActor.addConcentration(testItem);
+      test.concentratingId = (await testActor.addConcentration(testItem))?.uuid;
       ChatMessage.create({
         speaker: ChatMessage.getSpeaker({ actor: testActor }),
         content: game.i18n.format('torgeternity.chatText.concentration.start', { itemName: testItem.name })
@@ -1509,24 +1509,29 @@ export function checkUnskilled(skillValue, skillName, actor) {
  */
 function appliesToTest(effect, test, target) {
   if (effect.disabled) return false;
-  if (effect.system.transferOnOutcome) {
-    // If transferred, then applies to test
+  if (effect.system.transferOnOutcome || effect.system.applyOnOutcome) {
+    // Check if the test had the outcome that this AE requires.
     const result = test.result;
-    switch (effect.system.transferOnOutcome) {
-      case 'anySuccess': return result >= TestResult.STANDARD;
-      case 'anyFailure': return result < TestResult.STANDARD;
-      case 'mishap': return result === TestResult.MISHAP;
-      case 'failure': return result === TestResult.FAILURE;
-      case 'standard': return result === TestResult.STANDARD;
-      case 'good': return result === TestResult.GOOD;
-      case 'outstanding': return result === TestResult.OUTSTANDING;
+    let match = null;
+    switch (effect.system.transferOnOutcome || effect.system.applyOnOutcome) {
+      case 'anySuccess': match = result >= TestResult.STANDARD; break;
+      case 'anyFailure': match = result < TestResult.STANDARD; break;
+      case 'mishap': match = result === TestResult.MISHAP; break;
+      case 'failure': match = result === TestResult.FAILURE; break;
+      case 'standard': match = result === TestResult.STANDARD; break;
+      case 'good': match = result === TestResult.GOOD; break;
+      case 'outstanding': match = result === TestResult.OUTSTANDING; break;
       default:
-        console.warn(`Ignoring unknown transferOnOutcome value: '${effect.system.transferOnOutcome}'`);
+        console.warn(`Ignoring unknown transferOnOutcome value: '${effect.system.transferOnOutcome || effect.system.appliesOnOutcome}'`);
+    }
+    if (match !== null) {
+      if (effect.system.transferOnOutcome) return match;  // Ignores other traits
+      if (match === false) return false;  // Not transferred, and not a matching outcome
     }
   }
   // These are irrelevant if this effect is going to be transferred to the target.
-  if (!testTraits(effect.system.applyIfAttackTrait, test.attackTraits)) return false;
-  if (!testTraits(effect.system.applyIfDefendTrait, target?.defenseTraits)) return false;
+  if (!testTraits(effect.system.applyIfAttackTrait, effect.system.applyIfAttackTraitCombine, test.attackTraits, test.skillName)) return false;
+  if (!testTraits(effect.system.applyIfDefendTrait, effect.system.applyIfDefendTraitCombine, target?.defenseTraits, test.skillName)) return false;
   // Not transferred, but might affect the result. (e.g. 'test.damage' or 'test.weaponAP')
   return effect.changes.find(change => change.key.startsWith('test.'));
 }
@@ -1538,8 +1543,20 @@ function appliesToTest(effect, test, target) {
  * @param {Array<String>} actualTraits list of traits on Actor (returns false if empty)
  * @return {Boolean}
  */
-function testTraits(ifTraits, actualTraits) {
+function testTraits(ifTraits, combiner, actualTraits, actualSkill) {
   if (!ifTraits?.size) return true;
   if (!actualTraits?.length) return false;
-  return actualTraits.find(trait => ifTraits.has(trait));
+  switch (combiner) {
+    case 'or':
+      return ifTraits.has(actualSkill) || actualTraits.find(trait => ifTraits.has(trait));
+    case 'and': {
+      const required = combiner === 'or' ? 1 : ifTraits.length;
+      let found = 0;
+      if (ifTraits.has(actualSkill)) found++;
+      found += actualTraits.filter(trait => ifTraits.has(trait)).length;
+      return found === required;
+    }
+    default:
+      return false;
+  }
 }

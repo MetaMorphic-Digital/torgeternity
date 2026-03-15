@@ -5,10 +5,14 @@
 
   <fieldset>
     <legend>{{localize 'torgeternity.sheetLabels.effectTestOptions'}}</legend>
-    {{formGroup systemFields.transferOnOutcome value=source.system.transferOnOutcome rootId=rootId localize=true}}
-    {{formGroup systemFields.transferTo value=source.system.transferTo rootId=rootId localize=true classes=transferToClass}}
-    {{formGroup systemFields.applyIfAttackTrait value=source.system.applyIfAttackTrait rootId=rootId localize=true}}
-    {{formGroup systemFields.applyIfDefendTrait value=source.system.applyIfDefendTrait rootId=rootId localize=true}}
-    {{formGroup systemFields.defendAgainstTrait value=source.system.defendAgainstTrait rootId=rootId localize=true}}
+    {{formGroup systemFields.applyOnOutcome value=source.system.applyOnOutcome rootId=rootId localize=true classes=applyOutcomeClass}}
+    <div class="transferGroup {{transferOutcomeClass}}">
+      {{formGroup systemFields.transferOnOutcome value=source.system.transferOnOutcome rootId=rootId localize=true}}
+      {{formGroup systemFields.transferTo value=source.system.transferTo rootId=rootId localize=true classes=transferToClass}}
+    </div>
+
+    {{TorgFormGroup systemFields.applyIfAttackTrait value=source.system.applyIfAttackTrait rootId=rootId combiner=systemFields.applyIfAttackTraitCombine localize=true sort=true}}
+    {{TorgFormGroup systemFields.applyIfDefendTrait value=source.system.applyIfDefendTrait rootId=rootId combiner=systemFields.applyIfDefendTraitCombine localize=true sort=true}}
+    {{TorgFormGroup systemFields.defendAgainstTrait value=source.system.defendAgainstTrait rootId=rootId combiner=systemFields.defendAgainstTraitCombine localize=true sort=true}}
   </fieldset>
 </section>

@@ -3,6 +3,9 @@
     "discard": "Défausser",
     "display": "Montrer cette carte aux joueurs"
   },
+  "COMBAT": {
+    "End": "Fin"
+  },
   "EFFECT": {
     "TABS": {
       "torg": "Torg Eternity"
@@ -37,10 +40,18 @@
         "actor": "Acteur actif",
         "target": "Acteur cible"
       },
+      "match": {
+        "and": "Tous",
+        "or": "Au moins"
+      },
       "FIELDS": {
         "activeIfTrait": {
           "label": "Trait d'activation",
           "hint": "Cet effet ne sera actif que si l'Acteur possède l'un de ces traits, soit personnellement, soit par l'intermédiaire d'un objet (équipé)"
+        },
+        "applyOnOutcome": {
+          "label": "Appliquer au résultat",
+          "hint": "Appliquer ces modifications immédiatement au résultat du test (par exemple, test.damage ou test.weaponAP)"
         },
         "transferOnOutcome": {
           "label": "Appliquer l'Effet correspondant au degré de réussite",
@@ -907,8 +918,8 @@
         "name": "Annulation du ciblage"
       },
       "useYear1PPTent": {
-        "hint": "Utiliser la 'tente' du Pan-Pacifica de l'après an 1.",
-        "name": "Year-1 PP TT"
+        "hint": "Utiliser les axioms de Pan-Pacifica suivant le jour 172.",
+        "name": "Axioms Pan-Pacifica An-1"
       },
       "cardChatNotify": {
         "hint": "Supprime les messages de Foundry si le système TORG génère son propre message",
@@ -1412,7 +1423,8 @@
       "fireDamage": "Dommages de Feu",
       "forceDamage": "Dommages de Force",
       "iceDamage": "Dommages de Froid",
-      "lightningDamage": "Dommages d'Électricité"
+      "lightningDamage": "Dommages d'Électricité",
+      "psychicDamage": "Dommages psychiques"
     },
     "itemPurchase": {
       "free": "Gratuit",

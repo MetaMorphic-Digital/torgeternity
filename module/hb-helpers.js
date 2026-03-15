@@ -3,6 +3,18 @@ export function initHandlebarsHelpers() {
   Handlebars.registerHelper({ TorgHidden })
   Handlebars.registerHelper({ TorgDisconnected })
   Handlebars.registerHelper({ TorgIsSvg })
+  Handlebars.registerHelper({ TorgFormGroup })
+}
+
+function TorgFormGroup(field, options) {
+  const element = Handlebars.helpers.formGroup(field, options);
+  const pos = element.string.indexOf('<multi-select name=');
+  if (pos < 0) return element;
+  const booleanSelect = options.hash.combiner.toInput({
+    value: foundry.utils.getProperty(options.data.root.document, options.hash.combiner.fieldPath),
+    localize: true,
+  });
+  return new Handlebars.SafeString(element.string.slice(0, pos) + booleanSelect.outerHTML + element.string.slice(pos));
 }
 
 function TorgRadioBoxesNumber(name, choices, options) {

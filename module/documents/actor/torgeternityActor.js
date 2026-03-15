@@ -1,3 +1,4 @@
+import TorgActiveEffect from '../active-effect/torgActiveEffect.js';
 /**
  *
  */
@@ -466,45 +467,9 @@ export default class TorgeternityActor extends foundry.documents.Actor {
       changes: [
         {
           // Modify all existing "basic" defense in block
-          key: 'system.defenses.dodge.mod', // Should need other work for defense vs powers
+          key: 'system.defenses.all.mod', // Should need other work for defense vs powers
           value: bonus, // that don't target xxDefense
           priority: 20, // Create a data.ADB that store the bonus ?
-          mode: CONST.ACTIVE_EFFECT_MODES.ADD,
-        },
-        {
-          key: 'system.defenses.intimidation.mod',
-          value: bonus,
-          priority: 20,
-          mode: CONST.ACTIVE_EFFECT_MODES.ADD,
-        },
-        {
-          key: 'system.defenses.maneuver.mod',
-          value: bonus,
-          priority: 20,
-          mode: CONST.ACTIVE_EFFECT_MODES.ADD,
-        },
-        {
-          key: 'system.defenses.meleeWeapons.mod',
-          value: bonus,
-          priority: 20,
-          mode: CONST.ACTIVE_EFFECT_MODES.ADD,
-        },
-        {
-          key: 'system.defenses.taunt.mod',
-          value: bonus,
-          priority: 20,
-          mode: CONST.ACTIVE_EFFECT_MODES.ADD,
-        },
-        {
-          key: 'system.defenses.trick.mod',
-          value: bonus,
-          priority: 20,
-          mode: CONST.ACTIVE_EFFECT_MODES.ADD,
-        },
-        {
-          key: 'system.defenses.unarmedCombat.mod',
-          value: bonus,
-          priority: 20,
           mode: CONST.ACTIVE_EFFECT_MODES.ADD,
         },
         {
@@ -602,6 +567,12 @@ export default class TorgeternityActor extends foundry.documents.Actor {
     return this.effects.find(ef => ef.name === 'ActiveDefense')
   }
 
+  /**
+   * Add a 'concentrating' status AE to this actor identifying the given item as the reason for the concentration.
+   * @param {TorgeteternityItem} item 
+   * @returns Promise<TorgActiveEffect>
+   */
+
   async addConcentration(item) {
     const effect = (await ActiveEffect.fromStatusEffect('concentrating')).toObject();
     Object.assign(effect,
@@ -615,6 +586,31 @@ export default class TorgeternityActor extends foundry.documents.Actor {
         })
       })
     return ActiveEffect.implementation.create(effect, { parent: this });
+  }
+
+  /**
+   * When a 'concentration' status is deleted from an Actor, look for any AEs on other actors
+   * which have 'system.concentratingId' set to the UUID of the 'concentration' status AE.
+   * All those AEs will be deleted (since the power is no longer being concentrated on).
+   * @param {} parent 
+   * @param {*} collection 
+   * @param {*} documents 
+   * @param {*} ids 
+   * @param {*} options 
+   * @param {*} userId 
+   * @returns 
+   */
+  _onDeleteDescendantDocuments(parent, collection, documents, ids, options, userId) {
+    if (game.user.isActiveGM && collection === 'effects') {
+      const concIds = documents.filter(eft => eft.statuses.has('concentrating')).map(doc => doc.uuid).filter(uuid => !!uuid);
+      if (concIds.length) {
+        for (const actor of game.actors)
+          for (const effect of actor.effects)
+            if (effect.system.concentratingId && concIds.includes(effect.system.concentratingId))
+              effect.delete();
+      }
+    }
+    return super._onDeleteDescendantDocuments(parent, collection, documents, ids, options, userId);
   }
 
   /**

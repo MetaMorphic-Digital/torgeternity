@@ -3097,19 +3097,19 @@ nav#controls,
         text-shadow: 1px 1px 4px var(--color-shadow-dark);
       }
 
-      &.friendly:not(:hover) {
+      &.friendly:not(.hover) {
         background-color: rgba(15, 47, 189, 0.212);
       }
 
-      &.hostile:not(:hover) {
+      &.hostile:not(.hover) {
         background-color: rgba(143, 1, 1, 0.28);
       }
 
-      &.neutral:not(:hover) {
+      &.neutral:not(.hover) {
         background-color: rgba(141, 143, 1, 0.28);
       }
 
-      &.turnDone:not(:hover) {
+      &.turnDone:not(.hover) {
         background-color: darkgreen;
       }
     }
@@ -4827,6 +4827,18 @@ aside.carry-type-menu {
 
     li:has(a.selected) {
       background: #444;
+    }
+  }
+}
+
+form.active-effect-config {
+  div.form-fields:has(select, multi-select) {
+    &>select {
+      width: max-content;
+    }
+
+    &>multi-select {
+      flex: 4;
     }
   }
 }

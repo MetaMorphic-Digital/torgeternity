@@ -31,6 +31,10 @@
         "actor": "Actor",
         "target": "Target"
       },
+      "match": {
+        "and": "ALL",
+        "or": "ANY"
+      },
       "FIELDS": {
         "activeIfTrait": {
           "label": "Active only If",
@@ -39,6 +43,10 @@
         "combatToggle": {
           "label": "Display as Combat Toggle",
           "hint": "Display this effect in the Attacks and Powers section of the Actor sheet for quicker access to toggling its active state"
+        },
+        "applyOnOutcome": {
+          "label": "Apply on Outcome",
+          "hint": "Apply these changes immediately to the test result when a test using this Item has this particular outcome (e.g. test.damage or test.weaponAP)"
         },
         "transferOnOutcome": {
           "label": "Transfer on Outcome",
@@ -50,15 +58,15 @@
         },
         "applyIfAttackTrait": {
           "label": "Apply If Attack Trait",
-          "hint": "Apply this effect to a test using this Item ONLY if the ATTACKING Actor has one of these traits"
+          "hint": "Apply this effect to a test using this Item ONLY if the ATTACKING Actor has ANY or ALL of these traits"
         },
         "applyIfDefendTrait": {
           "label": "Apply If Defend Trait",
-          "hint": "Apply this effect to a test using this Item ONLY if the TARGET Actor has one of these traits"
+          "hint": "Apply this effect to a test using this Item ONLY if the TARGET Actor has ANY or ALL of these traits"
         },
         "defendAgainstTrait": {
           "label": "Defend Against Trait",
-          "hint": "Apply this effect to a test when the owner is a TARGET and the attacker has one of these traits"
+          "hint": "Apply this effect to a test when the owner is a TARGET and the attacker has ANY or ALL of these traits"
         }
       }
     },
@@ -901,8 +909,8 @@
         "name": "Cancel targeting"
       },
       "useYear1PPTent": {
-        "hint": "Use the Pan-Pacifica tabletent after year 1.",
-        "name": "Year-1 PP TT"
+        "hint": "Use the Pan-Pacifica Axioms after day 172.",
+        "name": "Year-1 Pan-Pacifica Axioms"
       },
       "cardChatNotify": {
         "hint": "Hides core Foundry card messages where Torg Eternity supplies its own message",
@@ -1406,7 +1414,8 @@
       "fireDamage": "Fire Damage",
       "forceDamage": "Force Damage",
       "iceDamage": "Ice Damage",
-      "lightningDamage": "Lightning Damage"
+      "lightningDamage": "Lightning Damage",
+      "psychicDamage": "Psychic Damage"
     },
     "itemPurchase": {
       "free": "No Cost",

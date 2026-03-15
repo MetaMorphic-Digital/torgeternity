@@ -161,6 +161,9 @@ export class CommonActorData extends BaseActorData {
     // TODO: If we allow more than 1 wornArmor and an array is to be expected, then we need to change that here.
     // 'value' of each field is set in prepareDerivedData
     Object.assign(this.defenses, {
+      all: { mod: 0 },
+      interaction: { mod: 0 },
+      physical: { mod: 0 },
       dodge: { value: 0, mod: shieldBonus },
       meleeWeapons: { value: 0, mod: shieldBonus },
       unarmedCombat: { value: 0, mod: 0 },
@@ -203,28 +206,28 @@ export class CommonActorData extends BaseActorData {
     // Set Defensive Values based on modified skills and attributes
 
     const dodgeDefenseSkill = skills.dodge.value || attributes.dexterity.value;
-    this.defenses.dodge.value = dodgeDefenseSkill + this.defenses.dodge.mod;
+    this.defenses.dodge.value = dodgeDefenseSkill + this.defenses.dodge.mod + this.defenses.all.mod + this.defenses.physical.mod;
 
     const meleeWeaponsDefenseSkill = skills.meleeWeapons.value || attributes.dexterity.value;
-    this.defenses.meleeWeapons.value = meleeWeaponsDefenseSkill + this.defenses.meleeWeapons.mod;
+    this.defenses.meleeWeapons.value = meleeWeaponsDefenseSkill + this.defenses.meleeWeapons.mod + this.defenses.all.mod + this.defenses.physical.mod;
     // (Core pg 126) Wielding TWO melee weapons increases melee weapons defense by 2.
     if (this.type !== 'vehicle' && this.equippedMelees?.length > 1)
       this.defenses.meleeWeapons.value += 2;
 
     const unarmedCombatDefenseSkill = skills.unarmedCombat.value || attributes.dexterity.value;
-    this.defenses.unarmedCombat.value = unarmedCombatDefenseSkill + this.defenses.unarmedCombat.mod;
+    this.defenses.unarmedCombat.value = unarmedCombatDefenseSkill + this.defenses.unarmedCombat.mod + this.defenses.all.mod + this.defenses.physical.mod;
 
     const intimidationDefenseSkill = skills.intimidation.value || attributes.spirit.value;
-    this.defenses.intimidation.value = intimidationDefenseSkill + this.defenses.intimidation.mod;
+    this.defenses.intimidation.value = intimidationDefenseSkill + this.defenses.intimidation.mod + this.defenses.all.mod + this.defenses.interaction.mod;
 
     const maneuverDefenseSkill = skills.maneuver.value || attributes.dexterity.value;
-    this.defenses.maneuver.value = maneuverDefenseSkill + this.defenses.maneuver.mod;
+    this.defenses.maneuver.value = maneuverDefenseSkill + this.defenses.maneuver.mod + this.defenses.all.mod + this.defenses.interaction.mod;
 
     const tauntDefenseSkill = skills.taunt.value || attributes.charisma.value;
-    this.defenses.taunt.value = tauntDefenseSkill + this.defenses.taunt.mod;
+    this.defenses.taunt.value = tauntDefenseSkill + this.defenses.taunt.mod + this.defenses.all.mod + this.defenses.interaction.mod;
 
     const trickDefenseSkill = skills.trick.value || attributes.mind.value;
-    this.defenses.trick.value = trickDefenseSkill + this.defenses.trick.mod;
+    this.defenses.trick.value = trickDefenseSkill + this.defenses.trick.mod + this.defenses.all.mod + this.defenses.interaction.mod;
 
     this.other.move = applyNumericEffects('system.other.moveMod', this.attributes.dexterity.value, this.parent.appliedEffects);
     this.other.run = applyNumericEffects('system.other.runMod', this.attributes.dexterity.value * 3, this.parent.appliedEffects);

@@ -112,6 +112,12 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
     return this.parent.name;
   }
 
+  get modifiesActor() {
+    // core version tests for (!this.active) but we have lots of conditional effects
+    if (this.disabled) return false;
+    return this.target instanceof foundry.documents.Actor;
+  }
+
   /**
    * Return if this effect modifies the target of the test rather than the owner of the AE.
    * @type {boolean}
@@ -127,7 +133,7 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
   /**
    * Return a copy of this object with the various "attack" traits cleared.
    */
-  copyForTransfer() {
+  copyForTransfer(concentratingId) {
     // Override some values
     return foundry.utils.mergeObject(this.toObject(),
       {
@@ -135,9 +141,20 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
         system: {
           transferOnOutcome: null,
           transferTo: '',
+          concentratingId: concentratingId
         },
         origin: this.parent.uuid,  // the originating Item
       },
       { replace: true, recursive: true });
   }
+
+  /**
+   * Foundry 14: 
+   * Don't allow core Foundry to trigger turnEnd events.
+   */
+  isExpiryEvent(event, context) {
+    if (event === 'turnEnd') return false;
+    return super.isExpiryEvent(event, context);
+  }
+
 }

@@ -1,5 +1,4 @@
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api
-import TorgeternityActor from './documents/actor/torgeternityActor.js';
 
 export default class EffectsPanel extends HandlebarsApplicationMixin(ApplicationV2) {
 
@@ -63,11 +62,6 @@ export default class EffectsPanel extends HandlebarsApplicationMixin(Application
     return context;
   }
 
-  _onClose(options) {
-    if (this.#actor) this.#actor.apps[this.id] = this;
-    super._onClose(options);
-  }
-
   static #onClick(event) {
     const target = event.target;
     const actionButton = target.closest("[data-action]");
@@ -88,7 +82,7 @@ export default class EffectsPanel extends HandlebarsApplicationMixin(Application
   async onRightClick(button, event) {
     const effect = fromUuidSync(button.dataset.uuid);
     if (!effect || !effect.isEmbedded) return;
-    if (effect.parent instanceof TorgeternityActor)
+    if (effect.parent instanceof foundry.documents.Actor)
       await effect.delete();
     else
       await effect.update({ disabled: true });
@@ -106,9 +100,5 @@ export default class EffectsPanel extends HandlebarsApplicationMixin(Application
   static onRefreshToken(token, flags) {
     if (EffectsPanel.panel.#actor === token.actor && flags.refreshEffects && EffectsPanel.panel.rendered)
       EffectsPanel.panel.render({ force: true });
-  }
-
-  static onCollapseSidebar(collapsed) {
-    if (EffectsPanel.panel.rendered) EffectsPanel.panel.render();
   }
 }

@@ -229,7 +229,7 @@ export class TestDialog extends HandlebarsApplicationMixin(ApplicationV2) {
     context.test.combinedAction.participants ??= game.canvas?.tokens?.controlled?.length || 1;
 
     if (context.test.targetPresent && context.test.testType !== 'soak') {
-      context.test.targetAll = targets.map(token => oneTestTarget(token, this.test.applySize, this.test.attackTraits, myActor.defenseTraits));
+      context.test.targetAll = targets.map(token => oneTestTarget(token, this.test.applySize, this.test.attackTraits, myActor.defenseTraits, context.test.skillName));
       context.test.sizeModifier = Math.max(...context.test.targetAll.map(target => target.sizeModifier));
       context.test.vulnerableModifier = Math.max(...context.test.targetAll.map(target => target.vulnerableModifier));
       context.test.darknessModifier = Math.min(0, Math.min(...context.test.targetAll.map(target => target.darknessModifier)) + context.test.targetDarknessModifier);
@@ -348,7 +348,7 @@ export function dummyTestTargets() {
  * @param {Set[String]} defenseTraits defenseTraits of the attacker (if any)
  * @returns 
  */
-export function oneTestTarget(token, applySize, attackTraits, defenseTraits) {
+export function oneTestTarget(token, applySize, attackTraits, defenseTraits, testSkill) {
   const actor = token.actor;
 
   let sizeModifier;
@@ -445,27 +445,59 @@ export function oneTestTarget(token, applySize, attackTraits, defenseTraits) {
           const effects = [];
           for (const effect of actor.allApplicableEffects()) {
             // It will be suppressed, so effect.active will return false
-            if (!effect.disabled && !effect.system.transferOnOutcome) {
+            if (!effect.disabled && !effect.system.transferOnOutcome && effect.system.defendAgainstTrait.size) {
+              let found = 0;
+              const required = effect.system.defendAgainstTraitCombine === 'or' ? 1 : effect.system.defendAgainstTrait.size;
               for (const trait of effect.system.defendAgainstTrait) {
-                if (attackTraits?.includes(trait) || defenseTraits?.includes(trait))
-                  effects.push(effect);
+                if (testSkill === trait || attackTraits?.includes(trait) || defenseTraits?.includes(trait)) {
+                  if (++found === required) break;
+                }
               }
+              if (found === required) effects.push(effect);
             }
           }
           const changekeys = effects.map(effect => effect.changes).flat().reduce((set, change) => set.add(change.key), new Set());
           for (const changekey of changekeys) {
-            const MAPPING = {
-              'system.defenses.toughness': 'toughness',
-              'system.defenses.armor': 'armor',
-              'system.statusModifiers.vulnerable': 'vulnerableModifier',
-              'system.statusModifiers.darkness': 'darknessModifier',
+            if (changekey === 'system.defenses.all.mod') {
+              for (const field of ['defenses.dodge', 'defenses.unarmedCombat', 'defenses.meleeWeapons', 'defenses.intimidation', 'defenses.maneuver', 'defenses.taunt', 'defenses.trick']) {
+                const value = foundry.utils.getProperty(result, field);
+                if (typeof value !== 'number')
+                  console.warn(`Non-numeric field referenced in changes of defendAgainstTrait: '${field}'`)
+                else
+                  foundry.utils.setProperty(result, field, applyNumericEffects(changekey, value, effects));
+              }
+            } else if (changekey === 'system.defenses.physical.mod') {
+              for (const field of ['defenses.dodge', 'defenses.unarmedCombat', 'defenses.meleeWeapons']) {
+                const value = foundry.utils.getProperty(result, field);
+                if (typeof value !== 'number')
+                  console.warn(`Non-numeric field referenced in changes of defendAgainstTrait: '${field}'`)
+                else
+                  foundry.utils.setProperty(result, field, applyNumericEffects(changekey, value, effects));
+              }
+            } else if (changekey === 'system.defenses.interaction.mod') {
+              for (const field of ['defenses.intimidation', 'defenses.maneuver', 'defenses.taunt', 'defenses.trick']) {
+                const value = foundry.utils.getProperty(result, field);
+                if (typeof value !== 'number')
+                  console.warn(`Non-numeric field referenced in changes of defendAgainstTrait: '${field}'`)
+                else
+                  foundry.utils.setProperty(result, field, applyNumericEffects(changekey, value, effects));
+              }
+            } else {
+              const MAPPING = {
+                'system.defenses.toughness': 'toughness',
+                'system.defenses.armor': 'armor',
+                'system.statusModifiers.vulnerable': 'vulnerableModifier',
+                'system.statusModifiers.darkness': 'darknessModifier',
+              }
+              const field = MAPPING[changekey] ?? changekey.replace(/^system./, '').replace(/.mod$/, '');
+              const value = foundry.utils.getProperty(result, field);
+              if (typeof value !== 'number')
+                console.warn(`Non-numeric field referenced in changes of defendAgainstTrait: '${field}'`)
+              const newvalue = applyNumericEffects(changekey, value, effects);
+              foundry.utils.setProperty(result, field, newvalue);
+              // Armor should be included in the toughness value (and will be removed if required later)
+              if (field === 'armor') result.toughness += (newvalue - value);
             }
-            const field = MAPPING[changekey] ?? changekey.replace(/^system./, '').replace(/.mod$/, '');
-            const value = foundry.utils.getProperty(result, field);
-            if (typeof value !== 'number') {
-              console.warn(`Non-numeric field referenced in changes of defendAgainstTrait: '${field}'`)
-            }
-            foundry.utils.setProperty(result, field, applyNumericEffects(changekey, value, effects));
           }
         }
 
