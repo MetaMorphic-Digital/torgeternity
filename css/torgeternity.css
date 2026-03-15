@@ -4830,3 +4830,15 @@ aside.carry-type-menu {
     }
   }
 }
+
+form.active-effect-config {
+  div.form-fields:has(select, multi-select) {
+    select {
+      flex: 1;
+    }
+
+    multi-select {
+      flex: 5;
+    }
+  }
+}

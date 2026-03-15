@@ -1530,8 +1530,8 @@ function appliesToTest(effect, test, target) {
     }
   }
   // These are irrelevant if this effect is going to be transferred to the target.
-  if (!testTraits(effect.system.applyIfAttackTrait, test.attackTraits, test.skillName)) return false;
-  if (!testTraits(effect.system.applyIfDefendTrait, target?.defenseTraits, test.skillName)) return false;
+  if (!testTraits(effect.system.applyIfAttackTrait, effect.system.applyIfAttackTraitCombine, test.attackTraits, test.skillName)) return false;
+  if (!testTraits(effect.system.applyIfDefendTrait, effect.system.applyIfDefendTraitCombine, target?.defenseTraits, test.skillName)) return false;
   // Not transferred, but might affect the result. (e.g. 'test.damage' or 'test.weaponAP')
   return effect.changes.find(change => change.key.startsWith('test.'));
 }
@@ -1543,8 +1543,20 @@ function appliesToTest(effect, test, target) {
  * @param {Array<String>} actualTraits list of traits on Actor (returns false if empty)
  * @return {Boolean}
  */
-function testTraits(ifTraits, actualTraits, actualSkill) {
+function testTraits(ifTraits, combiner, actualTraits, actualSkill) {
   if (!ifTraits?.size) return true;
   if (!actualTraits?.length) return false;
-  return ifTraits.has(actualSkill) || actualTraits.find(trait => ifTraits.has(trait));
+  switch (combiner) {
+    case 'or':
+      return ifTraits.has(actualSkill) || actualTraits.find(trait => ifTraits.has(trait));
+    case 'and': {
+      const required = combiner === 'or' ? 1 : ifTraits.length;
+      let found = 0;
+      if (ifTraits.has(actualSkill)) found++;
+      found += actualTraits.filter(trait => ifTraits.has(trait)).length;
+      return found === required;
+    }
+    default:
+      return false;
+  }
 }

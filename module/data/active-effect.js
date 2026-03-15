@@ -45,6 +45,10 @@ export class TorgActiveEffectData extends (foundry.data.ActiveEffectTypeDataMode
         applyIfAttackTrait: newTraitsField('effectTestTraits'),
         applyIfDefendTrait: newTraitsField('effectTestTraits'),
         defendAgainstTrait: newTraitsField('effectTestTraits'),
+        applyIfAttackTraitCombine: newCombineTraitsField(),
+        applyIfDefendTraitCombine: newCombineTraitsField(),
+        defendAgainstTraitCombine: newCombineTraitsField(),
+
         combatToggle: new fields.BooleanField({ initial: false, }),
         concentratingId: new fields.DocumentUUIDField({ nullable: true })
       })
@@ -90,4 +94,18 @@ export class TorgActiveEffectData extends (foundry.data.ActiveEffectTypeDataMode
       (!item.system.canEquip || item.isEquipped) &&
       item.system.traits.find(trait => this.activeIfTrait.has(trait)));
   }
+}
+
+function newCombineTraitsField() {
+  return new fields.StringField({
+    blank: false,
+    nullable: false,
+    required: true,
+    choices: {
+      "and": "&&",
+      "or": "||",
+    },
+    trim: true,
+    initial: "or",
+  })
 }

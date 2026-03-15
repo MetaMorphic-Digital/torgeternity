@@ -445,11 +445,15 @@ export function oneTestTarget(token, applySize, attackTraits, defenseTraits, tes
           const effects = [];
           for (const effect of actor.allApplicableEffects()) {
             // It will be suppressed, so effect.active will return false
-            if (!effect.disabled && !effect.system.transferOnOutcome) {
+            if (!effect.disabled && !effect.system.transferOnOutcome && effect.system.defendAgainstTrait.size) {
+              let found = 0;
+              const required = effect.system.defendAgainstTraitCombine === 'or' ? 1 : effect.system.defendAgainstTrait.size;
               for (const trait of effect.system.defendAgainstTrait) {
-                if (testSkill === trait || attackTraits?.includes(trait) || defenseTraits?.includes(trait))
-                  effects.push(effect);
+                if (testSkill === trait || attackTraits?.includes(trait) || defenseTraits?.includes(trait)) {
+                  if (++found === required) break;
+                }
               }
+              if (found === required) effects.push(effect);
             }
           }
           const changekeys = effects.map(effect => effect.changes).flat().reduce((set, change) => set.add(change.key), new Set());
