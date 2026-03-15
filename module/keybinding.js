@@ -9,16 +9,13 @@ export default function createTorgShortcuts() {
   game.keybindings.register('torgeternity', 'openHand', {
     name: game.i18n.localize('torgeternity.dialogPrompts.openHand'),
     editable: [{ key: 'KeyH', },],
-    onDown: (context) => {
-      TorgeternityActor.getControlledActor()?.getDefaultHand().sheet.toggleRender();
-    },
+    onDown: () => TorgeternityActor.getControlledActor()?.getDefaultHand().sheet.toggleRender(),
   });
   game.keybindings.register('torgeternity', 'openGMScreen', {
     name: game.i18n.localize('torgeternity.gmScreen.toggle'),
     editable: [{ key: 'KeyG', },],
-    onDown: (context) => {
-      if (game.user.isGM) ui.GMScreen.toggleRender();
-    },
+    restricted: true,
+    onDown: () => ui.GMScreen.toggleRender(),
   });
   game.keybindings.register('torgeternity', 'openCosmPoss', {
     name: 'Possibility by cosm', // game.i18n.localize("torgeternity.gmScreen.toggle"),
