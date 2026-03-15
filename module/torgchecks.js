@@ -1510,18 +1510,23 @@ export function checkUnskilled(skillValue, skillName, actor) {
 function appliesToTest(effect, test, target) {
   if (effect.disabled) return false;
   if (effect.system.transferOnOutcome || effect.system.applyOnOutcome) {
-    // If transferred, then applies to test
+    // Check if the test had the outcome that this AE requires.
     const result = test.result;
+    let match = null;
     switch (effect.system.transferOnOutcome || effect.system.applyOnOutcome) {
-      case 'anySuccess': return result >= TestResult.STANDARD;
-      case 'anyFailure': return result < TestResult.STANDARD;
-      case 'mishap': return result === TestResult.MISHAP;
-      case 'failure': return result === TestResult.FAILURE;
-      case 'standard': return result === TestResult.STANDARD;
-      case 'good': return result === TestResult.GOOD;
-      case 'outstanding': return result === TestResult.OUTSTANDING;
+      case 'anySuccess': match = result >= TestResult.STANDARD; break;
+      case 'anyFailure': match = result < TestResult.STANDARD; break;
+      case 'mishap': match = result === TestResult.MISHAP; break;
+      case 'failure': match = result === TestResult.FAILURE; break;
+      case 'standard': match = result === TestResult.STANDARD; break;
+      case 'good': match = result === TestResult.GOOD; break;
+      case 'outstanding': match = result === TestResult.OUTSTANDING; break;
       default:
         console.warn(`Ignoring unknown transferOnOutcome value: '${effect.system.transferOnOutcome || effect.system.appliesOnOutcome}'`);
+    }
+    if (match !== null) {
+      if (effect.system.transferOnOutcome) return match;
+      if (match === false) return false;  // Not transferred, and not a matching outcome
     }
   }
   // These are irrelevant if this effect is going to be transferred to the target.
