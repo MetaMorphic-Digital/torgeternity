@@ -40,6 +40,10 @@
           "label": "Display as Combat Toggle",
           "hint": "Display this effect in the Attacks and Powers section of the Actor sheet for quicker access to toggling its active state"
         },
+        "applyOnOutcome": {
+          "label": "Apply on Outcome",
+          "hint": "Apply these changes immediately to the test result (e.g. test.damage or test.weaponAP)"
+        },
         "transferOnOutcome": {
           "label": "Transfer on Outcome",
           "hint": "Transfer this effect to the target Actor(s) when a test using this Item has this particular outcome"

@@ -1525,7 +1525,7 @@ function appliesToTest(effect, test, target) {
         console.warn(`Ignoring unknown transferOnOutcome value: '${effect.system.transferOnOutcome || effect.system.appliesOnOutcome}'`);
     }
     if (match !== null) {
-      if (effect.system.transferOnOutcome) return match;
+      if (effect.system.transferOnOutcome) return match;  // Ignores other traits
       if (match === false) return false;  // Not transferred, and not a matching outcome
     }
   }
