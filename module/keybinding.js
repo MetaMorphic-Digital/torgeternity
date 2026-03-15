@@ -7,12 +7,12 @@ import TorgeternityActor from './documents/actor/torgeternityActor.js';
 export default function createTorgShortcuts() {
   // creating keyboard shortcuts
   game.keybindings.register('torgeternity', 'openHand', {
-    name: game.i18n.localize('torgeternity.dialogPrompts.openHand'),
+    name: 'torgeternity.dialogPrompts.openHand',
     editable: [{ key: 'KeyH', },],
     onDown: () => TorgeternityActor.getControlledActor()?.getDefaultHand().sheet.toggleRender(),
   });
   game.keybindings.register('torgeternity', 'openGMScreen', {
-    name: game.i18n.localize('torgeternity.gmScreen.toggle'),
+    name: 'torgeternity.gmScreen.toggle',
     editable: [{ key: 'KeyG', },],
     restricted: true,
     onDown: () => ui.GMScreen.toggleRender(),
