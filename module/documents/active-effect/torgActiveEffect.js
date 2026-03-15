@@ -112,6 +112,12 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
     return this.parent.name;
   }
 
+  get modifiesActor() {
+    // core version tests for (!this.active) but we have lots of conditional effects
+    if (this.disabled) return false;
+    return this.target instanceof foundry.documents.Actor;
+  }
+
   /**
    * Return if this effect modifies the target of the test rather than the owner of the AE.
    * @type {boolean}
