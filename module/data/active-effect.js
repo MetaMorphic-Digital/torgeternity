@@ -36,10 +36,10 @@ export class TorgActiveEffectData extends (foundry.data.ActiveEffectTypeDataMode
           initial: 'target',
           blank: false
         }),
-        activeIfTrait: newTraitsField(),
-        applyIfAttackTrait: newTraitsField(),
-        applyIfDefendTrait: newTraitsField(),
-        defendAgainstTrait: newTraitsField(),
+        activeIfTrait: newTraitsField('effectActiveTraits'),
+        applyIfAttackTrait: newTraitsField('effectTestTraits'),
+        applyIfDefendTrait: newTraitsField('effectTestTraits'),
+        defendAgainstTrait: newTraitsField('effectTestTraits'),
         combatToggle: new fields.BooleanField({ initial: false, }),
         concentratingId: new fields.DocumentUUIDField({ nullable: true })
       })
