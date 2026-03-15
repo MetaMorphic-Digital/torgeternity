@@ -42,6 +42,10 @@
           "label": "Nur Aktiv bei diesen Eigenschaften",
           "hint": "Dieser Aktive Effekt ist nur aktiv, wenn der Charakter eine dieser Eigenschaften, entweder als Zustand am Charakter oder als Eigenschaft auf einem (ausgerüsteten) Gegenstand, besitzt"
         },
+        "applyOnOutcome": {
+          "label": "Anwenden bei Ergebnis",
+          "hint": "Wende diesen Effekt sofort auf dieses Probenergebnis an (z.B. test.damage oder test.weaponAP)"
+        },
         "transferOnOutcome": {
           "label": "Zuweisen bei Ergebnis",
           "hint": "Weise diesen Effekt dem Ziel zu, wenn eine Probe mit diesem Gegenstand das definierte Ergebnis erreicht"
@@ -1413,7 +1417,7 @@
       "forceDamage": "Kraftschaden",
       "iceDamage": "Eisschaden",
       "lightningDamage": "Blitzschaden",
-      "psychicDamage": "Psychic Damage"
+      "psychicDamage": "Psychischer Schaden"
     },
     "itemPurchase": {
       "free": "Keine Kosten",

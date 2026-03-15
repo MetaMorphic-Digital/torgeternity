@@ -42,6 +42,10 @@
           "label": "Activar solo con estos rasgos",
           "hint": "Este efecto activo solo se activará si el actor tiene uno de estos rasgos, bien sea como estado sobre el actor, bien como rasgo de un objeto (equipado)"
         },
+        "applyOnOutcome": {
+          "label": "Aplicar al resultado",
+          "hint": "Aplicar estos cambios de inmediato al resultado de la prueba (por ejemplo test.damage or test.weaponAP)"
+        },
         "transferOnOutcome": {
           "label": "Transferir en función del resultado",
           "hint": "Transfiere este efecto al/los actor(es) objetivo cuando una prueba en la que se usea este objeto tiene este resultado en concreto"
@@ -907,8 +911,8 @@
         "name": "Cancelar selección de objetivos"
       },
       "useYear1PPTent": {
-        "hint": "Usar el panel de cosmos de Pan-Pacífica después del Año 1.",
-        "name": "Panel PP Año 1"
+        "hint": "Usar los axiomas de Pan-Pacífica tras el día 172.",
+        "name": "Axiomas de Pan-Pacífica del Año 1"
       },
       "cardChatNotify": {
         "hint": "Oculta los mensajes de cartas del núcleo de Foundry en los casos en que Torg Eternity aporta sus propios mensajes",
@@ -1413,7 +1417,7 @@
       "forceDamage": "Daño de fuerza",
       "iceDamage": "Daño de hielo",
       "lightningDamage": "Daño de relámpago",
-      "psychicDamage": "Psychic Damage"
+      "psychicDamage": "Daño psíquico"
     },
     "itemPurchase": {
       "free": "Sin coste",
