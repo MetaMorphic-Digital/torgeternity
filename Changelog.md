@@ -8,10 +8,16 @@
 - `system.defenses.interaction.mod` will be added to intimidation, maneuver, taunt, trick
 - Hovering over a token now highlights the combatant in the combat tracker.
 - Link the `Concentration` status to the effects transferred to Actors, so when the `Concentration` is cancelled then the transferred effects are removed from the targeted tokens.
+- "Year 1 Pan Pacifica" game system option wording changed, and when checked the spirit axiom for Pan Pacifica is changed to the new value.
 
 ### Translations
 
-psychicDamage: "Psychic Damage"
+"psychicDamage": "Psychic Damage"
+"useYear1PPTent.name": "Year-1 Pan-Pacifica Axioms"
+"useYear1PPTent.hint": "Use the Pan-Pacifica Axioms after day 172."
+
+
+
 
 ## 13.27.6 - damageMod for skills
 

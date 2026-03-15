@@ -901,8 +901,8 @@
         "name": "Cancel targeting"
       },
       "useYear1PPTent": {
-        "hint": "Use the Pan-Pacifica tabletent after year 1.",
-        "name": "Year-1 PP TT"
+        "hint": "Use the Pan-Pacifica Axioms after day 172.",
+        "name": "Year-1 Pan-Pacifica Axioms"
       },
       "cardChatNotify": {
         "hint": "Hides core Foundry card messages where Torg Eternity supplies its own message",
