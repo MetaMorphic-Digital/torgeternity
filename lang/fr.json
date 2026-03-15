@@ -40,6 +40,10 @@
         "actor": "Acteur actif",
         "target": "Acteur cible"
       },
+      "match": {
+        "and": "Tous",
+        "or": "Au moins"
+      },
       "FIELDS": {
         "activeIfTrait": {
           "label": "Trait d'activation",

@@ -37,6 +37,10 @@
         "actor": "Charakter",
         "target": "Ziel"
       },
+      "match": {
+        "and": "ALLE",
+        "or": "EINE"
+      },
       "FIELDS": {
         "activeIfTrait": {
           "label": "Nur Aktiv bei diesen Eigenschaften",

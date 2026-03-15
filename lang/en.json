@@ -31,6 +31,10 @@
         "actor": "Actor",
         "target": "Target"
       },
+      "match": {
+        "and": "ALL",
+        "or": "ANY"
+      },
       "FIELDS": {
         "activeIfTrait": {
           "label": "Active only If",
@@ -42,7 +46,7 @@
         },
         "applyOnOutcome": {
           "label": "Apply on Outcome",
-          "hint": "Apply these changes immediately to the test result (e.g. test.damage or test.weaponAP)"
+          "hint": "Apply these changes immediately to the test result when a test using this Item has this particular outcome (e.g. test.damage or test.weaponAP)"
         },
         "transferOnOutcome": {
           "label": "Transfer on Outcome",
@@ -54,15 +58,15 @@
         },
         "applyIfAttackTrait": {
           "label": "Apply If Attack Trait",
-          "hint": "Apply this effect to a test using this Item ONLY if the ATTACKING Actor has one of these traits"
+          "hint": "Apply this effect to a test using this Item ONLY if the ATTACKING Actor has ANY or ALL of these traits"
         },
         "applyIfDefendTrait": {
           "label": "Apply If Defend Trait",
-          "hint": "Apply this effect to a test using this Item ONLY if the TARGET Actor has one of these traits"
+          "hint": "Apply this effect to a test using this Item ONLY if the TARGET Actor has ANY or ALL of these traits"
         },
         "defendAgainstTrait": {
           "label": "Defend Against Trait",
-          "hint": "Apply this effect to a test when the owner is a TARGET and the attacker has one of these traits"
+          "hint": "Apply this effect to a test when the owner is a TARGET and the attacker has ANY or ALL of these traits"
         }
       }
     },

@@ -37,6 +37,10 @@
         "actor": "Actor",
         "target": "Objetivo"
       },
+      "match": {
+        "and": "Todos",
+        "or": "Cualquiera"
+      },
       "FIELDS": {
         "activeIfTrait": {
           "label": "Activar solo con estos rasgos",

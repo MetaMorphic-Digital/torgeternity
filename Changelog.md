@@ -14,7 +14,7 @@
 - Reinstate `Apply on Outcome` field to allow specific outcomes to affect the test results (e.g having 'test.damage' or 'test.weaponAP' in the changes).
 - Transferring an effect to an Actor should now generate a scrolling status on the token (_displayScrollingStatus).
 - `Active Defense` and the two defenses in the Macro Hub now use `system.defenses.all.mod` (or `system.defenses.physical.mod`)
-- Provide AND (&&) and OR (||) logic for whether ONE or ALL of the traits must match in the `Apply If Attack/Defend` and `Defend Against` fields.
+- Provide logic for whether at least one (ANY) or ALL of the traits must match in the `Apply If Attack/Defend` and `Defend Against` fields.
 
 ### Other Improvements
 - When `Concentration` is lost from an Actor, any effects linked to that concentration (on any Actors) are immediately removed.
