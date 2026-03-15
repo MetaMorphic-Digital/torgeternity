@@ -9,9 +9,10 @@
 - Hovering over a token now highlights the combatant in the combat tracker.
 - Link the `Concentration` status to the effects transferred to Actors, so when the `Concentration` is cancelled then the transferred effects are removed from the targeted tokens.
 - "Year 1 Pan Pacifica" game system option wording changed, and when checked the spirit axiom for Pan Pacifica is changed to the new value.
-- Shorter "end encounter" button for our French users.
+- Shorter label of "end encounter" button for our French users.
 - Allow any skill to be specified in an Active Effect's `Apply If Attack/Defend` and `Defend Against` fields.
 - Remove conditions from the list of available traits displayed in an Item's Traits field.
+- Tighten up validation of traits on Items to reject forbidden traits based on item type.
 
 ### Translations
 
