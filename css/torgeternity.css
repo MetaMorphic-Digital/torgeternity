@@ -4833,12 +4833,12 @@ aside.carry-type-menu {
 
 form.active-effect-config {
   div.form-fields:has(select, multi-select) {
-    select {
-      flex: 1;
+    &>select {
+      width: max-content;
     }
 
-    multi-select {
-      flex: 5;
+    &>multi-select {
+      flex: 4;
     }
   }
 }

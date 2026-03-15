@@ -102,8 +102,8 @@ function newCombineTraitsField() {
     nullable: false,
     required: true,
     choices: {
-      "and": "&&",
-      "or": "||",
+      'and': "torgeternity.activeEffect.match.and",
+      'or': "torgeternity.activeEffect.match.or",
     },
     trim: true,
     initial: "or",
