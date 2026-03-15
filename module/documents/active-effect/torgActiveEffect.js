@@ -127,7 +127,7 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
   /**
    * Return a copy of this object with the various "attack" traits cleared.
    */
-  copyForTransfer() {
+  copyForTransfer(concentratingId) {
     // Override some values
     return foundry.utils.mergeObject(this.toObject(),
       {
@@ -135,6 +135,7 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
         system: {
           transferOnOutcome: null,
           transferTo: '',
+          concentratingId: concentratingId
         },
         origin: this.parent.uuid,  // the originating Item
       },
@@ -149,4 +150,5 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
     if (event === 'turnEnd') return false;
     return super.isExpiryEvent(event, context);
   }
+
 }

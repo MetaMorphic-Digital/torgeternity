@@ -7,6 +7,7 @@
 - `system.defenses.physical.mod` will be added to dodge, meleeWeapons and unarmedCombat defenses.
 - `system.defenses.interaction.mod` will be added to intimidation, maneuver, taunt, trick
 - Hovering over a token now highlights the combatant in the combat tracker.
+- Link the `Concentration` status to the effects transferred to Actors, so when the `Concentration` is cancelled then the transferred effects are removed from the targeted tokens.
 
 ### Translations
 

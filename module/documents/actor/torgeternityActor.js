@@ -1,3 +1,4 @@
+import TorgActiveEffect from '../active-effect/torgActiveEffect.js';
 /**
  *
  */
@@ -615,6 +616,29 @@ export default class TorgeternityActor extends foundry.documents.Actor {
         })
       })
     return ActiveEffect.implementation.create(effect, { parent: this });
+  }
+
+  /**
+   * When an AE 
+   * @param {} parent 
+   * @param {*} collection 
+   * @param {*} documents 
+   * @param {*} ids 
+   * @param {*} options 
+   * @param {*} userId 
+   * @returns 
+   */
+  _onDeleteDescendantDocuments(parent, collection, documents, ids, options, userId) {
+    if (game.user.isActiveGM && collection === 'effects') {
+      const concIds = documents.filter(eft => eft.statuses.has('concentrating')).map(doc => doc.uuid).filter(uuid => !!uuid);
+      if (concIds.length) {
+        for (const actor of game.actors)
+          for (const effect of actor.effects)
+            if (effect.system.concentratingId && concIds.includes(effect.system.concentratingId))
+              effect.delete();
+      }
+    }
+    return super._onDeleteDescendantDocuments(parent, collection, documents, ids, options, userId);
   }
 
   /**

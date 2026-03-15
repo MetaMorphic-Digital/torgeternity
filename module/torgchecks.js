@@ -472,7 +472,7 @@ export async function renderSkillChat(test, origChatMessage) {
 
     // Concentration
     if (first && test.result >= TestResult.STANDARD && testItem?.system.requiresConcentration) {
-      await testActor.addConcentration(testItem);
+      test.concentratingId = (await testActor.addConcentration(testItem))?.uuid;
       ChatMessage.create({
         speaker: ChatMessage.getSpeaker({ actor: testActor }),
         content: game.i18n.format('torgeternity.chatText.concentration.start', { itemName: testItem.name })
