@@ -1509,10 +1509,10 @@ export function checkUnskilled(skillValue, skillName, actor) {
  */
 function appliesToTest(effect, test, target) {
   if (effect.disabled) return false;
-  if (effect.system.transferOnOutcome) {
+  if (effect.system.transferOnOutcome || effect.system.applyOnOutcome) {
     // If transferred, then applies to test
     const result = test.result;
-    switch (effect.system.transferOnOutcome) {
+    switch (effect.system.transferOnOutcome || effect.system.applyOnOutcome) {
       case 'anySuccess': return result >= TestResult.STANDARD;
       case 'anyFailure': return result < TestResult.STANDARD;
       case 'mishap': return result === TestResult.MISHAP;
@@ -1521,7 +1521,7 @@ function appliesToTest(effect, test, target) {
       case 'good': return result === TestResult.GOOD;
       case 'outstanding': return result === TestResult.OUTSTANDING;
       default:
-        console.warn(`Ignoring unknown transferOnOutcome value: '${effect.system.transferOnOutcome}'`);
+        console.warn(`Ignoring unknown transferOnOutcome value: '${effect.system.transferOnOutcome || effect.system.appliesOnOutcome}'`);
     }
   }
   // These are irrelevant if this effect is going to be transferred to the target.

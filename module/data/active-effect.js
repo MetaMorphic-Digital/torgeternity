@@ -20,7 +20,12 @@ export class TorgActiveEffectData extends (foundry.data.ActiveEffectTypeDataMode
     const schema = (game.release.generation >= 14) ? foundry.data.ActiveEffectTypeDataModel.defineSchema() : {};
     Object.assign(schema,
       {
-        // ...foundry.data.ActiveEffectTypeDataModel.defineSchema(),    // Foundry 14+
+        applyOnOutcome: new fields.StringField({
+          choices: CONFIG.torgeternity.testOutcomeLabel,
+          required: true,
+          initial: '',
+          blank: true
+        }),
         transferOnOutcome: new fields.StringField({
           choices: CONFIG.torgeternity.testOutcomeLabel,
           required: true,
@@ -71,7 +76,7 @@ export class TorgActiveEffectData extends (foundry.data.ActiveEffectTypeDataMode
    */
   get isSuppressed() {
     // Don't apply the AE to the owning actor if it is being transferred on an attack
-    if (this.transferOnOutcome.length || this.defendAgainstTrait.size) return true;
+    if (this.applyOnOutcome.length || this.transferOnOutcome.length || this.defendAgainstTrait.size) return true;
 
     // If the trait is conditionally active, then check for traits/conditions on the owning actor (if any)
     if (!this.activeIfTrait.size) return false;

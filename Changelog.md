@@ -1,27 +1,29 @@
 # TORG Eternity Changelog
 
-## NEXT 
+## 13.28.0 - More Active Effects improvements.
 
+### Active Effect Improvements
+- New attribute keys for Active Effects:
+  - `system.defenses.all.mod` will be added to all defenses (dodge, meleeWeapons, unarmedCombat, intimidation, maneuver, taunt, trick)
+  - `system.defenses.physical.mod` will be added to dodge, meleeWeapons and unarmedCombat defenses.
+  - `system.defenses.interaction.mod` will be added to intimidation, maneuver, taunt, trick
+- Validation of the trait field of Items now checks against the limited list allowed for the Item's type.
+- The trait field of Items no longer includes conditions in the list of choices (for item types without a more restricted list, e.g. eternity shards).
+- Allow any skill(s) to be specified in an Active Effect's `Apply If Attack/Defend` and `Defend Against` fields.
 - Foundry 14: Don't let core Foundry expire turnEnd events.
-- `system.defenses.all.mod` will be added to all defenses (dodge, meleeWeapons, unarmedCombat, intimidation, maneuver, taunt, trick)
-- `system.defenses.physical.mod` will be added to dodge, meleeWeapons and unarmedCombat defenses.
-- `system.defenses.interaction.mod` will be added to intimidation, maneuver, taunt, trick
-- Hovering over a token now highlights the combatant in the combat tracker.
-- Link the `Concentration` status to the effects transferred to Actors, so when the `Concentration` is cancelled then the transferred effects are removed from the targeted tokens.
+- Reinstate `Apply on Outcome` field to allow specific outcomes to affect the test results (e.g having 'test.damage' or 'test.weaponAP' in the changes).
+
+### Other Improvements
+- When `Concentration` is lost from an Actor, any effects linked to that concentration (on any Actors) are immediately removed.
 - "Year 1 Pan Pacifica" game system option wording changed, and when checked the spirit axiom for Pan Pacifica is changed to the new value.
 - Shorter label of "end encounter" button for our French users.
-- Allow any skill to be specified in an Active Effect's `Apply If Attack/Defend` and `Defend Against` fields.
-- Remove conditions from the list of available traits displayed in an Item's Traits field.
-- Tighten up validation of traits on Items to reject forbidden traits based on item type.
+- Hovering over a token now highlights the combatant in the combat tracker.
 
 ### Translations
 
 "psychicDamage": "Psychic Damage"
 "useYear1PPTent.name": "Year-1 Pan-Pacifica Axioms"
 "useYear1PPTent.hint": "Use the Pan-Pacifica Axioms after day 172."
-
-
-
 
 ## 13.27.6 - damageMod for skills
 
