@@ -7,15 +7,17 @@
   - `system.defenses.all.mod` will be added to all defenses (dodge, meleeWeapons, unarmedCombat, intimidation, maneuver, taunt, trick)
   - `system.defenses.physical.mod` will be added to dodge, meleeWeapons and unarmedCombat defenses.
   - `system.defenses.interaction.mod` will be added to intimidation, maneuver, taunt, trick
-- Validation of the trait field of Items now checks against the limited list allowed for the Item's type.
-- The trait field of Items no longer includes conditions in the list of choices (for item types without a more restricted list, e.g. eternity shards).
-- Allow any skill(s) to be specified in an Active Effect's `Apply If Attack/Defend` and `Defend Against` fields.
-- Foundry 14: Don't let core Foundry expire turnEnd events.
-- Reinstate `Apply on Outcome` field to allow specific outcomes to affect the test results (e.g having 'test.damage' or 'test.weaponAP' in the changes).
-- Transferring an effect to an Actor should now generate a scrolling status on the token (_displayScrollingStatus).
-- `Active Defense` and the two defenses in the Macro Hub now use `system.defenses.all.mod` (or `system.defenses.physical.mod`)
-- Provide logic for whether at least one (ANY) or ALL of the traits must match in the `Apply If Attack/Defend` and `Defend Against` fields. (It applies to each field separately)
-- Sort entries into alphabetical order in the select lists for `Apply If Attack/Defend` and `Defend Against` fields.
+- **Item traits**:
+  - Validation of the trait field of Items now checks against the limited list allowed for the Item's type.
+  - The trait field of Items no longer includes conditions in the list of choices (for item types without a more restricted list, e.g. eternity shards).
+- Active Effect Config dialog:
+  - Reinstate `Apply on Outcome` field to allow specific outcomes to affect the test results (e.g having 'test.damage' or 'test.weaponAP' in the changes).
+  - Allow any skill(s) to be specified in an Active Effect's `Apply If Attack/Defend` and `Defend Against` fields.
+  - Provide logic for whether at least one (ANY) or ALL of the traits must match in the `Apply If Attack/Defend` and `Defend Against` fields. (It applies to each field separately)
+  - Entries in the options list for `Apply If Attack/Defend` and `Defend Against` fields are now in alphabetical order.
+- `Active Defense` and the two defenses available from the Macro Hub now use `system.defenses.all.mod` (or `system.defenses.physical.mod`)
+- Transferring an effect to an Actor should now generate a scrolling status message on the token (`_displayScrollingStatus`).
+- **Foundry 14**: Don't let core Foundry expire `turnEnd` events.
 
 ### Other Improvements
 - When `Concentration` is lost from an Actor, any effects linked to that concentration (on any Actors) are immediately removed.
