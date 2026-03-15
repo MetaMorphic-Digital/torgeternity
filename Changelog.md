@@ -9,6 +9,7 @@
 - Hovering over a token now highlights the combatant in the combat tracker.
 - Link the `Concentration` status to the effects transferred to Actors, so when the `Concentration` is cancelled then the transferred effects are removed from the targeted tokens.
 - "Year 1 Pan Pacifica" game system option wording changed, and when checked the spirit axiom for Pan Pacifica is changed to the new value.
+- Shorter "end encounter" button for our French users.
 
 ### Translations
 

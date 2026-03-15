@@ -603,6 +603,12 @@ export default class TorgeternityActor extends foundry.documents.Actor {
     return this.effects.find(ef => ef.name === 'ActiveDefense')
   }
 
+  /**
+   * Add a 'concentrating' status AE to this actor identifying the given item as the reason for the concentration.
+   * @param {TorgeteternityItem} item 
+   * @returns Promise<TorgActiveEffect>
+   */
+
   async addConcentration(item) {
     const effect = (await ActiveEffect.fromStatusEffect('concentrating')).toObject();
     Object.assign(effect,
@@ -619,7 +625,9 @@ export default class TorgeternityActor extends foundry.documents.Actor {
   }
 
   /**
-   * When an AE 
+   * When a 'concentration' status is deleted from an Actor, look for any AEs on other actors
+   * which have 'system.concentratingId' set to the UUID of the 'concentration' status AE.
+   * All those AEs will be deleted (since the power is no longer being concentrated on).
    * @param {} parent 
    * @param {*} collection 
    * @param {*} documents 

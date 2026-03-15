@@ -1413,7 +1413,7 @@
       "forceDamage": "Kraftschaden",
       "iceDamage": "Eisschaden",
       "lightningDamage": "Blitzschaden",
-      "psychicDamage": "Pyschic Damage"
+      "psychicDamage": "Psychic Damage"
     },
     "itemPurchase": {
       "free": "Keine Kosten",
