@@ -229,7 +229,7 @@ export class TestDialog extends HandlebarsApplicationMixin(ApplicationV2) {
     context.test.combinedAction.participants ??= game.canvas?.tokens?.controlled?.length || 1;
 
     if (context.test.targetPresent && context.test.testType !== 'soak') {
-      context.test.targetAll = targets.map(token => oneTestTarget(token, this.test.applySize, this.test.attackTraits, myActor.defenseTraits));
+      context.test.targetAll = targets.map(token => oneTestTarget(token, this.test.applySize, this.test.attackTraits, myActor.defenseTraits, context.test.skillName));
       context.test.sizeModifier = Math.max(...context.test.targetAll.map(target => target.sizeModifier));
       context.test.vulnerableModifier = Math.max(...context.test.targetAll.map(target => target.vulnerableModifier));
       context.test.darknessModifier = Math.min(0, Math.min(...context.test.targetAll.map(target => target.darknessModifier)) + context.test.targetDarknessModifier);
@@ -348,7 +348,7 @@ export function dummyTestTargets() {
  * @param {Set[String]} defenseTraits defenseTraits of the attacker (if any)
  * @returns 
  */
-export function oneTestTarget(token, applySize, attackTraits, defenseTraits) {
+export function oneTestTarget(token, applySize, attackTraits, defenseTraits, testSkill) {
   const actor = token.actor;
 
   let sizeModifier;
@@ -447,7 +447,7 @@ export function oneTestTarget(token, applySize, attackTraits, defenseTraits) {
             // It will be suppressed, so effect.active will return false
             if (!effect.disabled && !effect.system.transferOnOutcome) {
               for (const trait of effect.system.defendAgainstTrait) {
-                if (attackTraits?.includes(trait) || defenseTraits?.includes(trait))
+                if (testSkill === trait || attackTraits?.includes(trait) || defenseTraits?.includes(trait))
                   effects.push(effect);
               }
             }

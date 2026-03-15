@@ -1525,8 +1525,8 @@ function appliesToTest(effect, test, target) {
     }
   }
   // These are irrelevant if this effect is going to be transferred to the target.
-  if (!testTraits(effect.system.applyIfAttackTrait, test.attackTraits)) return false;
-  if (!testTraits(effect.system.applyIfDefendTrait, target?.defenseTraits)) return false;
+  if (!testTraits(effect.system.applyIfAttackTrait, test.attackTraits, test.skillName)) return false;
+  if (!testTraits(effect.system.applyIfDefendTrait, target?.defenseTraits, test.skillName)) return false;
   // Not transferred, but might affect the result. (e.g. 'test.damage' or 'test.weaponAP')
   return effect.changes.find(change => change.key.startsWith('test.'));
 }
@@ -1538,8 +1538,8 @@ function appliesToTest(effect, test, target) {
  * @param {Array<String>} actualTraits list of traits on Actor (returns false if empty)
  * @return {Boolean}
  */
-function testTraits(ifTraits, actualTraits) {
+function testTraits(ifTraits, actualTraits, actualSkill) {
   if (!ifTraits?.size) return true;
   if (!actualTraits?.length) return false;
-  return actualTraits.find(trait => ifTraits.has(trait));
+  return ifTraits.has(actualSkill) || actualTraits.find(trait => ifTraits.has(trait));
 }
