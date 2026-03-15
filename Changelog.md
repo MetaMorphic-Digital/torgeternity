@@ -3,14 +3,14 @@
 ## 13.28.0 - More Active Effects improvements.
 
 ### Active Effect Improvements
-- New attribute keys for Active Effects:
+- New **attribute keys** for Active Effects:
   - `system.defenses.all.mod` will be added to all defenses (dodge, meleeWeapons, unarmedCombat, intimidation, maneuver, taunt, trick)
   - `system.defenses.physical.mod` will be added to dodge, meleeWeapons and unarmedCombat defenses.
   - `system.defenses.interaction.mod` will be added to intimidation, maneuver, taunt, trick
 - **Item traits**:
   - Validation of the trait field of Items now checks against the limited list allowed for the Item's type.
   - The trait field of Items no longer includes conditions in the list of choices (for item types without a more restricted list, e.g. eternity shards).
-- Active Effect Config dialog:
+- **Active Effect Config dialog**:
   - Reinstate `Apply on Outcome` field to allow specific outcomes to affect the test results (e.g having 'test.damage' or 'test.weaponAP' in the changes).
   - Allow any skill(s) to be specified in an Active Effect's `Apply If Attack/Defend` and `Defend Against` fields.
   - Provide logic for whether at least one (ANY) or ALL of the traits must match in the `Apply If Attack/Defend` and `Defend Against` fields. (It applies to each field separately)
