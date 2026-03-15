@@ -592,37 +592,7 @@ export class TorgeternityMacros {
         duration: { rounds: duration, turns: duration, expiry: 'turnEnd' },
         changes: [
           {
-            key: 'system.defenses.dodge.mod',
-            value: bonus,
-            mode: CONST.ACTIVE_EFFECT_MODES.ADD,
-          },
-          {
-            key: 'system.defenses.meleeWeapons.mod',
-            value: bonus,
-            mode: CONST.ACTIVE_EFFECT_MODES.ADD,
-          },
-          {
-            key: 'system.defenses.unarmedCombat.mod',
-            value: bonus,
-            mode: CONST.ACTIVE_EFFECT_MODES.ADD,
-          },
-          {
-            key: 'system.defenses.intimidation.mod',
-            value: bonus,
-            mode: CONST.ACTIVE_EFFECT_MODES.ADD,
-          },
-          {
-            key: 'system.defenses.maneuver.mod',
-            value: bonus,
-            mode: CONST.ACTIVE_EFFECT_MODES.ADD,
-          },
-          {
-            key: 'system.defenses.taunt.mod',
-            value: bonus,
-            mode: CONST.ACTIVE_EFFECT_MODES.ADD,
-          },
-          {
-            key: 'system.defenses.trick.mod',
+            key: 'system.defenses.all.mod',
             value: bonus,
             mode: CONST.ACTIVE_EFFECT_MODES.ADD,
           },
@@ -640,17 +610,7 @@ export class TorgeternityMacros {
         duration: { rounds: duration, turns: duration, expiry: 'turnEnd' },
         changes: [
           {
-            key: 'system.defenses.dodge.mod',
-            value: bonus,
-            mode: CONST.ACTIVE_EFFECT_MODES.ADD,
-          },
-          {
-            key: 'system.defenses.meleeWeapons.mod',
-            value: bonus,
-            mode: CONST.ACTIVE_EFFECT_MODES.ADD,
-          },
-          {
-            key: 'system.defenses.unarmedCombat.mod',
+            key: 'system.defenses.physical.mod',
             value: bonus,
             mode: CONST.ACTIVE_EFFECT_MODES.ADD,
           },

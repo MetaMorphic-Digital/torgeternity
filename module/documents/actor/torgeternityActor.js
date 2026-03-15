@@ -467,45 +467,9 @@ export default class TorgeternityActor extends foundry.documents.Actor {
       changes: [
         {
           // Modify all existing "basic" defense in block
-          key: 'system.defenses.dodge.mod', // Should need other work for defense vs powers
+          key: 'system.defenses.all.mod', // Should need other work for defense vs powers
           value: bonus, // that don't target xxDefense
           priority: 20, // Create a data.ADB that store the bonus ?
-          mode: CONST.ACTIVE_EFFECT_MODES.ADD,
-        },
-        {
-          key: 'system.defenses.intimidation.mod',
-          value: bonus,
-          priority: 20,
-          mode: CONST.ACTIVE_EFFECT_MODES.ADD,
-        },
-        {
-          key: 'system.defenses.maneuver.mod',
-          value: bonus,
-          priority: 20,
-          mode: CONST.ACTIVE_EFFECT_MODES.ADD,
-        },
-        {
-          key: 'system.defenses.meleeWeapons.mod',
-          value: bonus,
-          priority: 20,
-          mode: CONST.ACTIVE_EFFECT_MODES.ADD,
-        },
-        {
-          key: 'system.defenses.taunt.mod',
-          value: bonus,
-          priority: 20,
-          mode: CONST.ACTIVE_EFFECT_MODES.ADD,
-        },
-        {
-          key: 'system.defenses.trick.mod',
-          value: bonus,
-          priority: 20,
-          mode: CONST.ACTIVE_EFFECT_MODES.ADD,
-        },
-        {
-          key: 'system.defenses.unarmedCombat.mod',
-          value: bonus,
-          priority: 20,
           mode: CONST.ACTIVE_EFFECT_MODES.ADD,
         },
         {
