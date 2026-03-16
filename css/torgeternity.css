@@ -3143,7 +3143,8 @@ nav#controls,
   }
 }
 
-.party-sheet {
+.party-sheet,
+.hands-manager {
 
   h1,
   h2,
@@ -4270,30 +4271,30 @@ document-embed .generalHeader {
 
 .card-tooltip {
   text-decoration: none;
-}
 
-.card-tooltip span {
-  display: none;
-  border-radius: 6px;
-}
+  span {
+    display: none;
+    border-radius: 6px;
+  }
 
-.card-tooltip span img {
-  float: left;
-  margin: 0px 8px 8px 0;
-}
+  span img {
+    float: left;
+    margin: 0px 8px 8px 0;
+  }
 
-.card-tooltip:hover span {
-  display: block;
-  position: absolute;
-  top: 10px;
-  left: 120px;
-  z-index: 1000;
-  max-width: 320px;
-  min-height: 128px;
-  border: 1px solid black;
-  margin-top: 5px;
-  margin-left: 5px;
-  padding: 8px;
+  &:hover span {
+    display: block;
+    position: absolute;
+    top: 10px;
+    left: 120px;
+    z-index: 1000;
+    max-width: 320px;
+    min-height: 128px;
+    border: 1px solid black;
+    margin-top: 5px;
+    margin-left: 5px;
+    padding: 8px;
+  }
 }
 
 .pool-list {
@@ -4840,5 +4841,53 @@ form.active-effect-config {
     &>multi-select {
       flex: 4;
     }
+  }
+}
+
+.hands-manager {
+  .window-content {
+    overflow: visible;
+  }
+
+  li.selected {
+    background: blue;
+  }
+
+  li.card {
+    align-items: center;
+  }
+
+  div.colheader {
+    height: 5em;
+    align-items: center;
+
+    h2 {
+      width: 100%;
+    }
+
+    h3 {
+      border-bottom: none
+    }
+  }
+
+  .card-tooltip {
+    flex: 0 0 40px;
+
+    &:hover span {
+      left: auto;
+      top: auto;
+    }
+  }
+}
+
+dialog.exchange-card-dialog {
+
+  * {
+    text-align: center;
+  }
+
+  img {
+    max-width: 250px;
+    object-fit: contain;
   }
 }

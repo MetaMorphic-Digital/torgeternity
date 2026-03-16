@@ -1,5 +1,11 @@
 # TORG Eternity Changelog
 
+## NEXT
+
+- Provide a Hands Manager window, openable by SHIFT-H (configurable in Foundry's Configure Controls)
+  - Cards can be dragged directly between hands/discard piles.
+  - Transfer can be proposed between two players by selecting two cards and pressing the "Offer Trade" button, the other player than can accept or reject the exchange.
+
 ## 13.28.0 - More Active Effects improvements.
 
 ### Active Effect Improvements

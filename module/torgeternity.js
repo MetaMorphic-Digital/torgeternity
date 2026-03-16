@@ -238,7 +238,7 @@ Hooks.once('setup', async function () {
   }
 
   if (game.settings.get('torgeternity', 'showEffectsPanel'))
-    new EffectsPanel();
+    (ui.torgEffectsPanel = new EffectsPanel()).render({ force: true });
 });
 
 // -------------once everything ready

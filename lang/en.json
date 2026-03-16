@@ -21,6 +21,18 @@
     }
   },
   "torgeternity": {
+    "handsManager": {
+      "title": "Hand Manager",
+      "button": {
+        "exchange": "Offer Trade"
+      },
+      "trade": {
+        "title": "Accept Card Trade?",
+        "from": "From: {actor}",
+        "yourCard": "Your Card",
+        "theirCard": "Their Card"
+      }
+    },
     "testInspector": {
       "title": "Test Inspector",
       "field": "Field Name",
