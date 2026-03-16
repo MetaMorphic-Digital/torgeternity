@@ -2,8 +2,9 @@
   {{#*inline "cardList"}}
     <ol class="cards flex1" data-hand-id="{{hand.id}}">
       {{#each hand.cards as |card|}}
-        <li class="card flexrow {{#if card.system.pooled}}pooled{{/if}} {{#if card.selected}}selected{{/if}}"
-          draggable="true" data-card-id="{{card.id}}" data-action="toggleSelect">
+        <li
+          class="card flexrow {{#if card.system.pooled}}pooled{{/if}} {{#if (TorgInSet @root.selectedCards card.uuid)}}selected{{/if}}"
+          draggable="true" data-card-id="{{card.id}}" data-card-uuid="{{card.uuid}}" data-action="toggleSelect">
           <span class="card-tooltip">
             <img class="card-face" src="{{card.img}}" alt="{{card.name}}" height="48">
             <span><img src="{{card.img}}"></span>
@@ -15,7 +16,8 @@
   {{/inline}}
 
   {{#each hands}}
-    <div class="cardList playerHand flexcol" data-user-id="{{user.id}}" data-actor-id="{{character.id}}">
+    <div class="cardList playerHand flexcol {{disabled (not user.active)}}" data-user-id="{{user.id}}"
+      data-actor-id="{{character.id}}">
       <div class="flexcol colheader">
         <h2 class="username" data-action="openHand" data-hand-id="{{hand.id}}">{{user.name}}</h2>
         <h3 class="charname" data-action="openHand" data-hand-id="{{hand.id}}">{{character.name}}</h3>

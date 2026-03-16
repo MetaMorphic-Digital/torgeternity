@@ -3,6 +3,8 @@ const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api
 export class HandsManager extends HandlebarsApplicationMixin(ApplicationV2) {
   static app;
 
+  selectedCards = new Set();
+
   static DEFAULT_OPTIONS = {
     id: 'hands-manager',
     tag: 'form',
@@ -14,19 +16,26 @@ export class HandsManager extends HandlebarsApplicationMixin(ApplicationV2) {
     },
     buttons: [
       {
+        action: 'offerTrade',
+        icon: 'fa-solid fa-question fa-right-left',
+        label: 'torgeternity.handsManager.button.offerTrade'
+      },
+      {
         action: 'exchange',
-        icon: 'right-left',
+        icon: 'fa-solid fa-right-left',
         label: 'torgeternity.handsManager.button.exchange'
       },
       {
-        action: 'close',
-        label: 'Close'
+        action: 'resetSelection',
+        label: 'Reset'
       },
     ],
     actions: {
       openHand: HandsManager.#onOpenHand,
       exchange: HandsManager.#onExchange,
+      offerTrade: HandsManager.#onOfferTrade,
       toggleSelect: HandsManager.#onToggleSelect,
+      resetSelection: HandsManager.#onResetSelection,
     }
   }
 
@@ -41,6 +50,12 @@ export class HandsManager extends HandlebarsApplicationMixin(ApplicationV2) {
 
     for (const hand of game.users.map(user => !user.isGM && user.character?.getDefaultHand()))
       if (hand) hand.apps[this.id] = this;
+
+    const settings = game.settings.get('torgeternity', 'deckSetting');
+    let deck = game.cards.get(settings?.destinyDiscard);
+    if (deck) deck.apps[this.id] = this;
+    deck = game.cards.get(settings?.cosmDiscard);
+    if (deck) deck.apps[this.id] = this;
   }
 
   /** @inheritDoc */
@@ -48,6 +63,12 @@ export class HandsManager extends HandlebarsApplicationMixin(ApplicationV2) {
     super._onClose(options);
     for (const hand of game.users.map(user => !user.isGM && user.character?.getDefaultHand()))
       if (hand) delete hand.apps[this.id];
+
+    const settings = game.settings.get('torgeternity', 'deckSetting');
+    let deck = game.cards.get(settings?.destinyDiscard);
+    if (deck) delete deck.apps[this.id];
+    deck = game.cards.get(settings?.cosmDiscard);
+    if (deck) delete deck.apps[this.id];
   }
 
   async _onRender(context, options) {
@@ -75,15 +96,42 @@ export class HandsManager extends HandlebarsApplicationMixin(ApplicationV2) {
             hand: user.character.getDefaultHand()
           }
         });
-
         // What about COSM discard pile?
         const settings = game.settings.get('torgeternity', 'deckSetting');
         partContext.destinyDiscard = game.cards.get(settings?.destinyDiscard);
         partContext.cosmDiscard = game.cards.get(settings?.cosmDiscard);
+
+        // Sanity check for selected cards still being in the hands.
+        if (this.selectedCards.size) {
+          const found = [];
+          for (const hand of partContext.hands) {
+            for (const card of hand.hand.cards) {
+              if (this.selectedCards.has(card.uuid)) {
+                found.push(card.uuid);
+              }
+            }
+          }
+          for (const deck of [partContext.destinyDiscard, partContext.cosmDiscard]) {
+            for (const card of deck.cards) {
+              if (this.selectedCards.has(card.uuid)) {
+                found.push(card.uuid);
+              }
+            }
+          }
+          if (found.length !== this.selectedCards.size) {
+            console.log(`Updating selected cards`, this.selectedCards, found);
+            this.selectedCards = new Set(found);
+          }
+        }
+
+        partContext.selectedCards = this.selectedCards;
         break;
 
       case 'footer':
-        partContext.buttons = HandsManager.DEFAULT_OPTIONS.buttons;
+        partContext.buttons = foundry.utils.duplicate(HandsManager.DEFAULT_OPTIONS.buttons);
+        const needOffer = this.selectedCards.find(uuid => !fromUuidSync(uuid, { strict: false })?.isOwner);
+        partContext.buttons[0].disabled = (this.selectedCards.size < 2 || !needOffer); // offerTrade
+        partContext.buttons[1].disabled = (this.selectedCards.size < 2 || needOffer); // exchange
         break;
     }
     return partContext;
@@ -128,10 +176,30 @@ export class HandsManager extends HandlebarsApplicationMixin(ApplicationV2) {
     game.cards.get(button.dataset.handId)?.sheet.render({ force: true })
   }
 
+  /**
+   * When we have ownership of both stacks, so we can do the exchange ourselves.
+   * @param {*} event 
+   * @param {*} button 
+   * @returns 
+   */
   static async #onExchange(event, button) {
-    const elements = this.element.querySelectorAll('li.selected');
     const cards = [];
-    for (const element of elements) {
+    for (const element of this.element.querySelectorAll('li.selected')) {
+      const stack = game.cards.get(element.closest('ol.cards')?.dataset.handId);
+      cards.push({
+        stack,
+        card: stack.cards.get(element.dataset.cardId)
+      })
+    }
+
+    // We own both stacks, so transfer immediately (only do second transfer if first transfer succeeded)
+    cards[0].card.pass(cards[1].stack).then(prom => cards[1].card.pass(cards[0].stack));
+    this.resetSelection()
+  }
+
+  static async #onOfferTrade(event, button) {
+    const cards = [];
+    for (const element of this.element.querySelectorAll('li.selected')) {
       const stack = game.cards.get(element.closest('ol.cards')?.dataset.handId);
       cards.push({
         userId: element.closest('div.playerHand')?.dataset.userId,
@@ -140,17 +208,11 @@ export class HandsManager extends HandlebarsApplicationMixin(ApplicationV2) {
         card: stack.cards.get(element.dataset.cardId)
       })
     }
-    if (cards.length !== 2) return ui.notifications.info('Must select exactly 2 cards to Swap');
-
-    if (cards[0].stack.isOwner && cards[1].stack.isOwner) {
-      // We own both stacks, so transfer immediately (only do second transfer if first transfer succeeded)
-      return cards[0].card.pass(cards[1].stack).then(completed => cards[1].card.pass(cards[0].stack))
-    }
 
     // Not owner of at least one stack.
-    if (game.user.id === cards[0].userId) {
+    if (cards[0].card.isOwner) {
       if (!await this.promptCard(cards[1], cards[0])) return;
-    } else if (game.user.id === cards[1].userId) {
+    } else if (cards[1].card.isOwner) {
       if (!await this.promptCard(cards[0], cards[1])) return;
     } else
       // We don't own either card, so we can't transfer them.
@@ -164,6 +226,7 @@ export class HandsManager extends HandlebarsApplicationMixin(ApplicationV2) {
       stack1: cards[0].stack.id,
       stack2: cards[1].stack.id,
     })
+    this.resetSelection();
   }
 
   async promptCard(theirCard, myCard) {
@@ -193,17 +256,38 @@ export class HandsManager extends HandlebarsApplicationMixin(ApplicationV2) {
   }
 
   static async #onToggleSelect(event, button) {
+
+    // Check for deselection first
+    const cardUuid = button.dataset.cardUuid;
+    if (this.selectedCards.has(cardUuid)) {
+      this.selectedCards.delete(cardUuid);
+      return this.render();
+    }
+
     const list = button.closest('ol.cards');
     if (!list) return;
+    const prevCard = list.querySelector('li.selected')?.dataset.cardUuid;
+    if (prevCard) {
+      // Picking a new card in the same list
+      this.selectedCards.delete(prevCard);
+      this.selectedCards.add(cardUuid);
+      return this.render();
+    }
 
-    const stack = game.cards.get(list.dataset.handId);
-    const card = stack.cards.get(button.dataset.cardId);
+    // Two cards selected (in other lists) - don't allow this selection
+    if (this.selectedCards.size < 2) {
+      this.selectedCards.add(cardUuid);
+      this.render();
+    }
+  }
 
-    for (const elem of list.querySelectorAll('li'))
-      if (elem === button)
-        elem.classList.add('selected');
-      else
-        elem.classList.remove('selected');
+  static async #onResetSelection(event, button) {
+    this.resetSelection();
+  }
+
+  resetSelection() {
+    this.selectedCards.clear();
+    this.render();
   }
 
   static toggleRender() {

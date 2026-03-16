@@ -1524,12 +1524,14 @@ dialog.torgeternity:not(.actor, .item) .window-content,
     .remove-operator {
       color: darkRed;
 
-      &.disabled {
+      &.disabled,
+      &:disabled {
         color: transparent;
       }
     }
 
-    .crew-favored.disabled {
+    .crew-favored.disabled,
+    .crew-favored:disabled {
       color: transparent;
     }
 
@@ -1555,7 +1557,8 @@ dialog.torgeternity:not(.actor, .item) .window-content,
     li.vehicle-weapon-list .remove-gunner {
       color: darkRed;
 
-      &.disabled {
+      &.disabled,
+      &:disabled {
         color: transparent;
       }
     }
@@ -2003,6 +2006,10 @@ form.application.torgeternity.theme-dark {
     background-position-x: center;
     color: white;
 
+    &.disabled,
+    &:disabled {
+      opacity: 0.3;
+    }
   }
 
   button {

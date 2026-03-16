@@ -24,7 +24,8 @@
     "handsManager": {
       "title": "Hand Manager",
       "button": {
-        "exchange": "Offer Trade"
+        "exchange": "Exchange Cards",
+        "offerTrade": "Offer Trade"
       },
       "trade": {
         "title": "Accept Card Trade?",
