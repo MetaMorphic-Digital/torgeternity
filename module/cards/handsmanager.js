@@ -161,6 +161,7 @@ export class HandsManager extends HandlebarsApplicationMixin(ApplicationV2) {
       const settings = game.settings.get('torgeternity', 'deckSetting');
       if (settings[`${card.type}Discard`] !== stack.id)  // maybe destiny or cosm
         return;
+      if (card.system.pooled) await card.update({ 'system.pooled': false });
     }
 
     //if (card.parent.id === stack.id) return this.#onSortCard(event, card);
@@ -194,8 +195,7 @@ export class HandsManager extends HandlebarsApplicationMixin(ApplicationV2) {
       })
     }
 
-    // We own both stacks, so transfer immediately (only do second transfer if first transfer succeeded)
-    cards[0].card.pass(cards[1].stack).then(prom => cards[1].card.pass(cards[0].stack));
+    await this.swapCards(cards[0].card, cards[1].card, cards[0].stack, cards[1].stack);
     this.resetSelection()
   }
 
@@ -256,6 +256,35 @@ export class HandsManager extends HandlebarsApplicationMixin(ApplicationV2) {
       </table>`
     });
     return (response === true);
+  }
+
+  /**
+   * Receive message on the socket as a GM
+   * @param {*} data 
+   * @returns 
+   */
+  async gmExchangeCards(data) {
+    console.log('GM: swapCards');
+    const stack1 = game.cards.get(data.stack1);
+    const stack2 = game.cards.get(data.stack2);
+    if (!stack1 || !stack2) return console.warn('Failed to find both card stacks');
+    return this.swapCards(stack1.cards.get(data.card1), stack2.cards.get(data.card2), stack1, stack2);
+  }
+
+  /**
+   * Move card1 to stack2, and move card2 to stack1.
+   * If moving to a 'pile', ensure that "pooled" flag is removed.
+   * @param {*} card1 
+   * @param {*} card2 
+   * @param {*} stack1 
+   * @param {*} stack2 
+   */
+  async swapCards(card1, card2, stack1, stack2) {
+    if (!card1 || !card2) return;
+    if (card1.system.pooled && stack2.type === 'pile') await card1.update({ 'system.pooled': false })
+    if (card2.system.pooled && stack1.type === 'pile') await card2.update({ 'system.pooled': false })
+    // Only do second transfer if first one succeeded
+    return card1.pass(stack2).then(prom => card2.pass(stack1));
   }
 
   static async #onToggleSelect(event, button) {

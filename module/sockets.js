@@ -7,21 +7,10 @@ export default function activateSocketListeners() {
       case 'replaceTestCard':
         if (!game.user.isActiveGM) return;
         return renderSkillChat(socketMessage.test, game.messages.get(socketMessage.messageId));
-        break;
 
       case 'swapCards':
         if (!game.user.isActiveGM) return;
-        {
-          console.log('GM: swapCards');
-          const stack1 = game.cards.get(socketMessage.stack1);
-          const stack2 = game.cards.get(socketMessage.stack2);
-          const card1 = stack1.cards.get(socketMessage.card1);
-          const card2 = stack2.cards.get(socketMessage.card2);
-          if (!card1 || !card2) return;
-          card1.pass(stack2);
-          card2.pass(stack1);
-        }
-        break;
+        return ui.handsViewer.gmExchangeCards(socketMessage);
 
       case 'updateChatMessage':
         if (!game.user.isActiveGM) return;

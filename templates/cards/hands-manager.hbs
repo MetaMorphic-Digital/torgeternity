@@ -21,8 +21,7 @@
     <div class="cardList playerHand flexcol {{disabled (not (or user.active @root.isGM))}}" data-user-id="{{user.id}}"
       data-actor-id="{{character.id}}">
       <div class="flexcol colheader">
-        <h2 class="username" data-action="openHand" data-hand-id="{{hand.id}}">{{user.name}}</h2>
-        <h3 class="charname" data-action="openHand" data-hand-id="{{hand.id}}">{{character.name}}</h3>
+        <h2 class="charname" data-action="openHand" data-hand-id="{{hand.id}}">{{character.name}}</h2>
       </div>
       {{> cardList hand=hand cards=cards}}
     </div>
@@ -31,7 +30,7 @@
   {{#with destinyDiscard}}
     <div class="cardList discardPile flexcol">
       <div class="flexcol colheader">
-        <h3 class="title" data-action="openHand" data-hand-id="{{stack.id}}">{{stack.name}}</h3>
+        <h2 class="title" data-action="openHand" data-hand-id="{{stack.id}}">{{stack.name}}</h2>
       </div>
       {{> cardList hand=stack cards=cards}}
     </div>
@@ -40,7 +39,7 @@
   {{#with cosmDiscard}}
     <div class="cardList discardPile flexcol">
       <div class="flexcol colheader">
-        <h3 class="title" data-action="openHand" data-hand-id="{{stack.id}}">{{stack.name}}</h3>
+        <h2 class="title" data-action="openHand" data-hand-id="{{stack.id}}">{{stack.name}}</h2>
       </div>
       {{> cardList hand=stack cards=cards}}
     </div>

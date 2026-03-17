@@ -4852,27 +4852,11 @@ form.active-effect-config {
 
 .hands-manager {
 
-  h1,
-  h2,
-  h3,
-  h4 {
+  h2 {
     text-align: center;
     margin: 0px 0px 8px 0px;
-  }
-
-  h2 {
-    border-bottom: 2px solid #419c9c;
     font-size: 18px;
     width: 100%;
-  }
-
-  h3 {
-    font-size: 15px;
-  }
-
-  h4 {
-    text-decoration: underline;
-    font-size: 12px;
   }
 
   .flexrow {
@@ -4934,7 +4918,7 @@ form.active-effect-config {
   }
 
   div.colheader {
-    height: 5em;
+    height: 3em;
     align-items: center;
   }
 
@@ -4952,6 +4936,14 @@ dialog.exchange-card-dialog {
 
   * {
     text-align: center;
+  }
+
+  div.dialog-content {
+    row-gap: 0.5em;
+  }
+
+  table {
+    margin: 0;
   }
 
   img {
