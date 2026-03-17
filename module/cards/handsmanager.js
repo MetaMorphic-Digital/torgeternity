@@ -100,6 +100,7 @@ export class HandsManager extends HandlebarsApplicationMixin(ApplicationV2) {
         const settings = game.settings.get('torgeternity', 'deckSetting');
         partContext.destinyDiscard = game.cards.get(settings?.destinyDiscard);
         partContext.cosmDiscard = game.cards.get(settings?.cosmDiscard);
+        partContext.isGM = game.user.isGM;
 
         // Sanity check for selected cards still being in the hands.
         if (this.selectedCards.size) {

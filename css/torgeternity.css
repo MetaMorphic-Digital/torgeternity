@@ -4891,7 +4891,13 @@ form.active-effect-config {
   }
 
   div.handsManager {
-    flex: 1
+    flex: 1;
+
+    &:not(.isgm) {
+      div.list.owner.hand {
+        background: #0000ff20;
+      }
+    }
   }
 
   div.list.scrollable {

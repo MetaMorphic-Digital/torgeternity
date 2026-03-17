@@ -1,6 +1,6 @@
-<div class="handsManager flexrow">
+<div class="handsManager flexrow {{#if isGM}}isgm{{/if}}">
   {{#*inline "cardList"}}
-    <div class="list flexcol scrollable">
+    <div class="list flexcol scrollable{{#if hand.isOwner}} owner{{/if}} {{hand.type}}">
       <ol class="cards flex1" data-hand-id="{{hand.id}}">
         {{#each hand.cards as |card|}}
           <li

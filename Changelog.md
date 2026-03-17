@@ -3,10 +3,11 @@
 ## NEXT
 
 - Provide a Hands Manager window, openable by SHIFT-H (configurable in Foundry's Configure Controls)
-  - Cards can be dragged directly between hands/discard piles.
-  - Transfers can be made between two owned decks using the "Exchange Cards" button.
-  - Transfer can be proposed between two players by selecting two cards and pressing the "Offer Trade" button, the other player than can accept or reject the exchange.
+  - Your own player hand is highlighted in the list of hands (not for the GM).
+  - Cards can be dragged directly between hands and the appropriate discard pile.
   - Non-GMs must select a card from their own hand first, before picking the same card for the Transfer or Offer Trade.
+  - Transfers can be made between two owned decks using the "Exchange Cards" button.
+  - Transfers can be proposed between two players by one player selecting two cards and pressing the "Offer Trade" button, the other player than can accept or reject the exchange.
 
 ## 13.28.0 - More Active Effects improvements.
 
