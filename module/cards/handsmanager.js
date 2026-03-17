@@ -76,7 +76,7 @@ export class HandsManager extends HandlebarsApplicationMixin(ApplicationV2) {
   async _onRender(context, options) {
     new foundry.applications.ux.DragDrop.implementation({
       dragSelector: "ol.cards > li",
-      dropSelector: "ol.cards",
+      dropSelector: "div.list",
       callbacks: {
         dragstart: this._onDragStart.bind(this),
         drop: this._onDrop.bind(this)
@@ -149,7 +149,7 @@ export class HandsManager extends HandlebarsApplicationMixin(ApplicationV2) {
     const data = foundry.applications.ux.TextEditor.getDragEventData(event);
     if (data.type !== "Card") return;
     const card = await foundry.utils.getDocumentClass("Card").fromDropData(data);
-    const stack = game.cards.get(event.currentTarget.closest('ol.cards')?.dataset.handId);
+    const stack = game.cards.get(event.currentTarget.dataset.handId);
     if (card.parent === stack) return console.log('Ignore dropping card onto own stack');  // Don't drop onto self
     if (!card.parent.isOwner)
       return ui.notifications.info(`You cannot move a card from '${card.parent.name}' (not owner)`)
