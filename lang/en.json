@@ -22,7 +22,7 @@
   },
   "torgeternity": {
     "handsManager": {
-      "title": "Hand Manager",
+      "title": "Card Management",
       "button": {
         "exchange": "Exchange Cards",
         "offerTrade": "Offer Trade"
