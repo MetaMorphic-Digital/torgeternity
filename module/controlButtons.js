@@ -45,9 +45,9 @@ export default function initTorgControlButtons() {
             setWindowState(hand.sheet, active);
           },
         },
-        allHands:
+        handsViewer:
         {
-          name: 'allHands',
+          name: 'handsViewer',
           order: 20,
           title: 'DOCUMENT.CardsPlural',
           icon: 'fa fa-window-restore',
@@ -109,10 +109,12 @@ function setControlsToggle(name, active) {
 Hooks.on('renderDeckSettingMenu', () => setControlsToggle("deckSettings", true))
 Hooks.on('renderGMScreen', () => setControlsToggle("gmScreen", true))
 Hooks.on('renderMacroHub', () => setControlsToggle("macroHub", true))
+Hooks.on('renderHandsManager', () => setControlsToggle("handsViewer", true))
 
 Hooks.on('closeDeckSettingMenu', () => setControlsToggle("deckSettings", false))
 Hooks.on('closeGMScreen', () => setControlsToggle("gmScreen", false))
 Hooks.on('closeMacroHub', () => setControlsToggle("macroHub", false))
+Hooks.on('closeHandsManager', () => setControlsToggle("handsViewer", false))
 
 Hooks.on('rendertorgeternityPlayerHand', (hand, element, context, options) => {
   const ownHand = TorgeternityActor.getControlledActor()?.getDefaultHand();
