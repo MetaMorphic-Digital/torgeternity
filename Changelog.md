@@ -2,6 +2,7 @@
 
 ## NEXT
 
+### Hands Viewer/Manager
 - Provide a Hands Manager window, openable by SHIFT-H (or from the Torg Toolbar).
   - Your own player hand is highlighted in the list of hands (not for the GM).
   - Cards can be dragged directly between hands and the appropriate discard pile.
@@ -11,6 +12,9 @@
   - Automatic deselection of cards occurs in two situations:
     - If the Trade Offer is rejected
     - If a selected card is moved between stacks by another player
+
+### Other Changes
+- Minimized windows will now be maximized from the keyboard toggle, rather than closed.
 
 ## 13.28.0 - More Active Effects improvements.
 

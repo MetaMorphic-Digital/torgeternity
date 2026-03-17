@@ -92,11 +92,8 @@ export default function initTorgControlButtons() {
 
 function setWindowState(window, active) {
   if (!active) return window.close();
-
-  if (!window.rendered)
-    return window.render({ force: true });
-  else if (window._minimized)
-    return window.maximize();
+  if (!window.rendered) return window.render({ force: true });
+  if (window.minimized) return window.maximize();
 }
 
 function setControlsToggle(name, active) {

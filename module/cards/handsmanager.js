@@ -312,11 +312,8 @@ export class HandsManager extends HandlebarsApplicationMixin(ApplicationV2) {
   }
 
   toggleRender() {
-    if (!this.rendered)
-      return this.render({ force: true })
-    else if (this._minimized)
-      return this.maximize();
-    else
-      return this.close();
+    if (!this.rendered) return this.render({ force: true })
+    if (this.minimized) return this.maximize();
+    return this.close();
   }
 }
