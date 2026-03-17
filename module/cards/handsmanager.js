@@ -102,26 +102,17 @@ export class HandsManager extends HandlebarsApplicationMixin(ApplicationV2) {
         partContext.cosmDiscard = game.cards.get(settings?.cosmDiscard);
         partContext.isGM = game.user.isGM;
 
-        // Sanity check for selected cards still being in the hands.
+        // If any selected card has been removed from a stack, 
+        // then cancel the selection of all cards.
         if (this.selectedCards.size) {
           const found = [];
-          for (const hand of partContext.hands) {
-            for (const card of hand.hand.cards) {
-              if (this.selectedCards.has(card.uuid)) {
+          for (const stack of [partContext.destinyDiscard, partContext.cosmDiscard, ...partContext.hands.map(hand => hand.hand)])
+            for (const card of stack.cards)
+              if (this.selectedCards.has(card.uuid))
                 found.push(card.uuid);
-              }
-            }
-          }
-          for (const deck of [partContext.destinyDiscard, partContext.cosmDiscard]) {
-            for (const card of deck.cards) {
-              if (this.selectedCards.has(card.uuid)) {
-                found.push(card.uuid);
-              }
-            }
-          }
           if (found.length !== this.selectedCards.size) {
-            console.log(`Updating selected cards`, this.selectedCards, found);
-            this.selectedCards = new Set(found);
+            console.log('Some selected cards were removed from hands, cancelling all selections');
+            this.selectedCards.clear();
           }
         }
 
@@ -218,11 +209,12 @@ export class HandsManager extends HandlebarsApplicationMixin(ApplicationV2) {
       })
     }
 
-    // Not owner of at least one stack.
+    // Send the prompt to the other user.
+    // If they reject the transfer, then cancel the selection.
     if (cards[0].card.isOwner) {
-      if (!await this.promptCard(cards[1], cards[0])) return;
+      if (!await this.promptCard(cards[1], cards[0])) return this.resetSelection();
     } else if (cards[1].card.isOwner) {
-      if (!await this.promptCard(cards[0], cards[1])) return;
+      if (!await this.promptCard(cards[0], cards[1])) return this.resetSelection();
     } else
       // We don't own either card, so we can't transfer them.
       return;

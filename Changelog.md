@@ -8,6 +8,9 @@
   - Non-GMs must select a card from their own hand first, before picking the same card for the Transfer or Offer Trade.
   - Transfers can be made between two owned decks using the "Exchange Cards" button.
   - Transfers can be proposed between two players by one player selecting two cards and pressing the "Offer Trade" button, the other player than can accept or reject the exchange.
+  - Automatic deselection of cards occurs in two situations:
+    - If the Trade Offer is rejected
+    - If a selected card is moved between stacks by another player
 
 ## 13.28.0 - More Active Effects improvements.
 
