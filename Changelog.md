@@ -3,15 +3,17 @@
 ## NEXT
 
 ### Hands Viewer/Manager
-- Provide a Hands Manager window, openable by SHIFT-H (or from the Torg Toolbar).
-  - Your own player hand is highlighted in the list of hands (not for the GM).
-  - Cards can be dragged directly between hands and the appropriate discard pile.
-  - Non-GMs must select a card from their own hand first, before picking the same card for the Transfer or Offer Trade.
-  - Transfers can be made between two owned decks using the "Exchange Cards" button.
-  - Transfers can be proposed between two players by one player selecting two cards and pressing the "Offer Trade" button, the other player than can accept or reject the exchange.
-  - Automatic deselection of cards occurs in two situations:
-    - If the Trade Offer is rejected
-    - If a selected card is moved between stacks by another player
+Provide a Hands Manager window, openable by SHIFT-H (or from the Torg Toolbar).
+- Your own player hand is highlighted in the list of hands (not for the GM).
+- Cards can be dragged directly between hands and the appropriate discard pile.
+- Non-GMs must select a card from their own hand first, before picking the same card for the Transfer or Offer Trade.
+- Transfers can be made between two owned decks using the "Exchange Cards" button.
+- Transfers can be proposed between two players by one player selecting two cards and pressing the "Offer Trade" button, the other player than can accept or reject the exchange.
+- Automatic deselection of cards occurs in two situations:
+  - If the Trade Offer is rejected.
+  - If a selected card is moved between stacks by another player.
+- Discard Stacks have the most recent discard at the top of the window.
+- Pooled cards appear above other cards in user's hands.
 
 ### Other Changes
 - Minimized windows will now be maximized from the keyboard toggle, rather than closed.

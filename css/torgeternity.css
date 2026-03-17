@@ -4906,6 +4906,22 @@ form.active-effect-config {
 
     ol.cards {
       height: 0px;
+      padding: 0 0 0 0.5rem;
+    }
+
+    img.card-face {
+      object-fit: contain;
+    }
+
+    li.card {
+      border-left: 5px solid transparent;
+      margin-left: 0px;
+      padding-left: 4px;
+    }
+
+    li.card.pooled {
+      animation: none;
+      border-left-color: green;
     }
   }
 

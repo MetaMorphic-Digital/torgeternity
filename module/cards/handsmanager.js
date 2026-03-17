@@ -91,28 +91,28 @@ export class HandsManager extends HandlebarsApplicationMixin(ApplicationV2) {
 
     switch (partId) {
       case 'body':
-        partContext.hands = game.users.filter(user => !user.isGM && user.character).map(user => {
+        partContext.stacks = game.users.filter(user => !user.isGM && user.character).map(user => {
+          const hand = user.character.getDefaultHand();
           return {
             user: user,
             character: user.character,
-            hand: user.character.getDefaultHand()
+            hand: user.character.getDefaultHand(),
+            cards: hand.cards.contents.toSorted(sortPooled),
           }
         });
         // What about COSM discard pile?
         const settings = game.settings.get('torgeternity', 'deckSetting');
-        partContext.destinyDiscard = game.cards.get(settings?.destinyDiscard);
-        partContext.cosmDiscard = game.cards.get(settings?.cosmDiscard);
+        partContext.destinyDiscard = { stack: game.cards.get(settings?.destinyDiscard) };
+        partContext.destinyDiscard.cards = partContext.destinyDiscard.stack?.cards.contents.toSorted(sortDiscard);
+        partContext.cosmDiscard = { stack: game.cards.get(settings?.cosmDiscard) };
+        partContext.cosmDiscard.cards = partContext.cosmDiscard.stack?.cards.contents.toSorted(sortDiscard);
         partContext.isGM = game.user.isGM;
 
         // If any selected card has been removed from a stack, 
         // then cancel the selection of all cards.
         if (this.selectedCards.size) {
-          const found = [];
-          for (const stack of [partContext.destinyDiscard, partContext.cosmDiscard, ...partContext.hands.map(hand => hand.hand)])
-            for (const card of stack.cards)
-              if (this.selectedCards.has(card.uuid))
-                found.push(card.uuid);
-          if (found.length !== this.selectedCards.size) {
+          const found = this.selectedCards.filter(uuid => fromUuidSync(uuid, { strict: false }));
+          if (found.size !== this.selectedCards.size) {
             console.log('Some selected cards were removed from hands, cancelling all selections');
             this.selectedCards.clear();
           }
@@ -316,4 +316,15 @@ export class HandsManager extends HandlebarsApplicationMixin(ApplicationV2) {
     if (this.minimized) return this.maximize();
     return this.close();
   }
+}
+
+// Pooled cards appear before non-pooled cards
+function sortPooled(a, b) {
+  if (a.system.pooled != b.system.pooled) return a.system.pooled ? -1 : 1;
+  return ((a.sort ?? -Infinity) - (b.sort ?? -Infinity)) || 0;
+}
+
+// Discard needs to have the most recently discarded card first
+function sortDiscard(a, b) {
+  return ((b.sort ?? -Infinity) - (a.sort ?? -Infinity)) || 0;
 }
