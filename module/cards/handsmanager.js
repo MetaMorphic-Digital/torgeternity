@@ -1,7 +1,6 @@
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api
 
 export class HandsManager extends HandlebarsApplicationMixin(ApplicationV2) {
-  static app;
 
   selectedCards = new Set();
 
@@ -309,11 +308,12 @@ export class HandsManager extends HandlebarsApplicationMixin(ApplicationV2) {
     this.render();
   }
 
-  static toggleRender() {
-    if (!this.app) this.app = new HandsManager();
-    if (this.app.rendered)
-      this.app.close();
+  toggleRender() {
+    if (!this.rendered)
+      return this.render({ force: true })
+    else if (this._minimized)
+      return this.maximize();
     else
-      this.app.render({ force: true })
+      return this.close();
   }
 }

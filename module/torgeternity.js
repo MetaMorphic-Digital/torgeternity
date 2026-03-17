@@ -53,6 +53,7 @@ import setupTokenActionHud from './modsupport/token-action-hud.js';
 import { initHandlebarsHelpers } from './hb-helpers.js';
 import { initHotbarMacros } from './hotbar-macros.js';
 import { rollBonusDie } from './torgchecks.js';
+import { HandsManager } from './cards/handsmanager.js';
 
 const { DialogV2 } = foundry.applications.api;
 
@@ -126,6 +127,7 @@ Hooks.once('init', async function () {
 
   ui.macroHub = new MacroHub();
   ui.GMScreen = new GMScreen();
+  ui.handsViewer = new HandsManager();
   ui.deckSettings = new DeckSettingMenu();
 
   // all settings after config
@@ -246,9 +248,6 @@ Hooks.on('ready', async function () {
 
   // migration script
   if (game.user.isGM) torgMigration();
-
-  // adding gmScreen to UI
-  ui.GMScreen = new GMScreen();
 
   // Set default time for combat (in seconds)
   CONFIG.time.turnTime = 0;

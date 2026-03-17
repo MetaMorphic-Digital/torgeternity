@@ -2,7 +2,7 @@
 
 ## NEXT
 
-- Provide a Hands Manager window, openable by SHIFT-H (configurable in Foundry's Configure Controls)
+- Provide a Hands Manager window, openable by SHIFT-H (or from the Torg Toolbar).
   - Your own player hand is highlighted in the list of hands (not for the GM).
   - Cards can be dragged directly between hands and the appropriate discard pile.
   - Non-GMs must select a card from their own hand first, before picking the same card for the Transfer or Offer Trade.

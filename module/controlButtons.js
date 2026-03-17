@@ -35,7 +35,7 @@ export default function initTorgControlButtons() {
         playerHand:
         {
           name: 'playerHand',
-          order: 1,
+          order: 10,
           title: 'TYPES.Cards.hand',
           icon: 'fa fa-id-badge',
           toggle: true,
@@ -45,10 +45,19 @@ export default function initTorgControlButtons() {
             setWindowState(hand.sheet, active);
           },
         },
+        allHands:
+        {
+          name: 'allHands',
+          order: 20,
+          title: 'DOCUMENT.CardsPlural',
+          icon: 'fa fa-window-restore',
+          toggle: true,
+          onChange: (event, active) => setWindowState(ui.handsViewer, active)
+        },
         gmScreen:
         {
           name: 'gmScreen',
-          order: 2,
+          order: 30,
           title: 'torgeternity.gmScreen.toggle',
           icon: 'fa fa-book-open',
           toggle: true,
@@ -58,7 +67,7 @@ export default function initTorgControlButtons() {
         deckSettings:
         {
           name: 'deckSettings',
-          order: 3,
+          order: 40,
           title: 'torgeternity.settingMenu.deckSetting.name',
           icon: 'fa fa-cog',
           toggle: true,
@@ -68,7 +77,7 @@ export default function initTorgControlButtons() {
         macroHub:
         {
           name: 'macroHub',
-          order: 4,
+          order: 50,
           title: 'torgeternity.macros.macroHub.buttonTitle',
           icon: 'fa-solid fa-bottle-water',
           toggle: true,

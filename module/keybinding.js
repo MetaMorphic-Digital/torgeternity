@@ -1,6 +1,5 @@
 import { PossibilityByCosm } from './possibilityByCosm.js';
 import TorgeternityActor from './documents/actor/torgeternityActor.js';
-import { HandsManager } from './cards/handsmanager.js';
 
 /**
  *
@@ -20,7 +19,7 @@ export default function createTorgShortcuts() {
       key: 'KeyH',
       modifiers: ["Shift"]
     },],
-    onDown: () => HandsManager.toggleRender(),
+    onDown: () => ui.handsViewer.toggleRender(),
   });
   game.keybindings.register('torgeternity', 'openGMScreen', {
     name: 'torgeternity.gmScreen.toggle',
