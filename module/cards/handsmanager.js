@@ -13,6 +13,9 @@ export class HandsManager extends HandlebarsApplicationMixin(ApplicationV2) {
       contentClasses: ['standard-form'],
       resizable: true
     },
+    position: {
+      height: 700
+    },
     buttons: [
       {
         action: 'offerTrade',

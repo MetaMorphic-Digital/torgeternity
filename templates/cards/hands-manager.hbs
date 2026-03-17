@@ -1,7 +1,7 @@
 <div class="handsManager flexrow {{#if isGM}}isgm{{/if}}">
   {{#*inline "cardList"}}
-    <div class="list flexcol scrollable{{#if hand.isOwner}} owner{{/if}} {{hand.type}}">
-      <ol class="cards flex1" data-hand-id="{{hand.id}}">
+    <div class="list scrollable{{#if hand.isOwner}} owner{{/if}} {{hand.type}}">
+      <ol class="cards" data-hand-id="{{hand.id}}">
         {{#each hand.cards as |card|}}
           <li
             class="card flexrow{{#if card.system.pooled}} pooled{{/if}}{{#if (TorgInSet @root.selectedCards card.uuid)}} selected{{/if}}"
@@ -18,7 +18,7 @@
   {{/inline}}
 
   {{#each hands}}
-    <div class="cardList playerHand flexcol {{disabled (not user.active)}}" data-user-id="{{user.id}}"
+    <div class="cardList playerHand flexcol {{disabled (not (or user.active @root.isGM))}}" data-user-id="{{user.id}}"
       data-actor-id="{{character.id}}">
       <div class="flexcol colheader">
         <h2 class="username" data-action="openHand" data-hand-id="{{hand.id}}">{{user.name}}</h2>

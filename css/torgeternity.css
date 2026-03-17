@@ -4901,7 +4901,12 @@ form.active-effect-config {
   }
 
   div.list.scrollable {
-    overflow-y: scroll;
+    overflow-y: auto;
+    margin-right: 0;
+
+    ol.cards {
+      height: 0px;
+    }
   }
 
   li.selected {
