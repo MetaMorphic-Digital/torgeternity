@@ -1,18 +1,20 @@
-<div class="handsManager flexrow scrollable">
+<div class="handsManager flexrow">
   {{#*inline "cardList"}}
-    <ol class="cards flex1" data-hand-id="{{hand.id}}">
-      {{#each hand.cards as |card|}}
-        <li
-          class="card flexrow {{#if card.system.pooled}}pooled{{/if}} {{#if (TorgInSet @root.selectedCards card.uuid)}}selected{{/if}}"
-          draggable="true" data-card-id="{{card.id}}" data-card-uuid="{{card.uuid}}" data-action="toggleSelect">
-          <span class="card-tooltip">
-            <img class="card-face" src="{{card.img}}" alt="{{card.name}}" height="48">
-            <span><img src="{{card.img}}"></span>
-          </span>
-          <strong class="card-name">{{card.name}}</strong>
-        </li>
-      {{/each}}
-    </ol>
+    <div class="list flexcol scrollable">
+      <ol class="cards flex1" data-hand-id="{{hand.id}}">
+        {{#each hand.cards as |card|}}
+          <li
+            class="card flexrow{{#if card.system.pooled}} pooled{{/if}}{{#if (TorgInSet @root.selectedCards card.uuid)}} selected{{/if}}"
+            draggable="true" data-card-id="{{card.id}}" data-card-uuid="{{card.uuid}}" data-action="toggleSelect">
+            <span class="card-tooltip">
+              <img class="card-face" src="{{card.img}}" alt="{{card.name}}" height="48">
+              <span><img src="{{card.img}}"></span>
+            </span>
+            <strong class="card-name">{{card.name}}</strong>
+          </li>
+        {{/each}}
+      </ol>
+    </div>
   {{/inline}}
 
   {{#each hands}}

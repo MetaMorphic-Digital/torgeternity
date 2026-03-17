@@ -3150,8 +3150,7 @@ nav#controls,
   }
 }
 
-.party-sheet,
-.hands-manager {
+.party-sheet {
 
   h1,
   h2,
@@ -4852,8 +4851,51 @@ form.active-effect-config {
 }
 
 .hands-manager {
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-align: center;
+    margin: 0px 0px 8px 0px;
+  }
+
+  h2 {
+    border-bottom: 2px solid #419c9c;
+    font-size: 18px;
+    width: 100%;
+  }
+
+  h3 {
+    font-size: 15px;
+  }
+
+  h4 {
+    text-decoration: underline;
+    font-size: 12px;
+  }
+
+  .flexrow {
+    margin: 4px;
+    align-items: normal;
+
+    div {
+      border: 1px solid rgba(128, 128, 128, 0.301);
+      padding: 2px;
+      box-shadow: 0px 0px 0px rgba(87, 87, 87, 0.301) inset;
+    }
+  }
+
   .window-content {
     overflow: visible;
+  }
+
+  div.handsManager {
+    flex: 1
+  }
+
+  div.list.scrollable {
+    overflow-y: scroll;
   }
 
   li.selected {
@@ -4867,14 +4909,6 @@ form.active-effect-config {
   div.colheader {
     height: 5em;
     align-items: center;
-
-    h2 {
-      width: 100%;
-    }
-
-    h3 {
-      border-bottom: none
-    }
   }
 
   .card-tooltip {
