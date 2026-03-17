@@ -150,6 +150,7 @@ export class HandsManager extends HandlebarsApplicationMixin(ApplicationV2) {
     if (card) event.dataTransfer.setData("text/plain", JSON.stringify(card.toDragData()));
   }
 
+
   async _onDrop(event) {
     const data = foundry.applications.ux.TextEditor.getDragEventData(event);
     if (data.type !== "Card") return;
@@ -160,6 +161,13 @@ export class HandsManager extends HandlebarsApplicationMixin(ApplicationV2) {
       return ui.notifications.info(`You cannot move a card from '${card.parent.name}' (not owner)`)
     if (!stack.isOwner)
       return ui.notifications.info(`You cannot move a card to '${stack.name}' (not owner)`)
+
+    // Don't drop onto wrong discard pile
+    if (stack.type === 'pile') {
+      const settings = game.settings.get('torgeternity', 'deckSetting');
+      if (settings[`${card.type}Discard`] !== stack.id)  // maybe destiny or cosm
+        return;
+    }
 
     //if (card.parent.id === stack.id) return this.#onSortCard(event, card);
     try {
@@ -260,6 +268,12 @@ export class HandsManager extends HandlebarsApplicationMixin(ApplicationV2) {
     // Check for deselection first
     const cardUuid = button.dataset.cardUuid;
     if (this.selectedCards.has(cardUuid)) {
+      // Don't let a non-owned card be the sole-selected card
+      if (!game.user.isGM && this.selectedCards.size === 2) {
+        const otherCard = fromUuidSync(this.selectedCards.values().find(uuid => uuid !== cardUuid));
+        if (!(otherCard?.parent.type === 'hand' && otherCard.isOwner))
+          return;
+      }
       this.selectedCards.delete(cardUuid);
       return this.render();
     }
@@ -272,6 +286,18 @@ export class HandsManager extends HandlebarsApplicationMixin(ApplicationV2) {
       this.selectedCards.delete(prevCard);
       this.selectedCards.add(cardUuid);
       return this.render();
+    }
+
+    // First card must be from our own hand
+    const hand = game.cards.get(list.dataset.handId);
+    if (!game.user.isGM && this.selectedCards.size === 0) {
+      if (hand.type !== 'hand' || !hand.isOwner) return;
+    }
+    if (hand.type === 'pile' && this.selectedCards.size === 1) {
+      const card1 = fromUuidSync(this.selectedCards.first());
+      const settings = game.settings.get('torgeternity', 'deckSetting');
+      if (settings[`${card1.type}Discard`] !== list.dataset.handId)  // maybe destiny or cosm
+        return;
     }
 
     // Two cards selected (in other lists) - don't allow this selection
