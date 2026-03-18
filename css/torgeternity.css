@@ -4881,6 +4881,10 @@ form.active-effect-config {
       div.list.owner.hand {
         background: #0000ff20;
       }
+
+      div.cardList.offline {
+        opacity: 30%;
+      }
     }
   }
 

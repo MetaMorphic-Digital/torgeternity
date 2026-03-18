@@ -75,8 +75,8 @@ export class HandsManager extends HandlebarsApplicationMixin(ApplicationV2) {
 
   async _onRender(context, options) {
     new foundry.applications.ux.DragDrop.implementation({
-      dragSelector: "ol.cards > li",
-      dropSelector: "div.list",
+      dragSelector: "div.cardList:not(.offline) ol.cards > li",
+      dropSelector: "div.cardList:not(.offline) div.list",
       callbacks: {
         dragstart: this._onDragStart.bind(this),
         drop: this._onDrop.bind(this)
@@ -288,6 +288,8 @@ export class HandsManager extends HandlebarsApplicationMixin(ApplicationV2) {
   }
 
   static async #onToggleSelect(event, button) {
+    // Check that the stack isn't disabled
+    if (!game.user.isGM && event.target.closest('div.cardList')?.classList.contains('offline')) return;
 
     // Check for deselection first
     const cardUuid = button.dataset.cardUuid;
@@ -345,6 +347,19 @@ export class HandsManager extends HandlebarsApplicationMixin(ApplicationV2) {
     if (this.minimized) return this.maximize();
     return this.close();
   }
+
+  userConnected(user, connected) {
+    if (!this.rendered) return;
+    if (!connected) {
+      // On disconnection, clear the selection if one of the user's cards was selected.
+      const hand = user.character?.getDefaultHand();
+      if (hand && this.selectedCards.find(uuid => fromUuidSync(uuid, { strict: false })?.parent === hand)) {
+        console.log('Some selected cards were removed from hands, cancelling all selections');
+        this.selectedCards.clear();
+      }
+    }
+    this.render();
+  }
 }
 
 // Pooled cards appear before non-pooled cards
@@ -357,3 +372,5 @@ function sortPooled(a, b) {
 function sortDiscard(a, b) {
   return ((b.sort ?? -Infinity) - (a.sort ?? -Infinity)) || 0;
 }
+
+Hooks.on('userConnected', (user, connected) => ui.handsViewer?.userConnected(user, connected))

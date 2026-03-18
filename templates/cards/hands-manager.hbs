@@ -18,7 +18,8 @@
   {{/inline}}
 
   {{#each stacks}}
-    <div class="cardList playerHand flexcol {{disabled (not (or user.active @root.isGM))}}" data-user-id="{{user.id}}"
+    <div class="cardList playerHand flexcol{{#if (not (or user.active @root.isGM))}} offline{{/if}}"
+      data-user-id="{{user.id}}"
       data-actor-id="{{character.id}}">
       <div class="flexcol colheader">
         <h2 class="charname" data-action="openHand" data-hand-id="{{hand.id}}">{{character.name}}</h2>
