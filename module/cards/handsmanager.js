@@ -83,6 +83,8 @@ export class HandsManager extends HandlebarsApplicationMixin(ApplicationV2) {
       }
     }).bind(this.element);
 
+    this.element.addEventListener('dragover', this._onDragOver.bind(this), { capture: true })
+    this.element.addEventListener('dragend', this._onDragEnd.bind(this), { capture: true })
     return super._onRender(context, options);
   }
 
@@ -138,11 +140,45 @@ export class HandsManager extends HandlebarsApplicationMixin(ApplicationV2) {
     const li = event.currentTarget;
     const stack = game.cards.get(li.closest('ol.cards')?.dataset.handId);
     if (!stack.isOwner) return event.preventDefault();  // Abort the drag operation
-    const card = stack.cards.get(li.dataset.cardId);
-    if (card) event.dataTransfer.setData("text/plain", JSON.stringify(card.toDragData()));
+    this.dragcard = stack.cards.get(li.dataset.cardId);
+    if (this.dragcard) event.dataTransfer.setData("text/plain", JSON.stringify(this.dragcard.toDragData()));
   }
 
+  /**
+   * Prevent dragging a card to an invalid list
+   * @param {*} event 
+   * @returns 
+   */
+  _onDragOver(event) {
+    // event.dataTransfer isn't available/reliable on dragover event, so we store the card separately
+    event.stopPropagation();
+    if (!this.dragcard) return;
+    const stack = game.cards.get(event.srcElement.closest('div.cardList:not(.offline) div.list')?.dataset.handId);
+    if (!stack) return;
+    if (stack.type === 'pile') {
+      const settings = game.settings.get('torgeternity', 'deckSetting');
+      if (settings[`${this.dragcard.type}Discard`] !== stack.id)  // maybe destiny or cosm
+        return;
+    } else if (this.dragcard.parent === stack)
+      return;
 
+    // Indicate that the drop is allowed.
+    event.preventDefault();
+  }
+
+  /**
+   * Cancel currently dragged card when a drag ends.
+   * @param {*} event 
+   */
+  async _onDragEnd(event) {
+    this.dragcard = null;
+  }
+
+  /**
+   * Only allow drop of a card from this window.
+   * @param {*} event 
+   * @returns 
+   */
   async _onDrop(event) {
     const data = foundry.applications.ux.TextEditor.getDragEventData(event);
     if (data.type !== "Card") return;
