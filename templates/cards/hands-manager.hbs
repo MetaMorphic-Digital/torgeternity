@@ -17,12 +17,12 @@
     </div>
   {{/inline}}
 
-  {{#each stacks}}
+  {{#each hands}}
     <div class="cardList playerHand flexcol{{#if (not (or user.active @root.isGM))}} offline{{/if}}"
       data-user-id="{{user.id}}"
-      data-actor-id="{{character.id}}">
+      data-actor-id="{{user.character.id}}">
       <div class="flexcol colheader">
-        <h2 class="charname" data-action="openHand" data-hand-id="{{hand.id}}">{{character.name}}</h2>
+        <h2 class="charname" data-action="openHand" data-hand-id="{{hand.id}}">{{user.character.name}}</h2>
       </div>
       {{> cardList hand=hand cards=cards}}
     </div>

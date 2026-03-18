@@ -91,16 +91,14 @@ export class HandsManager extends HandlebarsApplicationMixin(ApplicationV2) {
 
     switch (partId) {
       case 'body':
-        partContext.stacks = game.users.filter(user => !user.isGM && user.character).map(user => {
+        partContext.hands = game.users.filter(user => !user.isGM && user.character).map(user => {
           const hand = user.character.getDefaultHand();
           return {
             user: user,
-            character: user.character,
-            hand: user.character.getDefaultHand(),
+            hand,
             cards: hand.cards.contents.toSorted(sortPooled),
           }
         });
-        // What about COSM discard pile?
         const settings = game.settings.get('torgeternity', 'deckSetting');
         partContext.destinyDiscard = { stack: game.cards.get(settings?.destinyDiscard) };
         partContext.destinyDiscard.cards = partContext.destinyDiscard.stack?.cards.contents.toSorted(sortDiscard);
