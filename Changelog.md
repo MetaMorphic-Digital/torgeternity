@@ -17,7 +17,7 @@ Provide a Hands Manager window, openable by SHIFT-H (or from the Torg Toolbar).
 
 ### Other Changes
 - Minimized windows will now be maximized from the keyboard toggle, rather than closed.
-- Torg control buttons moved to the top-right corner of the canvas.
+- Torg control buttons moved to the top-right corner of the canvas, with the Effects Panel being displayed below it.
 
 ## 13.28.0 - More Active Effects improvements.
 

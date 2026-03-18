@@ -4781,8 +4781,11 @@ div.chooseCurrency {
   }
 }
 
-div.torgeternity.effects-panel {
+aside.sidebar>div.torgeternity.effects-panel {
   padding: 16px 16px 16px 0;
+}
+
+div.torgeternity.effects-panel {
   pointer-events: all;
 
   div.effectsPanel {
@@ -4956,4 +4959,6 @@ dialog.exchange-card-dialog {
   }
 }
 
-div.torg-control-buttons {}
+div.torg-control-buttons {
+  padding: 16px 16px 16px 0;
+}

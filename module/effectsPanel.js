@@ -39,7 +39,11 @@ export default class EffectsPanel extends HandlebarsApplicationMixin(Application
 
   _insertElement(element) {
     const existing = document.getElementById(element.id);
-    if (existing) existing.replaceWith(element);
+    if (existing) return existing.replaceWith(element);
+
+    // Place below torg controls if present
+    if (ui.torgControlButtons)
+      ui.torgControlButtons.element.append(element);
     else
       ui.sidebar.element.prepend(element);
   }
