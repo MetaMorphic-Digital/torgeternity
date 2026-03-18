@@ -23,7 +23,7 @@ import torgeternityCardConfig from './cards/torgeternityCardConfig.js';
 import { torgeternityCardsDirectory } from './cards/torgeternityCardsDirectory.js';
 import { torgeternityCard } from './cards/torgeternityCard.js';
 import { torgeternityCards } from './cards/torgeternityCards.js';
-import initTorgControlButtons from './controlButtons.js';
+import { TorgControlButtons } from './controlButtons.js';
 import createTorgShortcuts from './keybinding.js';
 import GMScreen from './GMScreen.js';
 import { setUpCardPiles } from './cards/setUpCardPiles.js';
@@ -172,7 +172,6 @@ Hooks.once('init', async function () {
   // ----------preloading handlebars templates
   preloadTemplates();
   // adding special torg buttons
-  initTorgControlButtons();
   // create torg shortcuts
   createTorgShortcuts();
 
@@ -238,6 +237,8 @@ Hooks.once('setup', async function () {
     if (pack.metadata.type === 'Actor' || pack.metadata.type === 'Item')
       await pack.getIndex();
   }
+
+  (ui.torgControlButtons = new TorgControlButtons()).render({ force: true });
 
   if (game.settings.get('torgeternity', 'showEffectsPanel'))
     (ui.torgEffectsPanel = new EffectsPanel()).render({ force: true });

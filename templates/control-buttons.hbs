@@ -1,0 +1,8 @@
+<div class="torg-control-buttons flexcol">
+  {{#each buttons as |button|}}
+    <button type="checkbox" {{#if button.name}}name="{{button.name}}" {{/if}} class="ui-control toggle"
+      data-action="onPress" data-tooltip="{{localize button.label}}">
+      {{#if button.icon}}<i class="{{button.icon}}" inert></i>{{/if}}
+      </input>
+  {{/each}}
+</div>
