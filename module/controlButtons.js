@@ -69,6 +69,7 @@ export class TorgControlButtons extends HandlebarsApplicationMixin(ApplicationV2
   async _prepareContext(options) {
     const context = await super._prepareContext(options);
     context.buttons = TorgControlButtons.DEFAULT_OPTIONS.buttons.filter(button => button.visible ? button.visible() : true)
+    context.tooltipDirection = foundry.helpers.interaction.TooltipManager.TOOLTIP_DIRECTIONS.LEFT;
     return context;
   }
 
