@@ -438,7 +438,7 @@ export default class torgeternityPlayerHand extends foundry.applications.sheets.
               ${card.name} ${game.i18n.localize('torgeternity.chatText.passesCard2')}
                ${toName}.</h4></div>`,
           });
-          return card.pass(to, game.torgeternity.cardChatOptions, game.torgeternity.cardChatOptions).catch((err) => {
+          return card.pass(to, game.torgeternity.cardChatOptions).catch((err) => {
             ui.notifications.error(err.message);
             return this;
           });

@@ -164,7 +164,24 @@ export class HandsManager extends HandlebarsApplicationMixin(ApplicationV2) {
 
     //if (card.parent.id === stack.id) return this.#onSortCard(event, card);
     try {
-      return await card.pass(stack);
+      return card.pass(stack, game.torgeternity.cardChatOptions).then(() => {
+        if (stack.type === 'pile') {
+          card.toMessage({
+            content: `<div class="card-draw flexrow"><span class="card-chat-tooltip">
+            <img class="card-face" src="${card.img}"/><span><img src="${card.img}"></span></span>
+            <span class="card-name">${game.i18n.localize('torgeternity.chatText.discardsCard')} ${card.name}</span>
+            </div>`,
+          });
+        } else {
+          card.toMessage({
+            content: `<div class="card-draw flexrow"><span class="card-chat-tooltip"><img class="card-face" 
+            src="${card.img}"/><span><img src="${card.img}"></span></span><h4 class="card-name">
+              ${game.i18n.localize('torgeternity.chatText.passesCard1')} 
+              ${card.name} ${game.i18n.localize('torgeternity.chatText.passesCard2')}
+               ${stack.name}.</h4></div>`,
+          });
+        }
+      })
     } catch (err) {
       console.error(`Failed to pass card to ${stack.name}`)
     }
@@ -282,7 +299,24 @@ export class HandsManager extends HandlebarsApplicationMixin(ApplicationV2) {
     if (card1.system.pooled && stack2.type === 'pile') await card1.update({ 'system.pooled': false })
     if (card2.system.pooled && stack1.type === 'pile') await card2.update({ 'system.pooled': false })
     // Only do second transfer if first one succeeded
-    return card1.pass(stack2).then(prom => card2.pass(stack1));
+    return card1.pass(stack2, game.torgeternity.cardChatOptions)
+      .then(() => card2.pass(stack1, game.torgeternity.cardChatOptions))
+      .then(async () => {
+        await card1.toMessage({
+          content: `<div class="card-draw flexrow"><span class="card-chat-tooltip"><img class="card-face" 
+            src="${card1.img}"/><span><img src="${card1.img}"></span></span><h4 class="card-name">
+              ${game.i18n.localize('torgeternity.chatText.passesCard1')} 
+              ${card1.name} ${game.i18n.localize('torgeternity.chatText.passesCard2')}
+               ${stack2.name}.</h4></div>`,
+        });
+        await card2.toMessage({
+          content: `<div class="card-draw flexrow"><span class="card-chat-tooltip"><img class="card-face" 
+            src="${card2.img}"/><span><img src="${card2.img}"></span></span><h4 class="card-name">
+              ${game.i18n.localize('torgeternity.chatText.passesCard1')} 
+              ${card2.name} ${game.i18n.localize('torgeternity.chatText.passesCard2')}
+               ${stack1.name}.</h4></div>`,
+        });
+      })
   }
 
   static async #onToggleSelect(event, button) {
