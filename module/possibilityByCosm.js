@@ -102,7 +102,7 @@ export class PossibilityByCosm extends foundry.applications.api.HandlebarsApplic
     for (const app of foundry.applications.instances.values()) {
       if (app instanceof PossibilityByCosm) {
         if (app.rendered) {
-          if (app._minimized) return this.maximize();
+          if (app.minimized) return this.maximize();
           return app.close()
         }
       }

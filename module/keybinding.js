@@ -8,8 +8,18 @@ export default function createTorgShortcuts() {
   // creating keyboard shortcuts
   game.keybindings.register('torgeternity', 'openHand', {
     name: 'torgeternity.dialogPrompts.openHand',
-    editable: [{ key: 'KeyH', },],
+    editable: [{
+      key: 'KeyH'
+    },],
     onDown: () => TorgeternityActor.getControlledActor()?.getDefaultHand().sheet.toggleRender(),
+  });
+  game.keybindings.register('torgeternity', 'openHands', {
+    name: 'torgeternity.dialogPrompts.openHands',
+    editable: [{
+      key: 'KeyH',
+      modifiers: ["Shift"]
+    },],
+    onDown: () => ui.handsViewer.toggleRender(),
   });
   game.keybindings.register('torgeternity', 'openGMScreen', {
     name: 'torgeternity.gmScreen.toggle',

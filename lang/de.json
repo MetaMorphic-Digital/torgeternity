@@ -27,6 +27,19 @@
     }
   },
   "torgeternity": {
+    "handsManager": {
+      "title": "Handkarten Manager",
+      "button": {
+        "exchange": "Karten tauschen",
+        "offerTrade": "Tausch anbieten"
+      },
+      "trade": {
+        "title": "Kartentausch akzeptieren?",
+        "from": "Von: {actor}",
+        "yourCard": "Deine Karte",
+        "theirCard": "Ersatzkarte"
+      }
+    },
     "testInspector": {
       "title": "Proben Begutachter",
       "field": "Feldname",

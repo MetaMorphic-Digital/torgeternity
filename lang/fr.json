@@ -30,6 +30,19 @@
     }
   },
   "torgeternity": {
+    "handsManager": {
+      "title": "Gestionnaire de cartes",
+      "button": {
+        "exchange": "Échange de cartes",
+        "offerTrade": "Offre d'échange"
+      },
+      "trade": {
+        "title": "Accepter l'échange ?",
+        "from": "Donneur: {actor}",
+        "yourCard": "Votre carte",
+        "theirCard": "Sa carte"
+      }
+    },
     "testInspector": {
       "title": "Inspecter le jet",
       "field": "Nom du champs",

@@ -4,6 +4,7 @@ export function initHandlebarsHelpers() {
   Handlebars.registerHelper({ TorgDisconnected })
   Handlebars.registerHelper({ TorgIsSvg })
   Handlebars.registerHelper({ TorgFormGroup })
+  Handlebars.registerHelper({ TorgInSet })
 }
 
 function TorgFormGroup(field, options) {
@@ -50,4 +51,8 @@ function TorgDisconnected(doc) {
 
 function TorgIsSvg(value) {
   return value.endsWith('.svg') ? 'svg' : '';
+}
+
+function TorgInSet(theset, value) {
+  return theset.has(value);
 }

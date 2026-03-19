@@ -23,7 +23,7 @@ import torgeternityCardConfig from './cards/torgeternityCardConfig.js';
 import { torgeternityCardsDirectory } from './cards/torgeternityCardsDirectory.js';
 import { torgeternityCard } from './cards/torgeternityCard.js';
 import { torgeternityCards } from './cards/torgeternityCards.js';
-import initTorgControlButtons from './controlButtons.js';
+import { TorgControlButtons } from './controlButtons.js';
 import createTorgShortcuts from './keybinding.js';
 import GMScreen from './GMScreen.js';
 import { setUpCardPiles } from './cards/setUpCardPiles.js';
@@ -53,6 +53,7 @@ import setupTokenActionHud from './modsupport/token-action-hud.js';
 import { initHandlebarsHelpers } from './hb-helpers.js';
 import { initHotbarMacros } from './hotbar-macros.js';
 import { rollBonusDie } from './torgchecks.js';
+import { HandsManager } from './cards/handsmanager.js';
 
 const { DialogV2 } = foundry.applications.api;
 
@@ -126,6 +127,7 @@ Hooks.once('init', async function () {
 
   ui.macroHub = new MacroHub();
   ui.GMScreen = new GMScreen();
+  ui.handsViewer = new HandsManager();
   ui.deckSettings = new DeckSettingMenu();
 
   // all settings after config
@@ -170,7 +172,6 @@ Hooks.once('init', async function () {
   // ----------preloading handlebars templates
   preloadTemplates();
   // adding special torg buttons
-  initTorgControlButtons();
   // create torg shortcuts
   createTorgShortcuts();
 
@@ -237,8 +238,10 @@ Hooks.once('setup', async function () {
       await pack.getIndex();
   }
 
+  (ui.torgControlButtons = new TorgControlButtons()).render({ force: true });
+
   if (game.settings.get('torgeternity', 'showEffectsPanel'))
-    new EffectsPanel();
+    (ui.torgEffectsPanel = new EffectsPanel()).render({ force: true });
 });
 
 // -------------once everything ready
@@ -246,9 +249,6 @@ Hooks.on('ready', async function () {
 
   // migration script
   if (game.user.isGM) torgMigration();
-
-  // adding gmScreen to UI
-  ui.GMScreen = new GMScreen();
 
   // Set default time for combat (in seconds)
   CONFIG.time.turnTime = 0;

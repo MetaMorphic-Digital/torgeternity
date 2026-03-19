@@ -7,7 +7,10 @@ export default function activateSocketListeners() {
       case 'replaceTestCard':
         if (!game.user.isActiveGM) return;
         return renderSkillChat(socketMessage.test, game.messages.get(socketMessage.messageId));
-        break;
+
+      case 'swapCards':
+        if (!game.user.isActiveGM) return;
+        return ui.handsViewer.gmExchangeCards(socketMessage);
 
       case 'updateChatMessage':
         if (!game.user.isActiveGM) return;

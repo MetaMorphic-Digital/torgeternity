@@ -27,6 +27,19 @@
     }
   },
   "torgeternity": {
+    "handsManager": {
+      "title": "Gestión de mano",
+      "button": {
+        "exchange": "Intercambiar carta",
+        "offerTrade": "Ofrecer cambio"
+      },
+      "trade": {
+        "title": "¿Aceptar cambio de carta?",
+        "from": "De: {actor}",
+        "yourCard": "Tu carta",
+        "theirCard": "Su carta"
+      }
+    },
     "testInspector": {
       "title": "Inspector de pruebas",
       "field": "Nombre del campo",

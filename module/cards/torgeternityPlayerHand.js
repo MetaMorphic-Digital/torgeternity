@@ -438,7 +438,7 @@ export default class torgeternityPlayerHand extends foundry.applications.sheets.
               ${card.name} ${game.i18n.localize('torgeternity.chatText.passesCard2')}
                ${toName}.</h4></div>`,
           });
-          return card.pass(to, game.torgeternity.cardChatOptions, game.torgeternity.cardChatOptions).catch((err) => {
+          return card.pass(to, game.torgeternity.cardChatOptions).catch((err) => {
             ui.notifications.error(err.message);
             return this;
           });
@@ -520,9 +520,8 @@ export default class torgeternityPlayerHand extends foundry.applications.sheets.
    *
    */
   toggleRender() {
-    if (this.rendered) {
-      if (this._minimized) return this.maximize();
-      else return this.close();
-    } else return this.render({ force: true });
+    if (!this.rendered) return this.render({ force: true });
+    if (this.minimized) return this.maximize();
+    return this.close();
   }
 }

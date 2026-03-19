@@ -1,0 +1,48 @@
+<div class="handsManager flexrow {{#if isGM}}isgm{{/if}}">
+  {{#*inline "cardList"}}
+    <div class="list scrollable{{#if hand.isOwner}} owner{{/if}} {{hand.type}}" data-stack-id="{{hand.id}}">
+      <ol class="cards" data-stack-id="{{hand.id}}">
+        {{#each cards as |card|}}
+          <li
+            class="card flexrow{{#if card.system.pooled}} pooled{{/if}}{{#if (TorgInSet @root.selectedCards card.uuid)}} selected{{/if}}"
+            draggable="true" data-card-id="{{card.id}}" data-card-uuid="{{card.uuid}}" data-action="clickCard">
+            <span class="card-tooltip">
+              <img class="card-face" src="{{card.img}}" alt="{{card.name}}" height="64">
+              <span><img src="{{card.img}}"></span>
+            </span>
+            <strong class="card-name">{{card.name}}</strong>
+          </li>
+        {{/each}}
+      </ol>
+    </div>
+  {{/inline}}
+
+  {{#each hands}}
+    <div class="cardList playerHand flexcol{{#if (not (or user.active @root.isGM))}} offline{{/if}}"
+      data-user-id="{{user.id}}"
+      data-actor-id="{{user.character.id}}">
+      <div class="flexcol colheader">
+        <h2 class="charname" data-action="openHand" data-stack-id="{{hand.id}}">{{user.character.name}}</h2>
+      </div>
+      {{> cardList hand=hand cards=cards}}
+    </div>
+  {{/each}}
+
+  {{#with destinyDiscard}}
+    <div class="cardList discardPile flexcol">
+      <div class="flexcol colheader">
+        <h2 class="title" data-action="openHand" data-stack-id="{{stack.id}}">{{stack.name}}</h2>
+      </div>
+      {{> cardList hand=stack cards=cards}}
+    </div>
+  {{/with}}
+
+  {{#with cosmDiscard}}
+    <div class="cardList discardPile flexcol">
+      <div class="flexcol colheader">
+        <h2 class="title" data-action="openHand" data-stack-id="{{stack.id}}">{{stack.name}}</h2>
+      </div>
+      {{> cardList hand=stack cards=cards}}
+    </div>
+  {{/with}}
+</div>
