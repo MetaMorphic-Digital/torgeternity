@@ -466,3 +466,4 @@ Hooks.on('userConnected', (user, connected) => ui.handsViewer?.userConnected(use
 Hooks.on('combatTurnChange', (combat, previous, current) => {
   if (previous.round === 0 && current.round === 1) ui.handsViewer?.resetSelection()
 })
+Hooks.on('deleteCombat', () => ui.handsViewer?.resetSelection())

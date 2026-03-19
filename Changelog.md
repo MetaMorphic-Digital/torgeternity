@@ -9,10 +9,10 @@ Provide a Hands Manager window, openable by SHIFT-H (or from the Torg Toolbar).
 - Non-GM players must select a card from their own hand first, before picking the same card for the Transfer or Offer Trade.
 - Transfers can be made between two owned decks using the "Exchange Cards" button (all discard piles are considered "owned")
 - Transfers can be proposed between two players by one player selecting two cards and pressing the "Offer Trade" button, the other player than can accept or reject the exchange.
-- Automatic deselection of cards occurs in three situations:
+- Automatic deselection of cards occurs in the following situations:
   - If the Trade Offer is rejected.
   - If a selected card is moved between stacks by another player.
-  - When an encounter is Started.
+  - When an encounter is Started or Ended.
 - Discard Stacks have the most recent discard at the top of the window.
 - Pooled cards appear above other cards in user's hands.
 - **During Combat** (after an Encounter has been started):
