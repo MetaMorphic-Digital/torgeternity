@@ -36,7 +36,7 @@ export class HandsManager extends HandlebarsApplicationMixin(ApplicationV2) {
       openHand: HandsManager.#onOpenHand,
       exchange: HandsManager.#onExchange,
       offerTrade: HandsManager.#onOfferTrade,
-      toggleSelect: HandsManager.#onToggleSelect,
+      clickCard: HandsManager.#onClickCard,
       resetSelection: HandsManager.#onResetSelection,
     }
   }
@@ -138,7 +138,7 @@ export class HandsManager extends HandlebarsApplicationMixin(ApplicationV2) {
 
   async _onDragStart(event) {
     const li = event.currentTarget;
-    const stack = game.cards.get(li.closest('ol.cards')?.dataset.handId);
+    const stack = game.cards.get(li.closest('ol.cards')?.dataset.stackId);
     if (!stack.isOwner) return event.preventDefault();  // Abort the drag operation
     this.dragcard = stack.cards.get(li.dataset.cardId);
     if (this.dragcard) event.dataTransfer.setData("text/plain", JSON.stringify(this.dragcard.toDragData()));
@@ -153,7 +153,7 @@ export class HandsManager extends HandlebarsApplicationMixin(ApplicationV2) {
     // event.dataTransfer isn't available/reliable on dragover event, so we store the card separately
     event.stopPropagation();
     if (!this.dragcard) return;
-    const stack = game.cards.get(event.srcElement.closest('div.cardList:not(.offline) div.list')?.dataset.handId);
+    const stack = game.cards.get(event.srcElement.closest('div.cardList:not(.offline) div.list')?.dataset.stackId);
     if (!stack) return;
     if (stack.type === 'pile') {
       const settings = game.settings.get('torgeternity', 'deckSetting');
@@ -183,7 +183,7 @@ export class HandsManager extends HandlebarsApplicationMixin(ApplicationV2) {
     const data = foundry.applications.ux.TextEditor.getDragEventData(event);
     if (data.type !== "Card") return;
     const card = await foundry.utils.getDocumentClass("Card").fromDropData(data);
-    const stack = game.cards.get(event.currentTarget.dataset.handId);
+    const stack = game.cards.get(event.currentTarget.dataset.stackId);
     if (card.parent === stack) return console.log('Ignore dropping card onto own stack');  // Don't drop onto self
     if (!card.parent.isOwner)
       return ui.notifications.info(`You cannot move a card from '${card.parent.name}' (not owner)`)
@@ -227,7 +227,7 @@ export class HandsManager extends HandlebarsApplicationMixin(ApplicationV2) {
   // ACTIONS
   //
   static async #onOpenHand(event, button) {
-    game.cards.get(button.dataset.handId)?.sheet.render({ force: true })
+    game.cards.get(button.dataset.stackId)?.sheet.render({ force: true })
   }
 
   /**
@@ -239,7 +239,7 @@ export class HandsManager extends HandlebarsApplicationMixin(ApplicationV2) {
   static async #onExchange(event, button) {
     const cards = [];
     for (const element of this.element.querySelectorAll('li.selected')) {
-      const stack = game.cards.get(element.closest('ol.cards')?.dataset.handId);
+      const stack = game.cards.get(element.closest('ol.cards')?.dataset.stackId);
       cards.push({
         stack,
         card: stack.cards.get(element.dataset.cardId)
@@ -253,7 +253,7 @@ export class HandsManager extends HandlebarsApplicationMixin(ApplicationV2) {
   static async #onOfferTrade(event, button) {
     const cards = [];
     for (const element of this.element.querySelectorAll('li.selected')) {
-      const stack = game.cards.get(element.closest('ol.cards')?.dataset.handId);
+      const stack = game.cards.get(element.closest('ol.cards')?.dataset.stackId);
       cards.push({
         userId: element.closest('div.playerHand')?.dataset.userId,
         actorId: element.closest('div.playerHand')?.dataset.actorId,
@@ -355,12 +355,26 @@ export class HandsManager extends HandlebarsApplicationMixin(ApplicationV2) {
       })
   }
 
-  static async #onToggleSelect(event, button) {
+  static async #onClickCard(event, button) {
     // Check that the stack isn't disabled
     if (!game.user.isGM && event.target.closest('div.cardList')?.classList.contains('offline')) return;
 
-    // Check for deselection first
     const cardUuid = button.dataset.cardUuid;
+
+    // Special check for POOLing during combat.
+    if (event.shiftKey) {
+      // No effect if no combat is in progress
+      if (!game.combat?.started) return;
+      // Check that the click is in the player's own hand.
+      const stack = game.cards.get(button.closest('ol.cards')?.dataset.stackId);
+      if (stack.type !== 'hand' || (!game.user.isGM && game.user.character?.getDefaultHand() !== stack))
+        return;
+      const card = fromUuidSync(cardUuid);
+      if (card) card.update({ 'system.pooled': !card.system.pooled });
+      return;
+    }
+
+    // Check for deselection first
     if (this.selectedCards.has(cardUuid)) {
       // Don't let a non-owned card be the sole-selected card
       if (!game.user.isGM && this.selectedCards.size === 2) {
@@ -374,6 +388,12 @@ export class HandsManager extends HandlebarsApplicationMixin(ApplicationV2) {
 
     const list = button.closest('ol.cards');
     if (!list) return;
+    const stack = game.cards.get(list.dataset.stackId);
+
+    // During combat, can only select cards in other hands if they are in the pool.
+    if (!game.user.isGM && game.combat?.started && stack.type === 'hand' && !fromUuidSync(cardUuid)?.system.pooled)
+      return;
+
     const prevCard = list.querySelector('li.selected')?.dataset.cardUuid;
     if (prevCard) {
       // Picking a new card in the same list
@@ -383,14 +403,13 @@ export class HandsManager extends HandlebarsApplicationMixin(ApplicationV2) {
     }
 
     // First card must be from our own hand
-    const hand = game.cards.get(list.dataset.handId);
     if (!game.user.isGM && this.selectedCards.size === 0) {
-      if (hand.type !== 'hand' || !hand.isOwner) return;
+      if (stack.type !== 'hand' || !stack.isOwner) return;
     }
-    if (hand.type === 'pile' && this.selectedCards.size === 1) {
+    if (stack.type === 'pile' && this.selectedCards.size === 1) {
       const card1 = fromUuidSync(this.selectedCards.first());
       const settings = game.settings.get('torgeternity', 'deckSetting');
-      if (settings[`${card1.type}Discard`] !== list.dataset.handId)  // maybe destiny or cosm
+      if (settings[`${card1.type}Discard`] !== list.dataset.stackId)  // maybe destiny or cosm
         return;
     }
 
@@ -442,3 +461,8 @@ function sortDiscard(a, b) {
 }
 
 Hooks.on('userConnected', (user, connected) => ui.handsViewer?.userConnected(user, connected))
+// combatStart hook only triggered on GM position that presses the start combat button,
+// so have to detect start of first round of combat
+Hooks.on('combatTurnChange', (combat, previous, current) => {
+  if (previous.round === 0 && current.round === 1) ui.handsViewer?.resetSelection()
+})
