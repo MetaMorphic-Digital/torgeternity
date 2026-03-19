@@ -1549,6 +1549,8 @@ function testTraits(ifTraits, combiner, actualTraits, actualSkill) {
   switch (combiner) {
     case 'or':
       return ifTraits.has(actualSkill) || actualTraits.find(trait => ifTraits.has(trait));
+    case 'not':
+      return !(ifTraits.has(actualSkill) || actualTraits.find(trait => ifTraits.has(trait)));
     case 'and': {
       const required = combiner === 'or' ? 1 : ifTraits.length;
       let found = 0;

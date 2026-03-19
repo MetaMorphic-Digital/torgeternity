@@ -1,5 +1,11 @@
 # TORG Eternity Changelog
 
+## NEXT
+
+- Add 'mindless' defense trait
+- Add 'NONE' option to traits field of Active Effects, to ignore AE if the attacker/defender does have one or more of the lists traits.
+- Fix name in "exchange cards" dialog.
+
 ## 13.29.0 - Card Hands Manager window
 
 ### Hands Viewer/Manager

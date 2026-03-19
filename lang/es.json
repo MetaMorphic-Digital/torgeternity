@@ -52,6 +52,7 @@
       },
       "match": {
         "and": "Todos",
+        "not": "NONE",
         "or": "Cualquiera"
       },
       "FIELDS": {
@@ -1407,6 +1408,7 @@
       "ignoreShock": "Ignorar Shock",
       "ignoreWounds": "Ignorar Heridas",
       "lowestArmor": "Armadura más baja",
+      "mindless": "Mindless",
       "nonLethal": "No letal",
       "painful": "Dolorosa",
       "pistol": "Pistola",

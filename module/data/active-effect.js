@@ -103,9 +103,10 @@ function newCombineTraitsField() {
     required: true,
     choices: {
       'and': "torgeternity.activeEffect.match.and",
+      'not': "torgeternity.activeEffect.match.not",
       'or': "torgeternity.activeEffect.match.or",
     },
     trim: true,
-    initial: "or",
+    initial: 'or',
   })
 }
