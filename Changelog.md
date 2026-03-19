@@ -1,23 +1,27 @@
 # TORG Eternity Changelog
 
-## NEXT
+## 13.29.0 - Card Hands Manager window
 
 ### Hands Viewer/Manager
 Provide a Hands Manager window, openable by SHIFT-H (or from the Torg Toolbar).
 - Your own player hand is highlighted in the list of hands (not for the GM).
 - Cards can be dragged directly between hands and the appropriate discard pile.
-- Non-GMs must select a card from their own hand first, before picking the same card for the Transfer or Offer Trade.
-- Transfers can be made between two owned decks using the "Exchange Cards" button.
+- Non-GM players must select a card from their own hand first, before picking the same card for the Transfer or Offer Trade.
+- Transfers can be made between two owned decks using the "Exchange Cards" button (all discard piles are considered "owned")
 - Transfers can be proposed between two players by one player selecting two cards and pressing the "Offer Trade" button, the other player than can accept or reject the exchange.
-- Automatic deselection of cards occurs in two situations:
+- Automatic deselection of cards occurs in three situations:
   - If the Trade Offer is rejected.
   - If a selected card is moved between stacks by another player.
+  - When an encounter is Started.
 - Discard Stacks have the most recent discard at the top of the window.
 - Pooled cards appear above other cards in user's hands.
+- **During Combat** (after an Encounter has been started):
+  - Player can SHIFT-CLICK on a card to add to/remove from their pool.
+  - Non-GM players can only select cards in their pool to transfer or exchange.
 
 ### Other Changes
 - Minimized windows will now be maximized from the keyboard toggle, rather than closed.
-- Torg control buttons moved to the top-right corner of the canvas, with the Effects Panel being displayed below it.
+- Torg control buttons have been moved out of the canvas layer controls to the top-right corner of the canvas, with the Effects Panel being displayed below it.
 
 ## 13.28.0 - More Active Effects improvements.
 
