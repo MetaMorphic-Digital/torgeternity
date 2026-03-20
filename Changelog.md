@@ -67,6 +67,7 @@ Provide a Hands Manager window, openable by SHIFT-H (or from the Torg Toolbar).
   - Rename all `system.unarmedDamage` changes in AEs to `system.skills.unarmedCombat.damageMod`
 - Torg effects tab of AEs will become scrollable if your browser window is too small.
 - Restore event handling in the Effects Panel.
+- Show Effect Icons when an effect on the Actor isn't disabled, but might have conditional activations.
 
 ## 13.27.5
 

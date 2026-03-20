@@ -199,6 +199,20 @@ export default class TorgeternityActor extends foundry.documents.Actor {
   }
 
   /**
+   * @inheritdoc
+   */
+  get temporaryEffects() {
+    // Called for display in the Combat Tracker, and to display effect icons on the Token.
+    // effect.active might not be active due to the logic in TorgActiveEffectData.isSuppressed,
+    // so apply an effect directly on an actor if it is suppressed.
+    const effects = [];
+    for (const effect of this.allApplicableEffects()) {
+      // The effect might not be active
+      if (!effect.disabled && (effect.parent === this || !effect.isSuppressed) && effect.isTemporary) effects.push(effect);
+    }
+    return effects;
+  }
+  /**
    * @returns {object|false} the Hand of the actor or false if no default hand is set
    */
   getDefaultHand() {
