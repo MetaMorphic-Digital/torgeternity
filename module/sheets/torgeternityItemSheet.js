@@ -122,9 +122,9 @@ export default class TorgeternityItemSheet extends foundry.applications.api.Hand
     }
 
     // Add the dropped item to the list of granted items for this item
-    const grantsItems = Array.from(this.item.system.grantsItems);
-    grantsItems.push(item);
-    await this.item.update({ 'system.grantsItems': grantsItems });
+    const itemsToBestow = Array.from(this.item.system.itemsToBestow);
+    itemsToBestow.push(item);
+    await this.item.update({ 'system.itemsToBestow': itemsToBestow });
   }
 
   /**
@@ -290,7 +290,7 @@ export default class TorgeternityItemSheet extends foundry.applications.api.Hand
  */
   static #onItemDelete(event, button) {
     const itemid = button.closest('.item').dataset.itemId;
-    const grantedItems = this.item.system.grantsItems;
+    const grantedItems = this.item.system.itemsToBestow;
 
     if (!grantedItems) return; // just for safety
 
@@ -300,7 +300,7 @@ export default class TorgeternityItemSheet extends foundry.applications.api.Hand
         break;
       }
     }
-    this.item.update({ 'system.grantsItems': Array.from(grantedItems) });
+    this.item.update({ 'system.itemsToBestow': Array.from(grantedItems) });
   }
 
   /**

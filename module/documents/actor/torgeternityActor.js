@@ -610,9 +610,9 @@ export default class TorgeternityActor extends foundry.documents.Actor {
       // The newly added item might grant more Items automatically
       let newitems = [];
       for (const granter of documents) {
-        for (const itemdata of granter.system.grantsItems) {
+        for (const itemdata of granter.system.itemsToBestow) {
           const newitem = foundry.utils.duplicate(itemdata);
-          newitem.system.grantedBy = granter.id;
+          newitem.system.bestowedBy = granter.id;
           newitems.push(newitem);
         }
       }
@@ -646,7 +646,7 @@ export default class TorgeternityActor extends foundry.documents.Actor {
       }
     } else if (collection === 'items' && parent === this) {
       // See if any items were granted by the Items being deleted.
-      const todelete = this.items.filter(item => item.system.grantedBy && ids.includes(item.system.grantedBy)).map(item => item.id);
+      const todelete = this.items.filter(item => item.system.bestowedBy && ids.includes(item.system.bestowedBy)).map(item => item.id);
       if (todelete.length) this.deleteEmbeddedDocuments('Item', todelete);
     }
   }

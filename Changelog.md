@@ -2,26 +2,30 @@
 
 ## NEXT
 
+### Items Bestow other items
+Any type of Item (not just race) can **bestow** a set of child Items to an Actor:
+- When the bestowing Item is dropped onto an Actor, the bestowed items are automatically added to the same Actor.
+- When the bestowing Item is deleted from the Actor, all items bestowed by that Item are removed from the Actor.
+- The bestowed items can't be deleted from the Actor by a player.
+- If a bestowed item bestows other items, then those will also be added (and so on).
+- **!!! Do NOT create circular loops! There's no protection against them !!!**
+
+### Other Improvements
 - Add 'mindless' defense trait
-- Add 'NONE' option to traits field of Active Effects, to ignore AE if the attacker/defender does have one or more of the lists traits.
+- Add 'NONE' operator to traits field of Active Effects, to ignore AE if the attacker/defender DOES have one or more of the lists traits.
 - Fix name in "exchange cards" dialog.
 - Add exploding 'd20' and 'Bonus Die' roll buttons to the Torg control buttons.
 - Ensure the Foundry server knows about the "good" and "outstanding" HTML fields in powers.
 - The default img for an Active Effect created on an Item is the Item's img.
-- Any type of Item (not just race) can grant a set of child Items to an Actor:
-  - When the main Item is dropped onto an Actor, the granted items are automatically added to the same Actor.
-  - When the main Item is deleted from the Actor, all items granted by that Item are removed from the Actor.
-  - The individual items can't be deleted from the Actor by a player.
+- Item control icons are greyed out on Actor sheet if the player doesn't have the privilege to use the button.
 
 ### Internal Changes
 - Reduce size of Perk storage, and allow unlimited number of enhancements and limitations:
   - replaced `system.pulpPowers.enhancement0x` with `system.enhancemants` array
   - replaced `system.pulpPowers.limitation0x` with `system.limitations` array
-- Added `grantsItems` and `grantedBy` to all Item types:
-  - Merged `system.perksData` and `system.customAttackData` into a single `system.grantsItems` field.
-  - Renamed `system.transferenceID` to `system.grantedBy`.
-  - Race specific code now moved into general Actor embedded item add/delete functions.
-  - Any Item can now automatically grant other items
+- Added `itemsToBestow` and `bestowedBy` to all Item types:
+  - Merged `system.perksData` and `system.customAttackData` into a single `system.itemsToBestow` field.
+  - Renamed `system.transferenceID` to `system.bestowedBy`.
 
 ## 13.29.0 - Card Hands Manager window
 
