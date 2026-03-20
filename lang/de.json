@@ -1168,7 +1168,7 @@
       "psionicPowers": "Psikräfte",
       "quantity": "Anzahl",
       "race": "Volk",
-      "racialPerks": "Volksfähigkeiten",
+      "grantedItems": "Volksfähigkeiten",
       "range": "Reichweite",
       "reconnect": "Ankoppeln",
       "reconnectTooltip": "Abkopplungszustand entfernen",

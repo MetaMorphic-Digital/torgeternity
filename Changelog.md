@@ -8,11 +8,20 @@
 - Add exploding 'd20' and 'Bonus Die' roll buttons to the Torg control buttons.
 - Ensure the Foundry server knows about the "good" and "outstanding" HTML fields in powers.
 - The default img for an Active Effect created on an Item is the Item's img.
+- Any type of Item (not just race) can grant a set of child Items to an Actor:
+  - When the main Item is dropped onto an Actor, the granted items are automatically added to the same Actor.
+  - When the main Item is deleted from the Actor, all items granted by that Item are removed from the Actor.
+  - The individual items can't be deleted from the Actor by a player.
 
 ### Internal Changes
 - Reduce size of Perk storage, and allow unlimited number of enhancements and limitations:
   - replaced `system.pulpPowers.enhancement0x` with `system.enhancemants` array
   - replaced `system.pulpPowers.limitation0x` with `system.limitations` array
+- Added `grantsItems` and `grantedBy` to all Item types:
+  - Merged `system.perksData` and `system.customAttackData` into a single `system.grantsItems` field.
+  - Renamed `system.transferenceID` to `system.grantedBy`.
+  - Race specific code now moved into general Actor embedded item add/delete functions.
+  - Any Item can now automatically grant other items
 
 ## 13.29.0 - Card Hands Manager window
 
@@ -61,12 +70,6 @@ Provide a Hands Manager window, openable by SHIFT-H (or from the Torg Toolbar).
 - "Year 1 Pan Pacifica" game system option wording changed, and when checked the spirit axiom for Pan Pacifica is changed to the new value.
 - Shorter label of "end encounter" button for our French users.
 - Hovering over a token now highlights the combatant in the combat tracker.
-
-### Translations
-
-"psychicDamage": "Psychic Damage"
-"useYear1PPTent.name": "Year-1 Pan-Pacifica Axioms"
-"useYear1PPTent.hint": "Use the Pan-Pacifica Axioms after day 172."
 
 ## 13.27.6 - damageMod for skills
 

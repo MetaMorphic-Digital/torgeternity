@@ -15,7 +15,10 @@ export class BaseItemData extends foundry.abstract.TypeDataModel {
       cosm: new fields.StringField({ initial: 'none', choices: CONFIG.torgeternity.cosmTypes, textSearch: true, required: true, blank: false, nullable: false }),
       description: new fields.HTMLField({ initial: '', textSearch: true }),
       traits: newTraitsField(itemType),
-      axioms: makeAxiomsField()
+      axioms: makeAxiomsField(),
+      //grantsItems: new fields.SetField(new fields.DocumentUUIDField({ nullable: null })),  // id of other items added/removed with this Item
+      grantsItems: new fields.SetField(new fields.TypeDataField({ document: BaseItemData })),  // id of other items added/removed with this Item
+      grantedBy: new fields.DocumentIdField(),  // the id of the other item that automatically added this Item
     };
   }
   /**
@@ -34,6 +37,16 @@ export class BaseItemData extends foundry.abstract.TypeDataModel {
       if (badTraits.length)
         console.warn(`Unsupported trait on ${this.name} discarded: ${badTraits}`)
     }
+    if (!Object.hasOwn(source, 'grantedBy') && Object.hasOwn(source, 'transferenceID')) {
+      source.grantedBy = source.transferenceID;
+      delete source.transferenceID;
+    }
+    if (!source.grantsItems && (Object.hasOwn(source, 'perksData') || Object.hasOwn(source, 'customAttackData'))) {
+      source.grantsItems = (source.perksData ?? []).concat(source.customAttackData ?? []);
+      delete source.perksData;
+      delete source.customAttackData;
+    }
+
     return super.migrateData(source);
   }
 

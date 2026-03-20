@@ -1162,6 +1162,10 @@ dialog.torgeternity:not(.actor, .item) .window-content,
     .item-list .item-controls {
       .item-control {
         margin-right: 2px;
+
+        &[disabled] {
+          color: grey;
+        }
       }
     }
 
@@ -3698,12 +3702,12 @@ document-embed .generalHeader {
     padding: 0 0 0 0;
   }
 
-  .tab.racePerks {
+  .tab.grantedItems {
     row-gap: 0px;
   }
 
   ol.race.perks-list,
-  .racePerks ol {
+  .grantedItems ol {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -3872,7 +3876,7 @@ document-embed .generalHeader {
     }
   }
 
-  .window-content .racePerks {
+  .window-content .grantedItems {
     min-height: 200px;
     margin-top: 10px;
   }

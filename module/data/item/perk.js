@@ -23,7 +23,6 @@ export class PerkItemData extends BaseItemData {
       limitations: new fields.ArrayField(new fields.StringField({ initial: '' })),
       timestaken: new fields.StringField({ initial: '' }),
       secondaryAxiom: new fields.StringField({ initial: 'none' }),
-      transferenceID: new fields.DocumentIdField({ initial: null }), // necessary for saving perks data in race items
     };
   }
 

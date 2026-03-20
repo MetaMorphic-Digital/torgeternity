@@ -546,51 +546,38 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
       }
     }
 
+    if (actor.type !== 'stormknight' || item.type !== 'race')
+      return super._onDropItem(event, item);
+
     // Check for dropping race onto SK
-    if (actor.type === 'stormknight' && item.type === 'race') {
+    await this.deleteRace();
 
-      await this.deleteRace();
+    // Add new race before other work
+    await actor.createEmbeddedDocuments('Item', [item.toObject()]);
 
-      // Add new race and racial abilities
-      let docs = await actor.createEmbeddedDocuments('Item', [
-        item.toObject(),
-        ...item.system.perksData,
-        ...item.system.customAttackData
-      ]);
-      console.log(docs);
+    // Enforce attribute maximums
+    const updates = {};
+    for (const [key, value] of Object.entries(item.system.attributeMaximum)) {
+      if (actor.system.attributes[key].base <= value) continue;
 
-      // Mark items are being from the race
-      const racedoc = docs.shift();
-      for (const item of docs) {
-        await item.update({ 'system.transferenceID': racedoc.id })
-      }
-
-      // Enforce attribute maximums
-      const updates = {};
-      for (const [key, value] of Object.entries(item.system.attributeMaximum)) {
-        if (actor.system.attributes[key].base <= value) continue;
-
-        const proceed = await DialogV2.confirm({
-          window: { title: 'torgeternity.dialogWindow.raceDiminishAttribute.title' },
-          content: game.i18n.format(
-            'torgeternity.dialogWindow.raceDiminishAttribute.maintext',
-            { attribute: game.i18n.localize('torgeternity.attributes.' + key), }
-          ),
-          rejectClose: false,
-          modal: true,
-        });
-        if (proceed) updates[`system.attributes.${key}.base`] = value;
-      }
-      updates['system.details.sizeBonus'] = item.system.size;
-
-      if (item.system.darkvision)
-        updates['prototypeToken.sight.visionMode'] = 'darkvision';
-
-      await actor.update(updates);
-      return item;
+      const proceed = await DialogV2.confirm({
+        window: { title: 'torgeternity.dialogWindow.raceDiminishAttribute.title' },
+        content: game.i18n.format(
+          'torgeternity.dialogWindow.raceDiminishAttribute.maintext',
+          { attribute: game.i18n.localize('torgeternity.attributes.' + key), }
+        ),
+        rejectClose: false,
+        modal: true,
+      });
+      if (proceed) updates[`system.attributes.${key}.base`] = value;
     }
+    updates['system.details.sizeBonus'] = item.system.size;
 
-    return super._onDropItem(event, item);
+    if (item.system.darkvision)
+      updates['prototypeToken.sight.visionMode'] = 'darkvision';
+
+    await actor.update(updates);
+    return item;
   }
 
   /** @inheritdoc */
@@ -1189,18 +1176,7 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
 
   async deleteRace() {
     const oldRace = this.actor.itemTypes.race?.[0];
-    if (oldRace) {
-      // Remove old racial abilities.
-      // It doesn't remove custom attacks!
-      return this.actor.deleteEmbeddedDocuments('Item', [
-        oldRace.id,
-        ...this.actor.items
-          .filter(item => (item.system.transferenceID === oldRace.id) ||
-            (item.type === 'perk' && item.system.category === 'racial') ||
-            (item.type === 'customAttack' && item.name.includes(oldRace.name)))
-          .map(item => item.id),
-      ]);
-    }
+    if (oldRace) return this.actor.deleteEmbeddedDocuments('Item', [oldRace.id]);
   }
 
   /**

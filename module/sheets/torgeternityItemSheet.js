@@ -64,7 +64,7 @@ export default class TorgeternityItemSheet extends foundry.applications.api.Hand
     vehicleAddOn: { template: `systems/torgeternity/templates/items/vehicleAddOn-sheet.hbs`, scrollable: [".scrollable"] },
 
     // not valid Item.type
-    racePerks: { template: `systems/torgeternity/templates/items/race-perks-sheet.hbs`, scrollable: [".scrollable"] }, // TODO
+    grantedItems: { template: `systems/torgeternity/templates/items/race-perks-sheet.hbs`, scrollable: [".scrollable"] }, // TODO
   };
 
   static TABS = {
@@ -73,7 +73,7 @@ export default class TorgeternityItemSheet extends foundry.applications.api.Hand
         { id: 'stats' },
         { id: 'perkEnhancements' },  // perks only
         { id: 'perkLimitations' },   // perks only
-        { id: 'racePerks' },   // perks only
+        { id: 'grantedItems' },
         { id: 'effects' },
       ],
       initial: 'stats',
@@ -92,7 +92,7 @@ export default class TorgeternityItemSheet extends foundry.applications.api.Hand
 
   /** @inheritdoc */
   _canDragDrop(selector) {
-    return this.isEditable && this.item.type === 'race';
+    return this.isEditable;
   }
 
   /** @inheritdoc */
@@ -106,44 +106,25 @@ export default class TorgeternityItemSheet extends foundry.applications.api.Hand
 
   /** @inheritdoc */
   async _onDrop(event) {
-    // Note, Item#_onDrop does not exist
-    const data = foundry.applications.ux.TextEditor.getDragEventData(event);
-    const droppedDocument = await fromUuid(data.uuid);
-    if (!droppedDocument || this.item.type !== 'race') return;
+    const item = await fromUuid(foundry.applications.ux.TextEditor.getDragEventData(event)?.uuid, { strict: false });
+    if (!(item instanceof foundry.documents.Item)) return;
 
-    if (droppedDocument.type === 'perk')
-      return this.dropPerkOnRace(droppedDocument);
-    else if (droppedDocument.type === 'customAttack')
-      return this.dropAttackOnRace(droppedDocument);
-  }
 
-  async dropPerkOnRace(perk) {
-    if (perk.system.category !== 'racial') {
-      ui.notifications.error(
-        game.i18n.format('torgeternity.notifications.notAPerkItem', {
-          a: game.i18n.localize('torgeternity.perkTypes.' + perk.system.category),
-        })
-      );
-      return;
+    // Some special rules about dropping onto a Race item
+    if (this.item.type === 'race') {
+      // A race can't add another race!
+      if (item.type === 'race') return;
+
+      if (item.type === 'perk' && item.system.category !== 'racial')
+        return ui.notifications.error(game.i18n.format('torgeternity.notifications.notAPerkItem',
+          { a: game.i18n.localize('torgeternity.perkTypes.' + item.system.category) })
+        );
     }
 
-    const currentPerks =
-      this.item.system.perksData instanceof Set ? this.item.system.perksData : new Set();
-
-    currentPerks.add(perk);
-
-    await this.item.update({ 'system.perksData': Array.from(currentPerks) });
-  }
-
-  async dropAttackOnRace(attack) {
-    const currentAttacks =
-      this.item.system.customAttackData instanceof Set
-        ? this.item.system.customAttackData
-        : new Set();
-
-    currentAttacks.add(attack);
-
-    await this.item.update({ 'system.customAttackData': Array.from(currentAttacks) });
+    // Add the dropped item to the list of granted items for this item
+    const grantsItems = Array.from(this.item.system.grantsItems);
+    grantsItems.push(item);
+    await this.item.update({ 'system.grantsItems': grantsItems });
   }
 
   /**
@@ -308,28 +289,18 @@ export default class TorgeternityItemSheet extends foundry.applications.api.Hand
  * @this {TorgeternityItemSheet}
  */
   static #onItemDelete(event, button) {
-    if (this.item.type === 'race') {
-      // Deleting an item from a race Item
-      const inheritedType = button.closest('.item').dataset.inheritedtype;
-      const itemid = button.closest('.item').dataset.itemId;
-      const raceItem = this.item;
-      const allThingsOfRaceItem =
-        inheritedType === 'perk' ? raceItem.system.perksData : raceItem.system.customAttackData;
+    const itemid = button.closest('.item').dataset.itemId;
+    const grantedItems = this.item.system.grantsItems;
 
-      if (!allThingsOfRaceItem) return; // just for safety
+    if (!grantedItems) return; // just for safety
 
-      for (const thing of allThingsOfRaceItem) {
-        if (thing.system.transferenceID === itemid) {
-          allThingsOfRaceItem.delete(thing);
-          break;
-        }
-      }
-      if (inheritedType === 'perk') {
-        raceItem.update({ 'system.perksData': Array.from(allThingsOfRaceItem) });
-      } else {
-        raceItem.update({ 'system.customAttackData': Array.from(allThingsOfRaceItem) });
+    for (const itemdata of grantedItems) {
+      if (itemdata._id === itemid) {
+        grantedItems.delete(itemdata);
+        break;
       }
     }
+    this.item.update({ 'system.grantsItems': Array.from(grantedItems) });
   }
 
   /**
@@ -349,13 +320,13 @@ export default class TorgeternityItemSheet extends foundry.applications.api.Hand
     // Decide which tabs are required
     switch (this.document.type) {
       case 'perk':
-        options.parts = ['header', 'tabs', 'perk', 'perkEnhancements', 'perkLimitations', 'effects'];
+        options.parts = ['header', 'tabs', 'perk', 'perkEnhancements', 'perkLimitations', 'grantedItems', 'effects'];
         break;
       case 'race':
-        options.parts = ['header', 'tabs', 'race', 'racePerks'];
+        options.parts = ['header', 'tabs', 'race', 'grantedItems'];
         break;
       default:
-        options.parts = ['header', 'tabs', this.document.type, 'effects'];
+        options.parts = ['header', 'tabs', this.document.type, 'grantedItems', 'effects'];
         break;
     }
 
@@ -413,23 +384,26 @@ export default class TorgeternityItemSheet extends foundry.applications.api.Hand
             stats: { group: "primary", id: "stats", label: 'torgeternity.sheetLabels.stats' },
             perkEnhancements: { group: "primary", id: "perkEnhancements", label: 'torgeternity.sheetLabels.enhancements', style: "font-size:10px" },
             perkLimitations: { group: "primary", id: "perkLimitations", label: 'torgeternity.sheetLabels.limitations' },
+            grantedItems: { group: "primary", id: "grantedItems", label: 'torgeternity.sheetLabels.grantedItems' },
             effects: { group: "primary", id: "effects", label: 'torgeternity.sheetLabels.effects' },
           };
         else
           context.tabs = {
             stats: { group: "primary", id: "stats", label: 'torgeternity.sheetLabels.stats' },
+            grantedItems: { group: "primary", id: "grantedItems", label: 'torgeternity.sheetLabels.grantedItems' },
             effects: { group: "primary", id: "effects", label: 'torgeternity.sheetLabels.effects' },
           };
         break;
       case 'race':
         context.tabs = {
           stats: { group: "primary", id: "stats", label: 'torgeternity.sheetLabels.stats' },
-          racePerks: { group: "primary", id: "racePerks", label: 'torgeternity.sheetLabels.racialPerks' },
+          grantedItems: { group: "primary", id: "grantedItems", label: 'torgeternity.sheetLabels.grantedItems' },
         }
         break;
       default:
         context.tabs = {
           stats: { group: "primary", id: "stats", label: 'torgeternity.sheetLabels.stats' },
+          grantedItems: { group: "primary", id: "grantedItems", label: 'torgeternity.sheetLabels.grantedItems' },
           effects: { group: "primary", id: "effects", label: 'torgeternity.sheetLabels.effects' },
         };
         break;

@@ -1171,7 +1171,7 @@
       "psionicPowers": "Pouvoirs psioniques",
       "quantity": "Quantité",
       "race": "Race",
-      "racialPerks": "Avantages raciaux",
+      "grantedItems": "Avantages raciaux",
       "range": "Portée",
       "reconnect": "Reconnection",
       "reconnectTooltip": "Supprime la condition Déconnecté",

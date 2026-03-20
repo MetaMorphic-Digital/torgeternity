@@ -602,6 +602,24 @@ export default class TorgeternityActor extends foundry.documents.Actor {
     return ActiveEffect.implementation.create(effect, { parent: this });
   }
 
+  _onCreateDescendantDocuments(parent, collection, documents, data, options, userId) {
+    super._onCreateDescendantDocuments(parent, collection, documents, data, options, userId);
+    if (game.user.id !== userId) return;
+
+    if (collection === 'items' && parent === this) {
+      // The newly added item might grant more Items automatically
+      let newitems = [];
+      for (const granter of documents) {
+        for (const itemdata of granter.system.grantsItems) {
+          const newitem = foundry.utils.duplicate(itemdata);
+          newitem.system.grantedBy = granter.id;
+          newitems.push(newitem);
+        }
+      }
+      if (newitems.length) this.createEmbeddedDocuments('Item', newitems);
+    }
+  }
+
   /**
    * When a 'concentration' status is deleted from an Actor, look for any AEs on other actors
    * which have 'system.concentratingId' set to the UUID of the 'concentration' status AE.
@@ -615,7 +633,10 @@ export default class TorgeternityActor extends foundry.documents.Actor {
    * @returns 
    */
   _onDeleteDescendantDocuments(parent, collection, documents, ids, options, userId) {
-    if (game.user.isActiveGM && collection === 'effects') {
+    super._onDeleteDescendantDocuments(parent, collection, documents, ids, options, userId);
+    if (game.user.id !== userId) return;
+
+    if (collection === 'effects') {
       const concIds = documents.filter(eft => eft.statuses.has('concentrating')).map(doc => doc.uuid).filter(uuid => !!uuid);
       if (concIds.length) {
         for (const actor of game.actors)
@@ -623,8 +644,11 @@ export default class TorgeternityActor extends foundry.documents.Actor {
             if (effect.system.concentratingId && concIds.includes(effect.system.concentratingId))
               effect.delete();
       }
+    } else if (collection === 'items' && parent === this) {
+      // See if any items were granted by the Items being deleted.
+      const todelete = this.items.filter(item => item.system.grantedBy && ids.includes(item.system.grantedBy)).map(item => item.id);
+      if (todelete.length) this.deleteEmbeddedDocuments('Item', todelete);
     }
-    return super._onDeleteDescendantDocuments(parent, collection, documents, ids, options, userId);
   }
 
   /**

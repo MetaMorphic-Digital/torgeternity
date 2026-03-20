@@ -1,69 +1,26 @@
-<section class="tab racePerks scrollable {{tab.cssClass}}" data-group="{{tab.group}}" , data-tab="{{tab.id}}">
-  {{#if item.system.perksData.size}}
-    <div class="list-section-heading"> {{localize "torgeternity.sheetLabels.perks"}}</div>
-    <ol class="race perks-list">
-      {{#each item.system.perksData as |perk|}}
-        <li class="item block" data-item-id="{{perk.system.transferenceID}}" data-inheritedType="perk">
-          <div class="item-row flexrow">
-            <img src="{{perk.img}}" data-tooltip="{{perk.name}}">
-            <a class="item-name">{{perk.name}}</a>
-            <div class="item-controls">
-              <a class="item-control item-delete" data-action="itemDelete"
-                data-tooltip="{{localize 'torgeternity.iconeTitles.delete'}}">
-                <i class="fas fa-trash"></i>
-              </a>
+<section class="tab grantedItems scrollable {{tab.cssClass}}" data-group="{{tab.group}}" , data-tab="{{tab.id}}">
+  <ol class="race perks-list">
+    {{#each item.system.grantsItems as |perk|}}
+      <li class="item block" data-item-id="{{perk._id}}">
+        <div class="item-row flexrow">
+          <img src="{{perk.img}}" data-tooltip="{{perk.name}}">
+          <a class="item-name">{{perk.name}}</a>
+          <div class="item-controls">
+            <a class="item-control item-delete" data-action="itemDelete"
+              data-tooltip="{{localize 'torgeternity.iconeTitles.delete'}}">
+              <i class="fas fa-trash"></i>
+            </a>
+          </div>
+        </div>
+        <div class="item-detail">
+          <div class="item-dropdown-description">
+            {{{perk.system.description}}}
+            <div class="item-dropdown-extras">
+              {{localize "torgeternity.gear.cosm"}}: {{localize (concat "torgeternity.cosms." perk.system.cosm)}}
             </div>
           </div>
-          <div class="item-detail">
-            <div class="item-dropdown-description">
-              {{{perk.system.description}}}
-              <div class="item-dropdown-extras">
-                {{localize "torgeternity.gear.cosm"}}: {{localize (concat "torgeternity.cosms." perk.system.cosm)}}
-              </div>
-            </div>
-          </div>
-        </li>
-      {{/each}}
-    </ol>
-  {{else}}
-    <div class="list-section-heading">{{localize "torgeternity.sheetLabels.noPerksAdded"}}</div>
-  {{/if}}
-  {{#if item.system.customAttackData.size}}
-    <div class="list-section-heading">{{localize "torgeternity.sheetLabels.customAttacks"}}</div>
-    <ol class="race perks-list">
-      {{#each item.system.customAttackData as |attack|}}
-        <li class="item block" data-item-id="{{attack.system.transferenceID}}" data-inheritedType="attack">
-          <div class="item-row flexrow">
-            <img src="{{attack.img}}" data-tooltip="{{attack.name}}">
-            <a class="item-name">{{attack.name}}</a>
-            <div class="item-controls">
-              <a class="item-control item-delete" data-action="itemDelete"
-                data-tooltip="{{localize 'torgeternity.iconeTitles.delete'}}">
-                <i class="fas fa-trash"></i>
-              </a>
-            </div>
-          </div>
-          <div class="item-detail">
-            <div class="item-dropdown-description">
-              {{{attack.system.description}}}
-              <div class="item-dropdown-extras">
-                {{localize "torgeternity.powers.skill"}}:
-                {{localize (concat "torgeternity.skills." attack.system.attackWith)}}
-              </div>
-              <div class="item-dropdown-extras">
-                {{localize "torgeternity.gear.damageType"}}:
-                {{localize (concat "torgeternity.damageTypes." attack.system.damageType)}}
-              </div>
-              <div class="item-dropdown-extras">
-                {{localize "torgeternity.gear.damage"}}: {{attack.system.damage}}
-              </div>
-              <div class="item-dropdown-extras">
-                {{localize "torgeternity.gear.ap"}}: {{attack.system.ap}}
-              </div>
-            </div>
-          </div>
-        </li>
-      {{/each}}
-    </ol>
-  {{/if}}
+        </div>
+      </li>
+    {{/each}}
+  </ol>
 </section>
