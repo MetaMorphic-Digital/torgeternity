@@ -8,6 +8,11 @@
 - Add exploding 'd20' and 'Bonus Die' roll buttons to the Torg control buttons.
 - Ensure the Foundry server knows about the "good" and "outstanding" HTML fields in powers.
 
+### Internal Changes
+- Reduce size of Perk storage, and allow unlimited number of enhancements and limitations:
+  - replaced `system.pulpPowers.enhancement0x` with `system.enhancemants` array
+  - replaced `system.pulpPowers.limitation0x` with `system.limitations` array
+
 ## 13.29.0 - Card Hands Manager window
 
 ### Hands Viewer/Manager

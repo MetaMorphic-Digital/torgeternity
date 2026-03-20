@@ -206,9 +206,9 @@ export default class TorgeternityItemSheet extends foundry.applications.api.Hand
  * @this {TorgeternityItemSheet}
  */
   static #onAddEnhancement(event, button) {
-    const currentShown = this.document.system.pulpPowers.enhancementNumber;
-    const newShown = currentShown < 15 ? currentShown + 1 : currentShown;
-    this.item.update({ 'system.pulpPowers.enhancementNumber': newShown });
+    const newEnhancements = foundry.utils.duplicate(this.item.system.enhancements);
+    newEnhancements.push({ taken: false, title: '', description: '' });
+    this.item.update({ 'system.enhancements': newEnhancements });
   }
 
   /**
@@ -218,9 +218,9 @@ export default class TorgeternityItemSheet extends foundry.applications.api.Hand
    * @this {TorgeternityItemSheet}
    */
   static #onRemoveEnhancement(event, button) {
-    const currentShown = this.document.system.pulpPowers.enhancementNumber;
-    const newShown = 0 < currentShown ? currentShown - 1 : currentShown;
-    this.item.update({ 'system.pulpPowers.enhancementNumber': newShown });
+    const newEnhancements = foundry.utils.duplicate(this.item.system.enhancements);
+    newEnhancements.pop();
+    this.item.update({ 'system.enhancements': newEnhancements });
   }
 
   /**
@@ -230,9 +230,9 @@ export default class TorgeternityItemSheet extends foundry.applications.api.Hand
  * @this {TorgeternityItemSheet}
  */
   static #onAddLimitation(event, button) {
-    const currentShown = this.document.system.pulpPowers.limitationNumber;
-    const newShown = currentShown < 10 ? currentShown + 1 : currentShown;
-    this.item.update({ 'system.pulpPowers.limitationNumber': newShown });
+    const newLimitations = foundry.utils.duplicate(this.item.system.limitations);
+    newLimitations.push('');
+    this.item.update({ 'system.limitations': newLimitations });
   }
 
   /**
@@ -242,9 +242,9 @@ export default class TorgeternityItemSheet extends foundry.applications.api.Hand
  * @this {TorgeternityItemSheet}
  */
   static #onRemoveLimitation(event, button) {
-    const currentShown = this.document.system.pulpPowers.limitationNumber;
-    const newShown = 0 < currentShown ? currentShown - 1 : currentShown;
-    this.item.update({ 'system.pulpPowers.limitationNumber': newShown });
+    const newLimitations = foundry.utils.duplicate(this.item.system.limitations);
+    newLimitations.pop();
+    this.item.update({ 'system.limitations': newLimitations });
   }
 
   /**

@@ -15,95 +15,12 @@ export class PerkItemData extends BaseItemData {
       category: new fields.StringField({ initial: 'special', choices: CONFIG.torgeternity.perkTypes, textSearch: true }),
       prerequisites: new fields.StringField({ initial: '' }),
       generalContradiction: new fields.BooleanField({ initial: false }),
-      pulpPowers: new fields.SchemaField({
-        enhancement01: new fields.SchemaField({
-          description: new fields.StringField({ initial: '' }),
-          taken: new fields.BooleanField({ initial: false }),
-          title: new fields.StringField({ initial: '' }),
-        }),
-        enhancement02: new fields.SchemaField({
-          description: new fields.StringField({ initial: '' }),
-          taken: new fields.BooleanField({ initial: false }),
-          title: new fields.StringField({ initial: '' }),
-        }),
-        enhancement03: new fields.SchemaField({
-          description: new fields.StringField({ initial: '' }),
-          taken: new fields.BooleanField({ initial: false }),
-          title: new fields.StringField({ initial: '' }),
-        }),
-        enhancement04: new fields.SchemaField({
-          description: new fields.StringField({ initial: '' }),
-          taken: new fields.BooleanField({ initial: false }),
-          title: new fields.StringField({ initial: '' }),
-        }),
-        enhancement05: new fields.SchemaField({
-          description: new fields.StringField({ initial: '' }),
-          taken: new fields.BooleanField({ initial: false }),
-          title: new fields.StringField({ initial: '' }),
-        }),
-        enhancement06: new fields.SchemaField({
-          description: new fields.StringField({ initial: '' }),
-          taken: new fields.BooleanField({ initial: false }),
-          title: new fields.StringField({ initial: '' }),
-        }),
-        enhancement07: new fields.SchemaField({
-          description: new fields.StringField({ initial: '' }),
-          taken: new fields.BooleanField({ initial: false }),
-          title: new fields.StringField({ initial: '' }),
-        }),
-        enhancement08: new fields.SchemaField({
-          description: new fields.StringField({ initial: '' }),
-          taken: new fields.BooleanField({ initial: false }),
-          title: new fields.StringField({ initial: '' }),
-        }),
-        enhancement09: new fields.SchemaField({
-          description: new fields.StringField({ initial: '' }),
-          taken: new fields.BooleanField({ initial: false }),
-          title: new fields.StringField({ initial: '' }),
-        }),
-        enhancement10: new fields.SchemaField({
-          description: new fields.StringField({ initial: '' }),
-          taken: new fields.BooleanField({ initial: false }),
-          title: new fields.StringField({ initial: '' }),
-        }),
-        enhancement11: new fields.SchemaField({
-          description: new fields.StringField({ initial: '' }),
-          taken: new fields.BooleanField({ initial: false }),
-          title: new fields.StringField({ initial: '' }),
-        }),
-        enhancement12: new fields.SchemaField({
-          description: new fields.StringField({ initial: '' }),
-          taken: new fields.BooleanField({ initial: false }),
-          title: new fields.StringField({ initial: '' }),
-        }),
-        enhancement13: new fields.SchemaField({
-          description: new fields.StringField({ initial: '' }),
-          taken: new fields.BooleanField({ initial: false }),
-          title: new fields.StringField({ initial: '' }),
-        }),
-        enhancement14: new fields.SchemaField({
-          description: new fields.StringField({ initial: '' }),
-          taken: new fields.BooleanField({ initial: false }),
-          title: new fields.StringField({ initial: '' }),
-        }),
-        enhancement15: new fields.SchemaField({
-          description: new fields.StringField({ initial: '' }),
-          taken: new fields.BooleanField({ initial: false }),
-          title: new fields.StringField({ initial: '' }),
-        }),
-        enhancementNumber: new fields.NumberField({ initial: 0, integer: true }),
-        limitation01: new fields.StringField({ initial: '' }),
-        limitation02: new fields.StringField({ initial: '' }),
-        limitation03: new fields.StringField({ initial: '' }),
-        limitation04: new fields.StringField({ initial: '' }),
-        limitation05: new fields.StringField({ initial: '' }),
-        limitation06: new fields.StringField({ initial: '' }),
-        limitation07: new fields.StringField({ initial: '' }),
-        limitation08: new fields.StringField({ initial: '' }),
-        limitation09: new fields.StringField({ initial: '' }),
-        limitation10: new fields.StringField({ initial: '' }),
-        limitationNumber: new fields.NumberField({ initial: 0, integer: true }),
-      }),
+      enhancements: new fields.ArrayField(new fields.SchemaField({
+        description: new fields.StringField({ initial: '' }),
+        taken: new fields.BooleanField({ initial: false }),
+        title: new fields.StringField({ initial: '' }),
+      })),
+      limitations: new fields.ArrayField(new fields.StringField({ initial: '' })),
       timestaken: new fields.StringField({ initial: '' }),
       secondaryAxiom: new fields.StringField({ initial: 'none' }),
       transferenceID: new fields.DocumentIdField({ initial: null }), // necessary for saving perks data in race items
@@ -111,15 +28,30 @@ export class PerkItemData extends BaseItemData {
   }
 
   static migrateData(source) {
-    if (source.secondaryAxiom?.selected) {
+    if (Object.hasOwn(source, 'secondaryAxiom') && source.secondaryAxiom?.selected) {
       if (source.secondaryAxiom.selected !== 'none') {
         if (!source.axioms) source.axioms = {};
         source.axioms[source.secondaryAxiom.selected] = source.secondaryAxiom.value;
       }
       source.secondaryAxiom = source.secondaryAxiom.selected;
     }
-    if (!CONFIG.torgeternity.perkTypes[source.category]) {
+    if (Object.hasOwn(source, 'category') && !CONFIG.torgeternity.perkTypes[source.category]) {
       source.category = source.category.toLowerCase();
+    }
+    if (Object.hasOwn(source, 'pulpPowers')) {
+      if (!source.enhancements && Object.hasOwn(source.pulpPowers, 'enhancementNumber')) {
+        source.enhancements = [];
+        for (let idx = 1; idx <= source.pulpPowers.enhancementNumber; idx++)
+          source.enhancements.push(source.pulpPowers[`enhancement${idx.paddedString(2)}`]);
+      }
+
+      if (!source.limitations && Object.hasOwn(source.pulpPowers, 'limitationNumber')) {
+        source.limitations = [];
+        for (let idx = 1; idx <= source.pulpPowers.limitationNumber; idx++)
+          source.limitations.push(source.pulpPowers[`limitation${idx.paddedString(2)}`]);
+      }
+
+      delete source.pulpPowers;
     }
     return super.migrateData(source);
   }
