@@ -7,6 +7,7 @@
 - Fix name in "exchange cards" dialog.
 - Add exploding 'd20' and 'Bonus Die' roll buttons to the Torg control buttons.
 - Ensure the Foundry server knows about the "good" and "outstanding" HTML fields in powers.
+- The default img for an Active Effect created on an Item is the Item's img.
 
 ### Internal Changes
 - Reduce size of Perk storage, and allow unlimited number of enhancements and limitations:
