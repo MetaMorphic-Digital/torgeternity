@@ -1,6 +1,6 @@
 <div class="torg-control-buttons flexcol">
   {{#each buttons as |button|}}
-    <button type="checkbox" name="{{button.name}}" class="ui-control toggle" data-action="onPress"
+    <button type="checkbox" name="{{button.name}}" class="ui-control {{button.type}}" data-action="onPress"
       data-tooltip="{{localize button.label}}" data-tooltip-direction="{{@root.tooltipDirection}}">
       <i class="{{button.icon}}" inert></i>
     </button>
