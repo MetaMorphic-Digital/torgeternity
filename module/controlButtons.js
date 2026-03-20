@@ -54,7 +54,28 @@ export class TorgControlButtons extends HandlebarsApplicationMixin(ApplicationV2
         icon: 'fa-solid fa-bottle-water',
         visible: () => game.user.isGM,
         callback: (button, active) => setWindowState(ui.macroHub, active),
-      }]
+      },
+      {
+        name: 'd20poss',
+        label: 'torgeternity.sheetLabels.roll',
+        icon: 'fa-solid fa-dice-d20',
+        visible: () => game.user.isGM,
+        callback: async (button, active) => {
+          const diceroll = await foundry.dice.Roll.create('1d20x10x20').evaluate();
+
+          return ChatMessage.create({
+            rolls: diceroll
+          })
+        }
+      },
+      {
+        name: 'bonusDie',
+        label: 'torgeternity.chatText.bonusDice',
+        icon: 'fa-solid fa-dice-five',
+        visible: () => game.user.isGM,
+        callback: (button, active) => game.torgeternity.macros.rollBDs()
+      },
+    ]
   }
 
   static PARTS = {
