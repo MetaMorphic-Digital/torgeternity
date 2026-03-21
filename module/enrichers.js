@@ -413,7 +413,6 @@ async function _onClickInlineBuff(event) {
   const actors = getActors();
   if (!actors) return ui.notifications.info('torgeternity.notifications.noTokenNorActor', { localize: true });
   for (const actor of actors) {
-    //console.log(`Setting '${actor.name}'`, effectdata);
     actor.createEmbeddedDocuments('ActiveEffect', [effectdata]);
   }
 }

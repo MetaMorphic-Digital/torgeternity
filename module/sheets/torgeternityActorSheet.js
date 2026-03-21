@@ -212,7 +212,6 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
       const failsActor = item.isContradiction(actorAxioms);
       const failsCosm = item.isGeneralContradiction(game.scenes.current) || item.isContradiction(zoneAxioms);
       item.contradictionCase = (failsActor && failsCosm) ? '4' : (failsActor || failsCosm) ? '1' : '';
-      //console.log(`${item.name} : actor ${failsActor}, cosm ${failsCosm} = "${item.contradictionCase}"`)
     }
 
     context.showPiety = game.settings.get('torgeternity', 'showPiety');

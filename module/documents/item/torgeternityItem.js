@@ -247,7 +247,6 @@ export default class TorgeternityItem extends foundry.documents.Item {
   }
 
   async _buildEmbedHTML(config, options) {
-    console.log('Item._buildEmbedHTML', { item: this, config, options });
     const enriched = await this.#encodeString(options);
     if (!enriched) return undefined;
     const container = document.createElement("div");

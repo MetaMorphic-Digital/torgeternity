@@ -106,8 +106,6 @@ export default class TorgeternityScene extends foundry.documents.Scene {
           (pointDarknessLevel >= dimLevel) ? 'dim' :
             null;
 
-    //console.log('scene darkness: ', sceneLevel);
-
     // If inside a darkness "light", then that overrides any other lighting.
     const tokcent = Object.values(token.center);
     if (canvas.effects.darknessSources.some((src) => src.active && !src.isPreview && src.shape.contains(...tokcent)))
@@ -121,7 +119,6 @@ export default class TorgeternityScene extends foundry.documents.Scene {
     let proximityDimLight = false;
     const lights = canvas.effects.lightSources.filter((src) => !(src instanceof foundry.canvas.sources.GlobalLightSource) && src.active && !src.isPreview && src.shape.contains(...tokcent));
     if (lights.length) {
-      //console.log(`${token.name}: lights.length=${lights.length}`);
       // Use the bounds of the bright part of the light, accounting for walls.
       const inBright = lights.some(light => {
         const { data: { x, y }, ratio } = light;

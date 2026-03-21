@@ -508,7 +508,6 @@ export default class TorgeternityActor extends foundry.documents.Actor {
     if (!tokens) return;
 
     const darkness = scene.getTokenDarknessPenalty(tokens[0]);
-    //console.log(`${this.name}: new darkness state = ${darkness}`)
 
     for (const status of Object.keys(CONFIG.torgeternity.darknessModifiers)) {
       if (status === 'none') continue;

@@ -35,7 +35,6 @@ export default class TorgEternityToken extends foundry.canvas.placeables.Token {
     if (this.scene !== game.scenes.active || !this.scene.tokenVision) return;
     if (this.isDragged || this.isPreview || !game.user.isActiveGM) return;
 
-    //console.log(`_refreshVisibility ${this.name}`)
     // `this.actor` is null during world startup.
     this.actor?.debounceDarkness(this.scene);
   }
@@ -106,8 +105,6 @@ export default class TorgEternityToken extends foundry.canvas.placeables.Token {
     // Account for distance needing to be from edge to edge of token, with touching tokens having a distance of 1.
     distance -= (TorgEternityToken.#originToken.height + this.document.height) / 2 - 1;
     if (distance < 0) distance = 0;
-
-    //console.log(`show distance from ${TorgEternityToken.#originToken.name} to ${token.name}`, distance)
 
     // Create the label HTML
     const distLabel = distance.toNearest(0.1).toLocaleString(game.i18n.lang);

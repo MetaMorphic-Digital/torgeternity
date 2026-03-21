@@ -109,7 +109,6 @@ export class TorgControlButtons extends HandlebarsApplicationMixin(ApplicationV2
   }
 
   static async #onPress(event, button) {
-    console.log('onPress', event, button);
     let newstate = false;
     if (button.classList.contains('toggle'))
       newstate = button.getAttribute('aria-pressed') === 'true' ? false : true;

@@ -315,7 +315,6 @@ export class HandsManager extends HandlebarsApplicationMixin(ApplicationV2) {
    * @returns 
    */
   async gmExchangeCards(data) {
-    console.log('GM: swapCards');
     const stack1 = game.cards.get(data.stack1);
     const stack2 = game.cards.get(data.stack2);
     if (!stack1 || !stack2) return console.warn('Failed to find both card stacks');

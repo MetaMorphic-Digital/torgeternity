@@ -198,9 +198,6 @@ export default class TorgCombat extends Combat {
    * Set the effects of the current drama card
    */
   async #setDramaEffects(card) {
-    //console.log(this.conflictLineText)
-    //console.log(`DSR: '${this.dsrText}'   Actions: '${this.approvedActionsText}'`);
-
     await this.setFlag('torgeternity', 'activeCard', card ? card.faces[0].img : '');
 
     // Sort combatants based on which faction is first

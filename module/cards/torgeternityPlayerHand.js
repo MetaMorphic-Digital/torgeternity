@@ -365,7 +365,6 @@ export default class torgeternityPlayerHand extends foundry.applications.sheets.
    */
   static #onOpenDeck(event, button) {
     const card = this.document.cards.get(button.closest("li[data-card-id]")?.dataset.cardId);
-    console.log('open deck for', card)
     card?.source.sheet.render({ force: true })
   }
   /**
