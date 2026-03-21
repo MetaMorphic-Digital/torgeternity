@@ -3705,6 +3705,11 @@ document-embed .generalHeader {
     }
   }
 
+
+  .item-list {
+    list-style: none;
+  }
+
   .tab.bestowedItems {
     row-gap: 0px;
   }
@@ -4593,7 +4598,7 @@ h4 {
 }
 
 .application.torgeternity textarea {
-  min-height: 50px;
+  min-height: 5em;
 }
 
 .add-enhancement,

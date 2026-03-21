@@ -8,7 +8,7 @@ Any type of Item (not just race) can **bestow** a set of child Items to an Actor
 - When the bestowing Item is deleted from the Actor, all items bestowed by that Item are removed from the Actor.
 - The bestowed items can't be deleted from the Actor by a player.
 - If a bestowed item bestows other items, then those will also be added (and so on).
-- **!!! Do NOT create circular loops! There's no protection against them !!!**
+- (Note: bestowed items are stored on the actual bestowing item, so there's no possibility of creating infinite loops.)
 
 ### Other Improvements
 - Add 'mindless' defense trait
