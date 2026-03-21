@@ -365,6 +365,9 @@ export default class TorgeternityItemSheet extends foundry.applications.api.Hand
       item.traitDesc = Array.from(item.system.traits.map(trait => game.i18n.localize(`torgeternity.traits.${trait}`))).join(' / ');
     }
     context.itemsToBestow = Array.from(context.itemsToBestow);
+    // Can the user modify the list of bestowed items on this item?
+    // (not if the item is already on an actor.)
+    context.canModifyBestow = !(this.item.parent instanceof foundry.documents.Actor);
 
     context.config = CONFIG.torgeternity;
 

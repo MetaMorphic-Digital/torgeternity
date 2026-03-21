@@ -78,7 +78,6 @@ export default class torgeternitySceneConfig extends foundry.applications.sheets
     const rendered = await super._renderHTML(context, _options);
     if (!game.settings.get('torgeternity', 'autoDarknessPenalty')) return rendered;
 
-    //console.log(context, options, html);
     const tab = rendered.lighting || rendered.visibility;
     if (!tab) return rendered;
 

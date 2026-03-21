@@ -6,6 +6,7 @@
 Any type of Item (not just race) can **bestow** a set of child Items to an Actor:
 - When the bestowing Item is dropped onto an Actor, the bestowed items are automatically added to the same Actor.
 - When the bestowing Item is deleted from the Actor, all items bestowed by that Item are removed from the Actor.
+- If the bestowing Item is on an Actor, then the list of bestowed items can't be changed on the Item. (You would need to delete it and replace it with a modified version.)
 - The bestowed items can't be manually deleted from the Actor.
 - If a bestowed item bestows other items, then those will also be added (and so on).
 - Bestowed item details are copied when the item is dragged onto the parent (bestowing) Item. Thus if you make changes to the child Item you will need to replace the copy on the bestowing item.

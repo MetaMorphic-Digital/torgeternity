@@ -19,12 +19,14 @@
           <div class="item-row flexrow">
             <img src="{{item.img}}" data-tooltip="{{item.name}}">
             <a class="item-name" data-action="itemName">{{item.name}}</a>
-            <div class="item-controls">
-              <a class="item-control item-delete" data-action="itemDelete" {{disabled (not @root.editable)}}
-                data-tooltip="{{localize 'torgeternity.iconeTitles.delete'}}">
-                <i class="fas fa-trash"></i>
-              </a>
-            </div>
+            {{#if @root.canModifyBestow}}
+              <div class="item-controls">
+                <a class="item-control item-delete" data-action="itemDelete" {{disabled (not @root.editable)}}
+                  data-tooltip="{{localize 'torgeternity.iconeTitles.delete'}}">
+                  <i class="fas fa-trash"></i>
+                </a>
+              </div>
+            {{/if}}
           </div>
           <div class="item-detail">
             <div class="item-dropdown-description">

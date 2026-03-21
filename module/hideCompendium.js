@@ -22,7 +22,6 @@ export function initHideCompendium() {
     for (const element of html.querySelectorAll('li.compendium>a.compendium-name')) {
       for (const key of langKeys) {
         if (element.innerText.includes(key)) {
-          //console.log(`hiding entry`)
           element.parentElement.hidden = true;
         }
       }
