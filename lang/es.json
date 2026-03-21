@@ -52,7 +52,7 @@
       },
       "match": {
         "and": "Todos",
-        "not": "NONE",
+        "not": "Ninguno",
         "or": "Cualquiera"
       },
       "FIELDS": {
@@ -75,6 +75,10 @@
         "combatToggle": {
           "label": "Mostrar como opción de combate",
           "hint": "Mostrar este efecto en la sección de Ataques y poderes de la hoja de actor para poder acceder a él más rápido activando la opción"
+        },
+        "itemsToBestow": {
+          "label": "Objeto a otorgar",
+          "hint": "Arrastra un objeto a este campo para hacer que el objeto aparezca en el actor mientras conserve este Efecto activo."
         },
         "applyIfAttackTrait": {
           "label": "Aplicar si el rasgo del atacante es",
@@ -1034,8 +1038,8 @@
       "backgroundDescription": "Trasfondo",
       "baseAttribute": "Atrib. Base",
       "baseRoll": "Tirar",
-      "bestowedBy": "Bestowed By",
-      "bestowedItems": "Bestows",
+      "bestowedBy": "Otorgado por",
+      "bestowedItems": "Otorga",
       "blastRadius": "Radio de Estallido",
       "blindFire": "Fuego a ciegas",
       "blindFireTooltip": "Solo se conoce la situación general del objetivo",
@@ -1111,6 +1115,7 @@
       "implant": "Implante",
       "implants": "Implantes",
       "inactiveEffects": "Efecto inactivo",
+      "inheritance": "Herencia",
       "inputExisting": "Valor directo",
       "inputExistingTooltip": "Elige entre (1) tirar para obtener una bonificación o (2) introducir una bonificación previamente generado al intentar una acción múltiple.",
       "inputExistingTitle": "Introduce la BONIFICACIÓN de la prueba anterior, no el resultado de la tirada.",
