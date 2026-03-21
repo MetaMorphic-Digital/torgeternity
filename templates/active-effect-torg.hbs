@@ -19,7 +19,7 @@
       <label
         for="{{rootId}}-system.itemsToBestow">{{localize 'torgeternity.activeEffect.FIELDS.itemsToBestow.label'}}</label>
       <div class="form-fields">
-        <input type="string" name="itemToBestow" value="{{source.system.itemsToBestow.0.name}}" readonly
+        <input type="text" name="itemToBestow" value="{{source.system.itemsToBestow.0.name}}" readonly
           id="{{rootId}}-system.itemsToBestow">
         <a class="item-control item-delete" style="flex: 0" data-action="itemDelete"
           {{disabled (or (not @root.editable) item.system.bestowedBy)}}

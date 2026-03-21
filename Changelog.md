@@ -1,21 +1,24 @@
 # TORG Eternity Changelog
 
-## NEXT
+## 13.30.0 - Bestowing child Actors automatically.
 
-### Items Bestow other items
+### Bestowing Items by a parent Item or Active Effect
 Any type of Item (not just race) can **bestow** a set of child Items to an Actor:
 - When the bestowing Item is dropped onto an Actor, the bestowed items are automatically added to the same Actor.
 - When the bestowing Item is deleted from the Actor, all items bestowed by that Item are removed from the Actor.
 - The bestowed items can't be manually deleted from the Actor.
 - If a bestowed item bestows other items, then those will also be added (and so on).
-- If you change an Item that was added as a bestowed Item, then you will need to re-add that item to the bestowing Item.
-  - (Full copies of bestowed items are kept on the bestowing item, not just a reference to another item.)
+- Bestowed item details are copied when the item is dragged onto the parent (bestowing) Item. Thus if you make changes to the child Item you will need to replace the copy on the bestowing item.
 - (Note: bestowed items are stored on the actual bestowing item, so there's no possibility of creating infinite loops.)
+- An item can be added to an Active Effect so that when the Active Effect is transferred to the target that Item (and any items it bestows) are also bestowed onto the Actor.
+  - Only one item can be directly attached to an Active Effect (but that Item could bestow other items as usual).
+  - Deleting the active effect will delete the item(s) bestowed by that AE.
+  - Therefore, if the AE was transferred by use of a power that requires concentration, on removing the concentration from the caster, the Active Effect along with the item it bestowed are removed from the targets.
 
 ### Other Improvements
 - Add 'mindless' defense trait
-- Add 'NONE' operator to traits field of Active Effects, to ignore AE if the attacker/defender DOES have one or more of the lists traits.
-- Fix name in "exchange cards" dialog.
+- Add 'NONE' operator to traits field of Active Effects, to ignore AE if the attacker/defender DOES have one or more of the lists traits (e.g. prevent doing something to 'mindless' targets).
+- Fix the "From:" actor name in the "exchange cards" dialog.
 - Add exploding 'd20' and 'Bonus Die' roll buttons to the Torg control buttons.
 - Ensure the Foundry server knows about the "good" and "outstanding" HTML fields in powers.
 - The default img for an Active Effect created on an Item is the Item's img.
@@ -28,13 +31,6 @@ Any type of Item (not just race) can **bestow** a set of child Items to an Actor
 - Added `itemsToBestow` and `bestowedBy` to all Item types:
   - Merged `system.perksData` and `system.customAttackData` into a single `system.itemsToBestow` field.
   - Renamed `system.transferenceID` to `system.bestowedBy`.
-
-
-## Translations
-"not": "NONE",
-      "bestowedBy": "Bestowed By",
-      "bestowedItems": "Bestows",
-      "mindless": "Mindless",
 
 ## 13.29.0 - Card Hands Manager window
 
