@@ -1034,6 +1034,7 @@
       "backgroundDescription": "Hintergrund",
       "baseAttribute": "Basisattribut",
       "baseRoll": "Basisprobe",
+      "bestowedBy": "Bestowed By",
       "blastRadius": "Explosionsradius",
       "blindFire": "Blindes Feuern",
       "blindFireTooltip": "Position des Ziels nur wage bekannt",

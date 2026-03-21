@@ -106,24 +106,23 @@ export default class TorgeternityItemSheet extends foundry.applications.api.Hand
 
   /** @inheritdoc */
   async _onDrop(event) {
-    const item = await fromUuid(foundry.applications.ux.TextEditor.getDragEventData(event)?.uuid, { strict: false });
-    if (!(item instanceof foundry.documents.Item)) return;
-
+    const dropitem = await fromUuid(foundry.applications.ux.TextEditor.getDragEventData(event)?.uuid, { strict: false });
+    if (!(dropitem instanceof foundry.documents.Item)) return;
 
     // Some special rules about dropping onto a Race item
     if (this.item.type === 'race') {
       // A race can't add another race!
-      if (item.type === 'race') return;
+      if (dropitem.type === 'race') return;
 
-      if (item.type === 'perk' && item.system.category !== 'racial')
+      if (dropitem.type === 'perk' && dropitem.system.category !== 'racial')
         return ui.notifications.error(game.i18n.format('torgeternity.notifications.notAPerkItem',
-          { a: game.i18n.localize('torgeternity.perkTypes.' + item.system.category) })
+          { a: game.i18n.localize('torgeternity.perkTypes.' + dropitem.system.category) })
         );
     }
 
     // Add the dropped item to the list of bestowed items for this item
     const itemsToBestow = Array.from(this.item.system.itemsToBestow);
-    itemsToBestow.push(item);
+    itemsToBestow.push(dropitem.toCompendium(/*pack*/ null, { keepId: true }));
     await this.item.update({ 'system.itemsToBestow': itemsToBestow });
   }
 
@@ -353,6 +352,8 @@ export default class TorgeternityItemSheet extends foundry.applications.api.Hand
     context.effects = prepareActiveEffectCategories(this.document.effects);
     context.item = context.document;
     context.typeLabel = game.i18n.localize(CONFIG.Item.typeLabels[context.document.type]);
+    const best = context.item.system.bestowedBy
+    context.bestowingItem = best ? context.item.parent.items.get(best) : null;
 
     // Once copied to an Actor, `item.system.itemsToBestow` is empty.
     context.itemsToBestow = (context.item.parent instanceof foundry.documents.Actor)
@@ -360,11 +361,10 @@ export default class TorgeternityItemSheet extends foundry.applications.api.Hand
       : context.item.system.itemsToBestow;
     // Need real items to access `item.isOwner`
     for (const item of context.itemsToBestow) {
-      item.description = await foundry.applications.ux.TextEditor.enrichHTML(item.system.description, { secrets: item.isOwner });
+      item.description = await foundry.applications.ux.TextEditor.enrichHTML(item.system.description, { secrets: item.isOwner ?? true });
       item.traitDesc = Array.from(item.system.traits.map(trait => game.i18n.localize(`torgeternity.traits.${trait}`))).join(' / ');
     }
     context.itemsToBestow = Array.from(context.itemsToBestow);
-
 
     context.config = CONFIG.torgeternity;
 

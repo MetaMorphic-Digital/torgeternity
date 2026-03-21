@@ -255,7 +255,7 @@ Hooks.on('ready', async function () {
   CONFIG.time.roundTime = 10;
 
   // -----applying GM possibilities pool if absent
-  if (game.user.isGM && !game.user.getFlag('torgeternity', 'GMpossibilities')) {
+  if (game.user.isGM && game.user.getFlag('torgeternity', 'GMpossibilities') === undefined) {
     game.user.setFlag('torgeternity', 'GMpossibilities', 0);
   }
 

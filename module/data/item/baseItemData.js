@@ -17,7 +17,7 @@ export class BaseItemData extends foundry.abstract.TypeDataModel {
       traits: newTraitsField(itemType),
       axioms: makeAxiomsField(),
       //itemsToBestow: new fields.SetField(new fields.DocumentUUIDField({ nullable: null })),  // id of other items added/removed with this Item
-      itemsToBestow: new fields.SetField(new fields.TypeDataField({ document: BaseItemData })),  // id of other items added/removed with this Item
+      itemsToBestow: new fields.SetField(new fields.TypeDataField(foundry.documents.Item)),  // id of other items added/removed with this Item
       bestowedBy: new fields.DocumentIdField(),  // the id of the other item that automatically added this Item
     };
   }
@@ -27,12 +27,12 @@ export class BaseItemData extends foundry.abstract.TypeDataModel {
    */
   static migrateData(source) {
     if (source.grantsItems) {
-      source.itemsToBestow = source.grantsItems;
+      if (source.itemsToBestow === undefined) source.itemsToBestow = source.grantsItems;
       delete source.grantsItems;
     }
     if (source.grantedBy) {
-      source.bestowedBy = source.grantedBy;
-      delete source.grantedBy
+      if (source.bestowedBy === undefined) source.bestowedBy = source.grantedBy;
+      delete source.grantedBy;
     }
     if (source.cosm !== undefined) source.cosm = migrateCosm(source.cosm);
     if (source.traits?.length) {
@@ -45,15 +45,17 @@ export class BaseItemData extends foundry.abstract.TypeDataModel {
       if (badTraits.length)
         console.warn(`Unsupported trait on ${this.name} discarded: ${badTraits}`)
     }
-    if (!Object.hasOwn(source, 'bestowedBy') && Object.hasOwn(source, 'transferenceID')) {
-      source.bestowedBy = source.transferenceID;
+    if (Object.hasOwn(source, 'transferenceID')) {
+      if (!Object.hasOwn(source, 'bestowedBy'))
+        source.bestowedBy = source.transferenceID;
+      delete source.transferenceID;
     }
-    if (!source.itemsToBestow && (Object.hasOwn(source, 'perksData') || Object.hasOwn(source, 'customAttackData'))) {
-      source.itemsToBestow = (source.perksData ?? []).concat(source.customAttackData ?? []);
+    if (Object.hasOwn(source, 'perksData') || Object.hasOwn(source, 'customAttackData')) {
+      if (!source.itemsToBestow)
+        source.itemsToBestow = (source.perksData ?? []).concat(source.customAttackData ?? []);
+      if (Object.hasOwn(source, 'perksData')) delete source.perksData;
+      if (Object.hasOwn(source, 'customAttackData')) delete source.customAttackData;
     }
-    delete source.transferenceID;
-    delete source.perksData;
-    delete source.customAttackData;
 
     return super.migrateData(source);
   }

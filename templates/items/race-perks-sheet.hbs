@@ -1,4 +1,17 @@
 <section class="tab bestowedItems scrollable {{tab.cssClass}}" data-group="{{tab.group}}" , data-tab="{{tab.id}}">
+  {{#if bestowingItem}}
+    <h2>{{localize 'torgeternity.sheetLabels.bestowedBy'}}</h2>
+    <ol class="item-list">
+      {{#with bestowingItem as |item|}}
+        <li class="item block" data-item-id="{{item.id}}">
+          <div class="item-row flexrow">
+            <img src="{{item.img}}" data-tooltip="{{item.name}}">
+            <a class="item-name" data-action="itemName">{{item.name}}</a>
+          </div>
+        </li>
+      {{/with}}
+    </ol>
+  {{/if}}
   <ol class="item-list">
     {{#each itemsToBestow as |item|}}
       <li class="item block" data-item-id="{{item._id}}">
@@ -6,7 +19,7 @@
           <img src="{{item.img}}" data-tooltip="{{item.name}}">
           <a class="item-name" data-action="itemName">{{item.name}}</a>
           <div class="item-controls">
-            <a class="item-control item-delete" data-action="itemDelete"
+            <a class="item-control item-delete" data-action="itemDelete" {{disabled (not @root.editable)}}
               data-tooltip="{{localize 'torgeternity.iconeTitles.delete'}}">
               <i class="fas fa-trash"></i>
             </a>

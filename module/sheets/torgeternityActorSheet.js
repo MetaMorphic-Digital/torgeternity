@@ -1175,7 +1175,7 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
   }
 
   async deleteRace() {
-    const oldRace = this.actor.itemTypes.race?.[0];
+    const oldRace = this.actor.race;
     if (oldRace) return this.actor.deleteEmbeddedDocuments('Item', [oldRace.id]);
   }
 

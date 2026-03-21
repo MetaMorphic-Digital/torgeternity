@@ -1034,6 +1034,7 @@
       "backgroundDescription": "Trasfondo",
       "baseAttribute": "Atrib. Base",
       "baseRoll": "Tirar",
+      "bestowedBy": "Bestowed By",
       "blastRadius": "Radio de Estallido",
       "blindFire": "Fuego a ciegas",
       "blindFireTooltip": "Solo se conoce la situación general del objetivo",

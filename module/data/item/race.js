@@ -26,9 +26,6 @@ export class RaceItemData extends BaseItemData {
         required: true,
       }),
       darkvision: new fields.BooleanField({ initial: false }),
-      perksData: new fields.SetField(new fields.TypeDataField({ document: PerkItemData })),
-      customAttackData: new fields.SetField(new fields.TypeDataField({ document: CustomAttackItemData })
-      ),
     };
   }
 }

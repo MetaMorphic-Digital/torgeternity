@@ -1037,6 +1037,7 @@
       "backgroundDescription": "Description",
       "baseAttribute": "Attribut",
       "baseRoll": "Lancer",
+      "bestowedBy": "Bestowed By",
       "blastRadius": "Zone d'explosion",
       "blindFire": "Tir au jugé",
       "blindFireTooltip": "Position de la cible seulement approximative",
