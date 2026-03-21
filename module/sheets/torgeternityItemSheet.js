@@ -64,7 +64,7 @@ export default class TorgeternityItemSheet extends foundry.applications.api.Hand
     vehicleAddOn: { template: `systems/torgeternity/templates/items/vehicleAddOn-sheet.hbs`, scrollable: [".scrollable"] },
 
     // not valid Item.type
-    bestowedItems: { template: `systems/torgeternity/templates/items/race-perks-sheet.hbs`, scrollable: [".scrollable"] }, // TODO
+    inheritance: { template: `systems/torgeternity/templates/items/race-perks-sheet.hbs`, scrollable: [".scrollable"] }, // TODO
   };
 
   static TABS = {
@@ -73,7 +73,7 @@ export default class TorgeternityItemSheet extends foundry.applications.api.Hand
         { id: 'stats' },
         { id: 'perkEnhancements' },  // perks only
         { id: 'perkLimitations' },   // perks only
-        { id: 'bestowedItems' },
+        { id: 'inheritance' },
         { id: 'effects' },
       ],
       initial: 'stats',
@@ -317,13 +317,13 @@ export default class TorgeternityItemSheet extends foundry.applications.api.Hand
     // Decide which tabs are required
     switch (this.document.type) {
       case 'perk':
-        options.parts = ['header', 'tabs', 'perk', 'perkEnhancements', 'perkLimitations', 'bestowedItems', 'effects'];
+        options.parts = ['header', 'tabs', 'perk', 'perkEnhancements', 'perkLimitations', 'inheritance', 'effects'];
         break;
       case 'race':
-        options.parts = ['header', 'tabs', 'race', 'bestowedItems'];
+        options.parts = ['header', 'tabs', 'race', 'inheritance'];
         break;
       default:
-        options.parts = ['header', 'tabs', this.document.type, 'bestowedItems', 'effects'];
+        options.parts = ['header', 'tabs', this.document.type, 'inheritance', 'effects'];
         break;
     }
 
@@ -394,26 +394,26 @@ export default class TorgeternityItemSheet extends foundry.applications.api.Hand
             stats: { group: "primary", id: "stats", label: 'torgeternity.sheetLabels.stats' },
             perkEnhancements: { group: "primary", id: "perkEnhancements", label: 'torgeternity.sheetLabels.enhancements', style: "font-size:10px" },
             perkLimitations: { group: "primary", id: "perkLimitations", label: 'torgeternity.sheetLabels.limitations' },
-            bestowedItems: { group: "primary", id: "bestowedItems", label: 'torgeternity.sheetLabels.bestowedItems' },
+            inheritance: { group: "primary", id: "inheritance", label: 'torgeternity.sheetLabels.inheritance' },
             effects: { group: "primary", id: "effects", label: 'torgeternity.sheetLabels.effects' },
           };
         else
           context.tabs = {
             stats: { group: "primary", id: "stats", label: 'torgeternity.sheetLabels.stats' },
-            bestowedItems: { group: "primary", id: "bestowedItems", label: 'torgeternity.sheetLabels.bestowedItems' },
+            inheritance: { group: "primary", id: "inheritance", label: 'torgeternity.sheetLabels.inheritance' },
             effects: { group: "primary", id: "effects", label: 'torgeternity.sheetLabels.effects' },
           };
         break;
       case 'race':
         context.tabs = {
           stats: { group: "primary", id: "stats", label: 'torgeternity.sheetLabels.stats' },
-          bestowedItems: { group: "primary", id: "bestowedItems", label: 'torgeternity.sheetLabels.bestowedItems' },
+          inheritance: { group: "primary", id: "inheritance", label: 'torgeternity.sheetLabels.inheritance' },
         }
         break;
       default:
         context.tabs = {
           stats: { group: "primary", id: "stats", label: 'torgeternity.sheetLabels.stats' },
-          bestowedItems: { group: "primary", id: "bestowedItems", label: 'torgeternity.sheetLabels.bestowedItems' },
+          inheritance: { group: "primary", id: "inheritance", label: 'torgeternity.sheetLabels.inheritance' },
           effects: { group: "primary", id: "effects", label: 'torgeternity.sheetLabels.effects' },
         };
         break;

@@ -12,6 +12,7 @@
       {{/with}}
     </ol>
   {{else}}
+    <h2>{{localize 'torgeternity.sheetLabels.bestowedItems'}}</h2>
     <ol class="item-list">
       {{#each itemsToBestow as |item|}}
         <li class="item block" data-item-id="{{item._id}}">

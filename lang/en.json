@@ -1109,6 +1109,7 @@
       "implant": "Implant",
       "implants": "Implants",
       "inactiveEffects": "Inactive Effects",
+      "inheritance": "Inheritance",
       "inputExisting": "Input Existing",
       "inputExistingTooltip": "Optionally enter a previously generated bonus when attempting a multi-action.",
       "inputExistingTitle": "Input BONUS NUMBER from previous test, not die total.",
