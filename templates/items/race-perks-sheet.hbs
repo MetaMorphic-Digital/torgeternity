@@ -11,37 +11,38 @@
         </li>
       {{/with}}
     </ol>
-  {{/if}}
-  <ol class="item-list">
-    {{#each itemsToBestow as |item|}}
-      <li class="item block" data-item-id="{{item._id}}">
-        <div class="item-row flexrow">
-          <img src="{{item.img}}" data-tooltip="{{item.name}}">
-          <a class="item-name" data-action="itemName">{{item.name}}</a>
-          <div class="item-controls">
-            <a class="item-control item-delete" data-action="itemDelete" {{disabled (not @root.editable)}}
-              data-tooltip="{{localize 'torgeternity.iconeTitles.delete'}}">
-              <i class="fas fa-trash"></i>
-            </a>
-          </div>
-        </div>
-        <div class="item-detail">
-          <div class="item-dropdown-description">
-            {{{item.description}}}
-            <div class="item-dropdown-extras">
-              {{localize (concat "torgeternity.cosms." item.system.cosm)}}
+  {{else}}
+    <ol class="item-list">
+      {{#each itemsToBestow as |item|}}
+        <li class="item block" data-item-id="{{item._id}}">
+          <div class="item-row flexrow">
+            <img src="{{item.img}}" data-tooltip="{{item.name}}">
+            <a class="item-name" data-action="itemName">{{item.name}}</a>
+            <div class="item-controls">
+              <a class="item-control item-delete" data-action="itemDelete" {{disabled (not @root.editable)}}
+                data-tooltip="{{localize 'torgeternity.iconeTitles.delete'}}">
+                <i class="fas fa-trash"></i>
+              </a>
             </div>
-            {{#if item.traitDesc}}
-              <div class="item-dropdown-extras"> {{item.traitDesc}} </div>
-            {{/if}}
-            {{#if item.system.timestaken}}
-              <div class="item-dropdown-extras">
-                {{item.system.timestaken}}x
-              </div>
-            {{/if}}
           </div>
-        </div>
-      </li>
-    {{/each}}
-  </ol>
+          <div class="item-detail">
+            <div class="item-dropdown-description">
+              {{{item.description}}}
+              <div class="item-dropdown-extras">
+                {{localize (concat "torgeternity.cosms." item.system.cosm)}}
+              </div>
+              {{#if item.traitDesc}}
+                <div class="item-dropdown-extras"> {{item.traitDesc}} </div>
+              {{/if}}
+              {{#if item.system.timestaken}}
+                <div class="item-dropdown-extras">
+                  {{item.system.timestaken}}x
+                </div>
+              {{/if}}
+            </div>
+          </div>
+        </li>
+      {{/each}}
+    </ol>
+  {{/if}}
 </section>

@@ -102,6 +102,11 @@ export default class TorgeternityItem extends foundry.documents.Item {
         source.system.gunnerFixedSkill = parseInt(source.system.gunner.skillValue);
       delete source.system.gunner;
     }
+
+    // Don't allow an item to be bestowed by itself!
+    if (source._id && source?.system.bestowedBy === source._id) {
+      delete source.system.bestowedBy;
+    }
     return super.migrateData(source);
   }
 
