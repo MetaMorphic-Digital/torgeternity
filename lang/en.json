@@ -70,6 +70,10 @@
           "label": "Transfer To",
           "hint": "Whether this effect is transferred to the target, or the actor performing the test"
         },
+        "itemsToBestow": {
+          "label": "Item to Bestow",
+          "hint": "Drag an item onto this field to have the Item appear on the Actor while it retains this Active Effect. (Click on field to delete the selected item)"
+        },
         "applyIfAttackTrait": {
           "label": "Apply If Attack Trait",
           "hint": "Apply this effect to a test using this Item ONLY if the ATTACKING Actor has ANY or ALL of these traits"

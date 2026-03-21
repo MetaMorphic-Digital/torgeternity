@@ -64,4 +64,31 @@ export default class TorgActiveEffectConfig extends foundry.applications.sheets.
     }
     super._onChangeForm(formConfig, event);
   }
+
+  async _onRender(context, options) {
+    // Do NOT use 'system.itemsToBestow' to avoid default sheet handling updating it.
+    new foundry.applications.ux.DragDrop.implementation({
+      dropSelector: "input[name='itemToBestow']",
+      permissions: { drop: () => this.isEditable },
+      callbacks: { drop: this._onDrop.bind(this) }
+    }).bind(this.element);
+
+    const field = this.element.querySelector("input[name='itemToBestow']");
+    if (field) field.addEventListener('click', event => this.deleteItem(event));
+
+    return super._onRender(context, options);
+  }
+
+  async _onDrop(event) {
+    const dropitem = await fromUuid(foundry.applications.ux.TextEditor.getDragEventData(event)?.uuid, { strict: false });
+    if (!(dropitem instanceof foundry.documents.Item)) return;
+    // Dropping a new item replaces a previous item
+    await this.document.update({ 'system.itemsToBestow': [dropitem.toCompendium(/*pack*/ null, { keepId: true })] });
+  }
+
+  async deleteItem(event) {
+    console.log('deleteItem', event);
+    if (!this.document.system.itemsToBestow.size) return;
+    await this.document.update({ 'system.itemsToBestow': null });
+  }
 }

@@ -14,5 +14,15 @@
     {{TorgFormGroup systemFields.applyIfAttackTrait value=source.system.applyIfAttackTrait rootId=rootId combiner=systemFields.applyIfAttackTraitCombine localize=true sort=true}}
     {{TorgFormGroup systemFields.applyIfDefendTrait value=source.system.applyIfDefendTrait rootId=rootId combiner=systemFields.applyIfDefendTraitCombine localize=true sort=true}}
     {{TorgFormGroup systemFields.defendAgainstTrait value=source.system.defendAgainstTrait rootId=rootId combiner=systemFields.defendAgainstTraitCombine localize=true sort=true}}
+
+    <div class="form-group">
+      <label
+        for="{{rootId}}-system.itemsToBestow">{{localize 'torgeternity.activeEffect.FIELDS.itemsToBestow.label'}}</label>
+      <div class="form-fields">
+        <input type="string" name="itemToBestow" value="{{source.system.itemsToBestow.0.name}}" readonly
+          id="{{rootId}}-system.itemsToBestow">
+      </div>
+      <p class="hint">{{localize 'torgeternity.activeEffect.FIELDS.itemsToBestow.hint'}}</p>
+    </div>
   </fieldset>
 </section>
