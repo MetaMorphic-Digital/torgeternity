@@ -607,13 +607,17 @@ export default class TorgeternityActor extends foundry.documents.Actor {
     if (game.user.id !== userId) return;
 
     if (collection === 'items' && parent === this) {
-      // The newly added item might grant more Items automatically
+      // The newly added item might bestow more Items automatically
       let newitems = [];
-      for (const granter of documents) {
-        for (const itemdata of granter.system.itemsToBestow) {
+      for (const bestower of documents) {
+        for (const itemdata of bestower.system.itemsToBestow) {
           const newitem = foundry.utils.duplicate(itemdata);
-          newitem.system.bestowedBy = granter.id;
+          newitem.system.bestowedBy = bestower.id;
           newitems.push(newitem);
+        }
+        if (bestower.system.itemsToBestow) {
+          // Blank out the itemsToBestow field on the item stored on this Actor, to reduce Actor size
+          bestower.update({ 'system.itemsToBestow': null })
         }
       }
       if (newitems.length) this.createEmbeddedDocuments('Item', newitems);
@@ -645,7 +649,7 @@ export default class TorgeternityActor extends foundry.documents.Actor {
               effect.delete();
       }
     } else if (collection === 'items' && parent === this) {
-      // See if any items were granted by the Items being deleted.
+      // See if any items were bestowed by the Items being deleted.
       const todelete = this.items.filter(item => item.system.bestowedBy && ids.includes(item.system.bestowedBy)).map(item => item.id);
       if (todelete.length) this.deleteEmbeddedDocuments('Item', todelete);
     }

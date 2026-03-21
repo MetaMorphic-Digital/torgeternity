@@ -1,10 +1,10 @@
-<section class="tab grantedItems scrollable {{tab.cssClass}}" data-group="{{tab.group}}" , data-tab="{{tab.id}}">
-  <ol class="race perks-list">
-    {{#each item.system.itemsToBestow as |perk|}}
-      <li class="item block" data-item-id="{{perk._id}}">
+<section class="tab bestowedItems scrollable {{tab.cssClass}}" data-group="{{tab.group}}" , data-tab="{{tab.id}}">
+  <ol class="item-list">
+    {{#each itemsToBestow as |item|}}
+      <li class="item block" data-item-id="{{item._id}}">
         <div class="item-row flexrow">
-          <img src="{{perk.img}}" data-tooltip="{{perk.name}}">
-          <a class="item-name">{{perk.name}}</a>
+          <img src="{{item.img}}" data-tooltip="{{item.name}}">
+          <a class="item-name" data-action="itemName">{{item.name}}</a>
           <div class="item-controls">
             <a class="item-control item-delete" data-action="itemDelete"
               data-tooltip="{{localize 'torgeternity.iconeTitles.delete'}}">
@@ -14,10 +14,18 @@
         </div>
         <div class="item-detail">
           <div class="item-dropdown-description">
-            {{{perk.system.description}}}
+            {{{item.description}}}
             <div class="item-dropdown-extras">
-              {{localize "torgeternity.gear.cosm"}}: {{localize (concat "torgeternity.cosms." perk.system.cosm)}}
+              {{localize (concat "torgeternity.cosms." item.system.cosm)}}
             </div>
+            {{#if item.traitDesc}}
+              <div class="item-dropdown-extras"> {{item.traitDesc}} </div>
+            {{/if}}
+            {{#if item.system.timestaken}}
+              <div class="item-dropdown-extras">
+                {{item.system.timestaken}}x
+              </div>
+            {{/if}}
           </div>
         </div>
       </li>

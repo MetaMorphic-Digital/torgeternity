@@ -64,7 +64,7 @@ export default class TorgeternityItemSheet extends foundry.applications.api.Hand
     vehicleAddOn: { template: `systems/torgeternity/templates/items/vehicleAddOn-sheet.hbs`, scrollable: [".scrollable"] },
 
     // not valid Item.type
-    grantedItems: { template: `systems/torgeternity/templates/items/race-perks-sheet.hbs`, scrollable: [".scrollable"] }, // TODO
+    bestowedItems: { template: `systems/torgeternity/templates/items/race-perks-sheet.hbs`, scrollable: [".scrollable"] }, // TODO
   };
 
   static TABS = {
@@ -73,7 +73,7 @@ export default class TorgeternityItemSheet extends foundry.applications.api.Hand
         { id: 'stats' },
         { id: 'perkEnhancements' },  // perks only
         { id: 'perkLimitations' },   // perks only
-        { id: 'grantedItems' },
+        { id: 'bestowedItems' },
         { id: 'effects' },
       ],
       initial: 'stats',
@@ -121,7 +121,7 @@ export default class TorgeternityItemSheet extends foundry.applications.api.Hand
         );
     }
 
-    // Add the dropped item to the list of granted items for this item
+    // Add the dropped item to the list of bestowed items for this item
     const itemsToBestow = Array.from(this.item.system.itemsToBestow);
     itemsToBestow.push(item);
     await this.item.update({ 'system.itemsToBestow': itemsToBestow });
@@ -277,9 +277,7 @@ export default class TorgeternityItemSheet extends foundry.applications.api.Hand
     const section = button.closest('.item');
     const detail = section.querySelector('.item-detail');
     if (!detail) return;
-    detail.style.display =
-      detail.style.display === 'none' || !detail.style.display
-        ? 'block' : 'none';
+    detail.style.maxHeight = detail.style.maxHeight ? null : (detail.scrollHeight + 'px');
   }
 
   /**
@@ -290,17 +288,17 @@ export default class TorgeternityItemSheet extends foundry.applications.api.Hand
  */
   static #onItemDelete(event, button) {
     const itemid = button.closest('.item').dataset.itemId;
-    const grantedItems = this.item.system.itemsToBestow;
+    const bestowedItems = this.item.system.itemsToBestow;
 
-    if (!grantedItems) return; // just for safety
+    if (!bestowedItems) return; // just for safety
 
-    for (const itemdata of grantedItems) {
+    for (const itemdata of bestowedItems) {
       if (itemdata._id === itemid) {
-        grantedItems.delete(itemdata);
+        bestowedItems.delete(itemdata);
         break;
       }
     }
-    this.item.update({ 'system.itemsToBestow': Array.from(grantedItems) });
+    this.item.update({ 'system.itemsToBestow': Array.from(bestowedItems) });
   }
 
   /**
@@ -320,13 +318,13 @@ export default class TorgeternityItemSheet extends foundry.applications.api.Hand
     // Decide which tabs are required
     switch (this.document.type) {
       case 'perk':
-        options.parts = ['header', 'tabs', 'perk', 'perkEnhancements', 'perkLimitations', 'grantedItems', 'effects'];
+        options.parts = ['header', 'tabs', 'perk', 'perkEnhancements', 'perkLimitations', 'bestowedItems', 'effects'];
         break;
       case 'race':
-        options.parts = ['header', 'tabs', 'race', 'grantedItems'];
+        options.parts = ['header', 'tabs', 'race', 'bestowedItems'];
         break;
       default:
-        options.parts = ['header', 'tabs', this.document.type, 'grantedItems', 'effects'];
+        options.parts = ['header', 'tabs', this.document.type, 'bestowedItems', 'effects'];
         break;
     }
 
@@ -356,6 +354,18 @@ export default class TorgeternityItemSheet extends foundry.applications.api.Hand
     context.item = context.document;
     context.typeLabel = game.i18n.localize(CONFIG.Item.typeLabels[context.document.type]);
 
+    // Once copied to an Actor, `item.system.itemsToBestow` is empty.
+    context.itemsToBestow = (context.item.parent instanceof foundry.documents.Actor)
+      ? context.item.parent.items.filter(item => item.system.bestowedBy === context.item.id)
+      : context.item.system.itemsToBestow;
+    // Need real items to access `item.isOwner`
+    for (const item of context.itemsToBestow) {
+      item.description = await foundry.applications.ux.TextEditor.enrichHTML(item.system.description, { secrets: item.isOwner });
+      item.traitDesc = Array.from(item.system.traits.map(trait => game.i18n.localize(`torgeternity.traits.${trait}`))).join(' / ');
+    }
+    context.itemsToBestow = Array.from(context.itemsToBestow);
+
+
     context.config = CONFIG.torgeternity;
 
     const isOwner = this.item.isOwner;
@@ -384,26 +394,26 @@ export default class TorgeternityItemSheet extends foundry.applications.api.Hand
             stats: { group: "primary", id: "stats", label: 'torgeternity.sheetLabels.stats' },
             perkEnhancements: { group: "primary", id: "perkEnhancements", label: 'torgeternity.sheetLabels.enhancements', style: "font-size:10px" },
             perkLimitations: { group: "primary", id: "perkLimitations", label: 'torgeternity.sheetLabels.limitations' },
-            grantedItems: { group: "primary", id: "grantedItems", label: 'torgeternity.sheetLabels.grantedItems' },
+            bestowedItems: { group: "primary", id: "bestowedItems", label: 'torgeternity.sheetLabels.bestowedItems' },
             effects: { group: "primary", id: "effects", label: 'torgeternity.sheetLabels.effects' },
           };
         else
           context.tabs = {
             stats: { group: "primary", id: "stats", label: 'torgeternity.sheetLabels.stats' },
-            grantedItems: { group: "primary", id: "grantedItems", label: 'torgeternity.sheetLabels.grantedItems' },
+            bestowedItems: { group: "primary", id: "bestowedItems", label: 'torgeternity.sheetLabels.bestowedItems' },
             effects: { group: "primary", id: "effects", label: 'torgeternity.sheetLabels.effects' },
           };
         break;
       case 'race':
         context.tabs = {
           stats: { group: "primary", id: "stats", label: 'torgeternity.sheetLabels.stats' },
-          grantedItems: { group: "primary", id: "grantedItems", label: 'torgeternity.sheetLabels.grantedItems' },
+          bestowedItems: { group: "primary", id: "bestowedItems", label: 'torgeternity.sheetLabels.bestowedItems' },
         }
         break;
       default:
         context.tabs = {
           stats: { group: "primary", id: "stats", label: 'torgeternity.sheetLabels.stats' },
-          grantedItems: { group: "primary", id: "grantedItems", label: 'torgeternity.sheetLabels.grantedItems' },
+          bestowedItems: { group: "primary", id: "bestowedItems", label: 'torgeternity.sheetLabels.bestowedItems' },
           effects: { group: "primary", id: "effects", label: 'torgeternity.sheetLabels.effects' },
         };
         break;

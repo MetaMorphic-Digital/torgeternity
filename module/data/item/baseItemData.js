@@ -47,13 +47,13 @@ export class BaseItemData extends foundry.abstract.TypeDataModel {
     }
     if (!Object.hasOwn(source, 'bestowedBy') && Object.hasOwn(source, 'transferenceID')) {
       source.bestowedBy = source.transferenceID;
-      delete source.transferenceID;
     }
     if (!source.itemsToBestow && (Object.hasOwn(source, 'perksData') || Object.hasOwn(source, 'customAttackData'))) {
       source.itemsToBestow = (source.perksData ?? []).concat(source.customAttackData ?? []);
-      delete source.perksData;
-      delete source.customAttackData;
     }
+    delete source.transferenceID;
+    delete source.perksData;
+    delete source.customAttackData;
 
     return super.migrateData(source);
   }
