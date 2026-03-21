@@ -19,10 +19,13 @@ Any type of Item (not just race) can **bestow** a set of child Items to an Actor
 - Add 'mindless' defense trait
 - Add 'NONE' operator to traits field of Active Effects, to ignore AE if the attacker/defender DOES have one or more of the lists traits (e.g. prevent doing something to 'mindless' targets).
 - Fix the "From:" actor name in the "exchange cards" dialog.
-- Add exploding 'd20' and 'Bonus Die' roll buttons to the Torg control buttons.
+- Add exploding **d20** and **Bonus Die** roll buttons to the Torg control buttons.
 - Ensure the Foundry server knows about the "good" and "outstanding" HTML fields in powers.
 - The default img for an Active Effect created on an Item is the Item's img.
 - Item control icons are greyed out on Actor sheet if the player doesn't have the privilege to use the button.
+- **Token Status**: Ensure temporary effects which are conditional have their icons appear on the token.
+- **Effects Panel**: Show Effect Icons when an effect on the Actor isn't disabled, but might have conditional activations.
+- **Perks**: Allow unlimited number of Enhancements and Limitations.
 
 ### Internal Changes
 - Reduce size of Perk storage, and allow unlimited number of enhancements and limitations:
@@ -87,7 +90,6 @@ Provide a Hands Manager window, openable by SHIFT-H (or from the Torg Toolbar).
   - Rename all `system.unarmedDamage` changes in AEs to `system.skills.unarmedCombat.damageMod`
 - Torg effects tab of AEs will become scrollable if your browser window is too small.
 - Restore event handling in the Effects Panel.
-- Show Effect Icons when an effect on the Actor isn't disabled, but might have conditional activations.
 
 ## 13.27.5
 

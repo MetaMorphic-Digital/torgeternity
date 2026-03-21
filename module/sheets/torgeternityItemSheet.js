@@ -63,8 +63,8 @@ export default class TorgeternityItemSheet extends foundry.applications.api.Hand
     vehicle: { template: `systems/torgeternity/templates/items/vehicle-sheet.hbs`, scrollable: [".scrollable"] },
     vehicleAddOn: { template: `systems/torgeternity/templates/items/vehicleAddOn-sheet.hbs`, scrollable: [".scrollable"] },
 
-    // not valid Item.type
-    inheritance: { template: `systems/torgeternity/templates/items/race-perks-sheet.hbs`, scrollable: [".scrollable"] }, // TODO
+    // An extra tab to show the "Bestows" inheritance on Items.
+    inheritance: { template: `systems/torgeternity/templates/items/item-inheritance-sheet.hbs`, scrollable: [".scrollable"] },
   };
 
   static TABS = {

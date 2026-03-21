@@ -93,6 +93,7 @@ export const preloadTemplates = async function () {
     `systems/torgeternity/templates/items/gear-sheet.hbs`,
     `systems/torgeternity/templates/items/heavyweapon-sheet.hbs`,
     `systems/torgeternity/templates/items/implant-sheet.hbs`,
+    `systems/torgeternity/templates/items/item-inheritance-sheet.hbs`,
     `systems/torgeternity/templates/items/meleeweapon-sheet.hbs`,
     `systems/torgeternity/templates/items/powers-sheet.hbs`,
     `systems/torgeternity/templates/items/missileweapon-sheet.hbs`,
