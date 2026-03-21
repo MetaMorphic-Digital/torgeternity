@@ -1162,7 +1162,7 @@
       "psionicPowers": "Psionic Powers",
       "quantity": "Quantity",
       "race": "Race",
-      "grantedItems": "Granted Items",
+      "bestowedItems": "Bestows",
       "reconnect": "Reconnect",
       "reconnectTooltip": "Remove Disconnected condition",
       "darkvision": "Darkvision",
