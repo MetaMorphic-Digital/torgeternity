@@ -1,5 +1,11 @@
 export default class TorgActiveEffectConfig extends foundry.applications.sheets.ActiveEffectConfig {
 
+  static DEFAULT_OPTIONS = {
+    actions: {
+      itemDelete: TorgActiveEffectConfig.#onItemDelete,
+    }
+  };
+
   /** @override */
   static PARTS = {
     header: { template: "templates/sheets/active-effect/header.hbs" },
@@ -73,9 +79,6 @@ export default class TorgActiveEffectConfig extends foundry.applications.sheets.
       callbacks: { drop: this._onDrop.bind(this) }
     }).bind(this.element);
 
-    const field = this.element.querySelector("input[name='itemToBestow']");
-    if (field) field.addEventListener('click', event => this.deleteItem(event));
-
     return super._onRender(context, options);
   }
 
@@ -86,8 +89,7 @@ export default class TorgActiveEffectConfig extends foundry.applications.sheets.
     await this.document.update({ 'system.itemsToBestow': [dropitem.toCompendium(/*pack*/ null, { keepId: true })] });
   }
 
-  async deleteItem(event) {
-    console.log('deleteItem', event);
+  static async #onItemDelete(event) {
     if (!this.document.system.itemsToBestow.size) return;
     await this.document.update({ 'system.itemsToBestow': null });
   }

@@ -72,7 +72,7 @@
         },
         "itemsToBestow": {
           "label": "Item to Bestow",
-          "hint": "Drag an item onto this field to have the Item appear on the Actor while it retains this Active Effect. (Click on field to delete the selected item)"
+          "hint": "Drag an item onto this field to have the Item appear on the Actor while it retains this Active Effect."
         },
         "applyIfAttackTrait": {
           "label": "Apply If Attack Trait",

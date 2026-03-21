@@ -21,6 +21,11 @@
       <div class="form-fields">
         <input type="string" name="itemToBestow" value="{{source.system.itemsToBestow.0.name}}" readonly
           id="{{rootId}}-system.itemsToBestow">
+        <a class="item-control item-delete" style="flex: 0" data-action="itemDelete"
+          {{disabled (or (not @root.editable) item.system.bestowedBy)}}
+          data-tooltip="{{localize 'torgeternity.iconeTitles.delete'}}">
+          <i class="fas fa-trash"></i>
+        </a>
       </div>
       <p class="hint">{{localize 'torgeternity.activeEffect.FIELDS.itemsToBestow.hint'}}</p>
     </div>
