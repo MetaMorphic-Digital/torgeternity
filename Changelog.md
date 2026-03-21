@@ -6,8 +6,10 @@
 Any type of Item (not just race) can **bestow** a set of child Items to an Actor:
 - When the bestowing Item is dropped onto an Actor, the bestowed items are automatically added to the same Actor.
 - When the bestowing Item is deleted from the Actor, all items bestowed by that Item are removed from the Actor.
-- The bestowed items can't be deleted from the Actor by a player.
+- The bestowed items can't be manually deleted from the Actor.
 - If a bestowed item bestows other items, then those will also be added (and so on).
+- If you change an Item that was added as a bestowed Item, then you will need to re-add that item to the bestowing Item.
+  - (Full copies of bestowed items are kept on the bestowing item, not just a reference to another item.)
 - (Note: bestowed items are stored on the actual bestowing item, so there's no possibility of creating infinite loops.)
 
 ### Other Improvements
@@ -26,6 +28,13 @@ Any type of Item (not just race) can **bestow** a set of child Items to an Actor
 - Added `itemsToBestow` and `bestowedBy` to all Item types:
   - Merged `system.perksData` and `system.customAttackData` into a single `system.itemsToBestow` field.
   - Renamed `system.transferenceID` to `system.bestowedBy`.
+
+
+## Translations
+"not": "NONE",
+      "bestowedBy": "Bestowed By",
+      "bestowedItems": "Bestows",
+      "mindless": "Mindless",
 
 ## 13.29.0 - Card Hands Manager window
 

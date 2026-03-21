@@ -48,6 +48,7 @@ export class TorgActiveEffectData extends (foundry.data.ActiveEffectTypeDataMode
         applyIfAttackTraitCombine: newCombineTraitsField(),
         applyIfDefendTraitCombine: newCombineTraitsField(),
         defendAgainstTraitCombine: newCombineTraitsField(),
+        itemsToBestow: new fields.SetField(new fields.TypeDataField(foundry.documents.Item)),
 
         combatToggle: new fields.BooleanField({ initial: false, }),
         concentratingId: new fields.DocumentUUIDField({ nullable: true })

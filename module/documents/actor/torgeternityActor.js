@@ -606,10 +606,11 @@ export default class TorgeternityActor extends foundry.documents.Actor {
     super._onCreateDescendantDocuments(parent, collection, documents, data, options, userId);
     if (game.user.id !== userId) return;
 
-    if (collection === 'items' && parent === this) {
+    if (parent === this) {
       // The newly added item might bestow more Items automatically
       let newitems = [];
       for (const bestower of documents) {
+        if (!bestower.system?.itemsToBestow) continue;
         for (const itemdata of bestower.system.itemsToBestow) {
           const newitem = foundry.utils.duplicate(itemdata);
           newitem.system.bestowedBy = bestower.id;
@@ -641,6 +642,7 @@ export default class TorgeternityActor extends foundry.documents.Actor {
     if (game.user.id !== userId) return;
 
     if (collection === 'effects') {
+      // If 'concentration' is being cancelled, then delete any effects from other Actors which are being supported by that concentration.
       const concIds = documents.filter(eft => eft.statuses.has('concentrating')).map(doc => doc.uuid).filter(uuid => !!uuid);
       if (concIds.length) {
         for (const actor of game.actors)
@@ -648,8 +650,9 @@ export default class TorgeternityActor extends foundry.documents.Actor {
             if (effect.system.concentratingId && concIds.includes(effect.system.concentratingId))
               effect.delete();
       }
-    } else if (collection === 'items' && parent === this) {
-      // See if any items were bestowed by the Items being deleted.
+    }
+    if (parent === this) {
+      // See if any items were bestowed by the document being deleted.
       const todelete = this.items.filter(item => item.system.bestowedBy && ids.includes(item.system.bestowedBy)).map(item => item.id);
       if (todelete.length) this.deleteEmbeddedDocuments('Item', todelete);
     }
