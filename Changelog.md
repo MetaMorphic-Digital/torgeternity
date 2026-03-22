@@ -27,6 +27,8 @@ Any type of Item (not just race) can **bestow** a set of child Items to an Actor
 - **Token Status**: Ensure temporary effects which are conditional have their icons appear on the token.
 - **Effects Panel**: Show Effect Icons when an effect on the Actor isn't disabled, but might have conditional activations.
 - **Perks**: Allow unlimited number of Enhancements and Limitations.
+- **Scene Config** allows you to override the Axioms of the current scene:
+  - Modifying the cosms or the zone type will reset the axioms to the correct values for the chosen cosm combination.
 
 ### Internal Changes
 - Reduce size of Perk storage, and allow unlimited number of enhancements and limitations:

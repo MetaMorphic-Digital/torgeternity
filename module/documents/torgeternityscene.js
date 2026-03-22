@@ -1,6 +1,9 @@
 const fields = foundry.data.fields;
 const { AdjustDarknessLevelRegionBehaviorType } = foundry.data.regionBehaviors;
 
+/*
+ * No DataModel available for CONFIG.Scene 
+ */
 export default class TorgeternityScene extends foundry.documents.Scene {
 
   async _preCreate(data, options, user) {
@@ -22,7 +25,22 @@ export default class TorgeternityScene extends foundry.documents.Scene {
         'flags.torgeternity.darkThreshold': 0.7,
       })
     }
+    if (!Object.hasOwn(data.flags.torgeternity, 'axioms')) {
+      this.updateSource({
+        'flags.torgeternity.axioms.magic': 0,
+        'flags.torgeternity.axioms.social': 0,
+        'flags.torgeternity.axioms.spirit': 0,
+        'flags.torgeternity.axioms.tech': 0,
+      })
+    }
     return allowed;
+  }
+
+  static migrateData(source) {
+    if (source.flags?.torgeternity?.cosm && !source.flags?.torgeternity?.axioms) {
+      source.flags.torgeternity.axioms = TorgeternityScene.getAxioms(source.flags.torgeternity.cosm, source.flags.torgeternity.cosm2, source.flags.torgeternity.zone);
+    }
+    return super.migrateData(source);
   }
 
   prepareDerivedData() {
@@ -34,20 +52,24 @@ export default class TorgeternityScene extends foundry.documents.Scene {
         zone: this.flags.torgeternity.zone,
         displayCosm2: (this.flags.torgeternity.zone !== 'pure'),
         isMixed: (this.flags.torgeternity.zone === 'mixed'),
-        cosm2: (this.flags.torgeternity.zone !== 'pure') && this.flags.torgeternity.cosm2
+        cosm2: (this.flags.torgeternity.zone !== 'pure') && this.flags.torgeternity.cosm2,
+        axioms: flags.axioms
       };
+    }
+  }
 
-      if (this.torg.cosm === 'none')
-        this.torg.axioms = { tech: 0, social: 0, spirit: 0, magic: 0 }
-      else {
-        const zoneAxioms = { ...CONFIG.torgeternity.axiomByCosm[this.torg.cosm] };
-        if (this.torg.isMixed && this.torg.cosm2) {
-          const axiom2 = CONFIG.torgeternity.axiomByCosm[this.torg.cosm2];
-          for (const key of Object.keys(zoneAxioms))
-            if (axiom2[key] > zoneAxioms[key]) zoneAxioms[key] = axiom2[key];
-        }
-        this.torg.axioms = zoneAxioms;
+  // A general function that would normally be static
+  static getAxioms(cosm, cosm2, zone) {
+    if (cosm === 'none')
+      return { tech: 0, social: 0, spirit: 0, magic: 0 }
+    else {
+      const zoneAxioms = { ...CONFIG.torgeternity.axiomByCosm[cosm] };
+      if (zone === 'mixed' && cosm2) {
+        const axiom2 = CONFIG.torgeternity.axiomByCosm[cosm2];
+        for (const key of Object.keys(zoneAxioms))
+          if (axiom2[key] > zoneAxioms[key]) zoneAxioms[key] = axiom2[key];
       }
+      return zoneAxioms;
     }
   }
 

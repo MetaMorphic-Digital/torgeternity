@@ -1,6 +1,5 @@
-/**
- *
- */
+import TorgeternityScene from './documents/torgeternityscene.js'
+
 export default class torgeternitySceneConfig extends foundry.applications.sheets.SceneConfig {
 
   // Add our COSM tab
@@ -60,6 +59,7 @@ export default class torgeternitySceneConfig extends foundry.applications.sheets
       case "cosm":
         partContext.zones = CONFIG.torgeternity.zones;
         partContext.cosmTypes = CONFIG.torgeternity.cosmTypes;
+        partContext.axioms = { magic: 10, social: 10, spirit: 10, tech: 10 };
         break;
       case "lighting":
         context.torgDarkness = game.settings.get('torgeternity', 'autoDarknessPenalty');
@@ -114,8 +114,24 @@ export default class torgeternitySceneConfig extends foundry.applications.sheets
       case 'flags.torgeternity.zone': {
         const elem = this.element.querySelector('div.cosm-secondary');
         if (elem) elem.style.display = (event.target.value === 'pure') ? 'none' : '';
-        break;
+        // continue through to next case
       }
+      case 'flags.torgeternity.cosm':
+      case 'flags.torgeternity.cosm2':
+        // Recalculate axioms
+        {
+          const formData = new foundry.applications.ux.FormDataExtended(this.form);
+          const axioms = TorgeternityScene.getAxioms(formData.object["flags.torgeternity.cosm"],
+            formData.object["flags.torgeternity.cosm2"],
+            formData.object["flags.torgeternity.zone"]);
+          // Copy to input fields
+          this.element.querySelector('input[name="flags.torgeternity.axioms.magic"').value = axioms.magic;
+          this.element.querySelector('input[name="flags.torgeternity.axioms.social"').value = axioms.social;
+          this.element.querySelector('input[name="flags.torgeternity.axioms.spirit"').value = axioms.spirit;
+          this.element.querySelector('input[name="flags.torgeternity.axioms.tech"').value = axioms.tech;
+          break;
+        }
+
       case 'flags.torgeternity.dimLightThreshold':
       case 'flags.torgeternity.darkThreshold':
       case 'environment.globalLight.darkness.max': {

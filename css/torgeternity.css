@@ -4908,3 +4908,35 @@ dialog.exchange-card-dialog {
 div.torg-control-buttons {
   padding: 16px 16px 16px 0;
 }
+
+.cosm-axioms {
+  padding: 0;
+
+  .axiom-label {
+    text-align: center;
+  }
+
+  table {
+    background-color: transparent;
+
+    thead {
+      background-color: transparent;
+      border-color: transparent;
+
+      td {
+        margin-bottom: 0;
+      }
+    }
+
+    margin: 0;
+  }
+
+  .axiom-value {
+    text-align: center;
+
+    &>input {
+      width: 5em;
+      text-align: center;
+    }
+  }
+}
