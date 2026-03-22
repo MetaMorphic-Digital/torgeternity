@@ -1,5 +1,7 @@
 # TORG Eternity Changelog
 
+- Translations by Durak (French), Helmut (German), and Teotimus (Spanish).
+
 ## 13.30.0 - Bestowing child Actors automatically.
 
 ### Bestowing Items by a parent Item or Active Effect
@@ -425,8 +427,6 @@ Move some data from `Actor` to `Actor.system` so that all the Torg-specific data
   - Active Effects can modify the number per act by modifying the property `system.other.possibilities.perAct`
   - Any existing AE that modifies `system.other.possibilities` will be automatically changed to modify `system.other.possibilities.perAct` (e.g. Prodigy perk)
 
-- Translations by Durak (French), Helmut (German), and Teotimus (Spanish).
-
 ## 13.18.2 - Fix Custom Skill Name in chat message
 
 - Ensures that the custom skill name (not id) is displayed in the test chat message.
@@ -455,8 +455,6 @@ Move some data from `Actor` to `Actor.system` so that all the Torg-specific data
   - The cosm name will be added to the "Possibility Spent" note in the updated chat message.
   - Only the cosms of which the SK has at least one possibility will be presented. If the SK has no cosm-specific possibilities, then a standard possibility will be used without prompting for a cosm.
   - Cancelling the dialog (or pressing the 'Standard' button) will spend a standard possibility.
-
-- Translations by Durak (French), Helmut (German), and Teotimus (Spanish).
 
 ## 13.17.0
 
@@ -505,7 +503,6 @@ Move some data from `Actor` to `Actor.system` so that all the Torg-specific data
 
 ### Internal
 - Remove `card.system.number` from all Cards, storing the value in `card.value` instead.
-- Translations by Durak (French), Teotimus (Spanish), Helmut (German)
 - Darkness Penalty code originally based on the SWADE Illuminator module by kristianserrano.
 
 ### Bug Fixes
@@ -976,10 +973,6 @@ is replaced by the new portrait. (For unlinked Actors, this will directly affect
 - Prevent error in Card Deck Configuration when player has no hand assigned.
 - Allow drag/drop of cards from Decks to Hands.
 - Only hide foreign language compendiums on first render, so they don't disappear as soon as they are created.
-
-### Translations
-
-- New translations required, in particular for the new "traits" section.
 
 ## v13.1.2
 

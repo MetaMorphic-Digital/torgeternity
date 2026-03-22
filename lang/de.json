@@ -52,7 +52,7 @@
       },
       "match": {
         "and": "ALLE",
-        "not": "NOT",
+        "not": "KEINE",
         "or": "EINE"
       },
       "FIELDS": {
@@ -75,6 +75,10 @@
         "combatToggle": {
           "label": "Anzeigen als Aktivierungsoption",
           "hint": "Zeige diesen Effekt im Charakterbogen unter Angriffe an um schnelleres Umschalten des Status zu erleichtern"
+        },
+        "itemsToBestow": {
+          "label": "Verliehene Gegenstände",
+          "hint": "Ziehe einen Gegenstand auf dieses Feld, damit es auf den Akteur angezeigt wird, solange dieser Aktive Effekt anhält."
         },
         "applyIfAttackTrait": {
           "label": "Anwenden bei Angriffseigenschaft",
@@ -380,6 +384,7 @@
       "drawDestiny": "Schicksalskarte ziehen",
       "lifelike": "realitätsnahe Darstellung",
       "openHand": "Öffne Hand",
+      "openHands": "Öffne Karten-Management",
       "playCard": "Spielen",
       "playerPassInstructions": "Spieler auswählen, der die Karte erhalten soll",
       "playerPassLabel": "Weitergeben",
@@ -1034,8 +1039,8 @@
       "backgroundDescription": "Hintergrund",
       "baseAttribute": "Basisattribut",
       "baseRoll": "Basisprobe",
-      "bestowedBy": "Bestowed By",
-      "bestowedItems": "Bestows",
+      "bestowedBy": "Verliehen durch",
+      "bestowedItems": "Verleiht",
       "blastRadius": "Explosionsradius",
       "blindFire": "Blindes Feuern",
       "blindFireTooltip": "Position des Ziels nur wage bekannt",
@@ -1111,6 +1116,7 @@
       "implant": "Implantat",
       "implants": "Implantate",
       "inactiveEffects": "Inaktive Effekte",
+      "inheritance": "Herkunft",
       "inputExisting": "Vorheriger Würfelbonus",
       "inputExistingTooltip": "Wähle, ob du (1) für einen Bonus würfeln oder (2) einen zuvor generierten Bonus eingeben willst, wenn du eine Mehrfachaktion versuchst.",
       "inputExistingTitle": "Hier den vorherigen WÜRFELBONUS eingeben, nicht den Wurf an sich.",
@@ -1410,7 +1416,7 @@
       "ignoreShock": "Schock ignorieren",
       "ignoreWounds": "Wunden ignorieren",
       "lowestArmor": "Niedrigste Rüstung",
-      "mindless": "Mindless",
+      "mindless": "Stumpfsinnig",
       "nonLethal": "Nicht-tödlich",
       "painful": "Schmerzhaft",
       "pistol": "Pistole",

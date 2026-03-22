@@ -387,6 +387,7 @@
       "drawDestiny": "Piocher une carte de Destin",
       "lifelike": "Affichage en éventail",
       "openHand": "Voir sa main",
+      "openHands": "Ouvrir le gestionnaire de cartes",
       "playCard": "Jouer",
       "playerPassInstructions": "Sélection du joueur recevant la carte",
       "playerPassLabel": "Donner",
