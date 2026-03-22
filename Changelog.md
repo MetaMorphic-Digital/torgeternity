@@ -17,19 +17,18 @@ Any type of Item (not just race) can **bestow** a set of child Items to an Actor
   - Therefore, if the AE was transferred by use of a power that requires concentration, on removing the concentration from the caster, the Active Effect along with the item it bestowed are removed from the targets.
 
 ### Other Improvements
-- Add 'mindless' defense trait
+- Add **mindless** defense trait
 - Add 'NONE' operator to traits field of Active Effects, to ignore AE if the attacker/defender DOES have one or more of the lists traits (e.g. prevent doing something to 'mindless' targets).
 - Fix the "From:" actor name in the "exchange cards" dialog.
 - Add exploding **d20** and **Bonus Die** roll buttons to the Torg control buttons.
 - Ensure the Foundry server knows about the "good" and "outstanding" HTML fields in powers.
-- The default img for an Active Effect created on an Item is the Item's img.
+- The **default image** for an Active Effect created on an Item is the Item's img.
 - Item control icons are greyed out on Actor sheet if the player doesn't have the privilege to use the button.
-- **Token Status**: Ensure temporary effects which are conditional have their icons appear on the token.
-- **Effects Panel**: Show Effect Icons when an effect on the Actor isn't disabled, but might have conditional activations.
+- Ensure temporary effects which are conditional have their icons appear as **token icons** and in the **effects panel**.
 - **Perks**: Allow unlimited number of Enhancements and Limitations.
-- **Scene Config** allows you to override the Axioms of the current scene:
-  - Modifying the cosms or the zone type will reset the axioms to the correct values for the chosen cosm combination.
-  - The axiom values for the current scene are included in the tooltip when hovering over the scene name.
+- **Scene Config** allows you to override the Axioms of the current scene (Ukhaan lives!):
+  - Modifying the cosms or the zone type will reset the axioms to the correct axioms for the chosen cosm combination.
+  - The axiom values are displayed in the tooltip of the scene navigation menu.
 
 ### Internal Changes
 - Reduce size of Perk storage, and allow unlimited number of enhancements and limitations:
