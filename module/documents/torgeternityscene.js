@@ -60,17 +60,14 @@ export default class TorgeternityScene extends foundry.documents.Scene {
 
   // A general function that would normally be static
   static getAxioms(cosm, cosm2, zone) {
-    if (cosm === 'none')
-      return { tech: 0, social: 0, spirit: 0, magic: 0 }
-    else {
-      const zoneAxioms = { ...CONFIG.torgeternity.axiomByCosm[cosm] };
-      if (zone === 'mixed' && cosm2) {
-        const axiom2 = CONFIG.torgeternity.axiomByCosm[cosm2];
-        for (const key of Object.keys(zoneAxioms))
-          if (axiom2[key] > zoneAxioms[key]) zoneAxioms[key] = axiom2[key];
-      }
-      return zoneAxioms;
+    const nocosm = { magic: 0, social: 0, spirit: 0, tech: 0 };
+    const zoneAxioms = { ...(CONFIG.torgeternity.axiomByCosm[cosm] ?? nocosm) };
+    if (zone === 'mixed' && cosm2) {
+      const axiom2 = CONFIG.torgeternity.axiomByCosm[cosm2] ?? nocosm;
+      for (const key of Object.keys(zoneAxioms))
+        if (axiom2[key] > zoneAxioms[key]) zoneAxioms[key] = axiom2[key];
     }
+    return zoneAxioms;
   }
 
   /**
