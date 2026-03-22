@@ -4910,7 +4910,7 @@ div.torg-control-buttons {
 }
 
 .cosm-axioms {
-  padding: 0;
+  padding: 0 1rem;
 
   .axiom-label {
     text-align: center;
