@@ -54,18 +54,18 @@ export class VehicleData extends BaseActorData {
    * @param {object} source the data object to migrate
    */
   static migrateData(source) {
-    if (source?.details && Object.hasOwn(source?.details, 'sizeBonus')) {
+    if (source.details && Object.hasOwn(source.details, 'sizeBonus')) {
       source.details.sizeBonus = Object.keys(CONFIG.torgeternity.sizes).includes(source.details.sizeBonus)
         ? source.details.sizeBonus
         : 'normal';
     }
-    if (source?.price && Object.hasOwn(source?.price, 'magnitude')) {
+    if (source.price && Object.hasOwn(source.price, 'magnitude')) {
       source.price.dollars = String(source.price.dollars);
       if (source.price.magnitude !== 'ones' && Object.keys(CONFIG.torgeternity.magnitudes).includes(source.price.magnitude))
         source.price.dollars += CONFIG.torgeternity.magnitudeLabels[source.price.magnitude];
       delete source.price.magnitude;
     }
-    if (source?.wounds && Object.hasOwn(source?.wounds, 'current')) {
+    if (source.wounds && Object.hasOwn(source.wounds, 'current')) {
       source.wounds.value = source.wounds.current;
     }
     return super.migrateData(source);

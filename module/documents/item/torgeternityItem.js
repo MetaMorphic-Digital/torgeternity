@@ -95,7 +95,7 @@ export default class TorgeternityItem extends foundry.documents.Item {
     //  source.type = 'customAttack';
     //  source.system.damageType ??= 'flat'
     //}
-    if (typeof source?.system?.gunner?.name === 'string') {
+    if (typeof source.system?.gunner?.name === 'string') {
       if (source.system.gunner.name)
         deferredGunners.add({ weaponId: source._id, gunnerName: source.system.gunner.name })
       if (source.system.gunner.skillValue)
@@ -104,7 +104,7 @@ export default class TorgeternityItem extends foundry.documents.Item {
     }
 
     // Don't allow an item to be bestowed by itself!
-    if (source._id && source?.system.bestowedBy === source._id) {
+    if (source._id && source.system?.bestowedBy === source._id) {
       delete source.system.bestowedBy;
     }
     return super.migrateData(source);

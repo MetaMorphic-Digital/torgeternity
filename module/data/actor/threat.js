@@ -40,10 +40,10 @@ export class ThreatData extends CommonActorData {
    * @param {object} source the partial data object to migrate
    */
   static migrateData(source) {
-    if (source?.details && Object.hasOwn(source?.details, 'possibilitypotential')) {
+    if (source.details && Object.hasOwn(source.details, 'possibilitypotential')) {
       source.details.possibilityPotential ??= 'Never';
     }
-    if (source?.details && Object.hasOwn(source?.details, 'sizeBonus')) {
+    if (source.details && Object.hasOwn(source.details, 'sizeBonus')) {
       source.details.sizeBonus = Object.keys(CONFIG.torgeternity.sizes).includes(source.details.sizeBonus)
         ? source.details.sizeBonus
         : 'normal';

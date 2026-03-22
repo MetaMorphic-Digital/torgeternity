@@ -100,7 +100,7 @@ export class CommonActorData extends BaseActorData {
     if (source.other?.cosm !== undefined) source.other.cosm = migrateCosm(source.other.cosm);
 
     for (const attribute of Object.keys(source.attributes ?? {})) {
-      if (typeof source?.attributes?.[attribute] === 'number') {
+      if (typeof source.attributes?.[attribute] === 'number') {
         source.attributes[attribute] = { base: source.attributes[attribute] };
       }
     }
@@ -116,7 +116,7 @@ export class CommonActorData extends BaseActorData {
       }
     }
 
-    if (source?.other && Object.hasOwn(source.other, "possibilities") && typeof source.other.possibilities === 'number') {
+    if (source.other && Object.hasOwn(source.other, "possibilities") && typeof source.other.possibilities === 'number') {
       source.other.possibilities = { value: source.other.possibilities }
     }
     return super.migrateData(source);

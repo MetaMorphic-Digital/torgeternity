@@ -48,7 +48,7 @@ export class GeneralItemData extends BaseItemData {
       source.secondaryAxiom = source.secondaryAxiom.selected;
     }
 
-    if (source?.price && typeof source.price === 'string') {
+    if (typeof source.price === 'string') {
       source.price = { dollars: source.price }
     }
     return super.migrateData(source);
