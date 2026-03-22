@@ -29,6 +29,7 @@ Any type of Item (not just race) can **bestow** a set of child Items to an Actor
 - **Perks**: Allow unlimited number of Enhancements and Limitations.
 - **Scene Config** allows you to override the Axioms of the current scene:
   - Modifying the cosms or the zone type will reset the axioms to the correct values for the chosen cosm combination.
+  - The axiom values for the current scene are included in the tooltip when hovering over the scene name.
 
 ### Internal Changes
 - Reduce size of Perk storage, and allow unlimited number of enhancements and limitations:

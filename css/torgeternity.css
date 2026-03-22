@@ -4911,25 +4911,26 @@ div.torg-control-buttons {
 
 .cosm-axioms {
   padding: 0 1rem;
+}
 
+table.cosm-axioms,
+.cosm-axioms table {
   .axiom-label {
     text-align: center;
   }
 
-  table {
+  background-color: transparent;
+
+  thead {
     background-color: transparent;
+    border-color: transparent;
 
-    thead {
-      background-color: transparent;
-      border-color: transparent;
-
-      td {
-        margin-bottom: 0;
-      }
+    td {
+      margin-bottom: 0;
     }
-
-    margin: 0;
   }
+
+  margin: 0;
 
   .axiom-value {
     text-align: center;
