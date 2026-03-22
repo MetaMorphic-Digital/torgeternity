@@ -1,12 +1,12 @@
 /**
  *
  */
-export default class TorgeternityNav extends foundry.applications.ui.SceneNavigation {
+export default class TorgeternitySceneNav extends foundry.applications.ui.SceneNavigation {
 
   static PARTS = {
     scenes: {
       root: true,
-      template: "systems/torgeternity/templates/scenes/nav.hbs"
+      template: "systems/torgeternity/templates/scenes/scene-nav.hbs"
     },
   }
 
