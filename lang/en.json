@@ -46,6 +46,7 @@
       },
       "match": {
         "and": "ALL",
+        "not": "NONE",
         "or": "ANY"
       },
       "FIELDS": {
@@ -68,6 +69,10 @@
         "transferTo": {
           "label": "Transfer To",
           "hint": "Whether this effect is transferred to the target, or the actor performing the test"
+        },
+        "itemsToBestow": {
+          "label": "Item to Bestow",
+          "hint": "Drag an item onto this field to have the Item appear on the Actor while it retains this Active Effect."
         },
         "applyIfAttackTrait": {
           "label": "Apply If Attack Trait",
@@ -373,6 +378,7 @@
       "drawDestiny": "Draw Destiny",
       "lifelike": "Enhanced Display",
       "openHand": "Open Hand",
+      "openHands": "Open Card Management",
       "playCard": "Play",
       "playerPassInstructions": "Select Player to Receive Card",
       "playerPassLabel": "Pass",
@@ -1027,6 +1033,8 @@
       "backgroundDescription": "Background",
       "baseAttribute": "Base Attribute",
       "baseRoll": "Roll",
+      "bestowedBy": "Bestowed By",
+      "bestowedItems": "Bestows",
       "blastRadius": "Blast Radius",
       "blindFire": "Blind Fire",
       "blindFireTooltip": "Location of target only generally known",
@@ -1102,6 +1110,7 @@
       "implant": "Implant",
       "implants": "Implants",
       "inactiveEffects": "Inactive Effects",
+      "inheritance": "Inheritance",
       "inputExisting": "Input Existing",
       "inputExistingTooltip": "Optionally enter a previously generated bonus when attempting a multi-action.",
       "inputExistingTitle": "Input BONUS NUMBER from previous test, not die total.",
@@ -1161,7 +1170,7 @@
       "psionicPowers": "Psionic Powers",
       "quantity": "Quantity",
       "race": "Race",
-      "racialPerks": "Racial perks",
+      "racialPerks": "Racial Perks",
       "range": "Range",
       "reconnect": "Reconnect",
       "reconnectTooltip": "Remove Disconnected condition",
@@ -1401,6 +1410,7 @@
       "ignoreShock": "Ignore Shock",
       "ignoreWounds": "Ignore Wounds",
       "lowestArmor": "Lowest Armor",
+      "mindless": "Mindless",
       "nonLethal": "Non-Lethal",
       "painful": "Painful",
       "pistol": "Pistol",

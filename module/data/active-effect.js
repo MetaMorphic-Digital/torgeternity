@@ -48,6 +48,7 @@ export class TorgActiveEffectData extends (foundry.data.ActiveEffectTypeDataMode
         applyIfAttackTraitCombine: newCombineTraitsField(),
         applyIfDefendTraitCombine: newCombineTraitsField(),
         defendAgainstTraitCombine: newCombineTraitsField(),
+        itemsToBestow: new fields.SetField(new fields.TypeDataField(foundry.documents.Item)),
 
         combatToggle: new fields.BooleanField({ initial: false, }),
         concentratingId: new fields.DocumentUUIDField({ nullable: true })
@@ -103,9 +104,10 @@ function newCombineTraitsField() {
     required: true,
     choices: {
       'and': "torgeternity.activeEffect.match.and",
+      'not': "torgeternity.activeEffect.match.not",
       'or': "torgeternity.activeEffect.match.or",
     },
     trim: true,
-    initial: "or",
+    initial: 'or',
   })
 }

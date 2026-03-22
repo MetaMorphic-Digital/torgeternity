@@ -1,5 +1,45 @@
 # TORG Eternity Changelog
 
+- Translations by Durak (French), Helmut (German), and Teotimus (Spanish).
+
+## 13.30.0 - Bestowing child Actors automatically.
+
+### Bestowing Items by a parent Item or Active Effect
+Any type of Item (not just race) can **bestow** a set of child Items to an Actor:
+- When the bestowing Item is dropped onto an Actor, the bestowed items are automatically added to the same Actor.
+- When the bestowing Item is deleted from the Actor, all items bestowed by that Item are removed from the Actor.
+- If the bestowing Item is on an Actor, then the list of bestowed items can't be changed on the Item. (You would need to delete it and replace it with a modified version.)
+- The bestowed items can't be manually deleted from the Actor.
+- If a bestowed item bestows other items, then those will also be added (and so on).
+- Bestowed item details are copied when the item is dragged onto the parent (bestowing) Item. Thus if you make changes to the child Item you will need to replace the copy on the bestowing item.
+- (Note: bestowed items are stored on the actual bestowing item, so there's no possibility of creating infinite loops.)
+- An item can be added to an Active Effect so that when the Active Effect is transferred to the target that Item (and any items it bestows) are also bestowed onto the Actor.
+  - Only one item can be directly attached to an Active Effect (but that Item could bestow other items as usual).
+  - Deleting the active effect will delete the item(s) bestowed by that AE.
+  - Therefore, if the AE was transferred by use of a power that requires concentration, on removing the concentration from the caster, the Active Effect along with the item it bestowed are removed from the targets.
+
+### Other Improvements
+- Add **mindless** defense trait
+- Add 'NONE' operator to traits field of Active Effects, to ignore AE if the attacker/defender DOES have one or more of the lists traits (e.g. prevent doing something to 'mindless' targets).
+- Fix the "From:" actor name in the "exchange cards" dialog.
+- Add exploding **d20** and **Bonus Die** roll buttons to the Torg control buttons.
+- Ensure the Foundry server knows about the "good" and "outstanding" HTML fields in powers.
+- The **default image** for an Active Effect created on an Item is the Item's img.
+- Item control icons are greyed out on Actor sheet if the player doesn't have the privilege to use the button.
+- Ensure temporary effects which are conditional have their icons appear as **token icons** and in the **effects panel**.
+- **Perks**: Allow unlimited number of Enhancements and Limitations.
+- **Scene Config** allows you to override the Axioms of the current scene (Ukhaan lives!):
+  - Modifying the cosms or the zone type will reset the axioms to the correct axioms for the chosen cosm combination.
+  - The axiom values are displayed in the tooltip of the scene navigation menu.
+
+### Internal Changes
+- Reduce size of Perk storage, and allow unlimited number of enhancements and limitations:
+  - replaced `system.pulpPowers.enhancement0x` with `system.enhancemants` array
+  - replaced `system.pulpPowers.limitation0x` with `system.limitations` array
+- Added `itemsToBestow` and `bestowedBy` to all Item types:
+  - Merged `system.perksData` and `system.customAttackData` into a single `system.itemsToBestow` field.
+  - Renamed `system.transferenceID` to `system.bestowedBy`.
+
 ## 13.29.0 - Card Hands Manager window
 
 ### Hands Viewer/Manager
@@ -47,12 +87,6 @@ Provide a Hands Manager window, openable by SHIFT-H (or from the Torg Toolbar).
 - "Year 1 Pan Pacifica" game system option wording changed, and when checked the spirit axiom for Pan Pacifica is changed to the new value.
 - Shorter label of "end encounter" button for our French users.
 - Hovering over a token now highlights the combatant in the combat tracker.
-
-### Translations
-
-"psychicDamage": "Psychic Damage"
-"useYear1PPTent.name": "Year-1 Pan-Pacifica Axioms"
-"useYear1PPTent.hint": "Use the Pan-Pacifica Axioms after day 172."
 
 ## 13.27.6 - damageMod for skills
 
@@ -393,8 +427,6 @@ Move some data from `Actor` to `Actor.system` so that all the Torg-specific data
   - Active Effects can modify the number per act by modifying the property `system.other.possibilities.perAct`
   - Any existing AE that modifies `system.other.possibilities` will be automatically changed to modify `system.other.possibilities.perAct` (e.g. Prodigy perk)
 
-- Translations by Durak (French), Helmut (German), and Teotimus (Spanish).
-
 ## 13.18.2 - Fix Custom Skill Name in chat message
 
 - Ensures that the custom skill name (not id) is displayed in the test chat message.
@@ -423,8 +455,6 @@ Move some data from `Actor` to `Actor.system` so that all the Torg-specific data
   - The cosm name will be added to the "Possibility Spent" note in the updated chat message.
   - Only the cosms of which the SK has at least one possibility will be presented. If the SK has no cosm-specific possibilities, then a standard possibility will be used without prompting for a cosm.
   - Cancelling the dialog (or pressing the 'Standard' button) will spend a standard possibility.
-
-- Translations by Durak (French), Helmut (German), and Teotimus (Spanish).
 
 ## 13.17.0
 
@@ -473,7 +503,6 @@ Move some data from `Actor` to `Actor.system` so that all the Torg-specific data
 
 ### Internal
 - Remove `card.system.number` from all Cards, storing the value in `card.value` instead.
-- Translations by Durak (French), Teotimus (Spanish), Helmut (German)
 - Darkness Penalty code originally based on the SWADE Illuminator module by kristianserrano.
 
 ### Bug Fixes
@@ -944,10 +973,6 @@ is replaced by the new portrait. (For unlinked Actors, this will directly affect
 - Prevent error in Card Deck Configuration when player has no hand assigned.
 - Allow drag/drop of cards from Decks to Hands.
 - Only hide foreign language compendiums on first render, so they don't disappear as soon as they are created.
-
-### Translations
-
-- New translations required, in particular for the new "traits" section.
 
 ## v13.1.2
 

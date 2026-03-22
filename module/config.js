@@ -596,6 +596,7 @@ export function initConfig() {
     'painful': 'torgeternity.traits.painful',
     'ignoreShock': 'torgeternity.traits.ignoreShock',
     'ignoreWounds': 'torgeternity.traits.ignoreWounds',
+    'mindless': 'torgeternity.traits.mindless',
     'supernaturalEvil': 'torgeternity.traits.supernaturalEvil'
   }
 

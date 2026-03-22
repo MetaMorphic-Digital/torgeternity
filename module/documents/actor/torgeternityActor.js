@@ -199,6 +199,20 @@ export default class TorgeternityActor extends foundry.documents.Actor {
   }
 
   /**
+   * @inheritdoc
+   */
+  get temporaryEffects() {
+    // Called for display in the Combat Tracker, and to display effect icons on the Token.
+    // effect.active might not be active due to the logic in TorgActiveEffectData.isSuppressed,
+    // so apply an effect directly on an actor if it is suppressed.
+    const effects = [];
+    for (const effect of this.allApplicableEffects()) {
+      // The effect might not be active
+      if (!effect.disabled && (effect.parent === this || !effect.isSuppressed) && effect.isTemporary) effects.push(effect);
+    }
+    return effects;
+  }
+  /**
    * @returns {object|false} the Hand of the actor or false if no default hand is set
    */
   getDefaultHand() {
@@ -494,7 +508,6 @@ export default class TorgeternityActor extends foundry.documents.Actor {
     if (!tokens) return;
 
     const darkness = scene.getTokenDarknessPenalty(tokens[0]);
-    //console.log(`${this.name}: new darkness state = ${darkness}`)
 
     for (const status of Object.keys(CONFIG.torgeternity.darknessModifiers)) {
       if (status === 'none') continue;
@@ -588,6 +601,29 @@ export default class TorgeternityActor extends foundry.documents.Actor {
     return ActiveEffect.implementation.create(effect, { parent: this });
   }
 
+  _onCreateDescendantDocuments(parent, collection, documents, data, options, userId) {
+    super._onCreateDescendantDocuments(parent, collection, documents, data, options, userId);
+    if (game.user.id !== userId) return;
+
+    if (parent === this) {
+      // The newly added item might bestow more Items automatically
+      let newitems = [];
+      for (const bestower of documents) {
+        if (!bestower.system?.itemsToBestow) continue;
+        for (const itemdata of bestower.system.itemsToBestow) {
+          const newitem = foundry.utils.duplicate(itemdata);
+          newitem.system.bestowedBy = bestower.id;
+          newitems.push(newitem);
+        }
+        if (bestower.system.itemsToBestow) {
+          // Blank out the itemsToBestow field on the item stored on this Actor, to reduce Actor size
+          bestower.update({ 'system.itemsToBestow': null })
+        }
+      }
+      if (newitems.length) this.createEmbeddedDocuments('Item', newitems);
+    }
+  }
+
   /**
    * When a 'concentration' status is deleted from an Actor, look for any AEs on other actors
    * which have 'system.concentratingId' set to the UUID of the 'concentration' status AE.
@@ -601,7 +637,11 @@ export default class TorgeternityActor extends foundry.documents.Actor {
    * @returns 
    */
   _onDeleteDescendantDocuments(parent, collection, documents, ids, options, userId) {
-    if (game.user.isActiveGM && collection === 'effects') {
+    super._onDeleteDescendantDocuments(parent, collection, documents, ids, options, userId);
+    if (game.user.id !== userId) return;
+
+    if (collection === 'effects') {
+      // If 'concentration' is being cancelled, then delete any effects from other Actors which are being supported by that concentration.
       const concIds = documents.filter(eft => eft.statuses.has('concentrating')).map(doc => doc.uuid).filter(uuid => !!uuid);
       if (concIds.length) {
         for (const actor of game.actors)
@@ -610,7 +650,11 @@ export default class TorgeternityActor extends foundry.documents.Actor {
               effect.delete();
       }
     }
-    return super._onDeleteDescendantDocuments(parent, collection, documents, ids, options, userId);
+    if (parent === this) {
+      // See if any items were bestowed by the document being deleted.
+      const todelete = this.items.filter(item => item.system.bestowedBy && ids.includes(item.system.bestowedBy)).map(item => item.id);
+      if (todelete.length) this.deleteEmbeddedDocuments('Item', todelete);
+    }
   }
 
   /**

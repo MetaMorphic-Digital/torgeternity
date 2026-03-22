@@ -55,6 +55,7 @@
       },
       "match": {
         "and": "Tous",
+        "not": "Aucun",
         "or": "Au moins"
       },
       "FIELDS": {
@@ -77,6 +78,10 @@
         "combatToggle": {
           "label": "Afficher/Masquer avec les attaques",
           "hint": "Afficher cet effet dans la section Attaques de la feuille de personnage pour un accés rapide à la commutation Activation/Désactivation "
+        },
+        "itemsToBestow": {
+          "label": "Transfert d'Objet",
+          "hint": "Déposer ici les Objets qui seront transférés à l'Acteur, et transfèreront également leurs Effets."
         },
         "applyIfAttackTrait": {
           "label": "Appliquer le trait d'attaque",
@@ -382,6 +387,7 @@
       "drawDestiny": "Piocher une carte de Destin",
       "lifelike": "Affichage en éventail",
       "openHand": "Voir sa main",
+      "openHands": "Ouvrir le gestionnaire de cartes",
       "playCard": "Jouer",
       "playerPassInstructions": "Sélection du joueur recevant la carte",
       "playerPassLabel": "Donner",
@@ -1036,6 +1042,8 @@
       "backgroundDescription": "Description",
       "baseAttribute": "Attribut",
       "baseRoll": "Lancer",
+      "bestowedBy": "Hérité de",
+      "bestowedItems": "Accorde",
       "blastRadius": "Zone d'explosion",
       "blindFire": "Tir au jugé",
       "blindFireTooltip": "Position de la cible seulement approximative",
@@ -1111,6 +1119,7 @@
       "implant": "Implant",
       "implants": "Implants",
       "inactiveEffects": "Effets inactifs",
+      "inheritance": "Héritage",
       "inputExisting": "Saisie existante",
       "inputExistingTooltip": "Choisir entre (1) lancer le dé pour obtenir un bonus ou (2) saisir un bonus déjà généré pour résoudre une action multiple.",
       "inputExistingTitle": "Saisir la valeur BONUS du jet précédent, pas la valeur du dé total.",
@@ -1410,6 +1419,7 @@
       "ignoreShock": "Ignore les points de Chocs",
       "ignoreWounds": "Ignore les Blessures",
       "lowestArmor": "Plus faible zone d'armure",
+      "mindless": "Dénué d’intelligence",
       "nonLethal": "Non Létal",
       "painful": "Douleur",
       "pistol": "Pistolet",

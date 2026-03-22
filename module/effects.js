@@ -16,7 +16,7 @@ export async function onManageActiveEffect(event, button, owner) {
       return owner.createEmbeddedDocuments('ActiveEffect', [
         {
           name: 'New Effect',
-          icon: 'icons/svg/aura.svg',
+          icon: (owner instanceof foundry.documents.Item && owner.img) || 'icons/svg/aura.svg',
           origin: owner.uuid,
           duration: {
             rounds: li.dataset.effectType === 'temporary' ? 1 : undefined,

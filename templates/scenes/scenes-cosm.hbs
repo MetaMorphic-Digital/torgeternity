@@ -15,4 +15,37 @@
       {{selectOptions cosmTypes selected=document.torg.cosm2 localize=true sort=true}}
     </select>
   </div>
+
+  <fieldset class="form-group cosm-axioms">
+    <legend>{{localize 'torgeternity.stats.axioms'}}</legend>
+    <div>
+      <table>
+        <thead>
+          <td class="axiom-label">{{localize 'torgeternity.sheetLabels.magic'}}</td>
+          <td class="axiom-label">{{localize 'torgeternity.sheetLabels.social'}}</td>
+          <td class="axiom-label">{{localize 'torgeternity.sheetLabels.spirit'}}</td>
+          <td class="axiom-label">{{localize 'torgeternity.sheetLabels.tech'}}</td>
+        </thead>
+        <tbody>
+          {{log document.torg}}
+          <td class="axiom-value">
+            <input type="text" name="flags.torgeternity.axioms.magic"
+              value="{{document.flags.torgeternity.axioms.magic}}">
+          </td>
+          <td class="axiom-value">
+            <input type="text" name="flags.torgeternity.axioms.social"
+              value="{{document.flags.torgeternity.axioms.social}}">
+          </td>
+          <td class="axiom-value">
+            <input type="text" name="flags.torgeternity.axioms.spirit"
+              value="{{document.flags.torgeternity.axioms.spirit}}">
+          </td>
+          <td class="axiom-value">
+            <input type="text" name="flags.torgeternity.axioms.tech"
+              value="{{document.flags.torgeternity.axioms.tech}}">
+          </td>
+        </tbody>
+      </table>
+    </div>
+  </fieldset>
 </div>

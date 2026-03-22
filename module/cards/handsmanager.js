@@ -284,7 +284,7 @@ export class HandsManager extends HandlebarsApplicationMixin(ApplicationV2) {
   }
 
   async promptCard(theirCard, myCard) {
-    const from = game.i18n.format('torgeternity.handsManager.trade.from', { actor: game.actors.get(theirCard.actorId).name });
+    const from = game.i18n.format('torgeternity.handsManager.trade.from', { actor: game.actors.get(myCard.actorId).name });
 
     // Prompt needs to be from THEIR point of view
     const response = await foundry.applications.api.DialogV2.query(theirCard.userId, 'confirm', {
@@ -315,7 +315,6 @@ export class HandsManager extends HandlebarsApplicationMixin(ApplicationV2) {
    * @returns 
    */
   async gmExchangeCards(data) {
-    console.log('GM: swapCards');
     const stack1 = game.cards.get(data.stack1);
     const stack2 = game.cards.get(data.stack2);
     if (!stack1 || !stack2) return console.warn('Failed to find both card stacks');

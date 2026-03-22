@@ -95,12 +95,17 @@ export default class TorgeternityItem extends foundry.documents.Item {
     //  source.type = 'customAttack';
     //  source.system.damageType ??= 'flat'
     //}
-    if (typeof source.system?.gunner?.name === 'string') {
+    if (typeof source?.system?.gunner?.name === 'string') {
       if (source.system.gunner.name)
         deferredGunners.add({ weaponId: source._id, gunnerName: source.system.gunner.name })
       if (source.system.gunner.skillValue)
         source.system.gunnerFixedSkill = parseInt(source.system.gunner.skillValue);
       delete source.system.gunner;
+    }
+
+    // Don't allow an item to be bestowed by itself!
+    if (source._id && source?.system.bestowedBy === source._id) {
+      delete source.system.bestowedBy;
     }
     return super.migrateData(source);
   }
@@ -111,23 +116,15 @@ export default class TorgeternityItem extends foundry.documents.Item {
 
     if (this.img === 'icons/svg/item-bag.svg') {
       const image = TorgeternityItem.DEFAULT_ICONS[data.type] ?? null;
-      if (image) {
-        await this.updateSource({ img: image });
-      }
+      if (image) await this.updateSource({ img: image });
     }
 
-    if (
-      this.actor &&
-      this?.actor?.system.details.race !== game.i18n.localize('torgeternity.sheetLabels.noRace') &&
-      data.type === 'race'
-    ) {
+    if (data.type === 'race' && this.actor?.race) {
       ui.notifications.error(game.i18n.localize('torgeternity.notifications.raceExistent'));
       return false;
     }
 
-    if (this.type === 'perk' || this.type === 'customAttack')
-      this.updateSource({ 'system.transferenceID': this.id }); // necessary for saving perks or custom attack data in race items
-    else if (this.type === 'miracle')
+    if (this.type === 'miracle')
       this.updateSource({ 'system.skill': 'faith' });
   }
 
@@ -250,7 +247,6 @@ export default class TorgeternityItem extends foundry.documents.Item {
   }
 
   async _buildEmbedHTML(config, options) {
-    console.log('Item._buildEmbedHTML', { item: this, config, options });
     const enriched = await this.#encodeString(options);
     if (!enriched) return undefined;
     const container = document.createElement("div");

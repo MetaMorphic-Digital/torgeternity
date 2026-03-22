@@ -22,6 +22,7 @@ export class TorgControlButtons extends HandlebarsApplicationMixin(ApplicationV2
         name: 'playerHand',
         label: 'TYPES.Cards.hand',
         icon: 'fa fa-id-badge',
+        type: 'toggle',
         callback: (button, active) => {
           const hand = TorgeternityActor.getControlledActor()?.getDefaultHand();
           if (!hand) return ui.notifications.error(game.i18n.localize('torgeternity.notifications.noHands'));
@@ -32,12 +33,14 @@ export class TorgControlButtons extends HandlebarsApplicationMixin(ApplicationV2
         name: 'handsViewer',
         label: 'DOCUMENT.CardsPlural',
         icon: 'fa fa-window-restore',
+        type: 'toggle',
         callback: (button, active) => setWindowState(ui.handsViewer, active)
       },
       {
         name: 'gmScreen',
         label: 'torgeternity.gmScreen.toggle',
         icon: 'fa fa-book-open',
+        type: 'toggle',
         visible: () => game.user.isGM,
         callback: (button, active) => setWindowState(ui.GMScreen, active)
       },
@@ -45,6 +48,7 @@ export class TorgControlButtons extends HandlebarsApplicationMixin(ApplicationV2
         name: 'deckSettings',
         label: 'torgeternity.settingMenu.deckSetting.name',
         icon: 'fa fa-cog',
+        type: 'toggle',
         visible: () => game.user.isGM,
         callback: (button, active) => setWindowState(ui.deckSettings, active),
       },
@@ -52,9 +56,33 @@ export class TorgControlButtons extends HandlebarsApplicationMixin(ApplicationV2
         name: 'macroHub',
         label: 'torgeternity.macros.macroHub.buttonTitle',
         icon: 'fa-solid fa-bottle-water',
+        type: 'toggle',
         visible: () => game.user.isGM,
         callback: (button, active) => setWindowState(ui.macroHub, active),
-      }]
+      },
+      {
+        name: 'd20poss',
+        label: 'torgeternity.sheetLabels.roll',
+        icon: 'fa-solid fa-dice-d20',
+        type: 'button',
+        visible: () => game.user.isGM,
+        callback: async (button, active) => {
+          const diceroll = await foundry.dice.Roll.create('1d20x10x20').evaluate();
+
+          return ChatMessage.create({
+            rolls: diceroll
+          })
+        }
+      },
+      {
+        name: 'bonusDie',
+        label: 'torgeternity.chatText.bonusDice',
+        icon: 'fa-solid fa-dice-five',
+        type: 'button',
+        visible: () => game.user.isGM,
+        callback: (button, active) => game.torgeternity.macros.rollBDs()
+      },
+    ]
   }
 
   static PARTS = {
@@ -81,14 +109,16 @@ export class TorgControlButtons extends HandlebarsApplicationMixin(ApplicationV2
   }
 
   static async #onPress(event, button) {
-    console.log('onPress', event, button);
-    const newstate = button.getAttribute('aria-pressed') === 'true' ? false : true;
+    let newstate = false;
+    if (button.classList.contains('toggle'))
+      newstate = button.getAttribute('aria-pressed') === 'true' ? false : true;
     return TorgControlButtons.DEFAULT_OPTIONS.buttons.find(b => b.name === button.name)?.callback(button, newstate);
   }
 
   async setControlsToggle(name, active) {
     const button = this.element.querySelector(`button[name="${name}"]`);
-    if (button) button.setAttribute('aria-pressed', active ? 'true' : 'false');
+    if (button && button.classList.contains('toggle'))
+      button.setAttribute('aria-pressed', active ? 'true' : 'false');
   }
 }
 

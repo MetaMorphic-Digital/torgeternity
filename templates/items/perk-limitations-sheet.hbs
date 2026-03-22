@@ -6,101 +6,20 @@
     </span>
     <div class="enhancements-controls">
       <a class="remove-limitation" data-action="removeLimitation"
-        data-tooltip="{{localize 'torgeternity.sheetLabels.limitationsRemoveTooltip'}}"><i
-          class="fas fa-minus"></i></a>
+        data-tooltip="{{localize 'torgeternity.sheetLabels.limitationsRemoveTooltip'}}"><i class="fas fa-minus"></i></a>
       <a class="add-limitation" data-action="addLimitation"
         data-tooltip="{{localize 'torgeternity.sheetLabels.limitationsAddTooltip'}}"><i class="fas fa-plus"></i></a>
     </div>
   </div>
   <ol class="item-list">
-    {{#if (gt item.system.pulpPowers.limitationNumber 0)}}
+    {{#each item.system.limitations}}
       <li class="item-block">
         <div class="item-row flexrow">
           <div class="item-name enhancement-content">
-            <input type="text" name="system.pulpPowers.limitation01" value="{{item.system.pulpPowers.limitation01}}" />
+            <input type="text" name="system.limitations.{{@index}}" value="{{this}}" />
           </div>
         </div>
       </li>
-    {{/if}}
-    {{#if (gt item.system.pulpPowers.limitationNumber 1)}}
-      <li class="item-block">
-        <div class="item-row flexrow">
-          <div class="item-name enhancement-content">
-            <input type="text" name="system.pulpPowers.limitation02" value="{{item.system.pulpPowers.limitation02}}" />
-          </div>
-        </div>
-      </li>
-    {{/if}}
-    {{#if (gt item.system.pulpPowers.limitationNumber 2)}}
-      <li class="item-block">
-        <div class="item-row flexrow">
-          <div class="item-name enhancement-content">
-            <input type="text" name="system.pulpPowers.limitation03" value="{{item.system.pulpPowers.limitation03}}" />
-          </div>
-        </div>
-      </li>
-    {{/if}}
-    {{#if (gt item.system.pulpPowers.limitationNumber 3)}}
-      <li class="item-block">
-        <div class="item-row flexrow">
-          <div class="item-name enhancement-content">
-            <input type="text" name="system.pulpPowers.limitation04" value="{{item.system.pulpPowers.limitation04}}" />
-          </div>
-        </div>
-      </li>
-    {{/if}}
-    {{#if (gt item.system.pulpPowers.limitationNumber 4)}}
-      <li class="item-block">
-        <div class="item-row flexrow">
-          <div class="item-name enhancement-content">
-            <input type="text" name="system.pulpPowers.limitation05" value="{{item.system.pulpPowers.limitation05}}" />
-          </div>
-        </div>
-      </li>
-    {{/if}}
-    {{#if (gt item.system.pulpPowers.limitationNumber 5)}}
-      <li class="item-block">
-        <div class="item-row flexrow">
-          <div class="item-name enhancement-content">
-            <input type="text" name="system.pulpPowers.limitation06" value="{{item.system.pulpPowers.limitation06}}" />
-          </div>
-        </div>
-      </li>
-    {{/if}}
-    {{#if (gt item.system.pulpPowers.limitationNumber 6)}}
-      <li class="item-block">
-        <div class="item-row flexrow">
-          <div class="item-name enhancement-content">
-            <input type="text" name="system.pulpPowers.limitation07" value="{{item.system.pulpPowers.limitation07}}" />
-          </div>
-        </div>
-      </li>
-    {{/if}}
-    {{#if (gt item.system.pulpPowers.limitationNumber 7)}}
-      <li class="item-block">
-        <div class="item-row flexrow">
-          <div class="item-name enhancement-content">
-            <input type="text" name="system.pulpPowers.limitation08" value="{{item.system.pulpPowers.limitation08}}" />
-          </div>
-        </div>
-      </li>
-    {{/if}}
-    {{#if (gt item.system.pulpPowers.limitationNumber 8)}}
-      <li class="item-block">
-        <div class="item-row flexrow">
-          <div class="item-name enhancement-content">
-            <input type="text" name="system.pulpPowers.limitation09" value="{{item.system.pulpPowers.limitation09}}" />
-          </div>
-        </div>
-      </li>
-    {{/if}}
-    {{#if (gt item.system.pulpPowers.limitationNumber 9)}}
-      <li class="item-block">
-        <div class="item-row flexrow">
-          <div class="item-name enhancement-content">
-            <input type="text" name="system.pulpPowers.limitation10" value="{{item.system.pulpPowers.limitation10}}" />
-          </div>
-        </div>
-      </li>
-    {{/if}}
+    {{/each}}
+  </ol>
 </section>

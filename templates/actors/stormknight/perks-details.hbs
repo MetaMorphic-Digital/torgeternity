@@ -29,7 +29,8 @@
                 data-tooltip="{{localize 'torgeternity.iconeTitles.edit'}}">
                 <i class="fas fa-edit"></i>
               </a>
-              <a class="item-control item-delete" data-action="itemDelete" {{disabled (not @root.editable)}}
+              <a class="item-control item-delete" data-action="itemDelete"
+                {{disabled (or (not @root.editable) item.system.bestowedBy)}}
                 data-tooltip="{{localize 'torgeternity.iconeTitles.delete'}}">
                 <i class="fas fa-trash"></i>
               </a>
@@ -125,7 +126,8 @@
               data-tooltip="{{localize 'torgeternity.iconeTitles.edit'}}">
               <i class="fas fa-edit"></i>
             </a>
-            <a class="item-control item-delete" data-action="itemDelete" {{disabled (not @root.editable)}}
+            <a class="item-control item-delete" data-action="itemDelete"
+              {{disabled (or (not @root.editable) item.system.bestowedBy)}}
               data-tooltip="{{localize 'torgeternity.iconeTitles.delete'}}">
               <i class="fas fa-trash"></i>
             </a>
@@ -171,7 +173,8 @@
                 data-tooltip="{{localize 'torgeternity.iconeTitles.edit'}}">
                 <i class="fas fa-edit"></i>
               </a>
-              <a class="item-control item-delete" data-action="itemDelete" {{disabled (not @root.editable)}}
+              <a class="item-control item-delete" data-action="itemDelete"
+                {{disabled (or (not @root.editable) item.system.bestowedBy)}}
                 data-tooltip="{{localize 'torgeternity.iconeTitles.delete'}}">
                 <i class="fas fa-trash"></i>
               </a>

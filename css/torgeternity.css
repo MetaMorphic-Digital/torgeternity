@@ -394,6 +394,159 @@ dialog.torgeternity:not(.actor, .item) .window-content,
   text-align: left;
 }
 
+/* Any sheet with Item lists */
+.sheet.torgeternity {
+  .block {
+    border: solid 4px;
+    border-image: url(../images/separator.webp);
+    border-image-slice: 50;
+    box-shadow: 2px 2px 15px #9e9686;
+    transition: all 0.3s cubic-bezier(0.6, -0.07, 0.56, 1.52) 0.2s;
+    /*padding: 0px inherit 0px 0px;*/
+
+    &:hover,
+    &:hover {
+      box-shadow: 2px 2px 15px black;
+    }
+  }
+
+  .perks-list,
+  .eternityshards-list,
+  .bestowedItems,
+  .weapons-list {
+
+    h2,
+    h3 {
+      margin-top: 0px;
+      margin-block-start: 0pm;
+      margin-bottom: 8px;
+      padding-left: 20px;
+    }
+
+    .item-list li {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      border-top: 1px solid;
+      font-family: "Signika";
+      font-size: 13px;
+      margin: 1px;
+      padding: 1px;
+
+      &.effect {
+        border-top: none;
+      }
+
+      .item-name {
+        align-self: center;
+
+        &.disconnected {
+          text-decoration: line-through;
+        }
+
+        .contradiction {
+          vertical-align: super;
+        }
+      }
+
+      img {
+        max-width: 30px;
+        max-height: 30px;
+      }
+    }
+  }
+
+  .item-list .item-controls {
+    .item-control {
+      margin-right: 2px;
+
+      &[disabled] {
+        color: grey;
+      }
+    }
+  }
+
+  .threat-block,
+  .perks-details,
+  .bestowedItems,
+  .gear,
+  .powers {
+    row-gap: 0px;
+
+    h2 {
+      text-align: left;
+      background: #37465438;
+      margin: 0;
+    }
+
+    .item-list {
+      font-family: "Signika";
+      font-size: 13px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      >li {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        margin: 5px;
+        justify-content: space-between;
+        border-top: 1px solid black;
+
+        .item-name {
+          text-align: center;
+
+          &.disconnected {
+            text-decoration: line-through;
+          }
+
+          .contradiction {
+            vertical-align: super;
+          }
+        }
+
+        img {
+          max-width: 50px;
+          max-height: 50px;
+          margin: 5px;
+        }
+
+        .item-detail {
+          overflow: hidden;
+          position: relative;
+          z-index: 1000;
+          max-height: 0px;
+        }
+
+        .item-controls {
+          align-content: center;
+          justify-content: end;
+          flex: none;
+
+          a.item-equip.item-equipped {
+            color: #0000af;
+            text-shadow: 0px 0px 5px;
+          }
+
+          a.item-equip.item-unequipped {
+            color: #1f0101;
+            text-shadow: 0px 0px 5px #f80202;
+          }
+        }
+
+        .item-dropdown-extras {
+          font-style: italic;
+          border: 1px solid grey;
+          text-align: center;
+          background-color: #9e96868e;
+        }
+      }
+    }
+  }
+
+}
+
 /*                                             */
 /* --------Actor/Vehicle/Threat Sheets-------- */
 /*                                             */
@@ -614,19 +767,6 @@ dialog.torgeternity:not(.actor, .item) .window-content,
       width: 100%;
     }
 
-    .block {
-      border: solid 4px;
-      border-image: url(../images/separator.webp);
-      border-image-slice: 50;
-      box-shadow: 2px 2px 15px #9e9686;
-      transition: all 0.3s cubic-bezier(0.6, -0.07, 0.56, 1.52) 0.2s;
-      /*padding: 0px inherit 0px 0px;*/
-
-      &:hover,
-      &:hover {
-        box-shadow: 2px 2px 15px black;
-      }
-    }
 
     .sksheet.header {
       &.totalbox {
@@ -1115,56 +1255,6 @@ dialog.torgeternity:not(.actor, .item) .window-content,
       }
     }
 
-    .perks-list,
-    .eternityshards-list,
-    .weapons-list {
-
-      h2,
-      h3 {
-        margin-top: 0px;
-        margin-block-start: 0pm;
-        margin-bottom: 8px;
-      }
-
-      .item-list li {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        border-top: 1px solid;
-        font-family: "Signika";
-        font-size: 13px;
-        margin: 1px;
-        padding: 1px;
-
-        &.effect {
-          border-top: none;
-        }
-
-        .item-name {
-          align-self: center;
-
-          &.disconnected {
-            text-decoration: line-through;
-          }
-
-          .contradiction {
-            vertical-align: super;
-          }
-        }
-
-        img {
-          max-width: 30px;
-          max-height: 30px;
-        }
-      }
-    }
-
-    .item-list .item-controls {
-      .item-control {
-        margin-right: 2px;
-      }
-    }
-
     .gear .currencyBlock {
       display: flex;
       column-gap: 10px;
@@ -1183,84 +1273,6 @@ dialog.torgeternity:not(.actor, .item) .window-content,
         input {
           width: 4em;
           margin-right: 5px;
-        }
-      }
-    }
-
-    .threat-block,
-    .perks-details,
-    .gear,
-    .powers {
-      row-gap: 0px;
-
-      h2 {
-        text-align: left;
-        background: #37465438;
-        margin: 0;
-      }
-
-      .item-list {
-        font-family: "Signika";
-        font-size: 13px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-
-        >li {
-          display: flex;
-          flex-direction: column;
-          position: relative;
-          margin: 5px;
-          justify-content: space-between;
-          border-top: 1px solid black;
-
-          .item-name {
-            text-align: center;
-
-            &.disconnected {
-              text-decoration: line-through;
-            }
-
-            .contradiction {
-              vertical-align: super;
-            }
-          }
-
-          img {
-            max-width: 50px;
-            max-height: 50px;
-            margin: 5px;
-          }
-
-          .item-detail {
-            overflow: hidden;
-            position: relative;
-            z-index: 1000;
-            max-height: 0px;
-          }
-
-          .item-controls {
-            align-content: center;
-            justify-content: end;
-            flex: none;
-
-            a.item-equip.item-equipped {
-              color: #0000af;
-              text-shadow: 0px 0px 5px;
-            }
-
-            a.item-equip.item-unequipped {
-              color: #1f0101;
-              text-shadow: 0px 0px 5px #f80202;
-            }
-          }
-
-          .item-dropdown-extras {
-            font-style: italic;
-            border: 1px solid grey;
-            text-align: center;
-            background-color: #9e96868e;
-          }
         }
       }
     }
@@ -3693,73 +3705,13 @@ document-embed .generalHeader {
     }
   }
 
+
   .item-list {
     list-style: none;
-    padding: 0 0 0 0;
   }
 
-  .tab.racePerks {
+  .tab.bestowedItems {
     row-gap: 0px;
-  }
-
-  ol.race.perks-list,
-  .racePerks ol {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: unset;
-
-    li {
-      list-style: none;
-      margin: 5px;
-      display: flex;
-      justify-content: space-between;
-      border-top: 1px solid black;
-      flex-direction: column;
-      border: solid 4px;
-      border-image: url(../images/separator.webp);
-      border-image-slice: 50;
-      box-shadow: 2px 2px 15px #9e9686;
-      transition: all 0.3s cubic-bezier(0.6, -0.07, 0.56, 1.52) 0.2s;
-      /*overflow: auto;*/
-      padding: 0px 0px 5px 0px;
-      font-size: 20px;
-    }
-
-    &>.item.block>.item-row {
-      &.flexrow {
-        display: grid;
-        grid-template-columns: 1fr 3fr 1fr;
-        justify-content: space-evenly;
-        align-items: center;
-        column-gap: 1rem;
-
-        &>img {
-          max-width: 60px;
-          max-height: 60px;
-          border: none;
-        }
-
-        &>.item-controls {
-          justify-self: end;
-        }
-      }
-    }
-
-    .item.block .item-detail {
-      display: none;
-      max-height: 300px;
-
-      &>* {
-        overflow: auto;
-        position: relative;
-        z-index: 1000;
-      }
-    }
-
-    &>.item.block>.item-detail>.item-dropdown-description {
-      font-size: 14px;
-    }
   }
 
   .window-content {
@@ -3872,7 +3824,7 @@ document-embed .generalHeader {
     }
   }
 
-  .window-content .racePerks {
+  .window-content .bestowedItems {
     min-height: 200px;
     margin-top: 10px;
   }
@@ -4646,7 +4598,7 @@ h4 {
 }
 
 .application.torgeternity textarea {
-  min-height: 50px;
+  min-height: 5em;
 }
 
 .add-enhancement,
@@ -4655,12 +4607,6 @@ h4 {
 .remove-limitation {
   padding: 0px 5px 0px 5px;
   float: right;
-}
-
-.sheet.item ol.race.perks-list>.item.block>.item-detail>.item-dropdown-description .item-dropdown-extras {
-  font-style: italic;
-  border: 1px solid grey;
-  text-align: center;
 }
 
 body.game .app,
@@ -4961,4 +4907,37 @@ dialog.exchange-card-dialog {
 
 div.torg-control-buttons {
   padding: 16px 16px 16px 0;
+}
+
+.cosm-axioms {
+  padding: 0 1rem;
+}
+
+table.cosm-axioms,
+.cosm-axioms table {
+  .axiom-label {
+    text-align: center;
+  }
+
+  background-color: transparent;
+
+  thead {
+    background-color: transparent;
+    border-color: transparent;
+
+    td {
+      margin-bottom: 0;
+    }
+  }
+
+  margin: 0;
+
+  .axiom-value {
+    text-align: center;
+
+    &>input {
+      width: 5em;
+      text-align: center;
+    }
+  }
 }

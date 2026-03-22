@@ -11,7 +11,7 @@ import torgeternityCombat from './dramaticScene/torgeternityCombat.js';
 import torgeternityCombatTracker from './dramaticScene/torgeternityCombatTracker.js';
 import TorgeternityPlayerList from './users/TorgeternityPlayerList.js';
 import torgeternitySceneConfig from './torgeternitySceneConfig.js';
-import torgeternityNav from './torgeternityNav.js';
+import TorgeternitySceneNav from './torgeternitySceneNav.js';
 import { registerTorgSettings } from './settings.js';
 import TorgCombatant from './dramaticScene/torgeternityCombatant.js';
 import TorgCombatantGroup from './dramaticScene/torgeternityCombatantGroup.js';
@@ -112,7 +112,7 @@ Hooks.once('init', async function () {
     label: 'Torg Eternity Scene Config',
     makeDefault: true,
   });
-  CONFIG.ui.nav = torgeternityNav;
+  CONFIG.ui.nav = TorgeternitySceneNav;
   CONFIG.ui.cards = torgeternityCardsDirectory;
 
   // ---custom user class
@@ -255,7 +255,7 @@ Hooks.on('ready', async function () {
   CONFIG.time.roundTime = 10;
 
   // -----applying GM possibilities pool if absent
-  if (game.user.isGM && !game.user.getFlag('torgeternity', 'GMpossibilities')) {
+  if (game.user.isGM && game.user.getFlag('torgeternity', 'GMpossibilities') === undefined) {
     game.user.setFlag('torgeternity', 'GMpossibilities', 0);
   }
 

@@ -362,7 +362,9 @@
       },
       "miracle": {
         "htmlFields": [
-          "description"
+          "description",
+          "good",
+          "outstanding"
         ]
       },
       "missileweapon": {
@@ -377,7 +379,9 @@
       },
       "psionicpower": {
         "htmlFields": [
-          "description"
+          "description",
+          "good",
+          "outstanding"
         ]
       },
       "race": {
@@ -402,7 +406,9 @@
       },
       "spell": {
         "htmlFields": [
-          "description"
+          "description",
+          "good",
+          "outstanding"
         ]
       },
       "vehicle": {
