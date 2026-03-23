@@ -205,14 +205,6 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
     context.tabs = this._prepareTabs(this.actor.type);
     context.systemFields = context.document.system.schema.fields;
     context.items = Array.from(context.document.items);
-    // Determine contradiction case for each item (Perks need isGeneralContradiction test)
-    const actorAxioms = this.actor.system.axioms;
-    const zoneAxioms = game.scenes.current?.torg.axioms;
-    for (const item of context.items) {
-      const failsActor = item.isContradiction(actorAxioms);
-      const failsCosm = item.isGeneralContradiction(game.scenes.current) || item.isContradiction(zoneAxioms);
-      item.contradictionCase = (failsActor && failsCosm) ? '4' : (failsActor || failsCosm) ? '1' : '';
-    }
 
     context.showPiety = game.settings.get('torgeternity', 'showPiety');
     context.items.sort((a, b) => (a.sort || 0) - (b.sort || 0));

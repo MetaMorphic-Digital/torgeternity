@@ -404,36 +404,30 @@ export default class TorgCombat extends Combat {
     //this.#sendDramaChat('surge', faction);
 
     const scene = this.scene ?? game.scenes.active;
-    console.log('SURGE axiom limits: ', scene.torg.axioms)
 
     let chatOutput = `<h2>${game.i18n.localize('torgeternity.drama.surge')}!</h2><ul>`;
-    //const cosm = this.
     for (const actor of this.getFactionActors(faction)) {
       // Any character who is not from that reality,
       // or has something foreign to that reality on their person.
-
-      // Ignore actors from the scene's reality
-      const fromReality = scene.hasCosm(actor.system.other.cosm);
-      const itemContradictsActor = actor.items.find(item => item.isContradiction(actor.system.axioms));
-      const itemContradictsCosm = actor.items.find(item => item.isGeneralContradiction(scene) || (!scene.hasCosm(item.system.cosm) && item.isContradiction(scene.torg.axioms)));
+      const highestContradiction = Math.max(
+        scene.hasCosm(actor.system.other.cosm) ? 0 : 1,
+        ...actor.items.map(item => Number(item.contradictionCase)));
 
       chatOutput += `<li class="contradiction-roll"><strong>${actor.name}:</strong> `
       if (actor.isDisconnected) {
         chatOutput += ` ${game.i18n.localize('torgeternity.chatText.contradiction.alreadyDisconnected')}`;
-      } else if (!itemContradictsActor && !itemContradictsCosm) {
+      } else if (!highestContradiction) {
         // axioms of cosm === axioms of actor
         chatOutput += ` ${game.i18n.localize('torgeternity.chatText.contradiction.noContradiction')}`;
-        continue;
       } else {
-        const FourCase = fromReality || (itemContradictsCosm && itemContradictsActor);
         chatOutput += ` ${game.i18n.localize('torgeternity.chatText.contradiction.possibleContradiction')} `;
         chatOutput += foundry.applications.ux.TextEditor.createAnchor({
           dataset: {
-            limit: FourCase ? 4 : 1,
+            limit: highestContradiction,
             uuid: actor.uuid,
             tooltip: game.i18n.format('torgeternity.chatText.contradiction.checkTooltip', { name: actor.name })
           },
-          name: FourCase ? '{1-4}' : '{1}',
+          name: (highestContradiction > 1) ? `{1-${highestContradiction}}` : '{1}',
           classes: ['torg-inline-contradiction'],
           icon: "fa-solid fa-dice-d20"
         }).outerHTML;

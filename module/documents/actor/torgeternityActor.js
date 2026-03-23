@@ -675,6 +675,14 @@ export default class TorgeternityActor extends foundry.documents.Actor {
     }
     return result.concat(Array.from(this.statuses)).concat(Array.from(this.system.extraTraits));
   }
+
+  /**
+   * Returns the scene's axioms, as they apply to THIS actor.
+   * The axioms might be modified due to various things (Regions, Active Effects, etc.)
+   */
+  get zoneAxioms() {
+    return game.scenes.current?.torg.axioms;
+  }
 }
 
 /**

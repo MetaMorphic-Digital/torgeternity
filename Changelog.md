@@ -7,6 +7,10 @@
 - Provide cosm name(s) in Scene tooltip.
 - Allow name of "other" cosm to be specified in the Scene Config dialog.
 
+### Internal Changes
+- Internally move code for determining Item contradiction case (0,1,4) in TorgeternityItem.
+- `Actor.zoneAxioms` provides the scene/zone axioms which apply to THIS actor.
+
 ## 13.30.1 - Fix bug
 
 
