@@ -103,11 +103,13 @@ export default class TorgeternityItem extends foundry.documents.Item {
       delete source.system.gunner;
     }
 
-    // Don't allow an item to be bestowed by itself!
+    super.migrateData(source);
+
+    // Don't allow an item to be bestowed by itself! (AFTER possibly migrating something into bestowedBy)
     if (source._id && source.system?.bestowedBy === source._id) {
       delete source.system.bestowedBy;
     }
-    return super.migrateData(source);
+    return source;
   }
 
   async _preCreate(data, options, user) {
