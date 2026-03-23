@@ -16,7 +16,6 @@ export class BaseItemData extends foundry.abstract.TypeDataModel {
       description: new fields.HTMLField({ initial: '', textSearch: true }),
       traits: newTraitsField(itemType),
       axioms: makeAxiomsField(),
-      //itemsToBestow: new fields.SetField(new fields.DocumentUUIDField({ nullable: null })),  // id of other items added/removed with this Item
       itemsToBestow: new fields.SetField(new fields.JSONField),  // id of other items added/removed with this Item
       bestowedBy: new fields.DocumentIdField(),  // the id of the other item that automatically added this Item
     };
@@ -26,14 +25,6 @@ export class BaseItemData extends foundry.abstract.TypeDataModel {
    * @param {object} source delivered data from the constructor
    */
   static migrateData(source) {
-    if (source.grantsItems) {
-      if (source.itemsToBestow === undefined) source.itemsToBestow = source.grantsItems;
-      delete source.grantsItems;
-    }
-    if (source.grantedBy) {
-      if (source.bestowedBy === undefined) source.bestowedBy = source.grantedBy;
-      delete source.grantedBy;
-    }
     if (source.cosm !== undefined) source.cosm = migrateCosm(source.cosm);
     if (source.traits?.length) {
       // Map renamed traits
