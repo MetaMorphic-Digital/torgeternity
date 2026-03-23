@@ -17,7 +17,7 @@ export class BaseItemData extends foundry.abstract.TypeDataModel {
       traits: newTraitsField(itemType),
       axioms: makeAxiomsField(),
       //itemsToBestow: new fields.SetField(new fields.DocumentUUIDField({ nullable: null })),  // id of other items added/removed with this Item
-      itemsToBestow: new fields.SetField(new fields.TypeDataField(foundry.documents.Item)),  // id of other items added/removed with this Item
+      itemsToBestow: new fields.SetField(new fields.JSONField),  // id of other items added/removed with this Item
       bestowedBy: new fields.DocumentIdField(),  // the id of the other item that automatically added this Item
     };
   }

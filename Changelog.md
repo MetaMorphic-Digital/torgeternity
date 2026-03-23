@@ -8,7 +8,7 @@
 - Allow name of "other" cosm to be specified in the Scene Config dialog.
 - Support **Reality Surge**:
   - Set the attribute key `system.realitySurge` to `true` in an Active Effect.
-- Modify any zone axiom for a stormknight:
+- Modify any zone axiom for a stormknight via an AE using the attribute key (override with a new numeric value):
   - `system.zoneAxiomOverrides.magic`  (or spirit/social/tech)
 
 ### Internal Changes
