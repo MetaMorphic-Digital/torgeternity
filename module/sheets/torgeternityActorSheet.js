@@ -237,7 +237,7 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
     context.showConditions = true;
 
     const zoneAxioms = this.document.zoneAxioms;
-    context.zoneAxiomsTooltip = `<h3>Zone Axioms</h3>
+    context.zoneAxiomsTooltip = `<h3>${game.i18n.localize('torgeternity.sheetLabels.zoneAxioms')}</h3>
     <table class="cosm-axioms">
       <thead>
         <td class="axiom-label">${game.i18n.localize('torgeternity.sheetLabels.magic')}</td>
