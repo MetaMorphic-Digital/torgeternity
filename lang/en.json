@@ -1181,6 +1181,12 @@
       "roll": "Roll",
       "run": "Run",
       "running": "Running",
+      "scenes": {
+        "oneCosmTip": "Cosm: {cosm1}",
+        "twoCosmTip": "Cosms: {cosm1} + {cosm2}",
+        "cosmOtherName1": "Main Cosm Name",
+        "cosmOtherName2": "Secondary Cosm Name"
+      },
       "secondaryAxiom": "Secondary Axiom",
       "secondaryCosm": "Secondary Cosm",
       "shield": "Shield",

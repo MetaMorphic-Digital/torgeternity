@@ -129,6 +129,11 @@ export default class torgeternitySceneConfig extends foundry.applications.sheets
           this.element.querySelector('input[name="flags.torgeternity.axioms.social"').value = axioms.social;
           this.element.querySelector('input[name="flags.torgeternity.axioms.spirit"').value = axioms.spirit;
           this.element.querySelector('input[name="flags.torgeternity.axioms.tech"').value = axioms.tech;
+          // Maybe change visibility of the manual cosm name fields:
+          if (event.target.name === 'flags.torgeternity.cosm')
+            this.element.querySelector('div.cosm-other-name1').style.display = (event.target.value === 'other') ? '' : 'none';
+          else
+            this.element.querySelector('div.cosm-other-name2').style.display = (event.target.value === 'other') ? '' : 'none';
           break;
         }
 

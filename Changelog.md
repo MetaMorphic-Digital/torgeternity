@@ -2,6 +2,14 @@
 
 - Translations by Durak (French), Helmut (German), and Teotimus (Spanish).
 
+## NEXT
+
+- Provide cosm name(s) in Scene tooltip.
+- Allow name of "other" cosm to be specified in the Scene Config dialog.
+
+## 13.30.1 - Fix bug
+
+
 ## 13.30.0 - Bestowing child Actors automatically.
 
 ### Bestowing Items by a parent Item or Active Effect

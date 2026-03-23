@@ -53,6 +53,8 @@ export default class TorgeternityScene extends foundry.documents.Scene {
         displayCosm2: (this.flags.torgeternity.zone !== 'pure'),
         isMixed: (this.flags.torgeternity.zone === 'mixed'),
         cosm2: (this.flags.torgeternity.zone !== 'pure') && this.flags.torgeternity.cosm2,
+        otherName1: this.flags.torgeternity.otherName1 ?? null,
+        otherName2: this.flags.torgeternity.otherName2 ?? null,
         axioms: flags.axioms
       };
     }
