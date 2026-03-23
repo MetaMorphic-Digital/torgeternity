@@ -31,7 +31,7 @@ export default class TorgeternitySceneNav extends foundry.applications.ui.SceneN
 
       let tooltip = data.tooltip ? `<p>${data.tooltip}</p>` : '';
       tooltip += `<table class="cosm-axioms">
-      <p>${cosms}</p >
+      <p>${cosms}</p>
         <thead>
           <td class="axiom-label">${game.i18n.localize('torgeternity.sheetLabels.magic')}</td>
           <td class="axiom-label">${game.i18n.localize('torgeternity.sheetLabels.social')}</td>
@@ -44,7 +44,7 @@ export default class TorgeternitySceneNav extends foundry.applications.ui.SceneN
           <td class="axiom-value">${scene.flags.torgeternity.axioms.spirit}</td>
           <td class="axiom-value">${scene.flags.torgeternity.axioms.tech}</td>
         </tbody>
-      </table > `;
+      </table>`;
 
       return {
         ...data,

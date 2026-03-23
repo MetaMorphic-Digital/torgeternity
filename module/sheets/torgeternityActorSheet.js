@@ -236,6 +236,23 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
     this.actor.statuses.forEach(status => context.statusEffects[status] = true);
     context.showConditions = true;
 
+    const zoneAxioms = this.document.zoneAxioms;
+    context.zoneAxiomsTooltip = `<h3>Zone Axioms</h3>
+    <table class="cosm-axioms">
+      <thead>
+        <td class="axiom-label">${game.i18n.localize('torgeternity.sheetLabels.magic')}</td>
+        <td class="axiom-label">${game.i18n.localize('torgeternity.sheetLabels.social')}</td>
+        <td class="axiom-label">${game.i18n.localize('torgeternity.sheetLabels.spirit')}</td>
+        <td class="axiom-label">${game.i18n.localize('torgeternity.sheetLabels.tech')}</td>
+      </thead>
+      <tbody>
+        <td class="axiom-value">${zoneAxioms.magic}</td>
+        <td class="axiom-value">${zoneAxioms.social}</td>
+        <td class="axiom-value">${zoneAxioms.spirit}</td>
+        <td class="axiom-value">${zoneAxioms.tech}</td>
+      </tbody>
+    <table>`
+
     context.skills = [];
     for (const [key, value] of Object.entries(context.document.system?.skills ?? {})) {
       context.skills.push({
