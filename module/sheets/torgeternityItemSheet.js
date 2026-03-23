@@ -122,7 +122,11 @@ export default class TorgeternityItemSheet extends foundry.applications.api.Hand
 
     // Add the dropped item to the list of bestowed items for this item
     const itemsToBestow = Array.from(this.item.system.itemsToBestow);
-    itemsToBestow.push(dropitem.toCompendium(/*pack*/ null, { keepId: true }));
+
+    const itemdata = dropitem.toCompendium(/*pack*/ null, { keepId: true });
+    if (!itemdata) return ui.notifications.info(`Failed to convert ${dropitem.name} into bestowed item`)
+
+    itemsToBestow.push(itemdata);
     await this.item.update({ 'system.itemsToBestow': itemsToBestow });
   }
 
