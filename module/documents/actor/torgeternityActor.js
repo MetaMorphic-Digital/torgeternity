@@ -42,16 +42,6 @@ export default class TorgeternityActor extends foundry.documents.Actor {
     }
   }
 
-  prepareBaseData() {
-    super.prepareBaseData();
-    this.zoneAxiomOverrides = {
-      magic: null,
-      social: null,
-      spirit: null,
-      tech: null
-    }
-  }
-
   /**
    * As per core Actor#modifyTokenAttribute but do NOT clamp the value when modifying shock or wounds
    * @inheritDoc
@@ -691,11 +681,10 @@ export default class TorgeternityActor extends foundry.documents.Actor {
    * The axioms might be modified due to various things (Regions, Active Effects, etc.)
    */
   get zoneAxioms() {
-    const axioms = game.scenes.current?.torg.axioms;
-    for (const key of Object.keys(axioms)) {
-      if (this.zoneAxiomOverrides[key]) axioms[key] = this.zoneAxiomOverrides[key]
-    }
-    return axioms;
+    const systemAxioms = this.system.zoneAxioms;
+    if (systemAxioms) return systemAxioms;
+    // No subtype specific zone Axioms, so just use generic scene axioms.
+    return game.scenes.current?.torg.axioms;
   }
 }
 

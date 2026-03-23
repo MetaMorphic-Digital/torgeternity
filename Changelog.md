@@ -6,6 +6,10 @@
 
 - Provide cosm name(s) in Scene tooltip.
 - Allow name of "other" cosm to be specified in the Scene Config dialog.
+- Support **Reality Surge**:
+  - Set the attribute key `system.realitySurge` to `true` in an Active Effect.
+- Modify any zone axiom for a stormknight:
+  - `system.zoneAxiomOverrides.magic`  (or spirit/social/tech)
 
 ### Internal Changes
 - Internally move code for determining Item contradiction case (0,1,4) in TorgeternityItem.

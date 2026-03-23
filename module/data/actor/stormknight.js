@@ -61,6 +61,15 @@ export class StormKnightData extends CommonActorData {
     this.axioms.spirit = CONFIG.torgeternity.axiomByCosm[this.other.cosm]?.spirit || this.axioms.spirit;
     this.axioms.tech = CONFIG.torgeternity.axiomByCosm[this.other.cosm]?.tech || this.axioms.tech;
 
+    this.realitySurge = false;
+    this.zoneAxiomOverrides = game.scenes.current?.torg ? game.scenes.current.torg.axioms :
+      {
+        magic: null,
+        social: null,
+        spirit: null,
+        tech: null
+      }
+
     // Set clearance level
     if (this.xp.earned < 50) {
       this.details.clearance = 'alpha';
@@ -83,5 +92,18 @@ export class StormKnightData extends CommonActorData {
     } else {
       this.details.race = game.i18n.localize('torgeternity.sheetLabels.noRace');
     }
+  }
+
+  get zoneAxioms() {
+    // Reality Surge: 
+    // When played, the character’s axioms and World Laws are in effect for him as if he were in a Mixed 
+    // Zone for the remainder of the scene. This only affects the character and any items he’s using.
+    if (this.realitySurge) return this.axioms;
+
+    const axioms = game.scenes.current?.torg.axioms;
+    for (const key of Object.keys(axioms)) {
+      if (this.zoneAxiomOverrides[key]) axioms[key] = this.zoneAxiomOverrides[key]
+    }
+    return axioms;
   }
 }
