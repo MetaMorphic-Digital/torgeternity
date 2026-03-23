@@ -45,10 +45,10 @@
           <div class="item-dropdown-description">
             {{{item.description}}}
             <div class="item-dropdown-extras">
-              {{item.system.skill}}
+              {{localize (lookup @root.config.skills item.system.skill)}}
             </div>
             <div class="item-dropdown-extras">
-              {{item.system.dn}}
+              {{localize (lookup @root.config.dnTypes item.system.dn)}}
             </div>
             <div class="item-dropdown-extras">
               {{item.system.castingtime}}
@@ -109,10 +109,10 @@
           <div class="item-dropdown-description">
             {{{item.description}}}
             <div class="item-dropdown-extras">
-              {{item.system.skill}}
+              {{localize (lookup @root.config.skills item.system.skill)}}
             </div>
             <div class="item-dropdown-extras">
-              {{item.system.dn}}
+              {{localize (lookup @root.config.dnTypes item.system.dn)}}
             </div>
             <div class="item-dropdown-extras">
               {{item.system.castingtime}}
@@ -173,10 +173,10 @@
           <div class="item-dropdown-description">
             {{{item.description}}}
             <div class="item-dropdown-extras">
-              {{item.system.skill}}
+              {{localize (lookup @root.config.skills item.system.skill)}}
             </div>
             <div class="item-dropdown-extras">
-              {{item.system.dn}}
+              {{localize (lookup @root.config.dnTypes item.system.dn)}}
             </div>
             <div class="item-dropdown-extras">
               {{item.system.castingtime}}
