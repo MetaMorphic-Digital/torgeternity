@@ -5,18 +5,17 @@
   "main": "system.json",
   "license": "MIT",
   "author": "GM_Matt, Orome, Rwan, Durak, Algor",
-  "dependencies": {},
   "devDependencies": {
-    "@foundryvtt/foundryvtt-cli": "^1.0.0-rc.4",
-    "@babel/eslint-parser": "^7.19.1",
-    "@babel/plugin-syntax-import-assertions": "^7.20.0",
-    "eslint": "^8.34.0",
+    "@babel/eslint-parser": "^7.28.6",
+    "@babel/plugin-syntax-import-assertions": "^7.28.6",
+    "@foundryvtt/foundryvtt-cli": "^3.0.3",
+    "eslint": "^9.39.4",
     "eslint-config-google": "^0.14.0",
-    "eslint-config-prettier": "^8.6.0",
-    "eslint-plugin-jsdoc": "^40.0.0",
-    "eslint-plugin-prettier": "^4.2.1",
-    "prettier": "^2.8.4",
-    "sass": "^1.58.3"
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-jsdoc": "^62.8.0",
+    "eslint-plugin-prettier": "^5.5.5",
+    "prettier": "^3.8.1",
+    "sass": "^1.98.0"
   },
   "scripts": {
     "build": "node ./tools/pullYMLtoLDB.mjs",
