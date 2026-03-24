@@ -2,7 +2,7 @@
 
 - Translations by Durak (French), Helmut (German), and Teotimus (Spanish).
 
-## 13.31.0 - Axioms, Zones and Cosms
+## 13.31.2 - Axioms, Zones and Cosms
 
 - Provide cosm name(s) in Scene tooltip.
 - Allow name of "other" cosm to be specified in the Scene Config dialog.
