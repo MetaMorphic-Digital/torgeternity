@@ -7,7 +7,7 @@
 - Provide cosm name(s) in Scene tooltip.
 - Allow name of "other" cosm to be specified in the Scene Config dialog.
 - Reworked the contradication case calculations (0, 1, 4) code to make further changes easier.
-- Hover over Axioms title in SK sheet to see the zone axioms currently affecting the Actor.
+- Hover over Axioms title in SK sheet to see the **zone axioms** currently affecting the Actor.
 - Add a button next to "Axioms" on the SK sheet to indicate a **Reality Surge**
 - Add a new Region Behaviour **Replace Axioms** which can be used to override any or all of the zone axioms within the region.
 - Localize the skill and DN displayed when expanding an entry in the Powers tab of Threats.
@@ -27,7 +27,7 @@
       },
       "zoneAxioms": "Zone Axioms",
       "realitySurge": "Reality Surge",
-      "replaceAxioms": "Replace Axioms",
+      "replaceAxioms": "Replace Zone Axioms",
 ```
 
 ## 13.30.1 - Fix bug
