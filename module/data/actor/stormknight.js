@@ -24,6 +24,7 @@ export class StormKnightData extends CommonActorData {
           required: true,
         }),
       }),
+      realitySurge: new fields.BooleanField({ initial: false }),
       xp: new fields.SchemaField({
         earned: new fields.NumberField({ initial: 0, integer: true, nullable: false }),
         unspent: new fields.NumberField({ initial: 0, integer: true, nullable: false }),
@@ -61,7 +62,6 @@ export class StormKnightData extends CommonActorData {
     this.axioms.spirit = CONFIG.torgeternity.axiomByCosm[this.other.cosm]?.spirit || this.axioms.spirit;
     this.axioms.tech = CONFIG.torgeternity.axiomByCosm[this.other.cosm]?.tech || this.axioms.tech;
 
-    this.realitySurge = false;
     this.zoneAxiomOverrides = game.scenes.current?.torg ? game.scenes.current.torg.axioms :
       {
         magic: null,

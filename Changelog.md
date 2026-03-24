@@ -2,21 +2,35 @@
 
 - Translations by Durak (French), Helmut (German), and Teotimus (Spanish).
 
-## NEXT
+## NEXT - Axioms, Zones and Cosms
 
 - Provide cosm name(s) in Scene tooltip.
 - Allow name of "other" cosm to be specified in the Scene Config dialog.
-- Support **Reality Surge**:
-  - Set the attribute key `system.realitySurge` to `true` in an Active Effect.
+- Reworked the contradication case calculations (0, 1, 4) code to make further changes easier.
+- Hover over Axioms title in SK sheet to see the zone axioms currently affecting the Actor.
+- Add a button next to "Axioms" on the SK sheet to indicate a **Reality Surge**
 - Modify any zone axiom for a stormknight via an AE using the attribute key (override with a new numeric value):
   - `system.zoneAxiomOverrides.magic`  (or spirit/social/tech)
+- Localize the skill and DN displayed when expanding an entry in the Powers tab of Threats.
+- Ensure scene axioms in scene config dialog are stored as Numbers, not Strings.
 
 ### Internal Changes
-- Internally move code for determining Item contradiction case (0,1,4) in TorgeternityItem.
 - `Actor.zoneAxioms` provides the scene/zone axioms which apply to THIS actor.
 
-## 13.30.1 - Fix bug
+### Translations
 
+```
+      "scenes": {
+        "oneCosmTip": "Cosm: {cosm1}",
+        "twoCosmTip": "Cosms: {cosm1} + {cosm2}",
+        "cosmOtherName1": "Main Cosm Name",
+        "cosmOtherName2": "Secondary Cosm Name"
+      },
+      "zoneAxioms": "Zone Axioms",
+```
+
+## 13.30.1 - Fix bug
+- Prevent errors with incorrect undefined field handling during migration
 
 ## 13.30.0 - Bestowing child Actors automatically.
 
