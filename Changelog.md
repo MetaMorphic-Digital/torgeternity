@@ -2,6 +2,10 @@
 
 - Translations by Durak (French), Helmut (German), and Teotimus (Spanish).
 
+## 13.31.4 - Bug Fixes Galore
+- Tooltip on Scene Nav correct when only one cosm selected.
+  - Show zone type (pure, dominant, mixed) along with cosm names.
+
 ## 13.31.3 - D20 and BD for everyone
 
 - Fix the bug that was preventing the d20 and BD buttons from being visible to players.
