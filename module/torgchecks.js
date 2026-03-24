@@ -160,12 +160,7 @@ export async function renderSkillChat(test, origChatMessage) {
       // Check for Disconnection
       if (!test.ignoreContradictions && testItem && test.rollTotal <= 4) {
 
-        // We can't check for Starred Perks, since no dice rolls are made from them.
-        const failsZone = testItem.isGeneralContradiction(game.scenes.current) || testItem.isContradiction(game.scenes.current?.torg.axioms);
-        const failsActor = testItem.isContradiction(testActor.system.axioms);
-        const limit = (!failsZone && !failsActor) ? 0 : (failsZone && failsActor) ? 4 : 1;
-
-        if (test.rollTotal <= limit) {
+        if (test.rollTotal <= Number(testItem.contradictionCase)) {
 
           function axiomLabels(label, axiomField, failures) {
             if (!failures) return null;
@@ -185,8 +180,8 @@ export async function renderSkillChat(test, origChatMessage) {
             diceTotal: test.rollTotal,
             itemName: testItem.name,
           })
-          test.disconnectionZone = axiomLabels('zoneLabel', 'zoneAxiom', failsZone);
-          test.disconnectionActor = axiomLabels('actorLabel', 'actorAxiom', failsActor);
+          test.disconnectionZone = axiomLabels('zoneLabel', 'zoneAxiom', testItem.zoneContradictions);
+          test.disconnectionActor = axiomLabels('actorLabel', 'actorAxiom', testItem.actorContradictions);
 
           if (game.settings.get('torgeternity', 'autoDisconnect'))
             testActor.toggleStatusEffect('disconnected', { active: true })

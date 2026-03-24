@@ -86,7 +86,9 @@ export default class TorgActiveEffectConfig extends foundry.applications.sheets.
     const dropitem = await fromUuid(foundry.applications.ux.TextEditor.getDragEventData(event)?.uuid, { strict: false });
     if (!(dropitem instanceof foundry.documents.Item)) return;
     // Dropping a new item replaces a previous item
-    await this.document.update({ 'system.itemsToBestow': [dropitem.toCompendium(/*pack*/ null, { keepId: true })] });
+    const data = dropitem.toCompendium(/*pack*/ null, { keepId: true });
+    if (!data) return ui.notifications.warn(`Failed to convert ${dropitem.name} into bestowable item`)
+    await this.document.update({ 'system.itemsToBestow': [data] });
   }
 
   static async #onItemDelete(event) {

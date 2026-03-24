@@ -2,6 +2,23 @@
 
 - Translations by Durak (French), Helmut (German), and Teotimus (Spanish).
 
+## 13.31.0 - Axioms, Zones and Cosms
+
+- Provide cosm name(s) in Scene tooltip.
+- Allow name of "other" cosm to be specified in the Scene Config dialog.
+- Reworked the contradication case calculations (0, 1, 4) code to make further changes easier.
+- Hover over Axioms title in SK sheet to see the **zone axioms** currently affecting the Actor.
+- Add a button next to "Axioms" on the SK sheet to indicate a **Reality Surge**
+- Add a new Region Behaviour **Replace Axioms** which can be used to override any or all of the zone axioms within the region.
+- Localize the skill and DN displayed when expanding an entry in the Powers tab of Threats.
+- Ensure scene axioms in scene config dialog are stored as Numbers, not Strings.
+
+### Internal Changes
+- Getter `Actor.zoneAxioms` provides the scene/zone axioms which apply to THIS actor.
+
+## 13.30.1 - Fix bug
+- Prevent errors with incorrect undefined field handling during migration
+
 ## 13.30.0 - Bestowing child Actors automatically.
 
 ### Bestowing Items by a parent Item or Active Effect

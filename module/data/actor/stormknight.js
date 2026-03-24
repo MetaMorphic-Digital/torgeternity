@@ -24,6 +24,10 @@ export class StormKnightData extends CommonActorData {
           required: true,
         }),
       }),
+      zone: new fields.SchemaField({
+        axiomOverride: makeAxiomsField(/*nullable*/true),
+        realitySurge: new fields.BooleanField({ initial: false }),
+      }),
       xp: new fields.SchemaField({
         earned: new fields.NumberField({ initial: 0, integer: true, nullable: false }),
         unspent: new fields.NumberField({ initial: 0, integer: true, nullable: false }),
@@ -83,5 +87,24 @@ export class StormKnightData extends CommonActorData {
     } else {
       this.details.race = game.i18n.localize('torgeternity.sheetLabels.noRace');
     }
+  }
+
+  get zoneAxioms() {
+    // Maybe some overrides for the zone's base axioms.
+    const axioms = { ...game.scenes.current?.torg.axioms };
+    for (const key of Object.keys(axioms)) {
+      if (this.zone.axiomOverride[key] !== null) axioms[key] = this.zone.axiomOverride[key]
+    }
+
+    // Reality Surge: 
+    // When played, the character’s axioms and World Laws are in effect for him as if he were in a Mixed 
+    // Zone for the remainder of the scene. This only affects the character and any items he’s using.
+    if (this.zone.realitySurge) {
+      for (const [key, value] of Object.entries(this.axioms)) {
+        if (axioms[key] < value) axioms[key] = value;
+      }
+    }
+
+    return axioms;
   }
 }

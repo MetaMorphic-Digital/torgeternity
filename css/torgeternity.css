@@ -4913,6 +4913,16 @@ div.torg-control-buttons {
   padding: 0 1rem;
 }
 
+.axiomsboxheadline {
+  input.realitySurge {
+    margin: 0;
+
+    &::before {
+      opacity: 0.4;
+    }
+  }
+}
+
 table.cosm-axioms,
 .cosm-axioms table {
   .axiom-label {

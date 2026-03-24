@@ -205,14 +205,6 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
     context.tabs = this._prepareTabs(this.actor.type);
     context.systemFields = context.document.system.schema.fields;
     context.items = Array.from(context.document.items);
-    // Determine contradiction case for each item (Perks need isGeneralContradiction test)
-    const actorAxioms = this.actor.system.axioms;
-    const zoneAxioms = game.scenes.current?.torg.axioms;
-    for (const item of context.items) {
-      const failsActor = item.isContradiction(actorAxioms);
-      const failsCosm = item.isGeneralContradiction(game.scenes.current) || item.isContradiction(zoneAxioms);
-      item.contradictionCase = (failsActor && failsCosm) ? '4' : (failsActor || failsCosm) ? '1' : '';
-    }
 
     context.showPiety = game.settings.get('torgeternity', 'showPiety');
     context.items.sort((a, b) => (a.sort || 0) - (b.sort || 0));
@@ -243,6 +235,23 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
     context.statusEffects = {};
     this.actor.statuses.forEach(status => context.statusEffects[status] = true);
     context.showConditions = true;
+
+    const zoneAxioms = this.document.zoneAxioms;
+    context.zoneAxiomsTooltip = `<h3>${game.i18n.localize('torgeternity.sheetLabels.zoneAxioms')}</h3>
+    <table class="cosm-axioms">
+      <thead>
+        <td class="axiom-label">${game.i18n.localize('torgeternity.sheetLabels.magic')}</td>
+        <td class="axiom-label">${game.i18n.localize('torgeternity.sheetLabels.social')}</td>
+        <td class="axiom-label">${game.i18n.localize('torgeternity.sheetLabels.spirit')}</td>
+        <td class="axiom-label">${game.i18n.localize('torgeternity.sheetLabels.tech')}</td>
+      </thead>
+      <tbody>
+        <td class="axiom-value">${zoneAxioms.magic}</td>
+        <td class="axiom-value">${zoneAxioms.social}</td>
+        <td class="axiom-value">${zoneAxioms.spirit}</td>
+        <td class="axiom-value">${zoneAxioms.tech}</td>
+      </tbody>
+    <table>`
 
     context.skills = [];
     for (const [key, value] of Object.entries(context.document.system?.skills ?? {})) {

@@ -2,6 +2,7 @@ import { getTorgValue } from '../../torgchecks.js';
 import TorgeternityActor from '../../documents/actor/torgeternityActor.js'
 import { calcPriceValue } from '../shared.js';
 import { BaseActorData } from './base.js';
+import { makeAxiomsField } from '../shared.js';
 
 const fields = foundry.data.fields;
 /**
@@ -22,12 +23,7 @@ export class VehicleData extends BaseActorData {
         }),
       }),
       armor: new fields.NumberField({ initial: 0, integer: true, nullable: false }),
-      axioms: new fields.SchemaField({
-        magic: new fields.NumberField({ initial: 0, integer: true, nullable: false }),
-        social: new fields.NumberField({ initial: 0, integer: true, nullable: false }),
-        spirit: new fields.NumberField({ initial: 0, integer: true, nullable: false }),
-        tech: new fields.NumberField({ initial: 10, integer: true, nullable: false }),
-      }),
+      axioms: makeAxiomsField(),
       description: new fields.HTMLField({ initial: '', textSearch: true }),
       maneuver: new fields.NumberField({ initial: -1, integer: true, nullable: false }),
       operator: new fields.ForeignDocumentField(TorgeternityActor),

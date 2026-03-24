@@ -16,6 +16,20 @@
     </select>
   </div>
 
+  <div class="form-group cosm-other-name1"
+    {{#if (ne document.torg.cosm 'other' )}}style="display:none" {{/if}}>
+    <label>{{localize "torgeternity.sheetLabels.scenes.cosmOtherName1"}}</label>
+    <input type="text" name="flags.torgeternity.otherName1" class="cosm-other-name" data-dtype="String"
+      value="{{document.torg.otherName1}}">
+  </div>
+
+  <div class="form-group cosm-other-name2"
+    {{#if (ne document.torg.cosm2 'other' )}}style="display:none" {{/if}}>
+    <label>{{localize "torgeternity.sheetLabels.scenes.cosmOtherName2"}}</label>
+    <input type="text" name="flags.torgeternity.otherName2" class="cosm-other-name" data-dtype="String"
+      value="{{document.torg.otherName2}}">
+  </div>
+
   <fieldset class="form-group cosm-axioms">
     <legend>{{localize 'torgeternity.stats.axioms'}}</legend>
     <div>
@@ -27,21 +41,20 @@
           <td class="axiom-label">{{localize 'torgeternity.sheetLabels.tech'}}</td>
         </thead>
         <tbody>
-          {{log document.torg}}
           <td class="axiom-value">
-            <input type="text" name="flags.torgeternity.axioms.magic"
+            <input type="text" name="flags.torgeternity.axioms.magic" data-dtype="Number"
               value="{{document.flags.torgeternity.axioms.magic}}">
           </td>
           <td class="axiom-value">
-            <input type="text" name="flags.torgeternity.axioms.social"
+            <input type="text" name="flags.torgeternity.axioms.social" data-dtype="Number"
               value="{{document.flags.torgeternity.axioms.social}}">
           </td>
           <td class="axiom-value">
-            <input type="text" name="flags.torgeternity.axioms.spirit"
+            <input type="text" name="flags.torgeternity.axioms.spirit" data-dtype="Number"
               value="{{document.flags.torgeternity.axioms.spirit}}">
           </td>
           <td class="axiom-value">
-            <input type="text" name="flags.torgeternity.axioms.tech"
+            <input type="text" name="flags.torgeternity.axioms.tech" data-dtype="Number"
               value="{{document.flags.torgeternity.axioms.tech}}">
           </td>
         </tbody>

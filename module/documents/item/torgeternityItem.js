@@ -103,11 +103,13 @@ export default class TorgeternityItem extends foundry.documents.Item {
       delete source.system.gunner;
     }
 
-    // Don't allow an item to be bestowed by itself!
+    super.migrateData(source);
+
+    // Don't allow an item to be bestowed by itself! (AFTER possibly migrating something into bestowedBy)
     if (source._id && source.system?.bestowedBy === source._id) {
       delete source.system.bestowedBy;
     }
-    return super.migrateData(source);
+    return source;
   }
 
   async _preCreate(data, options, user) {
@@ -362,8 +364,30 @@ export default class TorgeternityItem extends foundry.documents.Item {
 
     // Some Perks just don't work outside their own COSM while disconnected
     if (this.isGeneralContradiction(scene)) return true;
+    // Return the actual list of contradictions;
+    return this.isContradiction(this.parent.zoneAxioms);
+  }
 
-    return this.isContradiction(scene.torg.axioms);
+  /**
+   * Returns the contradiction number for this Item, when present on an Actor.
+   * @Return {String} Either "1", "4", or ""
+   */
+  get contradictionCase() {
+    // Not on an actor, so no contradiction possible
+    if (!this.parent) return null;
+    const actorContradictions = this.actorContradictions;
+    const zoneContradictions = this.zoneContradictions;
+
+    return (actorContradictions && zoneContradictions) ? '4' : (actorContradictions || zoneContradictions) ? '1' : "";
+  }
+
+  get zoneContradictions() {
+    return this.isGeneralContradiction(game.scenes.current) || (this.parent && this.isContradiction(this.parent.zoneAxioms));
+  }
+
+  get actorContradictions() {
+    if (!this.parent) return null;
+    return this.isContradiction(this.parent.system.axioms);
   }
 }
 
