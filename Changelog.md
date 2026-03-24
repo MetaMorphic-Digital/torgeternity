@@ -2,7 +2,7 @@
 
 - Translations by Durak (French), Helmut (German), and Teotimus (Spanish).
 
-## NEXT - Axioms, Zones and Cosms
+## 13.31.0 - Axioms, Zones and Cosms
 
 - Provide cosm name(s) in Scene tooltip.
 - Allow name of "other" cosm to be specified in the Scene Config dialog.
@@ -15,20 +15,6 @@
 
 ### Internal Changes
 - Getter `Actor.zoneAxioms` provides the scene/zone axioms which apply to THIS actor.
-
-### Translations
-
-```
-      "scenes": {
-        "oneCosmTip": "Cosm: {cosm1}",
-        "twoCosmTip": "Cosms: {cosm1} + {cosm2}",
-        "cosmOtherName1": "Main Cosm Name",
-        "cosmOtherName2": "Secondary Cosm Name"
-      },
-      "zoneAxioms": "Zone Axioms",
-      "realitySurge": "Reality Surge",
-      "replaceAxioms": "Replace Zone Axioms",
-```
 
 ## 13.30.1 - Fix bug
 - Prevent errors with incorrect undefined field handling during migration
