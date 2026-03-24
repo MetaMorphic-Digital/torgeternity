@@ -365,7 +365,7 @@ export default class TorgeternityItem extends foundry.documents.Item {
     // Some Perks just don't work outside their own COSM while disconnected
     if (this.isGeneralContradiction(scene)) return true;
     // Return the actual list of contradictions;
-    return this.isContradiction(scene.torg.axioms);
+    return this.isContradiction(this.parent.zoneAxioms);
   }
 
   /**

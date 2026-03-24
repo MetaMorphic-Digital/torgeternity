@@ -65,14 +65,6 @@ export class StormKnightData extends CommonActorData {
     this.axioms.spirit = CONFIG.torgeternity.axiomByCosm[this.other.cosm]?.spirit || this.axioms.spirit;
     this.axioms.tech = CONFIG.torgeternity.axiomByCosm[this.other.cosm]?.tech || this.axioms.tech;
 
-    this.zoneAxiomOverrides = game.scenes.current?.torg ? game.scenes.current.torg.axioms :
-      {
-        magic: null,
-        social: null,
-        spirit: null,
-        tech: null
-      }
-
     // Set clearance level
     if (this.xp.earned < 50) {
       this.details.clearance = 'alpha';
