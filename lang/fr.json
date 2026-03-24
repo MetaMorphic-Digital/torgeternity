@@ -18,15 +18,18 @@
     "RollSelf": "Uniquement moi"
   },
   "TYPES": {
+    "Actor": {
+      "stormknight": "Chevalier des Tempêtes",
+      "threat": "Menace",
+      "vehicle": "Véhicule"
+    },
     "Card": {
       "destiny": "Destin",
       "drama": "Action",
       "cosm": "Cosm"
     },
-    "Actor": {
-      "stormknight": "Chevalier des Tempêtes",
-      "threat": "Menace",
-      "vehicle": "Véhicule"
+    "RegionBehavior": {
+      "replaceAxioms": "Remplacer les Axioms de la zone"
     }
   },
   "torgeternity": {
@@ -1181,6 +1184,7 @@
       "race": "Race",
       "racialPerks": "Avantages raciaux",
       "range": "Portée",
+      "realitySurge": "Poussée de réalité",
       "reconnect": "Reconnection",
       "reconnectTooltip": "Supprime la condition Déconnecté",
       "darkvision": "Vision dans le noir",
@@ -1190,6 +1194,12 @@
       "roll": "Lancer",
       "run": "Course",
       "running": "Course",
+      "scenes": {
+        "oneCosmTip": "Cosm: {cosm1}",
+        "twoCosmTip": "Cosms: {cosm1} + {cosm2}",
+        "cosmOtherName1": "Cosm principal",
+        "cosmOtherName2": "Cosm secondaire"
+      },
       "secondaryAxiom": "Axiome secondaire",
       "secondaryCosm": "Cosm secondaire",
       "shield": "Bouclier",
@@ -1248,6 +1258,7 @@
       "wounds": "Blessures",
       "xp": "XP",
       "xpOnlyGM": "Seul le MJ peut remplir",
+      "zoneAxioms": "Axioms de la zone",
       "toolTipClickToAdd": "cliquer pour ajouter/oter la compétence dans la liste du dessus",
       "backlash1": "Contrecoup",
       "backlash2": "Contrecoup réduit",

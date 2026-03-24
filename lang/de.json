@@ -15,15 +15,18 @@
     "RollSelf": "Privater Wurf"
   },
   "TYPES": {
+    "Actor": {
+      "stormknight": "Storm Knight",
+      "threat": "Bedrohung",
+      "vehicle": "Fahrzeug"
+    },
     "Card": {
       "destiny": "Schicksal",
       "drama": "Drama",
       "cosm": "Cosm"
     },
-    "Actor": {
-      "stormknight": "Storm Knight",
-      "threat": "Bedrohung",
-      "vehicle": "Fahrzeug"
+    "RegionBehavior": {
+      "replaceAxioms": "Ersetze Zonen-Axiome"
     }
   },
   "torgeternity": {
@@ -1178,6 +1181,7 @@
       "race": "Volk",
       "racialPerks": "Volksfähigkeiten",
       "range": "Reichweite",
+      "realitySurge": "Realitätswelle",
       "reconnect": "Ankoppeln",
       "reconnectTooltip": "Abkopplungszustand entfernen",
       "darkvision": "Dunkelsicht",
@@ -1187,6 +1191,12 @@
       "roll": "Würfeln",
       "run": "Laufen",
       "running": "Laufen",
+      "scenes": {
+        "oneCosmTip": "Cosm: {cosm1}",
+        "twoCosmTip": "Cosms: {cosm1} + {cosm2}",
+        "cosmOtherName1": "Name Haupt-Cosm",
+        "cosmOtherName2": "Name Sekundär-Cosm"
+      },
       "secondaryAxiom": "Sekundäres Axiom",
       "secondaryCosm": "Sekundäres Cosm",
       "shield": "Schild",
@@ -1245,6 +1255,7 @@
       "wounds": "Wunden",
       "xp": "EP",
       "xpOnlyGM": "Nur die SL darf Änderungen machen",
+      "zoneAxioms": "Zonen-Axiome",
       "toolTipClickToAdd": "Klicke, um die Fertigkeit der Zugriffliste hinzuzufügen oder zu löschen",
       "backlash1": "Rückkopplung",
       "backlash2": "Reduzierte Rückkopplung",

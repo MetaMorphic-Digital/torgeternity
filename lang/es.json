@@ -15,15 +15,18 @@
     "RollSelf": "Tirada personal"
   },
   "TYPES": {
+    "Actor": {
+      "stormknight": "Caballero de la Tormenta",
+      "threat": "Amenaza",
+      "vehicle": "Vehículo"
+    },
     "Card": {
       "destiny": "Destino",
       "drama": "Drama",
       "cosm": "Cosmos"
     },
-    "Actor": {
-      "stormknight": "Caballero de la Tormenta",
-      "threat": "Amenaza",
-      "vehicle": "Vehículo"
+    "RegionBehavior": {
+      "replaceAxioms": "Reemplazar axiomas de zona"
     }
   },
   "torgeternity": {
@@ -1178,6 +1181,7 @@
       "race": "Raza",
       "racialPerks": "Ventajas raciales",
       "range": "Alcance",
+      "realitySurge": "Sobrecarga de Realidad",
       "reconnect": "Reconectar",
       "reconnectTooltip": "Eliminar estado Desconectado",
       "darkvision": "Visión en la oscuridad",
@@ -1187,6 +1191,12 @@
       "roll": "Tirar",
       "run": "Carrera",
       "running": "Correr",
+      "scenes": {
+        "oneCosmTip": "Cosmos: {cosm1}",
+        "twoCosmTip": "Cosmos: {cosm1} + {cosm2}",
+        "cosmOtherName1": "Nombre del cosmos principal",
+        "cosmOtherName2": "Nombre del cosmos secundario"
+      },
       "secondaryAxiom": "Axioma secundario",
       "secondaryCosm": "Cosmos secundario",
       "shield": "Escudo",
@@ -1245,6 +1255,7 @@
       "wounds": "Heridas",
       "xp": "PX",
       "xpOnlyGM": "solo el DJ puede rellenarlo",
+      "zoneAxioms": "Axiomas de zona",
       "toolTipClickToAdd": "Haz clic para añadir/eliminar la habilidad de la lista",
       "backlash1": "Efecto adverso",
       "backlash2": "Efecto adverso reducido",
