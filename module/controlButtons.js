@@ -65,7 +65,6 @@ export class TorgControlButtons extends HandlebarsApplicationMixin(ApplicationV2
         label: 'torgeternity.sheetLabels.roll',
         icon: 'fa-solid fa-dice-d20',
         type: 'button',
-        visible: () => game.user.isGM,
         callback: async (button, active) => {
           const diceroll = await foundry.dice.Roll.create('1d20x10x20').evaluate();
 
@@ -79,7 +78,6 @@ export class TorgControlButtons extends HandlebarsApplicationMixin(ApplicationV2
         label: 'torgeternity.chatText.bonusDice',
         icon: 'fa-solid fa-dice-five',
         type: 'button',
-        visible: () => game.user.isGM,
         callback: (button, active) => game.torgeternity.macros.rollBDs()
       },
     ]

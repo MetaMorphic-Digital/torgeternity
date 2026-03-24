@@ -2,6 +2,10 @@
 
 - Translations by Durak (French), Helmut (German), and Teotimus (Spanish).
 
+## 13.31.3 - D20 and BD for everyone
+
+- Fix the bug that was preventing the d20 and BD buttons from being visible to players.
+
 ## 13.31.2 - Axioms, Zones and Cosms
 
 - Provide cosm name(s) in Scene tooltip.
