@@ -9,13 +9,12 @@
 - Reworked the contradication case calculations (0, 1, 4) code to make further changes easier.
 - Hover over Axioms title in SK sheet to see the zone axioms currently affecting the Actor.
 - Add a button next to "Axioms" on the SK sheet to indicate a **Reality Surge**
-- Modify any zone axiom for a stormknight via an AE using the attribute key (override with a new numeric value):
-  - `system.zoneAxiomOverrides.magic`  (or spirit/social/tech)
+- Add a new Region Behaviour **Replace Axioms** which can be used to override any or all of the zone axioms within the region.
 - Localize the skill and DN displayed when expanding an entry in the Powers tab of Threats.
 - Ensure scene axioms in scene config dialog are stored as Numbers, not Strings.
 
 ### Internal Changes
-- `Actor.zoneAxioms` provides the scene/zone axioms which apply to THIS actor.
+- Getter `Actor.zoneAxioms` provides the scene/zone axioms which apply to THIS actor.
 
 ### Translations
 
@@ -27,6 +26,8 @@
         "cosmOtherName2": "Secondary Cosm Name"
       },
       "zoneAxioms": "Zone Axioms",
+      "realitySurge": "Reality Surge",
+      "replaceAxioms": "Replace Axioms",
 ```
 
 ## 13.30.1 - Fix bug

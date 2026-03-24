@@ -9,15 +9,18 @@
     }
   },
   "TYPES": {
+    "Actor": {
+      "stormknight": "Stormknight",
+      "threat": "Threat",
+      "vehicle": "Vehicle"
+    },
     "Card": {
       "destiny": "Destiny",
       "drama": "Drama",
       "cosm": "Cosm"
     },
-    "Actor": {
-      "stormknight": "Stormknight",
-      "threat": "Threat",
-      "vehicle": "Vehicle"
+    "RegionBehavior": {
+      "replaceAxioms": "Replace Zone Axioms"
     }
   },
   "torgeternity": {

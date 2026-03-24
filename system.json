@@ -421,6 +421,9 @@
           "description"
         ]
       }
+    },
+    "RegionBehavior": {
+      "replaceAxioms": {}
     }
   },
   "socket": true,
