@@ -326,7 +326,7 @@ export default class TorgCombat extends Combat {
     }
   }
 
-  #sendDramaChat(action, faction) {
+  async #sendDramaChat(action, faction) {
     return ChatMessage.create({
       speaker: ChatMessage.getSpeaker({ alias: game.user.name }),
       content: game.i18n.format(`torgeternity.drama.${action}Desc`,
@@ -337,17 +337,16 @@ export default class TorgCombat extends Combat {
   async dramaFlurry(faction) {
     // extra turn
     console.log('Drama Flurry', faction)
-    this.#sendDramaChat('flurry', faction);
+    return this.#sendDramaChat('flurry', faction);
   }
 
   async dramaInspiration(faction) {
     console.log('Drama Inspiration', faction)
-    this.#sendDramaChat('inspiration', faction);
+    await this.#sendDramaChat('inspiration', faction);
 
     // immediately recover 2 shock (see macros.js:reviveShock)
-    let chatOutput = `<h2>${game.i18n.localize(
-      'torgeternity.macros.reviveMacroChatHeadline'
-    )}</h2><p>${game.i18n.localize('torgeternity.macros.reviveMacroFirst')}<p><ul>`;
+    let chatOutput = `<h2>${game.i18n.localize('torgeternity.macros.reviveMacroChatHeadline')}</h2>
+      <p>${game.i18n.localize('torgeternity.macros.reviveMacroFirst')}<p><ul>`;
 
     for (const actor of this.getFactionActors(faction)) {
       const shock = actor.system.shock?.value;
@@ -367,33 +366,33 @@ export default class TorgCombat extends Combat {
   async dramaUp(faction) {
     // UP on first roll for each actor
     console.log('Drama Up', faction)
-    this.#sendDramaChat('up', faction);
+    return this.#sendDramaChat('up', faction);
   }
 
   async dramaConfused(faction) {
     // unable to play Cards from their pool
     console.log('Drama Confused', faction)
     this.setCardsPlayable(false);
-    this.#sendDramaChat('confused', faction);
+    return this.#sendDramaChat('confused', faction);
   }
 
   async dramaFatigued(faction) {
     // At the end of an Actor's turn, they take 2 points of shock
     console.log('Drama Fatigued', faction)
     this.setFlag('torgeternity', FATIGUED_FACTION_FLAG, faction);
-    this.#sendDramaChat('fatigued', faction);
+    return this.#sendDramaChat('fatigued', faction);
   }
 
   async dramaSetback(faction) {
     // GM decides a likely setback
     console.log('Drama Setback', faction)
-    this.#sendDramaChat('setback', faction);
+    return this.#sendDramaChat('setback', faction);
   }
 
   async dramaStymied(faction) {
     // All Actors become Stymied until the end of their next turn
     console.log('Drama Stymied', faction)
-    this.#sendDramaChat('stymied', faction);
+    await this.#sendDramaChat('stymied', faction);
     for (const actor of this.getFactionActors(faction))
       actor.increaseStymied(faction);
   }
@@ -401,7 +400,7 @@ export default class TorgCombat extends Combat {
   async dramaSurge(faction) {
     // All Actors must check for Contradictions (TCR 178)
     console.log('Drama Surge', faction)
-    //this.#sendDramaChat('surge', faction);
+    await this.#sendDramaChat('surge', faction);
 
     const scene = this.scene ?? game.scenes.active;
 

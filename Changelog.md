@@ -7,6 +7,7 @@
   - Show zone type (pure, dominant, mixed) along with cosm names.
 - Allow scenes to be created once again.
 - Don't generate errors if user switches Scene Config sheet to "Default Scene Sheet".
+- Wait for first Inspiration chat message to be sent before sending second chat message.
 
 ## 13.31.3 - D20 and BD for everyone
 
