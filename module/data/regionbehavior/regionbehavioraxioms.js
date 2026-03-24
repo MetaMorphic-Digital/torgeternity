@@ -11,7 +11,7 @@ export class ReplaceAxiomsRegionBehaviorType extends foundry.data.regionBehavior
 
   static defineSchema() {
     return {
-      axioms: makeAxiomsField()
+      axioms: makeAxiomsField(/*nullable*/true)
     };
   }
 

@@ -20,14 +20,15 @@ export function makeSkillFields(unskilledUse, baseAttribute, groupName) {
   });
 }
 
-export function makeAxiomsField() {
+export function makeAxiomsField(nullable = false) {
   const fields = foundry.data.fields;
+  const initial = nullable ? null : 0;
 
   return new fields.SchemaField({
-    magic: new fields.NumberField({ initial: 0, integer: true, nullable: false, label: 'torgeternity.sheetLabels.magic' }),
-    social: new fields.NumberField({ initial: 0, integer: true, nullable: false, label: 'torgeternity.sheetLabels.social' }),
-    spirit: new fields.NumberField({ initial: 0, integer: true, nullable: false, label: 'torgeternity.sheetLabels.spirit' }),
-    tech: new fields.NumberField({ initial: 0, integer: true, nullable: false, label: 'torgeternity.sheetLabels.tech' }),
+    magic: new fields.NumberField({ initial, integer: true, nullable: nullable, integer: true, label: 'torgeternity.sheetLabels.magic' }),
+    social: new fields.NumberField({ initial, integer: true, nullable: nullable, integer: true, label: 'torgeternity.sheetLabels.social' }),
+    spirit: new fields.NumberField({ initial, integer: true, nullable: nullable, integer: true, label: 'torgeternity.sheetLabels.spirit' }),
+    tech: new fields.NumberField({ initial, integer: true, nullable: nullable, integer: true, label: 'torgeternity.sheetLabels.tech' }),
   })
 }
 

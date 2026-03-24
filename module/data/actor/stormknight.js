@@ -25,7 +25,7 @@ export class StormKnightData extends CommonActorData {
         }),
       }),
       zone: new fields.SchemaField({
-        axiomOverride: makeAxiomsField(),
+        axiomOverride: makeAxiomsField(/*nullable*/true),
         realitySurge: new fields.BooleanField({ initial: false }),
       }),
       xp: new fields.SchemaField({
@@ -101,7 +101,7 @@ export class StormKnightData extends CommonActorData {
     // Maybe some overrides for the zone's base axioms.
     const axioms = { ...game.scenes.current?.torg.axioms };
     for (const key of Object.keys(axioms)) {
-      if (this.zone.axiomOverride[key]) axioms[key] = this.zone.axiomOverride[key]
+      if (this.zone.axiomOverride[key] !== null) axioms[key] = this.zone.axiomOverride[key]
     }
 
     // Reality Surge: 
