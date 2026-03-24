@@ -25,7 +25,7 @@ export default class TorgeternityScene extends foundry.documents.Scene {
         'flags.torgeternity.darkThreshold': 0.7,
       })
     }
-    if (!Object.hasOwn(data.flags.torgeternity, 'axioms')) {
+    if (data.flags?.torgeternity && !Object.hasOwn(data.flags.torgeternity, 'axioms')) {
       this.updateSource({
         'flags.torgeternity.axioms.magic': 0,
         'flags.torgeternity.axioms.social': 0,

@@ -3,9 +3,10 @@ import TorgeternityScene from './documents/torgeternityscene.js'
 export default class torgeternitySceneConfig extends foundry.applications.sheets.SceneConfig {
 
   // Add our COSM tab
-  static PARTS = foundry.utils.mergeObject(foundry.applications.sheets.SceneConfig.PARTS, {
+  static PARTS = {
+    ...super.PARTS,
     cosm: { template: `systems/torgeternity/templates/scenes/scenes-cosm.hbs` },
-  });
+  };
 
   static TABS = foundry.utils.mergeObject(foundry.applications.sheets.SceneConfig.TABS, {
     sheet: {
@@ -13,7 +14,7 @@ export default class torgeternitySceneConfig extends foundry.applications.sheets
         { id: "cosm", icon: "fa-solid fa-globe", label: "torgeternity.sheetLabels.cosm" },
       )
     },
-  })
+  }, { inplace: false })
 
   /**
    * Fix the ordering of the TABS, to have COSM as the second visible tab.

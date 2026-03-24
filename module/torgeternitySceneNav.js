@@ -18,16 +18,20 @@ export default class TorgeternitySceneNav extends foundry.applications.ui.SceneN
     context.lang = game.settings.get('core', 'language');
 
     function updateScene(data) {
-      // Add extra torg data into each scene
       const scene = game.scenes.get(data.id)
-      const cosm1name = (scene.flags.torgeternity.cosm !== 'other') ?
-        game.i18n.localize(CONFIG.torgeternity.cosmTypes[scene.flags.torgeternity.cosm]) : scene.flags.torgeternity.otherName1;
-      const cosm2name = scene.flags.torgeternity.cosm !== 'none' && ((scene.flags.torgeternity.cosm2 !== 'other') ?
-        game.i18n.localize(CONFIG.torgeternity.cosmTypes[scene.flags.torgeternity.cosm2]) : scene.flags.torgeternity.otherName2);
+      const torg = game.scenes.get(scene.id).torg;
 
-      const cosms = cosm2name
-        ? game.i18n.format('torgeternity.sheetLabels.scenes.twoCosmTip', { cosm1: cosm1name, cosm2: cosm2name })
-        : game.i18n.format('torgeternity.sheetLabels.scenes.oneCosmTip', { cosm1: cosm1name });
+      const zoneType = {
+        mixed: `torgeternity.cosms.mixed`,
+        pure: `torgeternity.cosms.pure`,
+        dominant: `torgeternity.cosms.dominant`,
+      }
+      // Add extra torg data into each scene
+      const cosm1name = (torg.cosm !== 'other') ? game.i18n.localize(CONFIG.torgeternity.cosmTypes[torg.cosm]) : torg.otherName1;
+      const cosm2name = torg.cosm2 && ((torg.cosm2 !== 'other') ? game.i18n.localize(CONFIG.torgeternity.cosmTypes[torg.cosm2]) : torg.otherName2);
+
+      let cosms = `${game.i18n.localize(zoneType[torg.zone])}: ${cosm1name}`
+      if (torg.cosm2) cosms += ` + ${cosm2name}`;
 
       let tooltip = data.tooltip ? `<p>${data.tooltip}</p>` : '';
       tooltip += `<table class="cosm-axioms">
@@ -49,7 +53,7 @@ export default class TorgeternitySceneNav extends foundry.applications.ui.SceneN
       return {
         ...data,
         tooltip,
-        torg: game.scenes.get(scene.id).torg
+        torg
       }
     }
 
