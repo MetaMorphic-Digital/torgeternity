@@ -5,6 +5,7 @@
 ## 13.31.4 - Bug Fixes Galore
 - Tooltip on Scene Nav correct when only one cosm selected.
   - Show zone type (pure, dominant, mixed) along with cosm names.
+- Allow scenes to be created once again.
 
 ## 13.31.3 - D20 and BD for everyone
 
