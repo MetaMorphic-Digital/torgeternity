@@ -6,6 +6,7 @@
 - Tooltip on Scene Nav correct when only one cosm selected.
   - Show zone type (pure, dominant, mixed) along with cosm names.
 - Allow scenes to be created once again.
+- Don't generate errors if user switches Scene Config sheet to "Default Scene Sheet".
 
 ## 13.31.3 - D20 and BD for everyone
 
