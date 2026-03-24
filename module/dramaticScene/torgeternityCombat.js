@@ -355,7 +355,7 @@ export default class TorgCombat extends Combat {
       await actor.update({ 'system.shock.value': shock - reviveAmount });
       chatOutput += `<li>${actor.name} ${game.i18n.localize('torgeternity.macros.reviveMacroCharPartyRevived')}${reviveAmount}`;
       if (actor.hasStatusEffect('unconscious')) {
-        actor.toggleStatusEffect('unconscious', { active: false });
+        await actor.toggleStatusEffect('unconscious', { active: false });
         chatOutput += `<br>${game.i18n.localize('torgeternity.macros.reviveMacroCharDeKOed')} ${actor.name}`;
       }
       chatOutput += '</ul>';
