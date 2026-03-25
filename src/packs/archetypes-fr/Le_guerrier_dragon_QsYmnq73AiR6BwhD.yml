@@ -23,7 +23,7 @@ items:
           startRound: null
           startTurn: null
         disabled: false
-        img: icons/svg/aura.svg
+        img: systems/torgeternity/images/icons/reality-icon.webp
         _id: OLVhARvuJ67N5paG
         type: base
         system:
@@ -50,8 +50,8 @@ items:
           systemId: torgeternity
           systemVersion: 13.13.2
           createdTime: 1764003291363
-          modifiedTime: 1764003304380
-          lastModifiedBy: e1DB4TK9SbDuMDS3
+          modifiedTime: 1774467386870
+          lastModifiedBy: BMvGTGfheqDXarjN
         _key: >-
           !actors.items.effects!QsYmnq73AiR6BwhD.0e2qeJEXy89eDqmQ.OLVhARvuJ67N5paG
       - name: Dragon Scales (Armor vs. Fire)
@@ -66,7 +66,7 @@ items:
           startRound: null
           startTurn: null
         disabled: true
-        img: icons/svg/aura.svg
+        img: systems/torgeternity/images/icons/reality-icon.webp
         _id: XuU0ggSMZ5XBUVkW
         type: base
         system:
@@ -93,8 +93,8 @@ items:
           systemId: torgeternity
           systemVersion: 13.13.2
           createdTime: 1764003292226
-          modifiedTime: 1764003327530
-          lastModifiedBy: e1DB4TK9SbDuMDS3
+          modifiedTime: 1774467396379
+          lastModifiedBy: BMvGTGfheqDXarjN
         _key: >-
           !actors.items.effects!QsYmnq73AiR6BwhD.0e2qeJEXy89eDqmQ.XuU0ggSMZ5XBUVkW
     folder: null
@@ -383,7 +383,7 @@ items:
           startRound: null
           startTurn: null
         disabled: false
-        img: icons/svg/aura.svg
+        img: systems/torgeternity/images/icons/gear-icon.webp
         _id: Q51qBpQRHkhPFOu4
         type: base
         system:
@@ -412,7 +412,7 @@ items:
           systemId: torgeternity
           systemVersion: 13.24.1
           createdTime: 1772996647722
-          modifiedTime: 1772996668010
+          modifiedTime: 1774467425515
           lastModifiedBy: BMvGTGfheqDXarjN
         _key: >-
           !actors.items.effects!QsYmnq73AiR6BwhD.F2DgHaQHYRxdQU4b.Q51qBpQRHkhPFOu4
@@ -507,7 +507,7 @@ items:
           startRound: null
           startTurn: null
         disabled: false
-        img: icons/svg/aura.svg
+        img: systems/torgeternity/images/icons/reality-icon.webp
         _id: sdvX18K7AfNKSOKi
         type: base
         system:
@@ -534,7 +534,7 @@ items:
           systemId: torgeternity
           systemVersion: 13.15.0
           createdTime: 1768219099687
-          modifiedTime: 1768219113187
+          modifiedTime: 1774467391832
           lastModifiedBy: BMvGTGfheqDXarjN
         _key: >-
           !actors.items.effects!QsYmnq73AiR6BwhD.w5ZFXzswpME4OajM.sdvX18K7AfNKSOKi
@@ -1172,7 +1172,7 @@ _stats:
   systemVersion: 13.27.0
   coreVersion: '13.351'
   createdTime: 1716827809381
-  modifiedTime: 1773001234619
+  modifiedTime: 1774467247904
   lastModifiedBy: BMvGTGfheqDXarjN
   compendiumSource: null
   duplicateSource: null

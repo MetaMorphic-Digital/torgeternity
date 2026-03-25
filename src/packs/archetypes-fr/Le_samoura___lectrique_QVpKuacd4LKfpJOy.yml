@@ -419,14 +419,16 @@ items:
         carryType: held
         handsHeld: 1
       notes: Pénétration d’armure 2
+      traits:
+        - trademark
     ownership:
       default: 0
     _stats:
       systemId: torgeternity
-      systemVersion: 13.15.0
+      systemVersion: 13.27.0
       coreVersion: '13.351'
       createdTime: null
-      modifiedTime: 1771934294766
+      modifiedTime: 1774466881023
       lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: Compendium.te001-core-rulebook.Items.oXC2OfgC7II3et6Z
       duplicateSource: null
@@ -877,7 +879,7 @@ system:
   axioms:
     magic: 4
     social: 24
-    spirit: 8
+    spirit: 10
     tech: 24
   details:
     background: "<h2>Présentation</h2>\n<p class=\"MsoNormal\">Les Samouraïs électriques sont un groupe de combattants des temps modernes qui suivent le code du Bushido mais en utilisant des armes et des armures ultra-modernes. Les origines de ce mouvement sont obscures, l’étrange rencontre de la culture punk et des traditions perpétrées par les descendants des anciens samouraïs. On ne rejoint ce groupe que si on y est invité et ces invitations ne sont adressées qu’à celles et à ceux qui se sont montrés dignes aussi bien en combat que dans leur vie.</p>\n<p class=\"MsoNormal\">Les Tourmenteurs et d’autres adversaires peuvent porter les mêmes armures ou utiliser les mêmes armes mais ce ne sont pas de véritables samouraïs. Il est du devoir des élus de défier ces imposteurs.</p>\n<h2>Tactiques</h2>\n<p class=\"MsoNormal\">Votre arme principale est le katana électrique qui inflige de terribles dégâts et perfore les armures. Il n’y a aucun déshonneur à être pragmatique, aussi votre SC Kyogo 144 SMG est utile pour rétablir l’équilibre contre un grand nombre d’ennemis plus faibles. Tirez profit du grand nombre de munitions de l’arme et utilisez souvent des Rafales longues. La plupart de vos interactions offensives sont fortes, essayez de les utiliser quand il s’agit d’Actions approuvées, à l’exception de Provocation. Les insultes mesquines sont frivoles et répugnantes.</p>\n<h2>Instant fatidique</h2>\n<p class=\"MsoNormal\">Quand la Contagion est apparue, vous étiez bio-ingénieur spécialisé dans la recherche génétique. Avant que quiconque ne comprenne ce qui était en train de se produire, un jiangshi s’est échappé de son confinement et a commencé à massacrer vos collègues. Peut-être est-ce vos années d’entraînement au kendo qui vous ont permis d’affronter la créature. Ou peut-être est-ce le calme avec lequel vous avez mis à l’abri les patients et le personnel. Quoi qu’il en soit, cela a déclenché quelque chose en vous et attiré l’attention des Samouraïs électriques.</p>\n<h2>Citation</h2>\n<p class=\"MsoNormal\">« Je ne souillerai pas ma lame sur un adversaire tel que vous. »</p>\n<h2>Description</h2>\n<p class=\"MsoNormal\">Le Ion Gusoku et le katana électrique sont les deux signes distinctifs des Samouraïs électriques. Un contrôle total et des moeurs irréprochables sont vos idéaux mais vous ne les avez pas encore tout à fait atteints.</p>\n<h2>Objectif</h2>\n<p class=\"MsoNormal\">Les huit vertus du Bushido vous imposent de combattre les Pillards de Réalités et la Contagion et de protéger les innocents. Suivre le code. Être vertueux, héroïque, compatissant, poli, honnête,\_ honorable, loyal et discipliné même quand cela est contraignant.</p>\n<h2>Noms</h2>\n<p class=\"MsoNormal\">Akimi, Haruka, Izumi, Jun, Kazumi, Maru, Riku, Shigeri, Tomo</p>\n<h2>Piste de progression (optionnelle)</h2>\n<p class=\"MsoNormal\">□ (5 PX) Inébranlable</p>\n<p class=\"MsoNormal\">□ (7 PX) Ion Gusoku (Revêtement foudroyant)</p>\n<p class=\"MsoNormal\">□ (1 PX) Armes de jet +1</p>\n<p class=\"MsoNormal\">□ (2 PX) Réalité +2</p>\n<p class=\"MsoNormal\">□ (3 PX) Esquive +3</p>\n<p class=\"MsoNormal\">□ (3 PX) Véhicules terrestres +3</p>\n<p class=\"MsoNormal\">□ (4 PX) Armes de mêlée +4</p>\n<p class=\"MsoNormal\">□ (5 PX) Armes de mêlée +5</p>"
@@ -974,7 +976,7 @@ _stats:
   systemVersion: 13.27.0
   coreVersion: '13.351'
   createdTime: 1716827809333
-  modifiedTime: 1773001234618
+  modifiedTime: 1774467270378
   lastModifiedBy: BMvGTGfheqDXarjN
   compendiumSource: null
   duplicateSource: null

@@ -23,7 +23,7 @@ items:
           startRound: null
           startTurn: null
         disabled: false
-        img: icons/svg/aura.svg
+        img: systems/torgeternity/images/icons/reality-icon.webp
         _id: S9PtI7vgiNUGzwSF
         type: base
         system:
@@ -54,8 +54,8 @@ items:
           systemId: torgeternity
           systemVersion: 13.13.2
           createdTime: 1764003930526
-          modifiedTime: 1764003954681
-          lastModifiedBy: e1DB4TK9SbDuMDS3
+          modifiedTime: 1774467364154
+          lastModifiedBy: BMvGTGfheqDXarjN
         _key: >-
           !actors.items.effects!cdSvyJHbG0GbFzkh.q33jbisDvFLOCyfH.S9PtI7vgiNUGzwSF
     folder: null
@@ -332,7 +332,7 @@ items:
           startRound: null
           startTurn: null
         disabled: false
-        img: icons/svg/aura.svg
+        img: systems/torgeternity/images/icons/reality-icon.webp
         _id: esSMSGKETHXbBfj0
         type: base
         system:
@@ -359,7 +359,7 @@ items:
           systemId: torgeternity
           systemVersion: 13.15.0
           createdTime: 1768218969235
-          modifiedTime: 1768218981785
+          modifiedTime: 1774467368713
           lastModifiedBy: BMvGTGfheqDXarjN
         _key: >-
           !actors.items.effects!cdSvyJHbG0GbFzkh.xSUfyWUYlFvFHbn7.esSMSGKETHXbBfj0
@@ -948,7 +948,7 @@ effects:
       startRound: null
       startTurn: null
     disabled: false
-    img: icons/svg/aura.svg
+    img: systems/torgeternity/images/icons/reality-icon.webp
     _id: p3rSEpHZEGW6Fc9a
     type: base
     system:
@@ -974,8 +974,8 @@ effects:
       systemId: torgeternity
       systemVersion: 13.13.2
       createdTime: 1764003970351
-      modifiedTime: 1764003998607
-      lastModifiedBy: e1DB4TK9SbDuMDS3
+      modifiedTime: 1774467359442
+      lastModifiedBy: BMvGTGfheqDXarjN
     _key: '!actors.effects!cdSvyJHbG0GbFzkh.p3rSEpHZEGW6Fc9a'
 folder: null
 sort: 100001
@@ -1427,7 +1427,7 @@ _stats:
   systemVersion: 13.27.0
   coreVersion: '13.351'
   createdTime: 1716827809619
-  modifiedTime: 1773001234624
+  modifiedTime: 1774467230421
   lastModifiedBy: BMvGTGfheqDXarjN
   compendiumSource: null
   duplicateSource: null

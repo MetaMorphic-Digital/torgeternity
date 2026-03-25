@@ -250,7 +250,7 @@ items:
           startRound: null
           startTurn: null
         disabled: false
-        img: icons/svg/aura.svg
+        img: systems/torgeternity/images/icons/gear-icon.webp
         _id: RwkuvAda2BX1yQo7
         type: base
         system:
@@ -277,8 +277,8 @@ items:
           systemId: torgeternity
           systemVersion: 13.13.2
           createdTime: 1764004267919
-          modifiedTime: 1764004286993
-          lastModifiedBy: e1DB4TK9SbDuMDS3
+          modifiedTime: 1774467490520
+          lastModifiedBy: BMvGTGfheqDXarjN
         _key: >-
           !actors.items.effects!YzRwn4OIYPYBIPJH.rU1HD6a5mXVgKb6W.RwkuvAda2BX1yQo7
     folder: null
@@ -1225,7 +1225,7 @@ system:
     find:
       baseAttribute: mind
       adds: 1
-      isFav: false
+      isFav: true
       groupName: other
       unskilledUse: true
       isThreatSkill: false
@@ -1557,7 +1557,7 @@ _stats:
   systemVersion: 13.27.0
   coreVersion: '13.351'
   createdTime: 1716827809520
-  modifiedTime: 1773001234622
+  modifiedTime: 1774467257757
   lastModifiedBy: BMvGTGfheqDXarjN
   compendiumSource: null
   duplicateSource: null

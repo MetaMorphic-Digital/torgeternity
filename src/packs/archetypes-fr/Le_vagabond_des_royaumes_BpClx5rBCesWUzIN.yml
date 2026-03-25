@@ -271,7 +271,7 @@ items:
           startRound: null
           startTurn: null
         disabled: false
-        img: icons/svg/aura.svg
+        img: systems/torgeternity/images/icons/reality-icon.webp
         _id: ksIylqtIWKTz7ZlZ
         type: base
         system:
@@ -298,8 +298,8 @@ items:
           systemId: torgeternity
           systemVersion: 13.13.2
           createdTime: 1764004178271
-          modifiedTime: 1764004198337
-          lastModifiedBy: e1DB4TK9SbDuMDS3
+          modifiedTime: 1774467662127
+          lastModifiedBy: BMvGTGfheqDXarjN
         _key: >-
           !actors.items.effects!BpClx5rBCesWUzIN.0z1Kf0KY2aBw5QDV.ksIylqtIWKTz7ZlZ
     folder: null
@@ -1136,7 +1136,7 @@ _stats:
   systemVersion: 13.27.0
   coreVersion: '13.351'
   createdTime: 1716827809233
-  modifiedTime: 1773001234616
+  modifiedTime: 1774467274189
   lastModifiedBy: BMvGTGfheqDXarjN
   compendiumSource: null
   duplicateSource: null

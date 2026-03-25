@@ -300,7 +300,7 @@ items:
           startRound: null
           startTurn: null
         disabled: false
-        img: icons/svg/aura.svg
+        img: systems/torgeternity/images/icons/reality-icon.webp
         _id: i5YAMkeTD86kWUN8
         type: base
         system:
@@ -327,8 +327,8 @@ items:
           systemId: torgeternity
           systemVersion: 13.13.2
           createdTime: 1764004226150
-          modifiedTime: 1764004243932
-          lastModifiedBy: e1DB4TK9SbDuMDS3
+          modifiedTime: 1774467344545
+          lastModifiedBy: BMvGTGfheqDXarjN
         _key: >-
           !actors.items.effects!tbqGzMeQeCA3n1Mt.PdWFjwZntFEHyhTf.i5YAMkeTD86kWUN8
     folder: null
@@ -1010,7 +1010,7 @@ system:
     survival:
       baseAttribute: mind
       adds: 1
-      isFav: false
+      isFav: true
       groupName: other
       unskilledUse: true
       isThreatSkill: false
@@ -1174,7 +1174,7 @@ _stats:
   systemVersion: 13.27.0
   coreVersion: '13.351'
   createdTime: 1716827809839
-  modifiedTime: 1773001234628
+  modifiedTime: 1774467216389
   lastModifiedBy: BMvGTGfheqDXarjN
   compendiumSource: null
   duplicateSource: null
