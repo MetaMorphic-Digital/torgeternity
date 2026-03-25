@@ -684,7 +684,21 @@ export default class TorgeternityActor extends foundry.documents.Actor {
     const systemAxioms = this.system.zoneAxioms;
     if (systemAxioms) return systemAxioms;
     // No subtype specific zone Axioms, so just use generic scene axioms.
-    return game.scenes.current?.torg.axioms;
+    return game.scenes.active?.torg.axioms;
+  }
+
+  /**
+   * As Actor#getActiveTokens, but return the tokens for the ACTIVE scene rather than the CURRENT scene
+   */
+  getActiveSceneTokens(linked = false, document = false) {
+    if (!canvas.ready || !game.scenes.active) return [];
+    const tokens = [];
+    for (const t of this.getDependentTokens({ linked, scenes: game.scenes.active })) {
+      if (t !== canvas.scene.tokens.get(t.id)) continue;
+      if (document) tokens.push(t);
+      else if (t.rendered) tokens.push(t.object);
+    }
+    return tokens;
   }
 }
 

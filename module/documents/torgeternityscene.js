@@ -60,6 +60,12 @@ export default class TorgeternityScene extends foundry.documents.Scene {
     }
   }
 
+  _onUpdate(changed, options, userId) {
+    super._onUpdate(changed, options, userId);
+    // Ensure prepared data (e.g. zone axioms) are updated on all actors in the scene)
+    if (changed.flags?.torgeternity) prepareAllActors();
+  }
+
   // A general function that would normally be static
   static getAxioms(cosm, cosm2, zone) {
     const nocosm = { magic: 0, social: 0, spirit: 0, tech: 0 };
@@ -162,3 +168,14 @@ export default class TorgeternityScene extends foundry.documents.Scene {
     return sceneLevel;
   }
 }
+
+/**
+ * Ensure Zone Axioms are correct when tokens are created or the scene is changed.
+ */
+function prepareAllActors() {
+  game.scenes.active.tokens.forEach(token => token.actor.prepareData());
+}
+
+Hooks.on('ready', prepareAllActors);
+Hooks.on('canvasReady', prepareAllActors);
+Hooks.on('createToken', (token) => token.actor.prepareData());

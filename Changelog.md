@@ -2,6 +2,11 @@
 
 - Translations by Durak (French), Helmut (German), and Teotimus (Spanish).
 
+## NEXT
+- Rework workflow for calculation of the zone axioms affecting a Stormknight:
+  - The zone axioms are based on the ACTIVE scene.
+  - The token must be in a Region on the ACTIVE scene to affect the SK's zone axioms.
+
 ## 13.31.4 - Bug Fixes Galore (well four)
 - Tooltip on Scene Nav correct when only one cosm selected.
   - Show zone type (pure, dominant, mixed) along with cosm names.

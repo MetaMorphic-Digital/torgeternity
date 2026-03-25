@@ -3,10 +3,14 @@ import { makeAxiomsField } from '../shared.js';
 
 const fields = foundry.data.fields;
 
+const NO_AXIOMS = { magic: 0, spirit: 0, social: 0, tech: 0 };
 /**
  * class for actor data specific to Storm Knights
  */
 export class StormKnightData extends CommonActorData {
+
+  #zoneAxioms;
+
   /**
    *
    * @returns {object} Schema for a Storm Knight
@@ -65,6 +69,8 @@ export class StormKnightData extends CommonActorData {
     this.axioms.spirit = CONFIG.torgeternity.axiomByCosm[this.other.cosm]?.spirit || this.axioms.spirit;
     this.axioms.tech = CONFIG.torgeternity.axiomByCosm[this.other.cosm]?.tech || this.axioms.tech;
 
+    if (game.scenes?.active?.torg?.axioms) this.sceneAxioms = { ...game.scenes.active.torg.axioms };
+
     // Set clearance level
     if (this.xp.earned < 50) {
       this.details.clearance = 'alpha';
@@ -89,22 +95,34 @@ export class StormKnightData extends CommonActorData {
     }
   }
 
-  get zoneAxioms() {
-    // Maybe some overrides for the zone's base axioms.
-    const axioms = { ...game.scenes.current?.torg.axioms };
-    for (const key of Object.keys(axioms)) {
-      if (this.zone.axiomOverride[key] !== null) axioms[key] = this.zone.axiomOverride[key]
-    }
+  prepareDerivedData() {
+    super.prepareDerivedData();
+    this.#calcZoneAxioms();
+  }
+
+  #calcZoneAxioms() {
+    const axioms = this.sceneAxioms ?? NO_AXIOMS;
+
+    // Handle any regions on the ACTIVE scene that might override
+    for (const token of this.parent.getActiveSceneTokens())
+      for (const region of token.document.regions)
+        for (const behavior of region.behaviors)
+          if (behavior.type === 'replaceAxioms')
+            for (const [key, value] of Object.entries(behavior.system.axioms))
+              if (value !== null) axioms[key] = value;
 
     // Reality Surge: 
-    // When played, the character’s axioms and World Laws are in effect for him as if he were in a Mixed 
-    // Zone for the remainder of the scene. This only affects the character and any items he’s using.
-    if (this.zone.realitySurge) {
-      for (const [key, value] of Object.entries(this.axioms)) {
+    // When played, the character’s axioms and World Laws are in effect for him as if he were in a 
+    // Mixed Zone for the remainder of the scene. This only affects the character and any items he’s using.
+    if (this.zone.realitySurge)
+      for (const [key, value] of Object.entries(this.axioms))
         if (axioms[key] < value) axioms[key] = value;
-      }
-    }
 
-    return axioms;
+    this.#zoneAxioms = axioms;
+  }
+
+  get zoneAxioms() {
+    if (!this.#zoneAxioms) this.#calcZoneAxioms();
+    return this.#zoneAxioms;
   }
 }

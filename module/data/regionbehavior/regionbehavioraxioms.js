@@ -21,20 +21,14 @@ export class ReplaceAxiomsRegionBehaviorType extends foundry.data.regionBehavior
    * @returns 
    */
   static async #tokenEnter(event) {
-    if (!event.user.isSelf) return;
-    event.data.token.actor.update({ "system.zone.axiomOverride": this.axioms });
+    event.data.token.actor.prepareData();
   }
 
   static async #tokenExit(event) {
-    if (!event.user.isSelf) return;
-    const noaxioms = { magic: null, social: null, spirit: null, tech: null };
-    event.data.token.actor.update({ "system.zone.axiomOverride": noaxioms });
+    event.data.token.actor.prepareData();
   }
 
   _onUpdate(_changed, _options, _userId) {
-    for (const token of this.region.tokens) {
-      const actor = token.actor;
-      if (actor.isOwner) actor.update({ "system.zone.axiomOverride": this.axioms });
-    }
+    this.region.tokens.forEach(token => token.actor.prepareData());
   }
 }
