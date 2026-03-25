@@ -245,11 +245,12 @@ export class TestDialog extends HandlebarsApplicationMixin(ApplicationV2) {
       target.damage = this.test.damage ?? 0;
 
     // Check actor to see if they want to modify any of the modifiers.
+    // TODO - we need to check others fields too, at this point?  (so 'test.damage' shouldn't get set here)
     let changed = false;
     for (const effect of myActor.allApplicableEffects())
       if (effect.active || (!effect.disabled && !effect.isTransferrable && effect.system.activeIfTrait.has(context.test.skillName)))
         for (const change of effect.changes)
-          if (change.key.startsWith('test.')) {
+          if (change.key.startsWith('test.') && change.key.endsWith('Modifier')) {
             const key = change.key.slice(5);
             if (foundry.utils.hasProperty(context.test, key)) {
               context.test[key] = applyNumericChange(context.test[key], change);
