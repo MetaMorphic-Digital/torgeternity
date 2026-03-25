@@ -431,105 +431,6 @@ items:
       duplicateSource: null
       exportSource: null
     _key: '!actors.items!sPLt8RBL1hieic6p.R3UtYJxpc9sgFYTK'
-  - _id: e9xaMsAeSysyibki
-    name: Hrockt Shoot Spear
-    type: meleeweapon
-    img: systems/torgeternity/images/icons/axe-icon.webp
-    effects: []
-    folder: null
-    sort: 36200000
-    flags:
-      core: {}
-    system:
-      cosm: none
-      description: "<p>@UUID[Compendium.te001-core-rulebook.rules.pwneQ55M0nnDH0Us.JournalEntryPage.qKdamp4rrcX6TTt0#thrown:]{Thrown}</p><p>For use as missile weapon see @UUID[Actor.sPLt8RBL1hieic6p.Item.sUwjzPc7YwVZ31dC]{Hrockt Shoot Spear}</p><p>Pliable when wet and growing, but hard as iron once cut and dried. Often cultivated into straight spears with sharp points. Also commonly thrown as a missile weapon.</p><p>In the missile weapons table this weapon has Tech Axiom 3.</p><p>\_</p><p>Found in <strong>Core Rules</strong></p>"
-      price: '40'
-      techlevel: 2
-      value: 8
-      ap: 0
-      attackWith: meleeWeapons
-      bonus: 2
-      chatNote: ''
-      damage: 2
-      damageType: strengthPlus
-      equipped:
-        carryType: held
-        handsHeld: 1
-      notes: Thrown
-      secondaryAxiom:
-        selected: none
-        value: null
-      minStrength: null
-      traits:
-        - thrown
-    ownership:
-      default: 0
-      A9LyAqagoJJU3gDH: 3
-      VAnYow5sWS9EJzo0: 3
-      93AMwcGe6H37rcPA: 3
-    _stats:
-      compendiumSource: Compendium.te001-core-rulebook.Items.Item.ammMtd4GDTZAbVQx
-      duplicateSource: null
-      coreVersion: '13.351'
-      systemId: torgeternity
-      systemVersion: 13.15.0
-      createdTime: null
-      modifiedTime: 1771933413604
-      lastModifiedBy: BMvGTGfheqDXarjN
-      exportSource: null
-    _key: '!actors.items!sPLt8RBL1hieic6p.e9xaMsAeSysyibki'
-  - name: Hrockt Shoot Spear
-    type: missileweapon
-    img: systems/torgeternity/images/icons/missile-weapon-icon.webp
-    system:
-      cosm: none
-      description: >-
-        <p>For use as melee weapon see
-        @UUID[Actor.sPLt8RBL1hieic6p.Item.e9xaMsAeSysyibki]{Hrockt Shoot
-        Spear}</p><p>Pliable when wet and growing, but hard as iron once cut and
-        dried. Often cultivated into straight spears with sharp points. Also
-        commonly thrown as a missile weapon.</p>
-      price: '40'
-      techlevel: 3
-      value: 8
-      secondaryAxiom:
-        selected: none
-        value: null
-      ammo:
-        max: 1
-        value: 1
-      ap: 0
-      attackWith: missileWeapons
-      chatNote: ''
-      damage: 2
-      damageType: strengthPlus
-      equipped:
-        handsHeld: 1
-        carryType: held
-      minStrength: ''
-      notes: ''
-      range: 10/20/40
-      traits:
-        - thrown
-    effects: []
-    folder: null
-    ownership:
-      default: 0
-      93AMwcGe6H37rcPA: 3
-    flags: {}
-    _stats:
-      compendiumSource: Compendium.te001-core-rulebook.Items.Item.6Pb5rtY0QdIMTbRF
-      duplicateSource: null
-      coreVersion: '13.351'
-      systemId: torgeternity
-      systemVersion: 13.15.0
-      createdTime: null
-      modifiedTime: 1771933418440
-      lastModifiedBy: BMvGTGfheqDXarjN
-      exportSource: null
-    _id: sUwjzPc7YwVZ31dC
-    sort: 0
-    _key: '!actors.items!sPLt8RBL1hieic6p.sUwjzPc7YwVZ31dC'
   - name: Human
     type: race
     img: systems/torgeternity/images/icons/human-icon.webp
@@ -570,6 +471,119 @@ items:
     _id: 0NHrfRKUxPO9P80B
     sort: 100000
     _key: '!actors.items!sPLt8RBL1hieic6p.0NHrfRKUxPO9P80B'
+  - _id: ammMtd4GDTZAbVQx
+    name: Hrockt Shoot Spear
+    type: meleeweapon
+    img: systems/torgeternity/images/icons/axe-icon.webp
+    effects: []
+    folder: FfwSfnmXnpH6LbjL
+    sort: 200000
+    flags:
+      core: {}
+    system:
+      cosm: livingLand
+      description: "<p>@UUID[Compendium.te001-core-rulebook.rules.pwneQ55M0nnDH0Us.JournalEntryPage.qKdamp4rrcX6TTt0#thrown:]{Thrown}</p><p>For use as missile weapon see @UUID[Compendium.te001-core-rulebook.Items.Item.6Pb5rtY0QdIMTbRF]{Hrockt Shoot Spear}</p><p>Pliable when wet and growing, but hard as iron once cut and dried. Often cultivated into straight spears with sharp points. Also commonly thrown as a missile weapon.</p><p>In the missile weapons table this weapon has Tech Axiom 3.</p><p>\_</p><p>Found in <strong>Core Rules</strong></p>"
+      price:
+        dollars: '40'
+      ap: 0
+      attackWith: meleeWeapons
+      bonus: 2
+      chatNote: ''
+      damage: 2
+      damageType: strengthPlus
+      equipped:
+        carryType: stowed
+        handsHeld: 0
+      notes: Thrown
+      traits:
+        - thrown
+      itemsToBestow: []
+      axioms:
+        tech: 2
+        magic: 0
+        social: 0
+        spirit: 0
+      bestowedBy: null
+      quantity: 1
+      secondaryAxiom: none
+      minStrength: null
+    ownership:
+      default: 0
+      A9LyAqagoJJU3gDH: 3
+      VAnYow5sWS9EJzo0: 3
+      BMvGTGfheqDXarjN: 3
+    _stats:
+      compendiumSource: Compendium.te001-core-rulebook.Items.Item.ammMtd4GDTZAbVQx
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.27.0
+      createdTime: 1774458810332
+      modifiedTime: 1774458810344
+      lastModifiedBy: BMvGTGfheqDXarjN
+    _key: '!actors.items!sPLt8RBL1hieic6p.ammMtd4GDTZAbVQx'
+  - name: Hrockt Shoot Spear
+    type: missileweapon
+    img: systems/torgeternity/images/icons/missile-weapon-icon.webp
+    system:
+      cosm: livingLand
+      description: >-
+        <p>For use as melee weapon see
+        @UUID[Compendium.te001-core-rulebook.Items.Item.ammMtd4GDTZAbVQx]{Hrockt
+        Shoot Spear}</p><p>Pliable when wet and growing, but hard as iron once
+        cut and dried. Often cultivated into straight spears with sharp points.
+        Also commonly thrown as a missile weapon.</p>
+      price:
+        dollars: '40'
+      secondaryAxiom: none
+      ammo:
+        max: 1
+        value: 1
+      ap: 0
+      attackWith: missileWeapons
+      chatNote: ''
+      damage: 2
+      damageType: strengthPlus
+      equipped:
+        carryType: stowed
+        handsHeld: 0
+      minStrength: null
+      notes: ''
+      range: 10 / 20 / 40
+      traits:
+        - thrown
+      axioms:
+        tech: 3
+        magic: 0
+        social: 0
+        spirit: 0
+      itemsToBestow: []
+      bestowedBy: ammMtd4GDTZAbVQx
+      quantity: 1
+      bonus: 2
+      loadedAmmo: null
+      gunner: null
+      gunnerFixedSkill: 0
+    effects: []
+    folder: ClGKcYVEi3ZXFRsl
+    flags: {}
+    _stats:
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.27.0
+      createdTime: 1774458810347
+      modifiedTime: 1774458810347
+      lastModifiedBy: BMvGTGfheqDXarjN
+    _id: yVzKDElEDVBbE73j
+    ownership:
+      default: 0
+      BMvGTGfheqDXarjN: 3
+    sort: 0
+    _key: '!actors.items!sPLt8RBL1hieic6p.yVzKDElEDVBbE73j'
 effects: []
 folder: null
 sort: 100001

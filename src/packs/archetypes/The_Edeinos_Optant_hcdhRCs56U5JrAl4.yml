@@ -287,7 +287,7 @@ items:
           startTurn: null
         disabled: false
         name: Unarmed Combat is Fav
-        img: icons/svg/aura.svg
+        img: systems/torgeternity/images/icons/reality-icon.webp
         _id: 050BsL6MF5PErpeT
         type: base
         system:
@@ -310,8 +310,8 @@ items:
           systemId: torgeternity
           systemVersion: 13.13.2
           createdTime: null
-          modifiedTime: 1764003760400
-          lastModifiedBy: e1DB4TK9SbDuMDS3
+          modifiedTime: 1774459517017
+          lastModifiedBy: BMvGTGfheqDXarjN
           exportSource: null
         _key: >-
           !actors.items.effects!hcdhRCs56U5JrAl4.yAe9TWoKpqHEnno9.050BsL6MF5PErpeT
@@ -418,21 +418,20 @@ items:
       lastModifiedBy: null
       exportSource: null
     _key: '!actors.items!hcdhRCs56U5JrAl4.yAe9TWoKpqHEnno9'
-  - _id: dhZt4ogIENT8UrvV
+  - _id: ammMtd4GDTZAbVQx
     name: Hrockt Shoot Spear
     type: meleeweapon
     img: systems/torgeternity/images/icons/axe-icon.webp
     effects: []
-    folder: null
-    sort: 36200000
+    folder: FfwSfnmXnpH6LbjL
+    sort: 200000
     flags:
       core: {}
     system:
       cosm: livingLand
-      description: "<p>@UUID[Compendium.te001-core-rulebook.rules.pwneQ55M0nnDH0Us.JournalEntryPage.qKdamp4rrcX6TTt0#thrown:]{Thrown}</p><p>For use as missile weapon see @UUID[Actor.hcdhRCs56U5JrAl4.Item.GQGV7PufpwLZ9DdV]{Hrockt Shoot Spear}</p><p>Pliable when wet and growing, but hard as iron once cut and dried. Often cultivated into straight spears with sharp points. Also commonly thrown as a missile weapon.</p><p>In the missile weapons table this weapon has Tech Axiom 3.</p><p>\_</p><p>Found in <strong>Core Rules</strong></p>"
-      price: '40'
-      techlevel: 2
-      value: 8
+      description: "<p>@UUID[Compendium.te001-core-rulebook.rules.pwneQ55M0nnDH0Us.JournalEntryPage.qKdamp4rrcX6TTt0#thrown:]{Thrown}</p><p>For use as missile weapon see @UUID[Compendium.te001-core-rulebook.Items.Item.6Pb5rtY0QdIMTbRF]{Hrockt Shoot Spear}</p><p>Pliable when wet and growing, but hard as iron once cut and dried. Often cultivated into straight spears with sharp points. Also commonly thrown as a missile weapon.</p><p>In the missile weapons table this weapon has Tech Axiom 3.</p><p>\_</p><p>Found in <strong>Core Rules</strong></p>"
+      price:
+        dollars: '40'
       ap: 0
       attackWith: meleeWeapons
       bonus: 2
@@ -440,48 +439,51 @@ items:
       damage: 2
       damageType: strengthPlus
       equipped:
-        handsHeld: 1
-        carryType: held
+        carryType: stowed
+        handsHeld: 0
       notes: Thrown
-      secondaryAxiom:
-        selected: none
-        value: null
-      minStrength: null
       traits:
         - thrown
+      axioms:
+        tech: 2
+        magic: 0
+        social: 0
+        spirit: 0
+      itemsToBestow: []
+      bestowedBy: null
+      quantity: 1
+      secondaryAxiom: none
+      minStrength: null
     ownership:
       default: 0
       A9LyAqagoJJU3gDH: 3
       VAnYow5sWS9EJzo0: 3
-      93AMwcGe6H37rcPA: 3
+      BMvGTGfheqDXarjN: 3
     _stats:
       compendiumSource: Compendium.te001-core-rulebook.Items.Item.ammMtd4GDTZAbVQx
       duplicateSource: null
+      exportSource: null
       coreVersion: '13.351'
       systemId: torgeternity
-      systemVersion: 13.15.0
-      createdTime: null
-      modifiedTime: 1771933376990
+      systemVersion: 13.27.0
+      createdTime: 1774458024570
+      modifiedTime: 1774458024582
       lastModifiedBy: BMvGTGfheqDXarjN
-      exportSource: null
-    _key: '!actors.items!hcdhRCs56U5JrAl4.dhZt4ogIENT8UrvV'
+    _key: '!actors.items!hcdhRCs56U5JrAl4.ammMtd4GDTZAbVQx'
   - name: Hrockt Shoot Spear
     type: missileweapon
     img: systems/torgeternity/images/icons/missile-weapon-icon.webp
     system:
-      cosm: none
+      cosm: livingLand
       description: >-
         <p>For use as melee weapon see
-        @UUID[Actor.hcdhRCs56U5JrAl4.Item.dhZt4ogIENT8UrvV]{Hrockt Shoot
-        Spear}</p><p>Pliable when wet and growing, but hard as iron once cut and
-        dried. Often cultivated into straight spears with sharp points. Also
-        commonly thrown as a missile weapon.</p>
-      price: '40'
-      techlevel: 3
-      value: 8
-      secondaryAxiom:
-        selected: none
-        value: null
+        @UUID[Compendium.te001-core-rulebook.Items.Item.ammMtd4GDTZAbVQx]{Hrockt
+        Shoot Spear}</p><p>Pliable when wet and growing, but hard as iron once
+        cut and dried. Often cultivated into straight spears with sharp points.
+        Also commonly thrown as a missile weapon.</p>
+      price:
+        dollars: '40'
+      secondaryAxiom: none
       ammo:
         max: 1
         value: 1
@@ -491,32 +493,44 @@ items:
       damage: 2
       damageType: strengthPlus
       equipped:
-        handsHeld: 1
-        carryType: held
-      minStrength: ''
+        carryType: stowed
+        handsHeld: 0
+      minStrength: null
       notes: ''
-      range: 10/20/40
+      range: 10 / 20 / 40
       traits:
         - thrown
+      axioms:
+        tech: 3
+        magic: 0
+        social: 0
+        spirit: 0
+      itemsToBestow: []
+      bestowedBy: ammMtd4GDTZAbVQx
+      quantity: 1
+      bonus: 2
+      loadedAmmo: null
+      gunner: null
+      gunnerFixedSkill: 0
     effects: []
-    folder: null
-    ownership:
-      default: 0
-      93AMwcGe6H37rcPA: 3
+    folder: ClGKcYVEi3ZXFRsl
     flags: {}
     _stats:
-      compendiumSource: Compendium.te001-core-rulebook.Items.Item.6Pb5rtY0QdIMTbRF
+      compendiumSource: null
       duplicateSource: null
+      exportSource: null
       coreVersion: '13.351'
       systemId: torgeternity
-      systemVersion: 13.15.0
-      createdTime: null
-      modifiedTime: 1771933381843
+      systemVersion: 13.27.0
+      createdTime: 1774458024587
+      modifiedTime: 1774458024587
       lastModifiedBy: BMvGTGfheqDXarjN
-      exportSource: null
-    _id: GQGV7PufpwLZ9DdV
+    _id: PvwAAj3LkhATxqvS
+    ownership:
+      default: 0
+      BMvGTGfheqDXarjN: 3
     sort: 0
-    _key: '!actors.items!hcdhRCs56U5JrAl4.GQGV7PufpwLZ9DdV'
+    _key: '!actors.items!hcdhRCs56U5JrAl4.PvwAAj3LkhATxqvS'
   - name: Edeinos
     type: race
     img: systems/torgeternity/images/icons/edeinos-icon.webp
@@ -536,278 +550,46 @@ items:
         Details}</p><p>@UUID[Compendium.te001-core-rulebook.rules.JournalEntry.pwneQ55M0nnDH0Us.JournalEntryPage.kYP18QiA72P6PlUi#edeinos$1]{Edeinos
         Perks - Core
         Rulebook}</p><p>@UUID[Compendium.te004-living-land.living-land-journals.JournalEntry.uQWRKs5SphHFQtn0.JournalEntryPage.swxidOfsq5XXsXQI#edeinos]{Edeinos
-        Perks - The Living Land Sourcebook}</p>
+        Perks - The Living Land
+        Sourcebook}</p><p>@UUID[Compendium.te004-living-land.living-land-journals.JournalEntry.lUYpItvltwnQa0cG.JournalEntryPage.mWF5a8Yt72GxodUG#edeinos-perks]{Edeinos
+        Perks - Ruins of the Living Land}</p>
       attributeMaximum:
         charisma: 10
         dexterity: 14
         mind: 10
         spirit: 15
         strength: 13
-      perksData:
-        - name: Outsider (Edeinos)
-          type: perk
-          img: systems/torgeternity/images/icons/reality-icon.webp
-          system:
-            category: racial
-            cosm: none
-            description: "<p>Edeinos are outsiders to everyone but other edeinos. They subtract 4 from\_<em>persuasion\_</em>tests with non-edeinos, and are often treated with hostility by humans from other realms.</p>"
-            prerequisites: >-
-              <p>@UUID[Compendium.te001-core-rulebook.Items.Item.R7iwjAD49l0zullR]{Edeinos}</p>
-            generalContradiction: false
-            pulpPowers:
-              enhancement01:
-                description: ''
-                taken: false
-                title: ''
-              enhancement02:
-                description: ''
-                taken: false
-                title: ''
-              enhancement03:
-                description: ''
-                taken: false
-                title: ''
-              enhancement04:
-                description: ''
-                taken: false
-                title: ''
-              enhancement05:
-                description: ''
-                taken: false
-                title: ''
-              enhancement06:
-                description: ''
-                taken: false
-                title: ''
-              enhancement07:
-                description: ''
-                taken: false
-                title: ''
-              enhancement08:
-                description: ''
-                taken: false
-                title: ''
-              enhancement09:
-                description: ''
-                taken: false
-                title: ''
-              enhancement10:
-                description: ''
-                taken: false
-                title: ''
-              enhancement11:
-                description: ''
-                taken: false
-                title: ''
-              enhancement12:
-                description: ''
-                taken: false
-                title: ''
-              enhancement13:
-                description: ''
-                taken: false
-                title: ''
-              enhancement14:
-                description: ''
-                taken: false
-                title: ''
-              enhancement15:
-                description: ''
-                taken: false
-                title: ''
-              enhancementNumber: 0
-              limitation01: ''
-              limitation02: ''
-              limitation03: ''
-              limitation04: ''
-              limitation05: ''
-              limitation06: ''
-              limitation07: ''
-              limitation08: ''
-              limitation09: ''
-              limitation10: ''
-              limitationNumber: 0
-            timestaken: ''
-            secondaryAxiom:
-              selected: none
-              value: null
-            transferenceID: bfO7HL7Ytyfjw7g6
-          sort: 400000
-          ownership:
-            default: 0
-            aSTzyuIvqyDaFHwy: 3
-            VAnYow5sWS9EJzo0: 3
-          flags:
-            core: {}
-          _stats:
-            coreVersion: '12.331'
-            systemId: torgeternity
-            systemVersion: 12.3.0
-            createdTime: 1711551146690
-            modifiedTime: 1729581895024
-            lastModifiedBy: d8YcfsxBOP7RAazk
-            compendiumSource: null
-            duplicateSource: null
-      customAttackData:
-        - name: Natural Weapons (Edeinos)
-          type: customAttack
-          img: systems/torgeternity/images/icons/bite-icon.webp
-          system:
-            ap: 0
-            attackWith: unarmedCombat
-            chatNote: ''
-            damage: 2
-            damageType: strengthPlus
-            description: "<p>Edeinos have natural claws and teeth that cause\_<em>Strength</em> +2 damage in\_<em>unarmed combat</em>.</p>"
-            notes: ''
-            transferenceID: KUuPAAiuuqZxnuqm
-          sort: 300000
-          ownership:
-            default: 0
-            aSTzyuIvqyDaFHwy: 3
-            VAnYow5sWS9EJzo0: 3
-          flags:
-            core: {}
-          _stats:
-            coreVersion: '12.331'
-            systemId: torgeternity
-            systemVersion: 12.3.0
-            createdTime: 1711551146690
-            modifiedTime: 1729581761901
-            lastModifiedBy: d8YcfsxBOP7RAazk
-            compendiumSource: null
-            duplicateSource: null
       size: normal
       darkvision: false
+      itemsToBestow: []
+      cosm: none
+      traits: []
+      axioms:
+        magic: 0
+        social: 0
+        spirit: 0
+        tech: 0
+      bestowedBy: null
     effects: []
     folder: TwzEDO2AmeaaSwtn
     ownership:
       default: 0
       d8YcfsxBOP7RAazk: 3
+      BMvGTGfheqDXarjN: 3
     flags: {}
     _stats:
       compendiumSource: Compendium.te001-core-rulebook.Items.Item.R7iwjAD49l0zullR
       duplicateSource: null
-      coreVersion: '13.345'
-      systemId: torgeternity
-      systemVersion: 12.3.0
-      createdTime: 1729582129107
-      modifiedTime: 1729582129107
-      lastModifiedBy: d8YcfsxBOP7RAazk
       exportSource: null
-    _id: lepxKAfPcxH7cEuk
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.27.0
+      createdTime: 1774458327185
+      modifiedTime: 1774458327207
+      lastModifiedBy: BMvGTGfheqDXarjN
+    _id: bK9xRlF5aWxMOxNt
     sort: 250000
-    _key: '!actors.items!hcdhRCs56U5JrAl4.lepxKAfPcxH7cEuk'
-  - name: Outsider (Edeinos)
-    type: perk
-    img: systems/torgeternity/images/icons/reality-icon.webp
-    system:
-      category: racial
-      cosm: none
-      description: "<p>Edeinos are outsiders to everyone but other edeinos. They subtract 4 from\_<em>persuasion\_</em>tests with non-edeinos, and are often treated with hostility by humans from other realms.</p>"
-      prerequisites: >-
-        <p>@UUID[Compendium.te001-core-rulebook.Items.Item.R7iwjAD49l0zullR]{Edeinos}</p>
-      generalContradiction: false
-      pulpPowers:
-        enhancement01:
-          description: ''
-          taken: false
-          title: ''
-        enhancement02:
-          description: ''
-          taken: false
-          title: ''
-        enhancement03:
-          description: ''
-          taken: false
-          title: ''
-        enhancement04:
-          description: ''
-          taken: false
-          title: ''
-        enhancement05:
-          description: ''
-          taken: false
-          title: ''
-        enhancement06:
-          description: ''
-          taken: false
-          title: ''
-        enhancement07:
-          description: ''
-          taken: false
-          title: ''
-        enhancement08:
-          description: ''
-          taken: false
-          title: ''
-        enhancement09:
-          description: ''
-          taken: false
-          title: ''
-        enhancement10:
-          description: ''
-          taken: false
-          title: ''
-        enhancement11:
-          description: ''
-          taken: false
-          title: ''
-        enhancement12:
-          description: ''
-          taken: false
-          title: ''
-        enhancement13:
-          description: ''
-          taken: false
-          title: ''
-        enhancement14:
-          description: ''
-          taken: false
-          title: ''
-        enhancement15:
-          description: ''
-          taken: false
-          title: ''
-        enhancementNumber: 0
-        limitation01: ''
-        limitation02: ''
-        limitation03: ''
-        limitation04: ''
-        limitation05: ''
-        limitation06: ''
-        limitation07: ''
-        limitation08: ''
-        limitation09: ''
-        limitation10: ''
-        limitationNumber: 0
-      timestaken: ''
-      secondaryAxiom:
-        selected: none
-        value: null
-      transferenceID: il3Z7vPAt1moqpxZ
-    sort: 400000
-    ownership:
-      default: 0
-      aSTzyuIvqyDaFHwy: 3
-      VAnYow5sWS9EJzo0: 3
-      d8YcfsxBOP7RAazk: 3
-    flags:
-      core: {}
-    _stats:
-      compendiumSource: null
-      duplicateSource: null
-      coreVersion: '13.345'
-      systemId: torgeternity
-      systemVersion: 12.3.0
-      createdTime: 1729582129117
-      modifiedTime: 1729582129232
-      lastModifiedBy: d8YcfsxBOP7RAazk
-      exportSource: null
-    _id: il3Z7vPAt1moqpxZ
-    effects: []
-    folder: null
-    _key: '!actors.items!hcdhRCs56U5JrAl4.il3Z7vPAt1moqpxZ'
+    _key: '!actors.items!hcdhRCs56U5JrAl4.bK9xRlF5aWxMOxNt'
   - name: Natural Weapons (Edeinos)
     type: customAttack
     img: systems/torgeternity/images/icons/bite-icon.webp
@@ -819,7 +601,7 @@ items:
       damageType: strengthPlus
       description: "<p>Edeinos have natural claws and teeth that cause\_<em>Strength</em> +2 damage in\_<em>unarmed combat</em>.</p>"
       notes: ''
-      transferenceID: 99I93QMkOyDEUng1
+      bestowedBy: bK9xRlF5aWxMOxNt
       cosm: none
       traits: []
       axioms:
@@ -827,92 +609,124 @@ items:
         social: 0
         spirit: 0
         tech: 0
-      price: ''
-      value: 0
+      itemsToBestow: []
+      quantity: 1
+      price:
+        dollars: ''
       secondaryAxiom: none
+      equipped:
+        carryType: stowed
+        handsHeld: 0
       bonus: 2
-      equipped: false
       minStrength: null
     sort: 300000
     ownership:
       default: 0
       aSTzyuIvqyDaFHwy: 3
       VAnYow5sWS9EJzo0: 3
-      d8YcfsxBOP7RAazk: 3
-      l8SVzn2293lAwvMC: 3
+      BMvGTGfheqDXarjN: 3
     flags:
       core: {}
     _stats:
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-      coreVersion: '13.348'
+      coreVersion: '13.351'
       systemId: torgeternity
-      systemVersion: 13.10.0
-      createdTime: 1758491118975
-      modifiedTime: 1758491118975
-      lastModifiedBy: l8SVzn2293lAwvMC
-    _id: 99I93QMkOyDEUng1
+      systemVersion: 13.27.0
+      createdTime: 1774458327215
+      modifiedTime: 1774458327215
+      lastModifiedBy: BMvGTGfheqDXarjN
+    _id: UW8jGNqOwLv1ZnF3
     effects: []
     folder: null
-    _key: '!actors.items!hcdhRCs56U5JrAl4.99I93QMkOyDEUng1'
+    _key: '!actors.items!hcdhRCs56U5JrAl4.UW8jGNqOwLv1ZnF3'
+  - name: Outsider (Edeinos)
+    type: perk
+    img: systems/torgeternity/images/icons/reality-icon.webp
+    system:
+      category: racial
+      cosm: none
+      description: "<p>Edeinos are outsiders to everyone but other edeinos. They subtract 4 from\_<em>persuasion\_</em>tests with non-edeinos, and are often treated with hostility by humans from other realms.</p>"
+      prerequisites: >-
+        <p>@UUID[Compendium.te001-core-rulebook.Items.Item.R7iwjAD49l0zullR]{Edeinos}</p>
+      generalContradiction: false
+      timestaken: ''
+      secondaryAxiom: none
+      bestowedBy: bK9xRlF5aWxMOxNt
+      enhancements: []
+      limitations: []
+      traits: []
+      axioms:
+        magic: 0
+        social: 0
+        spirit: 0
+        tech: 0
+      itemsToBestow: []
+    sort: 400000
+    ownership:
+      default: 0
+      aSTzyuIvqyDaFHwy: 3
+      VAnYow5sWS9EJzo0: 3
+      BMvGTGfheqDXarjN: 3
+    flags:
+      core: {}
+    _stats:
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.27.0
+      createdTime: 1774458327215
+      modifiedTime: 1774458327215
+      lastModifiedBy: BMvGTGfheqDXarjN
+    _id: YYD4RL7Nu4RBxLFT
+    effects: []
+    folder: null
+    _key: '!actors.items!hcdhRCs56U5JrAl4.YYD4RL7Nu4RBxLFT'
   - _id: u8AtVmCMnPyP3Ewx
     name: Ward Enemy
     type: miracle
     img: systems/torgeternity/images/icons/miracles-icon.webp
     effects:
-      - name: Defense +1 vs. S.Evil
+      - name: Ward Enemy Standard
         origin: Compendium.te001-core-rulebook.Items.Item.u8AtVmCMnPyP3Ewx
         duration:
-          startTime: 0
+          startTime: null
           combat: null
           seconds: null
           rounds: null
           turns: null
           startRound: null
           startTurn: null
-        disabled: true
-        img: icons/svg/aura.svg
+        disabled: false
+        img: systems/torgeternity/images/icons/miracles-icon.webp
         _id: GSvs51kXblsK9vbL
         type: base
         system:
-          transferOnAttack: false
+          transferOnOutcome: standard
           applyIfAttackTrait: []
-          applyIfDefendTrait:
+          defendAgainstTrait:
             - supernaturalEvil
-          transferOnOutcome: 0
+          transferTo: target
+          applyOnOutcome: ''
+          activeIfTrait: []
+          applyIfDefendTrait: []
+          applyIfAttackTraitCombine: or
+          applyIfDefendTraitCombine: or
+          defendAgainstTraitCombine: or
+          itemsToBestow: []
+          combatToggle: false
+          concentratingId: null
         changes:
-          - key: defenses.dodge.mod
-            mode: 2
-            value: '1'
-            priority: null
-          - key: defenses.meleeWeapons.mod
-            mode: 2
-            value: '1'
-            priority: null
-          - key: defenses.unarmedCombat.mod
-            mode: 2
-            value: '1'
-            priority: null
-          - key: defenses.intimidation.mod
-            mode: 2
-            value: '1'
-            priority: null
-          - key: defenses.maneuver.mod
-            mode: 2
-            value: '1'
-            priority: null
-          - key: defenses.taunt.mod
-            mode: 2
-            value: '1'
-            priority: null
-          - key: defenses.trick.mod
+          - key: system.defenses.all.mod
             mode: 2
             value: '1'
             priority: null
         description: ''
         tint: '#ffffff'
-        transfer: true
+        transfer: false
         statuses: []
         sort: 0
         flags: {}
@@ -922,61 +736,47 @@ items:
           exportSource: null
           coreVersion: '13.351'
           systemId: torgeternity
-          systemVersion: 13.13.2
-          lastModifiedBy: e1DB4TK9SbDuMDS3
-          modifiedTime: 1763999444302
+          systemVersion: 13.27.0
+          lastModifiedBy: null
         _key: >-
           !actors.items.effects!hcdhRCs56U5JrAl4.u8AtVmCMnPyP3Ewx.GSvs51kXblsK9vbL
-      - name: Defense +2 vs. S.Evil
+      - name: Ward Enemy Good
         origin: Compendium.te001-core-rulebook.Items.Item.u8AtVmCMnPyP3Ewx
         duration:
-          startTime: 0
+          startTime: null
           combat: null
           seconds: null
           rounds: null
           turns: null
           startRound: null
           startTurn: null
-        disabled: true
-        img: icons/svg/aura.svg
+        disabled: false
+        img: systems/torgeternity/images/icons/miracles-icon.webp
         _id: 1sFNCaYPVnPw3WR5
         type: base
         system:
-          transferOnAttack: false
+          transferOnOutcome: good
           applyIfAttackTrait: []
+          defendAgainstTrait:
+            - supernaturalEvil
+          transferTo: target
+          applyOnOutcome: ''
+          activeIfTrait: []
           applyIfDefendTrait: []
+          applyIfAttackTraitCombine: or
+          applyIfDefendTraitCombine: or
+          defendAgainstTraitCombine: or
+          itemsToBestow: []
+          combatToggle: false
+          concentratingId: null
         changes:
-          - key: defenses.dodge.mod
-            mode: 2
-            value: '2'
-            priority: null
-          - key: defenses.meleeWeapons.mod
-            mode: 2
-            value: '2'
-            priority: null
-          - key: defenses.unarmedCombat.mod
-            mode: 2
-            value: '2'
-            priority: null
-          - key: defenses.intimidation.mod
-            mode: 2
-            value: '2'
-            priority: null
-          - key: defenses.maneuver.mod
-            mode: 2
-            value: '2'
-            priority: null
-          - key: defenses.taunt.mod
-            mode: 2
-            value: '2'
-            priority: null
-          - key: defenses.trick.mod
+          - key: system.defenses.all.mod
             mode: 2
             value: '2'
             priority: null
         description: ''
         tint: '#ffffff'
-        transfer: true
+        transfer: false
         statuses: []
         sort: 0
         flags: {}
@@ -986,10 +786,60 @@ items:
           exportSource: null
           coreVersion: '13.351'
           systemId: torgeternity
-          systemVersion: 13.13.2
+          systemVersion: 13.27.0
           lastModifiedBy: null
         _key: >-
           !actors.items.effects!hcdhRCs56U5JrAl4.u8AtVmCMnPyP3Ewx.1sFNCaYPVnPw3WR5
+      - name: Ward Enemy Outstanding
+        origin: Compendium.te001-core-rulebook.Items.Item.u8AtVmCMnPyP3Ewx
+        duration:
+          startTime: null
+          combat: null
+          seconds: null
+          rounds: null
+          turns: null
+          startRound: null
+          startTurn: null
+        disabled: false
+        img: systems/torgeternity/images/icons/miracles-icon.webp
+        _id: Q4EwGwJpK6XnZZGM
+        type: base
+        system:
+          applyIfAttackTrait: []
+          applyIfDefendTrait: []
+          transferOnOutcome: outstanding
+          defendAgainstTrait:
+            - supernaturalEvil
+          transferTo: target
+          applyOnOutcome: ''
+          activeIfTrait: []
+          applyIfAttackTraitCombine: or
+          applyIfDefendTraitCombine: or
+          defendAgainstTraitCombine: or
+          itemsToBestow: []
+          combatToggle: false
+          concentratingId: null
+        changes:
+          - key: system.defenses.all.mod
+            mode: 2
+            value: '2'
+            priority: null
+        description: ''
+        tint: '#ffffff'
+        transfer: false
+        statuses: []
+        sort: 0
+        flags: {}
+        _stats:
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+          coreVersion: '13.351'
+          systemId: torgeternity
+          systemVersion: 13.27.0
+          lastModifiedBy: null
+        _key: >-
+          !actors.items.effects!hcdhRCs56U5JrAl4.u8AtVmCMnPyP3Ewx.Q4EwGwJpK6XnZZGM
     folder: 1nWuSow2h5hzSie4
     sort: 2300000
     flags:
@@ -1006,15 +856,16 @@ items:
       duration: Concentration
       good: Those protected add +2 to all defenses
       isAttack: false
-      modifier: ''
+      modifier: null
       outstanding: >-
         <p>As the Good result, and supernaturally evil creatures who fail an
         attack against any of the protected individuals are
         @Condition[stymied]</p>
       range: 5 meter radius
       skill: faith
-      skilllevel: '8'
+      skilllevel: 8
       targetDefense: ''
+      requiresConcentration: true
       axioms:
         spirit: 8
         magic: 0
@@ -1022,12 +873,13 @@ items:
         tech: 0
       cosm: none
       traits: []
-      requiresConcentration: true
+      itemsToBestow: []
+      bestowedBy: null
     ownership:
       default: 0
       A9LyAqagoJJU3gDH: 3
       VAnYow5sWS9EJzo0: 3
-      e1DB4TK9SbDuMDS3: 3
+      BMvGTGfheqDXarjN: 3
     _stats:
       compendiumSource: Compendium.te001-core-rulebook.Items.Item.u8AtVmCMnPyP3Ewx
       duplicateSource: null
@@ -1035,14 +887,16 @@ items:
       coreVersion: '13.351'
       systemId: torgeternity
       systemVersion: 13.27.0
-      createdTime: 1763999423518
-      modifiedTime: 1773010171713
+      createdTime: 1774458442375
+      modifiedTime: 1774458442375
       lastModifiedBy: BMvGTGfheqDXarjN
     _key: '!actors.items!hcdhRCs56U5JrAl4.u8AtVmCMnPyP3Ewx'
 effects: []
 folder: null
 sort: 100001
-flags: {}
+flags:
+  torgeternity:
+    editAttributes: false
 system:
   shock:
     max: 5
@@ -1572,7 +1426,7 @@ _stats:
   systemVersion: 13.27.0
   coreVersion: '13.351'
   createdTime: 1693901456910
-  modifiedTime: 1773001234545
+  modifiedTime: 1774458357649
   lastModifiedBy: BMvGTGfheqDXarjN
   compendiumSource: null
   duplicateSource: null

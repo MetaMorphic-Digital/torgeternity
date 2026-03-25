@@ -357,7 +357,7 @@ items:
           startTurn: null
         disabled: false
         name: Stealth/Tracking Favored
-        img: icons/svg/aura.svg
+        img: systems/torgeternity/images/icons/reality-icon.webp
         _id: 5oFKyciCaTJSwu99
         type: base
         system: {}
@@ -379,12 +379,12 @@ items:
         _stats:
           compendiumSource: null
           duplicateSource: null
-          coreVersion: '13.345'
+          coreVersion: '13.351'
           systemId: torgeternity
           systemVersion: 12.2.0
           createdTime: null
-          modifiedTime: null
-          lastModifiedBy: null
+          modifiedTime: 1774459552275
+          lastModifiedBy: BMvGTGfheqDXarjN
           exportSource: null
         _key: >-
           !actors.items.effects!cdSvyJHbG0GbFzkh.zLqqXAUExJoLHgji.5oFKyciCaTJSwu99
@@ -1185,7 +1185,7 @@ items:
           startRound: null
           startTurn: null
         disabled: false
-        img: icons/svg/aura.svg
+        img: systems/torgeternity/images/icons/reality-icon.webp
         _id: nn8uN284NEPXARMj
         type: base
         system:
@@ -1211,7 +1211,8 @@ items:
           coreVersion: '13.351'
           systemId: torgeternity
           systemVersion: 13.15.0
-          lastModifiedBy: null
+          lastModifiedBy: BMvGTGfheqDXarjN
+          modifiedTime: 1774459547604
         _key: >-
           !actors.items.effects!cdSvyJHbG0GbFzkh.RcxFdGFN5eJTFOr7.nn8uN284NEPXARMj
     folder: JH8fiVIGH83UaPBa
@@ -1338,7 +1339,7 @@ effects:
       startTurn: null
     disabled: false
     name: Dexterity is Favored
-    img: icons/svg/aura.svg
+    img: systems/torgeternity/images/icons/reality-icon.webp
     _id: 9R097xVyhquN9Z0X
     type: base
     system: {}
@@ -1356,12 +1357,12 @@ effects:
     _stats:
       compendiumSource: null
       duplicateSource: null
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: torgeternity
       systemVersion: 12.2.0
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1774459556904
+      lastModifiedBy: BMvGTGfheqDXarjN
       exportSource: null
     _key: '!actors.effects!cdSvyJHbG0GbFzkh.9R097xVyhquN9Z0X'
 folder: null

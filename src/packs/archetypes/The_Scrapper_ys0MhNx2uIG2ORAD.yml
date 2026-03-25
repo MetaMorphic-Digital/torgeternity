@@ -114,7 +114,60 @@ items:
     name: Whirlwind
     type: perk
     img: systems/torgeternity/images/icons/reality-icon.webp
-    effects: []
+    effects:
+      - name: Whirlwind
+        origin: >-
+          Compendium.torgeternity.archetypes.Actor.ys0MhNx2uIG2ORAD.Item.fF3wo6bNS33bnk31
+        duration:
+          startTime: null
+          combat: null
+          seconds: null
+          rounds: null
+          turns: null
+          startRound: null
+          startTurn: null
+        disabled: false
+        img: systems/torgeternity/images/icons/reality-icon.webp
+        _id: 7Mcmgqzvq3kXpXAG
+        type: base
+        system:
+          applyOnOutcome: ''
+          transferOnOutcome: ''
+          transferTo: target
+          activeIfTrait:
+            - meleeWeapons
+          applyIfAttackTrait: []
+          applyIfDefendTrait: []
+          defendAgainstTrait: []
+          applyIfAttackTraitCombine: or
+          applyIfDefendTraitCombine: or
+          defendAgainstTraitCombine: or
+          itemsToBestow: []
+          combatToggle: false
+          concentratingId: null
+        changes:
+          - key: test.targetsModifier
+            mode: 2
+            value: '2'
+            priority: null
+        description: ''
+        tint: '#ffffff'
+        transfer: true
+        statuses: []
+        sort: 0
+        flags: {}
+        _stats:
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+          coreVersion: '13.351'
+          systemId: torgeternity
+          systemVersion: 13.27.0
+          createdTime: 1774459168128
+          modifiedTime: 1774459205328
+          lastModifiedBy: BMvGTGfheqDXarjN
+        _key: >-
+          !actors.items.effects!ys0MhNx2uIG2ORAD.fF3wo6bNS33bnk31.7Mcmgqzvq3kXpXAG
     folder: null
     sort: 54500000
     flags:
@@ -444,161 +497,6 @@ items:
       duplicateSource: null
       exportSource: null
     _key: '!actors.items!ys0MhNx2uIG2ORAD.S2Lgu82VZjuG0Q0M'
-  - _id: 6QxM5pY3h7MRaTHM
-    name: Digan CyberArm
-    type: implant
-    img: systems/torgeternity/images/icons/implant.webp
-    effects:
-      - origin: Item.JJ2UFjTvYy6vtWzR
-        duration:
-          startTime: null
-          seconds: null
-          combat: null
-          rounds: null
-          turns: null
-          startRound: null
-          startTurn: null
-        disabled: false
-        name: Strength +2 (Arm)
-        _id: e2sP6LcZtQlgO4DP
-        changes:
-          - key: system.attributes.strength.value
-            mode: 2
-            value: '2'
-            priority: null
-        description: ''
-        transfer: true
-        statuses: []
-        flags: {}
-        tint: '#ffffff'
-        _stats:
-          coreVersion: '13.345'
-          systemId: null
-          systemVersion: null
-          createdTime: null
-          modifiedTime: null
-          lastModifiedBy: null
-          compendiumSource: null
-          duplicateSource: null
-          exportSource: null
-        img: icons/svg/aura.svg
-        type: base
-        system: {}
-        sort: 0
-        _key: >-
-          !actors.items.effects!ys0MhNx2uIG2ORAD.6QxM5pY3h7MRaTHM.e2sP6LcZtQlgO4DP
-      - origin: Item.JJ2UFjTvYy6vtWzR
-        duration:
-          startTime: null
-          seconds: null
-          combat: null
-          rounds: null
-          turns: null
-          startRound: null
-          startTurn: null
-        disabled: true
-        name: Armor +3 (Arm)
-        _id: LcMXSEQ8O4i1pjMt
-        changes:
-          - key: defenses.toughness
-            mode: 2
-            value: '3'
-            priority: null
-          - key: defenses.armor
-            mode: 2
-            value: '3'
-            priority: null
-        description: ''
-        transfer: true
-        statuses: []
-        flags: {}
-        tint: '#ffffff'
-        _stats:
-          coreVersion: '13.345'
-          systemId: null
-          systemVersion: null
-          createdTime: null
-          modifiedTime: null
-          lastModifiedBy: null
-          compendiumSource: null
-          duplicateSource: null
-          exportSource: null
-        img: icons/svg/aura.svg
-        type: base
-        system: {}
-        sort: 0
-        _key: >-
-          !actors.items.effects!ys0MhNx2uIG2ORAD.6QxM5pY3h7MRaTHM.LcMXSEQ8O4i1pjMt
-    folder: null
-    sort: 600000
-    flags:
-      core: {}
-    system:
-      cosm: tharkold
-      description: "<p>Digan constructions are bulky but powerful, and this modular replacement arm is no exception. It increases <em>Strength</em> tests and damage by +2 , and has +3 Armor on that limb only. The arm’s Armor protects the character’s torso if he takes an Active Defense. The <em>Strength</em> increase applies only to tests and attacks made with that limb.</p>\n<p>\_</p>\n<p>Found in <strong>Core Rules</strong></p>"
-      price: 8,000
-      techlevel: 25
-      value: 19
-      notes: ''
-      secondaryAxiom:
-        selected: none
-        value: null
-    ownership:
-      default: 0
-      A9LyAqagoJJU3gDH: 3
-      CtisFurQNe9h7ABb: 3
-    _stats:
-      systemId: torgeternity
-      systemVersion: 12.2.0
-      coreVersion: '13.345'
-      createdTime: 1693914499180
-      modifiedTime: 1722158255468
-      lastModifiedBy: 93AMwcGe6H37rcPA
-      compendiumSource: Compendium.te001-core-rulebook.Items.eqLYuyoAdwVRcQrQ
-      duplicateSource: null
-      exportSource: null
-    _key: '!actors.items!ys0MhNx2uIG2ORAD.6QxM5pY3h7MRaTHM'
-  - _id: ryISQSHD5wRghm0e
-    name: Diffrax Plate
-    type: armor
-    img: systems/torgeternity/images/icons/armor-icon.webp
-    effects: []
-    folder: null
-    sort: 52500000
-    flags:
-      core: {}
-    system:
-      cosm: tharkold
-      description: "<p>@UUID[Compendium.te001-core-rulebook.rules.pwneQ55M0nnDH0Us.JournalEntryPage.qKdamp4rrcX6TTt0#fatigues:]{Fatigues}</p>\n<p>Black metallic armor cobbled together from energy-diffusing salvage. It resembles obsidian, and energy skitters across its surface, sizzling and popping until it coalesces and re-emerges projected at some different angle.</p>\n<p>\_</p>\n<p>Found in <strong>Core Rules</strong></p>"
-      price: '500'
-      techlevel: 25
-      value: 13
-      bonus: 3
-      equipped: true
-      maxDex: 8
-      minStrength: 8
-      notes: Fatigues, bonus adds to dodge vs. energy weapons
-      fatigue: 1
-      secondaryAxiom:
-        selected: none
-        value: null
-      traits:
-        - fatigues
-    ownership:
-      default: 0
-      A9LyAqagoJJU3gDH: 3
-      CtisFurQNe9h7ABb: 3
-    _stats:
-      systemId: torgeternity
-      systemVersion: 13.2.2
-      coreVersion: '13.346'
-      createdTime: 1711551146924
-      modifiedTime: 1753599403950
-      lastModifiedBy: W32Zl65V9atvPk8o
-      compendiumSource: Compendium.te001-core-rulebook.Items.Item.wP7vzluooDeOtebZ
-      duplicateSource: null
-      exportSource: null
-    _key: '!actors.items!ys0MhNx2uIG2ORAD.ryISQSHD5wRghm0e'
   - name: Human
     type: race
     img: systems/torgeternity/images/icons/human-icon.webp
@@ -639,6 +537,253 @@ items:
     _id: hhVPF9K1d6OKbb5o
     sort: 100000
     _key: '!actors.items!ys0MhNx2uIG2ORAD.hhVPF9K1d6OKbb5o'
+  - _id: wP7vzluooDeOtebZ
+    name: Diffrax Plate
+    type: armor
+    img: systems/torgeternity/images/icons/armor-icon.webp
+    effects:
+      - origin: Compendium.te001-core-rulebook.Items.Item.wP7vzluooDeOtebZ
+        duration:
+          rounds: null
+          startTime: null
+          seconds: null
+          combat: null
+          turns: null
+          startRound: null
+          startTurn: null
+        disabled: true
+        name: Bonus to Dodge vs. Energy Weapons
+        img: systems/torgeternity/images/icons/armor-icon.webp
+        _id: zizP1pYEc83Frk6M
+        type: base
+        system:
+          applyOnOutcome: ''
+          transferOnOutcome: ''
+          transferTo: target
+          activeIfTrait: []
+          applyIfAttackTrait: []
+          applyIfDefendTrait: []
+          defendAgainstTrait: []
+          applyIfAttackTraitCombine: or
+          applyIfDefendTraitCombine: or
+          defendAgainstTraitCombine: or
+          itemsToBestow: []
+          combatToggle: false
+          concentratingId: null
+        changes:
+          - key: system.defenses.dodge.mod
+            mode: 2
+            value: '3'
+            priority: null
+        description: ''
+        tint: '#ffffff'
+        transfer: true
+        statuses: []
+        sort: 0
+        flags: {}
+        _stats:
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+          coreVersion: '13.351'
+          systemId: torgeternity
+          systemVersion: 13.27.0
+          lastModifiedBy: BMvGTGfheqDXarjN
+          modifiedTime: 1774459301418
+        _key: >-
+          !actors.items.effects!ys0MhNx2uIG2ORAD.wP7vzluooDeOtebZ.zizP1pYEc83Frk6M
+    folder: tZ3LOHRA8fIl0tpt
+    sort: 100000
+    flags:
+      core: {}
+    system:
+      cosm: tharkold
+      description: >-
+        <p>@UUID[Compendium.te001-core-rulebook.rules.pwneQ55M0nnDH0Us.JournalEntryPage.qKdamp4rrcX6TTt0#fatigues:]{Fatigues}</p><p>Black
+        metallic armor cobbled together from energy-diffusing salvage. It
+        resembles obsidian, and energy skitters across its surface, sizzling and
+        popping until it coalesces and re-emerges projected at some different
+        angle.</p><p>Also found in Tharkold Sourcebook Module</p>
+      price:
+        dollars: '500'
+      bonus: 3
+      equipped:
+        carryType: stowed
+        handsHeld: 0
+      maxDex: 8
+      minStrength: 8
+      notes: Fatigues, bonus adds to dodge vs. energy weapons
+      fatigue: 1
+      traits:
+        - fatigues
+      axioms:
+        tech: 25
+        magic: 0
+        social: 0
+        spirit: 0
+      itemsToBestow: []
+      bestowedBy: null
+      quantity: 1
+      secondaryAxiom: none
+    ownership:
+      default: 0
+      A9LyAqagoJJU3gDH: 3
+      VAnYow5sWS9EJzo0: 3
+      BMvGTGfheqDXarjN: 3
+    _stats:
+      compendiumSource: Compendium.te001-core-rulebook.Items.Item.wP7vzluooDeOtebZ
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.27.0
+      createdTime: 1774459256138
+      modifiedTime: 1774459256138
+      lastModifiedBy: BMvGTGfheqDXarjN
+    _key: '!actors.items!ys0MhNx2uIG2ORAD.wP7vzluooDeOtebZ'
+  - _id: eqLYuyoAdwVRcQrQ
+    name: Digan CyberArm
+    type: implant
+    img: systems/torgeternity/images/icons/occultech-icon.webp
+    effects:
+      - origin: Compendium.te001-core-rulebook.Items.Item.eqLYuyoAdwVRcQrQ
+        duration:
+          startTime: 1310
+          seconds: null
+          combat: null
+          rounds: null
+          turns: null
+          startRound: 27
+          startTurn: 0
+        disabled: false
+        name: Strength +2 (Arm)
+        _id: s54ZUGzEFPQA738r
+        changes:
+          - key: system.attributes.strength.value
+            mode: 2
+            value: '2'
+            priority: null
+        description: ''
+        transfer: true
+        statuses: []
+        flags: {}
+        tint: '#ffffff'
+        _stats:
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+          coreVersion: '13.351'
+          systemId: torgeternity
+          systemVersion: 13.27.0
+          lastModifiedBy: null
+        img: systems/torgeternity/images/icons/occultech-icon.webp
+        type: base
+        system:
+          applyOnOutcome: ''
+          transferOnOutcome: ''
+          transferTo: target
+          activeIfTrait: []
+          applyIfAttackTrait: []
+          applyIfDefendTrait: []
+          defendAgainstTrait: []
+          applyIfAttackTraitCombine: or
+          applyIfDefendTraitCombine: or
+          defendAgainstTraitCombine: or
+          itemsToBestow: []
+          combatToggle: false
+          concentratingId: null
+        sort: 0
+        _key: >-
+          !actors.items.effects!ys0MhNx2uIG2ORAD.eqLYuyoAdwVRcQrQ.s54ZUGzEFPQA738r
+      - origin: Compendium.te001-core-rulebook.Items.Item.eqLYuyoAdwVRcQrQ
+        duration:
+          startTime: 1310
+          seconds: null
+          combat: null
+          rounds: null
+          turns: null
+          startRound: 27
+          startTurn: 0
+        disabled: true
+        name: Armor +3 (Arm)
+        _id: eGIx1t0KxFgIS48I
+        changes:
+          - key: system.defenses.armor
+            mode: 2
+            value: '3'
+            priority: null
+        description: ''
+        transfer: true
+        statuses: []
+        flags: {}
+        tint: '#ffffff'
+        _stats:
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+          coreVersion: '13.351'
+          systemId: torgeternity
+          systemVersion: 13.27.0
+          lastModifiedBy: null
+        img: systems/torgeternity/images/icons/occultech-icon.webp
+        type: base
+        system:
+          applyOnOutcome: ''
+          transferOnOutcome: ''
+          transferTo: target
+          activeIfTrait: []
+          applyIfAttackTrait: []
+          applyIfDefendTrait: []
+          defendAgainstTrait: []
+          applyIfAttackTraitCombine: or
+          applyIfDefendTraitCombine: or
+          defendAgainstTraitCombine: or
+          itemsToBestow: []
+          combatToggle: false
+          concentratingId: null
+        sort: 0
+        _key: >-
+          !actors.items.effects!ys0MhNx2uIG2ORAD.eqLYuyoAdwVRcQrQ.eGIx1t0KxFgIS48I
+    folder: mRO2lDXnlZfbymrz
+    sort: 400000
+    flags:
+      core: {}
+    system:
+      cosm: tharkold
+      description: "<p>Digan constructions are bulky but powerful, and this modular replacement arm is no exception. It increases <em>Strength</em> tests and damage by +2 , and has +3 Armor on that limb only. The arm’s Armor protects the character’s torso if he takes an Active Defense. The <em>Strength</em> increase applies only to tests and attacks made with that limb.</p><p>\_</p><p>Also found in Tharkold Sourcebook Module.</p>"
+      price:
+        dollars: '8000'
+      notes: +2 Strength with that arm
+      implantType: occultech
+      axioms:
+        tech: 25
+        magic: 0
+        social: 0
+        spirit: 0
+      traits: []
+      itemsToBestow: []
+      bestowedBy: null
+      quantity: 1
+      secondaryAxiom: none
+      equipped:
+        carryType: stowed
+        handsHeld: 0
+    ownership:
+      default: 0
+      A9LyAqagoJJU3gDH: 3
+      VAnYow5sWS9EJzo0: 3
+      BMvGTGfheqDXarjN: 3
+    _stats:
+      compendiumSource: Compendium.te001-core-rulebook.Items.Item.eqLYuyoAdwVRcQrQ
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.27.0
+      createdTime: 1774459351960
+      modifiedTime: 1774459351960
+      lastModifiedBy: BMvGTGfheqDXarjN
+    _key: '!actors.items!ys0MhNx2uIG2ORAD.eqLYuyoAdwVRcQrQ'
 effects: []
 folder: null
 sort: 100001

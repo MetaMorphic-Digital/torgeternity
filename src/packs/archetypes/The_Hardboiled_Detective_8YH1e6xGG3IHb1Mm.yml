@@ -475,114 +475,6 @@ items:
       lastModifiedBy: 93AMwcGe6H37rcPA
       exportSource: null
     _key: '!actors.items!8YH1e6xGG3IHb1Mm.ia236qUPeDlZZwHq'
-  - _id: zclFg3b3Wpe9rero
-    name: Brawler
-    type: perk
-    img: systems/torgeternity/images/icons/reality-icon.webp
-    effects: []
-    folder: null
-    sort: 100000
-    flags:
-      core: {}
-    system:
-      category: prowess
-      cosm: none
-      description: "<p>The fighter hits hard thanks to anything from dirty tricks and a good uppercut to training in karate, jujitsu, tae kwon do, or similar hand-tohand fighting styles. Characters with this Perk cause <em>Strength</em> +2 damage with their bare hands when attacking with <em>unarmed combat</em>. This stacks with any other <em>unarmed combat</em> bonuses such as an edeinos’s claw attack.</p><p>More advanced and exotic techniques are taught in Pan-Pacifica under the <strong>Ki Powers Perks</strong>.</p>\n<p>\_</p>\n<p>Found in <strong>Core Rules</strong></p>"
-      prerequisites: At least two adds in unarmed combat
-      generalContradiction: false
-      pulpPowers:
-        enhancement01:
-          description: ''
-          taken: false
-          title: ''
-        enhancement02:
-          description: ''
-          taken: false
-          title: ''
-        enhancement03:
-          description: ''
-          taken: false
-          title: ''
-        enhancement04:
-          description: ''
-          taken: false
-          title: ''
-        enhancement05:
-          description: ''
-          taken: false
-          title: ''
-        enhancement06:
-          description: ''
-          taken: false
-          title: ''
-        enhancement07:
-          description: ''
-          taken: false
-          title: ''
-        enhancement08:
-          description: ''
-          taken: false
-          title: ''
-        enhancement09:
-          description: ''
-          taken: false
-          title: ''
-        enhancement10:
-          description: ''
-          taken: false
-          title: ''
-        enhancement11:
-          description: ''
-          taken: false
-          title: ''
-        enhancement12:
-          description: ''
-          taken: false
-          title: ''
-        enhancement13:
-          description: ''
-          taken: false
-          title: ''
-        enhancement14:
-          description: ''
-          taken: false
-          title: ''
-        enhancement15:
-          description: ''
-          taken: false
-          title: ''
-        enhancementNumber: 0
-        limitation01: ''
-        limitation02: ''
-        limitation03: ''
-        limitation04: ''
-        limitation05: ''
-        limitation06: ''
-        limitation07: ''
-        limitation08: ''
-        limitation09: ''
-        limitation10: ''
-        limitationNumber: 0
-      timestaken: '1'
-      secondaryAxiom:
-        selected: none
-        value: null
-    ownership:
-      default: 0
-      A9LyAqagoJJU3gDH: 3
-      CtisFurQNe9h7ABb: 3
-      93AMwcGe6H37rcPA: 3
-    _stats:
-      compendiumSource: Compendium.te001-core-rulebook.Items.8DjcKPmDCOTdObL6
-      duplicateSource: null
-      coreVersion: '13.345'
-      systemId: torgeternity
-      systemVersion: 12.2.0
-      createdTime: 1722156271303
-      modifiedTime: 1722156271303
-      lastModifiedBy: 93AMwcGe6H37rcPA
-      exportSource: null
-    _key: '!actors.items!8YH1e6xGG3IHb1Mm.zclFg3b3Wpe9rero'
   - name: Human
     type: race
     img: systems/torgeternity/images/icons/human-icon.webp
@@ -668,6 +560,98 @@ items:
       modifiedTime: 1758491118772
       lastModifiedBy: l8SVzn2293lAwvMC
     _key: '!actors.items!8YH1e6xGG3IHb1Mm.NTpPoGBgrWUXPP8s'
+  - _id: 8DjcKPmDCOTdObL6
+    name: Brawler
+    type: perk
+    img: systems/torgeternity/images/icons/reality-icon.webp
+    effects:
+      - origin: Compendium.te001-core-rulebook.Items.Item.8DjcKPmDCOTdObL6
+        duration:
+          rounds: null
+          startTime: 1310
+          seconds: null
+          combat: null
+          turns: null
+          startRound: 27
+          startTurn: 0
+        disabled: false
+        name: Unarmed damage +2
+        img: systems/torgeternity/images/icons/reality-icon.webp
+        _id: oE9GsXbAWU66p180
+        type: base
+        system:
+          applyOnOutcome: ''
+          transferOnOutcome: ''
+          transferTo: target
+          activeIfTrait: []
+          applyIfAttackTrait: []
+          applyIfDefendTrait: []
+          defendAgainstTrait: []
+          applyIfAttackTraitCombine: or
+          applyIfDefendTraitCombine: or
+          defendAgainstTraitCombine: or
+          itemsToBestow: []
+          combatToggle: false
+          concentratingId: null
+        changes:
+          - key: system.skills.unarmedCombat.damageMod
+            mode: 2
+            value: '2'
+            priority: null
+        description: ''
+        tint: '#ffffff'
+        transfer: true
+        statuses: []
+        sort: 0
+        flags: {}
+        _stats:
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+          coreVersion: '13.351'
+          systemId: torgeternity
+          systemVersion: 13.27.0
+          lastModifiedBy: null
+        _key: >-
+          !actors.items.effects!8YH1e6xGG3IHb1Mm.8DjcKPmDCOTdObL6.oE9GsXbAWU66p180
+    folder: 37oSaJ0SLuRamX4z
+    sort: 400000
+    flags:
+      core: {}
+    system:
+      category: prowess
+      cosm: none
+      description: "<p>The fighter hits hard thanks to anything from dirty tricks and a good uppercut to training in karate, jujitsu, tae kwon do, or similar hand-tohand fighting styles. Characters with this Perk cause <em>Strength</em> +2 damage with their bare hands when attacking with <em>unarmed combat</em>. This stacks with any other <em>unarmed combat</em> bonuses such as an edeinos’s claw attack.</p><p>More advanced and exotic techniques are taught in Pan-Pacifica under the @UUID[Compendium.te001-core-rulebook.rules.JournalEntry.pwneQ55M0nnDH0Us.JournalEntryPage.kYP18QiA72P6PlUi#ki-powers]{Ki Powers} Perks.</p><p>\_</p><p>Found in <strong>Core Rules</strong></p>"
+      prerequisites: At least two adds in unarmed combat
+      generalContradiction: false
+      timestaken: ''
+      enhancements: []
+      limitations: []
+      traits: []
+      axioms:
+        magic: 0
+        social: 0
+        spirit: 0
+        tech: 0
+      itemsToBestow: []
+      bestowedBy: null
+      secondaryAxiom: none
+    ownership:
+      default: 0
+      A9LyAqagoJJU3gDH: 3
+      VAnYow5sWS9EJzo0: 3
+      BMvGTGfheqDXarjN: 3
+    _stats:
+      compendiumSource: Compendium.te001-core-rulebook.Items.Item.8DjcKPmDCOTdObL6
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.27.0
+      createdTime: 1774458603437
+      modifiedTime: 1774458603437
+      lastModifiedBy: BMvGTGfheqDXarjN
+    _key: '!actors.items!8YH1e6xGG3IHb1Mm.8DjcKPmDCOTdObL6'
 effects: []
 folder: null
 sort: 100001
