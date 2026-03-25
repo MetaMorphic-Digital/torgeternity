@@ -6,6 +6,9 @@
 - Rework workflow for calculation of the zone axioms affecting a Stormknight:
   - The zone axioms are based on the ACTIVE scene.
   - The token must be in a Region on the ACTIVE scene to affect the SK's zone axioms.
+- Allow skills to be included in the "Active only if" field of an Active Effect, primarily to help modify the test.
+- Allow any field in a test to be modified by an Active Effect:
+  - Whirlwind: set "Active only if" to "Melee Weapons": with a change of `test.targetsModifier` ADD 2
 
 ## 13.31.4 - Bug Fixes Galore (well four)
 - Tooltip on Scene Nav correct when only one cosm selected.

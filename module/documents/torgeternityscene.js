@@ -173,9 +173,10 @@ export default class TorgeternityScene extends foundry.documents.Scene {
  * Ensure Zone Axioms are correct when tokens are created or the scene is changed.
  */
 function prepareAllActors() {
-  game.scenes.active.tokens.forEach(token => token.actor.prepareData());
+  if (!game.scenes.active?.tokens) return;
+  game.scenes.active.tokens.forEach(token => token.actor?.prepareData());
 }
 
 Hooks.on('ready', prepareAllActors);
 Hooks.on('canvasReady', prepareAllActors);
-Hooks.on('createToken', (token) => token.actor.prepareData());
+Hooks.on('createToken', (token) => token.actor?.prepareData());
