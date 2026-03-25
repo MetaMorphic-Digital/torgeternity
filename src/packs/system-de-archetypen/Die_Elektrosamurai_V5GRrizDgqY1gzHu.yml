@@ -142,17 +142,19 @@ items:
         selected: none
         value: null
       minStrength: null
+      traits:
+        - trademark
     ownership:
       default: 0
       9Q0XnqFwko7hRlvL: 3
       CtisFurQNe9h7ABb: 3
     _stats:
       systemId: torgeternity
-      systemVersion: 13.2.2
-      coreVersion: '13.346'
+      systemVersion: 13.27.0
+      coreVersion: '13.351'
       createdTime: 1694866320665
-      modifiedTime: 1753598755153
-      lastModifiedBy: W32Zl65V9atvPk8o
+      modifiedTime: 1774460868292
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: Compendium.te001-core-rulebook.grw-de-ausruestung.Item.blwojapRBKk4M4Xg
       duplicateSource: null
       exportSource: null

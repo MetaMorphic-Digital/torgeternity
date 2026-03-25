@@ -34,157 +34,6 @@ items:
       duplicateSource: null
       exportSource: null
     _key: '!actors.items!6Pc9oa7mM6kZkFUi.OZvqS64IhCczdFkT'
-  - _id: pj0EqVly0EhHxRF2
-    name: Peitschenschwanz
-    type: perk
-    img: systems/torgeternity/images/icons/reality-icon.webp
-    effects:
-      - _id: teB2PeOhHTmrmVGb
-        changes:
-          - key: system.skills.unarmedCombat.isFav
-            mode: 5
-            value: '1'
-            priority: null
-        disabled: false
-        duration:
-          startTime: null
-          seconds: null
-          combat: null
-          rounds: null
-          turns: null
-          startRound: null
-          startTurn: null
-        origin: Compendium.te001-core-rulebook.grw-de-vorzuverb.hwrzWawaqs7kKuHI
-        transfer: true
-        flags: {}
-        tint: '#ffffff'
-        name: Fertigkeitsbegünstigung
-        description: ''
-        statuses: []
-        _stats:
-          coreVersion: '13.345'
-          systemId: null
-          systemVersion: null
-          createdTime: null
-          modifiedTime: null
-          lastModifiedBy: null
-          compendiumSource: null
-          duplicateSource: null
-          exportSource: null
-        img: icons/svg/aura.svg
-        type: base
-        system: {}
-        sort: 0
-        _key: >-
-          !actors.items.effects!6Pc9oa7mM6kZkFUi.pj0EqVly0EhHxRF2.teB2PeOhHTmrmVGb
-    folder: null
-    sort: 0
-    flags:
-      core: {}
-    system:
-      category: edeinos
-      cosm: livingLand
-      description: >-
-        <p>Die Echsenmenschen verwenden ihre Schwänze hauptsächlich, um das
-        Gleichgewicht zu halten, aber einige haben auch gelernt, mit ihnen zu
-        kämpfen, indem sie komplizierte Kreisbewegungen und Sprünge ausführen,
-        die ihre Schwänze in lange, peitschenartige Waffen verwandeln. Wenn ein
-        Edeinos auf diese Weise angreift, zählt Waffenloser Kampf für ihn als
-        Begünstigt.</p>
-      prerequisites: Edeinos
-      generalContradiction: false
-      pulpPowers:
-        enhancement01:
-          description: ''
-          taken: false
-          title: ''
-        enhancement02:
-          description: ''
-          taken: false
-          title: ''
-        enhancement03:
-          description: ''
-          taken: false
-          title: ''
-        enhancement04:
-          description: ''
-          taken: false
-          title: ''
-        enhancement05:
-          description: ''
-          taken: false
-          title: ''
-        enhancement06:
-          description: ''
-          taken: false
-          title: ''
-        enhancement07:
-          description: ''
-          taken: false
-          title: ''
-        enhancement08:
-          description: ''
-          taken: false
-          title: ''
-        enhancement09:
-          description: ''
-          taken: false
-          title: ''
-        enhancement10:
-          description: ''
-          taken: false
-          title: ''
-        enhancement11:
-          description: ''
-          taken: false
-          title: ''
-        enhancement12:
-          description: ''
-          taken: false
-          title: ''
-        enhancement13:
-          description: ''
-          taken: false
-          title: ''
-        enhancement14:
-          description: ''
-          taken: false
-          title: ''
-        enhancement15:
-          description: ''
-          taken: false
-          title: ''
-        enhancementNumber: 0
-        limitation01: ''
-        limitation02: ''
-        limitation03: ''
-        limitation04: ''
-        limitation05: ''
-        limitation06: ''
-        limitation07: ''
-        limitation08: ''
-        limitation09: ''
-        limitation10: ''
-        limitationNumber: 0
-      timestaken: '1'
-      secondaryAxiom:
-        selected: none
-        value: null
-    ownership:
-      default: 0
-      9Q0XnqFwko7hRlvL: 3
-      CtisFurQNe9h7ABb: 3
-    _stats:
-      systemId: torgeternity
-      systemVersion: 12.2.0
-      coreVersion: '13.345'
-      createdTime: 1694867606000
-      modifiedTime: 1722161754220
-      lastModifiedBy: 93AMwcGe6H37rcPA
-      compendiumSource: Compendium.te001-core-rulebook.grw-de-vorzuverb.Item.hwrzWawaqs7kKuHI
-      duplicateSource: null
-      exportSource: null
-    _key: '!actors.items!6Pc9oa7mM6kZkFUi.pj0EqVly0EhHxRF2'
   - _id: S4nEXXlDkjQCu2k3
     name: Waffensegen
     type: miracle
@@ -271,190 +120,6 @@ items:
       duplicateSource: null
       exportSource: null
     _key: '!actors.items!6Pc9oa7mM6kZkFUi.v2vh6Mp1Uleuo29h'
-  - _id: UzYif4jabH5Y4b4j
-    name: Feind abwehren
-    type: miracle
-    img: systems/torgeternity/images/icons/miracles-icon.webp
-    effects:
-      - _id: ecbVOFBMML58Ojlw
-        changes:
-          - key: system.dodgeDefense
-            mode: 2
-            value: '1'
-            priority: null
-          - key: system.meleeWeaponsDefense
-            mode: 2
-            value: '1'
-            priority: null
-          - key: system.unarmedCombatDefense
-            mode: 2
-            value: '1'
-            priority: null
-        disabled: true
-        duration:
-          startTime: null
-          seconds: null
-          combat: null
-          rounds: null
-          turns: null
-          startRound: null
-          startTurn: null
-        origin: Compendium.te001-core-rulebook.grw-de-kraefte.geTWA7krOqHuXpxk
-        transfer: true
-        flags: {}
-        tint: '#ffffff'
-        name: Standard
-        description: ''
-        statuses: []
-        _stats:
-          coreVersion: '13.345'
-          systemId: null
-          systemVersion: null
-          createdTime: null
-          modifiedTime: null
-          lastModifiedBy: null
-          compendiumSource: null
-          duplicateSource: null
-          exportSource: null
-        img: icons/svg/aura.svg
-        type: base
-        system: {}
-        sort: 0
-        _key: >-
-          !actors.items.effects!6Pc9oa7mM6kZkFUi.UzYif4jabH5Y4b4j.ecbVOFBMML58Ojlw
-      - _id: RiLW8E5gMhnrThkX
-        changes:
-          - key: system.dodgeDefense
-            mode: 2
-            value: '2'
-            priority: null
-          - key: system.meleeWeaponsDefense
-            mode: 2
-            value: '2'
-            priority: null
-          - key: system.unarmedCombatDefense
-            mode: 2
-            value: '2'
-            priority: null
-        disabled: true
-        duration:
-          startTime: null
-          seconds: null
-          combat: null
-          rounds: null
-          turns: null
-          startRound: null
-          startTurn: null
-        origin: Compendium.te001-core-rulebook.grw-de-kraefte.geTWA7krOqHuXpxk
-        transfer: true
-        flags: {}
-        tint: '#ffffff'
-        name: Gut
-        description: ''
-        statuses: []
-        _stats:
-          coreVersion: '13.345'
-          systemId: null
-          systemVersion: null
-          createdTime: null
-          modifiedTime: null
-          lastModifiedBy: null
-          compendiumSource: null
-          duplicateSource: null
-          exportSource: null
-        img: icons/svg/aura.svg
-        type: base
-        system: {}
-        sort: 0
-        _key: >-
-          !actors.items.effects!6Pc9oa7mM6kZkFUi.UzYif4jabH5Y4b4j.RiLW8E5gMhnrThkX
-      - _id: b6m8CEDITRqrCBzU
-        changes:
-          - key: system.dodgeDefense
-            mode: 2
-            value: '3'
-            priority: null
-          - key: system.meleeWeaponsDefense
-            mode: 2
-            value: '3'
-            priority: null
-          - key: system.unarmedCombatDefense
-            mode: 2
-            value: '3'
-            priority: null
-        disabled: true
-        duration:
-          startTime: null
-          seconds: null
-          combat: null
-          rounds: null
-          turns: null
-          startRound: null
-          startTurn: null
-        origin: Compendium.te001-core-rulebook.grw-de-kraefte.geTWA7krOqHuXpxk
-        transfer: true
-        flags: {}
-        tint: '#ffffff'
-        name: Hervorragend
-        description: ''
-        statuses: []
-        _stats:
-          coreVersion: '13.345'
-          systemId: null
-          systemVersion: null
-          createdTime: null
-          modifiedTime: null
-          lastModifiedBy: null
-          compendiumSource: null
-          duplicateSource: null
-          exportSource: null
-        img: icons/svg/aura.svg
-        type: base
-        system: {}
-        sort: 0
-        _key: >-
-          !actors.items.effects!6Pc9oa7mM6kZkFUi.UzYif4jabH5Y4b4j.b6m8CEDITRqrCBzU
-    folder: null
-    sort: 100000
-    flags:
-      core: {}
-    system:
-      ap: 0
-      applyArmor: false
-      applySize: false
-      axiom: 8
-      castingtime: 1 Aktion
-      damage: 0
-      description: "<p><em>Feind abwehren </em>schützt die Gläubigen vor übernatürlichen Wesen, die Menschen jagen oder andersweitig versuchen ihnen zu schaden.\_</p>\n<p>Um <em>Feind abwehren </em>zu wirken, muss der Wunderwirker ein heiliges Symbol erheben, Gebete rezitieren oder auf andere Weise die Quelle seiner Macht offenbaren, was ihn zu einem offensichtlichen Ziel für den Spott von Geistern, Dämonen oder anderen Gegnern macht, die von der Wirkung betroffen sein könnten.\_</p>\n<p>Während die Abwehr aktiv ist, dürfen alle Verbündeten innerhalb von fünf Metern +1 zu ihrer Verteidigung gegen @UUID[Compendium.te001-core-rulebook.grw-de-grw.Qlx6yGF0Mmo6Xzrv.JournalEntryPage.35aMxQmdrQ7RDr63#ubernaturliches-boses]{böse übernatürliche Kreaturen} und deren Angriffe addieren. Der Bonus zählt sowohl für die physische Verteidigung als auch gegen Interaktionsangriffe.\_</p>\n<p><strong>Spezial:</strong> Dieses Wunder darf auch von Charakteren gewirkt werden, die nicht über den Vorzug „Wunderwirker“ verfügen, solange sie die Fertigkeits-Voraussetzung erfüllen.</p>"
-      dn: standard
-      dnType: ''
-      duration: Konzentration
-      good: Die Geschützten addieren +2 zu allen Verteidigungen.
-      isAttack: false
-      modifier: ''
-      outstanding: >-
-        Wie Erfolgsstufe Gut. Außerdem zählen böse übernatürliche Kreaturen, die
-        ein so geschütztes Individuum angreifen, danach als Angeschlagen.
-      range: 5 Meter Radius
-      skill: faith
-      skilllevel: '8'
-      targetDefense: ''
-      requiresConcentration: true
-    ownership:
-      default: 0
-      9Q0XnqFwko7hRlvL: 3
-      CtisFurQNe9h7ABb: 3
-    _stats:
-      systemId: torgeternity
-      systemVersion: 13.8.1
-      coreVersion: '13.348'
-      createdTime: 1694867632361
-      modifiedTime: 1756564056763
-      lastModifiedBy: l8SVzn2293lAwvMC
-      compendiumSource: Compendium.te001-core-rulebook.grw-de-kraefte.Item.geTWA7krOqHuXpxk
-      duplicateSource: null
-      exportSource: null
-    _key: '!actors.items!6Pc9oa7mM6kZkFUi.UzYif4jabH5Y4b4j'
   - _id: j47RejnFxrA6drwg
     name: Hrockt-Wurzelrüstung
     type: armor
@@ -626,113 +291,6 @@ items:
       lastModifiedBy: null
       exportSource: null
     _key: '!actors.items!6Pc9oa7mM6kZkFUi.vvTNXAsidaocnOLN'
-  - name: Hrockt-Sprossenspeer
-    type: missileweapon
-    img: systems/torgeternity/images/icons/missile-weapon-icon.webp
-    system:
-      cosm: none
-      description: >-
-        <p>Zum Ausrüsten als Nahkampfwaffe s.
-        @UUID[Actor.6Pc9oa7mM6kZkFUi.Item.bsYMg4OVWpTV2Ixt]{Hrockt-Sprossenspeer}</p><p>Die
-        Sprossen sind im Wachstum weich und biegsam, werden aber hart wie Stahl,
-        nachdem sie abgeschnitten und getrocknet wurden. Am häufigsten trifft
-        man sie in Form von Speeren an, die auch als Projektilwaffe geworfen
-        werden können.</p>
-      price: '40'
-      techlevel: 3
-      value: 8
-      secondaryAxiom:
-        selected: none
-        value: null
-      ammo:
-        max: 1
-        value: 1
-      ap: 0
-      attackWith: missileWeapons
-      chatNote: ''
-      damage: 2
-      damageType: strengthPlus
-      equipped:
-        carryType: held
-        handsHeld: 1
-      minStrength: ''
-      notes: ''
-      range: 10/20/40
-      traits:
-        - thrown
-    effects: []
-    folder: null
-    ownership:
-      default: 0
-      93AMwcGe6H37rcPA: 3
-    flags: {}
-    _stats:
-      compendiumSource: Compendium.te001-core-rulebook.grw-de-ausruestung.Item.oA1Elm4eVdBcBSn2
-      duplicateSource: null
-      coreVersion: '13.351'
-      systemId: torgeternity
-      systemVersion: 13.15.0
-      createdTime: null
-      modifiedTime: 1771933682759
-      lastModifiedBy: BMvGTGfheqDXarjN
-      exportSource: null
-    _id: z1qqBadmQ8CgUUel
-    sort: 0
-    _key: '!actors.items!6Pc9oa7mM6kZkFUi.z1qqBadmQ8CgUUel'
-  - _id: bsYMg4OVWpTV2Ixt
-    name: Hrockt-Sprossenspeer
-    type: meleeweapon
-    img: systems/torgeternity/images/icons/axe-icon.webp
-    effects: []
-    folder: null
-    sort: 18200000
-    flags:
-      core: {}
-    system:
-      cosm: none
-      description: >-
-        <p>@UUID[Compendium.te001-core-rulebook.grw-de-grw.JournalEntry.Qlx6yGF0Mmo6Xzrv.JournalEntryPage.7GGUUHzuYIqGPXDO#wurfwaffe:]{Wurfwaffe}</p><p>Zum
-        Ausrüsten als Projektilwaffe s.
-        @UUID[Actor.6Pc9oa7mM6kZkFUi.Item.z1qqBadmQ8CgUUel]{Hrockt-Sprossenspeer}</p><p>Die
-        Sprossen sind im Wachstum weich und biegsam, werden aber hart wie Stahl,
-        nachdem sie abgeschnitten und getrocknet wurden. Am häufigsten trifft
-        man sie in Form von Speeren an, die auch als Projektilwaffe geworfen
-        werden können.</p>
-      price: '40'
-      techlevel: 2
-      value: 8
-      ap: 0
-      attackWith: meleeWeapons
-      bonus: 2
-      chatNote: ''
-      damage: 2
-      damageType: strengthPlus
-      equipped:
-        carryType: held
-        handsHeld: 1
-      notes: Wurfwaffe
-      secondaryAxiom:
-        selected: none
-        value: null
-      minStrength: null
-      traits:
-        - thrown
-    ownership:
-      default: 0
-      1pSzpSNrhKGYYcib: 3
-      VAnYow5sWS9EJzo0: 3
-      93AMwcGe6H37rcPA: 3
-    _stats:
-      compendiumSource: Compendium.te001-core-rulebook.grw-de-ausruestung.Item.VRuK7Un8bvtpUk3s
-      duplicateSource: null
-      coreVersion: '13.351'
-      systemId: torgeternity
-      systemVersion: 13.15.0
-      createdTime: null
-      modifiedTime: 1771933685606
-      lastModifiedBy: BMvGTGfheqDXarjN
-      exportSource: null
-    _key: '!actors.items!6Pc9oa7mM6kZkFUi.bsYMg4OVWpTV2Ixt'
   - name: Edeinos
     type: race
     img: systems/torgeternity/images/icons/edeinos-icon.webp
@@ -763,167 +321,37 @@ items:
         mind: 10
         spirit: 15
         strength: 13
-      perksData:
-        - name: Außenseiter (Edeinos)
-          type: perk
-          img: systems/torgeternity/images/icons/reality-icon.webp
-          system:
-            category: racial
-            cosm: none
-            description: >-
-              <p>Edeinos sind für alle außer anderen Edeinos Außenseiter. Sie
-              erleiden einen Malus von 4 auf Überreden- Proben gegenüber
-              Nicht-Edeinos, und Menschen aus anderen Reichen begegnen ihnen oft
-              mit Feindseligkeit.</p>
-            prerequisites: >-
-              <p>@UUID[Compendium.te001-core-rulebook.grw-de-vorzuverb.Item.BvoukFhiu0Mz7E2D]{Edeinos}</p>
-            generalContradiction: false
-            pulpPowers:
-              enhancement01:
-                description: ''
-                taken: false
-                title: ''
-              enhancement02:
-                description: ''
-                taken: false
-                title: ''
-              enhancement03:
-                description: ''
-                taken: false
-                title: ''
-              enhancement04:
-                description: ''
-                taken: false
-                title: ''
-              enhancement05:
-                description: ''
-                taken: false
-                title: ''
-              enhancement06:
-                description: ''
-                taken: false
-                title: ''
-              enhancement07:
-                description: ''
-                taken: false
-                title: ''
-              enhancement08:
-                description: ''
-                taken: false
-                title: ''
-              enhancement09:
-                description: ''
-                taken: false
-                title: ''
-              enhancement10:
-                description: ''
-                taken: false
-                title: ''
-              enhancement11:
-                description: ''
-                taken: false
-                title: ''
-              enhancement12:
-                description: ''
-                taken: false
-                title: ''
-              enhancement13:
-                description: ''
-                taken: false
-                title: ''
-              enhancement14:
-                description: ''
-                taken: false
-                title: ''
-              enhancement15:
-                description: ''
-                taken: false
-                title: ''
-              enhancementNumber: 0
-              limitation01: ''
-              limitation02: ''
-              limitation03: ''
-              limitation04: ''
-              limitation05: ''
-              limitation06: ''
-              limitation07: ''
-              limitation08: ''
-              limitation09: ''
-              limitation10: ''
-              limitationNumber: 0
-            timestaken: ''
-            secondaryAxiom:
-              selected: none
-              value: null
-            transferenceID: 0p0JoCsh5Rc4x9uS
-          sort: 300000
-          ownership:
-            default: 0
-            9Q0XnqFwko7hRlvL: 3
-            VAnYow5sWS9EJzo0: 3
-          flags: {}
-          _stats:
-            coreVersion: '12.331'
-            systemId: torgeternity
-            systemVersion: 12.3.0
-            createdTime: 1716871244345
-            modifiedTime: 1729596572317
-            lastModifiedBy: d8YcfsxBOP7RAazk
-            compendiumSource: null
-            duplicateSource: null
-      customAttackData:
-        - name: Natürliche Waffen (Edeinos)
-          type: customAttack
-          img: systems/torgeternity/images/icons/bite-icon.webp
-          system:
-            ap: 0
-            attackWith: unarmedCombat
-            chatNote: ''
-            damage: 2
-            damageType: strengthPlus
-            description: >-
-              <p>Edeinos haben natürliche Krallen und Zähne, Die im
-              <em>Waffenlosen Kampf</em> Schaden in Höhe von <em>Stärke</em> +2
-              verursachen.</p>
-            notes: ''
-            transferenceID: y4ObQbOH7Du1RQB0
-          sort: 400000
-          ownership:
-            default: 0
-            9Q0XnqFwko7hRlvL: 3
-            VAnYow5sWS9EJzo0: 3
-          flags:
-            core: {}
-          _stats:
-            coreVersion: '12.331'
-            systemId: torgeternity
-            systemVersion: 12.3.0
-            createdTime: 1716871248517
-            modifiedTime: 1729596375436
-            lastModifiedBy: d8YcfsxBOP7RAazk
-            compendiumSource: null
-            duplicateSource: null
       size: normal
       darkvision: false
+      itemsToBestow: []
+      cosm: none
+      traits: []
+      axioms:
+        magic: 0
+        social: 0
+        spirit: 0
+        tech: 0
+      bestowedBy: null
     effects: []
     folder: GM4GiQo3OB1a9yUY
     flags: {}
     _stats:
       compendiumSource: Compendium.te001-core-rulebook.grw-de-vorzuverb.Item.BvoukFhiu0Mz7E2D
       duplicateSource: null
-      coreVersion: '13.345'
-      systemId: torgeternity
-      systemVersion: 12.3.0
-      createdTime: 1729599382656
-      modifiedTime: 1729599382656
-      lastModifiedBy: d8YcfsxBOP7RAazk
       exportSource: null
-    _id: Rf6mjm5jZFCPB5AP
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.27.0
+      createdTime: 1774460253410
+      modifiedTime: 1774460253425
+      lastModifiedBy: BMvGTGfheqDXarjN
+    _id: 5plioeGRYnDNqYvP
     sort: 100000
     ownership:
       default: 0
       d8YcfsxBOP7RAazk: 3
-    _key: '!actors.items!6Pc9oa7mM6kZkFUi.Rf6mjm5jZFCPB5AP'
+      BMvGTGfheqDXarjN: 3
+    _key: '!actors.items!6Pc9oa7mM6kZkFUi.5plioeGRYnDNqYvP'
   - name: Außenseiter (Edeinos)
     type: perk
     img: systems/torgeternity/images/icons/reality-icon.webp
@@ -937,105 +365,39 @@ items:
       prerequisites: >-
         <p>@UUID[Compendium.te001-core-rulebook.grw-de-vorzuverb.Item.BvoukFhiu0Mz7E2D]{Edeinos}</p>
       generalContradiction: false
-      pulpPowers:
-        enhancement01:
-          description: ''
-          taken: false
-          title: ''
-        enhancement02:
-          description: ''
-          taken: false
-          title: ''
-        enhancement03:
-          description: ''
-          taken: false
-          title: ''
-        enhancement04:
-          description: ''
-          taken: false
-          title: ''
-        enhancement05:
-          description: ''
-          taken: false
-          title: ''
-        enhancement06:
-          description: ''
-          taken: false
-          title: ''
-        enhancement07:
-          description: ''
-          taken: false
-          title: ''
-        enhancement08:
-          description: ''
-          taken: false
-          title: ''
-        enhancement09:
-          description: ''
-          taken: false
-          title: ''
-        enhancement10:
-          description: ''
-          taken: false
-          title: ''
-        enhancement11:
-          description: ''
-          taken: false
-          title: ''
-        enhancement12:
-          description: ''
-          taken: false
-          title: ''
-        enhancement13:
-          description: ''
-          taken: false
-          title: ''
-        enhancement14:
-          description: ''
-          taken: false
-          title: ''
-        enhancement15:
-          description: ''
-          taken: false
-          title: ''
-        enhancementNumber: 0
-        limitation01: ''
-        limitation02: ''
-        limitation03: ''
-        limitation04: ''
-        limitation05: ''
-        limitation06: ''
-        limitation07: ''
-        limitation08: ''
-        limitation09: ''
-        limitation10: ''
-        limitationNumber: 0
       timestaken: ''
-      secondaryAxiom:
-        selected: none
-        value: null
-      transferenceID: eEJth3GcmS7oNeFM
+      secondaryAxiom: none
+      bestowedBy: 5plioeGRYnDNqYvP
+      enhancements: []
+      limitations: []
+      traits: []
+      axioms:
+        magic: 0
+        social: 0
+        spirit: 0
+        tech: 0
+      itemsToBestow: []
     sort: 300000
     ownership:
       default: 0
       9Q0XnqFwko7hRlvL: 3
       VAnYow5sWS9EJzo0: 3
-      d8YcfsxBOP7RAazk: 3
+      BMvGTGfheqDXarjN: 3
     flags: {}
     _stats:
       compendiumSource: null
       duplicateSource: null
-      coreVersion: '13.345'
-      systemId: torgeternity
-      systemVersion: 12.3.0
-      createdTime: 1729599382683
-      modifiedTime: 1729599382807
-      lastModifiedBy: d8YcfsxBOP7RAazk
       exportSource: null
-    _id: eEJth3GcmS7oNeFM
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.27.0
+      createdTime: 1774460253431
+      modifiedTime: 1774460253431
+      lastModifiedBy: BMvGTGfheqDXarjN
+    _id: 30NfgNhpWXbIIyhR
     effects: []
     folder: null
-    _key: '!actors.items!6Pc9oa7mM6kZkFUi.eEJth3GcmS7oNeFM'
+    _key: '!actors.items!6Pc9oa7mM6kZkFUi.30NfgNhpWXbIIyhR'
   - name: Natürliche Waffen (Edeinos)
     type: customAttack
     img: systems/torgeternity/images/icons/bite-icon.webp
@@ -1049,7 +411,7 @@ items:
         <p>Edeinos haben natürliche Krallen und Zähne, Die im <em>Waffenlosen
         Kampf</em> Schaden in Höhe von <em>Stärke</em> +2 verursachen.</p>
       notes: ''
-      transferenceID: GPiq4BtMLhEG67BA
+      bestowedBy: 5plioeGRYnDNqYvP
       cosm: none
       traits: []
       axioms:
@@ -1057,40 +419,469 @@ items:
         social: 0
         spirit: 0
         tech: 0
-      price: ''
-      value: 0
+      itemsToBestow: []
+      quantity: 1
+      price:
+        dollars: ''
       secondaryAxiom: none
+      equipped:
+        carryType: stowed
+        handsHeld: 0
       bonus: 2
-      equipped: false
       minStrength: null
     sort: 400000
     ownership:
       default: 0
       9Q0XnqFwko7hRlvL: 3
       VAnYow5sWS9EJzo0: 3
-      d8YcfsxBOP7RAazk: 3
-      l8SVzn2293lAwvMC: 3
+      BMvGTGfheqDXarjN: 3
     flags:
       core: {}
     _stats:
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-      coreVersion: '13.348'
+      coreVersion: '13.351'
       systemId: torgeternity
-      systemVersion: 13.10.0
-      createdTime: 1758491119701
-      modifiedTime: 1758491119701
-      lastModifiedBy: l8SVzn2293lAwvMC
-    _id: GPiq4BtMLhEG67BA
+      systemVersion: 13.27.0
+      createdTime: 1774460253431
+      modifiedTime: 1774460253431
+      lastModifiedBy: BMvGTGfheqDXarjN
+    _id: g7Mgtz333V3lr4iy
     effects: []
     folder: null
-    _key: '!actors.items!6Pc9oa7mM6kZkFUi.GPiq4BtMLhEG67BA'
+    _key: '!actors.items!6Pc9oa7mM6kZkFUi.g7Mgtz333V3lr4iy'
+  - _id: VRuK7Un8bvtpUk3s
+    name: Hrockt-Sprossenspeer
+    type: meleeweapon
+    img: systems/torgeternity/images/icons/axe-icon.webp
+    effects: []
+    folder: Nj7z48qTLoySGnHz
+    sort: 200000
+    flags:
+      core: {}
+    system:
+      cosm: livingLand
+      description: >-
+        <p>@UUID[Compendium.te001-core-rulebook.grw-de-grw.JournalEntry.Qlx6yGF0Mmo6Xzrv.JournalEntryPage.7GGUUHzuYIqGPXDO#wurfwaffe:]{Wurfwaffe}</p><p>Zum
+        Ausrüsten als Projektilwaffe s.
+        @UUID[Compendium.te001-core-rulebook.grw-de-ausruestung.Item.oA1Elm4eVdBcBSn2]{Hrockt-Sprossenspeer}</p><p>Die
+        Sprossen sind im Wachstum weich und biegsam, werden aber hart wie Stahl,
+        nachdem sie abgeschnitten und getrocknet wurden. Am häufigsten trifft
+        man sie in Form von Speeren an, die auch als Projektilwaffe geworfen
+        werden können.</p>
+      price:
+        dollars: '40'
+      ap: 0
+      attackWith: meleeWeapons
+      bonus: 2
+      chatNote: ''
+      damage: 2
+      damageType: strengthPlus
+      equipped:
+        carryType: stowed
+        handsHeld: 0
+      notes: Wurfwaffe
+      traits:
+        - thrown
+      axioms:
+        tech: 2
+        magic: 0
+        social: 0
+        spirit: 0
+      itemsToBestow: []
+      bestowedBy: null
+      quantity: 1
+      secondaryAxiom: none
+      minStrength: null
+    ownership:
+      default: 0
+      1pSzpSNrhKGYYcib: 3
+      VAnYow5sWS9EJzo0: 3
+      BMvGTGfheqDXarjN: 3
+    _stats:
+      compendiumSource: Compendium.te001-core-rulebook.grw-de-ausruestung.Item.VRuK7Un8bvtpUk3s
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.27.0
+      createdTime: 1774460329212
+      modifiedTime: 1774460329227
+      lastModifiedBy: BMvGTGfheqDXarjN
+    _key: '!actors.items!6Pc9oa7mM6kZkFUi.VRuK7Un8bvtpUk3s'
+  - name: Hrockt-Sprossenspeer
+    type: missileweapon
+    img: systems/torgeternity/images/icons/missile-weapon-icon.webp
+    system:
+      cosm: livingLand
+      description: >-
+        <p>Zum Ausrüsten als Nahkampfwaffe s.
+        @UUID[Compendium.te001-core-rulebook.grw-de-ausruestung.Item.VRuK7Un8bvtpUk3s]{Hrockt-Sprossenspeer}</p><p>Die
+        Sprossen sind im Wachstum weich und biegsam, werden aber hart wie Stahl,
+        nachdem sie abgeschnitten und getrocknet wurden. Am häufigsten trifft
+        man sie in Form von Speeren an, die auch als Projektilwaffe geworfen
+        werden können.</p>
+      price:
+        dollars: '40'
+      secondaryAxiom: none
+      ammo:
+        max: 1
+        value: 1
+      ap: 0
+      attackWith: missileWeapons
+      chatNote: ''
+      damage: 2
+      damageType: strengthPlus
+      equipped:
+        carryType: stowed
+        handsHeld: 0
+      minStrength: null
+      notes: ''
+      range: 10 / 20 / 40
+      traits:
+        - thrown
+      axioms:
+        tech: 3
+        magic: 0
+        social: 0
+        spirit: 0
+      itemsToBestow: []
+      bestowedBy: VRuK7Un8bvtpUk3s
+      quantity: 1
+      bonus: 2
+      loadedAmmo: null
+      gunner: null
+      gunnerFixedSkill: 0
+    effects: []
+    folder: jbxsmnlTTICuQZgq
+    flags: {}
+    _stats:
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.27.0
+      createdTime: 1774460329231
+      modifiedTime: 1774460329231
+      lastModifiedBy: BMvGTGfheqDXarjN
+    _id: B1mT84QOjctEXSAf
+    ownership:
+      default: 0
+      BMvGTGfheqDXarjN: 3
+    sort: 0
+    _key: '!actors.items!6Pc9oa7mM6kZkFUi.B1mT84QOjctEXSAf'
+  - _id: geTWA7krOqHuXpxk
+    name: Feind abwehren
+    type: miracle
+    img: systems/torgeternity/images/icons/miracles-icon.webp
+    effects:
+      - _id: ecbVOFBMML58Ojlw
+        changes:
+          - key: system.defenses.all.mod
+            mode: 2
+            value: '1'
+            priority: null
+        disabled: false
+        duration:
+          startTime: null
+          seconds: null
+          combat: null
+          rounds: null
+          turns: null
+          startRound: null
+          startTurn: null
+        origin: Compendium.te001-core-rulebook.grw-de-kraefte.geTWA7krOqHuXpxk
+        transfer: false
+        flags: {}
+        tint: '#ffffff'
+        name: Feind abwehren Standard
+        description: ''
+        statuses: []
+        _stats:
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+          coreVersion: '13.351'
+          systemId: torgeternity
+          systemVersion: 13.27.0
+          lastModifiedBy: null
+        img: systems/torgeternity/images/icons/miracles-icon.webp
+        type: base
+        system:
+          transferOnOutcome: standard
+          applyIfAttackTrait: []
+          defendAgainstTrait:
+            - supernaturalEvil
+          transferTo: target
+          applyOnOutcome: ''
+          activeIfTrait: []
+          applyIfDefendTrait: []
+          applyIfAttackTraitCombine: or
+          applyIfDefendTraitCombine: or
+          defendAgainstTraitCombine: or
+          itemsToBestow: []
+          combatToggle: false
+          concentratingId: null
+        sort: 0
+        _key: >-
+          !actors.items.effects!6Pc9oa7mM6kZkFUi.geTWA7krOqHuXpxk.ecbVOFBMML58Ojlw
+      - _id: RiLW8E5gMhnrThkX
+        changes:
+          - key: system.defenses.all.mod
+            mode: 2
+            value: '2'
+            priority: null
+        disabled: false
+        duration:
+          startTime: null
+          seconds: null
+          combat: null
+          rounds: null
+          turns: null
+          startRound: null
+          startTurn: null
+        origin: Compendium.te001-core-rulebook.grw-de-kraefte.geTWA7krOqHuXpxk
+        transfer: false
+        flags: {}
+        tint: '#ffffff'
+        name: Feind abwehren Gut
+        description: ''
+        statuses: []
+        _stats:
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+          coreVersion: '13.351'
+          systemId: torgeternity
+          systemVersion: 13.27.0
+          lastModifiedBy: null
+        img: systems/torgeternity/images/icons/miracles-icon.webp
+        type: base
+        system:
+          transferOnOutcome: good
+          applyIfAttackTrait: []
+          defendAgainstTrait:
+            - supernaturalEvil
+          transferTo: target
+          applyOnOutcome: ''
+          activeIfTrait: []
+          applyIfDefendTrait: []
+          applyIfAttackTraitCombine: or
+          applyIfDefendTraitCombine: or
+          defendAgainstTraitCombine: or
+          itemsToBestow: []
+          combatToggle: false
+          concentratingId: null
+        sort: 0
+        _key: >-
+          !actors.items.effects!6Pc9oa7mM6kZkFUi.geTWA7krOqHuXpxk.RiLW8E5gMhnrThkX
+      - name: Feind abwehren Hervorragend
+        origin: Compendium.te001-core-rulebook.grw-de-kraefte.Item.geTWA7krOqHuXpxk
+        duration:
+          startTime: null
+          combat: null
+          seconds: null
+          rounds: null
+          turns: null
+          startRound: null
+          startTurn: null
+        disabled: false
+        img: systems/torgeternity/images/icons/miracles-icon.webp
+        _id: p1X7QSpmDO4ED1pY
+        type: base
+        system:
+          transferOnOutcome: outstanding
+          applyIfAttackTrait: []
+          applyIfDefendTrait: []
+          combatToggle: false
+          defendAgainstTrait:
+            - supernaturalEvil
+          transferTo: target
+          applyOnOutcome: ''
+          activeIfTrait: []
+          applyIfAttackTraitCombine: or
+          applyIfDefendTraitCombine: or
+          defendAgainstTraitCombine: or
+          itemsToBestow: []
+          concentratingId: null
+        changes:
+          - key: system.defenses.all.mod
+            mode: 2
+            value: '2'
+            priority: null
+        description: ''
+        tint: '#ffffff'
+        transfer: false
+        statuses: []
+        sort: 0
+        flags: {}
+        _stats:
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+          coreVersion: '13.351'
+          systemId: torgeternity
+          systemVersion: 13.27.0
+          lastModifiedBy: null
+        _key: >-
+          !actors.items.effects!6Pc9oa7mM6kZkFUi.geTWA7krOqHuXpxk.p1X7QSpmDO4ED1pY
+    folder: wTUqpByLYHH04MSY
+    sort: 200000
+    flags: {}
+    system:
+      ap: 0
+      applyArmor: false
+      applySize: false
+      castingtime: 1 Aktion
+      damage: null
+      description: "<p><em>Feind abwehren </em>schützt die Gläubigen vor übernatürlichen Wesen, die Menschen jagen oder andersweitig versuchen ihnen zu schaden.\_</p>\n<p>Um <em>Feind abwehren </em>zu wirken, muss der Wunderwirker ein heiliges Symbol erheben, Gebete rezitieren oder auf andere Weise die Quelle seiner Macht offenbaren, was ihn zu einem offensichtlichen Ziel für den Spott von Geistern, Dämonen oder anderen Gegnern macht, die von der Wirkung betroffen sein könnten.\_</p>\n<p>Während die Abwehr aktiv ist, dürfen alle Verbündeten innerhalb von fünf Metern +1 zu ihrer Verteidigung gegen @UUID[Compendium.te001-core-rulebook.grw-de-grw.Qlx6yGF0Mmo6Xzrv.JournalEntryPage.35aMxQmdrQ7RDr63#ubernaturliches-boses]{böse übernatürliche Kreaturen} und deren Angriffe addieren. Der Bonus zählt sowohl für die physische Verteidigung als auch gegen Interaktionsangriffe.\_</p>\n<p><strong>Spezial:</strong> Dieses Wunder darf auch von Charakteren gewirkt werden, die nicht über den Vorzug „Wunderwirker“ verfügen, solange sie die Fertigkeits-Voraussetzung erfüllen.</p>"
+      dn: standard
+      dnType: ''
+      duration: Konzentration
+      good: Die Geschützten addieren +2 zu allen Verteidigungen.
+      isAttack: false
+      modifier: null
+      outstanding: >-
+        <p>Wie Erfolgsstufe Gut. Außerdem zählen böse übernatürliche Kreaturen,
+        die ein so geschütztes Individuum angreifen, danach als
+        @Condition[stymied].</p>
+      range: 5 Meter Radius
+      skill: faith
+      skilllevel: 8
+      targetDefense: ''
+      requiresConcentration: true
+      axioms:
+        spirit: 8
+        magic: 0
+        social: 0
+        tech: 0
+      cosm: none
+      traits: []
+      itemsToBestow: []
+      bestowedBy: null
+    ownership:
+      default: 0
+      9Q0XnqFwko7hRlvL: 3
+      VAnYow5sWS9EJzo0: 3
+      BMvGTGfheqDXarjN: 3
+    _stats:
+      compendiumSource: Compendium.te001-core-rulebook.grw-de-kraefte.Item.geTWA7krOqHuXpxk
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.27.0
+      createdTime: 1774460364435
+      modifiedTime: 1774460368284
+      lastModifiedBy: BMvGTGfheqDXarjN
+    _key: '!actors.items!6Pc9oa7mM6kZkFUi.geTWA7krOqHuXpxk'
+  - _id: hwrzWawaqs7kKuHI
+    name: Peitschenschwanz
+    type: perk
+    img: systems/torgeternity/images/icons/reality-icon.webp
+    effects:
+      - _id: teB2PeOhHTmrmVGb
+        changes:
+          - key: system.skills.unarmedCombat.isFav
+            mode: 5
+            value: 'true'
+            priority: null
+        disabled: false
+        duration:
+          startTime: 1310
+          seconds: null
+          combat: null
+          rounds: null
+          turns: null
+          startRound: 27
+          startTurn: 0
+        origin: Compendium.te001-core-rulebook.grw-de-vorzuverb.hwrzWawaqs7kKuHI
+        transfer: true
+        flags: {}
+        tint: '#ffffff'
+        name: Fertigkeitsbegünstigung
+        description: ''
+        statuses: []
+        _stats:
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+          coreVersion: '13.351'
+          systemId: torgeternity
+          systemVersion: 13.27.0
+          lastModifiedBy: null
+        img: systems/torgeternity/images/icons/reality-icon.webp
+        type: base
+        system:
+          applyOnOutcome: ''
+          transferOnOutcome: ''
+          transferTo: target
+          activeIfTrait: []
+          applyIfAttackTrait: []
+          applyIfDefendTrait: []
+          defendAgainstTrait: []
+          applyIfAttackTraitCombine: or
+          applyIfDefendTraitCombine: or
+          defendAgainstTraitCombine: or
+          itemsToBestow: []
+          combatToggle: false
+          concentratingId: null
+        sort: 0
+        _key: >-
+          !actors.items.effects!6Pc9oa7mM6kZkFUi.hwrzWawaqs7kKuHI.teB2PeOhHTmrmVGb
+    folder: UeE8XVnEbWcHPlJi
+    sort: 200000
+    flags: {}
+    system:
+      category: edeinos
+      cosm: livingLand
+      description: >-
+        <p>Die Echsenmenschen verwenden ihre Schwänze hauptsächlich, um das
+        Gleichgewicht zu halten, aber einige haben auch gelernt, mit ihnen zu
+        kämpfen, indem sie komplizierte Kreisbewegungen und Sprünge ausführen,
+        die ihre Schwänze in lange, peitschenartige Waffen verwandeln. Wenn ein
+        Edeinos auf diese Weise angreift, zählt Waffenloser Kampf für ihn als
+        Begünstigt.</p>
+      prerequisites: >-
+        <p>@UUID[Compendium.te001-core-rulebook.grw-de-vorzuverb.Item.BvoukFhiu0Mz7E2D]{Edeinos}</p><p></p>
+      generalContradiction: false
+      timestaken: ''
+      enhancements: []
+      limitations: []
+      traits: []
+      axioms:
+        magic: 0
+        social: 0
+        spirit: 0
+        tech: 0
+      itemsToBestow: []
+      bestowedBy: null
+      secondaryAxiom: none
+    ownership:
+      default: 0
+      9Q0XnqFwko7hRlvL: 3
+      VAnYow5sWS9EJzo0: 3
+      BMvGTGfheqDXarjN: 3
+    _stats:
+      compendiumSource: Compendium.te001-core-rulebook.grw-de-vorzuverb.Item.hwrzWawaqs7kKuHI
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.27.0
+      createdTime: 1774460399158
+      modifiedTime: 1774460399158
+      lastModifiedBy: BMvGTGfheqDXarjN
+    _key: '!actors.items!6Pc9oa7mM6kZkFUi.hwrzWawaqs7kKuHI'
 effects: []
 folder: null
 sort: 0
 flags:
   core: {}
+  torgeternity:
+    editAttributes: false
 system:
   shock:
     max: 5
@@ -1538,7 +1329,7 @@ _stats:
   systemVersion: 13.27.0
   coreVersion: '13.351'
   createdTime: 1694867487836
-  modifiedTime: 1773001234692
+  modifiedTime: 1774460262292
   lastModifiedBy: BMvGTGfheqDXarjN
   compendiumSource: Compendium.torgeternity.archetypes.hcdhRCs56U5JrAl4
   duplicateSource: null

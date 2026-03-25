@@ -277,178 +277,6 @@ items:
       duplicateSource: null
       exportSource: null
     _key: '!actors.items!XhPhxBg111Zg5bem.BcE2kgmCzDfiL7K7'
-  - _id: 9I5Xe1PkXWZj34bm
-    name: Aufladen
-    type: psionicpower
-    img: systems/torgeternity/images/icons/psionicpower.webp
-    effects:
-      - _id: zP22qP0ffFDY2sDJ
-        changes:
-          - key: system.attributes.dexterity.value
-            mode: 2
-            value: '1'
-            priority: null
-          - key: system.attributes.strength.value
-            mode: 2
-            value: '1'
-            priority: null
-        disabled: true
-        duration:
-          startTime: null
-          rounds: 3
-          seconds: null
-          combat: null
-          turns: null
-          startRound: null
-          startTurn: null
-        origin: Compendium.te001-core-rulebook.grw-de-kraefte.mXwjpqF1s2QuXVp1
-        transfer: true
-        flags: {}
-        tint: '#ffffff'
-        name: Standard
-        description: ''
-        statuses: []
-        _stats:
-          coreVersion: '13.345'
-          systemId: null
-          systemVersion: null
-          createdTime: null
-          modifiedTime: null
-          lastModifiedBy: null
-          compendiumSource: null
-          duplicateSource: null
-          exportSource: null
-        img: icons/svg/aura.svg
-        type: base
-        system: {}
-        sort: 0
-        _key: >-
-          !actors.items.effects!XhPhxBg111Zg5bem.9I5Xe1PkXWZj34bm.zP22qP0ffFDY2sDJ
-      - _id: 5XPX5RkazyhzQzWk
-        changes:
-          - key: system.attributes.dexterity.value
-            mode: 2
-            value: '2'
-            priority: null
-          - key: system.attributes.strength.value
-            mode: 2
-            value: '2'
-            priority: null
-        disabled: true
-        duration:
-          startTime: null
-          rounds: 3
-          seconds: null
-          combat: null
-          turns: null
-          startRound: null
-          startTurn: null
-        origin: Compendium.te001-core-rulebook.grw-de-kraefte.mXwjpqF1s2QuXVp1
-        transfer: true
-        flags: {}
-        tint: '#ffffff'
-        name: Gut
-        description: ''
-        statuses: []
-        _stats:
-          coreVersion: '13.345'
-          systemId: null
-          systemVersion: null
-          createdTime: null
-          modifiedTime: null
-          lastModifiedBy: null
-          compendiumSource: null
-          duplicateSource: null
-          exportSource: null
-        img: icons/svg/aura.svg
-        type: base
-        system: {}
-        sort: 0
-        _key: >-
-          !actors.items.effects!XhPhxBg111Zg5bem.9I5Xe1PkXWZj34bm.5XPX5RkazyhzQzWk
-      - _id: lJHLUECNRmMVyJAU
-        changes:
-          - key: system.attributes.strength.value
-            mode: 2
-            value: '-2'
-            priority: null
-          - key: system.attributes.dexterity.value
-            mode: 2
-            value: '-2'
-            priority: null
-        disabled: true
-        duration:
-          startTime: null
-          rounds: 6
-          seconds: null
-          combat: null
-          turns: null
-          startRound: null
-          startTurn: null
-        origin: Compendium.te001-core-rulebook.grw-de-kraefte.mXwjpqF1s2QuXVp1
-        transfer: true
-        flags: {}
-        tint: '#ffffff'
-        name: Strafe
-        description: ''
-        statuses: []
-        _stats:
-          coreVersion: '13.345'
-          systemId: null
-          systemVersion: null
-          createdTime: null
-          modifiedTime: null
-          lastModifiedBy: null
-          compendiumSource: null
-          duplicateSource: null
-          exportSource: null
-        img: icons/svg/aura.svg
-        type: base
-        system: {}
-        sort: 0
-        _key: >-
-          !actors.items.effects!XhPhxBg111Zg5bem.9I5Xe1PkXWZj34bm.lJHLUECNRmMVyJAU
-    folder: null
-    sort: 0
-    flags:
-      core: {}
-    system:
-      ap: 0
-      applyArmor: true
-      applySize: true
-      axiom: 20
-      castingtime: 1 Aktion
-      damage: 0
-      description: "<p>Der Psioniker baut psychische Energie auf und kanalisiert sie durch sein Nervensystem, was seine <em>Stärke </em>und <em>Geschicklichkeit </em>um +1 erhöht, solange die Kraft anhält.\_</p><p>Diese Psikraft ist jedoch sehr anstrengend. Sobald die Kraft endet, erleidet der Psioniker 2 Schock und für die nächste Minute einen Malus von –2 auf <em>Stärke</em> und <em>Geschicklichkeit</em>.</p><p>@UUID[Compendium.torgeternity.macros.Macro.sZsA7sBGVaCJTzz0]{Buff!}</p>"
-      dn: challenging
-      dnType: ''
-      duration: 3 Runden
-      good: Stärke und Geschicklichkeit erhöhen sich um +2.
-      isAttack: false
-      modifier: ''
-      outstanding: >-
-        Stärke und Geschicklichkeit erhöhen sich um +2 und der Psioniker
-        erleidet nach Ablauf der Dauer zwar immer noch den Schockschaden, aber
-        keinen Malus.
-      range: Selbst
-      skill: kinesis
-      skilllevel: '10'
-      targetDefense: ''
-    ownership:
-      default: 0
-      9Q0XnqFwko7hRlvL: 3
-      CtisFurQNe9h7ABb: 3
-    _stats:
-      systemId: torgeternity
-      systemVersion: 3.1.1
-      coreVersion: '13.345'
-      createdTime: 1694863426083
-      modifiedTime: 1694863426083
-      lastModifiedBy: CtisFurQNe9h7ABb
-      compendiumSource: Compendium.te001-core-rulebook.grw-de-kraefte.Item.mXwjpqF1s2QuXVp1
-      duplicateSource: null
-      exportSource: null
-    _key: '!actors.items!XhPhxBg111Zg5bem.9I5Xe1PkXWZj34bm'
   - _id: SxID5jEelBSICE6Z
     name: Telekinese
     type: psionicpower
@@ -774,50 +602,6 @@ items:
       lastModifiedBy: null
       exportSource: null
     _key: '!actors.items!XhPhxBg111Zg5bem.1sE1Buxmchw55y8A'
-  - _id: isJZ0la0LRORnKER
-    name: Telekinetische Barriere
-    type: psionicpower
-    img: systems/torgeternity/images/icons/psionicpower.webp
-    effects: []
-    folder: null
-    sort: 0
-    flags: {}
-    system:
-      ap: 0
-      applyArmor: false
-      applySize: false
-      axiom: 23
-      castingtime: 1 Aktion
-      damage: 0
-      description: "<p>Der Psioniker wehrt eingehende Angriffe mit einer Barriere aus purer telekinetischer Energie ab.\_</p>\n<p>Ein Standard-Erfolg fügt +1 zu allen Verteidigungswerten des Psionikers (Ausweichen, Nahkampf und Waffenloser Kampf) hinzu. Für diesen Bonus gelten die üblichen Regeln für kumulative Effekte, sodass ein Charakter, der außerdem noch einen echten Schild trägt, nur vom höheren der beiden Bonusse profitiert.</p>"
-      dn: standard
-      dnType: ''
-      duration: Konzentration
-      good: Der Bonus erhöht sich auf +2.
-      isAttack: false
-      modifier: ''
-      outstanding: Der Bonus erhöht sich auf +3.
-      range: Selbst
-      skill: kinesis
-      skilllevel: '12'
-      targetDefense: ''
-      requiresConcentration: true
-    ownership:
-      default: 0
-      9Q0XnqFwko7hRlvL: 3
-      VAnYow5sWS9EJzo0: 3
-      93AMwcGe6H37rcPA: 3
-    _stats:
-      compendiumSource: Compendium.te001-core-rulebook.grw-de-kraefte.Item.4wHtrSS3RwnpxeXW
-      duplicateSource: null
-      coreVersion: '13.348'
-      systemId: torgeternity
-      systemVersion: 13.8.1
-      createdTime: null
-      modifiedTime: 1756563977322
-      lastModifiedBy: l8SVzn2293lAwvMC
-      exportSource: null
-    _key: '!actors.items!XhPhxBg111Zg5bem.isJZ0la0LRORnKER'
   - name: Mensch
     type: race
     img: systems/torgeternity/images/icons/human-icon.webp
@@ -915,6 +699,117 @@ items:
     _id: nhRhAawVMBao1keF
     sort: 0
     _key: '!actors.items!XhPhxBg111Zg5bem.nhRhAawVMBao1keF'
+  - _id: mXwjpqF1s2QuXVp1
+    name: Aufladen
+    type: psionicpower
+    img: systems/torgeternity/images/icons/psionicpower.webp
+    effects: []
+    folder: Wa9FrEZWVbwbdfEj
+    sort: -100000
+    flags: {}
+    system:
+      ap: 0
+      applyArmor: true
+      applySize: true
+      castingtime: 1 Aktion
+      damage: null
+      description: "<p>Der Psioniker baut psychische Energie auf und kanalisiert sie durch sein Nervensystem, was seine <em>Stärke </em>und <em>Geschicklichkeit </em>um +1 erhöht, solange die Kraft anhält.\_</p><p>Diese Psikraft ist jedoch sehr anstrengend. Sobald die Kraft endet, erleidet der Psioniker 2 Schock und für die nächste Minute einen Malus von –2 auf <em>Stärke</em> und <em>Geschicklichkeit</em>.</p><p>@Buff[strength=+1|dexterity=+1|duration=3]{Aufladen: +1 auf Str+Ges}</p><p>Nach Nutzung @Buff[strength=-2|dexterity=-2|duration=6]{Aufladen: Malus auf Stä+Ges}</p>"
+      dn: challenging
+      dnType: ''
+      duration: 3 Runden
+      good: >-
+        <p>Stärke und Geschicklichkeit erhöhen sich um
+        +2.</p><p>@Buff[strength=+2|dexterity=+2|duration=3]{Aufladen: +2 auf
+        Str+Ges}</p>
+      isAttack: false
+      modifier: null
+      outstanding: >-
+        <p>Stärke und Geschicklichkeit erhöhen sich um +2 und der Psioniker
+        erleidet nach Ablauf der Dauer zwar immer noch den Schockschaden, aber
+        keinen Malus.</p><p>@Buff[strength=+2|dexterity=+2|duration=3]{Aufladen:
+        +2 auf Str+Ges}</p>
+      range: Selbst
+      skill: kinesis
+      skilllevel: 10
+      targetDefense: ''
+      axioms:
+        social: 20
+        magic: 0
+        spirit: 0
+        tech: 0
+      cosm: none
+      traits: []
+      itemsToBestow: []
+      bestowedBy: null
+      requiresConcentration: false
+    ownership:
+      default: 0
+      9Q0XnqFwko7hRlvL: 3
+      VAnYow5sWS9EJzo0: 3
+      BMvGTGfheqDXarjN: 3
+    _stats:
+      compendiumSource: Compendium.te001-core-rulebook.grw-de-kraefte.Item.mXwjpqF1s2QuXVp1
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.27.0
+      createdTime: 1774466084277
+      modifiedTime: 1774466087400
+      lastModifiedBy: BMvGTGfheqDXarjN
+    _key: '!actors.items!XhPhxBg111Zg5bem.mXwjpqF1s2QuXVp1'
+  - _id: 4wHtrSS3RwnpxeXW
+    name: Telekinetische Barriere
+    type: psionicpower
+    img: systems/torgeternity/images/icons/psionicpower.webp
+    effects: []
+    folder: Wa9FrEZWVbwbdfEj
+    sort: 125000
+    flags: {}
+    system:
+      ap: 0
+      applyArmor: false
+      applySize: false
+      castingtime: 1 Aktion
+      damage: null
+      description: "<p>Der Psioniker wehrt eingehende Angriffe mit einer Barriere aus purer telekinetischer Energie ab.\_</p><p>Ein Standard-Erfolg fügt +1 zu allen Verteidigungswerten des Psionikers (Ausweichen, Nahkampf und Waffenloser Kampf) hinzu. Für diesen Bonus gelten die üblichen Regeln für kumulative Effekte, sodass ein Charakter, der außerdem noch einen echten Schild trägt, nur vom höheren der beiden Bonusse profitiert.</p><p>@UUID[Compendium.torgeternity.macros.Macro.sZsA7sBGVaCJTzz0]{Buff!}</p>"
+      dn: standard
+      dnType: ''
+      duration: Konzentration
+      good: Der Bonus erhöht sich auf +2.
+      isAttack: false
+      modifier: null
+      outstanding: Der Bonus erhöht sich auf +3.
+      range: Selbst
+      skill: kinesis
+      skilllevel: 12
+      targetDefense: ''
+      requiresConcentration: true
+      axioms:
+        social: 23
+        magic: 0
+        spirit: 0
+        tech: 0
+      cosm: none
+      traits: []
+      itemsToBestow: []
+      bestowedBy: null
+    ownership:
+      default: 0
+      9Q0XnqFwko7hRlvL: 3
+      VAnYow5sWS9EJzo0: 3
+      BMvGTGfheqDXarjN: 3
+    _stats:
+      compendiumSource: Compendium.te001-core-rulebook.grw-de-kraefte.Item.4wHtrSS3RwnpxeXW
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.27.0
+      createdTime: 1774466121609
+      modifiedTime: 1774466121609
+      lastModifiedBy: BMvGTGfheqDXarjN
+    _key: '!actors.items!XhPhxBg111Zg5bem.4wHtrSS3RwnpxeXW'
 effects: []
 folder: null
 sort: 0

@@ -367,77 +367,6 @@ items:
       duplicateSource: null
       exportSource: null
     _key: '!actors.items!LS1z3a6GAJT83doA.4aD1KQ5M35j8LPLG'
-  - _id: vsz0ZonowO3k7bcL
-    name: Erste-Hilfe-Kasten
-    type: gear
-    img: systems/torgeternity/images/icons/gear-icon.webp
-    effects:
-      - _id: 4O95ViFk7K3rqW7i
-        changes:
-          - key: system.skills.firstAid.isFav
-            mode: 5
-            value: '1'
-            priority: null
-        disabled: false
-        duration:
-          startTime: null
-          seconds: null
-          combat: null
-          rounds: null
-          turns: null
-          startRound: null
-          startTurn: null
-        origin: Compendium.te001-core-rulebook.grw-de-ausruestung.ccAyQ6SPYCK8IWQS
-        transfer: true
-        flags: {}
-        tint: '#ffffff'
-        name: Fertigkeitsbegünstigung
-        description: ''
-        statuses: []
-        _stats:
-          coreVersion: '13.345'
-          systemId: null
-          systemVersion: null
-          createdTime: null
-          modifiedTime: null
-          lastModifiedBy: null
-          compendiumSource: null
-          duplicateSource: null
-          exportSource: null
-        img: icons/svg/aura.svg
-        type: base
-        system: {}
-        sort: 0
-        _key: >-
-          !actors.items.effects!LS1z3a6GAJT83doA.vsz0ZonowO3k7bcL.4O95ViFk7K3rqW7i
-    folder: null
-    sort: -100000
-    flags:
-      core: {}
-    system:
-      cosm: nileEmpire
-      description: <p><em>Erste-Hilfe</em>-Proben sind begünstigt</p>
-      price: '50'
-      techlevel: 19
-      value: 9
-      secondaryAxiom:
-        selected: none
-        value: null
-    ownership:
-      default: 0
-      9Q0XnqFwko7hRlvL: 3
-      CtisFurQNe9h7ABb: 3
-    _stats:
-      systemId: torgeternity
-      systemVersion: 12.2.0
-      coreVersion: '13.345'
-      createdTime: 1694867047131
-      modifiedTime: 1722166698774
-      lastModifiedBy: 93AMwcGe6H37rcPA
-      compendiumSource: Item.qfuqdyayux9JCd6l
-      duplicateSource: null
-      exportSource: null
-    _key: '!actors.items!LS1z3a6GAJT83doA.vsz0ZonowO3k7bcL'
   - name: Taschenlampe
     type: gear
     img: systems/torgeternity/images/icons/gear-icon.webp
@@ -619,6 +548,98 @@ items:
       default: 0
       d8YcfsxBOP7RAazk: 3
     _key: '!actors.items!LS1z3a6GAJT83doA.cWJKBZQuvvDdTCa9'
+  - _id: ccAyQ6SPYCK8IWQS
+    name: Erste-Hilfe-Kasten
+    type: gear
+    img: systems/torgeternity/images/icons/gear-icon.webp
+    effects:
+      - _id: 4O95ViFk7K3rqW7i
+        changes:
+          - key: system.skills.firstAid.isFav
+            mode: 5
+            value: 'true'
+            priority: null
+        disabled: false
+        duration:
+          startTime: 1310
+          seconds: null
+          combat: null
+          rounds: null
+          turns: null
+          startRound: 27
+          startTurn: 0
+        origin: Compendium.te001-core-rulebook.grw-de-ausruestung.ccAyQ6SPYCK8IWQS
+        transfer: true
+        flags: {}
+        tint: '#ffffff'
+        name: Fertigkeitsbegünstigung
+        description: ''
+        statuses: []
+        _stats:
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+          coreVersion: '13.351'
+          systemId: torgeternity
+          systemVersion: 13.27.0
+          lastModifiedBy: null
+        img: systems/torgeternity/images/icons/gear-icon.webp
+        type: base
+        system:
+          applyOnOutcome: ''
+          transferOnOutcome: ''
+          transferTo: target
+          activeIfTrait: []
+          applyIfAttackTrait: []
+          applyIfDefendTrait: []
+          defendAgainstTrait: []
+          applyIfAttackTraitCombine: or
+          applyIfDefendTraitCombine: or
+          defendAgainstTraitCombine: or
+          itemsToBestow: []
+          combatToggle: false
+          concentratingId: null
+        sort: 0
+        _key: >-
+          !actors.items.effects!LS1z3a6GAJT83doA.ccAyQ6SPYCK8IWQS.4O95ViFk7K3rqW7i
+    folder: ov2oFOOEqPht7xmQ
+    sort: -150000
+    flags:
+      core: {}
+    system:
+      cosm: nileEmpire
+      description: <p><em>Erste-Hilfe</em>-Proben sind begünstigt</p>
+      price:
+        dollars: '0'
+      axioms:
+        tech: 23
+        magic: 0
+        social: 0
+        spirit: 0
+      traits: []
+      itemsToBestow: []
+      bestowedBy: null
+      quantity: 1
+      secondaryAxiom: none
+      equipped:
+        carryType: stowed
+        handsHeld: 0
+    ownership:
+      default: 0
+      9Q0XnqFwko7hRlvL: 3
+      VAnYow5sWS9EJzo0: 3
+      BMvGTGfheqDXarjN: 3
+    _stats:
+      compendiumSource: Compendium.te001-core-rulebook.grw-de-ausruestung.Item.ccAyQ6SPYCK8IWQS
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.27.0
+      createdTime: 1774465876768
+      modifiedTime: 1774465878626
+      lastModifiedBy: BMvGTGfheqDXarjN
+    _key: '!actors.items!LS1z3a6GAJT83doA.ccAyQ6SPYCK8IWQS'
 effects: []
 folder: null
 sort: 0

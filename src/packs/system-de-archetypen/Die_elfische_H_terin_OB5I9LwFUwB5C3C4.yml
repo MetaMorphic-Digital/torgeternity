@@ -357,155 +357,6 @@ items:
       lastModifiedBy: 93AMwcGe6H37rcPA
       exportSource: null
     _key: '!actors.items!OB5I9LwFUwB5C3C4.kKgCKpt5xVSLK4NX'
-  - _id: e6cZvGjHUiIJPlPn
-    name: Wächter
-    type: perk
-    img: systems/torgeternity/images/icons/reality-icon.webp
-    effects:
-      - _id: FNj9yLmDXWAA0VSx
-        changes:
-          - key: system.skills.stealth.isFav
-            mode: 5
-            value: 'true'
-            priority: null
-          - key: system.skills.tracking.isFav
-            mode: 5
-            value: 'true'
-            priority: null
-        disabled: false
-        duration:
-          startTime: null
-          seconds: null
-          combat: null
-          rounds: null
-          turns: null
-          startRound: null
-          startTurn: null
-        origin: Compendium.te001-core-rulebook.grw-de-vorzuverb.jgTek2ORzUYzW7VR
-        transfer: true
-        flags: {}
-        tint: '#ffffff'
-        name: Heimlichkeit/Spurenlesen begünstigt
-        description: ''
-        statuses: []
-        _stats:
-          compendiumSource: null
-          duplicateSource: null
-          coreVersion: '13.345'
-          systemId: torgeternity
-          systemVersion: 12.2.0
-          createdTime: null
-          modifiedTime: null
-          lastModifiedBy: null
-          exportSource: null
-        img: icons/svg/aura.svg
-        type: base
-        system: {}
-        sort: 0
-        _key: >-
-          !actors.items.effects!OB5I9LwFUwB5C3C4.e6cZvGjHUiIJPlPn.FNj9yLmDXWAA0VSx
-    folder: WDvJC2MufxrqwbzV
-    sort: 450000
-    flags: {}
-    system:
-      category: elf
-      cosm: none
-      description: "<p>Vor Uthorions Zorn durchstreiften die elfischen Wächter die Wildnis von Aysle, immer wachsam gegenüber Bedrohungen für die einfachen Leute. Als die Horden der Finsternis durch ihre Wälder marschierten, schrumpfte die Zahlen der Wächter von Tausenden auf weniger als einhundert.\_</p><p>Die meisten dieser Überlebenden kamen seltsamerweise zur Erde. Sie schweigen hartnäckig über ihre Gründe, scheinen aber eine gewisse Scham für die Unfähigkeit ihres Volkes zu empfinden, den High Lord nicht aufgehalten zu haben, bevor er seine Aufmerksamkeit der Zentralerde zuwandte.\_</p><p>Die Wächter sind unabhängig, unauffällig und gerissen, und viele werden von Tieren begleitet, mit denen sie sich in der Wildnis angefreundet haben (siehe @Compendium[te001-core-rulebook.grw-de-vorzuverb.K9A5acqvE1fUUeUr]{Tiergefährte: Weisser Wolf}). Die Wächter dürfen <em>Heimlichkeit</em> und <em>Spurenlesen</em> als Begünstigte Fertigkeiten einsetzen.</p>"
-      prerequisites: Elf
-      generalContradiction: false
-      pulpPowers:
-        enhancement01:
-          description: ''
-          taken: false
-          title: ''
-        enhancement02:
-          description: ''
-          taken: false
-          title: ''
-        enhancement03:
-          description: ''
-          taken: false
-          title: ''
-        enhancement04:
-          description: ''
-          taken: false
-          title: ''
-        enhancement05:
-          description: ''
-          taken: false
-          title: ''
-        enhancement06:
-          description: ''
-          taken: false
-          title: ''
-        enhancement07:
-          description: ''
-          taken: false
-          title: ''
-        enhancement08:
-          description: ''
-          taken: false
-          title: ''
-        enhancement09:
-          description: ''
-          taken: false
-          title: ''
-        enhancement10:
-          description: ''
-          taken: false
-          title: ''
-        enhancement11:
-          description: ''
-          taken: false
-          title: ''
-        enhancement12:
-          description: ''
-          taken: false
-          title: ''
-        enhancement13:
-          description: ''
-          taken: false
-          title: ''
-        enhancement14:
-          description: ''
-          taken: false
-          title: ''
-        enhancement15:
-          description: ''
-          taken: false
-          title: ''
-        enhancementNumber: 0
-        limitation01: ''
-        limitation02: ''
-        limitation03: ''
-        limitation04: ''
-        limitation05: ''
-        limitation06: ''
-        limitation07: ''
-        limitation08: ''
-        limitation09: ''
-        limitation10: ''
-        limitationNumber: 0
-      timestaken: ''
-      secondaryAxiom:
-        selected: none
-        value: null
-    ownership:
-      default: 0
-      9Q0XnqFwko7hRlvL: 3
-      VAnYow5sWS9EJzo0: 3
-      93AMwcGe6H37rcPA: 3
-    _stats:
-      compendiumSource: Compendium.te001-core-rulebook.grw-de-vorzuverb.Item.jgTek2ORzUYzW7VR
-      duplicateSource: null
-      coreVersion: '13.345'
-      systemId: torgeternity
-      systemVersion: 12.2.0
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      exportSource: null
-    _key: '!actors.items!OB5I9LwFUwB5C3C4.e6cZvGjHUiIJPlPn'
   - name: Elf
     type: race
     img: systems/torgeternity/images/icons/elf-icon.webp
@@ -1208,7 +1059,7 @@ items:
           startRound: null
           startTurn: null
         disabled: false
-        img: icons/svg/aura.svg
+        img: systems/torgeternity/images/icons/reality-icon.webp
         _id: tP1IaUnKOfh6hpCH
         type: base
         system:
@@ -1234,7 +1085,8 @@ items:
           coreVersion: '13.351'
           systemId: torgeternity
           systemVersion: 13.15.0
-          lastModifiedBy: null
+          lastModifiedBy: BMvGTGfheqDXarjN
+          modifiedTime: 1774465580685
         _key: >-
           !actors.items.effects!OB5I9LwFUwB5C3C4.37QYNjCHxnbW3VFm.tP1IaUnKOfh6hpCH
     folder: icqFu6DFcYQQKoSN
@@ -1349,6 +1201,102 @@ items:
     _id: 37QYNjCHxnbW3VFm
     sort: 0
     _key: '!actors.items!OB5I9LwFUwB5C3C4.37QYNjCHxnbW3VFm'
+  - _id: jgTek2ORzUYzW7VR
+    name: Wächter
+    type: perk
+    img: systems/torgeternity/images/icons/reality-icon.webp
+    effects:
+      - _id: FNj9yLmDXWAA0VSx
+        changes:
+          - key: system.skills.stealth.isFav
+            mode: 5
+            value: 'true'
+            priority: null
+          - key: system.skills.tracking.isFav
+            mode: 5
+            value: 'true'
+            priority: null
+        disabled: false
+        duration:
+          startTime: 1310
+          seconds: null
+          combat: null
+          rounds: null
+          turns: null
+          startRound: 27
+          startTurn: 0
+        origin: Compendium.te001-core-rulebook.grw-de-vorzuverb.jgTek2ORzUYzW7VR
+        transfer: true
+        flags: {}
+        tint: '#ffffff'
+        name: Heimlichkeit/Spurenlesen begünstigt
+        description: ''
+        statuses: []
+        _stats:
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+          coreVersion: '13.351'
+          systemId: torgeternity
+          systemVersion: 13.27.0
+          lastModifiedBy: null
+        img: systems/torgeternity/images/icons/reality-icon.webp
+        type: base
+        system:
+          applyOnOutcome: ''
+          transferOnOutcome: ''
+          transferTo: target
+          activeIfTrait: []
+          applyIfAttackTrait: []
+          applyIfDefendTrait: []
+          defendAgainstTrait: []
+          applyIfAttackTraitCombine: or
+          applyIfDefendTraitCombine: or
+          defendAgainstTraitCombine: or
+          itemsToBestow: []
+          combatToggle: false
+          concentratingId: null
+        sort: 0
+        _key: >-
+          !actors.items.effects!OB5I9LwFUwB5C3C4.jgTek2ORzUYzW7VR.FNj9yLmDXWAA0VSx
+    folder: bpjhyVFYeDBj6rLi
+    sort: 125000
+    flags: {}
+    system:
+      category: elf
+      cosm: aysle
+      description: "<p>Vor Uthorions Zorn durchstreiften die elfischen Wächter die Wildnis von Aysle, immer wachsam gegenüber Bedrohungen für die einfachen Leute. Als die Horden der Finsternis durch ihre Wälder marschierten, schrumpfte die Zahlen der Wächter von Tausenden auf weniger als einhundert.\_</p><p>Die meisten dieser Überlebenden kamen seltsamerweise zur Erde. Sie schweigen hartnäckig über ihre Gründe, scheinen aber eine gewisse Scham für die Unfähigkeit ihres Volkes zu empfinden, den High Lord nicht aufgehalten zu haben, bevor er seine Aufmerksamkeit der Zentralerde zuwandte.\_</p><p>Die Wächter sind unabhängig, unauffällig und gerissen, und viele werden von Tieren begleitet, mit denen sie sich in der Wildnis angefreundet haben (siehe @Compendium[te001-core-rulebook.grw-de-vorzuverb.K9A5acqvE1fUUeUr]{Tiergefährte (Weisser Wolf)}). Die Wächter dürfen <em>Heimlichkeit</em> und <em>Spurenlesen</em> als Begünstigte Fertigkeiten einsetzen.</p>"
+      prerequisites: >-
+        <p>@UUID[Compendium.te001-core-rulebook.grw-de-vorzuverb.Item.mUbmPDIYErf34hLh]{Elf}</p>
+      generalContradiction: false
+      timestaken: ''
+      enhancements: []
+      limitations: []
+      traits: []
+      axioms:
+        magic: 0
+        social: 0
+        spirit: 0
+        tech: 0
+      itemsToBestow: []
+      bestowedBy: null
+      secondaryAxiom: none
+    ownership:
+      default: 0
+      9Q0XnqFwko7hRlvL: 3
+      VAnYow5sWS9EJzo0: 3
+      BMvGTGfheqDXarjN: 3
+    _stats:
+      compendiumSource: Compendium.te001-core-rulebook.grw-de-vorzuverb.Item.jgTek2ORzUYzW7VR
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.27.0
+      createdTime: 1774465561170
+      modifiedTime: 1774465561170
+      lastModifiedBy: BMvGTGfheqDXarjN
+    _key: '!actors.items!OB5I9LwFUwB5C3C4.jgTek2ORzUYzW7VR'
 effects:
   - origin: Actor.OB5I9LwFUwB5C3C4.Item.Sh5CR5qpJTAzjQsC
     duration:
@@ -1361,7 +1309,7 @@ effects:
       startTurn: null
     disabled: false
     name: Geschicklichkeit begünstigt
-    img: icons/svg/aura.svg
+    img: systems/torgeternity/images/icons/reality-icon.webp
     _id: icZp6QEzyhsN4eCt
     type: base
     system: {}
@@ -1379,12 +1327,12 @@ effects:
     _stats:
       compendiumSource: null
       duplicateSource: null
-      coreVersion: '13.345'
+      coreVersion: '13.351'
       systemId: torgeternity
       systemVersion: 12.2.0
       createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
+      modifiedTime: 1774465596861
+      lastModifiedBy: BMvGTGfheqDXarjN
       exportSource: null
     _key: '!actors.effects!OB5I9LwFUwB5C3C4.icZp6QEzyhsN4eCt'
 folder: null

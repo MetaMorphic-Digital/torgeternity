@@ -9,7 +9,7 @@
 - Allow skills to be included in the "Active only if" field of an Active Effect, primarily to help modify the test.
 - Allow any `*Modifier` field in a test to be modified by an Active Effect:
   - Whirlwind: set "Active only if" to "Melee Weapons": with a change of `test.targetsModifier` ADD 2
-- **System Archetypes** updated to latest Item traits/Active Effects (English, not German or French yet)
+- **System Archetypes** updated to latest Item traits/Active Effects (English, German, not French yet)
 
 ## 13.31.4 - Bug Fixes Galore (well four)
 - Tooltip on Scene Nav correct when only one cosm selected.

@@ -431,95 +431,6 @@ items:
       lastModifiedBy: null
       exportSource: null
     _key: '!actors.items!KXfP2nOG8VVWBOtA.01LpjUm29w7H335H'
-  - _id: gg7xWRG5lWcaA4jA
-    name: Reduzieren
-    type: spell
-    img: systems/torgeternity/images/icons/spell-icon.webp
-    effects: []
-    folder: null
-    sort: -100000
-    flags: {}
-    system:
-      ap: 0
-      applyArmor: false
-      applySize: false
-      axiom: 10
-      castingtime: 1 Aktion
-      damage: 0
-      description: "<p>Dieser Zauber verringert einen Attributswert des Ziels (das beim Wirken des Zauberspruchs ausgewählt wird) und alle mit diesem Attribut verknüpften Fertigkeiten um –2. Durch mehrfaches Zaubern können mehrere verschiedene Attribute beeinflusst werden.\_</p><p>Der Zaubernde mimt eine Handlung, die sich auf das betroffene Attribut bezieht: Eine abwertende Geste, um den Geist zu reduzieren, ein Vorgeben zu Stolpern, wenn <em>Geschicklichkeit </em>reduziert wird, usw.\_</p><p>Ein Reduzieren von <em>Stärke </em>oder <em>Geist </em>reduziert nicht die Robustheit oder die Schock-Obergrenze.</p><p>@UUID[Compendium.torgeternity.macros.Macro.sZsA7sBGVaCJTzz0]{Buff!}</p>"
-      dn: targetWillpower
-      dnType: ''
-      duration: 3 Runden
-      good: Die Reduktion verbessert sich auf –4.
-      isAttack: false
-      modifier: ''
-      outstanding: >-
-        Wie Erfolgsstufe Gut. Außerdem darf das Ziel nicht erneut würfeln, wenn
-        es bei seinem Würfelwurf auf das betroffene Attribut oder eine damit
-        verknüpfte Fertigkeit eine „20“ würfelt.
-      range: 40 Meter
-      skill: alteration
-      skilllevel: '12'
-      targetDefense: ''
-    ownership:
-      default: 0
-      9Q0XnqFwko7hRlvL: 3
-      VAnYow5sWS9EJzo0: 3
-      93AMwcGe6H37rcPA: 3
-    _stats:
-      compendiumSource: Compendium.te001-core-rulebook.grw-de-kraefte.Item.dnvTmgrdRgrEjvo9
-      duplicateSource: null
-      coreVersion: '13.345'
-      systemId: torgeternity
-      systemVersion: 12.2.0
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      exportSource: null
-    _key: '!actors.items!KXfP2nOG8VVWBOtA.gg7xWRG5lWcaA4jA'
-  - _id: QG9VdMEKPS1pFJUA
-    name: Verbesserung
-    type: spell
-    img: systems/torgeternity/images/icons/spell-icon.webp
-    effects: []
-    folder: null
-    sort: 0
-    flags: {}
-    system:
-      ap: 0
-      applyArmor: false
-      applySize: false
-      axiom: 10
-      castingtime: 1 Aktion
-      damage: 0
-      description: "<p>Schwierigkeit ist das\_<strong>Zielattribut!</strong></p><p>Dieser Zauber erhöht ein einzelnes Attribut des Zaubernden oder eines Verbündeten um +1. Es dürfen auch mehrere Verbündete gleichzeitig verbessert werden, solange sich alle innerhalb der Reichweite befinden und der Anwender die Option „Mehrfach-Zielauswahl“ benutzt. Der MW ist der Wert des Attributs, das verbessert werden soll – je besser jemand ist, desto schwieriger ist es, ihn weiter zu verbessern. Durch separate Anwendungen des Zaubers können andere Attribute ebenfalls verbessert werden.\_</p><p>Ein Verbessern von <em>Stärke </em>oder <em>Geist </em>erhöht nicht die Robustheit oder die Schock-Obergrenze.\_</p><p>Der Zaubernde ahmt beim Zaubern einen Aspekt des Attributs nach: Ein Knacken der Knöchel, um die <em>Geschicklichkeit </em>zu verbessern, ein Spannen der Muskeln, um die Stärke zu erhöhen, und so weiter.</p><p>@UUID[Compendium.torgeternity.macros.Macro.sZsA7sBGVaCJTzz0]{Buff!}</p>"
-      dn: targetCharisma
-      dnType: ''
-      duration: 3 Runden
-      good: Das Attribut wird um +2 erhöht.
-      isAttack: false
-      modifier: ''
-      outstanding: Das Attribut wird um +3 erhöht.
-      range: 40 Meter
-      skill: alteration
-      skilllevel: '12'
-      targetDefense: ''
-    ownership:
-      default: 0
-      9Q0XnqFwko7hRlvL: 3
-      VAnYow5sWS9EJzo0: 3
-      93AMwcGe6H37rcPA: 3
-    _stats:
-      compendiumSource: Compendium.te001-core-rulebook.grw-de-kraefte.Item.373rRZieSUiFDMNo
-      duplicateSource: null
-      coreVersion: '13.345'
-      systemId: torgeternity
-      systemVersion: 12.2.0
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      exportSource: null
-    _key: '!actors.items!KXfP2nOG8VVWBOtA.QG9VdMEKPS1pFJUA'
   - name: Mensch
     type: race
     img: systems/torgeternity/images/icons/human-icon.webp
@@ -560,6 +471,131 @@ items:
       default: 0
       d8YcfsxBOP7RAazk: 3
     _key: '!actors.items!KXfP2nOG8VVWBOtA.WnQ5PdFEfsIEFG6U'
+  - _id: 373rRZieSUiFDMNo
+    name: Verbesserung
+    type: spell
+    img: systems/torgeternity/images/icons/spell-icon.webp
+    effects: []
+    folder: AFIk0b4jj8Lqc2kJ
+    sort: 100007
+    flags: {}
+    system:
+      ap: 0
+      applyArmor: false
+      applySize: false
+      castingtime: 1 Aktion
+      damage: null
+      description: "<p>Schwierigkeit ist das\_<strong>Zielattribut!</strong></p><p>Dieser Zauber erhöht ein einzelnes Attribut des Zaubernden oder eines Verbündeten um +1. Es dürfen auch mehrere Verbündete gleichzeitig verbessert werden, solange sich alle innerhalb der Reichweite befinden und der Anwender die Option „Mehrfach-Zielauswahl“ benutzt. Der MW ist der Wert des Attributs, das verbessert werden soll – je besser jemand ist, desto schwieriger ist es, ihn weiter zu verbessern. Durch separate Anwendungen des Zaubers können andere Attribute ebenfalls verbessert werden.\_</p><p>Ein Verbessern von <em>Stärke </em>oder <em>Geist </em>erhöht nicht die Robustheit oder die Schock-Obergrenze.\_</p><p>Der Zaubernde ahmt beim Zaubern einen Aspekt des Attributs nach: Ein Knacken der Knöchel, um die <em>Geschicklichkeit </em>zu verbessern, ein Spannen der Muskeln, um die Stärke zu erhöhen, und so weiter.</p><p>@Buff[charisma=+1|duration=3]{Verbesserung: +1 Charisma}</p><p>@Buff[dexterity=+1|duration=3]{Verbesserung: +1 Geschicklichkeit}</p><p>@Buff[mind=+1|duration=3]{Verbesserung: +1 Verstand}</p><p>@Buff[spirit=+1|duration=3]{Verbesserung: +1 Geist}</p><p>@Buff[strength=+1|duration=3]{Verbesserung: +1 Stärke}</p>"
+      dn: targetCharisma
+      dnType: ''
+      duration: 3 Runden
+      good: >-
+        <p>Das Attribut wird um +2
+        erhöht.</p><p>@Buff[charisma=+2|duration=3]{Verbesserung: +2
+        Charisma}</p><p>@Buff[dexterity=+2|duration=3]{Verbesserung: +2
+        Geschicklichkeit}</p><p>@Buff[mind=+2|duration=3]{Verbesserung: +2
+        Verstand}</p><p>@Buff[spirit=+2|duration=3]{Verbesserung: +2
+        Geist}</p><p>@Buff[strength=+2|duration=3]{Verbesserung: +2 Stärke}</p>
+      isAttack: false
+      modifier: null
+      outstanding: >-
+        <p>Das Attribut wird um +3
+        erhöht.</p><p>@Buff[charisma=+3|duration=3]{Verbesserung: +3
+        Charisma}</p><p>@Buff[dexterity=+3|duration=3]{Verbesserung: +3
+        Geschicklichkeit}</p><p>@Buff[mind=+3|duration=3]{Verbesserung: +3
+        Verstand}</p><p>@Buff[spirit=+3|duration=3]{Verbesserung: +3
+        Geist}</p><p>@Buff[strength=+3|duration=3]{Verbesserung: +3 Stärke}</p>
+      range: 40 Meter
+      skill: alteration
+      skilllevel: 12
+      targetDefense: ''
+      axioms:
+        magic: 10
+        social: 0
+        spirit: 0
+        tech: 0
+      cosm: none
+      traits: []
+      itemsToBestow: []
+      bestowedBy: null
+      requiresConcentration: false
+    ownership:
+      default: 0
+      9Q0XnqFwko7hRlvL: 3
+      VAnYow5sWS9EJzo0: 3
+      BMvGTGfheqDXarjN: 3
+    _stats:
+      compendiumSource: Compendium.te001-core-rulebook.grw-de-kraefte.Item.373rRZieSUiFDMNo
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.27.0
+      createdTime: 1774460751046
+      modifiedTime: 1774460751046
+      lastModifiedBy: BMvGTGfheqDXarjN
+    _key: '!actors.items!KXfP2nOG8VVWBOtA.373rRZieSUiFDMNo'
+  - _id: dnvTmgrdRgrEjvo9
+    name: Reduzieren
+    type: spell
+    img: systems/torgeternity/images/icons/spell-icon.webp
+    effects: []
+    folder: AFIk0b4jj8Lqc2kJ
+    sort: 7
+    flags: {}
+    system:
+      ap: 0
+      applyArmor: false
+      applySize: false
+      castingtime: 1 Aktion
+      damage: null
+      description: "<p>Dieser Zauber verringert einen Attributswert des Ziels (das beim Wirken des Zauberspruchs ausgewählt wird) und alle mit diesem Attribut verknüpften Fertigkeiten um –2. Durch mehrfaches Zaubern können mehrere verschiedene Attribute beeinflusst werden.\_</p><p>Der Zaubernde mimt eine Handlung, die sich auf das betroffene Attribut bezieht: Eine abwertende Geste, um den Geist zu reduzieren, ein Vorgeben zu Stolpern, wenn <em>Geschicklichkeit </em>reduziert wird, usw.\_</p><p>Ein Reduzieren von <em>Stärke </em>oder <em>Geist </em>reduziert nicht die Robustheit oder die Schock-Obergrenze.</p><p>@Buff[charisma=-2|duration=3]{Reduzieren: -2 Charisma}</p><p>@Buff[dexterity=-2|duration=3]{Reduzieren: -2 Geschicklichkeit}</p><p>@Buff[mind=-2|duration=3]{Reduzieren: -2 Verstand}</p><p>@Buff[spirit=-2|duration=3]{Reduzieren: -2 Geist}</p><p>@Buff[strength=-2|duration=3]{Reduzieren: -2 Stärke}</p>"
+      dn: targetWillpower
+      dnType: ''
+      duration: 3 Runden
+      good: >-
+        <p>Die Reduktion verbessert sich auf
+        –4.</p><p>@Buff[charisma=-4|duration=3]{Reduzieren: -4
+        Charisma}</p><p>@Buff[dexterity=-4|duration=3]{Reduzieren: -4
+        Geschicklichkeit}</p><p>@Buff[mind=-4|duration=3]{Reduzieren: -4
+        Verstand}</p><p>@Buff[spirit=-4|duration=3]{Reduzieren: -4
+        Geist}</p><p>@Buff[strength=-4|duration=3]{Reduzieren: -4 Stärke}</p>
+      isAttack: false
+      modifier: null
+      outstanding: >-
+        Wie Erfolgsstufe Gut. Außerdem darf das Ziel nicht erneut würfeln, wenn
+        es bei seinem Würfelwurf auf das betroffene Attribut oder eine damit
+        verknüpfte Fertigkeit eine „20“ würfelt.
+      range: 40 Meter
+      skill: alteration
+      skilllevel: 12
+      targetDefense: ''
+      axioms:
+        magic: 10
+        social: 0
+        spirit: 0
+        tech: 0
+      cosm: none
+      traits: []
+      itemsToBestow: []
+      bestowedBy: null
+      requiresConcentration: false
+    ownership:
+      default: 0
+      9Q0XnqFwko7hRlvL: 3
+      VAnYow5sWS9EJzo0: 3
+      BMvGTGfheqDXarjN: 3
+    _stats:
+      compendiumSource: Compendium.te001-core-rulebook.grw-de-kraefte.Item.dnvTmgrdRgrEjvo9
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.27.0
+      createdTime: 1774460785852
+      modifiedTime: 1774460790351
+      lastModifiedBy: BMvGTGfheqDXarjN
+    _key: '!actors.items!KXfP2nOG8VVWBOtA.dnvTmgrdRgrEjvo9'
 effects: []
 folder: null
 sort: 0

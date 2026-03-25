@@ -650,92 +650,6 @@ items:
       exportSource: null
     _id: a85jDXcicp1xAwRS
     _key: '!actors.items!sThfpHelpOeE3Ipz.a85jDXcicp1xAwRS'
-  - _id: ajzc4iSNhMyEooU6
-    name: Machete
-    type: meleeweapon
-    img: systems/torgeternity/images/icons/axe-icon.webp
-    effects:
-      - _id: sFPcVAMnyhyPeTzH
-        changes:
-          - key: system.skills.survival.isFav
-            mode: 5
-            value: 'true'
-            priority: null
-        disabled: false
-        duration:
-          startTime: null
-          seconds: null
-          combat: null
-          rounds: null
-          turns: null
-          startRound: null
-          startTurn: null
-        origin: Compendium.te001-core-rulebook.grw-de-ausruestung.b6nZOz177J3nWcLF
-        transfer: true
-        flags: {}
-        tint: '#ffffff'
-        name: Begünstigung Überleben
-        description: ''
-        statuses: []
-        _stats:
-          compendiumSource: null
-          duplicateSource: null
-          coreVersion: '13.345'
-          systemId: torgeternity
-          systemVersion: 12.2.0
-          createdTime: null
-          modifiedTime: null
-          lastModifiedBy: null
-          exportSource: null
-        img: icons/svg/aura.svg
-        type: base
-        system: {}
-        sort: 0
-        _key: >-
-          !actors.items.effects!sThfpHelpOeE3Ipz.ajzc4iSNhMyEooU6.sFPcVAMnyhyPeTzH
-    folder: WDvJC2MufxrqwbzV
-    sort: 250000
-    flags:
-      core: {}
-    system:
-      cosm: none
-      description: >-
-        <p>Diese mittelgroße, einschneidige Klinge ist bestens für das Entfernen
-        dichten Gestrüpps ausbalanciert und eignet sich auch hervorragend zum
-        Zerteilen von Fleisch. Moderne Macheten haben in den Griff eingebautes
-        Überlebenswerkzeug, wodurch Überlebenskunst- Proben als Begünstigt
-        zählen.</p>
-      price: '40'
-      techlevel: 22
-      value: 8
-      ap: 0
-      attackWith: meleeWeapons
-      bonus: 2
-      chatNote: ''
-      damage: 2
-      damageType: strengthPlus
-      equipped: true
-      notes: Überlebenskunst-Proben werden Begünstigt
-      secondaryAxiom:
-        selected: none
-        value: null
-      minStrength: null
-    ownership:
-      default: 0
-      9Q0XnqFwko7hRlvL: 3
-      CtisFurQNe9h7ABb: 3
-      93AMwcGe6H37rcPA: 3
-    _stats:
-      compendiumSource: Compendium.te001-core-rulebook.grw-de-ausruestung.Item.b6nZOz177J3nWcLF
-      duplicateSource: null
-      coreVersion: '13.346'
-      systemId: torgeternity
-      systemVersion: 13.2.2
-      createdTime: null
-      modifiedTime: 1753598841387
-      lastModifiedBy: W32Zl65V9atvPk8o
-      exportSource: null
-    _key: '!actors.items!sThfpHelpOeE3Ipz.ajzc4iSNhMyEooU6'
   - name: Mensch
     type: race
     img: systems/torgeternity/images/icons/human-icon.webp
@@ -776,6 +690,111 @@ items:
       default: 0
       d8YcfsxBOP7RAazk: 3
     _key: '!actors.items!sThfpHelpOeE3Ipz.hyJWhndDybdUk5FC'
+  - _id: b6nZOz177J3nWcLF
+    name: Machete
+    type: meleeweapon
+    img: systems/torgeternity/images/icons/axe-icon.webp
+    effects:
+      - _id: sFPcVAMnyhyPeTzH
+        changes:
+          - key: system.skills.survival.isFav
+            mode: 5
+            value: 'true'
+            priority: null
+        disabled: false
+        duration:
+          startTime: 1310
+          seconds: null
+          combat: null
+          rounds: null
+          turns: null
+          startRound: 27
+          startTurn: 0
+        origin: Compendium.te001-core-rulebook.grw-de-ausruestung.b6nZOz177J3nWcLF
+        transfer: true
+        flags: {}
+        tint: '#ffffff'
+        name: Überleben Fav
+        description: ''
+        statuses: []
+        _stats:
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+          coreVersion: '13.351'
+          systemId: torgeternity
+          systemVersion: 13.27.0
+          lastModifiedBy: null
+        img: systems/torgeternity/images/icons/axe-icon.webp
+        type: base
+        system:
+          applyOnOutcome: ''
+          transferOnOutcome: ''
+          transferTo: target
+          activeIfTrait: []
+          applyIfAttackTrait: []
+          applyIfDefendTrait: []
+          defendAgainstTrait: []
+          applyIfAttackTraitCombine: or
+          applyIfDefendTraitCombine: or
+          defendAgainstTraitCombine: or
+          itemsToBestow: []
+          combatToggle: false
+          concentratingId: null
+        sort: 0
+        _key: >-
+          !actors.items.effects!sThfpHelpOeE3Ipz.b6nZOz177J3nWcLF.sFPcVAMnyhyPeTzH
+    folder: npsD7KK0ftdKKbjK
+    sort: 200000
+    flags:
+      core: {}
+    system:
+      cosm: coreEarth
+      description: >-
+        <p>Diese mittelgroße, einschneidige Klinge ist bestens für das Entfernen
+        dichten Gestrüpps ausbalanciert und eignet sich auch hervorragend zum
+        Zerteilen von Fleisch. Moderne Macheten haben in den Griff eingebautes
+        Überlebenswerkzeug, wodurch Überlebenskunst- Proben als Begünstigt
+        zählen.</p>
+      price:
+        dollars: '40'
+      ap: 0
+      attackWith: meleeWeapons
+      bonus: 2
+      chatNote: ''
+      damage: 2
+      damageType: strengthPlus
+      equipped:
+        carryType: held
+        handsHeld: 1
+      notes: Überlebenskunst-Proben werden Begünstigt
+      axioms:
+        tech: 22
+        magic: 0
+        social: 0
+        spirit: 0
+      traits: []
+      itemsToBestow: []
+      bestowedBy: null
+      quantity: 1
+      secondaryAxiom: none
+      minStrength: null
+    ownership:
+      default: 0
+      9Q0XnqFwko7hRlvL: 3
+      VAnYow5sWS9EJzo0: 3
+      BMvGTGfheqDXarjN: 3
+    _stats:
+      compendiumSource: Compendium.te001-core-rulebook.grw-de-ausruestung.Item.b6nZOz177J3nWcLF
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.27.0
+      createdTime: 1774465934467
+      modifiedTime: 1774465937316
+      lastModifiedBy: BMvGTGfheqDXarjN
+    _key: '!actors.items!sThfpHelpOeE3Ipz.b6nZOz177J3nWcLF'
 effects: []
 folder: null
 sort: 0
