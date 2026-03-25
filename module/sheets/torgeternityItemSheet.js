@@ -366,6 +366,7 @@ export default class TorgeternityItemSheet extends foundry.applications.api.Hand
     // Need real items to access `item.isOwner`
     for (const item of context.itemsToBestow) {
       item.description = await foundry.applications.ux.TextEditor.enrichHTML(item.system.description, { secrets: item.isOwner ?? true });
+      if (!item.system.traits) item.system.traits = [];
       item.traitDesc = Array.from(item.system.traits.map(trait => game.i18n.localize(`torgeternity.traits.${trait}`))).join(' / ');
     }
     context.itemsToBestow = Array.from(context.itemsToBestow);
