@@ -131,7 +131,7 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
   }
 
   get isTransferrable() {
-    return !this.disabled && (this.system.transferOnOutcome || this.system.transferOnOutcome);
+    return !this.disabled && !!this.system.transferOnOutcome;
   }
 
   /**
