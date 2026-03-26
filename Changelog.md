@@ -6,6 +6,9 @@
 - Rework workflow for calculation of the zone axioms affecting a Stormknight:
   - The zone axioms are based on the ACTIVE scene.
   - The token must be in a Region on the ACTIVE scene to affect the SK's zone axioms.
+  - Active Effects can modify the base scene axioms affecting an Actor with `system.sceneAxioms.magic` (or spirit/social/tech), but Regions and Reality Surge supercede them.
+    - `UPGRADE` to work like a 'mixed' zone.
+    - `OVERRIDE` to work like a 'pure' zone.
 - Allow skills to be included in the "Active only if" field of an Active Effect, primarily to help modify the test.
 - Allow any `*Modifier` field in a test to be modified by an Active Effect:
   - Whirlwind: set "Active only if" to "Melee Weapons": with a change of `test.targetsModifier` ADD 2

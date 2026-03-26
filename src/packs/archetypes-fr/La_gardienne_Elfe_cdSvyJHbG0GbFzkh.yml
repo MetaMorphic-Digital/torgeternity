@@ -864,8 +864,8 @@ items:
       techlevel: 13
       value: 11
       ammo:
-        max: 1
-        value: 1
+        max: 0
+        value: 0
       ap: 0
       attackWith: missileWeapons
       chatNote: ''
@@ -881,10 +881,10 @@ items:
       default: 0
     _stats:
       systemId: torgeternity
-      systemVersion: 13.15.0
+      systemVersion: 13.27.0
       coreVersion: '13.351'
       createdTime: null
-      modifiedTime: 1771934116759
+      modifiedTime: 1774532342641
       lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: Item.95xJ3EnPzdWIOAWh
       duplicateSource: null

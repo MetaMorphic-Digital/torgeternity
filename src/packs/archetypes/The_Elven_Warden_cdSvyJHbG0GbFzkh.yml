@@ -50,7 +50,7 @@ items:
       techlevel: 13
       value: 11
       ammo:
-        max: 1
+        max: 0
         value: 0
       ap: 0
       attackWith: missileWeapons
@@ -70,11 +70,11 @@ items:
       CtisFurQNe9h7ABb: 3
     _stats:
       systemId: torgeternity
-      systemVersion: 13.2.2
-      coreVersion: '13.346'
+      systemVersion: 13.27.0
+      coreVersion: '13.351'
       createdTime: 1693910151043
-      modifiedTime: 1753599151726
-      lastModifiedBy: W32Zl65V9atvPk8o
+      modifiedTime: 1774532123480
+      lastModifiedBy: BMvGTGfheqDXarjN
       compendiumSource: Compendium.te001-core-rulebook.Items.RXXesFyswYwzjRCS
       duplicateSource: null
       exportSource: null
