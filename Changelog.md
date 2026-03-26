@@ -10,6 +10,8 @@
 - Allow any `*Modifier` field in a test to be modified by an Active Effect:
   - Whirlwind: set "Active only if" to "Melee Weapons": with a change of `test.targetsModifier` ADD 2
 - **System Archetypes** updated to latest Item traits/Active Effects
+- Hide Foundry default Active Effect Sheet, and change two sheet names from "xxx Configuration" to "xxx Sheet".
+- Allow Active Effects to be dragged onto Items.
 
 ## 13.31.4 - Bug Fixes Galore (well four)
 - Tooltip on Scene Nav correct when only one cosm selected.
