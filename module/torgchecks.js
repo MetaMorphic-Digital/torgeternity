@@ -466,7 +466,7 @@ export async function renderSkillChat(test, origChatMessage) {
     }
 
     // Concentration
-    if (first && test.result >= TestResult.STANDARD && testItem?.system.requiresConcentration) {
+    if (first && test.result >= TestResult.STANDARD && testItem?.system.requiresConcentration && !test.concentratingId) {
       test.concentratingId = (await testActor.addConcentration(testItem))?.uuid;
       ChatMessage.create({
         speaker: ChatMessage.getSpeaker({ actor: testActor }),

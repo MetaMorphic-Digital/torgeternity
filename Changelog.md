@@ -2,6 +2,10 @@
 
 - Translations by Durak (French), Helmut (German), and Teotimus (Spanish).
 
+
+## NEXT - 
+- Concentration is only added once when pressing buttons in the chat message to improve the test result.
+
 ## 13.32.0 - Axioms and Effects
 - Rework workflow for calculation of the zone axioms affecting a Stormknight:
   - The zone axioms for a SK are based on the ACTIVE scene.
