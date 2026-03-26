@@ -2,9 +2,17 @@
 
 - Translations by Durak (French), Helmut (German), and Teotimus (Spanish).
 
-## NEXT
+
+## 13.32.1 - Concentration + Aura Effects module support
+- Concentration is now only added once when pressing buttons in the chat message to improve the test result.
+- Active Effects can be dragged and dropped onto the same Item/Actor to create a duplicate (presumably for subsequent modification).
+- **Aura Effects Module**
+  - If an effect with Torg conditions are also wanted to be transferred by the aura, then `Apply to Self` on the **Aura** tab should NOT be checked. A separate effect should be created which can be applied directly to the caster if required.
+  - e.g. Ward Enemy requires 6 effects: 3 auras and 3 normal Torg effects. The 3 auras are the same as the normal Torg effects except that they are converted to Auras and the **Aura** `Apply to Self` is unticked.
+
+## 13.32.0 - Axioms and Effects
 - Rework workflow for calculation of the zone axioms affecting a Stormknight:
-  - The zone axioms are based on the ACTIVE scene.
+  - The zone axioms for a SK are based on the ACTIVE scene.
   - The token must be in a Region on the ACTIVE scene to affect the SK's zone axioms.
   - Active Effects can modify the base scene axioms affecting an Actor with `system.sceneAxioms.magic` (or spirit/social/tech), but Regions and Reality Surge supercede them.
     - `UPGRADE` to work like a 'mixed' zone.
