@@ -3,119 +3,6 @@ name: Le justicier masqué
 type: stormknight
 img: systems/torgeternity/images/characters/Masked_Crusader.Avatar.webp
 items:
-  - _id: wY0gJqukmhoR1ar5
-    name: Bagarreur
-    type: perk
-    sort: 100000
-    flags:
-      core: {}
-    img: systems/torgeternity/images/icons/reality-icon.webp
-    effects: []
-    folder: null
-    system:
-      category: prowess
-      cosm: (Non)
-      description: >-
-        <p>Le combattant cogne fort en ayant recours &agrave; des coups vicieux
-        et un bon uppercut gr&acirc;ce &agrave; ses entra&icirc;nements au
-        karat&eacute;, au jujitsu, au taekwondo et autres sports de combat. Les
-        personnages avec cet Atout infligent Force + 2 points de dommages
-        &agrave; mains nues quand ils attaquent avec la comp&eacute;tence Combat
-        &agrave; mains nues. C&rsquo;est cumulable avec tout autre bonus de
-        Combat &agrave; mains nues tels que les attaques de griffes des
-        edeinos.</p>
-
-        <p>Des techniques plus complexes peuvent &ecirc;tre apprises avec les
-        Atouts Pouvoirs du Ki du Pan-Pacifica.</p>
-      prerequisites: au moins deux rangs en Combat à mains nues
-      generalContradiction: false
-      pulpPowers:
-        enhancement01:
-          description: ''
-          taken: false
-          title: ''
-        enhancement02:
-          description: ''
-          taken: false
-          title: ''
-        enhancement03:
-          description: ''
-          taken: false
-          title: ''
-        enhancement04:
-          description: ''
-          taken: false
-          title: ''
-        enhancement05:
-          description: ''
-          taken: false
-          title: ''
-        enhancement06:
-          description: ''
-          taken: false
-          title: ''
-        enhancement07:
-          description: ''
-          taken: false
-          title: ''
-        enhancement08:
-          description: ''
-          taken: false
-          title: ''
-        enhancement09:
-          description: ''
-          taken: false
-          title: ''
-        enhancement10:
-          description: ''
-          taken: false
-          title: ''
-        enhancement11:
-          description: ''
-          taken: false
-          title: ''
-        enhancement12:
-          description: ''
-          taken: false
-          title: ''
-        enhancement13:
-          description: ''
-          taken: false
-          title: ''
-        enhancement14:
-          description: ''
-          taken: false
-          title: ''
-        enhancement15:
-          description: ''
-          taken: false
-          title: ''
-        enhancementNumber: 0
-        limitation01: ''
-        limitation02: ''
-        limitation03: ''
-        limitation04: ''
-        limitation05: ''
-        limitation06: ''
-        limitation07: ''
-        limitation08: ''
-        limitation09: ''
-        limitation10: ''
-        limitationNumber: 0
-      timestaken: '1'
-    ownership:
-      default: 0
-    _stats:
-      systemId: null
-      systemVersion: null
-      coreVersion: '13.348'
-      createdTime: null
-      modifiedTime: 1758492452634
-      lastModifiedBy: l8SVzn2293lAwvMC
-      compendiumSource: null
-      duplicateSource: null
-      exportSource: null
-    _key: '!actors.items!REeNzywr6VElHSWZ.wY0gJqukmhoR1ar5'
   - _id: RpNrke9ubLEc5xWb
     name: Super Compétence (intimidation)
     type: perk
@@ -147,16 +34,16 @@ items:
         description: ''
         statuses: []
         _stats:
-          coreVersion: '13.348'
+          coreVersion: '13.351'
           systemId: null
           systemVersion: null
           createdTime: null
-          modifiedTime: 1758493566186
-          lastModifiedBy: l8SVzn2293lAwvMC
+          modifiedTime: 1774467450241
+          lastModifiedBy: BMvGTGfheqDXarjN
           compendiumSource: null
           duplicateSource: null
           exportSource: null
-        img: icons/svg/aura.svg
+        img: systems/torgeternity/images/icons/reality-icon.webp
         type: base
         system: {}
         sort: 0
@@ -174,7 +61,7 @@ items:
           startRound: null
           startTurn: null
         disabled: false
-        img: icons/svg/aura.svg
+        img: systems/torgeternity/images/icons/reality-icon.webp
         _id: aKFqWU0yqrNoandT
         type: base
         system:
@@ -201,8 +88,8 @@ items:
           systemId: torgeternity
           systemVersion: 13.13.2
           createdTime: 1764003198980
-          modifiedTime: 1764003216445
-          lastModifiedBy: e1DB4TK9SbDuMDS3
+          modifiedTime: 1774467454494
+          lastModifiedBy: BMvGTGfheqDXarjN
         _key: >-
           !actors.items.effects!REeNzywr6VElHSWZ.RpNrke9ubLEc5xWb.aKFqWU0yqrNoandT
     folder: null
@@ -603,6 +490,98 @@ items:
       modifiedTime: 1758491119447
       lastModifiedBy: l8SVzn2293lAwvMC
     _key: '!actors.items!REeNzywr6VElHSWZ.aPOfL2ECIo5XDkjo'
+  - _id: lN53PvEGaUtKqTOT
+    name: Bagarreur
+    type: perk
+    img: systems/torgeternity/images/icons/reality-icon.webp
+    effects:
+      - name: Bagarreur
+        origin: Compendium.te001-core-rulebook.atouts.Item.lN53PvEGaUtKqTOT
+        duration:
+          startTime: 1310
+          combat: null
+          seconds: null
+          rounds: null
+          turns: null
+          startRound: 27
+          startTurn: 0
+        disabled: false
+        img: systems/torgeternity/images/icons/reality-icon.webp
+        _id: cKXqWsOAGlMVTxPt
+        type: base
+        system:
+          applyOnOutcome: ''
+          transferOnOutcome: ''
+          transferTo: target
+          activeIfTrait: []
+          applyIfAttackTrait: []
+          applyIfDefendTrait: []
+          defendAgainstTrait: []
+          applyIfAttackTraitCombine: or
+          applyIfDefendTraitCombine: or
+          defendAgainstTraitCombine: or
+          itemsToBestow: []
+          combatToggle: false
+          concentratingId: null
+        changes:
+          - key: system.skills.unarmedCombat.damageMod
+            mode: 2
+            value: '2'
+            priority: null
+        description: ''
+        tint: '#ffffff'
+        transfer: true
+        statuses: []
+        sort: 0
+        flags: {}
+        _stats:
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+          coreVersion: '13.351'
+          systemId: torgeternity
+          systemVersion: 13.27.0
+          lastModifiedBy: null
+        _key: >-
+          !actors.items.effects!REeNzywr6VElHSWZ.lN53PvEGaUtKqTOT.cKXqWsOAGlMVTxPt
+    folder: null
+    sort: 0
+    flags:
+      core: {}
+    system:
+      category: prowess
+      cosm: none
+      description: "<p>Le combattant cogne fort en ayant recours à des coups vicieux et un bon uppercut grâce à ses entraînements\_au karaté, au jujitsu, au taekwondo et autres sports de combat. Les personnages avec cet Atout infligent Force + 2 points de dommages à mains nues quand ils attaquent avec la compétence Combat à mains nues. C’est cumulable avec tout autre bonus de Combat à mains nues tels que les attaques de griffes des edeinos.</p>\n<p>Des techniques plus complexes peuvent être apprises avec les Atouts <strong>Pouvoirs du Ki</strong> du Pan-Pacifica.</p>"
+      prerequisites: u moins 2 rangs en Combat à mains nues
+      generalContradiction: false
+      timestaken: '1'
+      enhancements: []
+      limitations: []
+      traits: []
+      axioms:
+        magic: 0
+        social: 0
+        spirit: 0
+        tech: 0
+      itemsToBestow: []
+      bestowedBy: null
+      secondaryAxiom: none
+    ownership:
+      default: 0
+      229W3PtpCQ0fUX2D: 3
+      VAnYow5sWS9EJzo0: 3
+      BMvGTGfheqDXarjN: 3
+    _stats:
+      compendiumSource: Compendium.te001-core-rulebook.Items.8DjcKPmDCOTdObL6
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.27.0
+      createdTime: 1774467032008
+      modifiedTime: 1774467032008
+      lastModifiedBy: BMvGTGfheqDXarjN
+    _key: '!actors.items!REeNzywr6VElHSWZ.lN53PvEGaUtKqTOT'
 folder: null
 sort: 100001
 flags: {}
@@ -753,7 +732,7 @@ system:
     intimidation:
       baseAttribute: spirit
       adds: 3
-      isFav: false
+      isFav: true
       groupName: interaction
       unskilledUse: true
       isThreatSkill: false
@@ -1053,7 +1032,7 @@ _stats:
   systemVersion: 13.27.0
   coreVersion: '13.351'
   createdTime: 1716827809436
-  modifiedTime: 1773001234620
+  modifiedTime: 1774467253286
   lastModifiedBy: BMvGTGfheqDXarjN
   compendiumSource: null
   duplicateSource: null

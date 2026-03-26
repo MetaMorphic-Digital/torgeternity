@@ -60,7 +60,7 @@ effects:
       startRound: null
       startTurn: null
     disabled: false
-    img: icons/svg/aura.svg
+    img: systems/torgeternity/images/characters/sabre_tooth_cat.Avatar.webp
     _id: JqOZFQ01W0jSyGHY
     type: base
     system: {}
@@ -83,12 +83,12 @@ effects:
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-      coreVersion: '13.346'
+      coreVersion: '13.351'
       systemId: torgeternity
       systemVersion: 13.1.1
       createdTime: 1753103373282
-      modifiedTime: 1753103404762
-      lastModifiedBy: W32Zl65V9atvPk8o
+      modifiedTime: 1774459427760
+      lastModifiedBy: BMvGTGfheqDXarjN
     _key: '!actors.effects!0ScjEZmA3HcIcn4g.JqOZFQ01W0jSyGHY'
 folder: null
 sort: 100001

@@ -62,7 +62,29 @@ export default class EffectsPanel extends HandlebarsApplicationMixin(Application
       this.#actor = actor;
     }
 
-    context.effects = game.settings.get('torgeternity', 'effectsPanelOnlyTemporary') ? actor?.temporaryEffects : actor?.appliedEffects;
+    const showAll = !game.settings.get('torgeternity', 'effectsPanelOnlyTemporary');
+    context.temporaryEffects = [];
+    context.disabledEffects = [];
+    if (showAll) context.activeEffects = [];
+    // Ignore events which are suppressed programatically.
+    if (actor)
+      for (const effect of actor.allApplicableEffects()) {
+        if (effect.isSuppressed) continue;
+        if (effect.isTemporary) {
+          if (effect.disabled)
+            context.disabledEffects.push(effect)
+          else
+            context.temporaryEffects.push(effect)
+        } else if (showAll) {
+          // get active() => !this.disabled && !this.isSuppressed;
+          if (effect.disabled)
+            context.disabledEffects.push(effect)
+          else
+            context.activeEffects.push(effect)
+        }
+      }
+    //context.bar1 = ()
+
     return context;
   }
 
@@ -86,10 +108,11 @@ export default class EffectsPanel extends HandlebarsApplicationMixin(Application
   async onRightClick(button, event) {
     const effect = fromUuidSync(button.dataset.uuid);
     if (!effect || !effect.isEmbedded) return;
-    if (effect.parent instanceof foundry.documents.Actor)
-      await effect.delete();
-    else
-      await effect.update({ disabled: true });
+    if (event.shiftKey) {
+      if (effect.parent instanceof foundry.documents.Actor)
+        await effect.delete();
+    } else
+      await effect.update({ disabled: !effect.disabled });
     // Render with the new list of effects
     this.render();
   }

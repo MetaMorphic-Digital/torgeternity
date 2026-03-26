@@ -106,28 +106,47 @@ export default class TorgeternityItemSheet extends foundry.applications.api.Hand
 
   /** @inheritdoc */
   async _onDrop(event) {
-    const dropitem = await fromUuid(foundry.applications.ux.TextEditor.getDragEventData(event)?.uuid, { strict: false });
-    if (!(dropitem instanceof foundry.documents.Item)) return;
+    const dropdata = await fromUuid(foundry.applications.ux.TextEditor.getDragEventData(event)?.uuid, { strict: false });
+    if (!dropdata) return;
+    switch (dropdata.documentName) {
+      case 'Item':
+        return this.#onDropItem(dropdata);
+      case 'ActiveEffect':
+        return this.#onDropActiveEffect(dropdata);
+      default:
+        console.debug(`Unsupported document type ${dropdata.documentName} onto Item '${this.item.name}`)
+    }
+  }
 
+  async #onDropItem(item) {
     // Some special rules about dropping onto a Race item
     if (this.item.type === 'race') {
       // A race can't add another race!
-      if (dropitem.type === 'race') return;
+      if (item.type === 'race') return;
 
-      if (dropitem.type === 'perk' && dropitem.system.category !== 'racial')
+      if (item.type === 'perk' && item.system.category !== 'racial')
         return ui.notifications.error(game.i18n.format('torgeternity.notifications.notAPerkItem',
-          { a: game.i18n.localize('torgeternity.perkTypes.' + dropitem.system.category) })
+          { a: game.i18n.localize('torgeternity.perkTypes.' + item.system.category) })
         );
     }
 
     // Add the dropped item to the list of bestowed items for this item
     const itemsToBestow = Array.from(this.item.system.itemsToBestow);
 
-    const itemdata = dropitem.toCompendium(/*pack*/ null, { keepId: true });
-    if (!itemdata) return ui.notifications.info(`Failed to convert ${dropitem.name} into bestowed item`)
+    const itemdata = item.toCompendium(/*pack*/ null, { keepId: true });
+    if (!itemdata)
+      return ui.notifications.info(`Failed to convert ${item.name} into bestowed item`)
 
     itemsToBestow.push(itemdata);
-    await this.item.update({ 'system.itemsToBestow': itemsToBestow });
+    return this.item.update({ 'system.itemsToBestow': itemsToBestow });
+  }
+
+  async #onDropActiveEffect(effect) {
+    if (!this.item.isOwner) return null;
+    if (!effect || (effect.target === this.item)) return null;
+    const keepId = !this.item.effects.has(effect.id);
+    const result = await foundry.documents.ActiveEffect.implementation.create(effect.toObject(), { parent: this.item, keepId });
+    return result ?? null;
   }
 
   /**
@@ -366,6 +385,7 @@ export default class TorgeternityItemSheet extends foundry.applications.api.Hand
     // Need real items to access `item.isOwner`
     for (const item of context.itemsToBestow) {
       item.description = await foundry.applications.ux.TextEditor.enrichHTML(item.system.description, { secrets: item.isOwner ?? true });
+      if (!item.system.traits) item.system.traits = [];
       item.traitDesc = Array.from(item.system.traits.map(trait => game.i18n.localize(`torgeternity.traits.${trait}`))).join(' / ');
     }
     context.itemsToBestow = Array.from(context.itemsToBestow);

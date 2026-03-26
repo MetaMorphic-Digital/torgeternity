@@ -141,54 +141,6 @@ items:
       duplicateSource: null
       exportSource: null
     _key: '!actors.items!YzRwn4OIYPYBIPJH.Okd70pnwBHGmywFu'
-  - _id: Jyr9qESO0watn4r5
-    name: GWI GodBeam Laser
-    type: firearm
-    img: systems/torgeternity/images/icons/firearm-icon.webp
-    effects: []
-    folder: null
-    sort: 3800000
-    flags:
-      core: {}
-    system:
-      cosm: none
-      description: "<p>@UUID[Compendium.te001-core-rulebook.rules.pwneQ55M0nnDH0Us.JournalEntryPage.qKdamp4rrcX6TTt0#short-burst:]{Short Burst}</p>\n<p>The GodBeam has a long barrel, a stabilizing stock, and laser sight. It emits a deadly blue beam of laser light. A laser sight (page 141) is integral, using a low-power beam from the weapon itself. All GWI weapons are connected to the GodNet by default, so hacked versions are rare and expensive.</p>\n<p>\_</p>\n<p>Found in <strong>Core Rules</strong></p>"
-      price: '600'
-      techlevel: 26
-      value: 14
-      ammo:
-        max: 15
-        value: 15
-      ap: 1
-      attackWith: energyWeapons
-      chatNote: ''
-      damage: 14
-      damageType: flat
-      equipped:
-        handsHeld: 2
-        carryType: held
-      notes: Short Burst
-      range: 100 / 500 / 1000
-      secondaryAxiom:
-        selected: none
-        value: null
-      traits:
-        - shortBurst
-    ownership:
-      default: 0
-      A9LyAqagoJJU3gDH: 3
-      CtisFurQNe9h7ABb: 3
-    _stats:
-      systemId: torgeternity
-      systemVersion: 13.15.0
-      coreVersion: '13.351'
-      createdTime: 1693913428828
-      modifiedTime: 1771932893243
-      lastModifiedBy: BMvGTGfheqDXarjN
-      compendiumSource: Compendium.te001-core-rulebook.Items.3G2SVFJnklgCOnmw
-      duplicateSource: null
-      exportSource: null
-    _key: '!actors.items!YzRwn4OIYPYBIPJH.Jyr9qESO0watn4r5'
   - _id: SCn5yulik1qI2JKh
     name: BelleView Low-Light MK II
     type: implant
@@ -305,155 +257,6 @@ items:
       duplicateSource: null
       exportSource: null
     _key: '!actors.items!YzRwn4OIYPYBIPJH.tDH3SHtwnezxojKa'
-  - _id: QpQMFkoFXyHq45TP
-    name: Cyberdeck
-    type: gear
-    img: systems/torgeternity/images/icons/gear-icon.webp
-    effects:
-      - origin: Item.86t8AVfVFveaMiWn
-        duration:
-          rounds: null
-          startTime: null
-          seconds: null
-          combat: null
-          turns: null
-          startRound: null
-          startTurn: null
-        disabled: false
-        name: Computers Favored
-        img: icons/svg/aura.svg
-        _id: 23Y2sODEDr6FCmVx
-        type: base
-        system: {}
-        changes:
-          - key: system.skills.computers.isFav
-            mode: 2
-            value: 'true'
-            priority: null
-        description: ''
-        tint: '#ffffff'
-        transfer: true
-        statuses: []
-        sort: 0
-        flags: {}
-        _stats:
-          compendiumSource: null
-          duplicateSource: null
-          coreVersion: '13.345'
-          systemId: torgeternity
-          systemVersion: 12.2.0
-          createdTime: null
-          modifiedTime: null
-          lastModifiedBy: null
-          exportSource: null
-        _key: >-
-          !actors.items.effects!YzRwn4OIYPYBIPJH.QpQMFkoFXyHq45TP.23Y2sODEDr6FCmVx
-    folder: gjZiCPX5knOIpsHd
-    sort: 300000
-    flags:
-      core: {}
-    system:
-      cosm: cyberpapacy
-      description: "<p>A powerful personal computer connected directly to the user’s neurons. The connected user’s computer skill becomes Favored.</p><p>The most common design of cyberdeck available through the black market is the First Seal, which allows a person equipped with a neural jack or TempTrodes to gain access the GodNet.</p><p>updated in Cyberpapacy Sourcebook</p><p>\_</p><p>Found in <strong>Cyberpapacy Sourcebook, Core Rules</strong></p>"
-      price: '700'
-      techlevel: 26
-      value: 14
-      secondaryAxiom:
-        selected: none
-        value: null
-    ownership:
-      default: 0
-      A9LyAqagoJJU3gDH: 3
-      CtisFurQNe9h7ABb: 3
-      93AMwcGe6H37rcPA: 3
-    _stats:
-      compendiumSource: Compendium.te001-core-rulebook.Items.eYpjJYTmQUROTCDZ
-      duplicateSource: null
-      coreVersion: '13.345'
-      systemId: torgeternity
-      systemVersion: 12.2.0
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      exportSource: null
-    _key: '!actors.items!YzRwn4OIYPYBIPJH.QpQMFkoFXyHq45TP'
-  - _id: MQ2JG8EZKzFKvPrr
-    name: BelleView 20-20 Cyber Eye
-    type: implant
-    img: systems/torgeternity/images/icons/cyberware-icon.webp
-    effects:
-      - _id: fr4HPRlgg1TaUMWt
-        flags: {}
-        changes:
-          - key: system.skills.find.isFav
-            mode: 5
-            value: 'true'
-            priority: null
-          - key: system.skills.tracking.isFav
-            mode: 5
-            value: 'true'
-            priority: null
-        disabled: false
-        duration:
-          startTime: null
-          seconds: null
-          combat: null
-          rounds: null
-          turns: null
-          startRound: null
-          startTurn: null
-        origin: Item.XwKMqZyw8Ykv12a8
-        tint: '#ffffff'
-        transfer: true
-        name: Find and Tracking Favored
-        description: ''
-        statuses: []
-        _stats:
-          compendiumSource: null
-          duplicateSource: null
-          coreVersion: '13.345'
-          systemId: torgeternity
-          systemVersion: 12.2.0
-          createdTime: null
-          modifiedTime: null
-          lastModifiedBy: null
-          exportSource: null
-        img: icons/svg/aura.svg
-        type: base
-        system: {}
-        sort: 0
-        _key: >-
-          !actors.items.effects!YzRwn4OIYPYBIPJH.MQ2JG8EZKzFKvPrr.fr4HPRlgg1TaUMWt
-    folder: gjZiCPX5knOIpsHd
-    sort: 100000
-    flags:
-      core: {}
-    system:
-      cosm: cyberpapacy
-      description: "<p>This eye enhancement increases fine detail and can even detect patterns or breaks in patterns. Any test made to detect and comprehend visual evidence, usually <q>find</q> or <q>tracking</q>, becomes Favored.</p><p>updated in Cyberpapacy Sourcebook</p><p>\_</p><p>Found in <strong>Core Rules, Cyberpapacy Sourcebook</strong></p>"
-      price: 2,000
-      techlevel: 26
-      value: 17
-      notes: ''
-      secondaryAxiom:
-        selected: none
-        value: null
-    ownership:
-      default: 0
-      A9LyAqagoJJU3gDH: 3
-      CtisFurQNe9h7ABb: 3
-      93AMwcGe6H37rcPA: 3
-    _stats:
-      compendiumSource: Compendium.te001-core-rulebook.Items.PKBgi2Obr2zhhCLX
-      duplicateSource: null
-      coreVersion: '13.345'
-      systemId: torgeternity
-      systemVersion: 12.2.0
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      exportSource: null
-    _key: '!actors.items!YzRwn4OIYPYBIPJH.MQ2JG8EZKzFKvPrr'
   - _id: gelpnVBWzd6BvDur
     name: Miracles
     type: perk
@@ -562,121 +365,6 @@ items:
       lastModifiedBy: null
       exportSource: null
     _key: '!actors.items!YzRwn4OIYPYBIPJH.gelpnVBWzd6BvDur'
-  - _id: Gf12PGEFRtlSi6Pk
-    name: HardPlas Arm
-    type: implant
-    img: systems/torgeternity/images/icons/cyberware-icon.webp
-    effects:
-      - origin: Item.9yaicAAj48dbaybS
-        duration:
-          startTime: null
-          seconds: null
-          combat: null
-          rounds: null
-          turns: null
-          startRound: null
-          startTurn: null
-        disabled: false
-        name: Strength +1 (Arm)
-        _id: 4icpSmCFpseeAB0D
-        changes:
-          - key: system.attributes.strength.value
-            mode: 2
-            value: '1'
-            priority: null
-        description: ''
-        transfer: true
-        statuses: []
-        flags: {}
-        tint: '#ffffff'
-        _stats:
-          compendiumSource: null
-          duplicateSource: null
-          coreVersion: '13.345'
-          systemId: torgeternity
-          systemVersion: 12.2.0
-          createdTime: null
-          modifiedTime: null
-          lastModifiedBy: null
-          exportSource: null
-        img: icons/svg/aura.svg
-        type: base
-        system: {}
-        sort: 0
-        _key: >-
-          !actors.items.effects!YzRwn4OIYPYBIPJH.Gf12PGEFRtlSi6Pk.4icpSmCFpseeAB0D
-      - origin: Item.9yaicAAj48dbaybS
-        duration:
-          startTime: null
-          seconds: null
-          combat: null
-          rounds: null
-          turns: null
-          startRound: null
-          startTurn: null
-        disabled: true
-        name: Armor +2 (Arm)
-        _id: 8eNrGmL5ettF6ZQv
-        changes:
-          - key: defenses.toughness
-            mode: 2
-            value: '2'
-            priority: null
-          - key: defenses.armor
-            mode: 2
-            value: '2'
-            priority: null
-        description: ''
-        transfer: true
-        statuses: []
-        flags: {}
-        tint: '#ffffff'
-        _stats:
-          compendiumSource: null
-          duplicateSource: null
-          coreVersion: '13.345'
-          systemId: torgeternity
-          systemVersion: 12.2.0
-          createdTime: null
-          modifiedTime: null
-          lastModifiedBy: null
-          exportSource: null
-        img: icons/svg/aura.svg
-        type: base
-        system: {}
-        sort: 0
-        _key: >-
-          !actors.items.effects!YzRwn4OIYPYBIPJH.Gf12PGEFRtlSi6Pk.8eNrGmL5ettF6ZQv
-    folder: gjZiCPX5knOIpsHd
-    sort: 400000
-    flags:
-      core: {}
-    system:
-      cosm: cyberpapacy
-      description: "<p>One of the hero’s arms is replaced by a cybernetic version. It increases <em>Strength</em> tests by +1 and has +2 Armor on that limb only. The arm’s Armor protects the character’s torso if he takes an Active Defense. The <em>Strength</em> increase applies only to tests and attacks made with that limb.</p>\n<p>\_</p>\n<p>Found in <strong>Core Rules</strong></p>"
-      price: 5,000
-      techlevel: 26
-      value: 18
-      notes: ''
-      secondaryAxiom:
-        selected: none
-        value: null
-    ownership:
-      default: 0
-      A9LyAqagoJJU3gDH: 3
-      CtisFurQNe9h7ABb: 3
-      93AMwcGe6H37rcPA: 3
-    _stats:
-      compendiumSource: Compendium.te001-core-rulebook.Items.Kge40uOXKJH20nk6
-      duplicateSource: null
-      coreVersion: '13.345'
-      systemId: torgeternity
-      systemVersion: 12.2.0
-      createdTime: 1722359004859
-      modifiedTime: 1722359004859
-      lastModifiedBy: 93AMwcGe6H37rcPA
-      exportSource: null
-    _key: '!actors.items!YzRwn4OIYPYBIPJH.Gf12PGEFRtlSi6Pk'
   - _id: bIWO3HwGvEvz4fGc
     name: Trigon Integrated Weapon Mount
     type: implant
@@ -815,150 +503,73 @@ items:
       modifiedTime: 1763999523515
       lastModifiedBy: e1DB4TK9SbDuMDS3
     _key: '!actors.items!YzRwn4OIYPYBIPJH.se2mx9JyDViZfTFt'
+  - _id: 3G2SVFJnklgCOnmw
+    name: GWI GodBeam Laser
+    type: firearm
+    img: systems/torgeternity/images/icons/firearm-icon.webp
+    effects: []
+    folder: CseNVi50hNQomCZH
+    sort: 100000
+    flags:
+      core: {}
+    system:
+      cosm: cyberpapacy
+      description: "<p>@UUID[Compendium.te001-core-rulebook.rules.pwneQ55M0nnDH0Us.JournalEntryPage.qKdamp4rrcX6TTt0#short-burst:]{Short Burst}</p><p>The GodBeam has a long barrel, a stabilizing stock, and laser sight. It emits a deadly blue beam of laser light. A @UUID[Compendium.te001-core-rulebook.Items.Item.BJjZ9uAoiEmYAILy]{Laser Sight} is integral, using a low-power beam from the weapon itself. All GWI weapons are connected to the GodNet by default, so hacked versions are rare and expensive.</p><p>\_Also found in Cyberpapacy Module</p>"
+      price:
+        dollars: '600'
+      ammo:
+        max: 15
+        value: 15
+      ap: 1
+      attackWith: energyWeapons
+      chatNote: ''
+      damage: 14
+      damageType: flat
+      equipped:
+        carryType: stowed
+        handsHeld: 0
+      notes: Short Burst
+      range: 100 / 500 / 1000
+      traits:
+        - shortBurst
+        - energyDamage
+      axioms:
+        tech: 26
+        magic: 0
+        social: 0
+        spirit: 0
+      itemsToBestow: []
+      bestowedBy: null
+      quantity: 1
+      secondaryAxiom: none
+      bonus: 2
+      minStrength: null
+      loadedAmmo: null
+      gunner: null
+      gunnerFixedSkill: 0
+    ownership:
+      default: 0
+      A9LyAqagoJJU3gDH: 3
+      VAnYow5sWS9EJzo0: 3
+      BMvGTGfheqDXarjN: 3
+    _stats:
+      compendiumSource: Compendium.te001-core-rulebook.Items.Item.3G2SVFJnklgCOnmw
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.27.0
+      createdTime: 1774458973961
+      modifiedTime: 1774458973961
+      lastModifiedBy: BMvGTGfheqDXarjN
+    _key: '!actors.items!YzRwn4OIYPYBIPJH.3G2SVFJnklgCOnmw'
   - _id: u8AtVmCMnPyP3Ewx
     name: Ward Enemy
     type: miracle
     img: systems/torgeternity/images/icons/miracles-icon.webp
     effects:
-      - name: Defense +1 vs. S.Evil
+      - name: Ward Enemy Standard
         origin: Compendium.te001-core-rulebook.Items.Item.u8AtVmCMnPyP3Ewx
-        duration:
-          startTime: 0
-          combat: null
-          seconds: null
-          rounds: null
-          turns: null
-          startRound: null
-          startTurn: null
-        disabled: false
-        img: icons/svg/aura.svg
-        _id: GSvs51kXblsK9vbL
-        type: base
-        system:
-          transferOnAttack: false
-          applyIfAttackTrait: []
-          applyIfDefendTrait: []
-          transferOnOutcome: standard
-          defendAgainstTrait:
-            - supernaturalEvil
-          transferTo: target
-        changes:
-          - key: defenses.dodge.mod
-            mode: 2
-            value: '1'
-            priority: null
-          - key: defenses.meleeWeapons.mod
-            mode: 2
-            value: '1'
-            priority: null
-          - key: defenses.unarmedCombat.mod
-            mode: 2
-            value: '1'
-            priority: null
-          - key: defenses.intimidation.mod
-            mode: 2
-            value: '1'
-            priority: null
-          - key: defenses.maneuver.mod
-            mode: 2
-            value: '1'
-            priority: null
-          - key: defenses.taunt.mod
-            mode: 2
-            value: '1'
-            priority: null
-          - key: defenses.trick.mod
-            mode: 2
-            value: '1'
-            priority: null
-        description: ''
-        tint: '#ffffff'
-        transfer: false
-        statuses: []
-        sort: 0
-        flags: {}
-        _stats:
-          compendiumSource: null
-          duplicateSource: null
-          exportSource: null
-          coreVersion: '13.351'
-          systemId: torgeternity
-          systemVersion: 13.24.1
-          lastModifiedBy: BMvGTGfheqDXarjN
-          modifiedTime: 1772996033507
-        _key: >-
-          !actors.items.effects!YzRwn4OIYPYBIPJH.u8AtVmCMnPyP3Ewx.GSvs51kXblsK9vbL
-      - name: Defense +2 vs. S.Evil
-        origin: Compendium.te001-core-rulebook.Items.Item.u8AtVmCMnPyP3Ewx
-        duration:
-          startTime: 0
-          combat: null
-          seconds: null
-          rounds: null
-          turns: null
-          startRound: null
-          startTurn: null
-        disabled: false
-        img: icons/svg/aura.svg
-        _id: 1sFNCaYPVnPw3WR5
-        type: base
-        system:
-          transferOnAttack: false
-          applyIfAttackTrait: []
-          applyIfDefendTrait: []
-          transferOnOutcome: good
-          defendAgainstTrait:
-            - supernaturalEvil
-          transferTo: target
-        changes:
-          - key: defenses.dodge.mod
-            mode: 2
-            value: '2'
-            priority: null
-          - key: defenses.meleeWeapons.mod
-            mode: 2
-            value: '2'
-            priority: null
-          - key: defenses.unarmedCombat.mod
-            mode: 2
-            value: '2'
-            priority: null
-          - key: defenses.intimidation.mod
-            mode: 2
-            value: '2'
-            priority: null
-          - key: defenses.maneuver.mod
-            mode: 2
-            value: '2'
-            priority: null
-          - key: defenses.taunt.mod
-            mode: 2
-            value: '2'
-            priority: null
-          - key: defenses.trick.mod
-            mode: 2
-            value: '2'
-            priority: null
-        description: ''
-        tint: '#ffffff'
-        transfer: false
-        statuses: []
-        sort: 0
-        flags: {}
-        _stats:
-          compendiumSource: null
-          duplicateSource: null
-          exportSource: null
-          coreVersion: '13.351'
-          systemId: torgeternity
-          systemVersion: 13.24.1
-          lastModifiedBy: BMvGTGfheqDXarjN
-          modifiedTime: 1772996050432
-        _key: >-
-          !actors.items.effects!YzRwn4OIYPYBIPJH.u8AtVmCMnPyP3Ewx.1sFNCaYPVnPw3WR5
-      - name: Defense +2 vs. S.Evil
-        origin: >-
-          Compendium.torgeternity.archetypes.Actor.YzRwn4OIYPYBIPJH.Item.u8AtVmCMnPyP3Ewx
         duration:
           startTime: null
           combat: null
@@ -968,49 +579,32 @@ items:
           startRound: null
           startTurn: null
         disabled: false
-        img: icons/svg/aura.svg
-        _id: uOIcMumCKCINeU6I
+        img: systems/torgeternity/images/icons/miracles-icon.webp
+        _id: GSvs51kXblsK9vbL
         type: base
         system:
-          transferOnAttack: false
+          transferOnOutcome: standard
           applyIfAttackTrait: []
-          applyIfDefendTrait: []
-          transferOnOutcome: outstanding
           defendAgainstTrait:
             - supernaturalEvil
           transferTo: target
+          applyOnOutcome: ''
+          activeIfTrait: []
+          applyIfDefendTrait: []
+          applyIfAttackTraitCombine: or
+          applyIfDefendTraitCombine: or
+          defendAgainstTraitCombine: or
+          itemsToBestow: []
+          combatToggle: false
+          concentratingId: null
         changes:
-          - key: defenses.dodge.mod
+          - key: system.defenses.all.mod
             mode: 2
-            value: '2'
-            priority: null
-          - key: defenses.meleeWeapons.mod
-            mode: 2
-            value: '2'
-            priority: null
-          - key: defenses.unarmedCombat.mod
-            mode: 2
-            value: '2'
-            priority: null
-          - key: defenses.intimidation.mod
-            mode: 2
-            value: '2'
-            priority: null
-          - key: defenses.maneuver.mod
-            mode: 2
-            value: '2'
-            priority: null
-          - key: defenses.taunt.mod
-            mode: 2
-            value: '2'
-            priority: null
-          - key: defenses.trick.mod
-            mode: 2
-            value: '2'
+            value: '1'
             priority: null
         description: ''
         tint: '#ffffff'
-        transfer: true
+        transfer: false
         statuses: []
         sort: 0
         flags: {}
@@ -1020,12 +614,110 @@ items:
           exportSource: null
           coreVersion: '13.351'
           systemId: torgeternity
-          systemVersion: 13.24.1
-          createdTime: 1764005509388
-          modifiedTime: 1772996063147
-          lastModifiedBy: BMvGTGfheqDXarjN
+          systemVersion: 13.27.0
+          lastModifiedBy: null
         _key: >-
-          !actors.items.effects!YzRwn4OIYPYBIPJH.u8AtVmCMnPyP3Ewx.uOIcMumCKCINeU6I
+          !actors.items.effects!YzRwn4OIYPYBIPJH.u8AtVmCMnPyP3Ewx.GSvs51kXblsK9vbL
+      - name: Ward Enemy Good
+        origin: Compendium.te001-core-rulebook.Items.Item.u8AtVmCMnPyP3Ewx
+        duration:
+          startTime: null
+          combat: null
+          seconds: null
+          rounds: null
+          turns: null
+          startRound: null
+          startTurn: null
+        disabled: false
+        img: systems/torgeternity/images/icons/miracles-icon.webp
+        _id: 1sFNCaYPVnPw3WR5
+        type: base
+        system:
+          transferOnOutcome: good
+          applyIfAttackTrait: []
+          defendAgainstTrait:
+            - supernaturalEvil
+          transferTo: target
+          applyOnOutcome: ''
+          activeIfTrait: []
+          applyIfDefendTrait: []
+          applyIfAttackTraitCombine: or
+          applyIfDefendTraitCombine: or
+          defendAgainstTraitCombine: or
+          itemsToBestow: []
+          combatToggle: false
+          concentratingId: null
+        changes:
+          - key: system.defenses.all.mod
+            mode: 2
+            value: '2'
+            priority: null
+        description: ''
+        tint: '#ffffff'
+        transfer: false
+        statuses: []
+        sort: 0
+        flags: {}
+        _stats:
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+          coreVersion: '13.351'
+          systemId: torgeternity
+          systemVersion: 13.27.0
+          lastModifiedBy: null
+        _key: >-
+          !actors.items.effects!YzRwn4OIYPYBIPJH.u8AtVmCMnPyP3Ewx.1sFNCaYPVnPw3WR5
+      - name: Ward Enemy Outstanding
+        origin: Compendium.te001-core-rulebook.Items.Item.u8AtVmCMnPyP3Ewx
+        duration:
+          startTime: null
+          combat: null
+          seconds: null
+          rounds: null
+          turns: null
+          startRound: null
+          startTurn: null
+        disabled: false
+        img: systems/torgeternity/images/icons/miracles-icon.webp
+        _id: Q4EwGwJpK6XnZZGM
+        type: base
+        system:
+          applyIfAttackTrait: []
+          applyIfDefendTrait: []
+          transferOnOutcome: outstanding
+          defendAgainstTrait:
+            - supernaturalEvil
+          transferTo: target
+          applyOnOutcome: ''
+          activeIfTrait: []
+          applyIfAttackTraitCombine: or
+          applyIfDefendTraitCombine: or
+          defendAgainstTraitCombine: or
+          itemsToBestow: []
+          combatToggle: false
+          concentratingId: null
+        changes:
+          - key: system.defenses.all.mod
+            mode: 2
+            value: '2'
+            priority: null
+        description: ''
+        tint: '#ffffff'
+        transfer: false
+        statuses: []
+        sort: 0
+        flags: {}
+        _stats:
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+          coreVersion: '13.351'
+          systemId: torgeternity
+          systemVersion: 13.27.0
+          lastModifiedBy: null
+        _key: >-
+          !actors.items.effects!YzRwn4OIYPYBIPJH.u8AtVmCMnPyP3Ewx.Q4EwGwJpK6XnZZGM
     folder: 1nWuSow2h5hzSie4
     sort: 2300000
     flags:
@@ -1042,15 +734,16 @@ items:
       duration: Concentration
       good: Those protected add +2 to all defenses
       isAttack: false
-      modifier: ''
+      modifier: null
       outstanding: >-
         <p>As the Good result, and supernaturally evil creatures who fail an
         attack against any of the protected individuals are
         @Condition[stymied]</p>
       range: 5 meter radius
       skill: faith
-      skilllevel: '8'
+      skilllevel: 8
       targetDefense: ''
+      requiresConcentration: true
       axioms:
         spirit: 8
         magic: 0
@@ -1058,12 +751,13 @@ items:
         tech: 0
       cosm: none
       traits: []
-      requiresConcentration: true
+      itemsToBestow: []
+      bestowedBy: null
     ownership:
       default: 0
       A9LyAqagoJJU3gDH: 3
       VAnYow5sWS9EJzo0: 3
-      e1DB4TK9SbDuMDS3: 3
+      BMvGTGfheqDXarjN: 3
     _stats:
       compendiumSource: Compendium.te001-core-rulebook.Items.Item.u8AtVmCMnPyP3Ewx
       duplicateSource: null
@@ -1071,10 +765,358 @@ items:
       coreVersion: '13.351'
       systemId: torgeternity
       systemVersion: 13.27.0
-      createdTime: 1763999543427
-      modifiedTime: 1773010185621
+      createdTime: 1774459007200
+      modifiedTime: 1774459007200
       lastModifiedBy: BMvGTGfheqDXarjN
     _key: '!actors.items!YzRwn4OIYPYBIPJH.u8AtVmCMnPyP3Ewx'
+  - _id: Kge40uOXKJH20nk6
+    name: HardPlas Arm
+    type: implant
+    img: systems/torgeternity/images/icons/cyberware-icon.webp
+    effects:
+      - origin: Compendium.te001-core-rulebook.Items.Item.Kge40uOXKJH20nk6
+        duration:
+          startTime: 1310
+          seconds: null
+          combat: null
+          rounds: null
+          turns: null
+          startRound: 27
+          startTurn: 0
+        disabled: false
+        name: Strength +1 (Arm)
+        _id: xFuMne0DsNq96BPo
+        changes:
+          - key: system.attributes.strength.value
+            mode: 2
+            value: '1'
+            priority: null
+        description: ''
+        transfer: true
+        statuses: []
+        flags: {}
+        tint: '#ffffff'
+        _stats:
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+          coreVersion: '13.351'
+          systemId: torgeternity
+          systemVersion: 13.27.0
+          lastModifiedBy: null
+        img: systems/torgeternity/images/icons/cyberware-icon.webp
+        type: base
+        system:
+          applyOnOutcome: ''
+          transferOnOutcome: ''
+          transferTo: target
+          activeIfTrait: []
+          applyIfAttackTrait: []
+          applyIfDefendTrait: []
+          defendAgainstTrait: []
+          applyIfAttackTraitCombine: or
+          applyIfDefendTraitCombine: or
+          defendAgainstTraitCombine: or
+          itemsToBestow: []
+          combatToggle: false
+          concentratingId: null
+        sort: 0
+        _key: >-
+          !actors.items.effects!YzRwn4OIYPYBIPJH.Kge40uOXKJH20nk6.xFuMne0DsNq96BPo
+      - origin: Compendium.te001-core-rulebook.Items.Item.Kge40uOXKJH20nk6
+        duration:
+          startTime: 1310
+          seconds: null
+          combat: null
+          rounds: null
+          turns: null
+          startRound: 27
+          startTurn: 0
+        disabled: true
+        name: Armor +2 (Arm)
+        _id: wlLeveWzHP7mJBEj
+        changes:
+          - key: system.defenses.armor
+            mode: 2
+            value: '2'
+            priority: null
+        description: ''
+        transfer: true
+        statuses: []
+        flags: {}
+        tint: '#ffffff'
+        _stats:
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+          coreVersion: '13.351'
+          systemId: torgeternity
+          systemVersion: 13.27.0
+          lastModifiedBy: null
+        img: systems/torgeternity/images/icons/cyberware-icon.webp
+        type: base
+        system:
+          applyOnOutcome: ''
+          transferOnOutcome: ''
+          transferTo: target
+          activeIfTrait: []
+          applyIfAttackTrait: []
+          applyIfDefendTrait: []
+          defendAgainstTrait: []
+          applyIfAttackTraitCombine: or
+          applyIfDefendTraitCombine: or
+          defendAgainstTraitCombine: or
+          itemsToBestow: []
+          combatToggle: false
+          concentratingId: null
+        sort: 0
+        _key: >-
+          !actors.items.effects!YzRwn4OIYPYBIPJH.Kge40uOXKJH20nk6.wlLeveWzHP7mJBEj
+    folder: RAxVzK08QIZxH5Xs
+    sort: 800000
+    flags:
+      core: {}
+    system:
+      cosm: cyberpapacy
+      description: >-
+        <p>One of the hero’s arms is replaced by a cybernetic version. It
+        increases <em>Strength</em> tests by +1 and has +2 Armor on that limb
+        only. The arm’s Armor protects the character’s torso if he takes an
+        Active Defense. The <em>Strength</em> increase applies only to tests and
+        attacks made with that limb.</p><p>Also found in Cyberpapacy Sourcebook
+        Module</p>
+      price:
+        dollars: '5000'
+      notes: Strength test +1 with arm
+      implantType: cyberware
+      axioms:
+        tech: 26
+        magic: 0
+        social: 0
+        spirit: 0
+      traits: []
+      itemsToBestow: []
+      bestowedBy: null
+      quantity: 1
+      secondaryAxiom: none
+      equipped:
+        carryType: stowed
+        handsHeld: 0
+    ownership:
+      default: 0
+      A9LyAqagoJJU3gDH: 3
+      VAnYow5sWS9EJzo0: 3
+      BMvGTGfheqDXarjN: 3
+    _stats:
+      compendiumSource: Compendium.te001-core-rulebook.Items.Item.Kge40uOXKJH20nk6
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.27.0
+      createdTime: 1774459025504
+      modifiedTime: 1774459025504
+      lastModifiedBy: BMvGTGfheqDXarjN
+    _key: '!actors.items!YzRwn4OIYPYBIPJH.Kge40uOXKJH20nk6'
+  - _id: eYpjJYTmQUROTCDZ
+    name: Cyberdeck
+    type: gear
+    img: systems/torgeternity/images/icons/gear-icon.webp
+    effects:
+      - origin: Compendium.te001-core-rulebook.Items.Item.eYpjJYTmQUROTCDZ
+        duration:
+          rounds: null
+          startTime: 1310
+          seconds: null
+          combat: null
+          turns: null
+          startRound: 27
+          startTurn: 0
+        disabled: false
+        name: Computers Favored
+        img: systems/torgeternity/images/icons/gear-icon.webp
+        _id: O3JcPi3JRjaTZTaS
+        type: base
+        system:
+          applyOnOutcome: ''
+          transferOnOutcome: ''
+          transferTo: target
+          activeIfTrait: []
+          applyIfAttackTrait: []
+          applyIfDefendTrait: []
+          defendAgainstTrait: []
+          applyIfAttackTraitCombine: or
+          applyIfDefendTraitCombine: or
+          defendAgainstTraitCombine: or
+          itemsToBestow: []
+          combatToggle: false
+          concentratingId: null
+        changes:
+          - key: system.skills.computers.isFav
+            mode: 2
+            value: 'true'
+            priority: null
+        description: ''
+        tint: '#ffffff'
+        transfer: true
+        statuses: []
+        sort: 0
+        flags: {}
+        _stats:
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+          coreVersion: '13.351'
+          systemId: torgeternity
+          systemVersion: 13.27.0
+          lastModifiedBy: null
+        _key: >-
+          !actors.items.effects!YzRwn4OIYPYBIPJH.eYpjJYTmQUROTCDZ.O3JcPi3JRjaTZTaS
+    folder: Y9lHYCurKlK3ADYp
+    sort: 200000
+    flags:
+      core: {}
+    system:
+      cosm: cyberpapacy
+      description: >-
+        <p>Ein leistungsstarker PC, der direkt mit dem Gehirn des Benutzers
+        verbunden ist. Die <em>Computer</em>-Fertigkeit des verbundenen
+        Benutzers zählt als
+        Begünstigt.</p><p>@UUID[Compendium.te010-cyberpapacy.cyberpapacy-items.Item.te59INT9pS0If9zQ]{Updated
+        version} found in Cyberpapacy Sourcebook Module</p>
+      price:
+        dollars: '700'
+      axioms:
+        tech: 26
+        magic: 0
+        social: 0
+        spirit: 0
+      traits: []
+      itemsToBestow: []
+      bestowedBy: null
+      quantity: 1
+      secondaryAxiom: none
+      equipped:
+        carryType: stowed
+        handsHeld: 0
+    ownership:
+      default: 0
+      A9LyAqagoJJU3gDH: 3
+      VAnYow5sWS9EJzo0: 3
+      BMvGTGfheqDXarjN: 3
+    _stats:
+      compendiumSource: Compendium.te001-core-rulebook.Items.Item.eYpjJYTmQUROTCDZ
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.27.0
+      createdTime: 1774459042948
+      modifiedTime: 1774459042948
+      lastModifiedBy: BMvGTGfheqDXarjN
+    _key: '!actors.items!YzRwn4OIYPYBIPJH.eYpjJYTmQUROTCDZ'
+  - _id: PKBgi2Obr2zhhCLX
+    name: BelleView 20-20 Cyber Eye
+    type: implant
+    img: systems/torgeternity/images/icons/cyberware-icon.webp
+    effects:
+      - _id: fr4HPRlgg1TaUMWt
+        flags: {}
+        changes:
+          - key: system.skills.find.isFav
+            mode: 5
+            value: 'true'
+            priority: null
+          - key: system.skills.tracking.isFav
+            mode: 5
+            value: 'true'
+            priority: null
+        disabled: false
+        duration:
+          startTime: 1310
+          seconds: null
+          combat: null
+          rounds: null
+          turns: null
+          startRound: 27
+          startTurn: 0
+        origin: Item.XwKMqZyw8Ykv12a8
+        tint: '#ffffff'
+        transfer: true
+        name: Find and Tracking Favored
+        description: ''
+        statuses: []
+        _stats:
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+          coreVersion: '13.351'
+          systemId: torgeternity
+          systemVersion: 13.27.0
+          lastModifiedBy: null
+        img: systems/torgeternity/images/icons/cyberware-icon.webp
+        type: base
+        system:
+          applyOnOutcome: ''
+          transferOnOutcome: ''
+          transferTo: target
+          activeIfTrait: []
+          applyIfAttackTrait: []
+          applyIfDefendTrait: []
+          defendAgainstTrait: []
+          applyIfAttackTraitCombine: or
+          applyIfDefendTraitCombine: or
+          defendAgainstTraitCombine: or
+          itemsToBestow: []
+          combatToggle: false
+          concentratingId: null
+        sort: 0
+        _key: >-
+          !actors.items.effects!YzRwn4OIYPYBIPJH.PKBgi2Obr2zhhCLX.fr4HPRlgg1TaUMWt
+    folder: RAxVzK08QIZxH5Xs
+    sort: 100000
+    flags:
+      core: {}
+    system:
+      cosm: cyberpapacy
+      description: >-
+        <p>This eye enhancement increases fine detail and can even detect
+        patterns or breaks in patterns. Any test made to detect and comprehend
+        visual evidence, usually <em>find</em> or <em>tracking</em>, becomes
+        Favored.</p><p>Also found in Cyberpapacy Sourcebook Module</p>
+      price:
+        dollars: '2000'
+      notes: Visual evidence analysis, find and tracking become Favored
+      implantType: cyberware
+      axioms:
+        tech: 26
+        magic: 0
+        social: 0
+        spirit: 0
+      traits: []
+      itemsToBestow: []
+      bestowedBy: null
+      quantity: 1
+      secondaryAxiom: none
+      equipped:
+        carryType: stowed
+        handsHeld: 0
+    ownership:
+      default: 0
+      A9LyAqagoJJU3gDH: 3
+      VAnYow5sWS9EJzo0: 3
+      BMvGTGfheqDXarjN: 3
+    _stats:
+      compendiumSource: Compendium.te001-core-rulebook.Items.Item.PKBgi2Obr2zhhCLX
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.27.0
+      createdTime: 1774459064270
+      modifiedTime: 1774459064270
+      lastModifiedBy: BMvGTGfheqDXarjN
+    _key: '!actors.items!YzRwn4OIYPYBIPJH.PKBgi2Obr2zhhCLX'
 effects: []
 folder: null
 sort: 100001

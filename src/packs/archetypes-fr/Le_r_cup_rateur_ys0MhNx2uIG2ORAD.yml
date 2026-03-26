@@ -121,7 +121,60 @@ items:
     flags:
       core: {}
     img: systems/torgeternity/images/icons/reality-icon.webp
-    effects: []
+    effects:
+      - name: Tornade
+        origin: >-
+          Compendium.torgeternity.archetypes-fr.Actor.ys0MhNx2uIG2ORAD.Item.QYQEspVVTZEymOIB
+        duration:
+          startTime: null
+          combat: null
+          seconds: null
+          rounds: null
+          turns: null
+          startRound: null
+          startTurn: null
+        disabled: false
+        img: systems/torgeternity/images/icons/reality-icon.webp
+        _id: EqdJKw8jrBzCf5Jy
+        type: base
+        system:
+          applyOnOutcome: ''
+          transferOnOutcome: ''
+          transferTo: target
+          activeIfTrait:
+            - meleeWeapons
+          applyIfAttackTrait: []
+          applyIfDefendTrait: []
+          defendAgainstTrait: []
+          applyIfAttackTraitCombine: or
+          applyIfDefendTraitCombine: or
+          defendAgainstTraitCombine: or
+          itemsToBestow: []
+          combatToggle: false
+          concentratingId: null
+        changes:
+          - key: test.targetsModifier
+            mode: 2
+            value: '2'
+            priority: null
+        description: ''
+        tint: '#ffffff'
+        transfer: true
+        statuses: []
+        sort: 0
+        flags: {}
+        _stats:
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+          coreVersion: '13.351'
+          systemId: torgeternity
+          systemVersion: 13.27.0
+          createdTime: 1774467059387
+          modifiedTime: 1774467088396
+          lastModifiedBy: BMvGTGfheqDXarjN
+        _key: >-
+          !actors.items.effects!ys0MhNx2uIG2ORAD.QYQEspVVTZEymOIB.EqdJKw8jrBzCf5Jy
     folder: null
     system:
       category: prowess
@@ -471,7 +524,7 @@ items:
           startRound: null
           startTurn: null
         disabled: false
-        img: icons/svg/aura.svg
+        img: systems/torgeternity/images/icons/implant.webp
         _id: 9Ji179N4qcBs2Up0
         type: base
         system:
@@ -498,8 +551,8 @@ items:
           systemId: torgeternity
           systemVersion: 13.13.2
           createdTime: 1764001392076
-          modifiedTime: 1764001416725
-          lastModifiedBy: e1DB4TK9SbDuMDS3
+          modifiedTime: 1774467180454
+          lastModifiedBy: BMvGTGfheqDXarjN
         _key: >-
           !actors.items.effects!ys0MhNx2uIG2ORAD.NXiqH2pxdolCPhCN.9Ji179N4qcBs2Up0
       - name: Armor +3 (Arm)
@@ -514,7 +567,7 @@ items:
           startRound: null
           startTurn: null
         disabled: true
-        img: icons/svg/aura.svg
+        img: systems/torgeternity/images/icons/implant.webp
         _id: QPPoZ57oejIOAYQl
         type: base
         system:
@@ -545,8 +598,8 @@ items:
           systemId: torgeternity
           systemVersion: 13.13.2
           createdTime: 1764001423261
-          modifiedTime: 1764001440879
-          lastModifiedBy: e1DB4TK9SbDuMDS3
+          modifiedTime: 1774467184832
+          lastModifiedBy: BMvGTGfheqDXarjN
         _key: >-
           !actors.items.effects!ys0MhNx2uIG2ORAD.NXiqH2pxdolCPhCN.QPPoZ57oejIOAYQl
     folder: null
@@ -1187,7 +1240,7 @@ _stats:
   systemVersion: 13.27.0
   coreVersion: '13.351'
   createdTime: 1716827809898
-  modifiedTime: 1773001234629
+  modifiedTime: 1774467262587
   lastModifiedBy: BMvGTGfheqDXarjN
   compendiumSource: null
   duplicateSource: null

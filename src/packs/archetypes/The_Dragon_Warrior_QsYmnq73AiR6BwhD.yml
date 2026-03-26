@@ -50,7 +50,7 @@ items:
           startRound: null
           startTurn: null
         disabled: false
-        img: icons/svg/aura.svg
+        img: systems/torgeternity/images/icons/reality-icon.webp
         _id: dNOpZvaTUQrlMhFf
         type: base
         system:
@@ -75,8 +75,8 @@ items:
           coreVersion: '13.351'
           systemId: torgeternity
           systemVersion: 13.13.2
-          lastModifiedBy: e1DB4TK9SbDuMDS3
-          modifiedTime: 1764001178080
+          lastModifiedBy: BMvGTGfheqDXarjN
+          modifiedTime: 1774459463298
         _key: >-
           !actors.items.effects!QsYmnq73AiR6BwhD.eItDWecF1ue7Hvp0.dNOpZvaTUQrlMhFf
       - name: Dragon Scales (Armor vs. Fire)
@@ -89,8 +89,8 @@ items:
           turns: null
           startRound: null
           startTurn: null
-        disabled: true
-        img: icons/svg/aura.svg
+        disabled: false
+        img: systems/torgeternity/images/icons/reality-icon.webp
         _id: GFVwedISXXsBSYXB
         type: base
         system:
@@ -98,6 +98,8 @@ items:
           applyIfAttackTrait: []
           applyIfDefendTrait: []
           transferOnOutcome: 0
+          defendAgainstTrait:
+            - fireDamage
         changes:
           - key: defenses.armor
             mode: 2
@@ -115,9 +117,9 @@ items:
           exportSource: null
           coreVersion: '13.351'
           systemId: torgeternity
-          systemVersion: 13.13.2
-          lastModifiedBy: e1DB4TK9SbDuMDS3
-          modifiedTime: 1764003328994
+          systemVersion: 13.27.0
+          lastModifiedBy: BMvGTGfheqDXarjN
+          modifiedTime: 1774459468018
         _key: >-
           !actors.items.effects!QsYmnq73AiR6BwhD.eItDWecF1ue7Hvp0.GFVwedISXXsBSYXB
     folder: 6DYpLRcVUTdBo01P
@@ -253,6 +255,8 @@ items:
         tech: 0
       secondaryAxiom: none
       transferenceID: eItDWecF1ue7Hvp0
+      itemsToBestow:
+        - "{\"_id\":\"eItDWecF1ue7Hvp0\",\"name\":\"Dragon Warrior\",\"type\":\"perk\",\"img\":\"systems/torgeternity/images/icons/reality-icon.webp\",\"effects\":[{\"name\":\"Giant Strength\",\"origin\":\"Compendium.te001-core-rulebook.Items.Item.eItDWecF1ue7Hvp0\",\"duration\":{\"startTime\":null,\"combat\":null,\"seconds\":null,\"rounds\":null,\"turns\":null,\"startRound\":null,\"startTurn\":null},\"disabled\":true,\"img\":\"systems/torgeternity/images/icons/reality-icon.webp\",\"_id\":\"dNOpZvaTUQrlMhFf\",\"type\":\"base\",\"system\":{\"applyOnOutcome\":\"\",\"transferOnOutcome\":\"\",\"transferTo\":\"target\",\"activeIfTrait\":[],\"applyIfAttackTrait\":[],\"applyIfDefendTrait\":[],\"defendAgainstTrait\":[],\"applyIfAttackTraitCombine\":\"or\",\"applyIfDefendTraitCombine\":\"or\",\"defendAgainstTraitCombine\":\"or\",\"itemsToBestow\":[],\"combatToggle\":false,\"concentratingId\":null},\"changes\":[{\"key\":\"system.attributes.strength.value\",\"mode\":2,\"value\":\"2\",\"priority\":null}],\"description\":\"\",\"tint\":\"#ffffff\",\"transfer\":true,\"statuses\":[],\"sort\":0,\"flags\":{},\"_stats\":{\"coreVersion\":\"13.351\",\"systemId\":\"torgeternity\",\"systemVersion\":\"13.3.1\",\"createdTime\":1754495402627,\"modifiedTime\":1774241886062,\"lastModifiedBy\":\"d8YcfsxBOP7RAazk\"}},{\"name\":\"Dragon Scales (Armor vs. Fire)\",\"origin\":\"Compendium.te001-core-rulebook.Items.Item.eItDWecF1ue7Hvp0\",\"duration\":{\"startTime\":null,\"combat\":null,\"seconds\":null,\"rounds\":null,\"turns\":null,\"startRound\":null,\"startTurn\":null},\"disabled\":true,\"img\":\"systems/torgeternity/images/icons/reality-icon.webp\",\"_id\":\"GFVwedISXXsBSYXB\",\"type\":\"base\",\"system\":{\"applyOnOutcome\":\"\",\"transferOnOutcome\":\"\",\"transferTo\":\"target\",\"activeIfTrait\":[],\"applyIfAttackTrait\":[],\"applyIfDefendTrait\":[],\"defendAgainstTrait\":[],\"applyIfAttackTraitCombine\":\"or\",\"applyIfDefendTraitCombine\":\"or\",\"defendAgainstTraitCombine\":\"or\",\"itemsToBestow\":[],\"combatToggle\":false,\"concentratingId\":null},\"changes\":[{\"key\":\"system.defenses.armor\",\"mode\":2,\"value\":\"6\",\"priority\":null}],\"description\":\"\",\"tint\":\"#ffffff\",\"transfer\":true,\"statuses\":[],\"sort\":0,\"flags\":{},\"_stats\":{\"coreVersion\":\"13.351\",\"systemId\":\"torgeternity\",\"systemVersion\":\"13.3.1\",\"createdTime\":1754495403137,\"modifiedTime\":1774241886064,\"lastModifiedBy\":\"d8YcfsxBOP7RAazk\"}}],\"folder\":\"6DYpLRcVUTdBo01P\",\"flags\":{\"core\":{}},\"system\":{\"category\":\"dwarf\",\"cosm\":\"aysle\",\"description\":\"<p>Dragon Warriors are the last champions of the dwarves who were virtually annihilated in Aysle. As a final desperate measure, they built suits of powerful, arcane armor designed to slay Uthorion’s hated minions. Most knew they would perish in them.</p><p>@UUID[Compendium.te001-core-rulebook.Items.Item.kKfw6Od1PySvYsOs]{Dragon Warrior Armor} contains incredible weapons, gadgets, and devices that transform the wearer into an engine of vengeance. It counts as Full Body armor, adds Armor +4, limits the wearer’s Dexterity to 8, and causes two extra points of shock any time @UUID[Compendium.te001-core-rulebook.rules.pwneQ55M0nnDH0Us.JournalEntryPage.EhKa65cpHvodUl2L#fatigued:]{fatigued} comes up on the Conflict Line.</p><p>When Dragon Warrior is taken, the dwarf can choose one enhancement from the list below.</p><p><strong>New Enhancements:</strong> This Perk may be taken more than once. Each time after the first it grants another one of the enhancements listed below. Unless it says otherwise, each enhancement may only be taken once.</p><ul><li><p><strong>@UUID[Compendium.te001-core-rulebook.Items.Item.H50jH4U07o3VQPIP]{Dart Thrower}:</strong> A compartment on one of the dwarf’s forearms contains six deadly iron darts. Each dart deals 13 damage, range 10/20/40, may use a @UUID[Compendium.te001-core-rulebook.rules.pwneQ55M0nnDH0Us.JournalEntryPage.qKdamp4rrcX6TTt0#short-burst:]{Short Burst}, and uses <em>missile weapons</em> to hit<br />@UUID[Compendium.te001-core-rulebook.Items.Item.FMuEU14QIeJz3EG1]{Compartments} in the armor hold 12 additional darts. Any dwarf who has this Perk knows how to make more from metal scraps. Assume the weapon and ammunition compartment are replenished between acts or whenever the Game Master feels the wearer has sufficient time to do so.<br />A second dart thrower may be placed on the dwarf’s\_<span style=\\\"font-family:var(--font-primary);font-size:var(--font-size-14)\\\">other</span><span style=\\\"font-family:var(--font-primary)\\\"> arm by taking this enhancement a second time (as well as a second compartment).</span></p></li></ul><ul><li><strong>@UUID[Compendium.te001-core-rulebook.Items.Item.ai2XQyTQKULhkmVz]{Dragon Breath}:</strong> One of the warrior’s bracers is lined with a long tube leading to a chamber of compressed fuel hidden on his back armor. When activated with missile weapons the tube spurts fire in a 10-meter-long stream as a @UUID[Compendium.te001-core-rulebook.rules.pwneQ55M0nnDH0Us.JournalEntryPage.EhKa65cpHvodUl2L#explosives-and-area-effect-attacks]{Small Blast}. Everything within the blast suffers 16 @UUID[Compendium.te001-core-rulebook.rules.pwneQ55M0nnDH0Us.JournalEntryPage.EhKa65cpHvodUl2L#fire]{Fire damage}. The chamber holds enough fuel for three individual blasts. The container magically recharges at the end of the scene or during a long break in the action of a few hours or more (Game Master’s discretion)</li><li><strong>@UUID[Compendium.te001-core-rulebook.Items.Item.Omp8wSKElAyzWbYA]{Dragon Claws}:</strong> One of the gauntlets ends in a claw tipped with diamonds. The gauntlet uses <em>unarmed combat</em> to hit, and causes <em>Strength</em> +3, Armor Piercing 2 damage.</li><li><strong>Dragon Scales:</strong> The armor is enchanted with magical runes that grant it +10 Armor versus fire (instead of +4).</li><li><strong>Giant Strength:</strong> A series of pneumatic compressors take in air and channel it to the dwarf’s arms. Along with cleverly placed levers along the inside of the armor, it increases his <em>Strength</em> by +2 for tests and determining damage. Toughness remains unaffected</li><li><strong>Mad Jacks:</strong> Cylinders of magically compressed gas are hidden in compartments of the dwarf’s heavy boots. When activated, gouts of fire propel her into the air, allowing her to jump up to 10 meters vertically and 30 meters horizontally. If used in conjunction with an All-Out attack, the dwarf gains an additional +2 to his action total. Mad Jacks magically recharge once every 24 hours</li><li><strong>Rune of Replenishment:</strong> The armor only deals one extra shock when Fatigue appears on the Conflict Line, and the wearer recovers an extra shock when Inspiration appears</li></ul><p>\_</p><p>Found in <strong>Core Rules</strong></p>\",\"prerequisites\":\"<p>@UUID[Compendium.te001-core-rulebook.Items.Item.2AQ87OBFRFvaPeuX]{Dwarf}, Strength 10+</p>\",\"generalContradiction\":true,\"timestaken\":\"\",\"enhancements\":[{\"description\":\"A compartment on one of the dwarf’s forearms contains six deadly iron darts. Each dart deals 13 damage, range 10/20/40, may use a Short Burst, and uses missile weapons to hit\\nCompartments in the armor hold 12 additional darts. Any dwarf who has this Perk knows how to make more from metal scraps. Assume the weapon and ammunition compartment are replenished between acts or whenever the Game Master feels the wearer has sufficient time to do so.\\nA second dart thrower may be placed on the dwarf’s other arm by taking this enhancement a second time (as well as a second compartment).\",\"taken\":false,\"title\":\"Dart Thrower\"},{\"description\":\"One of the warrior’s bracers is lined with a long tube leading to a chamber of compressed fuel hidden on his back armor. When activated with missile weapons the tube spurts fire in a 10-meter-long stream as a Small Blast. Everything within the blast suffers 16 Fire damage. The chamber holds enough fuel for three individual blasts. The container magically recharges at the end of the scene or during a long break in the action of a few hours or more (Game Master’s discretion).\",\"taken\":false,\"title\":\"Dragon Breath\"},{\"description\":\"One of the gauntlets ends in a claw tipped with diamonds. The gauntlet uses unarmed combat to hit, and causes Strength +3, Armor Piercing 2 damage\",\"taken\":false,\"title\":\"Dragon Claws\"},{\"description\":\"The armor is enchanted with magical runes that grant it +10 Armor versus fire (instead of +4).\",\"taken\":false,\"title\":\"Dragon Scales\"},{\"description\":\"A series of pneumatic compressors take in air and channel it to the dwarf’s arms. Along with cleverly placed levers along the inside of the armor, it increases his Strength by +2 for tests and determining damage. Toughness remains unaffected.\",\"taken\":false,\"title\":\"Giant Strength\"},{\"description\":\"Cylinders of magically compressed gas are hidden in compartments of the dwarf’s heavy boots. When activated, gouts of fire propel her into the air, allowing her to jump up to 10 meters vertically and 30 meters horizontally. If used in conjunction with an All-Out attack, the dwarf gains an additional +2 to his action total. Mad Jacks magically recharge once every 24 hours.\",\"taken\":false,\"title\":\"Mad Jacks\"},{\"description\":\"The armor only deals one extra shock when Fatigue appears on the Conflict Line, and the wearer recovers an extra shock when Inspiration appears.\",\"taken\":false,\"title\":\"Rune of Replenishment\"}],\"limitations\":[],\"traits\":[],\"axioms\":{\"magic\":0,\"social\":0,\"spirit\":0,\"tech\":0},\"itemsToBestow\":[\"{\\\"name\\\":\\\"Dragon Warrior Armor\\\",\\\"type\\\":\\\"armor\\\",\\\"img\\\":\\\"systems/torgeternity/images/icons/armor-icon.webp\\\",\\\"effects\\\":[],\\\"folder\\\":\\\"6DYpLRcVUTdBo01P\\\",\\\"flags\\\":{\\\"core\\\":{}},\\\"system\\\":{\\\"cosm\\\":\\\"aysle\\\",\\\"description\\\":\\\"<p>Provided by @UUID[Compendium.te001-core-rulebook.Items.Item.eItDWecF1ue7Hvp0]{Dragon Warrior} Perk</p><p>@UUID[Compendium.te001-core-rulebook.rules.pwneQ55M0nnDH0Us.JournalEntryPage.qKdamp4rrcX6TTt0#fatigues:]{Fatigues}</p><p>@UUID[Compendium.te001-core-rulebook.rules.pwneQ55M0nnDH0Us.JournalEntryPage.qKdamp4rrcX6TTt0#full-body/torso:]{Full Body Armor}</p>\\\",\\\"price\\\":{\\\"dollars\\\":\\\"\\\"},\\\"bonus\\\":4,\\\"equipped\\\":{\\\"carryType\\\":\\\"stowed\\\",\\\"handsHeld\\\":0},\\\"maxDex\\\":8,\\\"minStrength\\\":10,\\\"notes\\\":\\\"Fatigues 2, Full Body\\\",\\\"fatigue\\\":2,\\\"traits\\\":[\\\"fatigues\\\",\\\"fullBody\\\"],\\\"axioms\\\":{\\\"tech\\\":12,\\\"magic\\\":0,\\\"social\\\":0,\\\"spirit\\\":0},\\\"itemsToBestow\\\":[],\\\"bestowedBy\\\":null,\\\"quantity\\\":1,\\\"secondaryAxiom\\\":\\\"none\\\"},\\\"_stats\\\":{\\\"systemId\\\":\\\"torgeternity\\\",\\\"systemVersion\\\":\\\"13.4.0\\\",\\\"coreVersion\\\":\\\"13.347\\\",\\\"createdTime\\\":1711551146690,\\\"modifiedTime\\\":1754942583159,\\\"lastModifiedBy\\\":\\\"W32Zl65V9atvPk8o\\\"},\\\"_id\\\":\\\"kKfw6Od1PySvYsOs\\\",\\\"ownership\\\":{\\\"default\\\":0}}\"],\"bestowedBy\":null,\"secondaryAxiom\":\"none\"},\"_stats\":{\"systemId\":\"torgeternity\",\"systemVersion\":\"13.27.0\",\"coreVersion\":\"13.351\",\"createdTime\":1711551146835,\"modifiedTime\":1774457586213,\"lastModifiedBy\":\"BMvGTGfheqDXarjN\"},\"ownership\":{\"default\":0}}"
     ownership:
       default: 0
       A9LyAqagoJJU3gDH: 3
@@ -264,10 +268,10 @@ items:
       exportSource: null
       coreVersion: '13.351'
       systemId: torgeternity
-      systemVersion: 13.13.2
+      systemVersion: 13.27.0
       createdTime: 1763999051578
-      modifiedTime: 1763999051578
-      lastModifiedBy: e1DB4TK9SbDuMDS3
+      modifiedTime: 1774457620203
+      lastModifiedBy: BMvGTGfheqDXarjN
     _key: '!actors.items!QsYmnq73AiR6BwhD.eItDWecF1ue7Hvp0'
   - _id: N6G6v7wgDhnpsIiQ
     name: Great Axe
@@ -989,7 +993,7 @@ items:
           startRound: null
           startTurn: null
         disabled: false
-        img: icons/svg/aura.svg
+        img: systems/torgeternity/images/icons/reality-icon.webp
         _id: oCKh9NezxnwhcW7t
         type: base
         system:
@@ -1015,7 +1019,8 @@ items:
           coreVersion: '13.351'
           systemId: torgeternity
           systemVersion: 13.15.0
-          lastModifiedBy: null
+          lastModifiedBy: BMvGTGfheqDXarjN
+          modifiedTime: 1774459472196
         _key: >-
           !actors.items.effects!QsYmnq73AiR6BwhD.HcMgY1f0TFeIgi9D.oCKh9NezxnwhcW7t
     folder: JH8fiVIGH83UaPBa

@@ -817,6 +817,37 @@ export function torgDamage(damage, toughness, options) {
   return torgDamageModifiers(result, options);
 }
 
+
+export function applyNumericChange(value, change) {
+  // DataModel.applyField
+  // DataField.applyChange
+  const delta = parseInt(change.value);
+  if (isNaN(delta)) return value;  // value MUST be a number
+
+  if (game.release.generation < 14) {
+    switch (change.mode) {
+      case CONST.ACTIVE_EFFECT_MODES.ADD: return value + delta;
+      case CONST.ACTIVE_EFFECT_MODES.MULTIPLY: return value * delta;
+      case CONST.ACTIVE_EFFECT_MODES.OVERRIDE: return delta;
+      case CONST.ACTIVE_EFFECT_MODES.UPGRADE: return Math.max(value, delta);
+      case CONST.ACTIVE_EFFECT_MODES.DOWNGRADE: return Math.min(value, delta);
+      default: // custom 
+        return value;
+    }
+  } else {
+    switch (change.type) {
+      case "add": return value + delta;
+      case "subtract": return value - delta;
+      case "multiply": return value * delta;
+      case "override": return delta;
+      case "upgrade": return Math.max(value, delta);
+      case "downgrade": return Math.min(value, delta);
+      default:  // custom
+        return value;
+    }
+  }
+}
+
 /**
  * 
  * @param {String} fieldname 
@@ -826,46 +857,16 @@ export function torgDamage(damage, toughness, options) {
  */
 
 export function applyNumericEffects(fieldname, origvalue, effects) {
-  let value = origvalue;
-  if (!effects) return value;
+  if (!effects) return origvalue;
 
   // Get changes into a sorted list in priority order
   const changes = effects.filter(fx => fx && !fx.transferOnOutcome)
     .map(fx => fx.changes.filter(ch => ch.key === fieldname)).flat(1)
     .sort((a, b) => (a.priority ?? (a.mode * 10)) - (b.priority ?? (b.mode * 10)));
 
-  if (game.release.generation < 14) {
-    for (const change of changes) {
-      // DataModel.applyField
-      // DataField.applyChange
-      const delta = parseInt(change.value);
-      if (isNaN(delta)) continue;  // value MUST be a number
-      switch (change.mode) {
-        case CONST.ACTIVE_EFFECT_MODES.ADD: value += delta; break;
-        case CONST.ACTIVE_EFFECT_MODES.MULTIPLY: value *= delta; break;
-        case CONST.ACTIVE_EFFECT_MODES.OVERRIDE: value = delta; break;
-        case CONST.ACTIVE_EFFECT_MODES.UPGRADE: value = Math.max(value, delta); break;
-        case CONST.ACTIVE_EFFECT_MODES.DOWNGRADE: value = Math.min(value, delta); break;
-        default:  // custom
-      }
-    }
-  } else {
-    for (const change of changes) {
-      // DataModel.applyField
-      // DataField.applyChange
-      const delta = parseInt(change.value);
-      if (isNaN(delta)) continue;  // value MUST be a number
-      switch (change.type) {
-        case "add": value += delta; break;
-        case "subtract": value -= delta; break;
-        case "multiply": value *= delta; break;
-        case "override": value = delta; break;
-        case "upgrade": value = Math.max(value, delta); break;
-        case "downgrade": value = Math.min(value, delta); break;
-        default:  // custom
-      }
-    }
-  }
+  // DataModel.applyField
+  let value = origvalue;
+  changes.forEach(change => { value = applyNumericChange(value, change) });
   return value;
 }
 

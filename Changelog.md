@@ -2,6 +2,25 @@
 
 - Translations by Durak (French), Helmut (German), and Teotimus (Spanish).
 
+## NEXT
+- Rework workflow for calculation of the zone axioms affecting a Stormknight:
+  - The zone axioms are based on the ACTIVE scene.
+  - The token must be in a Region on the ACTIVE scene to affect the SK's zone axioms.
+  - Active Effects can modify the base scene axioms affecting an Actor with `system.sceneAxioms.magic` (or spirit/social/tech), but Regions and Reality Surge supercede them.
+    - `UPGRADE` to work like a 'mixed' zone.
+    - `OVERRIDE` to work like a 'pure' zone.
+- Allow skills to be included in the "Active only if" field of an Active Effect, primarily to help modify the test.
+- Allow any `*Modifier` field in a test to be modified by an Active Effect:
+  - Whirlwind: set "Active only if" to "Melee Weapons": with a change of `test.targetsModifier` ADD 2
+- **System Archetypes** updated to latest Item traits/Active Effects
+- Hide Foundry default Active Effect Sheet, and change two sheet names from "xxx Configuration" to "xxx Sheet".
+- Allow Active Effects to be dragged onto Items.
+- Active Effects applied by a power that requires Concentration should appear as a temporary effect (on token and in effects list).
+- **Effects Panel** updates
+  - Show `disabled` effects at the end of the list (only disabled temporary effects if set in game system settings).
+  - `Right Click` now only disables the effect.
+  - Hold `SHIFT` + `Right Click` to delete (only works if the effect is directly on the Actor, not on an owned item).
+
 ## 13.31.4 - Bug Fixes Galore (well four)
 - Tooltip on Scene Nav correct when only one cosm selected.
   - Show zone type (pure, dominant, mixed) along with cosm names.

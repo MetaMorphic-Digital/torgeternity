@@ -317,7 +317,7 @@ items:
           startTurn: null
         disabled: false
         name: Riesenstärke (+2)
-        img: icons/svg/aura.svg
+        img: systems/torgeternity/images/icons/reality-icon.webp
         _id: SzDN8V4WPZxKsfKs
         type: base
         system: {}
@@ -335,12 +335,12 @@ items:
         _stats:
           compendiumSource: null
           duplicateSource: null
-          coreVersion: '13.345'
+          coreVersion: '13.351'
           systemId: torgeternity
           systemVersion: 12.2.0
           createdTime: null
-          modifiedTime: null
-          lastModifiedBy: null
+          modifiedTime: 1774460821962
+          lastModifiedBy: BMvGTGfheqDXarjN
           exportSource: null
         _key: >-
           !actors.items.effects!4maHTlnkLTHmuYpB.rWgkIw6gm37tEUAA.SzDN8V4WPZxKsfKs
@@ -953,7 +953,7 @@ items:
           startRound: null
           startTurn: null
         disabled: false
-        img: icons/svg/aura.svg
+        img: systems/torgeternity/images/icons/reality-icon.webp
         _id: VYPmk5fqyqurFKB4
         type: base
         system:
@@ -979,7 +979,8 @@ items:
           coreVersion: '13.351'
           systemId: torgeternity
           systemVersion: 13.15.0
-          lastModifiedBy: null
+          lastModifiedBy: BMvGTGfheqDXarjN
+          modifiedTime: 1774460844904
         _key: >-
           !actors.items.effects!4maHTlnkLTHmuYpB.YiMjiR1RpwRIBq0c.VYPmk5fqyqurFKB4
     folder: icqFu6DFcYQQKoSN

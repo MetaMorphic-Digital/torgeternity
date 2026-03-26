@@ -60,7 +60,7 @@ effects:
       startRound: null
       startTurn: null
     disabled: false
-    img: icons/svg/aura.svg
+    img: systems/torgeternity/images/characters/white_wolf.Avatar.webp
     _id: nt0zXK7tpiYkXsmT
     type: base
     system:
@@ -90,8 +90,8 @@ effects:
       systemId: torgeternity
       systemVersion: 13.13.2
       createdTime: 1764005245156
-      modifiedTime: 1764005264584
-      lastModifiedBy: e1DB4TK9SbDuMDS3
+      modifiedTime: 1774467304322
+      lastModifiedBy: BMvGTGfheqDXarjN
     _key: '!actors.effects!azyXdSKJRLmriHz6.nt0zXK7tpiYkXsmT'
 folder: null
 sort: 100001
@@ -536,7 +536,7 @@ _stats:
   systemVersion: 13.27.0
   coreVersion: '13.351'
   createdTime: 1716788509928
-  modifiedTime: 1773001234623
+  modifiedTime: 1774467278038
   lastModifiedBy: BMvGTGfheqDXarjN
   compendiumSource: null
   duplicateSource: null

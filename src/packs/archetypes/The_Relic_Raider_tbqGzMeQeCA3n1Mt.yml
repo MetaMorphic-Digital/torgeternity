@@ -653,14 +653,14 @@ items:
         _stats:
           compendiumSource: null
           duplicateSource: null
-          coreVersion: '13.345'
+          coreVersion: '13.351'
           systemId: torgeternity
           systemVersion: 12.2.0
           createdTime: null
-          modifiedTime: null
-          lastModifiedBy: null
+          modifiedTime: 1774459590569
+          lastModifiedBy: BMvGTGfheqDXarjN
           exportSource: null
-        img: icons/svg/aura.svg
+        img: systems/torgeternity/images/icons/reality-icon.webp
         type: base
         system: {}
         sort: 0

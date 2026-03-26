@@ -1,6 +1,6 @@
 import { renderSkillChat } from './torgchecks.js';
 import TorgeternityActor from './documents/actor/torgeternityActor.js';
-import { applyNumericEffects } from './torgchecks.js';
+import { applyNumericEffects, applyNumericChange } from './torgchecks.js';
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api
 
 function toCamelCase(from) {
@@ -243,6 +243,28 @@ export class TestDialog extends HandlebarsApplicationMixin(ApplicationV2) {
     // Maybe there is an explicit amount of damage
     for (const target of context.test.targetAll)
       target.damage = this.test.damage ?? 0;
+
+    // Check actor to see if they want to modify any of the modifiers.
+    // TODO - we need to check others fields too, at this point?  (so 'test.damage' shouldn't get set here)
+    let changed = false;
+    for (const effect of myActor.allApplicableEffects())
+      if (effect.active || (!effect.disabled && !effect.isTransferrable && effect.system.activeIfTrait.has(context.test.skillName)))
+        for (const change of effect.changes)
+          if (change.key.startsWith('test.') && change.key.endsWith('Modifier')) {
+            const key = change.key.slice(5);
+            if (foundry.utils.hasProperty(context.test, key)) {
+              context.test[key] = applyNumericChange(context.test[key], change);
+              changed = true;
+            }
+          }
+    if (changed) {
+      // Validate range of modifiers
+      const maxZero = ['woundModifier', 'stymiedModifier', 'darknessModifier', 'waitingModifier', 'targetsModifier', 'concentratingModifier',
+        'movementModifier', 'multiModifier', 'targetsModifier', 'vulnerableModifier'];
+      const minZero = ['burstModifier'];
+      for (const key of maxZero) if (context.test[key] > 0) context.test[key] = 0;
+      for (const key of minZero) if (context.test[key] < 0) context.test[key] = 0;
+    }
 
     context.test.hasModifiers =
       (context.test?.woundModifier ||

@@ -130,6 +130,18 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
     return !this.disabled && this.system.transferOnOutcome && this.system.transferTo === 'actor';
   }
 
+  get isTransferrable() {
+    return !this.disabled && (this.system.transferOnOutcome || this.system.transferOnOutcome);
+  }
+
+  /**
+   * If an effect is being concentrated on, then it is also classed as temporary.
+   */
+  get isTemporary() {
+    if (super.isTemporary) return true;
+    return !!this.system.concentratingId;
+  }
+
   /**
    * Return a copy of this object with the various "attack" traits cleared.
    */
