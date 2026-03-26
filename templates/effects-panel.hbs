@@ -1,18 +1,42 @@
 <div class="effectsPanel">
-  {{#each effects}}
-    {{#if active}}
-      <div class="effect">
-        <img src="{{img}}"
-          data-tooltip-html="<p class='title'>{{name}}
-          {{#if isTemporary}}
-          <span class='temporary'>&#x1F551;</span>
-    {{/if}}</p>
-    {{#if description}}
-      <hr>
-      <section class='description'>{{description}}</section>
-    {{/if}}"
-          data-tooltip-direction="LEFT" data-action="clickEffect" data-uuid="{{uuid}}" />
+
+  {{#*inline "oneEffect"}}
+    <div class="effect">
+      <img src="{{img}}"
+        data-tooltip-html="<p class='title'>{{~name~}}
+        {{~#if isTemporary}}<span class='temporary'>&#x1F551;</span>{{/if~}}
+        {{~#if disabled}}&nbsp;<i class='fa-solid fa-ban'></i>{{/if}}</p>
+      {{#if description}}<hr><section class='description'>{{description}}</section>{{/if}}"
+        data-tooltip-direction="LEFT" data-action="clickEffect" data-uuid="{{uuid}}" />
+    </div>
+  {{/inline}}
+
+  <hr>
+  {{#if temporaryEffects.length}}
+    {{#each temporaryEffects}}
+      <div class="temporaryEffects">
+        {{> oneEffect this}}
       </div>
-    {{/if}}
-  {{/each}}
+    {{/each}}
+  {{/if}}
+
+
+  {{#if activeEffects}}
+    <hr>
+    <div class="activeEffects">
+      {{#each activeEffects}}
+        {{> oneEffect this}}
+      {{/each}}
+    </div>
+  {{/if}}
+
+  {{#if disabledEffects.length}}
+    <hr>
+    <div class="disabledEffects">
+      {{#each disabledEffects}}
+        {{> oneEffect this}}
+      {{/each}}
+    </div>
+  {{/if}}
+
 </div>

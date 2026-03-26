@@ -13,6 +13,10 @@
 - Hide Foundry default Active Effect Sheet, and change two sheet names from "xxx Configuration" to "xxx Sheet".
 - Allow Active Effects to be dragged onto Items.
 - Active Effects applied by a power that requires Concentration should appear as a temporary effect (on token and in effects list).
+- **Effects Panel** updates
+  - Show `disabled` effects at the end of the list (only disabled temporary effects if set in game system settings).
+  - `Right Click` now only disables the effect.
+  - Hold `SHIFT` + `Right Click` to delete (only works if the effect is directly on the Actor, not on an owned item).
 
 ## 13.31.4 - Bug Fixes Galore (well four)
 - Tooltip on Scene Nav correct when only one cosm selected.
