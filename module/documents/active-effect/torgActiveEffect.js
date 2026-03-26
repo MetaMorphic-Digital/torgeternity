@@ -135,6 +135,14 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
   }
 
   /**
+   * If an effect is being concentrated on, then it is also classed as temporary.
+   */
+  get isTemporary() {
+    if (super.isTemporary) return true;
+    return !!this.system.concentratingId;
+  }
+
+  /**
    * Return a copy of this object with the various "attack" traits cleared.
    */
   copyForTransfer(concentratingId) {

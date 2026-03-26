@@ -12,6 +12,7 @@
 - **System Archetypes** updated to latest Item traits/Active Effects
 - Hide Foundry default Active Effect Sheet, and change two sheet names from "xxx Configuration" to "xxx Sheet".
 - Allow Active Effects to be dragged onto Items.
+- Active Effects applied by a power that requires Concentration should appear as a temporary effect (on token and in effects list).
 
 ## 13.31.4 - Bug Fixes Galore (well four)
 - Tooltip on Scene Nav correct when only one cosm selected.
