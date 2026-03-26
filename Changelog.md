@@ -3,7 +3,7 @@
 - Translations by Durak (French), Helmut (German), and Teotimus (Spanish).
 
 
-## NEXT - 
+## 13.32.1 - Concentration + Aura Effects module support
 - Concentration is now only added once when pressing buttons in the chat message to improve the test result.
 - Active Effects can be dragged and dropped onto the same Item/Actor to create a duplicate (presumably for subsequent modification).
 - **Aura Effects Module**
@@ -20,7 +20,7 @@
 - Allow skills to be included in the "Active only if" field of an Active Effect, primarily to help modify the test.
 - Allow any `*Modifier` field in a test to be modified by an Active Effect:
   - Whirlwind: set "Active only if" to "Melee Weapons": with a change of `test.targetsModifier` ADD 2
-- **System Archetypes** updated to latest Item traits/Active Effects.
+- **System Archetypes** updated to latest Item traits/Active Effects
 - Hide Foundry default Active Effect Sheet, and change two sheet names from "xxx Configuration" to "xxx Sheet".
 - Allow Active Effects to be dragged onto Items.
 - Active Effects applied by a power that requires Concentration should appear as a temporary effect (on token and in effects list).
