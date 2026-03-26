@@ -163,12 +163,13 @@ Hooks.once('init', async function () {
     makeDefault: true,
   });
   foundry.applications.apps.DocumentSheetConfig.registerSheet(Card, 'torgeternity', torgeternityCardConfig, {
-    label: 'Torg Eternity Card Configuration',
+    label: 'Torg Eternity Card Sheet',
     types: ['destiny', 'drama', 'cosm'],
     makeDefault: true,
   });
+  foundry.applications.apps.DocumentSheetConfig.unregisterSheet(foundry.documents.ActiveEffect, "core", foundry.applications.sheets.ActiveEffectConfig);
   foundry.applications.apps.DocumentSheetConfig.registerSheet(ActiveEffect, 'torgeternity', TorgActiveEffectConfig, {
-    label: 'Torg Active Effect Configuration',
+    label: 'Torg Eternity Active Effect Sheet',
     makeDefault: true,
   });
 
