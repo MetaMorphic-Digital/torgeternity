@@ -79,6 +79,8 @@ export class TorgActiveEffectData extends (foundry.data.ActiveEffectTypeDataMode
    * @type {boolean}
    */
   get isSuppressed() {
+    // Aura Effects module uses its own type for the aura
+    if (this.parent.type !== 'base') return false;
     // Don't apply the AE to the owning actor if it is being transferred on an attack
     if (this.applyOnOutcome.length || this.transferOnOutcome.length || this.defendAgainstTrait.size) return true;
 
