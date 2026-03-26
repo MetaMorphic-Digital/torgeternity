@@ -142,8 +142,8 @@ export default class TorgeternityItemSheet extends foundry.applications.api.Hand
   }
 
   async #onDropActiveEffect(effect) {
-    if (!this.item.isOwner) return null;
-    if (!effect || (effect.target === this.item)) return null;
+    if (!effect || !this.item.isOwner) return null;
+    //if (effect.target === this.item) return null;  // might be duplicating it
     const keepId = !this.item.effects.has(effect.id);
     const result = await foundry.documents.ActiveEffect.implementation.create(effect.toObject(), { parent: this.item, keepId });
     return result ?? null;
