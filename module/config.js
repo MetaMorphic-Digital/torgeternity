@@ -592,6 +592,7 @@ export function initConfig() {
     'fatigues': 'torgeternity.traits.fatigues',
     'fullBody': 'torgeternity.traits.fullBody',
     'torso': 'torgeternity.traits.torso',
+    'softArmor': 'torgeternity.traits.softArmor',
     'head': 'torgeternity.traits.head',
     'painful': 'torgeternity.traits.painful',
     'ignoreShock': 'torgeternity.traits.ignoreShock',

@@ -3,8 +3,7 @@
 - Translations by Durak (French), Helmut (German), and Teotimus (Spanish).
 
 ## NEXT
-- Add our own "Active Effect (Torg)" region behaviour.
-  - Foundry V14 provides a core "Apply Active Effect", but it does not support selective disposition.
+- Add "Soft Armor" defense trait.
 
 ### Translations
 ```
