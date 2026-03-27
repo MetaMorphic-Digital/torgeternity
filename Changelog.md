@@ -6,11 +6,12 @@
 - Add "Soft Armor" defense trait.
 - Improve the Source field of Active Effect lists to show the originating actor of transferred effects.
 - Show suppressed effects in Effects Panel (since they are shown as token icons).
+- Add "Standard" success result box to Spell, Miracles, Psionics - so that standard benefits can be displayed in test chat cards.
 
 ### Translations
 ```
-"RegionBehavior.torgActiveEffect": "Active Effect (Torg)"
-
+"standardResult": "Standard Result"   // for Miracle, Psionic, Spell item sheet
+"standard": "Standard"                // for chat card
 ```
 
 ## 13.32.1 - Concentration + Aura Effects module support

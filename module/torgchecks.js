@@ -433,6 +433,7 @@ export async function renderSkillChat(test, origChatMessage) {
       test.result = TestResult.STANDARD;
       test.outcomeColor = useColorBlind ? 'color: rgb(44, 179, 44)' : 'color: green';
       if (test.testType === 'soak') target.soakWounds = 1;
+      if (testItem?.system?.standard) test.extraResult = testItem.system.standard;
     }
     if (!useColorBlind && singleResult) test.outcomeColor += SHADOW_STYLE;
 

@@ -815,7 +815,8 @@
       "range": "Range",
       "requiresConcentration": "Requires Concentration",
       "skill": "Skill",
-      "skilllevel": "Min. Value"
+      "skilllevel": "Min. Value",
+      "standard": "Standard"
     },
     "powerSkills": {
       "alteration": "Alteration",
@@ -1216,6 +1217,7 @@
       "spell": "Spell",
       "spells": "Spells",
       "spirit": "Spirit",
+      "standardResult": "Standard Result",
       "stats": "Stats",
       "statusEffects": "Status Effects",
       "stormknight": "Stormknight",

@@ -821,7 +821,8 @@
       "range": "Reichweite",
       "requiresConcentration": "Benötigt Konzentration",
       "skill": "Fertigkeit",
-      "skilllevel": "Min. Fertigkeitswert"
+      "skilllevel": "Min. Fertigkeitswert",
+      "standard": "Standard"
     },
     "powerSkills": {
       "alteration": "Verwandlung",
@@ -1222,6 +1223,7 @@
       "spell": "Zauber",
       "spells": "Zauber",
       "spirit": "Geist",
+      "standardResult": "Standard Result",
       "stats": "Werte",
       "statusEffects": "Statuseffekte",
       "stormknight": "Storm Knight",

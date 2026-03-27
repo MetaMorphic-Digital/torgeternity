@@ -363,6 +363,7 @@
       "miracle": {
         "htmlFields": [
           "description",
+          "standard",
           "good",
           "outstanding"
         ]
@@ -380,6 +381,7 @@
       "psionicpower": {
         "htmlFields": [
           "description",
+          "standard",
           "good",
           "outstanding"
         ]
@@ -407,6 +409,7 @@
       "spell": {
         "htmlFields": [
           "description",
+          "standard",
           "good",
           "outstanding"
         ]

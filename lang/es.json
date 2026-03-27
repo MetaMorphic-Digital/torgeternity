@@ -821,7 +821,8 @@
       "range": "Alcance",
       "requiresConcentration": "Requiere Concentración",
       "skill": "Habilidad",
-      "skilllevel": "Valor Min. Habilidad"
+      "skilllevel": "Valor Min. Habilidad",
+      "standard": "Standard"
     },
     "powerSkills": {
       "alteration": "Alteración",
@@ -1222,6 +1223,7 @@
       "spell": "Conjuro",
       "spells": "Conjuros",
       "spirit": "Espiritual",
+      "standardResult": "Standard Result",
       "stats": "Atributos",
       "statusEffects": "Efecto Estado",
       "stormknight": "Caballero de la Tormenta",

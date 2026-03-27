@@ -824,7 +824,8 @@
       "range": "Portée",
       "requiresConcentration": "Nécessite de se concentrer",
       "skill": "Compétence",
-      "skilllevel": "Compétence min."
+      "skilllevel": "Compétence min.",
+      "standard": "Standard"
     },
     "powerSkills": {
       "alteration": "Altération",
@@ -1225,6 +1226,7 @@
       "spell": "Sortilège",
       "spells": "Sortilèges",
       "spirit": "Spirit.",
+      "standardResult": "Standard Result",
       "stats": "Caracs",
       "statusEffects": "Statut",
       "stormknight": "Chevalier des Tempêtes",
