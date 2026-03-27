@@ -11,7 +11,10 @@ export class ApplyEffectRegionBehaviorType extends foundry.data.regionBehaviors.
 
   static defineSchema() {
     return {
-      effectuuid: new fields.DocumentUUIDField({ nullable: true })
+      effectUuid: new fields.DocumentUUIDField({
+        nullable: true,
+        label: 'torgeternity.sheetLabels.effectUuid'
+      })
     };
   }
 

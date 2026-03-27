@@ -1085,6 +1085,7 @@
       "effect": "Effect",
       "effectCreate": "Create Effect",
       "effectTestOptions": "For Tests",
+      "effectUuid": "Active Effect UUID",
       "effects": "Effects",
       "end": "End",
       "enhancement": "Enhancement",
