@@ -29,8 +29,7 @@
       "cosm": "Cosm"
     },
     "RegionBehavior": {
-      "replaceAxioms": "Remplacer les Axioms de la zone",
-      "torgApplyEffect": "Active Effect (Torg)",
+      "replaceAxioms": "Remplacer les Axioms de la zone"
     }
   },
   "torgeternity": {

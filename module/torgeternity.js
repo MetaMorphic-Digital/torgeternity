@@ -39,7 +39,6 @@ import * as cardDataModels from './data/card/index.js';
 import { TorgCombatantData } from './data/torgCombatantData.js';
 import { TorgActiveEffectData } from './data/active-effect.js';
 import { ReplaceAxiomsRegionBehaviorType } from './data/regionbehavior/regionbehavioraxioms.js';
-import { ApplyEffectRegionBehaviorType } from './data/regionbehavior/regionbehavioreffect.js';
 import TorgActiveEffect from './documents/active-effect/torgActiveEffect.js';
 import TorgActiveEffectConfig from './sheets/torgeternityActiveEffectConfig.js';
 import TorgEternityTokenRuler from './canvas/tokenruler.js';
@@ -84,8 +83,6 @@ Hooks.once('init', async function () {
   CONFIG.Scene.documentClass = TorgeternityScene;
   CONFIG.RegionBehavior.dataModels.replaceAxioms = ReplaceAxiomsRegionBehaviorType;
   CONFIG.RegionBehavior.typeIcons.replaceAxioms = "fa-solid fa-globe";
-  CONFIG.RegionBehavior.dataModels.torgApplyEffect = ApplyEffectRegionBehaviorType;
-  CONFIG.RegionBehavior.typeIcons.torgApplyEffect = "fa-solid fa-sliders";
   CONFIG.Dice.terms.d = TorgDie;
 
   // Indexable Compendiums
