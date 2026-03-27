@@ -20,7 +20,7 @@
       "cosm": "Cosm"
     },
     "RegionBehavior": {
-      "replaceAxioms": "Replace Zone Axioms (Torg)"
+      "replaceAxioms": "Replace Zone Axioms"
     }
   },
   "torgeternity": {
@@ -1084,7 +1084,6 @@
       "effect": "Effect",
       "effectCreate": "Create Effect",
       "effectTestOptions": "For Tests",
-      "effectUuid": "Active Effect UUID",
       "effects": "Effects",
       "end": "End",
       "enhancement": "Enhancement",
