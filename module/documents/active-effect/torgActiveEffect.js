@@ -105,11 +105,26 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
    * Our own version, since this.origin might not point to the correct thing.
    */
   get sourceName() {
-    if (this.parent instanceof Actor && this.statuses.has('concentrating') && this.origin) {
-      return fromUuidSync(this.origin)?.name ?? game.i18n.localize("None");
+    if (!this.origin || !this.parent) return game.i18n.localize("None");
+    const origindoc = fromUuidSync(this.origin, { strict: false });
+    if (!origindoc) return game.i18n.localize("None");
+
+    // Special handling for effects directly on an actor (e.g. status effects and transferred effects)
+    if (this.parent instanceof Actor) {
+      if (origindoc === this.parent) return game.i18n.localize("None");
+      if (this.statuses.has('concentrating') && this.origin) {
+        // The spell being concentrated on.
+        return origindoc.name;
+      }
+      // Maybe an active effect from another actor
+      if (this.origin.startsWith('Actor.')) {
+        const parts = this.origin.split('.');
+        const originActor = game.actors.get(parts[1]);
+        if (originActor !== this.parent) return `${origindoc.name} (${originActor.name})`;
+        return origindoc.name;
+      }
     }
-    if (!this.parent || this.parent instanceof Actor) return game.i18n.localize("None");
-    return this.parent.name;
+    return this.parent?.name ?? game.i18n.localize("None");
   }
 
   get modifiesActor() {

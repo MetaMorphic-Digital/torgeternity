@@ -4,6 +4,7 @@
 
 ## NEXT
 - Add "Soft Armor" defense trait.
+- Improve the Source field of Active Effect lists to show the originating actor of transferred effects.
 
 ### Translations
 ```
