@@ -5,6 +5,7 @@
 ## NEXT
 - Add "Soft Armor" defense trait.
 - Improve the Source field of Active Effect lists to show the originating actor of transferred effects.
+- Show suppressed effects in Effects Panel (since they are shown as token icons).
 
 ### Translations
 ```
