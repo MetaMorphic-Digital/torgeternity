@@ -167,6 +167,42 @@ export default class TorgeternityScene extends foundry.documents.Scene {
 
     return sceneLevel;
   }
+
+  /**
+   * Foundry V14
+   * 
+   * @param {String} name                 The name for the region and the Apply Active Effect Behavior
+   * @param {TokenDocument|Token} token   The Token to attach the emanation Region to
+   * @param {Number} range                The range of the emanation in system units (gets rounded down to nearest grid units of scene)
+   * @param {ActiveEffectUUID} effectUuid the UUID of the effect to be placed within the aura
+   * 
+   */
+  async createTokenAura(name, token, range, effectUuid) {
+    if (token instanceof foundry.canvas.placeables.Token) token = token.document;
+
+    const region = await CONFIG.Region.documentClass.createTokenEmanation(
+      token,
+      range / canvas.scene.grid.distance,
+      {
+        name: name,
+        restriction: { enabled: true },
+        displayMeasurements: true,
+        visibility: CONST.REGION_VISIBILITY.OBSERVER,
+        ownership: { [game.user.id]: CONST.DOCUMENT_OWNERSHIP_LEVELS.OWNER }
+      },
+      { gridBased: true })
+
+    if (!region) return console.error('failed to create region document');
+
+    const behavior = foundry.documents.RegionBehavior.create(
+      {
+        name: name,
+        type: 'applyActiveEffect',
+        // Core doesn't support choosing one disposition over another
+        system: { effects: [effectUuid] }
+      },
+      { parent: region });
+  }
 }
 
 /**

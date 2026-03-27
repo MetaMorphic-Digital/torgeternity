@@ -2,6 +2,15 @@
 
 - Translations by Durak (French), Helmut (German), and Teotimus (Spanish).
 
+## NEXT
+- Add our own "Active Effect (Torg)" region behaviour.
+  - Foundry V14 provides a core "Apply Active Effect", but it does not support selective disposition.
+
+### Translations
+```
+"RegionBehavior.torgActiveEffect": "Active Effect (Torg)"
+
+```
 
 ## 13.32.1 - Concentration + Aura Effects module support
 - Concentration is now only added once when pressing buttons in the chat message to improve the test result.
