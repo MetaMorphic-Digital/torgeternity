@@ -175,7 +175,7 @@ export default class torgeternitySceneConfig extends foundry.applications.sheets
 Hooks.on('getSceneControlButtons', controls => {
   controls.lighting.tools.dim = {
     name: "dim",
-    order: 2.3,
+    order: controls.lighting.tools.day.order + 0.3,
     title: "CONTROLS.LightDim",
     icon: "fa-solid fa-cloud-sun",
     visible: !canvas.scene?.environment.darknessLock,
@@ -187,7 +187,7 @@ Hooks.on('getSceneControlButtons', controls => {
   };
   controls.lighting.tools.dark = {
     name: "dark",
-    order: 2.7,
+    order: controls.lighting.tools.day.order + 0.7,
     title: "CONTROLS.LightDark",
     icon: "fa-solid fa-cloud-moon",
     visible: !canvas.scene?.environment.darknessLock,
