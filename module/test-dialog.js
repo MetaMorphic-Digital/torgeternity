@@ -417,6 +417,7 @@ export function oneTestTarget(token, applySize, attackTraits, defenseTraits, tes
           maneuver: actor.system.defense,
           taunt: actor.system.defense,
           trick: actor.system.defense,
+          activeDefense: actor.system.defenses.activeDefense
         },
       };
 
@@ -436,14 +437,14 @@ export function oneTestTarget(token, applySize, attackTraits, defenseTraits, tes
           defenseTraits: actor.defenseTraits,
           // then non-vehicle changes
           skills: actor.itemTypes.customSkill.reduce((acc, skill) => {
-            acc[toCamelCase(skill.name)] = { value: skill.system.value, baseAttribute: skill.system.baseAttribute };
+            acc[toCamelCase(skill.name)] = { value: skill.system.value, defenseMod: skill.system.defenseMod, baseAttribute: skill.system.baseAttribute };
             return acc;
           },
             Object.entries(actor.system.skills).reduce((acc, [skillName, skill]) => {
-              acc[skillName] = { value: skill.value, baseAttribute: skill.baseAttribute }
+              acc[skillName] = { value: skill.value, defenseMod: skill.defenseMod ?? 0, baseAttribute: skill.baseAttribute }
               return acc;
             }, {})),
-          attributes: Object.entries(actor.system.attributes).reduce((acc, [key, attr]) => (acc[key] = attr.value, acc), {}),
+          attributes: Object.entries(actor.system.attributes).reduce((acc, [key, attr]) => (acc[key] = attr.value + attr.defenseMod, acc), {}),
           vulnerableModifier: actor.system.statusModifiers.vulnerable,
           darknessModifier: actor.system.statusModifiers.darkness,
           isConcentrating: actor.isConcentrating,
@@ -458,7 +459,7 @@ export function oneTestTarget(token, applySize, attackTraits, defenseTraits, tes
             maneuver: actor.system.defenses.maneuver.value,
             taunt: actor.system.defenses.taunt.value,
             trick: actor.system.defenses.trick.value,
-            activeDefense: !!actor.activeDefense
+            activeDefense: actor.system.defenses.activeDefense
           },
         };
 

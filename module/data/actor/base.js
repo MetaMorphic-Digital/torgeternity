@@ -29,6 +29,7 @@ export class BaseActorData extends foundry.abstract.TypeDataModel {
      * @public
      */
     this.defenses = {
+      activeDefense: 0,
       damageTraits: {
         // Armor: addition armor of the defender when damage is of the indicated type
         energyArmor: 0,

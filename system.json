@@ -24,10 +24,10 @@
       "twitter": "@shambles42"
     }
   ],
-  "version": "13.27.0",
+  "version": "13.33.0",
   "compatibility": {
     "minimum": "13.351",
-    "verified": 13
+    "verified": 14
   },
   "esmodules": [
     "module/torgeternity.js"
@@ -363,6 +363,7 @@
       "miracle": {
         "htmlFields": [
           "description",
+          "standard",
           "good",
           "outstanding"
         ]
@@ -380,6 +381,7 @@
       "psionicpower": {
         "htmlFields": [
           "description",
+          "standard",
           "good",
           "outstanding"
         ]
@@ -407,6 +409,7 @@
       "spell": {
         "htmlFields": [
           "description",
+          "standard",
           "good",
           "outstanding"
         ]
@@ -423,13 +426,15 @@
       }
     },
     "RegionBehavior": {
+      "torgApplyEffect": {},
       "replaceAxioms": {}
     }
   },
   "socket": true,
   "grid": {
     "distance": 1,
-    "units": "m"
+    "units": "m",
+    "diagonals": 1
   },
   "primaryTokenAttribute": "wounds",
   "secondaryTokenAttribute": "shock",

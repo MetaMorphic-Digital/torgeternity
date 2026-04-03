@@ -99,6 +99,7 @@
     data-tooltip='{{localize "torgeternity.sheetLabels.defensesTip"}}' {{disabled (not @root.editable)}}>
     <i class="fas fa-shield"></i>
     {{localize 'torgeternity.sheetLabels.defenses'}}
+    {{#if isActivelyDefending}} ({{numberFormat document.system.defenses.activeDefense sign=true}}){{/if}}
   </div>
 
   <div class="sidebar-statline">

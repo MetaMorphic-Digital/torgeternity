@@ -14,7 +14,7 @@ export default class torgeternityCombatTracker extends foundry.applications.side
 
   static PARTS = {
     header: { template: "systems/torgeternity/templates/sidebar/combat-tracker-header.hbs" },
-    tracker: { template: 'systems/torgeternity/templates/sidebar/combat-tracker.hbs' },
+    tracker: { template: 'systems/torgeternity/templates/sidebar/combat-tracker.hbs', scrollable: [""] },
     footer: { template: "systems/torgeternity/templates/sidebar/combat-tracker-footer.hbs" }
   }
 

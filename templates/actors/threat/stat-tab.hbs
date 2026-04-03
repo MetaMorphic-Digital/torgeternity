@@ -40,7 +40,7 @@
               <input name="{{concat 'system.attributes.' attrName '.value' }}"
                 type='number'
                 class="attributeValueField"
-                data-baseAttributeInput="{{attrName}}"
+                data-attribute-id="{{attrName}}"
                 value="{{ifThen @root.editAttributes attrValue.base attrValue.value}}"
                 data-dtype='Number'
                 class='small-input'
@@ -412,7 +412,7 @@
                   class="skill-roll draggable" data-action="skillRoll"
                   data-tooltip="torgeternity.sheetLabels.skillRollHint"
                   data-testtype="skill"
-                  data-baseattribute="{{skill.baseAttribute}}"
+                  data-base-attribute="{{skill.baseAttribute}}"
                   data-adds="{{skill.adds}}"
                   data-value="{{skill.value}}"
                   data-unskilleduse="{{skill.unskilledUse}}"
@@ -434,7 +434,7 @@
                 data-tooltip="torgeternity.sheetLabels.skillRollHint"
                 data-testtype="skill"
                 data-customskill="true"
-                data-baseattribute="{{skill.system.baseAttribute}}"
+                data-base-attribute="{{skill.system.baseAttribute}}"
                 data-adds="{{skill.system.adds}}"
                 data-value="{{skill.system.value}}"
                 data-unskilleduse="0"
@@ -461,7 +461,7 @@
                   style="position: relative"
                   class="skill-list" data-action="toggleThreatSkill"
                   data-testtype="skill"
-                  data-baseattribute="{{skill.baseAttribute}}"
+                  data-base-attribute="{{skill.baseAttribute}}"
                   data-adds="{{skill.adds}}"
                   data-value="{{skill.value}}"
                   data-unskilleduse="{{skill.unskilledUse}}"

@@ -433,6 +433,7 @@ export async function renderSkillChat(test, origChatMessage) {
       test.result = TestResult.STANDARD;
       test.outcomeColor = useColorBlind ? 'color: rgb(44, 179, 44)' : 'color: green';
       if (test.testType === 'soak') target.soakWounds = 1;
+      if (testItem?.system?.standard) test.extraResult = testItem.system.standard;
     }
     if (!useColorBlind && singleResult) test.outcomeColor += SHADOW_STYLE;
 
@@ -731,8 +732,16 @@ export async function renderSkillChat(test, origChatMessage) {
   const newroll = test.diceroll;
   delete test.diceroll;
 
-  const rollMode = game.settings.get("core", "rollMode");
-  const flavor = (rollMode === 'publicroll') ? '' : game.i18n.localize(CONFIG.Dice.rollModes[rollMode].label);
+  let flavor, options;
+  if (game.release.generation < 14) {
+    const rollMode = game.settings.get("core", "rollMode");
+    options = { rollMode };
+    flavor = (rollMode === 'publicroll') ? '' : game.i18n.localize(CONFIG.Dice.rollModes[rollMode].label);
+  } else {
+    const messageMode = game.settings.get("core", "messageMode");
+    options = { messageMode };
+    flavor = (messageMode === 'public') ? '' : game.i18n.localize(CONFIG.ChatMessage.modes[messageMode].label);
+  }
   let message;
   if (origChatMessage) {
     const rolls = dicerolled ? origChatMessage.rolls.concat(dicerolled) : origChatMessage.rolls;
@@ -761,7 +770,7 @@ export async function renderSkillChat(test, origChatMessage) {
         },
       },
     },
-      { rollMode });
+      options);
   }
 
   if (game.settings.get('torgeternity', 'unTarget')) {
@@ -1022,19 +1031,23 @@ export function getTorgValue(myNumber) {
 
 function individualDN(test, target) {
 
+  let base = target.defenses?.activeDefense ?? 0;
+
   if (typeof test.DNDescriptor === 'string' && test.DNDescriptor.startsWith('target')) {
     let onTarget = test.DNDescriptor.slice(6);
     onTarget = onTarget.at(0).toLowerCase() + onTarget.slice(1);
-    let traitdefense = getExtraProtection(test.attackTraits, target.defenses, 'Defense');
+    base += getExtraProtection(test.attackTraits, target.defenses, 'Defense');
     if (onTarget === 'vehicleDefense')
       return target.defenses?.vehicle ?? 0;
     if (target.attributes && Object.hasOwn(target.attributes, onTarget))
-      return target.attributes[onTarget] + traitdefense;
+      return target.attributes[onTarget] + base;
     if (target.defenses && Object.hasOwn(target.defenses, onTarget))
-      return target.defenses[onTarget] + traitdefense;
+      return target.defenses[onTarget] + base;
     if (target.skills && Object.hasOwn(target.skills, onTarget)) {
       const skill = target.skills[onTarget];
-      return ((skill.value && skill.value !== '-') ? skill.value : target.attributes[skill.baseAttribute]) + traitdefense;
+      return base + ((skill.value && skill.value !== '-')
+        ? (skill.value + skill.defenseMod)
+        : target.attributes[skill.baseAttribute]);
     }
   }
 
@@ -1061,8 +1074,8 @@ function individualDN(test, target) {
 
     // Special Case
     case 'targetWillpowerMind':
-      return target.skills.willpower?.value
-        ? target.skills.willpower.value - target.attributes.spirit + target.attributes.mind
+      return base + target.skills.willpower?.value
+        ? target.skills.willpower.value + target.skills.willpower.defenseMod - target.attributes.spirit + target.attributes.mind
         : target.attributes.mind;
 
     case 'highestSpeed':
@@ -1077,9 +1090,9 @@ function individualDN(test, target) {
           highestSpeed = combatantSpeed;
         }
       }
-      return highestSpeed;
+      return base + highestSpeed;
     case 'targetVehicleDefense':
-      return target.defenses?.vehicle ?? 0;
+      return base + (target.defenses?.vehicle ?? 0);
     default:
       return 10;
   }

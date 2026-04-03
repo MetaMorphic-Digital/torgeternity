@@ -4,6 +4,7 @@
     data-action="activeDefenseRoll{{#if isActivelyDefending}}Glow{{/if}}"
     data-tooltip='{{localize "torgeternity.sheetLabels.defensesTip"}}' {{disabled (not @root.editable)}}>
     {{localize 'torgeternity.sheetLabels.defenses'}}
+    {{#if isActivelyDefending}} ({{numberFormat document.system.defenses.activeDefense sign=true}}){{/if}}
   </a>
 </h2>
 <div class="stats-div">

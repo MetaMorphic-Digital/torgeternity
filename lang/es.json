@@ -26,7 +26,8 @@
       "cosm": "Cosmos"
     },
     "RegionBehavior": {
-      "replaceAxioms": "Reemplazar axiomas de zona"
+      "replaceAxioms": "Reemplazar axiomas de zona",
+      "torgApplyEffect": "Aplicar efectos activos (Torg)"
     }
   },
   "torgeternity": {
@@ -94,6 +95,20 @@
         "defendAgainstTrait": {
           "label": "Defensa contra rasgo",
           "hint": "Aplicar este efecto a una prueba cuando el propietario es el OBJETIVO y el atacante tiene uno de estos rasgos"
+        },
+        "emanation": {
+          "radius": {
+            "label": "Radio de emanación",
+            "hint": "Radio de la emanación (en metros). Dejar en blanco si no se quiere emanación"
+          },
+          "colour": {
+            "label": "Color de la emanación",
+            "hint": "Color básico para la emanación que rodea la ficha"
+          },
+          "disposition": {
+            "label": "Disposición de objetivo",
+            "hint": "La disposición de las fichas que serán afectadas por la emanación"
+          }
         }
       }
     },
@@ -532,7 +547,7 @@
       "setback": "Contratiempo",
       "stymied": "Impedidos",
       "surge": "Sobrecarga",
-      "flurryDesc": "RÁFAGA: {faction} obtienen un turno extra este asalto",
+      "flurryDesc": "RÁFAGA: Dar a los {faction} su turno adicional en este asalto",
       "inspirationDesc": "INSPIRACIÓN: todos los {faction} recuperan de inmediato 2 Shocks",
       "upDesc": "AUMENTO: añade una tirada más a la primera tirada de los {faction}",
       "confusedDesc": "CONFUSOS: los jugadores no pueden jugar cartas de su reserva",
@@ -821,7 +836,8 @@
       "range": "Alcance",
       "requiresConcentration": "Requiere Concentración",
       "skill": "Habilidad",
-      "skilllevel": "Valor Min. Habilidad"
+      "skilllevel": "Valor Min. Habilidad",
+      "standard": "Estándar"
     },
     "powerSkills": {
       "alteration": "Alteración",
@@ -1089,6 +1105,7 @@
       "editableTooltip": "Expande la hoja de amenaza para mostrar los campos editables",
       "effect": "Efecto",
       "effectCreate": "Crear Efecto",
+      "effectEmanation": "Emanación alrededor de ficha",
       "effectTestOptions": "Para pruebas",
       "effects": "Efectos",
       "end": "Fin",
@@ -1111,7 +1128,7 @@
       "freePoss": "¡El DJ te otorga una Posibilidad!",
       "gear": "Equipo",
       "generalGear": "Equipo",
-      "goodResult": "Resultado Bueno",
+      "goodResult": "Éxito Bueno",
       "gunner": "Artillero",
       "hardcode": "Hardcode",
       "heavyBurst": "Continua",
@@ -1161,7 +1178,7 @@
       "otherAttacks": "Otro",
       "otherModifiers": "Otros modificadores",
       "otherSkills": "Otro",
-      "outstandingResult": "Resultado Espectacular",
+      "outstandingResult": "Éxito Espectacular",
       "passiveEffects": "Efecto pasivo",
       "perks": "Dones",
       "noPerksAdded": "No se han añadido dones",
@@ -1222,6 +1239,7 @@
       "spell": "Conjuro",
       "spells": "Conjuros",
       "spirit": "Espiritual",
+      "standardResult": "Éxito Estándar",
       "stats": "Atributos",
       "statusEffects": "Efecto Estado",
       "stormknight": "Caballero de la Tormenta",
@@ -1435,6 +1453,7 @@
       "reload": "Recarga",
       "shotgun": "Escopeta",
       "small": "Pequeña",
+      "softArmor": "Armadura blanda",
       "stagger": "Desequilibrante",
       "supernaturalEvil": "Mal sobrenatural",
       "thrown": "Arrojadiza",
@@ -1577,5 +1596,13 @@
     "LightDim": "Transición a luz tenue",
     "LightDark": "Transición a oscuridad",
     "LightNight": "Transición a negrura total"
+  },
+  "BEHAVIOR.TYPES.torgActiveEffect.FIELDS": {
+    "disposition": {
+      "label": "Disposición de la ficha"
+    },
+    "effects": {
+      "label": "Efectos"
+    }
   }
 }

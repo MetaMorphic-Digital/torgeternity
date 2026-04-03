@@ -366,7 +366,7 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
       data: {
         name: data.customskill ? this.actor.items.get(data.name).name : data.name,
         customskill: (data.customskill === 'true'),
-        attribute: data.baseattribute,
+        attribute: data.baseAttribute,
         adds: Number(data.adds),
         value: Number(data.value),
         unskilledUse: data.unskilleduse,
@@ -411,7 +411,7 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
       html.querySelectorAll('.attributeValueField').forEach(elem =>
         elem.addEventListener('change', event => {
           const target = event.target;
-          const concernedAttribute = target.dataset.baseattributeinput;
+          const concernedAttribute = target.dataset.attributeId;
           this.actor.update({ [`system.attributes.${concernedAttribute}.base`]: parseInt(target.value) });
         }));
     }

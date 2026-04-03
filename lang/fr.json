@@ -29,7 +29,8 @@
       "cosm": "Cosm"
     },
     "RegionBehavior": {
-      "replaceAxioms": "Remplacer les Axioms de la zone"
+      "replaceAxioms": "Remplacer les Axioms de la zone",
+      "torgApplyEffect": "Appliquer les Effets (Torg)"
     }
   },
   "torgeternity": {
@@ -97,6 +98,20 @@
         "defendAgainstTrait": {
           "label": "Défense contre un trait",
           "hint": "Appliquer cet effet à la cible si l'attaquant possède un de ces traits"
+        },
+        "emanation": {
+          "radius": {
+            "label": "Rayon de l'aura",
+            "hint": "Le rayon de l'aura autour du token (en mètres). Pas d'aura si vide."
+          },
+          "colour": {
+            "label": "Couleur de l'aura",
+            "hint": "La couleur de base de l'aura autour du token"
+          },
+          "disposition": {
+            "label": "Faction cible",
+            "hint": "Choix de la faction dont les tokens seront affectés par cette aura"
+          }
         }
       }
     },
@@ -535,7 +550,7 @@
       "setback": "Revers",
       "stymied": "Déstabilisés",
       "surge": "Déferlement",
-      "flurryDesc": "VIVACITÉ: Les {faction} bénéficient d'un tour supplémentaire",
+      "flurryDesc": "VIVACITÉ: Octroie aux {faction} leur tour supplémentaire ce round",
       "inspirationDesc": "INSPIRATION: Tous les {faction} se remettent immédiatement de 2 points de Chocs",
       "upDesc": "UN DE PLUS !: Octroie un jet de dé supplémentaire à celui du premier jet pour les {faction}",
       "confusedDesc": "DÉSORIENTÉS: Les joueurs ne peuvent utiliser de cartes de leur réserve",
@@ -824,7 +839,8 @@
       "range": "Portée",
       "requiresConcentration": "Nécessite de se concentrer",
       "skill": "Compétence",
-      "skilllevel": "Compétence min."
+      "skilllevel": "Compétence min.",
+      "standard": "Normale"
     },
     "powerSkills": {
       "alteration": "Altération",
@@ -1092,6 +1108,7 @@
       "editableTooltip": "Agrandissez la fiche pour faire apparaître les champs éditables",
       "effect": "Effet",
       "effectCreate": "Créer un Effet",
+      "effectEmanation": "Aura autour du token",
       "effectTestOptions": "Pour les tests",
       "effects": "Effets",
       "end": "Fin",
@@ -1114,7 +1131,7 @@
       "freePoss": " Le GM offre une Possibilité !",
       "gear": "Équipement",
       "generalGear": "Équipement général",
-      "goodResult": "Résultat supérieur",
+      "goodResult": "Succès supérieur",
       "gunner": "Artilleur",
       "hardcode": "Intégrés",
       "heavyBurst": "Nourrie",
@@ -1164,7 +1181,7 @@
       "otherAttacks": "Autres attaques",
       "otherModifiers": "Autres modificateurs",
       "otherSkills": "Autres compétences",
-      "outstandingResult": "Résultat spectaculaire",
+      "outstandingResult": "Succès spectaculaire",
       "passiveEffects": "Effets passifs",
       "perks": "Atouts",
       "noPerksAdded": "Aucun Atout ajouté",
@@ -1225,6 +1242,7 @@
       "spell": "Sortilège",
       "spells": "Sortilèges",
       "spirit": "Spirit.",
+      "standardResult": "Succès simple",
       "stats": "Caracs",
       "statusEffects": "Statut",
       "stormknight": "Chevalier des Tempêtes",
@@ -1438,6 +1456,7 @@
       "reload": "Rechargement",
       "shotgun": "Canon court",
       "small": "Petit",
+      "softArmor": "Armure souple",
       "stagger": "Déséquilibre",
       "supernaturalEvil": "Surnaturel maléfique",
       "thrown": "Lancée",
@@ -1580,5 +1599,13 @@
     "LightDim": "Transition vers Pénombre",
     "LightDark": "Transition vers Pénombre",
     "LightNight": "Transition vers Noir complet"
+  },
+  "BEHAVIOR.TYPES.torgActiveEffect.FIELDS": {
+    "disposition": {
+      "label": "Disposition du Token"
+    },
+    "effects": {
+      "label": "Effets"
+    }
   }
 }

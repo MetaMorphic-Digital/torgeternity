@@ -475,13 +475,13 @@ export default class TorgeternityActor extends foundry.documents.Actor {
 
     return this.createEmbeddedDocuments('ActiveEffect', [{
       name: 'ActiveDefense', // Add an icon to remind the defense, bigger ? Change color of Defense ?
-      icon: 'icons/equipment/shield/heater-crystal-blue.webp', // To change I think, taken in Core, should have a dedicated file
-      duration: { rounds: 1, expiry: 'turnEnd' },
+      img: 'icons/equipment/shield/heater-crystal-blue.webp', // To change I think, taken in Core, should have a dedicated file
+      duration: { rounds: 1, value: 0, units: "rounds", expiry: 'roundEnd' },
       origin: this.uuid,
       changes: [
         {
           // Modify all existing "basic" defense in block
-          key: 'system.defenses.all.mod', // Should need other work for defense vs powers
+          key: 'system.defenses.activeDefense', // Should need other work for defense vs powers
           value: bonus, // that don't target xxDefense
           priority: 20, // Create a data.ADB that store the bonus ?
           mode: CONST.ACTIVE_EFFECT_MODES.ADD,
@@ -643,18 +643,24 @@ export default class TorgeternityActor extends foundry.documents.Actor {
     if (collection === 'effects') {
       // If 'concentration' is being cancelled, then delete any effects from other Actors which are being supported by that concentration.
       const concIds = documents.filter(eft => eft.statuses.has('concentrating')).map(doc => doc.uuid).filter(uuid => !!uuid);
-      if (concIds.length) {
-        for (const actor of game.actors)
-          for (const effect of actor.effects)
-            if (effect.system.concentratingId && concIds.includes(effect.system.concentratingId))
-              effect.delete();
-      }
+      if (concIds.length) this.deleteConcentration(concIds);
     }
     if (parent === this) {
       // See if any items were bestowed by the document being deleted.
       const todelete = this.items.filter(item => item.system.bestowedBy && ids.includes(item.system.bestowedBy)).map(item => item.id);
       if (todelete.length) this.deleteEmbeddedDocuments('Item', todelete);
     }
+  }
+
+  async deleteConcentration(concIds) {
+    for (const actor of game.actors)
+      for (const effect of actor.effects)
+        if (effect.system.concentratingId && concIds.includes(effect.system.concentratingId))
+          await effect.delete();
+    // Error reported if we try to delete the regions first
+    for (const scene of game.scenes)
+      for (const region of scene.regions.filter(region => concIds.includes(region.flags?.torgeternity?.concentratingId)))
+        await region.delete();
   }
 
   /**

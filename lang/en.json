@@ -20,7 +20,8 @@
       "cosm": "Cosm"
     },
     "RegionBehavior": {
-      "replaceAxioms": "Replace Zone Axioms"
+      "replaceAxioms": "Replace Zone Axioms",
+      "torgApplyEffect": "Apply Active Effects (Torg)"
     }
   },
   "torgeternity": {
@@ -88,6 +89,20 @@
         "defendAgainstTrait": {
           "label": "Defend Against Trait",
           "hint": "Apply this effect to a test when the owner is a TARGET and the attacker has ANY or ALL of these traits"
+        },
+        "emanation": {
+          "radius": {
+            "label": "Emanation Radius",
+            "hint": "Radius of the emanation (in metres). Leave blank for no emanation"
+          },
+          "colour": {
+            "label": "Emanation Colour",
+            "hint": "Base colour for the emanation around the token"
+          },
+          "disposition": {
+            "label": "Target Disposition",
+            "hint": "The disposition of Tokens to be affected by this emanation"
+          }
         }
       }
     },
@@ -526,7 +541,7 @@
       "setback": "Setback",
       "stymied": "Stymied",
       "surge": "Surge",
-      "flurryDesc": "FLURRY: {faction} get an extra turn this round",
+      "flurryDesc": "FLURRY: Give {faction} their extra turn this round",
       "inspirationDesc": "INSPIRATION: All {faction} immediately recover 2 shock",
       "upDesc": "UP: Add an additional roll to the first roll for {faction}",
       "confusedDesc": "CONFUSED: Players are unable to play cards from their pool",
@@ -815,7 +830,8 @@
       "range": "Range",
       "requiresConcentration": "Requires Concentration",
       "skill": "Skill",
-      "skilllevel": "Min. Value"
+      "skilllevel": "Min. Value",
+      "standard": "Standard"
     },
     "powerSkills": {
       "alteration": "Alteration",
@@ -1083,6 +1099,7 @@
       "editableTooltip": "expand the threat sheet to display editable fields",
       "effect": "Effect",
       "effectCreate": "Create Effect",
+      "effectEmanation": "Emanation around Token",
       "effectTestOptions": "For Tests",
       "effects": "Effects",
       "end": "End",
@@ -1105,7 +1122,7 @@
       "freePoss": " GM grants a possibility!",
       "gear": "Gear",
       "generalGear": "General Gear",
-      "goodResult": "Good Result",
+      "goodResult": "Good Success",
       "gunner": "Gunner",
       "hardcode": "Hardcode",
       "heavyBurst": "Heavy",
@@ -1155,7 +1172,7 @@
       "otherAttacks": "Other",
       "otherModifiers": "Other Modifiers",
       "otherSkills": "Other",
-      "outstandingResult": "Outstanding Result",
+      "outstandingResult": "Outstanding Success",
       "passiveEffects": "Passive Effects",
       "perks": "Perks",
       "noPerksAdded": "No perks added",
@@ -1216,6 +1233,7 @@
       "spell": "Spell",
       "spells": "Spells",
       "spirit": "Spirit",
+      "standardResult": "Standard Success",
       "stats": "Stats",
       "statusEffects": "Status Effects",
       "stormknight": "Stormknight",
@@ -1429,6 +1447,7 @@
       "reload": "Reload",
       "shotgun": "Shotgun",
       "small": "Small",
+      "softArmor": "Soft Armor",
       "stagger": "Stagger",
       "supernaturalEvil": "Supernatural Evil",
       "thrown": "Thrown",
@@ -1571,5 +1590,13 @@
     "LightDim": "Transition to Dim Light",
     "LightDark": "Transition to Dark",
     "LightNight": "Transition to Pitch Black"
+  },
+  "BEHAVIOR.TYPES.torgActiveEffect.FIELDS": {
+    "disposition": {
+      "label": "Token Disposition"
+    },
+    "effects": {
+      "label": "Effects"
+    }
   }
 }

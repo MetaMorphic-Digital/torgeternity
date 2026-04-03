@@ -279,7 +279,17 @@ async function _onClickInlineCondition(event) {
     let eff = await actor.toggleStatusEffect(status, options);
     if (data.duration) {
       // toggleStatusEffect only accepts 'active' and 'overlay' properties
-      eff.update({ duration: { rounds: data.duration, turns: data.duration, expiry: 'turnEnd' } })
+      eff.update({
+        duration: {
+          // Foundry V13
+          rounds: data.duration,
+          turns: data.duration,
+          // Foundry V14
+          value: data.duration,
+          units: "turns",
+          expiry: 'turnEnd'
+        }
+      })
     }
   }
 }
@@ -401,8 +411,12 @@ async function _onClickInlineBuff(event) {
       });
     else if (key === 'duration') {
       if (!effectdata.duration) effectdata.duration = {}
+      // Foundry V13
       effectdata.duration.rounds = value;
       effectdata.duration.turns = value;
+      // Foundry V14
+      effectdata.duration.value = value;
+      effectdata.duration.units = 'turns';
       effectdata.duration.expiry ??= 'turnEnd';
     } else
       foundry.utils.setProperty(effectdata, key, value);

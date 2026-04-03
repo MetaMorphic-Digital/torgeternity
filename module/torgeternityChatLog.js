@@ -710,42 +710,42 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
    * Transfer the listed effects to the Actor doing the test
    * @param {Event} event 
    * @param {HTMLButtonElement} button 
- * @this {TorgeternityChatLog}
- */
+   * @this {TorgeternityChatLog}
+   */
   static async #applyEffectsActor(event, button) {
-    event.preventDefault();
     const { test, actor } = getChatActor(button);
-    if (!actor) return;
-
-    // Transfer Effects from the Weapon (& Ammo) to the target.
-    const effects = test.effects
-      .map(uuid => fromUuidSync(uuid, { strict: false }))
-      .filter(fx => fx?.transfersToActor)
-      .map(fx => fx.copyForTransfer(test.concentratingId));
-
-    if (effects.length)
-      actor.createEmbeddedDocuments('ActiveEffect', effects);
+    return this.addEffectsToActor(event, actor, test, (event) => event.transfersToActor);
   }
 
   /**
    * Transfer the effects to the indicated target
    * @param {Event} event 
    * @param {HTMLButtonElement} button 
- * @this {TorgeternityChatLog}
- */
+   * @this {TorgeternityChatLog}
+   */
   static async #applyEffectsTarget(event, button) {
+    const { test, targetActor: actor } = getChatTarget(button);
+    return this.addEffectsToActor(event, actor, test, (event) => event.transfersToTarget);
+  }
+
+  async addEffectsToActor(event, actor, test, transfersTo) {
     event.preventDefault();
-    const { test, targetActor } = getChatTarget(button);
-    if (!targetActor) return;
+    if (!actor) return;
 
     // Transfer Effects from the Weapon (& Ammo) to the target.
-    const effects = test.effects
+    const toTransfer = test.effects
       .map(uuid => fromUuidSync(uuid, { strict: false }))
-      .filter(fx => fx?.transfersToTarget)
-      .map(fx => fx.copyForTransfer(test.concentratingId));
+      .filter(fx => transfersTo(fx));
 
-    if (effects.length)
-      targetActor.createEmbeddedDocuments('ActiveEffect', effects);
+    if (toTransfer.length) {
+      const emanations = toTransfer.filter(fx => fx.system.emanation.radius);
+      const effects = toTransfer.filter(fx => !fx.system.emanation.radius);
+      if (emanations.length)
+        // FVTT-V14: Need UUIDs in the effects, not the actual effects!
+        canvas.scene.createTokenEmanation(actor.getActiveTokens()[0].document, emanations.map(fx => fx.uuid), test.concentratingId);
+      if (effects.length)
+        actor.createEmbeddedDocuments('ActiveEffect', effects.map(fx => fx.copyForTransfer(test.concentratingId)));
+    }
   }
 
   /**

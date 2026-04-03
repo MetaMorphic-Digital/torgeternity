@@ -2,6 +2,29 @@
 
 - Translations by Durak (French), Helmut (German), and Teotimus (Spanish).
 
+## 13.33.0 - Foundry 14 support + Bug Fixes
+- Add "Soft Armor" defense trait.
+- Improve the Source field of Active Effect lists to show the originating actor of transferred effects.
+- Show suppressed effects in Effects Panel (since they are shown as token icons).
+- Add "Standard" success result box to Spell, Miracles, Psionics - so that standard benefits can be displayed in test chat cards.
+- Combat Tracker remembers current scroll position when doing "End Turn" on combatants.
+- Add "Apply Active Effects (Torg)" region behaviour (ready for Foundry V14, and removing the need for the Region Effects module).
+- Prevent error opening an Item sheet if the Item has an invalid `bestowedBy` entry.
+- Rolling an Interaction Attack skill from the Skills List now invokes the Attack dialog, as if they had clicked on the corresponding button in the "Attacks & Powers" section of the sheet.
+- Rework Active Defense:
+  - Add a separate `system.defenses.activeDefense` field to store the current bonus.
+  - Display "Active Defense" bonus separately on the actor sheet (both SK and Threats).
+  - Apply the bonus to ALL tests made against the target, not just weapon/interaction attacks (e.g. powers such as Wither)
+- **Flurry** drama card: Clicking the `conflict button` will start the second turn for the benefiting faction without increasing the turn number or doing any end-of-turn processing. (So use this button instead of the KEEP button at the bottom of the combat tracker).
+- "Standard/Good/Outstanding **Success**" (not `result`) in power Item sheets.
+- **Defense bonus for Attribute/Skill**: Allows an AE to provide a bonus to defense when a certain skill or attribute is targeted.
+  - `system.attributes.mind.defenseMod`
+  - `system.skills.scholar.defenseMod`
+  - If the targeted skill cannot be unused and the target has no adds in it, then the attribute's `defenseMod` will be used instead of the skill's defenseMod.
+- **FOUNDRY V14**
+  - First version marked as (mostly) compatible with Foundry V14 - **please report any issues**
+  - Fix active effect duration values (and expiration of active defense).
+  - First attempt at Emanations (for Ward Enemy, Awareness, etc.)
 
 ## 13.32.1 - Concentration + Aura Effects module support
 - Concentration is now only added once when pressing buttons in the chat message to improve the test result.

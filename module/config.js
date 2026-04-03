@@ -469,7 +469,7 @@ export function initConfig() {
       id: 'stymied',
       _id: 'stymied000000000',
       name: 'torgeternity.statusEffects.stymied',
-      duration: { rounds: 1, turns: 1, expiry: 'turnEnd' },
+      duration: { rounds: 1, turns: 1, value: 1, units: "turns", expiry: 'turnEnd' },
       changes: [{ key: 'system.statusModifiers.stymied', mode: CONST.ACTIVE_EFFECT_MODES.DOWNGRADE, value: '-2', priority: 10 }],
     },
     {
@@ -477,7 +477,7 @@ export function initConfig() {
       id: 'veryStymied',
       _id: 'veryStymied00000',
       name: 'torgeternity.statusEffects.veryStymied',
-      duration: { rounds: 1, turns: 1, expiry: 'turnEnd' },
+      duration: { rounds: 1, turns: 1, value: 1, units: "turns", expiry: 'turnEnd' },
       changes: [{ key: 'system.statusModifiers.stymied', mode: CONST.ACTIVE_EFFECT_MODES.DOWNGRADE, value: '-4', priority: 10 }],
     },
     {
@@ -485,7 +485,7 @@ export function initConfig() {
       id: 'vulnerable',
       _id: 'vulnerable000000',
       name: 'torgeternity.statusEffects.vulnerable',
-      duration: { rounds: 1, turns: 1, expiry: 'turnEnd' },
+      duration: { rounds: 1, turns: 1, value: 1, units: "turns", expiry: 'turnEnd' },
       changes: [{ key: 'system.statusModifiers.vulnerable', mode: CONST.ACTIVE_EFFECT_MODES.UPGRADE, value: '2', priority: 10 }],
     },
     {
@@ -493,7 +493,7 @@ export function initConfig() {
       id: 'veryVulnerable',
       _id: 'veryVulnerable00',
       name: 'torgeternity.statusEffects.veryVulnerable',
-      duration: { rounds: 1, turns: 1, expiry: 'turnEnd' },
+      duration: { rounds: 1, turns: 1, value: 1, units: "turns", expiry: 'turnEnd' },
       changes: [{ key: 'system.statusModifiers.vulnerable', mode: CONST.ACTIVE_EFFECT_MODES.UPGRADE, value: '4', priority: 10 }],
     },
     {
@@ -592,6 +592,7 @@ export function initConfig() {
     'fatigues': 'torgeternity.traits.fatigues',
     'fullBody': 'torgeternity.traits.fullBody',
     'torso': 'torgeternity.traits.torso',
+    'softArmor': 'torgeternity.traits.softArmor',
     'head': 'torgeternity.traits.head',
     'painful': 'torgeternity.traits.painful',
     'ignoreShock': 'torgeternity.traits.ignoreShock',

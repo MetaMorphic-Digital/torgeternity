@@ -30,4 +30,13 @@
       <p class="hint">{{localize 'torgeternity.activeEffect.FIELDS.itemsToBestow.hint'}}</p>
     </div>
   </fieldset>
+
+  {{#if showEmanation}}
+    <fieldset>
+      <legend>{{localize 'torgeternity.sheetLabels.effectEmanation'}}</legend>
+      {{formGroup systemFields.emanation.fields.radius value=source.system.emanation.radius rootId=rootId}}
+      {{formGroup systemFields.emanation.fields.colour value=source.system.emanation.colour rootId=rootId}}
+      {{formGroup systemFields.emanation.fields.disposition value=source.system.emanation.disposition rootId=rootId localize=true}}
+    </fieldset>
+  {{/if}}
 </section>

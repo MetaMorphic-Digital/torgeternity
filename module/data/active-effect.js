@@ -50,7 +50,18 @@ export class TorgActiveEffectData extends (foundry.data.ActiveEffectTypeDataMode
         defendAgainstTraitCombine: newCombineTraitsField(),
         itemsToBestow: new fields.SetField(new fields.JSONField),
         combatToggle: new fields.BooleanField({ initial: false, }),
-        concentratingId: new fields.DocumentUUIDField({ nullable: true })
+        concentratingId: new fields.DocumentUUIDField({ nullable: true }),
+        emanation: new fields.SchemaField({
+          radius: new fields.NumberField({ integer: true, nullable: true, initial: null }),
+          colour: new fields.ColorField({ initial: "#000040" }),
+          //opacity: new fields.AlphaField({ initial: 0 }),  // no support for this (yet?)
+          disposition: new fields.NumberField({ // as per BaseToken
+            required: true,
+            choices: foundry.applications.sheets.TokenConfig.TOKEN_DISPOSITIONS,
+            initial: CONST.TOKEN_DISPOSITIONS.FRIENDLY,
+            validationError: "must be a value in CONST.TOKEN_DISPOSITIONS"
+          }),
+        })
       })
     return schema;
   }

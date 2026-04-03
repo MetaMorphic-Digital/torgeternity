@@ -4880,7 +4880,7 @@ form.active-effect-config {
 
     &:hover span {
       left: auto;
-      top: auto;
+      top: 50px;
     }
   }
 }

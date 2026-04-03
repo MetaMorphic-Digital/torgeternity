@@ -134,11 +134,13 @@ export class CommonActorData extends BaseActorData {
       this.attributes[attribute].value = this.attributes[attribute].base;
       this.attributes[attribute].isFav = false;
       this.attributes[attribute].damageMod = 0;
+      this.attributes[attribute].defenseMod = 0;
     }
     for (const [_name, skill] of Object.entries(this.skills)) {
       skill.mod = 0;
       skill.isFav = false;
       skill.damageMod = 0;
+      skill.defenseMod = 0;
     }
 
     this.shock.max = this.attributes.spirit.value;

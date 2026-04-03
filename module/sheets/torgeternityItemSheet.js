@@ -376,7 +376,7 @@ export default class TorgeternityItemSheet extends foundry.applications.api.Hand
     context.item = context.document;
     context.typeLabel = game.i18n.localize(CONFIG.Item.typeLabels[context.document.type]);
     const best = context.item.system.bestowedBy
-    context.bestowingItem = best ? context.item.parent.items.get(best) : null;
+    context.bestowingItem = best ? context.item.parent?.items.get(best) : null;
 
     // Once copied to an Actor, `item.system.itemsToBestow` is empty.
     context.itemsToBestow = (context.item.parent instanceof foundry.documents.Actor)
@@ -400,6 +400,7 @@ export default class TorgeternityItemSheet extends foundry.applications.api.Hand
     context.description = await foundry.applications.ux.TextEditor.enrichHTML(this.document.system.description, { secrets: isOwner });
     context.prerequisites = await foundry.applications.ux.TextEditor.enrichHTML(this.document.system.prerequisites, { secrets: isOwner });
     if (Object.hasOwn(this.document.system, 'good')) {
+      context.enrichedStandard = await foundry.applications.ux.TextEditor.enrichHTML(this.document.system.standard, { secrets: isOwner });
       context.enrichedGood = await foundry.applications.ux.TextEditor.enrichHTML(this.document.system.good, { secrets: isOwner });
       context.enrichedOutstanding = await foundry.applications.ux.TextEditor.enrichHTML(this.document.system.outstanding, { secrets: isOwner });
     }

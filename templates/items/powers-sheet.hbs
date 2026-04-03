@@ -69,6 +69,10 @@
       <prose-mirror name="system.description" class="item-description" toggled
         {{disabled (not @root.editable)}}
         value="{{ item.system.description }}">{{{ description }}}</prose-mirror>
+      <p class="item-data-label">{{localize "torgeternity.sheetLabels.standardResult"}}</p>
+      <prose-mirror name="system.standard" class="item-description smallEditor" toggled
+        {{disabled (not @root.editable)}} value="{{ item.system.standard }}">
+        {{{enrichedStandard}}} </prose-mirror>
       <p class="item-data-label">{{localize "torgeternity.sheetLabels.goodResult"}}</p>
       <prose-mirror name="system.good" class="item-description smallEditor" toggled
         {{disabled (not @root.editable)}} value="{{ item.system.good }}">

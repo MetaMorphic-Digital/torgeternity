@@ -26,7 +26,8 @@
       "cosm": "Cosm"
     },
     "RegionBehavior": {
-      "replaceAxioms": "Ersetze Zonen-Axiome"
+      "replaceAxioms": "Ersetze Zonen-Axiome",
+      "torgApplyEffect": "Aktive Effekt (Torg) anwenden"
     }
   },
   "torgeternity": {
@@ -94,6 +95,20 @@
         "defendAgainstTrait": {
           "label": "Verteidigung gegen Eigenschaft",
           "hint": "Wende diesen Effekt an, wenn der Besitzer das ZIEL ist und der Angreifer eine der angegebenen Eigenschaften hat"
+        },
+        "emanation": {
+          "radius": {
+            "label": "Ausstrahlungsradius",
+            "hint": "Radius der Ausstrahlung (in Metern). Keine Ausstrahlung wenn leer."
+          },
+          "colour": {
+            "label": "Ausstrahlungsfarbe",
+            "hint": "Grundfarbe für die Ausstrahlung um Token"
+          },
+          "disposition": {
+            "label": "Verwendungsziel",
+            "hint": "Die Tokenverwendung die von dieser Ausstrahlung betroffen sein sollen"
+          }
         }
       }
     },
@@ -532,7 +547,7 @@
       "setback": "Rückschlag",
       "stymied": "Angeschlagen",
       "surge": "Welle",
-      "flurryDesc": "HAST: {faction} bekommen in der laufenden Runde einen zusätzlichen Spielzug",
+      "flurryDesc": "Hast: Gib {faction} ihren zusätzlichen Zug in dieser Runde",
       "inspirationDesc": "INSPIRATION: Alle {faction} regenerieren sofort 2 Schock",
       "upDesc": "OBERHAND: Addiert bei Proben von {faction} einen zusätzlichen Würfelwurf",
       "confusedDesc": "VERWIRRT: Spieler dürfen während der laufenden Runde keine Karten aus ihrem Aktionsvorrat einsetzen",
@@ -821,7 +836,8 @@
       "range": "Reichweite",
       "requiresConcentration": "Benötigt Konzentration",
       "skill": "Fertigkeit",
-      "skilllevel": "Min. Fertigkeitswert"
+      "skilllevel": "Min. Fertigkeitswert",
+      "standard": "Standard"
     },
     "powerSkills": {
       "alteration": "Verwandlung",
@@ -1089,6 +1105,7 @@
       "editableTooltip": "Vergrößere den Charakterbogen, um editierbare Werte anzuzeigen",
       "effect": "Modif.",
       "effectCreate": "Effekt erstellen",
+      "effectEmanation": "Ausstrahlung um Token",
       "effectTestOptions": "Für Proben",
       "effects": "Effekte",
       "end": "Ende",
@@ -1111,7 +1128,7 @@
       "freePoss": "SL schenkt dir eine Möglichkeit!",
       "gear": "Ausrüstung",
       "generalGear": "Allgemeine Ausrüstung",
-      "goodResult": "Gut",
+      "goodResult": "Guter Erfolg",
       "gunner": "Schütze",
       "hardcode": "Hardcode",
       "heavyBurst": "Schwer",
@@ -1161,7 +1178,7 @@
       "otherAttacks": "Sonstige Attacke",
       "otherModifiers": "Andere Modifikatoren",
       "otherSkills": "Andere",
-      "outstandingResult": "Hervorragend",
+      "outstandingResult": "Hervorragender Erfolg",
       "passiveEffects": "Passive Effekte",
       "perks": "Vorzüge",
       "perksAbilities": "Vorzüge/Fähigkeiten",
@@ -1222,6 +1239,7 @@
       "spell": "Zauber",
       "spells": "Zauber",
       "spirit": "Geist",
+      "standardResult": "Standarderfolg",
       "stats": "Werte",
       "statusEffects": "Statuseffekte",
       "stormknight": "Storm Knight",
@@ -1435,6 +1453,7 @@
       "reload": "Nachladen",
       "shotgun": "Schrotflinte",
       "small": "Klein",
+      "softArmor": "Weiche Rüstung",
       "stagger": "Erschüttern",
       "supernaturalEvil": "Übernatürliches Böses",
       "thrown": "Wurfwaffe",
@@ -1578,5 +1597,13 @@
     "LightDim": "Übergang zu dämmrigen Lichtverhältnissen",
     "LightDark": "Übergang zu dunklen Lichtverhältnissen",
     "LightNight": "Übergang zu pechschwarzer Dunkelheit"
+  },
+  "BEHAVIOR.TYPES.torgActiveEffect.FIELDS": {
+    "disposition": {
+      "label": "Token Verwendung"
+    },
+    "effects": {
+      "label": "Effekte"
+    }
   }
 }
