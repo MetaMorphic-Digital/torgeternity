@@ -21,16 +21,16 @@ export default function activateSocketListeners() {
         }
 
       case 'updateChatMessageTarget':
-        // TODO: future improvement to only update the corresponding Target in the targetAll array
+        // TODO: future improvement to only update the corresponding Target in the targets array
         if (!game.user.isActiveGM) return;
         {
           const chatMessage = game.messages.get(socketMessage.messageId);
           if (chatMessage) {
-            const target = socketMessage.dummyTarget ? chatMessage.test.targetAll[0] :
-              chatMessage.test.targetAll.find(target => target.uuid === socketMessage.targetUuid);
+            const target = socketMessage.dummyTarget ? chatMessage.test.targets[0] :
+              chatMessage.test.targets.find(target => target.uuid === socketMessage.targetUuid);
             if (target) {
               Object.assign(target, foundry.utils.expandObject(socketMessage.updates));
-              return chatMessage.update({ 'flags.torgeternity.test.targetAll': test.targetAll });
+              return chatMessage.update({ 'flags.torgeternity.test.targets': test.targets });
             }
           }
           break;

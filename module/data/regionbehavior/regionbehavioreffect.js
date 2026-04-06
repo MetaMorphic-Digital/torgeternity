@@ -44,9 +44,12 @@ export class TorgApplyEffectRegionBehaviorType extends foundry.data.regionBehavi
     const actor = token?.actor;
     if (!actor) return;
 
+    // Don't apply the effect if this is the token generating the aura
+    if (token.attachments.regions.has(this.region)) return;
+
     const effects = await Promise.all(this.effects.map(fromUuid));
     const toCreate = effects.map(effect => {
-      const data = effect.copyForTransfer(this.region.flags?.torgeternity?.concentratingId);
+      const data = effect.copyForTransfer(null, true);
       delete data._id;
       data.disabled = false;
       data.transfer = false;

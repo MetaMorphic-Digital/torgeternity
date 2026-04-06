@@ -304,14 +304,15 @@ export function registerTorgSettings() {
     requiresReload: true,
   });
 
-  game.settings.register('torgeternity', 'effectsPanelOnlyTemporary', {
-    name: 'torgeternity.settingMenu.effectsPanelOnlyTemporary.name',
-    hint: 'torgeternity.settingMenu.effectsPanelOnlyTemporary.hint',
-    scope: 'world',
-    config: true,
-    type: Boolean,
-    default: true,
-  });
+  if (game.release.generation < 14)
+    game.settings.register('torgeternity', 'effectsPanelOnlyTemporary', {
+      name: 'torgeternity.settingMenu.effectsPanelOnlyTemporary.name',
+      hint: 'torgeternity.settingMenu.effectsPanelOnlyTemporary.hint',
+      scope: 'world',
+      config: true,
+      type: Boolean,
+      default: true,
+    });
 
   game.settings.register('torgeternity', 'showPiety', {
     name: 'torgeternity.settingMenu.showPiety.name',

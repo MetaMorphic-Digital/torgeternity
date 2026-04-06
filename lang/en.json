@@ -95,9 +95,9 @@
             "label": "Emanation Radius",
             "hint": "Radius of the emanation (in metres). Leave blank for no emanation"
           },
-          "colour": {
-            "label": "Emanation Colour",
-            "hint": "Base colour for the emanation around the token"
+          "color": {
+            "label": "Emanation Color",
+            "hint": "Base color for the emanation around the token"
           },
           "disposition": {
             "label": "Target Disposition",
@@ -967,15 +967,15 @@
         "name": "Show Distance to Token"
       },
       "rulerGridWalk": {
-        "hint": "The tint colour for grid cells when a token has not reached its move distance (default: --color-level-success)",
+        "hint": "The tint color for grid cells when a token has not reached its move distance (default: --color-level-success)",
         "name": "Grid Highlight (Walk)"
       },
       "rulerGridRun": {
-        "hint": "The tint colour for grid cells when a token has exceeded its move, but not its max move (default: --color-level-info)",
+        "hint": "The tint color for grid cells when a token has exceeded its move, but not its max move (default: --color-level-info)",
         "name": "Grid Highlight (Run)"
       },
       "rulerGridMax": {
-        "hint": "The tint colour for grid cells when a token has exceeded its max move (default: --color-level-error)",
+        "hint": "The tint color for grid cells when a token has exceeded its max move (default: --color-level-error)",
         "name": "Grid Highlight (> Run)"
       },
       "showMovementRuler": {

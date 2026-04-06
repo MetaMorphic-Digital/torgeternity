@@ -104,7 +104,7 @@
             "label": "Rayon de l'aura",
             "hint": "Le rayon de l'aura autour du token (en mètres). Pas d'aura si vide."
           },
-          "colour": {
+          "color": {
             "label": "Couleur de l'aura",
             "hint": "La couleur de base de l'aura autour du token"
           },

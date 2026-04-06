@@ -317,9 +317,9 @@ export default class torgeternityPlayerHand extends foundry.applications.sheets.
 
               case 'bd': // TorgeternityChatLog#onBd
                 {
-                  if (test.targetAll.length > 1)
+                  if (test.targets.length > 1)
                     return ui.notifications.info('torgeternity.destinyCard.notify.tooManyTargets', { localize: true });
-                  const target = test.targetAll[0];
+                  const target = test.targets[0];
                   if (target.showBD === false)
                     return ui.notifications.info('torgeternity.destinyCard.notify.tooLateForBD', { localize: true });
                   return TorgeternityChatLog.doBd(test, chatMessage, target);

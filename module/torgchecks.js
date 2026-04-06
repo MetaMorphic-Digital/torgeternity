@@ -21,8 +21,6 @@ export const TestResultKey = { // with .main or .sub
   [TestResult.OUTSTANDING]: 'outstanding'
 }
 
-const SHADOW_STYLE = ';text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, 0px 0px 15px black;';
-
 /**
  * On entry, `test.diceroll` might contain an additional dice roll made for this test (such as BD) which need to be added
  * to the list of dice rolled for this test (the value of the roll isn't used in this routine).
@@ -43,7 +41,7 @@ export async function renderSkillChat(test, origChatMessage) {
   }
 
   // Check for targeting a vehicle which doesn't have an operator.
-  for (const target of test.targetAll) {
+  for (const target of test.targets) {
     if (target.type === 'vehicle' && isNaN(target.defenses.dodge)) {
       ui.notifications.error(game.i18n.format('torgeternity.notifications.noVehicleOperator', { a: target.targetName }));
       return;
@@ -51,8 +49,8 @@ export async function renderSkillChat(test, origChatMessage) {
   }
 
   // For non-targeted tests, ensure we iterate through the loop at least once
-  if (!test.targetAll.length)
-    test.targetAll = dummyTestTargets();
+  if (!test.targets.length)
+    test.targets = dummyTestTargets();
 
   test.torgDiceStyle = game.settings.get('torgeternity', 'useRenderedTorgDice');
 
@@ -68,7 +66,7 @@ export async function renderSkillChat(test, origChatMessage) {
   }
 
   const useHighestDN = game.settings.get('torgeternity', 'uniqueDN') ? await highestDN(test) : undefined;
-  const singleResult = (useHighestDN || (!test.isAttack && test.targetAll[0].dummyTarget));
+  const singleResult = (useHighestDN || (!test.isAttack && test.targets[0].dummyTarget));
 
   // Do we display the unskilled label for a Storm Knight?
   test.unskilledTest = (testActor.type === 'stormknight' &&
@@ -113,8 +111,9 @@ export async function renderSkillChat(test, origChatMessage) {
     }
   }
 
+  const useColorBlind = game.settings.get('torgeternity', 'useColorBlindnessColors');
   let first = true;
-  for (const target of test.targetAll) {
+  for (const target of test.targets) {
     test.sizeModifier = target.sizeModifier ?? 0;
     test.vulnerableModifier = target.vulnerableModifier ?? 0;
     test.darknessModifier = Math.min(0, (target.darknessModifier ?? 0) + (test.targetDarknessModifier ?? 0));
@@ -196,9 +195,8 @@ export async function renderSkillChat(test, origChatMessage) {
       const values = test.diceroll.dice[0].results.filter(r => r.active);
       if (test.diceroll.dice[0].method === 'manual' && game.settings.get('torgeternity', 'showManualRolls'))
         for (const value of values) value.manual = true;
-      if (test.diceroll.dice[0]._faces === 6)
-        test.bonusDiceList = test.bonusDiceList ? test.bonusDiceList.concat(values) : values;
-      else
+      // BD were added to testTarget.bonusDiceList in TorgeternityChatLog.onBd
+      if (test.diceroll.dice[0]._faces !== 6)
         test.diceList = test.diceList ? test.diceList.concat(values) : values;
     }
 
@@ -394,48 +392,55 @@ export async function renderSkillChat(test, origChatMessage) {
     test.cardsPlayed ??= 0;
     test.bonus += test.cardsPlayed * 3;
 
-    test.rollResult = test.skillValue + test.bonus + test.modifiers;
-
-    // Determine Outcome
-    const testDifference = test.rollResult - test.DN;
+    const rollResult = test.skillValue + test.bonus + test.modifiers;
 
     // Handle numeric value in DNDescriptor
-    let actionTotalContent = `${game.i18n.localize('torgeternity.chatText.check.result.actionTotal')} ${test.rollResult} vs. ${test.DN} `;
+    let actionTotalContent = `${game.i18n.localize('torgeternity.chatText.check.result.actionTotal')} ${rollResult} vs. ${test.DN} `;
     if (isNaN(Number(test.DNDescriptor))) actionTotalContent += game.i18n.localize('torgeternity.dnTypes.' + test.DNDescriptor);
     if (singleResult)
       test.actionTotalContent = actionTotalContent;
     else
       target.actionTotalContent = actionTotalContent;
 
-    const useColorBlind = game.settings.get('torgeternity', 'useColorBlindnessColors');
-    if (testDifference < 0) {
-      test.outcome = game.i18n.localize('torgeternity.chatText.check.result.failure');
-      test.result = TestResult.FAILURE;
-      if (test.testType === 'power') {
-        test.showBacklashButtons = true;
-      }
-      test.outcomeColor = 'color: red';
+    // Determine Outcome
+    let outcomeColor;
+    const testDifference = rollResult - test.DN;
+
+    if (
+      test.rollTotal === 1 &&
+      !(test.testType === 'activeDefenseUpdate' || test.testType === 'activeDefense')
+    ) {
+      // Roll 1 and not defense = Mishap
+      test.resultText = game.i18n.localize('torgeternity.chatText.check.result.mishap');
+      test.result = TestResult.MISHAP;
       if (test.testType === 'soak') target.soakWounds = 0;
-    } else if (testDifference > 9) {
-      test.outcome = game.i18n.localize('torgeternity.chatText.check.result.outstandingSuccess');
-      test.result = TestResult.OUTSTANDING;
-      test.outcomeColor = useColorBlind ? 'color: rgb(44, 179, 44)' : 'color: green';
-      if (test.testType === 'soak') target.soakWounds = 'all';
-      if (testItem?.system?.outstanding) test.extraResult = testItem.system.outstanding;
-    } else if (testDifference > 4) {
-      test.outcome = game.i18n.localize('torgeternity.chatText.check.result.goodSuccess');
+      if (test.testType === 'power') test.showBacklashButtons = true;
+    } else if (testDifference < 0) {
+      test.resultText = game.i18n.localize('torgeternity.chatText.check.result.failure');
+      test.result = TestResult.FAILURE;
+      if (test.testType === 'soak') target.soakWounds = 0;
+      if (test.testType === 'power') test.showBacklashButtons = true;
+    } else if (testDifference < 5) {
+      test.resultText = game.i18n.localize('torgeternity.chatText.check.result.standardSuccess');
+      test.result = TestResult.STANDARD;
+      if (test.testType === 'soak') target.soakWounds = 1;
+      if (testItem?.system?.standard) test.extraResult = testItem.system.standard;
+    } else if (testDifference < 10) {
+      test.resultText = game.i18n.localize('torgeternity.chatText.check.result.goodSuccess');
       test.result = TestResult.GOOD;
-      test.outcomeColor = useColorBlind ? 'color: rgb(44, 179, 44)' : 'color: green';
       if (test.testType === 'soak') target.soakWounds = 2;
       if (testItem?.system?.good) test.extraResult = testItem.system.good;
     } else {
-      test.outcome = game.i18n.localize('torgeternity.chatText.check.result.standardSuccess');
-      test.result = TestResult.STANDARD;
-      test.outcomeColor = useColorBlind ? 'color: rgb(44, 179, 44)' : 'color: green';
-      if (test.testType === 'soak') target.soakWounds = 1;
-      if (testItem?.system?.standard) test.extraResult = testItem.system.standard;
+      test.resultText = game.i18n.localize('torgeternity.chatText.check.result.outstandingSuccess');
+      test.result = TestResult.OUTSTANDING;
+      if (test.testType === 'soak') target.soakWounds = 'all';
+      if (testItem?.system?.outstanding) test.extraResult = testItem.system.outstanding;
     }
-    if (!useColorBlind && singleResult) test.outcomeColor += SHADOW_STYLE;
+    test.resultTextClass = TestResultKey[test.result];
+    if (useColorBlind)
+      test.resultTextClass += ' colorblind';
+    else if (singleResult)
+      test.resultTextClass += ' shadow';
 
     test.showApplySoak = (test.testType === 'soak' && target.soakWounds);
 
@@ -480,28 +485,14 @@ export async function renderSkillChat(test, origChatMessage) {
     }
     // Choose Text to Display as Result
     if (testActor.isDisconnected) {
-      test.possibilityStyle = 'hidden';
-      test.heroStyle = 'hidden';
-      test.dramaStyle = 'hidden';
+      test.possibilityClass = 'hidden';
+      test.heroClass = 'hidden';
+      test.dramaClass = 'hidden';
     }
 
-    if (
-      test.rollTotal === 1 &&
-      !(test.testType === 'activeDefenseUpdate' || test.testType === 'activeDefense')
-    ) {
-      // Roll 1 and not defense = Mishap
-      test.result = TestResult.MISHAP;
-      test.resultText = game.i18n.localize('torgeternity.chatText.check.result.mishap');
+    if (test.result === TestResult.MISHAP) {
       if (test.attackTraits?.includes('fragile')) {
         test.extraResult = game.i18n.format('torgeternity.chatText.check.result.fragileBroken', { itemName: testItem.name });
-      }
-      if (useColorBlind) {
-        test.outcomeColor = 'color: purple';
-        test.resultTextStyle = 'color: purple';
-      } else if (singleResult) {
-        // Only add shadow when displayed at the TOP of the card
-        test.outcomeColor += SHADOW_STYLE;
-        test.resultTextStyle += SHADOW_STYLE;
       }
       test.skillRollMenuStyle = 'hidden';
       if (test.testType === 'soak')
@@ -510,8 +501,6 @@ export async function renderSkillChat(test, origChatMessage) {
           game.i18n.localize('torgeternity.sheetLabels.possSpent');
 
     } else if (test.testType === 'soak') {
-      test.resultText = test.outcome;
-      test.resultTextStyle = test.outcomeColor;
       if (target.soakWounds > 0) {
         test.chatNote =
           `${target.soakWounds} ` +
@@ -543,6 +532,7 @@ export async function renderSkillChat(test, origChatMessage) {
         await testActor.setActiveDefense(test.bonus);
         test.testType = 'activeDefenseUpdate';
         test.resultText = '+ ' + test.bonus;
+        test.resultTextClass = '';
       }
 
     } else if (test.testType === 'activeDefenseUpdate') {
@@ -551,12 +541,9 @@ export async function renderSkillChat(test, origChatMessage) {
       testActor.activeDefense?.delete();
       if (test.bonus < 1) test.bonus = 1;
       test.resultText = '+ ' + test.bonus;
+      test.resultTextClass = '';
       // Create new set of active effects
       testActor.setActiveDefense(test.bonus);
-
-    } else {
-      test.resultText = test.outcome;
-      test.resultTextStyle = test.outcomeColor;
     }
 
     // If an attack, calculate and display damage
@@ -625,7 +612,7 @@ export async function renderSkillChat(test, origChatMessage) {
             const iteratedRoll = await rollBonusDie(test.trademark, target.addBDs);
             dicerolled.push(iteratedRoll);
             const bdDamage = iteratedRoll.total;
-            test.bonusDiceList = test.bonusDiceList ? test.bonusDiceList.concat(iteratedRoll.dice[0].results) : iteratedRoll.dice[0].results;
+            target.bonusDiceList = target.bonusDiceList ? target.bonusDiceList.concat(iteratedRoll.dice[0].results) : iteratedRoll.dice[0].results;
             target.amountBD += target.addBDs;
             target.addBDs = 0;
 
@@ -683,9 +670,8 @@ export async function renderSkillChat(test, origChatMessage) {
       test.typeLabel = game.i18n.localize('torgeternity.chatText.skillTestLabel');
     } else if (test.testType === 'custom') {
       test.typeLabel = game.i18n.localize('torgeternity.chatText.skillTestLabel');
-      test.outcomeColor = 'hidden;';
-      test.resultTextStyle = 'display:hidden;';
-      test.upStyle = 'hidden';
+      test.resultTextClass = 'hidden';
+      test.upClass = 'hidden';
     } else {
       test.typeLabel = game.i18n.localize('torgeternity.chatText.attributeTestLabel');
     }
@@ -694,7 +680,7 @@ export async function renderSkillChat(test, origChatMessage) {
     // Always store the results for this target
     if (!useHighestDN) {
       target.resultText = test.resultText;
-      target.resultTextStyle = test.resultTextStyle;
+      target.resultTextClass = test.resultTextClass;
     }
 
     // Highlight the UP button if the Drama Card shows UP.
@@ -703,21 +689,21 @@ export async function renderSkillChat(test, origChatMessage) {
     if (game.combat?.active && token &&
       ((token.disposition == CONST.TOKEN_DISPOSITIONS.FRIENDLY && game.combat.heroConflict === 'up') ||
         (token.disposition === CONST.TOKEN_DISPOSITIONS.HOSTILE && game.combat.villainConflict === 'up')))
-      test.upStyle = 'drama-up';
+      test.upClass = 'drama-up';
 
     // Disable unavailable menu options (Note: possibilities are always available)
 
-    if (test.upTotal > 0 && test.upStyle !== 'hidden') test.upStyle = 'disabled';
-    if (test.heroTotal > 0 && test.heroStyle !== 'hidden') test.heroStyle = 'disabled';
-    if (test.dramaTotal > 0 && test.dramaStyle !== 'hidden') test.dramaStyle = 'disabled';
+    if (test.upTotal > 0 && test.upClass !== 'hidden') test.upClass = 'disabled';
+    if (test.heroTotal > 0 && test.heroClass !== 'hidden') test.heroClass = 'disabled';
+    if (test.dramaTotal > 0 && test.dramaClass !== 'hidden') test.dramaClass = 'disabled';
 
     if (test.actorType === 'threat') {
-      test.heroStyle = 'hidden';
-      test.dramaStyle = 'hidden';
+      test.heroClass = 'hidden';
+      test.dramaClass = 'hidden';
       test.hidePlus3 = true;
     }
 
-    if (test.testType === 'interactionAttack' && test.rollResult >= test.DN) {
+    if (test.testType === 'interactionAttack' && test.result >= TestResult.STANDARD) {
       target.showApplyDamage = false;
       if (!target.dummyTarget) {
         target.showApplyStymied = true;
@@ -938,7 +924,7 @@ export function torgDamageModifiers(result, options) {
 /**
  *@param {Actor} soaker The Actor which is attempting to soak some damage
  */
-export async function soakDamages(soaker, origMessageId) {
+export async function soakDamages(soaker, origMessageId, options = {}) {
   const skillName = 'reality';
   const skillValue = soaker.system.skills[skillName].value;
 
@@ -956,7 +942,7 @@ export async function soakDamages(soaker, origMessageId) {
     skillName: skillName,
     skillValue: skillValue,
     soakingMessage: origMessageId,
-  }, { useTargets: true });
+  }, { useTargets: false, ...options });
   // do reality roll
 }
 
@@ -1100,14 +1086,14 @@ function individualDN(test, target) {
 
 async function highestDN(test) {
   let highest = 0;
-  for (const target of test.targetAll) {
+  for (const target of test.targets) {
     highest = Math.max(highest, individualDN(test, target));
   }
   return highest;
 }
 
 
-export async function rollAttack(actor, item) {
+export async function rollAttack(actor, item, options = {}) {
   const weaponData = item.system;
   const attackWith = weaponData.attackWith;
   let skillValue;
@@ -1208,11 +1194,11 @@ export async function rollAttack(actor, item) {
     chatNote: weaponData.chatNote,
     bdDamageSum: 0,
     itemId: item.id,
-  }, { useTargets: true });
+  }, { useTargets: true, ...options });
 }
 
 
-export async function rollPower(actor, item) {
+export async function rollPower(actor, item, options = {}) {
   const powerData = item.system;
   const skillName = powerData.skill;
   const skillData = actor.system.skills[skillName];
@@ -1230,7 +1216,6 @@ export async function rollPower(actor, item) {
     isAttack: powerData.isAttack,
     isFav: skillData.isFav,
     skillName: skillName,
-    skillAdds: skillData.adds,
     skillValue: Math.max(skillData.value, actor.system.attributes[skillData.baseAttribute].value),
     unskilledUse: false,
     damage: powerData.damage + actor.system.attributes[skillData.baseAttribute].damageMod + (skillData.damageMod ?? 0),
@@ -1242,21 +1227,21 @@ export async function rollPower(actor, item) {
     amountBD: 0,
     bdDamageSum: 0,
     itemId: item.id,
-  }, { useTargets: true });
+  }, { useTargets: true, ...options });
 }
 
-export async function rollAttribute(actor, attributeName) {
+export async function rollAttribute(actor, attributeName, options = {}) {
   return TestDialog.wait({
     testType: 'attribute',
     actor: actor,
     skillName: attributeName,
     skillValue: actor.system.attributes[attributeName].value,
     isFav: actor.system.attributes[attributeName].isFav
-  }, { useTargets: true });
+  }, { useTargets: true, ...options });
 }
 
 
-export async function rollSkill(actor, skillName) {
+export async function rollSkill(actor, skillName, options = {}) {
 
   const skillData = actor.system.skills[skillName] ?? actor.items.get(skillName)?.system;
   if (!skillData) return;
@@ -1302,10 +1287,10 @@ export async function rollSkill(actor, skillName) {
     isFav: skillData.isFav,
     skillName: skillName,
     skillValue: skillData.value,
-  }, { useTargets: (testType === 'skill') });
+  }, { useTargets: (testType === 'skill'), ...options });
 }
 
-export async function rollUnarmedAttack(actor, skillName) {
+export async function rollUnarmedAttack(actor, skillName, options = {}) {
   let dnDescriptor = 'standard';
   if (game.user.targets.size) {
     const firstTarget = game.user.targets.find(token => token.actor.type !== 'vehicle')?.actor ||
@@ -1337,10 +1322,10 @@ export async function rollUnarmedAttack(actor, skillName) {
     //chatNote: '',
     bdDamageSum: 0,
     // itemId - no item
-  }, { useTargets: true });
+  }, { useTargets: true, ...options });
 }
 
-export async function rollInteractionAttack(actor, skillName) {
+export async function rollInteractionAttack(actor, skillName, options = {}) {
   const skillData = actor.system.skills[skillName];
 
   let dnDescriptor = 'standard';
@@ -1369,16 +1354,15 @@ export async function rollInteractionAttack(actor, skillName) {
     testType: 'interactionAttack',
     actor: actor,
     skillName: skillName,
-    skillAdds: skillData.adds,
     skillValue: Number(skillData.value),
     isFav: actor.system.skills[skillName].isFav,
     unskilledUse: true,
     DNDescriptor: dnDescriptor,
     type: 'interactionAttack',
-  }, { useTargets: true });
+  }, { useTargets: true, ...options });
 }
 
-export async function rollTapping(actor, item) {
+export async function rollTapping(actor, item, options = {}) {
   const dn = item.system?.tappingDifficulty;
   if (!dn) return ui.notifications.info(`Item does not have a Tapping Difficulty`);
 
@@ -1418,7 +1402,7 @@ export async function rollTapping(actor, item) {
     chatTitle: game.i18n.localize('torgeternity.chatText.tapping'),
     DNDescriptor: 'fixedNumber',
     DNfixed: dn
-  });
+  }, options);
 }
 
 function isApprovedAction(test) {

@@ -14,12 +14,10 @@
   </div>
   <div class="chat-text" style="padding:0px">
     {{#if actionTotalContent}}
-      <p class="skill-roll-result" style="{{resultTextStyle}}">
-        {{resultText}}
-      </p>
+      <p class="skill-roll-result {{resultTextClass}}">{{resultText}}</p>
     {{/if}}
     {{#if extraResult}}
-      <p class="skill-roll-disconnect-label"> {{{extraResult}}} </p>
+      <p class="skill-roll-disconnect-label">{{{extraResult}}}</p>
     {{/if}}
     {{#if disconnection}}
       <p class="skill-roll-disconnect-label">
@@ -140,15 +138,6 @@
                         {{/if}}
                       </li>
                     {{/each}}
-                    {{#if bonusDiceList}}
-                      {{#each bonusDiceList}} <!-- Array created in torgcheck -->
-                        <li class="roll">
-                          <img class="bonusDie"
-                            src="systems/torgeternity/images/bonus-{{ifThen this.exploded 'i' this.result}}.webp">
-                          {{#if this.manual}}<span class="manualRoll">M</span>{{/if}}
-                        </li>
-                      {{/each}}
-                    {{/if}}
                   </ol>
                 </div>
               </section>
@@ -165,24 +154,24 @@
     {{/if}}
 
     {{#if ownsActor}}
-      {{#unless (and hideFavButton hidePlus3 (eq possibilityStyle 'hidden') (eq upStyle 'hidden') (eq heroStyle 'hidden') (eq dramaStyle 'hidden') )}}
+      {{#unless (and hideFavButton hidePlus3 (eq possibilityClass 'hidden') (eq upClass 'hidden') (eq heroClass 'hidden') (eq dramaClass 'hidden') )}}
         <div class="skill-roll-menu {{skillRollMenuStyle}}">
           {{#unless hideFavButton}}
             <a class="button roll-button" data-action="rollFav">
               <i class="fa-solid fa-dice-d20"></i>
               {{localize 'torgeternity.chatText.favored'}}</a>
           {{/unless}}
-          <a class="button roll-button {{possibilityStyle}}" data-action="rollPossibility"
+          <a class="button roll-button {{possibilityClass}}" data-action="rollPossibility"
             data-tooltip="{{localize 'torgeternity.chatText.possibilityTooltip'}}">
             <i class="fa-solid fa-dice-d20"></i>
             {{localize 'torgeternity.chatText.possibility'}}</a>
-          <a class="button roll-button {{upStyle}}"
+          <a class="button roll-button {{upClass}}"
             data-action="rollUp"><i class="fa-solid fa-dice-d20"></i>
             {{localize 'torgeternity.chatText.up'}}</a>
-          <a class="button roll-button {{heroStyle}}"
+          <a class="button roll-button {{heroClass}}"
             data-action="rollHero"><i class="fa-solid fa-dice-d20"></i>
             {{localize 'torgeternity.chatText.hero'}}</a>
-          <a class="button roll-button {{dramaStyle}}"
+          <a class="button roll-button {{dramaClass}}"
             data-action="rollDrama"><i class="fa-solid fa-dice-d20"></i>
             {{localize 'torgeternity.chatText.drama'}}</a>
           {{#unless hidePlus3}}
@@ -236,7 +225,7 @@
 
     {{#if (or targetPresent isAttack)}}
       <div class="skill-roll-target-list">
-        {{#each targetAll}}
+        {{#each targets}}
           <li class="skill-roll-target" data-token-uuid="{{this.uuid}}">
             {{#if this.targetName}}
               <div class="target-header">
@@ -244,7 +233,7 @@
                     class="icon fa-solid {{ifThen (eq type 'stormknight') 'fa-person' 'fa-ghost'}}"></i>&nbsp;{{this.targetName}}
                 </span>
                 {{#if this.resultText}}
-                  <span class="skill-roll-result" style="{{this.resultTextStyle}}">{{this.resultText}}</span>
+                  <span class="skill-roll-result {{this.resultTextClass}}">{{this.resultText}}</span>
                 {{/if}}
                 {{#unless this.dummyTarget}}
                   <span class="controls"><a data-action="pingTarget"
@@ -259,13 +248,20 @@
               {{#if this.actionTotalContent}}
                 <p class="skill-roll-action-label actionTotalContent">{{this.actionTotalContent}}</p>
               {{/if}}
+              {{#if this.bdDamageSum}}
+                <div class="bonusDie dice-roll-torg">
+                  <p class="skill-roll-action-label bdDamageSum">{{localize 'torgeternity.chatText.bonusDamage'}}: </p>
+                  {{#each bonusDiceList}} <!-- Array created in torgcheck -->
+                    <img class="bonusDie"
+                      src="systems/torgeternity/images/bonus-{{ifThen this.exploded 'i' this.result}}.webp">
+                    {{#if this.manual}}<span class="manualRoll">M</span>{{/if}}
+                    &nbsp;
+                  {{/each}}
+                  <p class="skill-roll-action-label bdDamageSum">&nbsp;= {{this.bdDamageSum}}</p>
+                </div>
+              {{/if}}
               {{#if this.damageSubDescription}}
                 <p class="skill-roll-action-label damageSubDescription">{{this.damageSubDescription}}</p>
-              {{/if}}
-              {{#if this.bdDamageSum}}
-                <p class="skill-roll-action-label bdDamageSum">
-                  {{localize 'torgeternity.chatText.check.result.BDDamageSum' count=this.amountBD total=this.bdDamageSum}}
-                </p>
               {{/if}}
               {{#if this.damageDescription}}
                 {{#if this.soakDescription}}

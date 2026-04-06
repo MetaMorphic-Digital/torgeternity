@@ -53,13 +53,20 @@ export class TorgActiveEffectData extends (foundry.data.ActiveEffectTypeDataMode
         concentratingId: new fields.DocumentUUIDField({ nullable: true }),
         emanation: new fields.SchemaField({
           radius: new fields.NumberField({ integer: true, nullable: true, initial: null }),
-          colour: new fields.ColorField({ initial: "#000040" }),
+          color: new fields.ColorField({ initial: "#000040" }),
           //opacity: new fields.AlphaField({ initial: 0 }),  // no support for this (yet?)
           disposition: new fields.NumberField({ // as per BaseToken
             required: true,
             choices: foundry.applications.sheets.TokenConfig.TOKEN_DISPOSITIONS,
             initial: CONST.TOKEN_DISPOSITIONS.FRIENDLY,
             validationError: "must be a value in CONST.TOKEN_DISPOSITIONS"
+          }),
+          visibility: new fields.NumberField({
+            required: true,
+            initial: CONST.REGION_VISIBILITY.LAYER_UNLOCKED ?? CONST.REGION_VISIBILITY.ALWAYS, // fallback for V13
+            choices: Object.values(CONST.REGION_VISIBILITY),
+            label: 'REGION.FIELDS.visibility.label',
+            hint: 'REGION.FIELDS.visibility.hint',
           }),
         })
       })

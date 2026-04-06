@@ -44,6 +44,7 @@ import TorgActiveEffect from './documents/active-effect/torgActiveEffect.js';
 import TorgActiveEffectConfig from './sheets/torgeternityActiveEffectConfig.js';
 import TorgEternityTokenRuler from './canvas/tokenruler.js';
 import TorgEternityToken from './canvas/torgeternityToken.js';
+import TorgEternityTokenDocument from './documents/torgeternityTokenDocument.js';
 import MacroHub from './MacroHub.js';
 import InitEnrichers from './enrichers.js';
 import { initHideCompendium } from './hideCompendium.js';
@@ -81,6 +82,7 @@ Hooks.once('init', async function () {
   CONFIG.attributeTypes = CONFIG.torgeternity.attributeTypes;
   CONFIG.Token.rulerClass = TorgEternityTokenRuler;
   CONFIG.Token.objectClass = TorgEternityToken;
+  CONFIG.Token.documentClass = TorgEternityTokenDocument;
   CONFIG.Scene.documentClass = TorgeternityScene;
   CONFIG.RegionBehavior.dataModels.replaceAxioms = ReplaceAxiomsRegionBehaviorType;
   CONFIG.RegionBehavior.typeIcons.replaceAxioms = "fa-solid fa-globe";

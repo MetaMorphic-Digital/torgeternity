@@ -101,7 +101,7 @@
             "label": "Ausstrahlungsradius",
             "hint": "Radius der Ausstrahlung (in Metern). Keine Ausstrahlung wenn leer."
           },
-          "colour": {
+          "color": {
             "label": "Ausstrahlungsfarbe",
             "hint": "Grundfarbe für die Ausstrahlung um Token"
           },

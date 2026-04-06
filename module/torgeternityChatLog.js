@@ -304,7 +304,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     // Roll for Possibility
     // possibilities is allowed 2 times (case in Nile Empire)
     if (test.possibilityTotal > 0) {
-      test.possibilityStyle = 'disabled';
+      test.possibilityClass = 'disabled';
     } else {
       test.chatTitle += '*';
     }
@@ -320,7 +320,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
         canvas.scene.torg.cosm === undefined
       )
     ) {
-      test.possibilityStyle = 'disabled';
+      test.possibilityClass = 'disabled';
     }
 
     test.diceroll = await foundry.dice.Roll.create('1d20x10x20').evaluate();
@@ -506,6 +506,9 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     testTarget.damage = testTarget.damage + test.diceroll.total;
     testTarget.amountBD += 1;
     testTarget.bdDamageSum += test.diceroll.total;
+    const values = test.diceroll.dice[0].results.filter(r => r.active);
+    testTarget.bonusDiceList = testTarget.bonusDiceList ? testTarget.bonusDiceList.concat(values) : values;
+
 
     return renderSkillChat(test, chatMessage);
   }
@@ -522,7 +525,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
       return;
     }
     test.mode = 'update';
-    return TestDialog.wait(test);
+    return TestDialog.wait(test, { /*window: { windowId: this.window.windowId }*/ });
   }
 
   /**
@@ -555,7 +558,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     testTarget.showBD = false;
     return this.updateChatMessage(chatMessage, {
       'flags.torgeternity.test.skillRollMenuStyle': 'hidden',
-      'flags.torgeternity.test.targetAll': test.targetAll,
+      'flags.torgeternity.test.targets': test.targets,
     });
   }
 
@@ -604,7 +607,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
       possPool += 1;
     }
 
-    await soakDamages(targetActor, chatMessage.id);
+    await soakDamages(targetActor, chatMessage.id, { /*window: { windowId: this.window.windowId }*/ });
     await targetActor.update({ 'system.other.possibilities.value': possPool - 1 });
   }
 
@@ -616,7 +619,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
   static #applySoak(event, button) {
     event.preventDefault();
     const { test: soaktest, chatMessage } = getMessage(button);
-    const testTarget = soaktest.targetAll[0];
+    const testTarget = soaktest.targets[0];
 
     const origMessageId = soaktest.soakingMessage;
     const origmsg = game.messages.get(origMessageId);
@@ -626,7 +629,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     // Update the original chat card to show the new damage.
 
     const origtest = origmsg.flags?.torgeternity?.test;
-    const origtarget = origtest?.targetAll.find(target => target.dummyTarget || target.actorUuid === soaktest.actor);
+    const origtarget = origtest?.targets.find(target => target.dummyTarget || target.actorUuid === soaktest.actor);
 
     if (!origtest || !testTarget || !origtarget) {
       ui.notifications.warn(`APPLY SOAK: Failed to find original message`)
@@ -733,19 +736,12 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     if (!actor) return;
 
     // Transfer Effects from the Weapon (& Ammo) to the target.
-    const toTransfer = test.effects
+    const effects = test.effects
       .map(uuid => fromUuidSync(uuid, { strict: false }))
       .filter(fx => transfersTo(fx));
 
-    if (toTransfer.length) {
-      const emanations = toTransfer.filter(fx => fx.system.emanation.radius);
-      const effects = toTransfer.filter(fx => !fx.system.emanation.radius);
-      if (emanations.length)
-        // FVTT-V14: Need UUIDs in the effects, not the actual effects!
-        canvas.scene.createTokenEmanation(actor.getActiveTokens()[0].document, emanations.map(fx => fx.uuid), test.concentratingId);
-      if (effects.length)
-        actor.createEmbeddedDocuments('ActiveEffect', effects.map(fx => fx.copyForTransfer(test.concentratingId)));
-    }
+    if (effects.length)
+      actor.createEmbeddedDocuments('ActiveEffect', effects.map(fx => fx.copyForTransfer(test.concentratingId, false)));
   }
 
   /**
@@ -780,7 +776,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
       // Don't hide Stymied button, in case of Good or better result
       //testTarget.showApplyStymied = false;
       //this.updateChatMessage(chatMessage, {
-      //  'flags.torgeternity.test.targetAll': test.targetAll  // TODO : potential clash, since entire array updated
+      //  'flags.torgeternity.test.targets': test.targets  // TODO : potential clash, since entire array updated
       //})
 
       if (test.testType === 'interactionAttack' && targetActor.isConcentrating)
@@ -805,7 +801,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
       // Better results might allow it to be pressed more than once
       //testTarget.showApplyVulnerable = false;
       //this.updateChatMessage(chatMessage, {
-      //  'flags.torgeternity.test.targetAll': test.targetAll  // TODO : potential clash, since entire array updated
+      //  'flags.torgeternity.test.targets': test.targets  // TODO : potential clash, since entire array updated
       //})
 
       if (test.testType === 'interactionAttack' && targetActor.isConcentrating)
@@ -882,7 +878,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
       skillName: attribute,
       skillValue: actor.system.attributes[attribute].value,
       isDefeatTest: true,
-    });
+    }, { /*window: { windowId: this.window.windowId }*/ });
 
     // Wait for manual addition of results, when applyDefeat is invoked.
   }
@@ -938,10 +934,9 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     test.isFav = !!test.isFav;
     test.unskilledUse = !!test.unSkilledUse;
     test.skillValue = Number(test.skillValue);
-    test.skillAdds = Number(test.skillAdds);
     test.isConcentrationCheck = true;
 
-    const result = await TestDialog.wait(test);
+    const result = await TestDialog.wait(test, { /*window: { windowId: this.window.windowId }*/ });
 
     if (result.flags.torgeternity.test.result < TestResult.STANDARD) {
       const failed = actor.effects.filter(ef => ef.statuses.has('concentrating'));
@@ -1095,7 +1090,7 @@ function getChatTarget(button) {
   const test = msg?.test;
   if (!test) return null;
   const targetActor = fromUuidSync(button.closest('.skill-roll-target')?.dataset.tokenUuid, { strict: false })?.actor;
-  const testTarget = test?.targetAll.find(target => target.dummyTarget || target.actorUuid === targetActor.uuid);
+  const testTarget = test?.targets.find(target => target.dummyTarget || target.actorUuid === targetActor.uuid);
   if (testTarget) return { targetActor, testTarget, ...msg };
   ui.notifications.warn(game.i18n.localize('torgeternity.notifications.noTarget'));
   return null;

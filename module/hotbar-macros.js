@@ -150,7 +150,7 @@ async function rollItemMacro(itemName, itemType) {
  * @param {boolean} isInteractionAttack
  * @returns {Promise}
  */
-async function rollSkillMacro(skillName, attributeName, isInteractionAttack, DNDescriptor) {
+async function rollSkillMacro(skillName, attributeName, isInteractionAttack, DNDescriptor, options = {}) {
   let fixedNumber = 0;
   if (DNDescriptor && !isNaN(Number(DNDescriptor))) {
     fixedNumber = Number(DNDescriptor);
@@ -224,7 +224,6 @@ async function rollSkillMacro(skillName, attributeName, isInteractionAttack, DND
     testType: isAttributeTest ? 'attribute' : 'skill',
     actor: actor,
     skillName: isAttributeTest ? attributeName : skillName,
-    skillAdds: skill.adds,
     skillValue: skillValue,
     isFav: skill.isFav,
     DNDescriptor: DNDescriptor ?? 'standard',
@@ -294,7 +293,7 @@ async function rollSkillMacro(skillName, attributeName, isInteractionAttack, DND
     test.unskilledUse = true;
   }
 
-  return TestDialog.wait(test, { useTargets: true });
+  return TestDialog.wait(test, { useTargets: true, ...options });
 }
 
 Hooks.on('getActorContextOptions', async (actorDir, menuItems) => {

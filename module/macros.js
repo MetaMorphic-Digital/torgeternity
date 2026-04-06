@@ -369,7 +369,7 @@ export class TorgeternityMacros {
   /**
    *
    */
-  async reconnection() {
+  async reconnection(options = {}) {
     const _token = canvas.tokens.controlled[0];
     const _actor = _token?.actor;
 
@@ -394,7 +394,6 @@ export class TorgeternityMacros {
       actor: _actor,
       skillName: 'reality',
       testType: 'reconnect',
-      skillAdds: realitySkill.adds,
       skillValue: realitySkill.value,
       isFav: realitySkill.isFav,
       DNDescriptor: 'standard',
@@ -416,7 +415,7 @@ export class TorgeternityMacros {
       });
     }
 
-    return TestDialog.wait(test, { useTargets: false });
+    return TestDialog.wait(test, { useTargets: false, ...options });
   }
 
   async openPacks() {
@@ -741,8 +740,8 @@ export class TorgeternityMacros {
       },
     });
 
-    const targetAll = Array.from(game.user.targets).map(token => oneTestTarget(token));
-    for (const target of targetAll) {
+    const targets = Array.from(game.user.targets).map(token => oneTestTarget(token));
+    for (const target of targets) {
       target.damage = parseInt(info[1]);
     }
 
@@ -771,9 +770,9 @@ export class TorgeternityMacros {
       chatNote: '',
       bdDamageSum: 0,
       hasModifiers: false,
-      targetAll,
+      targets,
       bonus: 0,
-      possibilityStyle: 'hidden',
+      possibilityClass: 'hidden',
       coverModifier: 0,
       chatTitle: '',
       DN: 9,
@@ -785,11 +784,10 @@ export class TorgeternityMacros {
       modifiers: 0,
       modifierText: '',
       cardsPlayed: 0,
-      rollResult: 11,
       outcome: '',
       actionTotalContent: '',
       resultText: '',
-      resultTextStyle: 'display:none',
+      resultTextClass: 'hidden',
     });
   }
 }

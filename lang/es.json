@@ -101,7 +101,7 @@
             "label": "Radio de emanación",
             "hint": "Radio de la emanación (en metros). Dejar en blanco si no se quiere emanación"
           },
-          "colour": {
+          "color": {
             "label": "Color de la emanación",
             "hint": "Color básico para la emanación que rodea la ficha"
           },

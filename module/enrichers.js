@@ -158,7 +158,6 @@ function _onClickInlineCheck(event) {
     foundry.utils.mergeObject(test, {
       testType: isInteractionAttack ? 'interactionAttack' : 'skill',
       skillName: skillName,
-      skillAdds: skill.adds,
       skillValue: skillValue,
       isFav: skill.isFav,
       unskilledUse: skill.unskilledUse || isInteractionAttack,
@@ -172,7 +171,6 @@ function _onClickInlineCheck(event) {
     foundry.utils.mergeObject(test, {
       testType: test.attack ? 'interactionAttack' : 'attribute',
       skillName: attributeName,
-      skillAdds: 0,
       skillValue: attribute.value,
       isFav: actor.system.attributes[attributeName].isFav,
       unskilledUse: true,
@@ -182,9 +180,7 @@ function _onClickInlineCheck(event) {
     // Not skill or attribute, so anything can be set in the test.
     // @Check[interactionAttack|skillName=intimidation|dn=targetIntimidation|unskilledUse=true]
     if (test.skillName && actor.system.skills[test.skillName]) {
-      const skill = actor.system.skills[test.skillName];
-      test.skillAdds ??= skill.adds;
-      test.skillValue ??= skill.value;
+      test.skillValue ??= actor.system.skills[test.skillName].value;
     }
   }
 

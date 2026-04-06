@@ -3258,6 +3258,48 @@ document-embed .generalHeader {
     animation: flip 0.2s linear both;
   }
 
+  .drama-up {
+    animation: boxchange 2s infinite alternate;
+  }
+
+  .possible-glory {
+    text-align: center;
+    color: darkGreen;
+    text-shadow: #ffcc00 1px 0 10px;
+  }
+
+  .roll-button {
+    border: black 1px solid;
+    border-radius: 1rem;
+    padding: 4px;
+    font-size: 12px;
+    font-weight: bold;
+    white-space: nowrap;
+    margin-bottom: 7px;
+
+    &.disabled {
+      pointer-events: none;
+      color: gray;
+    }
+
+    &.notPreferred {
+      color: gray;
+    }
+
+    &.drawDestiny {
+      display: inline;
+      margin-left: 1em;
+    }
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  h4 {
+    font-family: Alaska;
+  }
+
   .chat-text secret-block button.reveal {
     display: none;
   }
@@ -3336,6 +3378,28 @@ document-embed .generalHeader {
     /*font-family: "Alaska";*/
     padding: 3px 0px 0px 0px;
     margin: 0px;
+
+    &.mishap.colorblind {
+      color: purple;
+    }
+
+    &.failure {
+      color: red;
+    }
+
+    &.standard,
+    &.good,
+    &.outstanding {
+      color: green;
+
+      &.colorblind {
+        color: rgb(44, 179, 44)
+      }
+    }
+
+    &.shadow {
+      text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, 0px 0px 15px black;
+    }
   }
 
   .skill-roll-action-label {
@@ -3552,58 +3616,21 @@ document-embed .generalHeader {
   justify-content: flex-start;
   justify-content: space-around;
 
+  &.bonusDie {
+    justify-content: center;
+  }
+
   .roll:has(img.bonusDie) {
     background-image: none;
   }
 
   img.bonusDie {
-    margin-top: 0.2em;
+    margin-top: 0.1em;
+    margin-left: 0.3em;
     width: 1.2em;
     height: 1.2em;
     background-image: none;
   }
-}
-
-.chat-message .possible-glory {
-  text-align: center;
-  color: darkGreen;
-  text-shadow: #ffcc00 1px 0 10px;
-}
-
-.chat-message .drama-up {
-  animation: boxchange 2s infinite alternate;
-}
-
-.chat-message .roll-button {
-  border: black 1px solid;
-  border-radius: 1rem;
-  padding: 4px;
-  font-size: 12px;
-  font-weight: bold;
-  white-space: nowrap;
-  margin-bottom: 7px;
-
-  &.disabled {
-    pointer-events: none;
-    color: gray;
-  }
-
-  &.notPreferred {
-    color: gray;
-  }
-
-  &.drawDestiny {
-    display: inline;
-    margin-left: 1em;
-  }
-}
-
-.chat-message .hidden {
-  display: none;
-}
-
-.chat-message h4 {
-  font-family: Alaska;
 }
 
 /* Styles limited to torg sheets */
@@ -4948,6 +4975,21 @@ table.cosm-axioms,
     &>input {
       width: 5em;
       text-align: center;
+    }
+  }
+}
+
+body.detached {
+
+  .sheet.actor.torgeternity,
+  .sheet.item.torgeternity {
+    .window-content.standard-form {
+      --detached-margin: 20px;
+      margin-right: var(--detached-margin);
+
+      nav.tabs.sheet-tabs {
+        left: calc(100% - var(--detached-margin));
+      }
     }
   }
 }

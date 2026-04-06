@@ -2,6 +2,25 @@
 
 - Translations by Durak (French), Helmut (German), and Teotimus (Spanish).
 
+## 13.34.0 - Display individual BD + V14 improvements
+- Add protective code in SceneNav, so if a scene has no axioms defined then an error won't be generated.
+- Internal rework of test record - **DELETE YOUR CHAT LOG**
+- Bonus Die are shown against each individual target in the chat message rather than being mixed together after all the d20s.
+
+### Foundry V14 improvements
+- Put some dialogs in same window as Actor Sheet:
+  - Item/Race Delete confirmation dialog
+  - on Item drop, currency selection dialog
+  - on Race drop, diminished attributes dialog
+  - _(Other dialogs are too big to be placed within the separate Actor Window)_
+- Tabs on right of detached Actor/Item Sheet remain visible on resize.
+- Rework internally how emanations are created on tokens.
+  - The same Active Effect applies the aura and is transferred to actors inside the aura.
+  - Visibility of the emanation's region can be set via the Active Effect.
+  - Changes to the Emanation AE are immediately applied to the token's region (colour, radius, disposition, visibility).
+- Hide "Show All Effects in Effects Panel" since V14 provides a field on each Active Effect for the same purpose.
+- Prevent error when casting a limited duration spell when Actor is not in a combat.
+
 ## 13.33.0 - Foundry 14 support + Bug Fixes
 - Add "Soft Armor" defense trait.
 - Improve the Source field of Active Effect lists to show the originating actor of transferred effects.
@@ -1368,7 +1387,7 @@ is replaced by the new portrait. (For unlinked Actors, this will directly affect
   - Style-Fix for vehicle addon item [#383](https://github.com/gmmatt/torgeternity/issues/383)
   - Style-fix on general Chat-Cards holding item informations [#208](https://github.com/gmmatt/torgeternity/issues/208)
   - Corrections on DataModels
-  - The equipped item now shows colour again
+  - The equipped item now shows color again
   - Size of characters are fixed
   - Recovered TinyMCE CSS File that got lost on the way
   - Not really a fix, but updated all item editor fields to ProseMirror engine, because TinyMCE won't work anymore correctly and isn't supported anymore

@@ -161,7 +161,7 @@ export class TestDialog extends HandlebarsApplicationMixin(ApplicationV2) {
         this.test[key] = Number(this.test[key]);
 
     // Immediately display the dialog
-    this.render({ force: true });
+    this.render({ force: true, ...options });
   }
 
   /**
@@ -229,19 +229,19 @@ export class TestDialog extends HandlebarsApplicationMixin(ApplicationV2) {
     context.test.combinedAction.participants ??= game.canvas?.tokens?.controlled?.length || 1;
 
     if (context.test.targetPresent && context.test.testType !== 'soak') {
-      context.test.targetAll = targets.map(token => oneTestTarget(token, this.test.applySize, this.test.attackTraits, myActor.defenseTraits, context.test.skillName));
-      context.test.sizeModifier = Math.max(...context.test.targetAll.map(target => target.sizeModifier));
-      context.test.vulnerableModifier = Math.max(...context.test.targetAll.map(target => target.vulnerableModifier));
-      context.test.darknessModifier = Math.min(0, Math.min(...context.test.targetAll.map(target => target.darknessModifier)) + context.test.targetDarknessModifier);
+      context.test.targets = targets.map(token => oneTestTarget(token, this.test.applySize, this.test.attackTraits, myActor.defenseTraits, context.test.skillName));
+      context.test.sizeModifier = Math.max(...context.test.targets.map(target => target.sizeModifier));
+      context.test.vulnerableModifier = Math.max(...context.test.targets.map(target => target.vulnerableModifier));
+      context.test.darknessModifier = Math.min(0, Math.min(...context.test.targets.map(target => target.darknessModifier)) + context.test.targetDarknessModifier);
     } else {
-      context.test.targetAll = dummyTestTargets();
+      context.test.targets = dummyTestTargets();
       context.test.sizeModifier = 0;
       context.test.vulnerableModifier = 0;
       context.test.darknessModifier = 0;
     }
 
     // Maybe there is an explicit amount of damage
-    for (const target of context.test.targetAll)
+    for (const target of context.test.targets)
       target.damage = this.test.damage ?? 0;
 
     // Check actor to see if they want to modify any of the modifiers.
@@ -329,7 +329,7 @@ export class TestDialog extends HandlebarsApplicationMixin(ApplicationV2) {
         const myItem = this.test.itemId && myActor.items.get(this.test.itemId);
         if (
           myItem?.weaponWithAmmo &&
-          !myItem.hasSufficientAmmo(this.test.burstModifier, this.test?.targetAll.length || (1 - this.test.targetsModifier / 2))
+          !myItem.hasSufficientAmmo(this.test.burstModifier, this.test?.targets.length || (1 - this.test.targetsModifier / 2))
         ) {
           ui.notifications.warn(game.i18n.localize('torgeternity.chatText.notSufficientAmmo'));
           return;

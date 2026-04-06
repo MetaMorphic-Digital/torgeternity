@@ -10,7 +10,6 @@ export default class TorgeternityItem extends foundry.documents.Item {
   static CHAT_TEMPLATE = {
     // ammunition?
     attack: `${chat_templates}attack-card.hbs`, // not an Item type
-    bonus: `${chat_templates}bonus-card.hbs`, // not an Item type
     armor: `${chat_templates}armor-card.hbs`,
     currency: `${chat_templates}currency-card.hbs`,
     //customAttack: `${chat_templates}customAttack-card.hbs`,

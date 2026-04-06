@@ -188,6 +188,12 @@ export default class TorgeternityActor extends foundry.documents.Actor {
     super._onEmbeddedDocumentChange();
   }
 
+  applyActiveEffects(phase) {
+    super.applyActiveEffects(phase);
+    if (phase === 'final' && game.release.generation > 13 && game.user.isActiveGM)
+      this.getActiveSceneTokens().forEach(token => token?.document?.updateEffectRegions());
+  }
+
   /**
    * When a stormknight is deleted, delete the corresponding player hand
    * @inheritDoc
@@ -657,10 +663,6 @@ export default class TorgeternityActor extends foundry.documents.Actor {
       for (const effect of actor.effects)
         if (effect.system.concentratingId && concIds.includes(effect.system.concentratingId))
           await effect.delete();
-    // Error reported if we try to delete the regions first
-    for (const scene of game.scenes)
-      for (const region of scene.regions.filter(region => concIds.includes(region.flags?.torgeternity?.concentratingId)))
-        await region.delete();
   }
 
   /**

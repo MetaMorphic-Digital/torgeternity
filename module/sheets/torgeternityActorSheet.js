@@ -510,7 +510,9 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
                   action: "choice",
                   label: "torgeternity.itemPurchase.choice.select",
                   callback: (event, button, dialog) => button.form.elements.choice.value
-                }]
+                }],
+                // Prompt in same window as Actor Sheet (where the drop occurred)
+                renderOptions: { window: { windowId: this.window.windowId } }
               });
               if (!choice) return null;  // selection aborted
               if (choice === 'free') {
@@ -576,6 +578,8 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
         ),
         rejectClose: false,
         modal: true,
+        // Prompt in same window as Actor sheet
+        renderOptions: { window: { windowId: this.window.windowId } }
       });
       if (proceed) updates[`system.attributes.${key}.base`] = value;
     }
@@ -728,9 +732,9 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
    */
   static async #onSkillRoll(event, button) {
     if (button.dataset.testtype === 'attribute')
-      return rollAttribute(this.actor, button.dataset.name, Number(button.dataset.value))
+      return rollAttribute(this.actor, button.dataset.name, Number(button.dataset.value), { /*window: { windowId: this.window.windowId }*/ })
     else
-      return rollSkill(this.actor, button.dataset.name)
+      return rollSkill(this.actor, button.dataset.name, { /*window: { windowId: this.window.windowId }*/ })
   }
 
   /**
@@ -753,7 +757,7 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
       DNDescriptor: 'highestSpeed',
       vehicleSpeed: Number(button.dataset.speed),
       maneuverModifier: Number(button.dataset.maneuver),
-    }, { useTargets: true });
+    }, { useTargets: true, /*window: { windowId: this.window.windowId }*/ });
   }
 
   /**
@@ -770,7 +774,7 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
       skillValue: Number(button.dataset.skillValue),
       vehicleSpeed: Number(button.dataset.speed),
       maneuverModifier: Number(button.dataset.maneuver),
-    }, { useTargets: true });
+    }, { useTargets: true, /*window: { windowId: this.window.windowId }*/ });
   }
 
   /**
@@ -791,7 +795,7 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
       DNDescriptor: dnDescriptor,
       vehicleSpeed: Number(button.dataset.speed),
       maneuverModifier: Number(button.dataset.maneuver),
-    }, { useTargets: true });
+    }, { useTargets: true, /*window: { windowId: this.window.windowId }*/ });
   }
 
   /**
@@ -801,7 +805,7 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
    * @this {TorgeternityActorSheet}
    */
   static #onInteractionAttack(event, button) {
-    return rollInteractionAttack(this.actor, button.dataset.name);
+    return rollInteractionAttack(this.actor, button.dataset.name, { /*window: { windowId: this.window.windowId }*/ });
   }
 
   /**
@@ -811,7 +815,7 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
    * @this {TorgeternityActorSheet}
    */
   static #onUnarmedAttack(event, button) {
-    return rollUnarmedAttack(this.actor, button.dataset.name);
+    return rollUnarmedAttack(this.actor, button.dataset.name, { /*window: { windowId: this.window.windowId }*/ });
   }
 
   /**
@@ -840,11 +844,10 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
       actor: this.actor,
       isActiveDefenseRoll: true,
       skillName: 'activeDefense',
-      skillAdds: null,
       skillValue: null,
       unskilledUse: true,
       type: 'activeDefense',
-    }, { useTargets: false });
+    }, { useTargets: false, /*window: { windowId: this.window.windowId }*/ });
   }
 
   /**
@@ -864,13 +867,12 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
       actorType: this.actor.type,
       isAttack: false,
       skillName: 'activeDefense',
-      skillAdds: null,
       skillValue: null,
       unskilledUse: true,
       darknessModifier: 0,
       DNDescriptor: 'standard',
       type: 'activeDefense',
-      targetAll: [], // for renderSkillChat
+      targets: [], // for renderSkillChat
       applySize: false,
       attackOptions: false,
       combinedAction: {
@@ -903,13 +905,13 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
   static #onAttackRoll(event, button) {
     const item = this.actor.items.get(button.closest('.item').dataset.itemId);
     if (!item) return ui.notifications.info(`Failed to find Item for button`);
-    rollAttack(this.actor, item);
+    rollAttack(this.actor, item, { /*window: { windowId: this.window.windowId }*/ });
   }
 
   static async #onTappingRoll(event, button) {
     const item = this.actor.items.get(button.closest('.item').dataset.itemId);
     if (!item) return ui.notifications.info(`Failed to find Item for button`);
-    rollTapping(this.actor, item);
+    rollTapping(this.actor, item, { /*window: { windowId: this.window.windowId }*/ });
   }
 
   /**
@@ -921,7 +923,7 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
   static #onPowerRoll(event, button) {
     const item = this.actor.items.get(button.closest('.item').dataset.itemId);
     if (!item) return ui.notifications.info(`Failed to find Item for button`);
-    rollPower(this.actor, item);
+    rollPower(this.actor, item, { /*window: { windowId: this.window.windowId }*/ });
   }
 
   /**
@@ -933,7 +935,7 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
   static #onItemEdit(event, button) {
     const item = this.actor.items.get(button.closest('.item').dataset.itemId);
     if (!item) return ui.notifications.info(`Failed to find Item for button`);
-    item.sheet.render({ force: true });
+    item.sheet.render({ force: true, /*window: { windowId: this.window.windowId }*/ });
   }
 
   /**
@@ -1080,6 +1082,8 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
         icon: 'fa-solid fa-times',
         label: 'torgeternity.yesNo.false',
       },
+      // Prompt in same window as Actor sheet
+      renderOptions: { window: { windowId: this.window.windowId } }
     });
   }
 
@@ -1122,6 +1126,8 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
     if (await DialogV2.confirm({
       window: { title: 'torgeternity.dialogWindow.raceDeletion.title' },
       content: game.i18n.localize('torgeternity.dialogWindow.raceDeletion.content'),
+      // Prompt in same window as Actor sheet
+      renderOptions: { window: { windowId: this.window.windowId } }
     })) {
       return this.deleteRace();
     }
