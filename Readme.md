@@ -45,4 +45,4 @@ The Foundry Torg Eternity system includes core archetypes, the Drama Deck, and c
 
 - [Up the Creek](https://github.com/MetaMorphic-Digital/te002-up-the-creek), a free introductory adventure module. The full TE rule set is not needed to play this module. It comes with all the rules you need.
 
-- [Hostel Takeover](https://github.com/MetaMorphic-Digital/te003-hostel-takeover) _for Foundry 11_ - a free one-shot adventure created by Torg Eternity designer Darrell Hayhurst, and originally published in Delphi Missions: Rising Storm
+- [Hostel Takeover](https://github.com/MetaMorphic-Digital/te003-hostel-takeover), a free one-shot adventure created by Torg Eternity designer Darrell Hayhurst, and originally published in Delphi Missions: Rising Storm

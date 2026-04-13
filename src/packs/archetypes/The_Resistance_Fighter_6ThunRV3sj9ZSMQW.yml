@@ -721,13 +721,16 @@ items:
       applySize: false
       castingtime: 1 action
       damage: null
-      description: "<p>The psi builds up psychic energy and channels it through his nervous system, granting him increased <em>Strength</em> and <em>Dexterity</em> for the Duration of the power.</p><p>This ability is highly taxing, however. As soon as the power ends, the psi suffers 2 Shock\_and a −2 penalty to <em>Strength</em> and <em>Dexterity</em> for the next minute.</p><p>A Standard success increases <em>Strength</em> and <em>Dexterity</em> by +1.</p><p>@Buff[strength=+1|dexterity=+1|duration=3]{Energize: +1 on Str+Dex}</p><p>After use @Buff[strength=-2|dexterity=-2|duration=6]{Energize: Penalty on Str+Dex}</p><p>\_</p><p>Found in <strong>Core Rules</strong></p>"
+      description: "<p>The psi builds up psychic energy and channels it through his nervous system, granting him increased <em>Strength</em> and <em>Dexterity</em> for the Duration of the power.</p><p>This ability is highly taxing, however. As soon as the power ends, the psi suffers 2 Shock\_and a −2 penalty to <em>Strength</em> and <em>Dexterity</em> for the next minute.</p><p>\_</p><p>Found in <strong>Core Rules</strong></p>"
       dn: challenging
       dnType: ''
       duration: 3 rounds
-      good: |-
-        Strength and Dexterity increase +2
-        @Buff[strength=+2|dexterity=+2|duration=3]{Energize: +2 on Str+Dex}
+      good: >-
+        <p>Strength and Dexterity increase +2
+        @Buff[strength=+2|dexterity=+2|duration=3]{Energize: +2 on
+        Str+Dex}</p><p>After use
+        @Buff[strength=-2|dexterity=-2|duration=6]{Energize: Penalty on
+        Str+Dex}</p>
       isAttack: false
       modifier: ''
       outstanding: >-
@@ -747,6 +750,12 @@ items:
       cosm: none
       traits: []
       requiresConcentration: false
+      standard: >-
+        <p>A Standard success increases <em>Strength</em> and <em>Dexterity</em>
+        by +1.</p><p>@Buff[strength=+1|dexterity=+1|duration=3]{Energize: +1 on
+        Str+Dex}</p><p>After use
+        @Buff[strength=-2|dexterity=-2|duration=6]{Energize: Penalty on
+        Str+Dex}</p>
     ownership:
       default: 0
       A9LyAqagoJJU3gDH: 3
@@ -758,10 +767,10 @@ items:
       exportSource: null
       coreVersion: '13.351'
       systemId: torgeternity
-      systemVersion: 13.13.2
+      systemVersion: 13.33.0
       createdTime: 1763999567779
-      modifiedTime: 1763999619475
-      lastModifiedBy: e1DB4TK9SbDuMDS3
+      modifiedTime: 1775990729589
+      lastModifiedBy: BMvGTGfheqDXarjN
     _key: '!actors.items!6ThunRV3sj9ZSMQW.E1aOVDM9yrPzXa4p'
 effects: []
 folder: null

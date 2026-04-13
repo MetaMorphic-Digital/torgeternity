@@ -1,5 +1,29 @@
 import { TestResult } from './torgchecks.js';
 
+
+function getAdd(value) {
+  if (game.release.generation < 14)
+    return { mode: CONST.ACTIVE_EFFECT_MODES.ADD, value }
+  else if (value < 0)
+    return { type: 'subtract', value: -value }
+  else
+    return { type: 'add', value }
+}
+
+function getDowngrade() {
+  if (game.release.generation < 14)
+    return { mode: CONST.ACTIVE_EFFECT_MODES.DOWNGRADE }
+  else
+    return { type: 'downgrade' }
+}
+
+function getUpgrade() {
+  if (game.release.generation < 14)
+    return { mode: CONST.ACTIVE_EFFECT_MODES.UPGRADE }
+  else
+    return { type: 'upgrade' }
+}
+
 export function initConfig() {
 
   const torgeternity = {};
@@ -470,7 +494,7 @@ export function initConfig() {
       _id: 'stymied000000000',
       name: 'torgeternity.statusEffects.stymied',
       duration: { rounds: 1, turns: 1, value: 1, units: "turns", expiry: 'turnEnd' },
-      changes: [{ key: 'system.statusModifiers.stymied', mode: CONST.ACTIVE_EFFECT_MODES.DOWNGRADE, value: '-2', priority: 10 }],
+      changes: [{ key: 'system.statusModifiers.stymied', ...getDowngrade(), value: '-2', priority: 10 }],
     },
     {
       img: 'systems/torgeternity/images/status-markers/very-stymied.webp',
@@ -478,7 +502,7 @@ export function initConfig() {
       _id: 'veryStymied00000',
       name: 'torgeternity.statusEffects.veryStymied',
       duration: { rounds: 1, turns: 1, value: 1, units: "turns", expiry: 'turnEnd' },
-      changes: [{ key: 'system.statusModifiers.stymied', mode: CONST.ACTIVE_EFFECT_MODES.DOWNGRADE, value: '-4', priority: 10 }],
+      changes: [{ key: 'system.statusModifiers.stymied', ...getDowngrade(), value: '-4', priority: 10 }],
     },
     {
       img: 'systems/torgeternity/images/status-markers/vulnerable.webp',
@@ -486,7 +510,7 @@ export function initConfig() {
       _id: 'vulnerable000000',
       name: 'torgeternity.statusEffects.vulnerable',
       duration: { rounds: 1, turns: 1, value: 1, units: "turns", expiry: 'turnEnd' },
-      changes: [{ key: 'system.statusModifiers.vulnerable', mode: CONST.ACTIVE_EFFECT_MODES.UPGRADE, value: '2', priority: 10 }],
+      changes: [{ key: 'system.statusModifiers.vulnerable', ...getUpgrade(), value: '2', priority: 10 }],
     },
     {
       img: 'systems/torgeternity/images/status-markers/very-vulnerable.webp',
@@ -494,7 +518,7 @@ export function initConfig() {
       _id: 'veryVulnerable00',
       name: 'torgeternity.statusEffects.veryVulnerable',
       duration: { rounds: 1, turns: 1, value: 1, units: "turns", expiry: 'turnEnd' },
-      changes: [{ key: 'system.statusModifiers.vulnerable', mode: CONST.ACTIVE_EFFECT_MODES.UPGRADE, value: '4', priority: 10 }],
+      changes: [{ key: 'system.statusModifiers.vulnerable', ...getUpgrade(), value: '4', priority: 10 }],
     },
     {
       img: 'systems/torgeternity/images/status-markers/disconnected.webp',
@@ -520,7 +544,7 @@ export function initConfig() {
       _id: 'concentrating000',
       name: 'torgeternity.statusEffects.concentrating',
       // Each concentrating buff stacks!
-      changes: [{ key: 'system.statusModifiers.concentrating', mode: CONST.ACTIVE_EFFECT_MODES.ADD, value: '-2', priority: 10 }],
+      changes: [{ key: 'system.statusModifiers.concentrating', ...getAdd(-2), priority: 10 }],
     },
     {
       img: 'systems/torgeternity/images/status-markers/restrained.webp',
@@ -533,28 +557,28 @@ export function initConfig() {
       id: 'dim',
       _id: 'dim0000000000000',
       name: 'torgeternity.statusEffects.dim',
-      changes: [{ key: 'system.statusModifiers.darkness', mode: CONST.ACTIVE_EFFECT_MODES.DOWNGRADE, value: '-2', priority: 10 }],
+      changes: [{ key: 'system.statusModifiers.darkness', ...getDowngrade(), value: '-2', priority: 10 }],
     },
     {
       img: 'systems/torgeternity/images/status-markers/dark-4.webp',
       id: 'dark',
       _id: 'dark000000000000',
       name: 'torgeternity.statusEffects.dark',
-      changes: [{ key: 'system.statusModifiers.darkness', mode: CONST.ACTIVE_EFFECT_MODES.DOWNGRADE, value: '-4', priority: 10 }],
+      changes: [{ key: 'system.statusModifiers.darkness', ...getDowngrade(), value: '-4', priority: 10 }],
     },
     {
       img: 'systems/torgeternity/images/status-markers/dark-6.webp',
       id: 'pitchBlack',
       _id: 'pitchBlack000000',
       name: 'torgeternity.statusEffects.pitchBlack',
-      changes: [{ key: 'system.statusModifiers.darkness', mode: CONST.ACTIVE_EFFECT_MODES.DOWNGRADE, value: '-6', priority: 10 }],
+      changes: [{ key: 'system.statusModifiers.darkness', ...getDowngrade(), value: '-6', priority: 10 }],
     },
     {
       img: 'systems/torgeternity/images/status-markers/waiting.webp',
       id: 'waiting',
       _id: 'waiting000000000',
       name: 'torgeternity.statusEffects.waiting',
-      changes: [{ key: 'system.statusModifiers.waiting', mode: CONST.ACTIVE_EFFECT_MODES.DOWNGRADE, value: '-2', priority: 10 }],
+      changes: [{ key: 'system.statusModifiers.waiting', ...getDowngrade(), value: '-2', priority: 10 }],
     },
     {
       img: 'icons/svg/skull.svg',

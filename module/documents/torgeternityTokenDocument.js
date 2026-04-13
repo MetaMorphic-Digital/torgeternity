@@ -32,16 +32,22 @@ export default class TorgEternityTokenDocument extends foundry.documents.TokenDo
     let changed = false;
 
     // Which effects still exist on the token/actor?
+    // (We use !disabled rather than active since the emanation might have conditional fields in it)
     const emanations = {};
     for (const effect of this.actor.allApplicableEffects())
-      if (effect.active && effect.system.emanation.radius)
+      if (!effect.disabled && effect.system.emanation.radius)
         emanations[effect.uuid] = effect;
 
     for (const [effectUuid, regionUuid] of Object.entries(oldMapping)) {
       const region = await fromUuidSync(regionUuid, { strict: false });
       if (!emanations[effectUuid]) {
         // The region should no longer exist
-        if (region) await region.delete();
+        if (region) {
+          // Deleting the region without first deleting the behaviors does NOT generate TOKEN_EXIT events! (V14.360 bug)
+          for (const behavior of region.behaviors)
+            await behavior.delete();
+          await region.delete();
+        }
         delete oldMapping[effectUuid];
         changed = true;
       } else if (!region) {

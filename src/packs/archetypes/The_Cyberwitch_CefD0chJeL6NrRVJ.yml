@@ -474,13 +474,8 @@ items:
         the affected attribute while casting—sneering to reduce <em>Spirit</em>,
         pretending to stumble if reducing <em>Dexterity</em>,
         etc.</p><p>Reducing <em>Strength</em> or <em>Spirit</em> does
-        <em>not</em> reduce Toughness or
-        Shock.</p><p>@Buff[charisma=-2|duration=3]{Diminish: -2
-        Char}</p><p>@Buff[dexterity=-2|duration=3]{Diminish: -2
-        Dex}</p><p>@Buff[mind=-2|duration=3]{Diminish: -2
-        Mind}</p><p>@Buff[spirit=-2|duration=3]{Diminish: -2
-        Spirit}</p><p>@Buff[strength=-2|duration=3]{Diminish: -2
-        Str}</p><p></p><p>Found in <strong>Core Rules</strong></p>
+        <em>not</em> reduce Toughness or Shock.</p><p></p><p>Found in
+        <strong>Core Rules</strong></p>
       dn: targetWillpower
       dnType: ''
       duration: 3 rounds
@@ -494,8 +489,13 @@ items:
       isAttack: false
       modifier: ''
       outstanding: >-
-        As Good and the target cannot roll again on 20s when using the affected
-        attribute and all its related skills
+        <p>As Good and the target cannot roll again on 20s when using the
+        affected attribute and all its related skills.</p><p>The penalty is
+        increased to −4</p><p>@Buff[charisma=-4|duration=3]{Diminish: -4
+        Char}</p><p>@Buff[dexterity=-4|duration=3]{Diminish: -4
+        Dex}</p><p>@Buff[mind=-4|duration=3]{Diminish: -4
+        Mind}</p><p>@Buff[spirit=-4|duration=3]{Diminish: -4
+        Spirit}</p><p>@Buff[strength=-4|duration=3]{Diminish: -4 Str}</p>
       range: 40 meters
       skill: alteration
       skilllevel: '12'
@@ -508,6 +508,12 @@ items:
       cosm: none
       traits: []
       requiresConcentration: false
+      standard: >-
+        <p>@Buff[charisma=-2|duration=3]{Diminish: -2
+        Char}</p><p>@Buff[dexterity=-2|duration=3]{Diminish: -2
+        Dex}</p><p>@Buff[mind=-2|duration=3]{Diminish: -2
+        Mind}</p><p>@Buff[spirit=-2|duration=3]{Diminish: -2
+        Spirit}</p><p>@Buff[strength=-2|duration=3]{Diminish: -2 Str}</p>
     ownership:
       default: 0
       A9LyAqagoJJU3gDH: 3
@@ -519,10 +525,10 @@ items:
       exportSource: null
       coreVersion: '13.351'
       systemId: torgeternity
-      systemVersion: 13.13.2
+      systemVersion: 13.33.0
       createdTime: 1763999012718
-      modifiedTime: 1763999012718
-      lastModifiedBy: e1DB4TK9SbDuMDS3
+      modifiedTime: 1775990144131
+      lastModifiedBy: BMvGTGfheqDXarjN
     _key: '!actors.items!CefD0chJeL6NrRVJ.864xQmuyAFxvr1yc'
   - _id: wFtHQvjizwV4c8U5
     name: Enhance
@@ -550,13 +556,8 @@ items:
         <em>Spirit</em>, it does <em>not</em> increase Toughness or Shock. Mages
         pantomime some aspect of the attribute to be increased while casting -
         cracking their knuckles to improve <em>Dexterity</em>, flexing their
-        muscles to enhance <em>Strength</em>, and so
-        on.</p><p>@Buff[charisma=+1|duration=3]{Enhance: +1
-        Cha}</p><p>@Buff[dexterity=+1|duration=3]{Enhance: +1
-        Dex}</p><p>@Buff[mind=+1|duration=3]{Enhance: +1
-        Mind}</p><p>@Buff[spirit=+1|duration=3]{Enhance: +1
-        Spirit}</p><p>@Buff[strength=+1|duration=3]{Enhance: +1
-        Str}</p><p></p><p>Found in <strong>Core Rules</strong></p>
+        muscles to enhance <em>Strength</em>, and so on.</p><p></p><p>Found in
+        <strong>Core Rules</strong></p>
       dn: targetCharisma
       dnType: ''
       duration: 3 rounds
@@ -588,6 +589,12 @@ items:
       cosm: none
       traits: []
       requiresConcentration: false
+      standard: >-
+        <p>@Buff[charisma=+1|duration=3]{Enhance: +1
+        Cha}</p><p>@Buff[dexterity=+1|duration=3]{Enhance: +1
+        Dex}</p><p>@Buff[mind=+1|duration=3]{Enhance: +1
+        Mind}</p><p>@Buff[spirit=+1|duration=3]{Enhance: +1
+        Spirit}</p><p>@Buff[strength=+1|duration=3]{Enhance: +1 Str}</p>
     ownership:
       default: 0
       A9LyAqagoJJU3gDH: 3
@@ -599,10 +606,10 @@ items:
       exportSource: null
       coreVersion: '13.351'
       systemId: torgeternity
-      systemVersion: 13.13.2
+      systemVersion: 13.33.0
       createdTime: 1763999022725
-      modifiedTime: 1763999022725
-      lastModifiedBy: e1DB4TK9SbDuMDS3
+      modifiedTime: 1775990074051
+      lastModifiedBy: BMvGTGfheqDXarjN
     _key: '!actors.items!CefD0chJeL6NrRVJ.wFtHQvjizwV4c8U5'
   - _id: CJz3Fe0Ld1tsBRYc
     name: Scrambler

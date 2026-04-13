@@ -89,6 +89,27 @@ export class TorgActiveEffectData extends (foundry.data.ActiveEffectTypeDataMode
     if (source.applyIfAttackTrait) source.applyIfAttackTrait = source.applyIfAttackTrait.map(t => (t === 'supernnaturalEvil') ? 'supernaturalEvil' : t)
     if (source.applyIfDefendTrait) source.applyIfDefendTrait = source.applyIfDefendTrait.map(t => (t === 'supernnaturalEvil') ? 'supernaturalEvil' : t)
 
+    if (game.release.generation >= 14 && source.changes) {
+      for (const change of source.changes) {
+        if (!Object.hasOwn(change, 'type')) {
+          // CONST.ACTIVE_EFFECT_MODES to Object.keys(CONST.ACTIVE_EFFECT_CHANGE_TYPES)
+          const MODE_MAP = {
+            [0 /*CONST.ACTIVE_EFFECT_MODES.CUSTOM*/]: "custom",
+            [1 /*CONST.ACTIVE_EFFECT_MODES.MULTIPLY*/]: "multiply",
+            [2 /*CONST.ACTIVE_EFFECT_MODES.ADD*/]: "add",
+            [3 /*CONST.ACTIVE_EFFECT_MODES.DOWNGRADE*/]: "downgrade",
+            [4 /*CONST.ACTIVE_EFFECT_MODES.OVERRIDE*/]: "override",
+            [5 /*CONST.ACTIVE_EFFECT_MODES.UPGRADE*/]: "upgrade",
+          }
+          change.type = MODE_MAP[change.mode];
+          if (change.type === 'add' && Number.isNumeric(change.value) && change.value < 0) {
+            change.type = 'subtract';
+            change.value = -change.value;
+          }
+          delete change.mode;
+        }
+      }
+    }
     return super.migrateData(source);
   }
 

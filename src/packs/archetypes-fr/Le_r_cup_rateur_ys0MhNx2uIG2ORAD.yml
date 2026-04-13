@@ -575,6 +575,7 @@ items:
           applyIfAttackTrait: []
           applyIfDefendTrait: []
           transferOnOutcome: 0
+          combatToggle: true
         changes:
           - key: defenses.toughness
             mode: 2
@@ -596,9 +597,9 @@ items:
           exportSource: null
           coreVersion: '13.351'
           systemId: torgeternity
-          systemVersion: 13.13.2
+          systemVersion: 13.33.0
           createdTime: 1764001423261
-          modifiedTime: 1774467184832
+          modifiedTime: 1775991028012
           lastModifiedBy: BMvGTGfheqDXarjN
         _key: >-
           !actors.items.effects!ys0MhNx2uIG2ORAD.NXiqH2pxdolCPhCN.QPPoZ57oejIOAYQl

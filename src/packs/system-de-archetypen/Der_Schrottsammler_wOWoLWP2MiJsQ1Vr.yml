@@ -548,8 +548,9 @@ items:
           exportSource: null
           coreVersion: '13.351'
           systemId: torgeternity
-          systemVersion: 13.27.0
-          lastModifiedBy: null
+          systemVersion: 13.33.0
+          lastModifiedBy: BMvGTGfheqDXarjN
+          modifiedTime: 1775991009900
         img: systems/torgeternity/images/icons/occultech-icon.webp
         type: base
         system:
@@ -564,7 +565,7 @@ items:
           applyIfDefendTraitCombine: or
           defendAgainstTraitCombine: or
           itemsToBestow: []
-          combatToggle: false
+          combatToggle: true
           concentratingId: null
         sort: 0
         _key: >-

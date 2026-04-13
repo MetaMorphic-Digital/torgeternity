@@ -455,7 +455,7 @@ items:
       applySize: false
       castingtime: 1 action
       damage: null
-      description: "<p><em>Bless</em> surrounds and infuses the caster and his allies with spiritual energy that boosts their physical or mental abilities. The priest chooses any one attribute and calls on his deity to enhance it. <q>May the Lord give us the might of Daniel in the Lion’s Den!</q> increases <em>Strength</em>, for example. Or <q>May Vishnu grant you clarity!</q> might enhance <em>Mind</em>.</p><p>If successful, every ally in range adds +1 to that attribute. Increasing <em>Strength</em> or <em>Spirit</em> does not increase the derived statistics of Toughness and Shock, however.</p><p>@Buff[charisma=+1|duration=3]{Bless: +1 Cha}</p><p>@Buff[dexterity=+1|duration=3]{Bless: +1 Dex}</p><p>@Buff[mind=+1|duration=3]{Bless: +1 Mind}</p><p>@Buff[spirit=+1|duration=3]{Bless: +1 Spirit}</p><p>@Buff[strength=+1|duration=3]{Bless: +1 Str}</p><p>\_</p><p>Found in <strong>Core Rules</strong></p>"
+      description: "<p><em>Bless</em> surrounds and infuses the caster and his allies with spiritual energy that boosts their physical or mental abilities. The priest chooses any one attribute and calls on his deity to enhance it. <q>May the Lord give us the might of Daniel in the Lion’s Den!</q> increases <em>Strength</em>, for example. Or <q>May Vishnu grant you clarity!</q> might enhance <em>Mind</em>.</p><p>If successful, every ally in range adds +1 to that attribute. Increasing <em>Strength</em> or <em>Spirit</em> does not increase the derived statistics of Toughness and Shock, however.</p><p>\_</p><p>Found in <strong>Core Rules</strong></p>"
       dn: standard
       dnType: ''
       duration: 3 rounds
@@ -469,8 +469,8 @@ items:
       isAttack: false
       modifier: ''
       outstanding: >-
-        <p>As Good, and the attribute increases by
-        +2</p><p>@Buff[charisma=+2|duration=6]{Bless: +2 Cha}
+        <p>Duration increases to 1 minute, and the attribute increases by
+        +2.</p><p>@Buff[charisma=+2|duration=6]{Bless: +2 Cha}
         @Buff[dexterity=+2|duration=6]{Bless: +2 Dex}
         @Buff[mind=+2|duration=6]{Bless: +2 Mind}
         @Buff[spirit=+2|duration=6]{Bless: +2 Spirit}
@@ -487,6 +487,12 @@ items:
       cosm: none
       traits: []
       requiresConcentration: false
+      standard: >-
+        <p>@Buff[charisma=+1|duration=3]{Bless: +1
+        Cha}</p><p>@Buff[dexterity=+1|duration=3]{Bless: +1
+        Dex}</p><p>@Buff[mind=+1|duration=3]{Bless: +1
+        Mind}</p><p>@Buff[spirit=+1|duration=3]{Bless: +1
+        Spirit}</p><p>@Buff[strength=+1|duration=3]{Bless: +1 Str}</p><p></p>
     ownership:
       default: 0
       A9LyAqagoJJU3gDH: 3
@@ -498,10 +504,10 @@ items:
       exportSource: null
       coreVersion: '13.351'
       systemId: torgeternity
-      systemVersion: 13.13.2
+      systemVersion: 13.33.0
       createdTime: 1763999523515
-      modifiedTime: 1763999523515
-      lastModifiedBy: e1DB4TK9SbDuMDS3
+      modifiedTime: 1775990607711
+      lastModifiedBy: BMvGTGfheqDXarjN
     _key: '!actors.items!YzRwn4OIYPYBIPJH.se2mx9JyDViZfTFt'
   - _id: 3G2SVFJnklgCOnmw
     name: GWI GodBeam Laser
@@ -597,6 +603,8 @@ items:
           itemsToBestow: []
           combatToggle: false
           concentratingId: null
+          emanation:
+            radius: 5
         changes:
           - key: system.defenses.all.mod
             mode: 2
@@ -647,6 +655,8 @@ items:
           itemsToBestow: []
           combatToggle: false
           concentratingId: null
+          emanation:
+            radius: 5
         changes:
           - key: system.defenses.all.mod
             mode: 2
@@ -697,6 +707,8 @@ items:
           itemsToBestow: []
           combatToggle: false
           concentratingId: null
+          emanation:
+            radius: 5
         changes:
           - key: system.defenses.all.mod
             mode: 2

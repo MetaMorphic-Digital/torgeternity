@@ -624,6 +624,8 @@ items:
           itemsToBestow: []
           combatToggle: false
           concentratingId: null
+          emanation:
+            radius: 5
         sort: 0
         _key: >-
           !actors.items.effects!6Pc9oa7mM6kZkFUi.geTWA7krOqHuXpxk.ecbVOFBMML58Ojlw
@@ -674,6 +676,8 @@ items:
           itemsToBestow: []
           combatToggle: false
           concentratingId: null
+          emanation:
+            radius: 5
         sort: 0
         _key: >-
           !actors.items.effects!6Pc9oa7mM6kZkFUi.geTWA7krOqHuXpxk.RiLW8E5gMhnrThkX
@@ -706,6 +710,8 @@ items:
           defendAgainstTraitCombine: or
           itemsToBestow: []
           concentratingId: null
+          emanation:
+            radius: 5
         changes:
           - key: system.defenses.all.mod
             mode: 2

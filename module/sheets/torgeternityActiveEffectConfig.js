@@ -39,7 +39,7 @@ export default class TorgActiveEffectConfig extends foundry.applications.sheets.
       partContext.applyOutcomeClass = this.document.system.transferOnOutcome ? 'hidden' : '';
       partContext.transferOutcomeClass = this.document.system.applyOnOutcome ? 'hidden' : '';
       // Don't show emanation settings if the AE came from a region.
-      partContext.showEmanation = (game.release.generation > 13) && !this.document.origin.includes('.RegionBehavior.');
+      partContext.showEmanation = (game.release.generation > 13) && !this.document.origin?.includes('.RegionBehavior.');
       if (game.release.generation > 13)
         partContext.visibilities = Object.entries(CONST.REGION_VISIBILITY).reduce((arr, [key, value]) => {
           arr.push({ value, label: _loc(`REGION.VISIBILITY.${key}.label`) });

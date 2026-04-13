@@ -633,32 +633,10 @@ items:
           defendAgainstTrait:
             - supernaturalEvil
           transferTo: target
+          emanation:
+            radius: 5
         changes:
-          - key: defenses.dodge.mod
-            mode: 2
-            value: '1'
-            priority: null
-          - key: defenses.meleeWeapons.mod
-            mode: 2
-            value: '1'
-            priority: null
-          - key: defenses.unarmedCombat.mod
-            mode: 2
-            value: '1'
-            priority: null
-          - key: defenses.intimidation.mod
-            mode: 2
-            value: '1'
-            priority: null
-          - key: defenses.maneuver.mod
-            mode: 2
-            value: '1'
-            priority: null
-          - key: defenses.taunt.mod
-            mode: 2
-            value: '1'
-            priority: null
-          - key: defenses.trick.mod
+          - key: system.defenses.all.mod
             mode: 2
             value: '1'
             priority: null
@@ -676,7 +654,7 @@ items:
           systemId: torgeternity
           systemVersion: 13.24.1
           createdTime: 1764005323568
-          modifiedTime: 1772996085960
+          modifiedTime: 1775991264448
           lastModifiedBy: BMvGTGfheqDXarjN
         _key: >-
           !actors.items.effects!YzRwn4OIYPYBIPJH.sMpIpI7t3K7B4ZYp.oCkSdHARo9OvqD0p
@@ -703,32 +681,10 @@ items:
           defendAgainstTrait:
             - supernaturalEvil
           transferTo: target
+          emanation:
+            radius: 5
         changes:
-          - key: defenses.dodge.mod
-            mode: 2
-            value: '2'
-            priority: null
-          - key: defenses.meleeWeapons.mod
-            mode: 2
-            value: '2'
-            priority: null
-          - key: defenses.unarmedCombat.mod
-            mode: 2
-            value: '2'
-            priority: null
-          - key: defenses.intimidation.mod
-            mode: 2
-            value: '2'
-            priority: null
-          - key: defenses.maneuver.mod
-            mode: 2
-            value: '2'
-            priority: null
-          - key: defenses.taunt.mod
-            mode: 2
-            value: '2'
-            priority: null
-          - key: defenses.trick.mod
+          - key: system.defenses.all.mod
             mode: 2
             value: '2'
             priority: null
@@ -746,7 +702,7 @@ items:
           systemId: torgeternity
           systemVersion: 13.24.1
           createdTime: 1764005324176
-          modifiedTime: 1772996107262
+          modifiedTime: 1775991270720
           lastModifiedBy: BMvGTGfheqDXarjN
         _key: >-
           !actors.items.effects!YzRwn4OIYPYBIPJH.sMpIpI7t3K7B4ZYp.7bGGDUxfuIIfWvPP
@@ -773,32 +729,10 @@ items:
           defendAgainstTrait:
             - supernaturalEvil
           transferTo: target
+          emanation:
+            radius: 5
         changes:
-          - key: defenses.dodge.mod
-            mode: 2
-            value: '2'
-            priority: null
-          - key: defenses.meleeWeapons.mod
-            mode: 2
-            value: '2'
-            priority: null
-          - key: defenses.unarmedCombat.mod
-            mode: 2
-            value: '2'
-            priority: null
-          - key: defenses.intimidation.mod
-            mode: 2
-            value: '2'
-            priority: null
-          - key: defenses.maneuver.mod
-            mode: 2
-            value: '2'
-            priority: null
-          - key: defenses.taunt.mod
-            mode: 2
-            value: '2'
-            priority: null
-          - key: defenses.trick.mod
+          - key: system.defenses.all.mod
             mode: 2
             value: '2'
             priority: null
@@ -816,7 +750,7 @@ items:
           systemId: torgeternity
           systemVersion: 13.24.1
           createdTime: 1764005559439
-          modifiedTime: 1772996121311
+          modifiedTime: 1775991278002
           lastModifiedBy: BMvGTGfheqDXarjN
         _key: >-
           !actors.items.effects!YzRwn4OIYPYBIPJH.sMpIpI7t3K7B4ZYp.HNpzcMefIwvWcGVi

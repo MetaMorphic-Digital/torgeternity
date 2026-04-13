@@ -334,6 +334,15 @@ export default class TorgeternityActor extends foundry.documents.Actor {
     }
   }
 
+  // appliedEffects used by CombatTracker and Token to determine which effects to display.
+  get appliedEffects() {
+    const effects = [];
+    for (const effect of this.allApplicableEffects()) {
+      if (effect.active || (!effect.disabled && effect.isTemporary)) effects.push(effect);
+    }
+    return effects;
+  }
+
   get isDisconnected() {
     return this.statuses.has('disconnected') ?? false;
   }

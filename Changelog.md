@@ -2,6 +2,20 @@
 
 - Translations by Durak (French), Helmut (German), and Teotimus (Spanish).
 
+## 13.34.1 - Archetype updates + V14 effects
+- Actor.appliedEffects() should also return the effects which are conditional (e.g. isTemporary returns true)
+
+### Archetypes
+- Add text to the "Standard Success" box on archetypes (Cyberwitch, Renegade Priest, Resistance Fighter)
+- French Optant has effects on its Ward Enemy miracle.
+- V14: Emanation radius of Ward Enemy set for archetypes (Edeinos Optant, Renegade Priest).
+
+### Foundry 14-specific changes
+- Avoid error reported when opening Active Effect Config if no origin set on effect.
+- Hide console warnings about CONST.ACTIVE_EFFECT_MODES.
+- Work-around bug in Foundry core (14.360) which wasn't generating TOKEN_EXIT events when a spell emanation is deleted.
+- Emanation should occur for any effect which is not disabled (rather than 'active') to cater for emanations which might have conditional activation (Ward Enemy requires this).
+
 ## 13.34.0 - Display individual BD + V14 improvements
 - Add protective code in SceneNav, so if a scene has no axioms defined then an error won't be generated.
 - Internal rework of test record - **DELETE YOUR CHAT LOG**

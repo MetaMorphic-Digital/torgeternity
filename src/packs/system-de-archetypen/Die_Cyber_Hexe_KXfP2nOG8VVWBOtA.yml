@@ -485,7 +485,7 @@ items:
       applySize: false
       castingtime: 1 Aktion
       damage: null
-      description: "<p>Schwierigkeit ist das\_<strong>Zielattribut!</strong></p><p>Dieser Zauber erhöht ein einzelnes Attribut des Zaubernden oder eines Verbündeten um +1. Es dürfen auch mehrere Verbündete gleichzeitig verbessert werden, solange sich alle innerhalb der Reichweite befinden und der Anwender die Option „Mehrfach-Zielauswahl“ benutzt. Der MW ist der Wert des Attributs, das verbessert werden soll – je besser jemand ist, desto schwieriger ist es, ihn weiter zu verbessern. Durch separate Anwendungen des Zaubers können andere Attribute ebenfalls verbessert werden.\_</p><p>Ein Verbessern von <em>Stärke </em>oder <em>Geist </em>erhöht nicht die Robustheit oder die Schock-Obergrenze.\_</p><p>Der Zaubernde ahmt beim Zaubern einen Aspekt des Attributs nach: Ein Knacken der Knöchel, um die <em>Geschicklichkeit </em>zu verbessern, ein Spannen der Muskeln, um die Stärke zu erhöhen, und so weiter.</p><p>@Buff[charisma=+1|duration=3]{Verbesserung: +1 Charisma}</p><p>@Buff[dexterity=+1|duration=3]{Verbesserung: +1 Geschicklichkeit}</p><p>@Buff[mind=+1|duration=3]{Verbesserung: +1 Verstand}</p><p>@Buff[spirit=+1|duration=3]{Verbesserung: +1 Geist}</p><p>@Buff[strength=+1|duration=3]{Verbesserung: +1 Stärke}</p>"
+      description: "<p>Schwierigkeit ist das\_<strong>Zielattribut!</strong></p><p>Dieser Zauber erhöht ein einzelnes Attribut des Zaubernden oder eines Verbündeten um +1. Es dürfen auch mehrere Verbündete gleichzeitig verbessert werden, solange sich alle innerhalb der Reichweite befinden und der Anwender die Option „Mehrfach-Zielauswahl“ benutzt. Der MW ist der Wert des Attributs, das verbessert werden soll – je besser jemand ist, desto schwieriger ist es, ihn weiter zu verbessern. Durch separate Anwendungen des Zaubers können andere Attribute ebenfalls verbessert werden.\_</p><p>Ein Verbessern von <em>Stärke </em>oder <em>Geist </em>erhöht nicht die Robustheit oder die Schock-Obergrenze.\_</p><p>Der Zaubernde ahmt beim Zaubern einen Aspekt des Attributs nach: Ein Knacken der Knöchel, um die <em>Geschicklichkeit </em>zu verbessern, ein Spannen der Muskeln, um die Stärke zu erhöhen, und so weiter.</p>"
       dn: targetCharisma
       dnType: ''
       duration: 3 Runden
@@ -519,6 +519,12 @@ items:
       itemsToBestow: []
       bestowedBy: null
       requiresConcentration: false
+      standard: >-
+        <p>@Buff[charisma=+1|duration=3]{Verbesserung: +1
+        Charisma}</p><p>@Buff[dexterity=+1|duration=3]{Verbesserung: +1
+        Geschicklichkeit}</p><p>@Buff[mind=+1|duration=3]{Verbesserung: +1
+        Verstand}</p><p>@Buff[spirit=+1|duration=3]{Verbesserung: +1
+        Geist}</p><p>@Buff[strength=+1|duration=3]{Verbesserung: +1 Stärke}</p>
     ownership:
       default: 0
       9Q0XnqFwko7hRlvL: 3
@@ -530,9 +536,9 @@ items:
       exportSource: null
       coreVersion: '13.351'
       systemId: torgeternity
-      systemVersion: 13.27.0
+      systemVersion: 13.33.0
       createdTime: 1774460751046
-      modifiedTime: 1774460751046
+      modifiedTime: 1775991113603
       lastModifiedBy: BMvGTGfheqDXarjN
     _key: '!actors.items!KXfP2nOG8VVWBOtA.373rRZieSUiFDMNo'
   - _id: dnvTmgrdRgrEjvo9
@@ -549,7 +555,7 @@ items:
       applySize: false
       castingtime: 1 Aktion
       damage: null
-      description: "<p>Dieser Zauber verringert einen Attributswert des Ziels (das beim Wirken des Zauberspruchs ausgewählt wird) und alle mit diesem Attribut verknüpften Fertigkeiten um –2. Durch mehrfaches Zaubern können mehrere verschiedene Attribute beeinflusst werden.\_</p><p>Der Zaubernde mimt eine Handlung, die sich auf das betroffene Attribut bezieht: Eine abwertende Geste, um den Geist zu reduzieren, ein Vorgeben zu Stolpern, wenn <em>Geschicklichkeit </em>reduziert wird, usw.\_</p><p>Ein Reduzieren von <em>Stärke </em>oder <em>Geist </em>reduziert nicht die Robustheit oder die Schock-Obergrenze.</p><p>@Buff[charisma=-2|duration=3]{Reduzieren: -2 Charisma}</p><p>@Buff[dexterity=-2|duration=3]{Reduzieren: -2 Geschicklichkeit}</p><p>@Buff[mind=-2|duration=3]{Reduzieren: -2 Verstand}</p><p>@Buff[spirit=-2|duration=3]{Reduzieren: -2 Geist}</p><p>@Buff[strength=-2|duration=3]{Reduzieren: -2 Stärke}</p>"
+      description: "<p>Dieser Zauber verringert einen Attributswert des Ziels (das beim Wirken des Zauberspruchs ausgewählt wird) und alle mit diesem Attribut verknüpften Fertigkeiten um –2. Durch mehrfaches Zaubern können mehrere verschiedene Attribute beeinflusst werden.\_</p><p>Der Zaubernde mimt eine Handlung, die sich auf das betroffene Attribut bezieht: Eine abwertende Geste, um den Geist zu reduzieren, ein Vorgeben zu Stolpern, wenn <em>Geschicklichkeit </em>reduziert wird, usw.\_</p><p>Ein Reduzieren von <em>Stärke </em>oder <em>Geist </em>reduziert nicht die Robustheit oder die Schock-Obergrenze.</p>"
       dn: targetWillpower
       dnType: ''
       duration: 3 Runden
@@ -563,9 +569,15 @@ items:
       isAttack: false
       modifier: null
       outstanding: >-
-        Wie Erfolgsstufe Gut. Außerdem darf das Ziel nicht erneut würfeln, wenn
-        es bei seinem Würfelwurf auf das betroffene Attribut oder eine damit
-        verknüpfte Fertigkeit eine „20“ würfelt.
+        <p>Die Reduktion verbessert sich auf
+        –4.</p><p>@Buff[charisma=-4|duration=3]{Reduzieren: -4
+        Charisma}</p><p>@Buff[dexterity=-4|duration=3]{Reduzieren: -4
+        Geschicklichkeit}</p><p>@Buff[mind=-4|duration=3]{Reduzieren: -4
+        Verstand}</p><p>@Buff[spirit=-4|duration=3]{Reduzieren: -4
+        Geist}</p><p>@Buff[strength=-4|duration=3]{Reduzieren: -4
+        Stärke}</p><p>Wie Erfolgsstufe Gut. Außerdem darf das Ziel nicht erneut
+        würfeln, wenn es bei seinem Würfelwurf auf das betroffene Attribut oder
+        eine damit verknüpfte Fertigkeit eine „20“ würfelt.</p>
       range: 40 Meter
       skill: alteration
       skilllevel: 12
@@ -580,6 +592,12 @@ items:
       itemsToBestow: []
       bestowedBy: null
       requiresConcentration: false
+      standard: >-
+        <p>@Buff[charisma=-2|duration=3]{Reduzieren: -2
+        Charisma}</p><p>@Buff[dexterity=-2|duration=3]{Reduzieren: -2
+        Geschicklichkeit}</p><p>@Buff[mind=-2|duration=3]{Reduzieren: -2
+        Verstand}</p><p>@Buff[spirit=-2|duration=3]{Reduzieren: -2
+        Geist}</p><p>@Buff[strength=-2|duration=3]{Reduzieren: -2 Stärke}</p>
     ownership:
       default: 0
       9Q0XnqFwko7hRlvL: 3
@@ -591,9 +609,9 @@ items:
       exportSource: null
       coreVersion: '13.351'
       systemId: torgeternity
-      systemVersion: 13.27.0
+      systemVersion: 13.33.0
       createdTime: 1774460785852
-      modifiedTime: 1774460790351
+      modifiedTime: 1775991077057
       lastModifiedBy: BMvGTGfheqDXarjN
     _key: '!actors.items!KXfP2nOG8VVWBOtA.dnvTmgrdRgrEjvo9'
 effects: []

@@ -713,14 +713,16 @@ items:
       applySize: true
       castingtime: 1 Aktion
       damage: null
-      description: "<p>Der Psioniker baut psychische Energie auf und kanalisiert sie durch sein Nervensystem, was seine <em>Stärke </em>und <em>Geschicklichkeit </em>um +1 erhöht, solange die Kraft anhält.\_</p><p>Diese Psikraft ist jedoch sehr anstrengend. Sobald die Kraft endet, erleidet der Psioniker 2 Schock und für die nächste Minute einen Malus von –2 auf <em>Stärke</em> und <em>Geschicklichkeit</em>.</p><p>@Buff[strength=+1|dexterity=+1|duration=3]{Aufladen: +1 auf Str+Ges}</p><p>Nach Nutzung @Buff[strength=-2|dexterity=-2|duration=6]{Aufladen: Malus auf Stä+Ges}</p>"
+      description: "<p>Der Psioniker baut psychische Energie auf und kanalisiert sie durch sein Nervensystem, was seine <em>Stärke </em>und <em>Geschicklichkeit </em>um +1 erhöht, solange die Kraft anhält.\_</p><p>Diese Psikraft ist jedoch sehr anstrengend. Sobald die Kraft endet, erleidet der Psioniker 2 Schock und für die nächste Minute einen Malus von –2 auf <em>Stärke</em> und <em>Geschicklichkeit</em>.</p>"
       dn: challenging
       dnType: ''
       duration: 3 Runden
       good: >-
         <p>Stärke und Geschicklichkeit erhöhen sich um
         +2.</p><p>@Buff[strength=+2|dexterity=+2|duration=3]{Aufladen: +2 auf
-        Str+Ges}</p>
+        Str+Ges}</p><p>Nach Nutzung
+        @Buff[strength=-2|dexterity=-2|duration=6]{Aufladen: Malus auf
+        Stä+Ges}</p>
       isAttack: false
       modifier: null
       outstanding: >-
@@ -742,6 +744,11 @@ items:
       itemsToBestow: []
       bestowedBy: null
       requiresConcentration: false
+      standard: >-
+        <p>@Buff[strength=+1|dexterity=+1|duration=3]{Aufladen: +1 auf
+        Str+Ges}</p><p>Nach Nutzung
+        @Buff[strength=-2|dexterity=-2|duration=6]{Aufladen: Malus auf
+        Stä+Ges}</p>
     ownership:
       default: 0
       9Q0XnqFwko7hRlvL: 3
@@ -753,9 +760,9 @@ items:
       exportSource: null
       coreVersion: '13.351'
       systemId: torgeternity
-      systemVersion: 13.27.0
+      systemVersion: 13.33.0
       createdTime: 1774466084277
-      modifiedTime: 1774466087400
+      modifiedTime: 1775991328262
       lastModifiedBy: BMvGTGfheqDXarjN
     _key: '!actors.items!XhPhxBg111Zg5bem.mXwjpqF1s2QuXVp1'
   - _id: 4wHtrSS3RwnpxeXW

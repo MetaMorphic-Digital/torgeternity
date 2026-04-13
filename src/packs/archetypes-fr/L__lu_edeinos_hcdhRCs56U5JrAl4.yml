@@ -650,75 +650,229 @@ items:
       duplicateSource: null
       exportSource: null
     _key: '!actors.items!hcdhRCs56U5JrAl4.v3Kj5kG8dQiQ0l8i'
-  - _id: GdJyPlTcYVLbC7rU
+  - _id: sMpIpI7t3K7B4ZYp
     name: Protection contre les ennemis
     type: miracle
-    img: systems/torgeternity/images/icons/miracles-icon.webp
-    effects: []
-    folder: null
-    sort: 3000000
+    sort: 1600001
     flags:
       core: {}
+    img: systems/torgeternity/images/icons/miracles-icon.webp
+    effects:
+      - name: Defense +1 vs. S.Evil
+        origin: >-
+          Compendium.torgeternity.archetypes-fr.Actor.YzRwn4OIYPYBIPJH.Item.sMpIpI7t3K7B4ZYp
+        duration:
+          startTime: null
+          combat: null
+          seconds: null
+          rounds: null
+          turns: null
+          startRound: null
+          startTurn: null
+        disabled: false
+        img: icons/svg/aura.svg
+        _id: oCkSdHARo9OvqD0p
+        type: base
+        system:
+          applyIfAttackTrait: []
+          applyIfDefendTrait: []
+          transferOnOutcome: standard
+          defendAgainstTrait:
+            - supernaturalEvil
+          transferTo: target
+          emanation:
+            radius: 5
+            color: '#000040'
+            disposition: 1
+            visibility: 2
+          applyOnOutcome: ''
+          activeIfTrait: []
+          applyIfAttackTraitCombine: or
+          applyIfDefendTraitCombine: or
+          defendAgainstTraitCombine: or
+          itemsToBestow: []
+          combatToggle: false
+          concentratingId: null
+        changes:
+          - key: system.defenses.all.mod
+            mode: 2
+            value: '1'
+            priority: null
+        description: ''
+        tint: '#ffffff'
+        transfer: false
+        statuses: []
+        sort: 0
+        flags: {}
+        _stats:
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+          coreVersion: '13.351'
+          systemId: torgeternity
+          systemVersion: 13.33.0
+          lastModifiedBy: null
+        _key: >-
+          !actors.items.effects!hcdhRCs56U5JrAl4.sMpIpI7t3K7B4ZYp.oCkSdHARo9OvqD0p
+      - name: Defense +2 vs. S.Evil
+        origin: >-
+          Compendium.torgeternity.archetypes-fr.Actor.YzRwn4OIYPYBIPJH.Item.sMpIpI7t3K7B4ZYp
+        duration:
+          startTime: null
+          combat: null
+          seconds: null
+          rounds: null
+          turns: null
+          startRound: null
+          startTurn: null
+        disabled: false
+        img: icons/svg/aura.svg
+        _id: 7bGGDUxfuIIfWvPP
+        type: base
+        system:
+          applyIfAttackTrait: []
+          applyIfDefendTrait: []
+          transferOnOutcome: good
+          defendAgainstTrait:
+            - supernaturalEvil
+          transferTo: target
+          emanation:
+            radius: 5
+            color: '#000040'
+            disposition: 1
+            visibility: 2
+          applyOnOutcome: ''
+          activeIfTrait: []
+          applyIfAttackTraitCombine: or
+          applyIfDefendTraitCombine: or
+          defendAgainstTraitCombine: or
+          itemsToBestow: []
+          combatToggle: false
+          concentratingId: null
+        changes:
+          - key: system.defenses.all.mod
+            mode: 2
+            value: '2'
+            priority: null
+        description: ''
+        tint: '#ffffff'
+        transfer: false
+        statuses: []
+        sort: 0
+        flags: {}
+        _stats:
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+          coreVersion: '13.351'
+          systemId: torgeternity
+          systemVersion: 13.33.0
+          lastModifiedBy: null
+        _key: >-
+          !actors.items.effects!hcdhRCs56U5JrAl4.sMpIpI7t3K7B4ZYp.7bGGDUxfuIIfWvPP
+      - name: Defense +2 vs. S.Evil
+        origin: >-
+          Compendium.torgeternity.archetypes-fr.Actor.YzRwn4OIYPYBIPJH.Item.sMpIpI7t3K7B4ZYp
+        duration:
+          startTime: 1340
+          combat: null
+          seconds: null
+          rounds: null
+          turns: null
+          startRound: 30
+          startTurn: 0
+        disabled: false
+        img: icons/svg/aura.svg
+        _id: HNpzcMefIwvWcGVi
+        type: base
+        system:
+          applyIfAttackTrait: []
+          applyIfDefendTrait: []
+          transferOnOutcome: outstanding
+          defendAgainstTrait:
+            - supernaturalEvil
+          transferTo: target
+          emanation:
+            radius: 5
+            color: '#000040'
+            disposition: 1
+            visibility: 2
+          applyOnOutcome: ''
+          activeIfTrait: []
+          applyIfAttackTraitCombine: or
+          applyIfDefendTraitCombine: or
+          defendAgainstTraitCombine: or
+          itemsToBestow: []
+          combatToggle: false
+          concentratingId: null
+        changes:
+          - key: system.defenses.all.mod
+            mode: 2
+            value: '2'
+            priority: null
+        description: ''
+        tint: '#ffffff'
+        transfer: true
+        statuses: []
+        sort: 0
+        flags: {}
+        _stats:
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+          coreVersion: '13.351'
+          systemId: torgeternity
+          systemVersion: 13.33.0
+          lastModifiedBy: null
+        _key: >-
+          !actors.items.effects!hcdhRCs56U5JrAl4.sMpIpI7t3K7B4ZYp.HNpzcMefIwvWcGVi
+    folder: null
     system:
       ap: 0
       applyArmor: true
       applySize: true
-      axiom: 8
       castingtime: 1 action
-      damage: ''
-      description: >-
-        <p class="MsoNormal">Protection contre les ennemis prot&egrave;ge les
-        fid&egrave;les des entit&eacute;s surnaturelles qui veulent nuire
-        &agrave; l&rsquo;humanit&eacute;.</p>
-
-        <p class="MsoNormal">Pour l&rsquo;invoquer, le fid&egrave;le doit
-        brandir un symbole saint, r&eacute;citer des pri&egrave;res ou effectuer
-        toute autre action qui indique clairement qu&rsquo;il en appelle
-        &agrave; la source de son pouvoir, ce qui en fait la cible principale
-        des esprits, des d&eacute;mons et de tout autre antagoniste pouvant
-        &ecirc;tre affect&eacute;.</p>
-
-        <p class="MsoNormal">Tant que la protection est active, tous les
-        alli&eacute;s situ&eacute;s &agrave; 5 m&egrave;tres
-        b&eacute;n&eacute;ficient d&rsquo;un bonus de +1 &agrave; leurs
-        d&eacute;fenses contre les cr&eacute;atures surnaturelles
-        mal&eacute;fiques et leurs attaques. Ce bonus est valable pour les
-        d&eacute;fenses physiques et d&rsquo;interaction.</p>
-
-        <p class="MsoNormal"><strong>Sp&eacute;cial </strong>: Ce miracle peut
-        &ecirc;tre tent&eacute; sans l&rsquo;Atout <span style="font-family:
-        var(--font-primary); font-size: var(--font-size-14);">Miracles si celui
-        qui l&rsquo;invoque a le niveau de Foi requis</span></p>
-
-        <p>&nbsp;</p>
+      damage: null
+      description: "<p class=\"MsoNormal\">Protection contre les ennemis protège les fidèles des entités surnaturelles qui veulent nuire à l’humanité.</p>\n<p class=\"MsoNormal\">Pour l’invoquer, le fidèle doit brandir un symbole saint, réciter des prières ou effectuer toute autre action qui indique clairement qu’il en appelle à la source de son pouvoir, ce qui en fait la cible principale des esprits, des démons et de tout autre antagoniste pouvant être affecté.</p>\n<p class=\"MsoNormal\">Tant que la protection est active, tous les alliés situés à 5 mètres bénéficient d’un bonus de +1 à leurs défenses contre les créatures surnaturelles maléfiques et leurs attaques. Ce bonus est valable pour les défenses physiques et d’interaction.</p>\n<p class=\"MsoNormal\"><strong>Spécial </strong>: Ce miracle peut être tenté sans l’Atout <span style=\"font-family:var(--font-primary);font-size:var(--font-size-14)\">Miracles si celui qui l’invoque a le niveau de Foi requis</span></p>\n<p>\_</p>"
       dn: standard
       dnType: ''
       duration: Concentration
       good: ceux qui sont protégés ont un bonus de +2 à toutes leurs défenses
       isAttack: false
-      modifier: ''
+      modifier: null
       outstanding: >-
         comme pour un succès Supérieur et les créatures surnaturelles maléfiques
         qui ratent une attaque contre un individu protégé sont Déstabilisées
       range: Rayon de 5 mètres.
       skill: faith
-      skilllevel: '8'
+      skilllevel: 8
       targetDefense: ''
       requiresConcentration: true
+      axioms:
+        spirit: 8
+        magic: 0
+        social: 0
+        tech: 0
+      cosm: none
+      traits: []
+      itemsToBestow: []
+      bestowedBy: null
+      standard: ''
     ownership:
       default: 0
-      TK1vCAdCz548vBDu: 3
+      BMvGTGfheqDXarjN: 3
     _stats:
-      systemId: torgeternity
-      systemVersion: 13.8.1
-      coreVersion: '13.348'
-      createdTime: null
-      modifiedTime: 1758492104169
-      lastModifiedBy: l8SVzn2293lAwvMC
-      compendiumSource: null
+      compendiumSource: >-
+        Compendium.torgeternity.archetypes-fr.Actor.YzRwn4OIYPYBIPJH.Item.sMpIpI7t3K7B4ZYp
       duplicateSource: null
       exportSource: null
-    _key: '!actors.items!hcdhRCs56U5JrAl4.GdJyPlTcYVLbC7rU'
+      coreVersion: '13.351'
+      systemId: torgeternity
+      systemVersion: 13.33.0
+      createdTime: 1775992521605
+      modifiedTime: 1775992522975
+      lastModifiedBy: BMvGTGfheqDXarjN
+    _key: '!actors.items!hcdhRCs56U5JrAl4.sMpIpI7t3K7B4ZYp'
 effects: []
 folder: null
 sort: 100001
