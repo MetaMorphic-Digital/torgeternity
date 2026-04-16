@@ -1,52 +1,40 @@
 const fields = foundry.data.fields;
 const { AdjustDarknessLevelRegionBehaviorType } = foundry.data.regionBehaviors;
 
+const NO_AXIOMS = { magic: 0, social: 0, spirit: 0, tech: 0 };
+
+const DEFAULT_TORG = {
+  cosm: 'none',
+  cosm2: 'none',
+  zone: 'pure',
+  dimLightThreshold: 0.2,
+  darkThreshold: 0.7,
+  axioms: NO_AXIOMS
+}
+
 /*
  * No DataModel available for CONFIG.Scene 
  */
 export default class TorgeternityScene extends foundry.documents.Scene {
 
-  async _preCreate(data, options, user) {
-    const allowed = await super._preCreate(data, options, user);
-    if (allowed === false) return false;
-
-    if (!data.flags?.torgeternity) {
-      this.updateSource({
-        'flags.torgeternity.cosm': 'none',
-        'flags.torgeternity.cosm2': 'none',
-        'flags.torgeternity.zone': 'pure',
-        'flags.torgeternity.dimLightThreshold': 0.2,
-        'flags.torgeternity.darkThreshold': 0.7,
-      })
+  _initializeSource(data, options) {
+    if (!Object.hasOwn(data, "flags")) data.flags = {};
+    if (!Object.hasOwn(data.flags, "torgeternity"))
+      data.flags.torgeternity = DEFAULT_TORG;
+    else {
+      if (!data.flags.torgeternity.dimLightThreshold) {
+        data.flags.torgeternity.dimLightThreshold = DEFAULT_TORG.dimLightThreshold;
+        data.flags.torgeternity.darkThreshold = NO_AXIOMS;
+      }
+      if (!data.flags.torgeternity.axioms)
+        data.flags.torgeternity.axioms = DEFAULT_TORG.axioms;
     }
-    else if (!data.flags?.torgeternity.dimLightThreshold) {
-      this.updateSource({
-        'flags.torgeternity.dimLightThreshold': 0.2,
-        'flags.torgeternity.darkThreshold': 0.7,
-      })
-    }
-    if (data.flags?.torgeternity && !Object.hasOwn(data.flags.torgeternity, 'axioms')) {
-      this.updateSource({
-        'flags.torgeternity.axioms.magic': 0,
-        'flags.torgeternity.axioms.social': 0,
-        'flags.torgeternity.axioms.spirit': 0,
-        'flags.torgeternity.axioms.tech': 0,
-      })
-    }
-    return allowed;
-  }
-
-  static migrateData(source) {
-    if (!source.flags?.torgeternity?.axioms) {
-      foundry.utils.setProperty(source, 'flags.torgeternity.axioms',
-        TorgeternityScene.getAxioms(source.flags?.torgeternity?.cosm, source.flags?.torgeternity?.cosm2, source.flags?.torgeternity?.zone));
-    }
-    return super.migrateData(source);
+    return super._initializeSource(data, options);
   }
 
   prepareDerivedData() {
     super.prepareDerivedData();
-    const flags = this.flags?.torgeternity;
+    const flags = this.flags?.torgeternity ?? DEFAULT_TORG;
     if (flags) {
       this.torg = {
         cosm: this.flags.torgeternity.cosm,
@@ -69,10 +57,9 @@ export default class TorgeternityScene extends foundry.documents.Scene {
 
   // A general function that would normally be static
   static getAxioms(cosm, cosm2, zone) {
-    const nocosm = { magic: 0, social: 0, spirit: 0, tech: 0 };
-    const zoneAxioms = { ...(CONFIG.torgeternity.axiomByCosm[cosm] ?? nocosm) };
+    const zoneAxioms = { ...(CONFIG.torgeternity.axiomByCosm[cosm] ?? NO_AXIOMS) };
     if (zone === 'mixed' && cosm2) {
-      const axiom2 = CONFIG.torgeternity.axiomByCosm[cosm2] ?? nocosm;
+      const axiom2 = CONFIG.torgeternity.axiomByCosm[cosm2] ?? NO_AXIOMS;
       for (const key of Object.keys(zoneAxioms))
         if (axiom2[key] > zoneAxioms[key]) zoneAxioms[key] = axiom2[key];
     }

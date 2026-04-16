@@ -2,6 +2,10 @@
 
 - Translations by Durak (French), Helmut (German), and Teotimus (Spanish).
 
+## 13.34.2 - Prevent scene axiom error with Token Attacher
+- Update Scene to use _initializeSource instead of migrateData to initialize undefined axioms.
+- (Other data models will be updated to this paradigm later.)
+
 ## 13.34.1 - Archetype updates + V14 effects
 - Actor.appliedEffects() should also return the effects which are conditional (e.g. isTemporary returns true)
 
