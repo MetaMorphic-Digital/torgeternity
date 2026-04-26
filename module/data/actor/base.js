@@ -46,6 +46,9 @@ export class BaseActorData extends foundry.abstract.TypeDataModel {
       }
     }
 
+    // How many "attunable" items can be attuned at the same time.
+    this.maxAttunable = 1;
+
     // Traits added by Active Effects
     this.extraTraits = [];
   }

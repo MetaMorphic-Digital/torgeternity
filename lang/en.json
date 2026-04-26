@@ -655,6 +655,7 @@
       "attackRoll": "Attack Roll",
       "delete": "Delete",
       "edit": "Edit",
+      "itemAttune": "Toggle Attuned State",
       "miracleRoll": "Miracle Roll",
       "openParty": "Open the party sheet",
       "psionicRoll": "Psionic Power Roll",
@@ -733,6 +734,7 @@
       "openIssue": "Your browser will open a new page to complete an issue",
       "openReference": "Your browser will open a new page to join the Torg Reference website",
       "openUlisses": "Your browser will open a new tab to join Ulisses website",
+      "openWiki": "Your browser will open a new page to join the Torg Eternity Wiki",
       "failureBDResolution": "The system failed to resolute the BD",
       "ammoValueExceedsMax": "The actual ammo value of the weapon {a} exceeds it's max value. The value will be reduced to it's maximum.",
       "noPossibility": "There is no possibility left",
@@ -864,6 +866,10 @@
       "autoDarknessPenalty": {
         "hint": "If checked, the darkness penalty on a token will be set automatically based on the scene's darkness level, regions with adjust darkness level and light/dark sources.",
         "name": "Automatic Darkness Penalties"
+      },
+      "customTraits": {
+        "hint": "Define any additional traits that you want to be available for Items and Active Effects",
+        "name": "Custom Item Traits"
       },
       "useColorBlindnessColors": {
         "hint": "If activated, the game uses daltonistism friendly red and green colors.",
@@ -1435,6 +1441,14 @@
       "fullBody": "Full Body",
       "grapple": "Grapple",
       "head": "Head",
+      "arcane": "Arcane",
+      "holy": "Holy",
+      "enchanted": "Enchanted",
+      "sacred": "Sacred",
+      "artifact": "Artifact",
+      "implement": "Implement",
+      "attunable": "Attunable",
+      "consumable": "Consumable",
       "ignoresArmor": "Ignores Armor",
       "ignoreShock": "Ignore Shock",
       "ignoreWounds": "Ignore Wounds",

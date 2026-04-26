@@ -661,6 +661,7 @@
       "attackRoll": "Tirar Ataque",
       "delete": "Borrar",
       "edit": "Editar",
+      "itemAttune": "Cambiar estado de sintonización",
       "miracleRoll": "Tirar Milagro",
       "openParty": "Abrir hoja de grupo",
       "psionicRoll": "Tirar poder Psiónico",
@@ -739,6 +740,7 @@
       "openIssue": "Tu navegador abrirá una nueva página para que puedas completar la petición",
       "openReference": "Tu navegador abrirá una nueva página para visitar la web de Torg Reference",
       "openUlisses": "Tu navegador abrirá una nueva página para visitar la web de Ulisses",
+      "openWiki": "Tu navegador abrirá una nueva página para que te unas a la wiki de Torg Eternity",
       "failureBDResolution": "El sistema no ha podido resolver el DB",
       "ammoValueExceedsMax": "El valor actual de munición del arma {a} supera su valor máximo. El valor se reducirá al máximo del arma.",
       "noPossibility": "No queda ninguna Posibilidad",
@@ -870,6 +872,10 @@
       "autoDarknessPenalty": {
         "hint": "Si está activado, la penalización por oscuridad de una ficha se calculará automáticamente en base al nivel de oscuridad de una escena, sus regiones con ajuste de nivel de oscuridad y las fuentes de luz/oscuridad.",
         "name": "Penalizaciones automáticas por oscuridad"
+      },
+      "customTraits": {
+        "hint": "Definir cualquier rasgo adicional que quieras que esté disponible para los objetos y los efectos activos",
+        "name": "Personalizar rasgos de objetos"
       },
       "useColorBlindnessColors": {
         "hint": "Si está marcado, el juego usa tonos rojos y verdes aptos para daltónicos.",
@@ -1441,6 +1447,14 @@
       "fullBody": "Cuerpo entero",
       "grapple": "Forcejeo",
       "head": "Cabeza",
+      "arcane": "Arcana",
+      "holy": "Sagrado",
+      "enchanted": "Encantado",
+      "sacred": "Santo",
+      "artifact": "Artefacto",
+      "implement": "Implementar",
+      "attunable": "Sintonizable",
+      "consumable": "Consumible",
       "ignoresArmor": "Ignora armadura",
       "ignoreShock": "Ignorar Shock",
       "ignoreWounds": "Ignorar Heridas",

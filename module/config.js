@@ -612,7 +612,7 @@ export function initConfig() {
     },
   ];
 
-  torgeternity.defenseTraits = {
+  torgeternity.defenseTraits = Object.entries({
     'fatigues': 'torgeternity.traits.fatigues',
     'fullBody': 'torgeternity.traits.fullBody',
     'torso': 'torgeternity.traits.torso',
@@ -623,9 +623,9 @@ export function initConfig() {
     'ignoreWounds': 'torgeternity.traits.ignoreWounds',
     'mindless': 'torgeternity.traits.mindless',
     'supernaturalEvil': 'torgeternity.traits.supernaturalEvil'
-  }
+  }).reduce((acc, ent) => { acc[ent[0]] = { label: ent[1], group: 'torgeternity.traitGroup.defense' }; return acc }, {})
 
-  torgeternity.meleeWeaponTraits = {
+  torgeternity.meleeWeaponTraits = Object.entries({
     "trademark": "torgeternity.sheetLabels.trademark",
     'nonLethal': 'torgeternity.traits.nonLethal',
     'painful': 'torgeternity.traits.painful',
@@ -640,9 +640,9 @@ export function initConfig() {
     'unwieldy': 'torgeternity.traits.unwieldy',
     'grapple': 'torgeternity.traits.grapple',
     //'bob': 'torgeternity.traits.bob',
-  }
+  }).reduce((acc, ent) => { acc[ent[0]] = { label: ent[1], group: 'torgeternity.traitGroup.melee' }; return acc }, {})
 
-  torgeternity.rangedWeaponTraits = {
+  torgeternity.rangedWeaponTraits = Object.entries({
     "trademark": "torgeternity.sheetLabels.trademark",
     'painful': 'torgeternity.traits.painful',
     'nonLethal': 'torgeternity.traits.nonLethal',
@@ -675,28 +675,50 @@ export function initConfig() {
     'lightningDamage': 'torgeternity.traits.lightningDamage',
     'psychicDamage': 'torgeternity.traits.psychicDamage',
     'thrown': 'torgeternity.traits.thrown',
-  }
+  }).reduce((acc, ent) => { acc[ent[0]] = { label: ent[1], group: 'torgeternity.traitGroup.ranged' }; return acc }, {})
+
+  torgeternity.otherItemTraits = Object.entries({
+    'arcane': 'torgeternity.traits.arcane',
+    'holy': 'torgeternity.traits.holy',
+    'enchanted': 'torgeternity.traits.enchanted',
+    'sacred': 'torgeternity.traits.sacred',
+    'artifact': 'torgeternity.traits.artifact',
+    'implement': 'torgeternity.traits.implement',
+    'attunable': 'torgeternity.traits.attunable',
+    'consumable': 'torgeternity.traits.consumable'
+  }).reduce((acc, ent) => { acc[ent[0]] = { label: ent[1], group: 'torgeternity.traitGroup.other' }; return acc }, {})
+
+  // Has to be defined here because the rest of the game settings require the CONFIG.torgeternity to already be defined.
+  game.settings.register('torgeternity', 'customTraits', {
+    name: 'torgeternity.settingMenu.customTraits.name',
+    hint: 'torgeternity.settingMenu.customTraits.hint',
+    scope: 'world',
+    config: true,
+    type: new foundry.data.fields.SetField(
+      new foundry.data.fields.StringField({ blank: false, textSearch: true, trim: true, })
+    ),
+    requiresReload: true,
+  });
+  game.settings.get('torgeternity', 'customTraits')
+    .reduce((acc, trait) => { acc[trait] = { label: trait, group: 'torgeternity.traitGroup.other' }; return acc; },
+      torgeternity.otherItemTraits);
 
   torgeternity.allItemTraits = {
-    ...Object.entries(torgeternity.defenseTraits).reduce((acc, ent) => { acc[ent[0]] = { label: ent[1], group: 'torgeternity.traitGroup.defense' }; return acc }, {}),
-    ...Object.entries(torgeternity.meleeWeaponTraits).reduce((acc, ent) => { acc[ent[0]] = { label: ent[1], group: 'torgeternity.traitGroup.melee' }; return acc }, {}),
-    ...Object.entries(torgeternity.rangedWeaponTraits).reduce((acc, ent) => { acc[ent[0]] = { label: ent[1], group: 'torgeternity.traitGroup.ranged' }; return acc }, {}),
+    ...torgeternity.defenseTraits,
+    ...torgeternity.meleeWeaponTraits,
+    ...torgeternity.rangedWeaponTraits,
+    ...torgeternity.otherItemTraits,
   }
 
   // Entries allowed in an Active Effect's "Active Only If" field
   torgeternity.effectActiveTraits = {
-    ...Object.entries(torgeternity.defenseTraits).reduce((acc, ent) => { acc[ent[0]] = { label: ent[1], group: 'torgeternity.traitGroup.defense' }; return acc }, {}),
-    ...Object.entries(torgeternity.meleeWeaponTraits).reduce((acc, ent) => { acc[ent[0]] = { label: ent[1], group: 'torgeternity.traitGroup.melee' }; return acc }, {}),
-    ...Object.entries(torgeternity.rangedWeaponTraits).reduce((acc, ent) => { acc[ent[0]] = { label: ent[1], group: 'torgeternity.traitGroup.ranged' }; return acc }, {}),
+    ...torgeternity.allItemTraits,
     ...torgeternity.statusEffects.reduce((acc, status) => { acc[status.id] = { label: status.name, group: 'torgeternity.sheetLabels.conditions' }; return acc }, {}),
   }
 
   // Entries allowed in an Active Effect's "Apply If Attack/Defend Trait" and "Defend Against Trait" fields
   torgeternity.effectTestTraits = {
-    ...Object.entries(torgeternity.defenseTraits).reduce((acc, ent) => { acc[ent[0]] = { label: ent[1], group: 'torgeternity.traitGroup.defense' }; return acc }, {}),
-    ...Object.entries(torgeternity.meleeWeaponTraits).reduce((acc, ent) => { acc[ent[0]] = { label: ent[1], group: 'torgeternity.traitGroup.melee' }; return acc }, {}),
-    ...Object.entries(torgeternity.rangedWeaponTraits).reduce((acc, ent) => { acc[ent[0]] = { label: ent[1], group: 'torgeternity.traitGroup.ranged' }; return acc }, {}),
-    ...torgeternity.statusEffects.reduce((acc, status) => { acc[status.id] = { label: status.name, group: 'torgeternity.sheetLabels.conditions' }; return acc }, {}),
+    ...torgeternity.effectActiveTraits,
     ...Object.entries(torgeternity.skills).reduce((acc, ent) => { acc[ent[0]] = { label: ent[1], group: 'torgeternity.sheetLabels.skills' }; return acc }, {}),
   }
 
@@ -724,15 +746,15 @@ export function initConfig() {
     // spell (power)
     // vehicle
     // vehicleAddOn
-    armor: torgeternity.defenseTraits,
-    shield: torgeternity.defenseTraits,
-    meleeweapon: torgeternity.meleeWeaponTraits,
-    missileweapon: torgeternity.rangedWeaponTraits,
-    heavyweapon: torgeternity.rangedWeaponTraits,
-    firearm: torgeternity.rangedWeaponTraits,
-    customAttack: { ...torgeternity.meleeWeaponTraits, ...torgeternity.rangedWeaponTraits },
-    effectActiveTraits: torgeternity.effectActiveTraits,
-    effectTestTraits: torgeternity.effectTestTraits,
+    armor: { ...torgeternity.defenseTraits, ...torgeternity.otherItemTraits, },
+    shield: { ...torgeternity.defenseTraits, ...torgeternity.otherItemTraits, },
+    meleeweapon: { ...torgeternity.meleeWeaponTraits, ...torgeternity.otherItemTraits, },
+    missileweapon: { ...torgeternity.rangedWeaponTraits, ...torgeternity.otherItemTraits, },
+    heavyweapon: { ...torgeternity.rangedWeaponTraits, ...torgeternity.otherItemTraits, },
+    firearm: { ...torgeternity.rangedWeaponTraits, ...torgeternity.otherItemTraits, },
+    customAttack: { ...torgeternity.meleeWeaponTraits, ...torgeternity.rangedWeaponTraits, ...torgeternity.otherItemTraits, },
+    effectActiveTraits: { ...torgeternity.effectActiveTraits, ...torgeternity.otherItemTraits, },
+    effectTestTraits: { ...torgeternity.effectTestTraits, ...torgeternity.otherItemTraits, },
   }
 
   // animation time period for transitioning to dim light or Dark.
@@ -833,6 +855,16 @@ export function initConfig() {
     "Tierra Base": "coreEarth",
     "Tierra Viviente": "livingLand",
     "Zentralerde": "coreEarth",
+  }
+
+  // itemUniqueness
+  // Key = trait
+  // Value = maxCarried or maxEquipped - how many can be carried/equipped and the item stil function?
+  torgeternity.itemUniqueness = {
+    'holy': { maxCarried: 1 },
+    'sacred': { maxCarried: 1 },
+    'artifact': { maxCarried: 1 },
+    'implement': { maxEquipped: 1 },
   }
 
   CONFIG.torgeternity = torgeternity;

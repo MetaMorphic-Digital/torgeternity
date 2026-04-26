@@ -390,6 +390,15 @@ Hooks.on("renderSettings", async (app, html) => {
             },
           },
           {
+            action: 'wiki',
+            icon: 'fab fa-readme',
+            label: 'Wiki',
+            callback: () => {
+              ui.notifications.info(game.i18n.localize('torgeternity.notifications.openWiki'));
+              window.open('https://github.com/MetaMorphic-Digital/torgeternity/wiki', '_blank');
+            },
+          },
+          {
             action: 'discord',
             icon: 'fab fa-discord',
             label: 'Discord',

@@ -17,7 +17,8 @@
         <li class="item draggable block" data-item-id="{{item._id}}">
           <div class="item-row flexrow">
             <img src="{{item.img}}" data-tooltip="{{item.name}}" />
-            <a class="item-name {{TorgDisconnected item}}" data-action="itemName">{{item.name}}
+            <a class="item-name {{TorgDisconnected item}}{{#if item.tooMany}} item-tooMany{{/if}}"
+              data-action="itemName">{{item.name}}
               <span class="contradiction">{{item.contradictionCase}}</span>
             </a>
             <div class="item-controls">
@@ -65,7 +66,8 @@
         <li class="item draggable block" data-item-id="{{item._id}}">
           <div class="item-row flexrow">
             <img src="{{item.img}}" data-tooltip="{{item.name}}" />
-            <a class="item-name {{TorgDisconnected item}}" data-action="itemName">{{item.name}}
+            <a class="item-name {{TorgDisconnected item}}{{#if item.tooMany}} item-tooMany{{/if}}"
+              data-action="itemName">{{item.name}}
               <span class="contradiction">{{item.contradictionCase}}</span>
             </a>
             <div class="item-controls">
@@ -114,7 +116,8 @@
       <li class="item draggable block" data-item-id="{{item._id}}">
         <div class="item-row flexrow">
           <img src="{{item.img}}" data-tooltip="{{item.name}}" />
-          <a class="item-name {{TorgDisconnected item}}" data-action="itemName">{{item.name}}
+          <a class="item-name {{TorgDisconnected item}}{{#if item.tooMany}} item-tooMany{{/if}}"
+            data-action="itemName">{{item.name}}
             <span class="contradiction">{{item.contradictionCase}}</span>
           </a>
           <div class="item-controls">
@@ -160,7 +163,8 @@
         <li class="item draggable block" data-item-id="{{item._id}}">
           <div class="item-row flexrow">
             <img src="{{item.img}}" data-tooltip="{{item.name}}" />
-            <a class="item-name {{TorgDisconnected item}}" data-action="itemName">{{item.name}}
+            <a class="item-name {{TorgDisconnected item}}{{#if item.tooMany}} item-tooMany{{/if}}"
+              data-action="itemName">{{item.name}}
               <span class="contradiction">{{item.contradictionCase}}</span>
               {{#if item.system.perk}}({{localize "torgeternity.enhancements.enhances"}}
                 {{item.system.perk}}){{/if}}</a>

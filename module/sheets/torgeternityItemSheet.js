@@ -281,7 +281,7 @@ export default class TorgeternityItemSheet extends foundry.applications.api.Hand
  * @this {TorgeternityItemSheet}
  */
   static #onToggleTraitEdit(event, button) {
-    const traits = button.parentElement.querySelectorAll('string-tags input, string-tags button, multi-select select');
+    const traits = button.parentElement.querySelectorAll('string-tags input, string-tags button, torg-string-tags input, torg-string-tags button, multi-select select');
     if (!traits) return;
     const hidden = !traits[0].disabled;
     for (const elem of traits) elem.disabled = hidden;

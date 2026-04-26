@@ -664,6 +664,7 @@
       "attackRoll": "Jet d'attaque",
       "delete": "Supprimer",
       "edit": "Éditer",
+      "itemAttune": "Activer l'Harmonisation",
       "miracleRoll": "Jet de miracle",
       "openParty": "Ouvrir la fiche du groupe",
       "psionicRoll": "Jet de pouvoir psionique",
@@ -742,6 +743,7 @@
       "openIssue": "Votre navigateur va ouvrir un onglet pour signaler un problème.",
       "openReference": "Votre navigateur va ouvrir le site Torg Reference (en anglais)",
       "openUlisses": "Votre navigateur va ouvrir le site d’Ulisses Spiele.",
+      "openWiki": "Ouverture de la page Wiki de Torg Eternity dans votre navigateur par défaut",
       "failureBDResolution": "Echec de résolution avec le DB",
       "ammoValueExceedsMax": "La quantité de munitions dépasse la capacité du chargeur dans l'arme {a}. La valeur va être réduite à son maximum.",
       "noPossibility": "Pas de Possibilités disponibles",
@@ -873,6 +875,10 @@
       "autoDarknessPenalty": {
         "hint": "Si coché, la pénalité de luminosité des Tokens sera automatiquement ajustée par le paramètre 'Niveau d'obscurité' d'une Scène, par l'ajustement paramétré d'une Région, et par les sources de lumière/obscurité configurées.",
         "name": "Pénalités automatiques de luminosité"
+      },
+      "customTraits": {
+        "hint": "Définir des Traits additionnels disponibles pour les Objets ou les Effets",
+        "name": "Traits personnalisés"
       },
       "useColorBlindnessColors": {
         "hint": "Si sélectionné, le système utilise des couleurs rouge et verte plus adaptées à des personnes atteintes de daltonisme.",
@@ -1444,6 +1450,14 @@
       "fullBody": "Intégrale",
       "grapple": "Lutte",
       "head": "Tête",
+      "arcane": "Arcanes",
+      "holy": "Béni",
+      "enchanted": "Enchanté",
+      "sacred": "Sacré",
+      "artifact": "Artefact",
+      "implement": "Instrument",
+      "attunable": "Harmonisable",
+      "consumable": "Consommable",
       "ignoresArmor": "Ignore l'armure",
       "ignoreShock": "Ignore les points de Chocs",
       "ignoreWounds": "Ignore les Blessures",

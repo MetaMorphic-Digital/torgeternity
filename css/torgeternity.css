@@ -228,6 +228,7 @@ dialog.torgeternity:not(.actor, .item) .window-content,
       margin-left: 0.5em;
     }
 
+    torg-string-tags:has(input:disabled),
     string-tags:has(input:disabled) {
       input {
         display: none;
@@ -239,6 +240,7 @@ dialog.torgeternity:not(.actor, .item) .window-content,
     }
 
     multi-select#traits,
+    torg-string-tags#traits,
     string-tags#traits {
       div.input-element-tags {
         justify-content: start;
@@ -444,6 +446,16 @@ dialog.torgeternity:not(.actor, .item) .window-content,
           text-decoration: line-through;
         }
 
+        &.item-tooMany {
+          text-decoration-line: line-through;
+          text-decoration-color: red;
+
+          &:before,
+          &:after {
+            content: " *** ";
+          }
+        }
+
         .contradiction {
           vertical-align: super;
         }
@@ -499,6 +511,16 @@ dialog.torgeternity:not(.actor, .item) .window-content,
 
           &.disconnected {
             text-decoration: line-through;
+          }
+
+          &.item-tooMany {
+            text-decoration-line: line-through;
+            text-decoration-color: red;
+
+            &:before,
+            &:after {
+              content: " *** ";
+            }
           }
 
           .contradiction {

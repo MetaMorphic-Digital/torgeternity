@@ -222,7 +222,7 @@ function InlineConditionEnricher(match, options) {
     dataset,
     name: label ?? game.i18n.localize(`torgeternity.statusEffects.${status}`),
     classes: ['torg-inline-condition'],
-    icon: "fa-solid fa-circle-plus"
+    icon: dataset.off ? "fa-solid fa-circle-minus" : "fa-solid fa-circle-plus"
   });
   // Append a button to copy the link to chat (only when in Journal)
   if (!options.rollData && game.user.isGM) {
@@ -489,7 +489,7 @@ function InlineDamageEnricher(match, options) {
     dataset,
     name: label ?? createLabel(),
     classes: ['torg-inline-damage'],
-    icon: "fa-solid fa-damage"
+    icon: (dataset.shock < 0 || dataset.wounds < 0) ? "fa-solid fa-heart" : "fa-solid fa-heart-crack"
   });
 
   // Append a button to copy the link to chat (only when in Journal)
@@ -517,7 +517,7 @@ async function _onClickInlineDamage(event) {
   const actors = getActors();
   if (!actors) return ui.notifications.info('torgeternity.notifications.noTokenNorActor', { localize: true });
 
-  let chatOutput = `<h2> ${dataset.label ?? game.i18n.localize('torgeternity.chatText.check.result.damage')}</h2> `;
+  let chatOutput = `<h2>${dataset.label ?? game.i18n.localize('torgeternity.chatText.check.result.damage')}</h2> `;
   if (dataset.damage) {
     chatOutput += `<p> ${game.i18n.localize('torgeternity.chatText.baseDamage')} ${dataset.damage}`;
     if (dataset.ap) {

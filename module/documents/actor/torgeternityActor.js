@@ -717,6 +717,30 @@ export default class TorgeternityActor extends foundry.documents.Actor {
     }
     return tokens;
   }
+
+  /* ITEM UNIQUNESS HANDLING */
+  checkItemUniqueness(crud) {
+    console.log(`checkItemUniqueness: ${this.name} - ${crud}`);
+    this.items.forEach(item => item.tooMany = false);
+    for (const [key, value] of Object.entries(CONFIG.torgeternity.itemUniqueness)) {
+      const items = this.items.filter(item => !item.isDropped && item.system.traits.has(key));
+      if (items.length === 0) continue;
+      if ((value.maxCarried && items.length > value.maxCarried) ||
+        (value.maxEquipped && items.filter(item => item.isEquipped).length > value.maxEquipped))
+        items.forEach(item => item.tooMany = true);
+    }
+    // Max attunable handled separately (and does not care about the "dropped" state)
+    const attunedItems = this.items.filter(item => item.system.traits.has('attunable') && item.system.attuned);
+    if (attunedItems.length > this.system.maxAttunable)
+      attunedItems.forEach(item => item.tooMany = true);
+    const notAttuned = this.items.filter(item => item.system.traits.has('attunable') && !item.system.attuned);
+    notAttuned.forEach(item => item.tooMany = true);
+  }
+
+  prepareDerivedData() {
+    super.prepareDerivedData();
+    this.checkItemUniqueness('prepareDerivedData');
+  }
 }
 
 /**

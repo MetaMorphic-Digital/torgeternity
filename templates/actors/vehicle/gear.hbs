@@ -5,10 +5,14 @@
     <li class="item draggable block" data-item-id="{{item._id}}">
       <div class="item-row flexrow">
         <img src="{{item.img}}" data-tooltip="{{item.name}}" />
-        <a class="item-name {{TorgDisconnected item}}" data-action="itemName">{{item.name}}
+        <a class="item-name {{TorgDisconnected item}}{{#if item.tooMany}} item-tooMany{{/if}}"
+          data-action="itemName">{{item.name}}
           <span class="contradiction">{{item.contradictionCase}}</span>
         </a>
         <div class="item-controls">
+          {{#if item.system.isAttunable}}
+            {{>itemAttune attuned=item.system.attuned}}
+          {{/if}}
           <a class="item-control item-attackRoll" data-action="itemAttackRoll" {{disabled (not @root.editable)}}
             data-tooltip="{{localize 'torgeternity.iconeTitles.attackRoll'}}">
             <i class="fas fa-dice-d20"></i>
@@ -105,10 +109,14 @@
       <li class="item draggable block gear" data-item-id="{{item._id}}">
         <div class="item-row flexrow">
           <img src="{{item.img}}" data-tooltip="{{item.name}}" />
-          <a class="item-name {{TorgDisconnected item}}" data-action="itemName">{{item.name}}
+          <a class="item-name {{TorgDisconnected item}}{{#if item.tooMany}} item-tooMany{{/if}}"
+            data-action="itemName">{{item.name}}
             <span class="contradiction">{{item.contradictionCase}}</span>
             ({{item.system.quantity}})</a>
           <div class="item-controls">
+            {{#if item.system.isAttunable}}
+              {{>itemAttune attuned=item.system.attuned}}
+            {{/if}}
             <a class="item-control item-edit" data-action="itemEdit"
               data-tooltip="{{localize 'torgeternity.iconeTitles.edit'}}">
               <i class="fas fa-edit"></i>
@@ -165,10 +173,14 @@
       <li class="item draggable block" data-item-id="{{item._id}}">
         <div class="item-row flexrow">
           <img src="{{item.img}}" data-tooltip="{{item.name}}" />
-          <a class="item-name {{TorgDisconnected item}}" data-action="itemName">{{item.name}}
+          <a class="item-name {{TorgDisconnected item}}{{#if item.tooMany}} item-tooMany{{/if}}"
+            data-action="itemName">{{item.name}}
             <span class="contradiction">{{item.contradictionCase}}</span>
           </a>
           <div class="item-controls">
+            {{#if item.system.isAttunable}}
+              {{>itemAttune attuned=item.system.attuned}}
+            {{/if}}
             <a class="item-control item-tochat" data-action="itemToChat" {{disabled (not @root.editable)}}
               data-tooltip="{{localize 'torgeternity.iconeTitles.sendToChat'}}">
               <i class="fas fa-comment"></i>
@@ -207,3 +219,10 @@
   </ol>
 
 </section>
+
+{{#*inline "itemAttune"}}
+  <a class="item-control item-attunable" data-action="itemAttune" {{disabled (not @root.editable)}}
+    data-tooltip="{{localize 'torgeternity.iconeTitles.itemAttune'}}">
+    <i class="{{ifThen attuned 'fa-solid' 'fa-regular'}} fa-star"></i>
+  </a>
+{{/inline}}

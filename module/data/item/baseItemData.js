@@ -1,4 +1,5 @@
 import { migrateCosm, makeAxiomsField } from '../shared.js';
+//import { TorgSetField } from '../fields/torgsetfield.js';
 
 const fields = foundry.data.fields;
 
@@ -18,6 +19,7 @@ export class BaseItemData extends foundry.abstract.TypeDataModel {
       axioms: makeAxiomsField(),
       itemsToBestow: new fields.SetField(new fields.JSONField),  // id of other items added/removed with this Item
       bestowedBy: new fields.DocumentIdField(),  // the id of the other item that automatically added this Item
+      attuned: new fields.BooleanField({ initial: false })
     };
   }
   /**
@@ -30,7 +32,7 @@ export class BaseItemData extends foundry.abstract.TypeDataModel {
       // Map renamed traits
       source.traits = source.traits.map(t => (t === 'supernnaturalEvil') ? 'supernaturalEvil' : t);
       // Remove invalid traits
-      const validTraits = this.schema.fields.traits.element.choices;
+      const validTraits = this.schema.fields.traits.element.choices ?? this.schema.fields.traits.choices;
       const badTraits = source.traits.filter(t => !Object.hasOwn(validTraits, t));
       source.traits = source.traits.filter(t => Object.hasOwn(validTraits, t));
       if (badTraits.length)
@@ -53,19 +55,25 @@ export class BaseItemData extends foundry.abstract.TypeDataModel {
 
   // Can this Item type be equipped?
   get canEquip() { return false; }
+
+  // Can this item be attuned?
+  get isAttunable() { return this.traits.has('attunable') }
 }
 
 export function newTraitsField(itemType) {
-  return new fields.SetField(
+  return new fields.SetField(   // TorgSetField
     new fields.StringField({
       // StringField options
       blank: false,
-      choices: (itemType && CONFIG.torgeternity.specificItemTraits[itemType]) ?? CONFIG.torgeternity.allItemTraits,
       textSearch: true,
       trim: true,
+      // 'choices' for fields.SetField
+      choices: (itemType && CONFIG.torgeternity.specificItemTraits[itemType]) ?? CONFIG.torgeternity.allItemTraits,
     }),
     { // SetField options (ArrayFieldOptions)
       nullable: false,
-      required: true
+      required: true,
+      // 'choices' for TorgSetField
+      //choices: (itemType && CONFIG.torgeternity.specificItemTraits[itemType]) ?? CONFIG.torgeternity.allItemTraits,
     });
 }

@@ -36,6 +36,7 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
       skillRoll: TorgeternityActorSheet.#onSkillRoll,
       skillEditToggle: TorgeternityActorSheet.#onSkillEditToggle,
       itemToChat: TorgeternityActorSheet.#onItemChat,
+      itemAttune: TorgeternityActorSheet.#onItemAttune,
       itemAttackRoll: TorgeternityActorSheet.#onAttackRoll,
       itemTappingRoll: TorgeternityActorSheet.#onTappingRoll,
       interactionAttack: TorgeternityActorSheet.#onInteractionAttack,
@@ -894,6 +895,12 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
     if (!item) return ui.notifications.info(`Failed to find Item for button`);
 
     return item.toMessage();
+  }
+
+  static async #onItemAttune(event, button) {
+    const item = this.actor.items.get(button.closest('.item').dataset.itemId);
+    if (!item) return ui.notifications.info(`Failed to find Item for button`);
+    return item.update({ 'system.attuned': !item.system.attuned })
   }
 
   /**

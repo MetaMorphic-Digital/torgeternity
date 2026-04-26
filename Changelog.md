@@ -2,6 +2,27 @@
 
 - Translations by Durak (French), Helmut (German), and Teotimus (Spanish).
 
+## 13.35.0 - Unique & Attunable Items
+- Add new item traits in a new "other" traits group: Arcane, Holy, Magic, Sacred, Artifact, Implement, Attunable, Consumable.
+- Add game setting to define your own custom traits which are added to the "other" traits group.
+- Add the "other" traits group to all item types.
+- Add new `CONFIG.torgeternity.itemUniqueness` option to specify which Item traits have a max-carried or max-equipped limit.
+  - If the limit is exceeded, then the item is displayed with a red strikethrough and "***" placed around the item's name.
+  - Default with max-carried == 1 are Holy, Sacred, Artifact
+  - Default with max-equipped == 1 are Implement
+- Add new `system.maxAttunable` field on all Actors (default 1, modifiable by Active Effects).
+  - Add a button on each attunable item to indicate if it is attuned (solid star = attuned; holy star = not attuned).
+  - Attunable items which are NOT attuned, are marked as failing itemUniqueness.
+  - If more than this number of "attunable" items are marked as attuned, then they are all marked as failing itemUniqueness.
+- Add "equip" icon for Gear, Implants and Eternity Shards (to match all other Items).
+- A `@Condition` enricher will display a circle-minus if the condition is being switched off (and the existing circle-plus for all other situations).
+
+### Bug Fixes
+- Ensure that an Active Effect change of **isFav** is converted properly if not already a boolean
+  - **(Existing isFav changes will need to be modified to use `true` again)**
+- Prevent console error on Foundry 14 when creating an Active Effect on an Item that isn't owned by an Actor.
+- The `@Damage` enricher will show a broken heart (damage) or a whole heart (healing) in the inline enriched content. (The chat message will still report damage, even if you've set negative wounds/shock to actually perform healing.)
+  
 ## 13.34.2 - Prevent scene axiom error with Token Attacher
 - Update Scene to use _initializeSource instead of migrateData to initialize undefined axioms.
 - (Other data models will be updated to this paradigm later.)
