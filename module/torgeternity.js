@@ -292,7 +292,7 @@ Hooks.on('ready', async function () {
   ) {
     DialogV2.confirm({
       window: { title: 'torgeternity.dialogWindow.hideForeignCompendium.title', },
-      content: game.i18n.localize('torgeternity.dialogWindow.hideForeignCompendium.content'),
+      content: _loc('torgeternity.dialogWindow.hideForeignCompendium.content'),
       yes: {
         icon: 'fas fa-check',
         label: 'torgeternity.yesNo.true',
@@ -361,7 +361,7 @@ Hooks.on("renderSettings", async (app, html) => {
           left: 100,
           top: 20,
         },
-        content: game.i18n.localize('torgeternity.dialogWindow.externalLinks.content'),
+        content: _loc('torgeternity.dialogWindow.externalLinks.content'),
         buttons: [
           {
             action: 'reference',
@@ -370,7 +370,7 @@ Hooks.on("renderSettings", async (app, html) => {
             callback: () => {
               // We can only inline when the Foundry server is running on HTTP, not HTTPS
               if (location.protocol === 'https:') {
-                ui.notifications.info(game.i18n.localize('torgeternity.notifications.openReference'));
+                ui.notifications.info(_loc('torgeternity.notifications.openReference'));
                 window.open('http://torg-gamereference.com/index.php', '_blank');
               } else {
                 new foundry.applications.sidebar.apps.FrameViewer({  // will be removed in Foundry V15
@@ -394,7 +394,7 @@ Hooks.on("renderSettings", async (app, html) => {
             icon: 'fab fa-readme',
             label: 'Wiki',
             callback: () => {
-              ui.notifications.info(game.i18n.localize('torgeternity.notifications.openWiki'));
+              ui.notifications.info(_loc('torgeternity.notifications.openWiki'));
               window.open('https://github.com/MetaMorphic-Digital/torgeternity/wiki', '_blank');
             },
           },
@@ -403,7 +403,7 @@ Hooks.on("renderSettings", async (app, html) => {
             icon: 'fab fa-discord',
             label: 'Discord',
             callback: () => {
-              ui.notifications.info(game.i18n.localize('torgeternity.notifications.openDiscord'));
+              ui.notifications.info(_loc('torgeternity.notifications.openDiscord'));
               window.open('https://discord.gg/foundryvtt', '_blank');
             },
           },
@@ -412,7 +412,7 @@ Hooks.on("renderSettings", async (app, html) => {
             icon: 'fa-solid fa-bug',
             label: 'torgeternity.dialogWindow.externalLinks.bug',
             callback: () => {
-              ui.notifications.info(game.i18n.localize('torgeternity.notifications.openIssue'));
+              ui.notifications.info(_loc('torgeternity.notifications.openIssue'));
               window.open('https://github.com/MetaMorphic-Digital/torgeternity/issues/new', '_blank');
             },
           },
@@ -422,7 +422,7 @@ Hooks.on("renderSettings", async (app, html) => {
             icon: 'systems/torgeternity/images/ulissesLogo.webp', // not FA so ignored
             label: 'torgeternity.dialogWindow.externalLinks.publisher',
             callback: () => {
-              ui.notifications.info(game.i18n.localize('torgeternity.notifications.openUlisses'));
+              ui.notifications.info(_loc('torgeternity.notifications.openUlisses'));
               window.open('https://ulisses-us.com', '_blank');
             },
           },

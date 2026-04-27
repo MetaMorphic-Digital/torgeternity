@@ -162,9 +162,9 @@ export default class TorgeternityScene extends foundry.documents.Scene {
  */
 function prepareAllActors() {
   if (!game.scenes.active?.tokens) return;
-  game.scenes.active.tokens.forEach(token => token.actor?.prepareData());
+  game.scenes.active.tokens.forEach(token => token.actor?.reset());
 }
 
 Hooks.on('ready', prepareAllActors);
 Hooks.on('canvasReady', prepareAllActors);
-Hooks.on('createToken', (token) => token.actor?.prepareData());
+Hooks.on('createToken', (token) => token.actor?.reset());

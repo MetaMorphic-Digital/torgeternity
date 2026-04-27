@@ -5,7 +5,7 @@ import torgeternityDeck from './torgeternityDeck.js';
  */
 export async function setUpCardPiles() {
   const deckSetting = game.settings.get('torgeternity', 'deckSetting');
-  const deckPack = game.packs.get(game.i18n.localize('torgeternity.packs.decks'));
+  const deckPack = game.packs.get(_loc('torgeternity.packs.decks'));
   let deckFolder =
     game.folders.find((folder) => folder.flags?.torgeternity?.usage === 'coreCards') ||
     game.folders.getName(deckPack.title);
@@ -46,7 +46,7 @@ export async function setUpCardPiles() {
   for (const discardKey of discardKeys) {
     if (!game.cards.get(deckSetting[discardKey])) {
       const cardData = {
-        name: game.i18n.localize('torgeternity.cardTypes.' + discardKey),
+        name: _loc('torgeternity.cardTypes.' + discardKey),
         type: 'pile',
         ownership: { default: CONST.DOCUMENT_OWNERSHIP_LEVELS.OWNER },
         folder: deckFolder.id,
@@ -59,7 +59,7 @@ export async function setUpCardPiles() {
   // Add Active Drama
   if (!game.cards.get(deckSetting.dramaActive)) {
     const cardData = {
-      name: game.i18n.localize('torgeternity.cardTypes.activeDrama'),
+      name: _loc('torgeternity.cardTypes.activeDrama'),
       type: 'pile',
       folder: deckFolder.id,
     };

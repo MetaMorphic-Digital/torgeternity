@@ -12,7 +12,7 @@ export class ImplantItemData extends GeneralItemData {
     return {
       ...super.defineSchema('implant'),
       notes: new fields.StringField({ initial: '' }),
-      implantType: new fields.StringField({ initial: game.i18n.localize('torgeternity.perkTypes.cyberware') })
+      implantType: new fields.StringField({ initial: _loc('torgeternity.perkTypes.cyberware') })
     };
   }
 }

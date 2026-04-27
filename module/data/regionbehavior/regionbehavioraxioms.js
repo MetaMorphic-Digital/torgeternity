@@ -21,14 +21,14 @@ export class ReplaceAxiomsRegionBehaviorType extends foundry.data.regionBehavior
    * @returns 
    */
   static async #tokenEnter(event) {
-    event.data.token.actor.prepareData();
+    event.data.token.actor.reset();
   }
 
   static async #tokenExit(event) {
-    event.data.token.actor.prepareData();
+    event.data.token.actor.reset();
   }
 
   _onUpdate(_changed, _options, _userId) {
-    this.region.tokens.forEach(token => token.actor.prepareData());
+    this.region.tokens.forEach(token => token.actor.reset());
   }
 }

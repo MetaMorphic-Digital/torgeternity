@@ -30,7 +30,7 @@ export default class torgeternityDeck extends foundry.applications.sheets.CardDe
     const context = await super._prepareContext(options);
     context.cards = this._prepareCards();
     for (const card of context.cards) {
-      card.typeLoc = game.i18n.localize(`torgeternity.cardTypes.${card.type}`);
+      card.typeLoc = _loc(`torgeternity.cardTypes.${card.type}`);
     }
     return context;
   }

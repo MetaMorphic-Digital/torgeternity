@@ -205,15 +205,15 @@ export class HandsManager extends HandlebarsApplicationMixin(ApplicationV2) {
           card.toMessage({
             content: `<div class="card-draw flexrow"><span class="card-chat-tooltip">
             <img class="card-face" src="${card.img}"/><span><img src="${card.img}"></span></span>
-            <span class="card-name">${game.i18n.localize('torgeternity.chatText.discardsCard')} ${card.name}</span>
+            <span class="card-name">${_loc('torgeternity.chatText.discardsCard')} ${card.name}</span>
             </div>`,
           });
         } else {
           card.toMessage({
             content: `<div class="card-draw flexrow"><span class="card-chat-tooltip"><img class="card-face" 
             src="${card.img}"/><span><img src="${card.img}"></span></span><h4 class="card-name">
-              ${game.i18n.localize('torgeternity.chatText.passesCard1')} 
-              ${card.name} ${game.i18n.localize('torgeternity.chatText.passesCard2')}
+              ${_loc('torgeternity.chatText.passesCard1')} 
+              ${card.name} ${_loc('torgeternity.chatText.passesCard2')}
                ${stack.name}.</h4></div>`,
           });
         }
@@ -284,7 +284,7 @@ export class HandsManager extends HandlebarsApplicationMixin(ApplicationV2) {
   }
 
   async promptCard(theirCard, myCard) {
-    const from = game.i18n.format('torgeternity.handsManager.trade.from', { actor: game.actors.get(myCard.actorId).name });
+    const from = _loc('torgeternity.handsManager.trade.from', { actor: game.actors.get(myCard.actorId).name });
 
     // Prompt needs to be from THEIR point of view
     const response = await foundry.applications.api.DialogV2.query(theirCard.userId, 'confirm', {
@@ -298,8 +298,8 @@ export class HandsManager extends HandlebarsApplicationMixin(ApplicationV2) {
         width: 'auto'
       },
       content: `<h2>${from}</h2><table>
-      <tr><td>${game.i18n.localize('torgeternity.handsManager.trade.yourCard')}</td>
-      <td>${game.i18n.localize('torgeternity.handsManager.trade.theirCard')}</td></tr>
+      <tr><td>${_loc('torgeternity.handsManager.trade.yourCard')}</td>
+      <td>${_loc('torgeternity.handsManager.trade.theirCard')}</td></tr>
       <tr><td><h3>${theirCard.card.name}</h3></td>
       <td><h3>${myCard.card.name}</h3></td></tr>
       <tr><td><img src='${theirCard.card.faces[0].img}'></td>
@@ -340,15 +340,15 @@ export class HandsManager extends HandlebarsApplicationMixin(ApplicationV2) {
         await card1.toMessage({
           content: `<div class="card-draw flexrow"><span class="card-chat-tooltip"><img class="card-face" 
             src="${card1.img}"/><span><img src="${card1.img}"></span></span><h4 class="card-name">
-              ${game.i18n.localize('torgeternity.chatText.passesCard1')} 
-              ${card1.name} ${game.i18n.localize('torgeternity.chatText.passesCard2')}
+              ${_loc('torgeternity.chatText.passesCard1')} 
+              ${card1.name} ${_loc('torgeternity.chatText.passesCard2')}
                ${stack2.name}.</h4></div>`,
         });
         await card2.toMessage({
           content: `<div class="card-draw flexrow"><span class="card-chat-tooltip"><img class="card-face" 
             src="${card2.img}"/><span><img src="${card2.img}"></span></span><h4 class="card-name">
-              ${game.i18n.localize('torgeternity.chatText.passesCard1')} 
-              ${card2.name} ${game.i18n.localize('torgeternity.chatText.passesCard2')}
+              ${_loc('torgeternity.chatText.passesCard1')} 
+              ${card2.name} ${_loc('torgeternity.chatText.passesCard2')}
                ${stack1.name}.</h4></div>`,
         });
       })

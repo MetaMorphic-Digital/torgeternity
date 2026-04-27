@@ -38,12 +38,12 @@ export default class PartySheet extends HandlebarsApplicationMixin(ApplicationV2
 
       for (const attribute of Object.keys(user.character.system.attributes)) {
         user.character.system.attributes[attribute].localizedAttribute =
-          game.i18n.localize(`torgeternity.attributes.${attribute}`);
+          _loc(`torgeternity.attributes.${attribute}`);
       }
 
       for (const skill of Object.keys(user.character.system.skills)) {
         user.character.system.skills[skill].localizedSkill =
-          game.i18n.localize(`torgeternity.skills.${skill}`);
+          _loc(`torgeternity.skills.${skill}`);
       }
     }
     return context;
@@ -81,7 +81,7 @@ export default class PartySheet extends HandlebarsApplicationMixin(ApplicationV2
         title: 'torgeternity.partySheet.openParty',
         contentClasses: ['standard-form'],
       },
-      content: `${game.i18n.localize('torgeternity.partySheet.chooseParty')}`,
+      content: `${_loc('torgeternity.partySheet.chooseParty')}`,
       buttons: [
         {
           action: "all",

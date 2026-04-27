@@ -42,7 +42,7 @@ export class PowerItemData extends BaseItemData {
     if (this?.dn.length > 0 && this?.dnType.length === 0) {
       for (const [key, value] of Object.entries(CONFIG.torgeternity.dnTypes)) {
         if (key === this?.dn) {
-          this.dnType = game.i18n.localize(value);
+          this.dnType = _loc(value);
           break;
         }
       }

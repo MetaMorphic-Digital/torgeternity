@@ -86,7 +86,7 @@ export default async function setupTokenActionHud(coreModule) {
       const actions = Object.entries(actor.system.attributes).map(([key, attribute]) => {
         return {
           id: key,
-          name: game.i18n.localize(`torgeternity.attributes.${key}`) + ` (${attribute.value})`,
+          name: _loc(`torgeternity.attributes.${key}`) + ` (${attribute.value})`,
           encodedValue: [ACTION_ATTRIBUTE, actor.id, tokenId, key].join(this.delimiter),
         }
       })
@@ -102,7 +102,7 @@ export default async function setupTokenActionHud(coreModule) {
         .map(([key, skill]) => {
           return {
             id: key,
-            name: game.i18n.localize(`torgeternity.skills.${key}`) + (skill.isFav ? FAVOURED : '') + ` (${skill.value || '-'})`,
+            name: _loc(`torgeternity.skills.${key}`) + (skill.isFav ? FAVOURED : '') + ` (${skill.value || '-'})`,
             groupName: skill.groupName, // for local filtering
             encodedValue: [ACTION_SKILL, actor.id, tokenId, key].join(this.delimiter),
             //img: 'systems/torgeternity/images/icons/custom-skills.webp',
@@ -179,7 +179,7 @@ export default async function setupTokenActionHud(coreModule) {
         .map(attack => {
           return {
             id: attack,
-            name: game.i18n.localize(`torgeternity.skills.${attack}`) + (actor.system.skills[attack].isFav ? FAVOURED : '') + ` (${actor.system.skills[attack].value})`,
+            name: _loc(`torgeternity.skills.${attack}`) + (actor.system.skills[attack].isFav ? FAVOURED : '') + ` (${actor.system.skills[attack].value})`,
             encodedValue: [ACTION_ATTACK_INTERACTION, actor.id, tokenId, attack].join(this.delimiter),
           }
         });
@@ -246,7 +246,7 @@ export default async function setupTokenActionHud(coreModule) {
       const actions = CONFIG.torgeternity.statusEffects.map(status => {
         const result = {
           id: status.id,
-          name: game.i18n.localize(status.name),
+          name: _loc(status.name),
           encodedValue: [ACTION_CONDITION, actor.id, tokenId, status.id].join(this.delimiter),
           img: coreModule.api.Utils.getImage(status),
           cssClass: `toggle${actor.statuses.has(status.id) ? " active" : ""}`,
@@ -382,8 +382,8 @@ export default async function setupTokenActionHud(coreModule) {
     /** @override */
     registerSettings(onChangeFunction) {
       game.settings.register('torgeternity', 'tahShowUnskilled', {
-        name: game.i18n.localize('torgeternity.settingMenu.tokenActionHud.showUnskilled.name'),
-        hint: game.i18n.localize('torgeternity.settingMenu.tokenActionHud.showUnskilled.hint'),
+        name: _loc('torgeternity.settingMenu.tokenActionHud.showUnskilled.name'),
+        hint: _loc('torgeternity.settingMenu.tokenActionHud.showUnskilled.hint'),
         scope: 'client',
         config: true,
         type: Boolean,
@@ -392,8 +392,8 @@ export default async function setupTokenActionHud(coreModule) {
       })
 
       game.settings.register('torgeternity', 'tahShowAllEffects', {
-        name: game.i18n.localize('torgeternity.settingMenu.tokenActionHud.showAllEffects.name'),
-        hint: game.i18n.localize('torgeternity.settingMenu.tokenActionHud.showAllEffects.hint'),
+        name: _loc('torgeternity.settingMenu.tokenActionHud.showAllEffects.name'),
+        hint: _loc('torgeternity.settingMenu.tokenActionHud.showAllEffects.hint'),
         scope: 'client',
         config: true,
         type: Boolean,
@@ -406,7 +406,7 @@ export default async function setupTokenActionHud(coreModule) {
 
       const groups = SUBGROUP;
       Object.values(groups).forEach(group => {
-        group.name = game.i18n.localize(group.name);
+        group.name = _loc(group.name);
         group.listName = `Group: ${group.name}`;
       });
 
@@ -415,7 +415,7 @@ export default async function setupTokenActionHud(coreModule) {
           {
             nestId: ATTRIBUTES_ID,
             id: ATTRIBUTES_ID,
-            name: game.i18n.localize('torgeternity.sheetLabels.attributes'),
+            name: _loc('torgeternity.sheetLabels.attributes'),
             type: 'system',
             groups: [
               { ...groups.attributes, nestId: `attributes_attribute` },
@@ -424,7 +424,7 @@ export default async function setupTokenActionHud(coreModule) {
           {
             nestId: SKILLS_ID,
             id: SKILLS_ID,
-            name: game.i18n.localize('torgeternity.sheetLabels.skills'),
+            name: _loc('torgeternity.sheetLabels.skills'),
             type: 'system',
             groups: [
               { ...groups.skillsCombat, nestId: "skills_combat" },
@@ -435,7 +435,7 @@ export default async function setupTokenActionHud(coreModule) {
           {
             nestId: ATTACK_ID,
             id: ATTACK_ID,
-            name: game.i18n.localize('torgeternity.sheetLabels.attacks'),
+            name: _loc('torgeternity.sheetLabels.attacks'),
             type: 'system',
             groups: [
               { ...groups.attacksInteraction, nestId: "attack_interaction" },
@@ -447,7 +447,7 @@ export default async function setupTokenActionHud(coreModule) {
           {
             nestId: POWERS_ID,
             id: POWERS_ID,
-            name: game.i18n.localize('torgeternity.sheetLabels.powers'),
+            name: _loc('torgeternity.sheetLabels.powers'),
             type: 'system',
             groups: [
               { ...groups.spell, nestId: "power_spell" },
@@ -458,7 +458,7 @@ export default async function setupTokenActionHud(coreModule) {
           {
             nestId: PERKS_ID,
             id: PERKS_ID,
-            name: game.i18n.localize('torgeternity.sheetLabels.perks'),
+            name: _loc('torgeternity.sheetLabels.perks'),
             type: 'system',
             groups: [
               { ...groups.perks, nestId: "perks_perks" },
@@ -467,7 +467,7 @@ export default async function setupTokenActionHud(coreModule) {
           {
             nestId: GEAR_ID,
             id: GEAR_ID,
-            name: game.i18n.localize('torgeternity.sheetLabels.gear'),
+            name: _loc('torgeternity.sheetLabels.gear'),
             type: 'system',
             groups: [
               { ...groups.armor, nestId: "gear_armorAndShields" },
@@ -481,7 +481,7 @@ export default async function setupTokenActionHud(coreModule) {
           {
             nestId: EFFECTS_ID,
             id: EFFECTS_ID,
-            name: game.i18n.localize('torgeternity.sheetLabels.effects'),
+            name: _loc('torgeternity.sheetLabels.effects'),
             type: 'system',
             groups: [
               { ...groups.effectsToggle, nestId: "effects_toggle" },
@@ -493,7 +493,7 @@ export default async function setupTokenActionHud(coreModule) {
           {
             nestId: CONDITION_ID,
             id: CONDITION_ID,
-            name: game.i18n.localize('torgeternity.sheetLabels.conditions'),
+            name: _loc('torgeternity.sheetLabels.conditions'),
             type: 'system',
             groups: [
               { ...groups.conditions, nestId: "condition_condition" },

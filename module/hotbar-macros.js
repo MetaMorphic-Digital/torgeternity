@@ -50,8 +50,8 @@ async function createTorgEternityMacro(dropData, slot) {
 
     command = `game.torgeternity.rollSkillMacro("${dropName}", "${dropAttribute}", ${isInteractionAttack});`;
 
-    const locSkillName = dropData.data.customskill ? dropName : (dropName !== dropAttribute) && game.i18n.localize('torgeternity.skills.' + dropName);
-    const locAttributeName = game.i18n.localize('torgeternity.attributes.' + dropAttribute);
+    const locSkillName = dropData.data.customskill ? dropName : (dropName !== dropAttribute) && _loc('torgeternity.skills.' + dropName);
+    const locAttributeName = _loc('torgeternity.attributes.' + dropAttribute);
 
     if (dropData.type === 'skill')
       macroName = locSkillName + '/' + locAttributeName;
@@ -115,7 +115,7 @@ async function rollItemMacro(itemName, itemType) {
     if (item)
       actor = item.parent;
     else
-      return ui.notifications.warn(game.i18n.localize('torgeternity.notifications.noItemNamed') + itemName);
+      return ui.notifications.warn(_loc('torgeternity.notifications.noItemNamed') + itemName);
   }
 
   // Trigger the item roll
@@ -182,7 +182,7 @@ async function rollSkillMacro(skillName, attributeName, isInteractionAttack, DND
     }
     if (!skill)
       return ui.notifications.warn(
-        game.i18n.localize('torgeternity.notifications.noSkillNamed') + skillName
+        _loc('torgeternity.notifications.noSkillNamed') + skillName
       );
   }
 
@@ -192,7 +192,7 @@ async function rollSkillMacro(skillName, attributeName, isInteractionAttack, DND
       ? actor.system.attributes[attributeNameKey]
       : null;
   if (!attribute)
-    return ui.notifications.warn(game.i18n.localize('torgeternity.notifications.noItemNamed'));
+    return ui.notifications.warn(_loc('torgeternity.notifications.noItemNamed'));
   if (isAttributeTest) {
     // dummy skill object since there's no actual skill in this case
     skill = {
@@ -310,7 +310,7 @@ Hooks.on('getActorContextOptions', async (actorDir, menuItems) => {
       DialogV2.wait({
         classes: ['torgeternity', 'themed', 'theme-dark', 'charInfoOutput'],
         window: {
-          title: game.i18n.format('torgeternity.contextMenu.characterInfo.windowTitle', { a: actor.name, }),
+          title: _loc('torgeternity.contextMenu.characterInfo.windowTitle', { a: actor.name, }),
           contentClasses: ['scrollable'],
         },
         position: {

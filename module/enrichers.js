@@ -18,13 +18,13 @@ const InlineCheckPattern = /@Check\[(.+?)\](?:\{(.+?)\}){0,1}/g;
 
 function guessLabel(check) {
   if (Object.hasOwn(CONFIG.torgeternity.attributeTypes, check))
-    return game.i18n.localize(CONFIG.torgeternity.attributeTypes[check]);
+    return _loc(CONFIG.torgeternity.attributeTypes[check]);
   else if (Object.hasOwn(CONFIG.torgeternity.skills, check))
-    return game.i18n.localize(CONFIG.torgeternity.skills[check]);
+    return _loc(CONFIG.torgeternity.skills[check]);
   else if (Object.hasOwn(CONFIG.torgeternity.dnTypes, check))
-    return game.i18n.localize(CONFIG.torgeternity.dnTypes[check]);
+    return _loc(CONFIG.torgeternity.dnTypes[check]);
   else if (Object.hasOwn(CONFIG.torgeternity.dnTypes, `target${check.capitalize()}`))
-    return game.i18n.localize(CONFIG.torgeternity.dnTypes[`target${check.capitalize()}`]);
+    return _loc(CONFIG.torgeternity.dnTypes[`target${check.capitalize()}`]);
   else
     return check;
 }
@@ -63,7 +63,7 @@ function InlineCheckEnricher(match, options) {
     if (!label && dataset.dn) {
       const span = document.createElement('span');
       span.classList.add('dn');
-      span.append(` (${game.i18n.localize('torgeternity.sheetLabels.dn')} ${guessLabel(dataset.dn)})`);
+      span.append(` (${_loc('torgeternity.sheetLabels.dn')} ${guessLabel(dataset.dn)})`);
       anchor.append(span);
     }
     // Append a button to copy the link to chat (only when in Journal)
@@ -104,7 +104,7 @@ function _onClickInlineCheck(event) {
   const speaker = ChatMessage.getSpeaker();
   if (speaker.token) actor = game.actors.tokens[speaker.token];
   if (!actor) actor = game.actors.get(speaker.actor);
-  if (!actor) return ui.notifications.warn(game.i18n.localize('torgeternity.notifications.noTokenNorActor'));
+  if (!actor) return ui.notifications.warn(_loc('torgeternity.notifications.noTokenNorActor'));
 
   if (test.dn) {
     const dnmap = {
@@ -142,9 +142,9 @@ function _onClickInlineCheck(event) {
     // skill test
     const skillName = test.testType;
     const skill = actor.system.skills[skillName];
-    if (!skill) return ui.notifications.warn(game.i18n.localize('torgeternity.notifications.noSkillNamed') + skillName);
+    if (!skill) return ui.notifications.warn(_loc('torgeternity.notifications.noSkillNamed') + skillName);
     const attribute = actor.system.attributes[test.attribute ?? skill.baseAttribute];
-    if (!attribute) return ui.notifications.warn(game.i18n.localize('torgeternity.notifications.noItemNamed'));
+    if (!attribute) return ui.notifications.warn(_loc('torgeternity.notifications.noItemNamed'));
 
     let skillValue = attribute.value;
     if (actor.type === 'stormknight')
@@ -220,7 +220,7 @@ function InlineConditionEnricher(match, options) {
   const anchor = foundry.applications.ux.TextEditor.createAnchor({
     //attrs: null, 
     dataset,
-    name: label ?? game.i18n.localize(`torgeternity.statusEffects.${status}`),
+    name: label ?? _loc(`torgeternity.statusEffects.${status}`),
     classes: ['torg-inline-condition'],
     icon: dataset.off ? "fa-solid fa-circle-minus" : "fa-solid fa-circle-plus"
   });
@@ -276,15 +276,7 @@ async function _onClickInlineCondition(event) {
     if (data.duration) {
       // toggleStatusEffect only accepts 'active' and 'overlay' properties
       eff.update({
-        duration: {
-          // Foundry V13
-          rounds: data.duration,
-          turns: data.duration,
-          // Foundry V14
-          value: data.duration,
-          units: "turns",
-          expiry: 'turnEnd'
-        }
+        duration: { value: data.duration, units: 'rounds', expiry: 'turnEnd' }
       })
     }
   }
@@ -309,7 +301,7 @@ function InlineBuffEnricher(match, options) {
     }
     // Now check for localized name
     for (const [key, value] of Object.entries(obj)) {
-      const local = game.i18n.localize(value);
+      const local = _loc(value);
       if (local === from) {
         dataset[`${type}${key}`] = modifier;
         return true;
@@ -386,33 +378,29 @@ async function _onClickInlineBuff(event) {
     changes: []
   };
 
-  function getMode(v) {
+  function getType(v) {
     if (v.startsWith('-') || v.startsWith('+'))
-      return CONST.ACTIVE_EFFECT_MODES.ADD;
+      return 'add';
     else
-      return CONST.ACTIVE_EFFECT_MODES.OVERRIDE;
+      return 'override';
   }
   for (const [key, value] of Object.entries({ ...target.dataset })) {
     if (key.startsWith('skill'))
       effectdata.changes.push({
         key: `system.skills.${key.slice(5)}.adds`,
-        mode: getMode(value),
+        type: getType(value),
         value: value
       });
     else if (key.startsWith('attribute'))
       effectdata.changes.push({
         key: `system.attributes.${key.slice(9)}.value`,
-        mode: getMode(value),
+        type: getType(value),
         value: value
       });
     else if (key === 'duration') {
       if (!effectdata.duration) effectdata.duration = {}
-      // Foundry V13
-      effectdata.duration.rounds = value;
-      effectdata.duration.turns = value;
-      // Foundry V14
       effectdata.duration.value = value;
-      effectdata.duration.units = 'turns';
+      effectdata.duration.units ??= 'rounds';
       effectdata.duration.expiry ??= 'turnEnd';
     } else
       foundry.utils.setProperty(effectdata, key, value);
@@ -440,11 +428,11 @@ function InlineDamageEnricher(match, options) {
   for (const elem of match[1].split('|')) {
     const [key, value] = elem.split("=");
     // Convert localized field into internal name
-    if (key === 'shock' || key === game.i18n.localize('torgeternity.sheetLabels.shock'))
+    if (key === 'shock' || key === _loc('torgeternity.sheetLabels.shock'))
       dataset.shock = value;
-    else if (key === 'wounds' || key === game.i18n.localize('torgeternity.sheetLabels.wounds'))
+    else if (key === 'wounds' || key === _loc('torgeternity.sheetLabels.wounds'))
       dataset.wounds = value;
-    else if (key === 'damage' || key === game.i18n.localize('torgeternity.chatText.damage'))
+    else if (key === 'damage' || key === _loc('torgeternity.chatText.damage'))
       dataset.damage = value;
     else if (key === 'traits') {
       if (!dataset.damage) {
@@ -467,19 +455,19 @@ function InlineDamageEnricher(match, options) {
   function createLabel() {
     let label = ''
     if (dataset.damage) {
-      label += `${dataset.damage} ${game.i18n.localize('torgeternity.chatText.damage')}`;
+      label += `${dataset.damage} ${_loc('torgeternity.chatText.damage')}`;
       if (dataset.traits) {
         const traits = [];
         for (const trait of dataset.traits.split(',')) {
           const loc = `torgeternity.traits.${trait}`;
-          traits.push(game.i18n.has(loc) ? game.i18n.localize(loc) : trait)
+          traits.push(game.i18n.has(loc) ? _loc(loc) : trait)
         }
         label += (` [${traits.join(',')}]`);
       }
     } else {
-      if (dataset.shock) label += `${dataset.shock} ${game.i18n.localize('torgeternity.sheetLabels.shock')}`
+      if (dataset.shock) label += `${dataset.shock} ${_loc('torgeternity.sheetLabels.shock')}`
       if (dataset.shock && dataset.wounds) label += ', ';
-      if (dataset.wounds) label += `${dataset.wounds} ${game.i18n.localize('torgeternity.sheetLabels.wounds')}`
+      if (dataset.wounds) label += `${dataset.wounds} ${_loc('torgeternity.sheetLabels.wounds')}`
     }
     return label;
   }
@@ -517,15 +505,15 @@ async function _onClickInlineDamage(event) {
   const actors = getActors();
   if (!actors) return ui.notifications.info('torgeternity.notifications.noTokenNorActor', { localize: true });
 
-  let chatOutput = `<h2>${dataset.label ?? game.i18n.localize('torgeternity.chatText.check.result.damage')}</h2> `;
+  let chatOutput = `<h2>${dataset.label ?? _loc('torgeternity.chatText.check.result.damage')}</h2> `;
   if (dataset.damage) {
-    chatOutput += `<p> ${game.i18n.localize('torgeternity.chatText.baseDamage')} ${dataset.damage}`;
+    chatOutput += `<p> ${_loc('torgeternity.chatText.baseDamage')} ${dataset.damage}`;
     if (dataset.ap) {
-      chatOutput += `, ${game.i18n.localize('torgeternity.gear.ap')} ${dataset.ap}`
+      chatOutput += `, ${_loc('torgeternity.gear.ap')} ${dataset.ap}`
     }
     chatOutput += `</p>`;
   }
-  chatOutput += `<p> ${game.i18n.localize('torgeternity.macros.fatigueMacroDealtDamage')}</p> <ul>`;
+  chatOutput += `<p> ${_loc('torgeternity.macros.fatigueMacroDealtDamage')}</p> <ul>`;
   for (const actor of actors) {
     let toughness = actor.system.defenses.toughness -
       (dataset.ignoreArmor ? actor.system.defenses.armor : (Math.min(dataset.ap ?? 0, actor.system.defenses.armor)));
@@ -548,9 +536,9 @@ async function _onClickInlineDamage(event) {
     const chatParts = [];
     chatParts.push(damage.label);
     if (damage.shocks && wasKO) {
-      chatParts.push(`${game.i18n.localize('torgeternity.macros.fatigueMacroCharAlreadyKO')}`);
+      chatParts.push(`${_loc('torgeternity.macros.fatigueMacroCharAlreadyKO')}`);
     } else if (applyResult.shockExceeded) {
-      chatParts.push(`<br><strong>${actor.name}${game.i18n.localize('torgeternity.macros.fatigueMacroCharKO')}</strong>`);
+      chatParts.push(`<br><strong>${actor.name}${_loc('torgeternity.macros.fatigueMacroCharKO')}</strong>`);
     }
     chatOutput += chatParts.join(', ') + '</li>';
   }

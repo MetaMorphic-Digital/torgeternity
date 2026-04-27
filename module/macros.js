@@ -14,12 +14,12 @@ export class TorgeternityMacros {
     try {
       const tokens = canvas.tokens.controlled;
       if (!game.user.isGM) {
-        throw new Error(game.i18n.localize('torgeternity.macros.commonMacroOnlyByGM'));
+        throw new Error(_loc('torgeternity.macros.commonMacroOnlyByGM'));
       } else if (tokens.length === 0) {
-        throw new Error(game.i18n.localize('torgeternity.macros.commonMacroNoTokensSelected'));
+        throw new Error(_loc('torgeternity.macros.commonMacroNoTokensSelected'));
       }
 
-      let chatOutput = `<p>${game.i18n.localize(
+      let chatOutput = `<p>${_loc(
         'torgeternity.macros.clearStatusEffectsHeadline'
       )}</p><ul>`;
 
@@ -33,11 +33,11 @@ export class TorgeternityMacros {
             case 'vulnerable':
             case 'veryVulnerable':
               await token.actor.toggleStatusEffect(effect, { active: false });
-              chatOutput += `<li>${game.i18n.localize(
+              chatOutput += `<li>${_loc(
                 'torgeternity.macros.clearStatusEffectsliftetFrom'
-              )} ${token.actor.name} ${game.i18n.localize(
+              )} ${token.actor.name} ${_loc(
                 'torgeternity.macros.clearStatusEffectsliftetStatusOf'
-              )} ${game.i18n.localize('torgeternity.statusEffects.' + effect)}</li>`;
+              )} ${_loc('torgeternity.statusEffects.' + effect)}</li>`;
               break;
             default:
               continue;
@@ -46,7 +46,7 @@ export class TorgeternityMacros {
       }
 
       if (!chatOutput.includes('<li>')) {
-        chatOutput = game.i18n.localize('torgeternity.macros.clearStatusEffectsNothingFound');
+        chatOutput = _loc('torgeternity.macros.clearStatusEffectsNothingFound');
       } else {
         chatOutput += '</ul>';
       }
@@ -64,12 +64,12 @@ export class TorgeternityMacros {
     const tokens = canvas.tokens.controlled;
 
     if (tokens.length === 0) {
-      ui.notifications.error(game.i18n.localize('torgeternity.macros.commonMacroNoTokensSelected'));
+      ui.notifications.error(_loc('torgeternity.macros.commonMacroNoTokensSelected'));
       return;
     }
-    let chatOutput = `<h2>${game.i18n.localize(
+    let chatOutput = `<h2>${_loc(
       'torgeternity.sheetLabels.fatigue'
-    )}!</h2><p>${game.i18n.localize('torgeternity.macros.fatigueMacroDealtDamage')}</p><ul>`;
+    )}!</h2><p>${_loc('torgeternity.macros.fatigueMacroDealtDamage')}</p><ul>`;
     for (const token of tokens) {
       if (token === undefined) {
         throw new Error('Exception, token is undefined');
@@ -77,16 +77,16 @@ export class TorgeternityMacros {
       const actor = token.actor;
 
       if (actor.hasStatusEffect('unconscious')) {
-        chatOutput += `<li>${token.actor.name} ${game.i18n.localize('torgeternity.macros.fatigueMacroCharAlreadyKO')}</li>`;
+        chatOutput += `<li>${token.actor.name} ${_loc('torgeternity.macros.fatigueMacroCharAlreadyKO')}</li>`;
         continue;
       }
 
       const shockIncrease = actor.system.fatigue;
       const applyResult = token.actor.applyDamages(/*shock*/ shockIncrease, /*wounds*/ 0);
 
-      chatOutput += `<li>${actor.name}: ${shockIncrease} ${game.i18n.localize('torgeternity.sheetLabels.shock')}`;
+      chatOutput += `<li>${actor.name}: ${shockIncrease} ${_loc('torgeternity.sheetLabels.shock')}`;
       if (applyResult.shockExceeded) {
-        chatOutput += `<br><strong>${actor.name}${game.i18n.localize('torgeternity.macros.fatigueMacroCharKO')}</strong>`;
+        chatOutput += `<br><strong>${actor.name}${_loc('torgeternity.macros.fatigueMacroCharKO')}</strong>`;
       }
       chatOutput += '</li>';
     }
@@ -102,11 +102,11 @@ export class TorgeternityMacros {
 
     const fields = foundry.applications.fields;
     const shockGroup = fields.createFormGroup({
-      label: game.i18n.localize('torgeternity.macros.reviveMacroWindowLabel1'),
+      label: _loc('torgeternity.macros.reviveMacroWindowLabel1'),
       input: fields.createNumberInput({ name: 'inputValue' }),
     });
     const checkGroup = fields.createFormGroup({
-      label: game.i18n.localize('torgeternity.macros.reviveMacroWholeRevive'),
+      label: _loc('torgeternity.macros.reviveMacroWholeRevive'),
       input: fields.createCheckboxInput({ name: 'wholeRevive' }),
     });
 
@@ -138,14 +138,14 @@ export class TorgeternityMacros {
       const reviveAmount = parseInt(formData.object.inputValue);
 
       if (tokens.length === 0) {
-        throw new Error(game.i18n.localize('torgeternity.macros.commonMacroNoTokensSelected'));
+        throw new Error(_loc('torgeternity.macros.commonMacroNoTokensSelected'));
       } else if (bolWholeRevive === false && isNaN(reviveAmount)) {
-        throw new Error(game.i18n.localize('torgeternity.macros.reviveMacroError1'));
+        throw new Error(_loc('torgeternity.macros.reviveMacroError1'));
       }
 
-      let chatOutput = `<h2>${game.i18n.localize(
+      let chatOutput = `<h2>${_loc(
         'torgeternity.macros.reviveMacroChatHeadline'
-      )}</h2><p>${game.i18n.localize('torgeternity.macros.reviveMacroFirst')}<p><ul>`;
+      )}</h2><p>${_loc('torgeternity.macros.reviveMacroFirst')}<p><ul>`;
 
       for (const token of tokens) {
         // Following block, if a token has a null-value in system.shock.value (happens, if a value is simply deleted by user to set it apperently to 0), set it to 0, but double check it!
@@ -158,22 +158,22 @@ export class TorgeternityMacros {
         }
 
         if (targetShockValue === 0) {
-          chatOutput += `<li>${token.actor.name} ${game.i18n.localize('torgeternity.macros.reviveMacroAlreadyFull')}</li>`;
+          chatOutput += `<li>${token.actor.name} ${_loc('torgeternity.macros.reviveMacroAlreadyFull')}</li>`;
           continue;
         }
 
         if (bolWholeRevive) {
           await token.actor.update({ 'system.shock.value': 0 });
-          chatOutput += `<li>${token.actor.name} ${game.i18n.localize('torgeternity.macros.reviveMacroCharRevived')}`;
+          chatOutput += `<li>${token.actor.name} ${_loc('torgeternity.macros.reviveMacroCharRevived')}`;
         } else {
           const newShockValue = parseInt(targetShockValue) - reviveAmount;
           await token.actor.update({ 'system.shock.value': newShockValue });
-          chatOutput += `<li>${token.actor.name} ${game.i18n.localize('torgeternity.macros.reviveMacroCharPartyRevived')}${reviveAmount}`;
+          chatOutput += `<li>${token.actor.name} ${_loc('torgeternity.macros.reviveMacroCharPartyRevived')}${reviveAmount}`;
         }
 
         if (token.document.hasStatusEffect('unconscious')) {
           token.actor.toggleStatusEffect('unconscious', { active: false });
-          chatOutput += `<br>${game.i18n.localize('torgeternity.macros.reviveMacroCharDeKOed')} ${token.actor.name}`;
+          chatOutput += `<br>${_loc('torgeternity.macros.reviveMacroCharDeKOed')} ${token.actor.name}`;
         }
         chatOutput += '</li>';
       }
@@ -193,7 +193,7 @@ export class TorgeternityMacros {
 
     const fields = foundry.applications.fields;
     const inputGroup = fields.createFormGroup({
-      label: game.i18n.localize('torgeternity.macros.bonusDieMacroContent'),
+      label: _loc('torgeternity.macros.bonusDieMacroContent'),
       input: fields.createNumberInput({ name: 'inputValue' }),
     });
 
@@ -203,7 +203,7 @@ export class TorgeternityMacros {
       buttons: [
         {
           action: 'buttonRoll`',
-          label: game.i18n.localize('torgeternity.sheetLabels.roll') + '!',
+          label: _loc('torgeternity.sheetLabels.roll') + '!',
           callback: game.torgeternity.macros._rollItBDs,
           default: true
         },
@@ -222,18 +222,18 @@ export class TorgeternityMacros {
       const diceAmount = parseInt(formData.object.inputValue);
 
       if (isNaN(diceAmount)) {
-        ui.notifications.error(game.i18n.localize('torgeternity.macros.commonMacroNoValue'));
+        ui.notifications.error(_loc('torgeternity.macros.commonMacroNoValue'));
         return;
       }
 
       const diceroll = await foundry.dice.Roll.create(`${diceAmount}d6x6max5`).evaluate();
 
-      let chatOutput = `<p>${game.i18n.localize('torgeternity.macros.bonusDieMacroResult1')} 
-      ${diceAmount} ${game.i18n.localize('torgeternity.chatText.bonusDice')} 
-      ${game.i18n.localize('torgeternity.macros.bonusDieMacroResult2')} ${diceroll.total}.</p>`;
+      let chatOutput = `<p>${_loc('torgeternity.macros.bonusDieMacroResult1')} 
+      ${diceAmount} ${_loc('torgeternity.chatText.bonusDice')} 
+      ${_loc('torgeternity.macros.bonusDieMacroResult2')} ${diceroll.total}.</p>`;
 
       if (game.user.targets.size === 0) {
-        chatOutput += `<p>${game.i18n.localize('torgeternity.macros.bonusDieMacroNoTokenTargeted')}</p>`;
+        chatOutput += `<p>${_loc('torgeternity.macros.bonusDieMacroNoTokenTargeted')}</p>`;
         console.log('No targets, creating chat Message, leaving Macro.');
         return ChatMessage.create({
           content: chatOutput,
@@ -245,10 +245,10 @@ export class TorgeternityMacros {
       for (const token of game.user.targets) {
         const tokenDamage = torgDamage(diceroll.total, token.actor.system.defenses.toughness,
           { defenseTraits: token.actor.defenseTraits });
-        chatOutput += `<li>${game.i18n.localize('torgeternity.macros.bonusDieMacroResult3')}  ${token.document.name} `;
+        chatOutput += `<li>${_loc('torgeternity.macros.bonusDieMacroResult3')}  ${token.document.name} `;
         chatOutput += (tokenDamage.shocks > 0) ?
-          `${game.i18n.localize('torgeternity.macros.bonusDieMacroResult4')} ${tokenDamage.label}` :
-          game.i18n.localize('torgeternity.macros.bonusDieMacroResultNoDamage');
+          `${_loc('torgeternity.macros.bonusDieMacroResult4')} ${tokenDamage.label}` :
+          _loc('torgeternity.macros.bonusDieMacroResultNoDamage');
         chatOutput += `.</li>`;
       }
       chatOutput += '</ul>';
@@ -267,12 +267,12 @@ export class TorgeternityMacros {
     if (!game.user.isGM) return;
 
     if (!game.combat?.round) {
-      return ui.notifications.warn(game.i18n.localize('torgeternity.notifications.noFight'));
+      return ui.notifications.warn(_loc('torgeternity.notifications.noFight'));
     }
 
     const users = game.users.filter(user => user.active && !user.isGM);
     if (!users.length) {
-      return ui.notifications.warn(game.i18n.localize('torgeternity.notifications.noPlayers'));
+      return ui.notifications.warn(_loc('torgeternity.notifications.noPlayers'));
     }
 
     let checkOptions = '';
@@ -300,7 +300,7 @@ export class TorgeternityMacros {
     // Choose the nb of cards to show
     const numCards = await DialogV2.wait({
       window: { title: 'torgeternity.dialogWindow.showingDramaCards.nbCards', },
-      content: game.i18n.localize('torgeternity.dialogWindow.showingDramaCards.nbCardsValue'),
+      content: _loc('torgeternity.dialogWindow.showingDramaCards.nbCardsValue'),
       buttons: [
         { action: "1", label: "1", },
         { action: "2", label: "2", },
@@ -319,7 +319,7 @@ export class TorgeternityMacros {
 
     return DialogV2.wait({
       window: { title: 'torgeternity.dialogWindow.showingDramaCards.recipient', },
-      content: `${game.i18n.localize('torgeternity.dialogWindow.showingDramaCards.whisper')} ${checkOptions} <br>`,
+      content: `${_loc('torgeternity.dialogWindow.showingDramaCards.whisper')} ${checkOptions} <br>`,
       buttons: [
         {
           action: "whisper",
@@ -335,12 +335,12 @@ export class TorgeternityMacros {
             if (!targets.length) return;
             let chatOutput = {
               whisper: targets,
-              content: `<div class="card-draw flexcol">${game.i18n.localize('torgeternity.dialogWindow.showingDramaCards.show')}`
+              content: `<div class="card-draw flexcol">${_loc('torgeternity.dialogWindow.showingDramaCards.show')}`
             };
             for (let j = 0; j < numCards; j++) {
               const card = dramaDeck.cards.find(card => card.sort === cardSort + j);
               if (!card) {
-                ui.notifications.warn(game.i18n.localize('torgeternity.dialogWindow.showingDramaCards.noMoreCards'));
+                ui.notifications.warn(_loc('torgeternity.dialogWindow.showingDramaCards.noMoreCards'));
                 break;;
               }
               chatOutput.content +=
@@ -360,7 +360,7 @@ export class TorgeternityMacros {
 
   async dramaFlashback() {
     if (!game.combat?.round) {
-      return ui.notifications.warn(game.i18n.localize('torgeternity.notifications.noFight'));
+      return ui.notifications.warn(_loc('torgeternity.notifications.noFight'));
     }
     game.combat?.restorePreviousDrama();
   }
@@ -374,13 +374,13 @@ export class TorgeternityMacros {
     const _actor = _token?.actor;
 
     if (!_actor) {
-      ui.notifications.error(game.i18n.localize('torgeternity.macros.commonMacroNoTokensSelected'));
+      ui.notifications.error(_loc('torgeternity.macros.commonMacroNoTokensSelected'));
       return;
     }
     const realitySkill = _actor.system.skills.reality;
 
     if (!_token.document.hasStatusEffect('disconnected')) {
-      ui.notifications.error(game.i18n.localize('torgeternity.macros.bonusDieMacroNoDiscon'));
+      ui.notifications.error(_loc('torgeternity.macros.bonusDieMacroNoDiscon'));
       return;
     }
 
@@ -404,14 +404,14 @@ export class TorgeternityMacros {
       waitingModifier: _actor.system.statusModifiers.waiting,
       type: 'skill',
       isOther1: game.scenes.active && game.scenes.active.torg.cosm !== 'none',
-      other1Description: game.i18n.localize('torgeternity.macros.reconnectMacroZoneModifier'),
+      other1Description: _loc('torgeternity.macros.reconnectMacroZoneModifier'),
       other1Modifier: game.scenes.active && difficultyRecon[game.scenes.active.flags.torgeternity.zone],
     };
 
     if (!test.isOther1) {
       await DialogV2.prompt({
         window: { title: 'torgeternity.macros.reconnectMacroZoneModifierNotDetectedTitle' },
-        content: `<p>${game.i18n.localize('torgeternity.macros.reconnectMacroZoneModifierNotDetected')}</p>`,
+        content: `<p>${_loc('torgeternity.macros.reconnectMacroZoneModifierNotDetected')}</p>`,
       });
     }
 
@@ -456,7 +456,7 @@ export class TorgeternityMacros {
     }
     const users = game.users.filter(user => user.active && !user.isGM);
     if (!users.length) {
-      return ui.notifications.warn(game.i18n.localize('torgeternity.notifications.noPlayers'));
+      return ui.notifications.warn(_loc('torgeternity.notifications.noPlayers'));
     }
     let checkOptions = '';
     const playerTokenIds = users.map(user => user.character?.id).filter((id) => id !== undefined);
@@ -480,7 +480,7 @@ export class TorgeternityMacros {
 
     DialogV2.wait({
       window: { title: 'torgeternity.dialogWindow.cardRetour.cardBack', },
-      content: `${game.i18n.localize('torgeternity.dialogWindow.cardRetour.cardOwner')} ${checkOptions} <br>`,
+      content: `${_loc('torgeternity.dialogWindow.cardRetour.cardOwner')} ${checkOptions} <br>`,
       buttons: [
         {
           action: 'whisper',
@@ -518,13 +518,13 @@ export class TorgeternityMacros {
   // if any value change (attribute or add or limitation) erase the effects and redo it
   async torgBuff() {
     if (game.canvas.tokens.controlled.length === 0 && !game.user.character) {
-      ui.notifications.error(game.i18n.localize('torgeternity.notifications.noTokenNorActor'));
+      ui.notifications.error(_loc('torgeternity.notifications.noTokenNorActor'));
       return;
     }
     // Choose the attribute you want to modify
     const attr = await DialogV2.wait({
       window: { title: 'torgeternity.dialogWindow.buffMacro.choice', },
-      content: game.i18n.localize('torgeternity.dialogWindow.buffMacro.choose'),
+      content: _loc('torgeternity.dialogWindow.buffMacro.choose'),
       buttons: [
         { action: 'mind', label: 'torgeternity.attributes.mind', },
         { action: 'strength', label: 'torgeternity.attributes.strength', },
@@ -555,7 +555,7 @@ export class TorgeternityMacros {
     // choose the bonus you expect
     const bonus = await DialogV2.wait({
       window: { title: 'torgeternity.dialogWindow.buffMacro.bonusTitle', },
-      content: `<div>${game.i18n.localize(
+      content: `<div>${_loc(
         'torgeternity.dialogWindow.buffMacro.value'
       )} <input name="bonu" value=1 style="width:50px"/></div>`,
       buttons: [
@@ -572,11 +572,11 @@ export class TorgeternityMacros {
       (attr !== 'piety') ?
         await DialogV2.wait({
           window: { title: 'torgeternity.dialogWindow.buffMacro.timeLabel' },
-          content: `<div>${game.i18n.localize('torgeternity.dialogWindow.buffMacro.time')} <input name="dur" value=1 style="width:50px"/></div>`,
+          content: `<div>${_loc('torgeternity.dialogWindow.buffMacro.time')} <input name="dur" value=1 style="width:50px"/></div>`,
           buttons: [
             {
               action: '1',
-              label: game.i18n.localize('torgeternity.dialogWindow.showingDramaCards.apply'),
+              label: _loc('torgeternity.dialogWindow.showingDramaCards.apply'),
               callback: (event, button, dialog) => parseInt(dialog.element.querySelector('[name=dur]').value)
             },
           ],
@@ -587,13 +587,13 @@ export class TorgeternityMacros {
     if (attr === 'defense') {
       // only Defenses, but ALL defenses
       newEffect = {
-        name: `${game.i18n.localize('torgeternity.dialogWindow.buffMacro.defenses')} / ${bonus} / ${duration} rd(s)`,
-        duration: { rounds: duration, turns: duration, expiry: 'turnEnd' },
+        name: `${_loc('torgeternity.dialogWindow.buffMacro.defenses')} / ${bonus} / ${duration} rd(s)`,
+        duration: { value: duration, units: 'rounds', expiry: 'turnEnd' },
         changes: [
           {
             key: 'system.defenses.all.mod',
             value: bonus,
-            mode: CONST.ACTIVE_EFFECT_MODES.ADD,
+            type: 'add',
           },
         ],
         disabled: false,
@@ -605,13 +605,13 @@ export class TorgeternityMacros {
     else if (attr === 'physicalDefense') {
       // only physical Defenses
       newEffect = {
-        name: `${game.i18n.localize('torgeternity.dialogWindow.buffMacro.physicalDefenses')} / ${bonus} / ${duration} rd(s)`,
-        duration: { rounds: duration, turns: duration, expiry: 'turnEnd' },
+        name: `${_loc('torgeternity.dialogWindow.buffMacro.physicalDefenses')} / ${bonus} / ${duration} rd(s)`,
+        duration: { value: duration, units: 'rounds', expiry: 'turnEnd' },
         changes: [
           {
             key: 'system.defenses.physical.mod',
             value: bonus,
-            mode: CONST.ACTIVE_EFFECT_MODES.ADD,
+            type: 'add',
           },
         ],
         disabled: false,
@@ -623,33 +623,33 @@ export class TorgeternityMacros {
     else if (attr === 'all') {
       // preparation of attribute effect
       newEffect = {
-        name: `${game.i18n.localize('torgeternity.dialogWindow.buffMacro.allAttributes')} / ${bonus} / ${duration} rd(s)`,
-        duration: { rounds: duration, turns: duration, expiry: 'turnEnd' },
+        name: `${_loc('torgeternity.dialogWindow.buffMacro.allAttributes')} / ${bonus} / ${duration} rd(s)`,
+        duration: { value: duration, units: 'rounds', expiry: 'turnEnd' },
         changes: [
           {
             key: 'system.attributes.mind.value',
             value: bonus,
-            mode: CONST.ACTIVE_EFFECT_MODES.ADD,
+            type: 'add',
           },
           {
             key: 'system.attributes.spirit.value',
             value: bonus,
-            mode: CONST.ACTIVE_EFFECT_MODES.ADD,
+            type: 'add',
           },
           {
             key: 'system.attributes.strength.value',
             value: bonus,
-            mode: CONST.ACTIVE_EFFECT_MODES.ADD,
+            type: 'add',
           },
           {
             key: 'system.attributes.dexterity.value',
             value: bonus,
-            mode: CONST.ACTIVE_EFFECT_MODES.ADD,
+            type: 'add',
           },
           {
             key: 'system.attributes.charisma.value',
             value: bonus,
-            mode: CONST.ACTIVE_EFFECT_MODES.ADD,
+            type: 'add',
           },
         ],
         disabled: false,
@@ -671,13 +671,13 @@ export class TorgeternityMacros {
       // One attribute
       // preparation of attribute effect
       newEffect = {
-        name: `${game.i18n.localize('torgeternity.attributes.' + attr)} / ${bonus} / ${duration} rd(s)`,
-        duration: { rounds: duration, turns: duration, expiry: 'turnEnd' },
+        name: `${_loc('torgeternity.attributes.' + attr)} / ${bonus} / ${duration} rd(s)`,
+        duration: { value: duration, units: 'rounds', expiry: 'turnEnd' },
         changes: [
           {
-            key: 'system.attributes.' + attr + '.value',
+            key: `system.attributes.${attr}.value`,
             value: bonus,
-            mode: 2,
+            type: 'add',
           },
         ],
         disabled: false,
@@ -707,7 +707,7 @@ export class TorgeternityMacros {
    */
   async periculum(source = '', value = 10, bds = 0, armored = false, ap = 0) {
     if (!game.user.targets.size)
-      return ui.notifications.warn(game.i18n.localize('torgeternity.notifications.noTarget'));
+      return ui.notifications.warn(_loc('torgeternity.notifications.noTarget'));
 
     if (armored) armored = 'checked';
 
@@ -716,20 +716,20 @@ export class TorgeternityMacros {
     const info = await DialogV2.prompt({
       window: { title: 'Periculum' },
       content: `
-          < label > ${game.i18n.localize('torgeternity.macros.periculumSourceName')} <br>
-            <input placeholder=${game.i18n.localize('torgeternity.macros.periculumSourcePlaceHolder')}
+          < label > ${_loc('torgeternity.macros.periculumSourceName')} <br>
+            <input placeholder=${_loc('torgeternity.macros.periculumSourcePlaceHolder')}
               style="color:black" name="source" type="string" value="${source}"></label>
-            <label>${game.i18n.localize('torgeternity.macros.periculumDamageValue')}
+            <label>${_loc('torgeternity.macros.periculumDamageValue')}
               <input name="damageBase" type="number" value=${value} autofocus style="width:35px"></label>
-            <label>${game.i18n.localize('torgeternity.macros.periculumBds')}
+            <label>${_loc('torgeternity.macros.periculumBds')}
               <input name="plusBD" type="number" value=${bds} style="width:35px"></label>
-            <label>${game.i18n.localize('torgeternity.macros.periculumArmor')}
+            <label>${_loc('torgeternity.macros.periculumArmor')}
               <input name="armor" type="checkbox" ${armored}></label>
-            <label>${game.i18n.localize('torgeternity.macros.periculumAp')}
+            <label>${_loc('torgeternity.macros.periculumAp')}
               <input name="ap" type="number" style="width:35px" value=${ap}></label>
             `,
       ok: {
-        label: game.i18n.localize('torgeternity.dialogWindow.buttons.execute'), // 'Submit Effect',
+        label: _loc('torgeternity.dialogWindow.buttons.execute'), // 'Submit Effect',
         callback: (event, button, dialog) => [
           button.form.elements.source.value,
           button.form.elements.damageBase.valueAsNumber,

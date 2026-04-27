@@ -119,7 +119,7 @@ items:
     _stats:
       systemId: null
       systemVersion: null
-      coreVersion: '13.348'
+      coreVersion: '14.360'
       createdTime: null
       modifiedTime: 1758492406241
       lastModifiedBy: l8SVzn2293lAwvMC
@@ -139,13 +139,10 @@ items:
         origin: >-
           Compendium.torgeternity.archetypes-fr.Actor.8KlJAaxeijOcrJKN.Item.UTEYkvqTcKLhFHtX
         duration:
-          startTime: null
-          combat: null
-          seconds: null
-          rounds: null
-          turns: null
-          startRound: null
-          startTurn: null
+          value: null
+          units: seconds
+          expiry: null
+          expired: false
         disabled: false
         img: icons/svg/aura.svg
         _id: YLtzgGhIrk6mjI4E
@@ -156,11 +153,11 @@ items:
           applyIfDefendTrait: []
           transferOnOutcome: anySuccess
           transferTo: target
-        changes:
-          - key: system.skills.maneuver.isFav
-            mode: 5
-            value: 'true'
-            priority: null
+          changes:
+            - key: system.skills.maneuver.isFav
+              value: true
+              priority: null
+              type: override
         description: ''
         tint: '#ffffff'
         transfer: false
@@ -171,12 +168,15 @@ items:
           compendiumSource: null
           duplicateSource: null
           exportSource: null
-          coreVersion: '13.351'
+          coreVersion: '14.360'
           systemId: torgeternity
           systemVersion: 13.24.1
           createdTime: 1764004060497
           modifiedTime: 1772996704349
           lastModifiedBy: BMvGTGfheqDXarjN
+        start: null
+        showIcon: 1
+        folder: null
         _key: >-
           !actors.items.effects!8KlJAaxeijOcrJKN.UTEYkvqTcKLhFHtX.YLtzgGhIrk6mjI4E
     folder: null
@@ -198,7 +198,7 @@ items:
     _stats:
       systemId: null
       systemVersion: null
-      coreVersion: '13.348'
+      coreVersion: '14.360'
       createdTime: null
       modifiedTime: 1758492857534
       lastModifiedBy: l8SVzn2293lAwvMC
@@ -251,7 +251,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 13.15.0
-      coreVersion: '13.351'
+      coreVersion: '14.360'
       createdTime: null
       modifiedTime: 1771934142591
       lastModifiedBy: BMvGTGfheqDXarjN
@@ -292,7 +292,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 13.15.0
-      coreVersion: '13.351'
+      coreVersion: '14.360'
       createdTime: null
       modifiedTime: 1771934124646
       lastModifiedBy: BMvGTGfheqDXarjN
@@ -333,7 +333,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 13.15.0
-      coreVersion: '13.351'
+      coreVersion: '14.360'
       createdTime: null
       modifiedTime: 1771934139282
       lastModifiedBy: BMvGTGfheqDXarjN
@@ -371,7 +371,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 13.13.2
-      coreVersion: '13.351'
+      coreVersion: '14.360'
       createdTime: null
       modifiedTime: 1764002474239
       lastModifiedBy: e1DB4TK9SbDuMDS3
@@ -529,7 +529,7 @@ items:
     _stats:
       systemId: null
       systemVersion: null
-      coreVersion: '13.348'
+      coreVersion: '14.360'
       createdTime: null
       modifiedTime: 1758492409985
       lastModifiedBy: l8SVzn2293lAwvMC
@@ -558,7 +558,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 13.10.0
-      coreVersion: '13.348'
+      coreVersion: '14.360'
       createdTime: null
       modifiedTime: 1758492853269
       lastModifiedBy: l8SVzn2293lAwvMC
@@ -605,7 +605,7 @@ items:
       compendiumSource: Item.BFGjhDetVDm1xiku
       duplicateSource: null
       exportSource: null
-      coreVersion: '13.348'
+      coreVersion: '14.360'
       systemId: torgeternity
       systemVersion: 13.10.0
       createdTime: 1758491119221
@@ -1021,9 +1021,6 @@ prototypeToken:
     tint: '#ffffff'
     scaleX: 1
     scaleY: 1
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
     anchorX: 0.5
     anchorY: 0.5
     fit: contain
@@ -1040,7 +1037,7 @@ prototypeToken:
     color: null
   appendNumber: false
   prependAdjective: false
-  detectionModes: []
+  detectionModes: {}
   occludable:
     radius: 0
   ring:
@@ -1058,10 +1055,11 @@ prototypeToken:
     src: null
     disposition: false
   movementAction: null
+  depth: 1
 _stats:
   systemId: torgeternity
   systemVersion: 13.27.0
-  coreVersion: '13.351'
+  coreVersion: '14.360'
   createdTime: 1716827809076
   modifiedTime: 1774467234241
   lastModifiedBy: BMvGTGfheqDXarjN

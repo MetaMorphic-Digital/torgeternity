@@ -34,7 +34,7 @@ export default class torgeternityPile extends foundry.applications.sheets.CardPi
     const context = await super._prepareContext(options);
     context.cards = this._prepareCards(); // Get in sorted order
     for (const card of context.cards) {
-      card.typeLoc = game.i18n.localize(`torgeternity.cardTypes.${card.type}`);
+      card.typeLoc = _loc(`torgeternity.cardTypes.${card.type}`);
     }
     return context;
   }

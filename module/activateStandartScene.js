@@ -6,7 +6,7 @@ export async function activateStandartScene() {
   const sceneId = pack.index.getName('Main scene')._id;
   game.scenes.importFromCompendium(pack, sceneId).then((s) => {
     s.update({
-      name: game.i18n.localize('torgeternity.scenes.main') || 'Main Scene',
+      name: _loc('torgeternity.scenes.main') || 'Main Scene',
       active: true,
     });
   });

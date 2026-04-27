@@ -63,7 +63,7 @@
               data-actor-id="{{stormknight.id}}"
               data-type="String"
               class="selectDeck formFields stormknightHand">
-              {{selectOptions ../hands selected=(lookup @root/stormknights stormknight.id sort=true)}}
+              {{selectOptions ../hands selected=stormknight.handid sort=true}}
             </select>
           </div>
         {{/if}} {{/each}}

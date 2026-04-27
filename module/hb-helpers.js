@@ -25,7 +25,7 @@ function TorgRadioBoxesNumber(name, choices, options) {
   const localize = options.hash.localize || false;
   let html = "";
   for (let [key, label] of Object.entries(choices)) {
-    if (localize) label = game.i18n.localize(label);
+    if (localize) label = _loc(label);
     const element = document.createElement("label");
     element.classList.add("checkbox");
     const input = document.createElement("input");

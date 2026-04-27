@@ -3,7 +3,6 @@ active: false
 navigation: true
 navOrder: 0
 navName: ''
-foreground: null
 thumb: systems/torgeternity/images/thumbnails/main-scene-thumb.webp
 width: 5797
 height: 3772
@@ -12,7 +11,6 @@ initial:
   x: 3637
   'y': 1857
   scale: 0.27
-backgroundColor: '#000000'
 grid:
   size: 100
   type: 0
@@ -28,7 +26,6 @@ tokens: []
 lights: []
 notes: []
 sounds: []
-templates: []
 tiles: []
 walls: []
 playlist: null
@@ -48,24 +45,11 @@ ownership:
   default: 2
   ZuS1Anc9ORZov40T: 3
   VAnYow5sWS9EJzo0: 3
-background:
-  src: systems/torgeternity/images/marble_bg.webp
-  offsetX: 0
-  offsetY: 0
-  scaleX: 1
-  scaleY: 1
-  rotation: 0
-  anchorX: 0
-  anchorY: 0
-  fit: fill
-  tint: '#ffffff'
-  alphaThreshold: 0
-foregroundElevation: null
 journalEntryPage: null
 _stats:
   systemId: torgeternity
   systemVersion: 13.24.1
-  coreVersion: '13.351'
+  coreVersion: '14.360'
   createdTime: 1716827808907
   modifiedTime: 1772552548667
   lastModifiedBy: CPwBNCoOtt6eU6Hc
@@ -103,10 +87,49 @@ environment:
     saturation: 0
     shadows: 0
 fog:
-  exploration: false
   reset: 1653458405012
-  overlay: null
   colors:
     explored: null
     unexplored: null
+  mode: 0
+levels:
+  - _id: defaultLevel0000
+    name: Main scene
+    background:
+      color: '#000000'
+      src: systems/torgeternity/images/marble_bg.webp
+      tint: '#ffffff'
+      alphaThreshold: 0.75
+    elevation:
+      bottom: 0
+      top: 20
+    foreground:
+      src: null
+      tint: '#ffffff'
+      alphaThreshold: 0.75
+    fog:
+      src: null
+      tint: '#ffffff'
+    textures:
+      anchorX: 0.5
+      anchorY: 0.5
+      offsetX: 0
+      offsetY: 0
+      fit: fill
+      scaleX: 1
+      scaleY: 1
+      rotation: 0
+    visibility:
+      levels: []
+    sort: 0
+    flags: {}
+    _key: '!scenes.levels!LxFt3CsDFSCSkASP.defaultLevel0000'
+shiftX: 0
+shiftY: 0
+initialLevel: defaultLevel0000
+transition:
+  type: null
+  duration: 1500
+  activeOnly: false
 _key: '!scenes!LxFt3CsDFSCSkASP'
+templates: []

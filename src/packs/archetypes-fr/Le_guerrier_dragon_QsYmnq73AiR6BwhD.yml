@@ -15,13 +15,10 @@ items:
         origin: >-
           Compendium.torgeternity.archetypes-fr.Actor.QsYmnq73AiR6BwhD.Item.0e2qeJEXy89eDqmQ
         duration:
-          startTime: null
-          combat: null
-          seconds: null
-          rounds: null
-          turns: null
-          startRound: null
-          startTurn: null
+          value: null
+          units: seconds
+          expiry: null
+          expired: false
         disabled: false
         img: systems/torgeternity/images/icons/reality-icon.webp
         _id: OLVhARvuJ67N5paG
@@ -31,11 +28,11 @@ items:
           applyIfAttackTrait: []
           applyIfDefendTrait: []
           transferOnOutcome: 0
-        changes:
-          - key: system.attributes.strength.value
-            mode: 2
-            value: '2'
-            priority: null
+          changes:
+            - key: system.attributes.strength.value
+              value: 2
+              priority: null
+              type: add
         description: ''
         tint: '#ffffff'
         transfer: true
@@ -46,26 +43,26 @@ items:
           compendiumSource: null
           duplicateSource: null
           exportSource: null
-          coreVersion: '13.351'
+          coreVersion: '14.360'
           systemId: torgeternity
           systemVersion: 13.13.2
           createdTime: 1764003291363
           modifiedTime: 1774467386870
           lastModifiedBy: BMvGTGfheqDXarjN
+        start: null
+        showIcon: 1
+        folder: null
         _key: >-
           !actors.items.effects!QsYmnq73AiR6BwhD.0e2qeJEXy89eDqmQ.OLVhARvuJ67N5paG
       - name: Dragon Scales (Armor vs. Fire)
         origin: >-
           Compendium.torgeternity.archetypes-fr.Actor.QsYmnq73AiR6BwhD.Item.0e2qeJEXy89eDqmQ
         duration:
-          startTime: null
-          combat: null
-          seconds: null
-          rounds: null
-          turns: null
-          startRound: null
-          startTurn: null
-        disabled: true
+          value: null
+          units: seconds
+          expiry: null
+          expired: false
+        disabled: false
         img: systems/torgeternity/images/icons/reality-icon.webp
         _id: XuU0ggSMZ5XBUVkW
         type: base
@@ -74,11 +71,13 @@ items:
           applyIfAttackTrait: []
           applyIfDefendTrait: []
           transferOnOutcome: 0
-        changes:
-          - key: defenses.armor
-            mode: 2
-            value: '6'
-            priority: null
+          changes:
+            - key: defenses.armor
+              value: 6
+              priority: null
+              type: add
+          defendAgainstTrait:
+            - fireDamage
         description: ''
         tint: '#ffffff'
         transfer: true
@@ -89,12 +88,15 @@ items:
           compendiumSource: null
           duplicateSource: null
           exportSource: null
-          coreVersion: '13.351'
+          coreVersion: '14.360'
           systemId: torgeternity
-          systemVersion: 13.13.2
+          systemVersion: 14.0.0
           createdTime: 1764003292226
-          modifiedTime: 1774467396379
-          lastModifiedBy: BMvGTGfheqDXarjN
+          modifiedTime: 1777325010971
+          lastModifiedBy: iOcCVm1cmrYXOubH
+        start: null
+        showIcon: 1
+        folder: null
         _key: >-
           !actors.items.effects!QsYmnq73AiR6BwhD.0e2qeJEXy89eDqmQ.XuU0ggSMZ5XBUVkW
     folder: null
@@ -221,7 +223,7 @@ items:
     _stats:
       systemId: null
       systemVersion: null
-      coreVersion: '13.348'
+      coreVersion: '14.360'
       createdTime: null
       modifiedTime: 1758492444683
       lastModifiedBy: l8SVzn2293lAwvMC
@@ -255,7 +257,7 @@ items:
     _stats:
       systemId: null
       systemVersion: null
-      coreVersion: '13.345'
+      coreVersion: '14.360'
       createdTime: null
       modifiedTime: null
       lastModifiedBy: null
@@ -297,7 +299,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 13.10.0
-      coreVersion: '13.348'
+      coreVersion: '14.360'
       createdTime: null
       modifiedTime: 1758491897908
       lastModifiedBy: l8SVzn2293lAwvMC
@@ -327,7 +329,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 13.10.0
-      coreVersion: '13.348'
+      coreVersion: '14.360'
       createdTime: null
       modifiedTime: 1758492934966
       lastModifiedBy: l8SVzn2293lAwvMC
@@ -355,7 +357,7 @@ items:
     _stats:
       systemId: null
       systemVersion: null
-      coreVersion: '13.348'
+      coreVersion: '14.360'
       createdTime: null
       modifiedTime: 1758492941153
       lastModifiedBy: l8SVzn2293lAwvMC
@@ -375,13 +377,10 @@ items:
         origin: >-
           Compendium.torgeternity.archetypes-fr.Actor.QsYmnq73AiR6BwhD.Item.F2DgHaQHYRxdQU4b
         duration:
-          startTime: null
-          combat: null
-          seconds: null
-          rounds: null
-          turns: null
-          startRound: null
-          startTurn: null
+          value: null
+          units: seconds
+          expiry: null
+          expired: false
         disabled: false
         img: systems/torgeternity/images/icons/gear-icon.webp
         _id: Q51qBpQRHkhPFOu4
@@ -393,11 +392,11 @@ items:
           applyIfDefendTrait: []
           defendAgainstTrait: []
           combatToggle: false
-        changes:
-          - key: system.skills.maneuver.isFav
-            mode: 5
-            value: 'true'
-            priority: null
+          changes:
+            - key: system.skills.maneuver.isFav
+              value: true
+              priority: null
+              type: override
         description: ''
         tint: '#ffffff'
         transfer: true
@@ -408,12 +407,15 @@ items:
           compendiumSource: null
           duplicateSource: null
           exportSource: null
-          coreVersion: '13.351'
+          coreVersion: '14.360'
           systemId: torgeternity
           systemVersion: 13.24.1
           createdTime: 1772996647722
           modifiedTime: 1774467425515
           lastModifiedBy: BMvGTGfheqDXarjN
+        start: null
+        showIcon: 1
+        folder: null
         _key: >-
           !actors.items.effects!QsYmnq73AiR6BwhD.F2DgHaQHYRxdQU4b.Q51qBpQRHkhPFOu4
     folder: null
@@ -435,7 +437,7 @@ items:
     _stats:
       systemId: null
       systemVersion: null
-      coreVersion: '13.348'
+      coreVersion: '14.360'
       createdTime: null
       modifiedTime: 1758492931266
       lastModifiedBy: l8SVzn2293lAwvMC
@@ -479,7 +481,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 13.15.0
-      coreVersion: '13.351'
+      coreVersion: '14.360'
       createdTime: null
       modifiedTime: 1771934373672
       lastModifiedBy: BMvGTGfheqDXarjN
@@ -499,13 +501,10 @@ items:
         origin: >-
           Compendium.torgeternity.archetypes-fr.Actor.QsYmnq73AiR6BwhD.Item.w5ZFXzswpME4OajM
         duration:
-          startTime: null
-          combat: null
-          seconds: null
-          rounds: null
-          turns: null
-          startRound: null
-          startTurn: null
+          value: null
+          units: seconds
+          expiry: null
+          expired: false
         disabled: false
         img: systems/torgeternity/images/icons/reality-icon.webp
         _id: sdvX18K7AfNKSOKi
@@ -515,11 +514,11 @@ items:
           applyIfAttackTrait: []
           applyIfDefendTrait: []
           transferOnOutcome: 0
-        changes:
-          - key: targetModifiers.darkness
-            mode: 2
-            value: '4'
-            priority: null
+          changes:
+            - key: targetModifiers.darkness
+              value: 4
+              priority: null
+              type: add
         description: ''
         tint: '#ffffff'
         transfer: true
@@ -530,12 +529,15 @@ items:
           compendiumSource: null
           duplicateSource: null
           exportSource: null
-          coreVersion: '13.351'
+          coreVersion: '14.360'
           systemId: torgeternity
           systemVersion: 13.15.0
           createdTime: 1768219099687
           modifiedTime: 1774467391832
           lastModifiedBy: BMvGTGfheqDXarjN
+        start: null
+        showIcon: 1
+        folder: null
         _key: >-
           !actors.items.effects!QsYmnq73AiR6BwhD.w5ZFXzswpME4OajM.sdvX18K7AfNKSOKi
     folder: null
@@ -627,7 +629,7 @@ items:
     _stats:
       systemId: null
       systemVersion: null
-      coreVersion: '13.348'
+      coreVersion: '14.360'
       createdTime: null
       modifiedTime: 1758492441118
       lastModifiedBy: l8SVzn2293lAwvMC
@@ -665,7 +667,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 13.10.0
-      coreVersion: '13.348'
+      coreVersion: '14.360'
       createdTime: null
       modifiedTime: 1758493532778
       lastModifiedBy: l8SVzn2293lAwvMC
@@ -712,7 +714,7 @@ items:
       compendiumSource: Item.BFGjhDetVDm1xiku
       duplicateSource: null
       exportSource: null
-      coreVersion: '13.348'
+      coreVersion: '14.360'
       systemId: torgeternity
       systemVersion: 13.10.0
       createdTime: 1758491119423
@@ -1130,9 +1132,6 @@ prototypeToken:
     tint: '#ffffff'
     scaleX: 1
     scaleY: 1
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
     anchorX: 0.5
     anchorY: 0.5
     fit: contain
@@ -1149,7 +1148,7 @@ prototypeToken:
     color: null
   appendNumber: false
   prependAdjective: false
-  detectionModes: []
+  detectionModes: {}
   occludable:
     radius: 0
   ring:
@@ -1167,10 +1166,11 @@ prototypeToken:
     src: null
     disposition: false
   movementAction: null
+  depth: 1
 _stats:
   systemId: torgeternity
   systemVersion: 13.27.0
-  coreVersion: '13.351'
+  coreVersion: '14.360'
   createdTime: 1716827809381
   modifiedTime: 1774467247904
   lastModifiedBy: BMvGTGfheqDXarjN

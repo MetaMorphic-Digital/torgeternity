@@ -11,13 +11,13 @@ const fields = foundry.data.fields;
  * @param {SetField(StringField)} applyIfTrait Apply this effect to the item if the owning actor has one of these traits.
  * @param {SetField(StringField)} applyVsTrait Apply this effect to the item if the target has one of these traits.
  */
-export class TorgActiveEffectData extends (foundry.data.ActiveEffectTypeDataModel ?? foundry.abstract.TypeDataModel) {
+export class TorgActiveEffectData extends foundry.data.ActiveEffectTypeDataModel {
   // Foundry 14 - change base class to foundry.data.ActiveEffectTypeDataModel
 
   static LOCALIZATION_PREFIXES = ["torgeternity.activeEffect"];
 
   static defineSchema() {
-    const schema = (game.release.generation >= 14) ? foundry.data.ActiveEffectTypeDataModel.defineSchema() : {};
+    const schema = super.defineSchema();
     Object.assign(schema,
       {
         applyOnOutcome: new fields.StringField({
@@ -89,9 +89,9 @@ export class TorgActiveEffectData extends (foundry.data.ActiveEffectTypeDataMode
     if (source.applyIfAttackTrait) source.applyIfAttackTrait = source.applyIfAttackTrait.map(t => (t === 'supernnaturalEvil') ? 'supernaturalEvil' : t)
     if (source.applyIfDefendTrait) source.applyIfDefendTrait = source.applyIfDefendTrait.map(t => (t === 'supernnaturalEvil') ? 'supernaturalEvil' : t)
 
-    if (game.release.generation >= 14 && source.changes) {
+    if (source.changes) {
       for (const change of source.changes) {
-        if (!Object.hasOwn(change, 'type')) {
+        if (!Object.hasOwn(change, 'type') && Object.hasOwn(change, 'mode')) {
           // CONST.ACTIVE_EFFECT_MODES to Object.keys(CONST.ACTIVE_EFFECT_CHANGE_TYPES)
           const MODE_MAP = {
             [0 /*CONST.ACTIVE_EFFECT_MODES.CUSTOM*/]: "custom",

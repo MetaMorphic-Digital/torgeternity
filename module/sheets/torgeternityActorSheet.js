@@ -238,13 +238,13 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
     context.showConditions = true;
 
     const zoneAxioms = this.document.zoneAxioms;
-    context.zoneAxiomsTooltip = `<h3>${game.i18n.localize('torgeternity.sheetLabels.zoneAxioms')}</h3>
+    context.zoneAxiomsTooltip = `<h3>${_loc('torgeternity.sheetLabels.zoneAxioms')}</h3>
     <table class="cosm-axioms">
       <thead>
-        <td class="axiom-label">${game.i18n.localize('torgeternity.sheetLabels.magic')}</td>
-        <td class="axiom-label">${game.i18n.localize('torgeternity.sheetLabels.social')}</td>
-        <td class="axiom-label">${game.i18n.localize('torgeternity.sheetLabels.spirit')}</td>
-        <td class="axiom-label">${game.i18n.localize('torgeternity.sheetLabels.tech')}</td>
+        <td class="axiom-label">${_loc('torgeternity.sheetLabels.magic')}</td>
+        <td class="axiom-label">${_loc('torgeternity.sheetLabels.social')}</td>
+        <td class="axiom-label">${_loc('torgeternity.sheetLabels.spirit')}</td>
+        <td class="axiom-label">${_loc('torgeternity.sheetLabels.tech')}</td>
       </thead>
       <tbody>
         <td class="axiom-value">${zoneAxioms.magic}</td>
@@ -259,7 +259,7 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
       context.skills.push({
         id: key,
         ...value,
-        localName: game.i18n.localize(`torgeternity.skills.${key}`)
+        localName: _loc(`torgeternity.skills.${key}`)
       })
     }
     context.skills.sort((a, b) => a.localName.localeCompare(b.localName));
@@ -305,7 +305,7 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
     ]) {
       for (const item of context[type]) {
         item.description = await foundry.applications.ux.TextEditor.enrichHTML(item.system.description, { secrets: isOwner });
-        item.traitDesc = Array.from(item.system.traits.map(trait => game.i18n.localize(`torgeternity.traits.${trait}`))).join(' / ');
+        item.traitDesc = Array.from(item.system.traits.map(trait => _loc(`torgeternity.traits.${trait}`))).join(' / ');
       }
     }
 
@@ -500,7 +500,7 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
             {
               const choice = await DialogV2.wait({
                 classes: ['torgeternity', 'themed', 'theme-dark'],
-                window: { title: game.i18n.format('torgeternity.itemPurchase.choice.title', { item: item.name, price }) },
+                window: { title: _loc('torgeternity.itemPurchase.choice.title', { item: item.name, price }) },
                 content: await foundry.applications.handlebars.renderTemplate('systems/torgeternity/templates/actors/currency-choice.hbs', {
                   config: CONFIG,
                   actor: actor,
@@ -529,9 +529,9 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
           // Not enough of 1 currency, so maybe try second currency
           if (cosm2) currency = actor.items.find(it => it.system.cosm === cosm2);
           if (!currency || price > currency.system.quantity) {
-            ui.notifications.warn(game.i18n.format('torgeternity.notifications.insufficientFunds',
+            ui.notifications.warn(_loc('torgeternity.notifications.insufficientFunds',
               {
-                currency: currency?.name ?? game.i18n.localize(CONFIG.torgeternity.cosmTypes[cosm]),
+                currency: currency?.name ?? _loc(CONFIG.torgeternity.cosmTypes[cosm]),
                 quantity: currency?.system.quantity ?? 0,
                 item: item.name,
                 price
@@ -545,7 +545,7 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
           ChatMessage.create({
             speaker: ChatMessage.getSpeaker({ actor }),
             owner: actor,
-            content: game.i18n.format('torgeternity.chatText.itemPurchase', {
+            content: _loc('torgeternity.chatText.itemPurchase', {
               item: item.name,
               price,
               currency: currency.name
@@ -573,9 +573,9 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
 
       const proceed = await DialogV2.confirm({
         window: { title: 'torgeternity.dialogWindow.raceDiminishAttribute.title' },
-        content: game.i18n.format(
+        content: _loc(
           'torgeternity.dialogWindow.raceDiminishAttribute.maintext',
-          { attribute: game.i18n.localize('torgeternity.attributes.' + key), }
+          { attribute: _loc('torgeternity.attributes.' + key), }
         ),
         rejectClose: false,
         modal: true,
@@ -607,7 +607,7 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
       // dropped document = driver
       const skillValue = actor?.system?.skills[this.actor.system.type.toLowerCase() + 'Vehicles']?.value ?? 0;
       if (skillValue === 0) {
-        ui.notifications.warn(game.i18n.format('torgeternity.notifications.noCapacity', { a: actor.name }));
+        ui.notifications.warn(_loc('torgeternity.notifications.noCapacity', { a: actor.name }));
         return null;
       }
       await this.actor.update({ 'system.operator': actor.id });
@@ -617,7 +617,7 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
       if (weapon) {
         const skillValue = actor?.system?.skills[weapon.system.attackWith]?.value ?? 0;
         if (skillValue === 0) {
-          ui.notifications.warn(game.i18n.format('torgeternity.notifications.noCapacity', { a: actor.name }));
+          ui.notifications.warn(_loc('torgeternity.notifications.noCapacity', { a: actor.name }));
           return null;
         }
         await weapon.update({ 'system.gunner': actor.id });
@@ -691,7 +691,7 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
   static async #onCosmPoss(event, button) {
     const actor = this.actor;
     const window = Object.values(ui.windows).find(
-      (w) => w.title === game.i18n.localize('torgeternity.sheetLabels.possibilityByCosm')
+      (w) => w.title === _loc('torgeternity.sheetLabels.possibilityByCosm')
     );
     if (!window) {
       PossibilityByCosm.create(actor);
@@ -746,7 +746,7 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
    */
   static async #onChaseRoll(event, button) {
     if (!game.combat) {
-      ui.notifications.info(game.i18n.localize('torgeternity.chatText.check.noTracker'));
+      ui.notifications.info(_loc('torgeternity.chatText.check.noTracker'));
       return;
     }
 
@@ -964,7 +964,7 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
     }
     return this.actor.createEmbeddedDocuments('Item',
       [{
-        name: game.i18n.localize(CONFIG.Item.typeLabels[itemType]),
+        name: _loc(CONFIG.Item.typeLabels[itemType]),
         type: itemType,
       }],
       { renderSheet: true, });
@@ -1075,7 +1075,7 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
   static #onItemDelete(event, button) {
     return DialogV2.confirm({
       window: { title: 'torgeternity.dialogWindow.itemDeletion.title' },
-      content: game.i18n.localize('torgeternity.dialogWindow.itemDeletion.content'),
+      content: _loc('torgeternity.dialogWindow.itemDeletion.content'),
       yes: {
         icon: 'fa-solid fa-check',
         label: 'torgeternity.yesNo.true',
@@ -1127,12 +1127,12 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
   static async #onDeleteRace(event, button) {
     const raceItem = this.actor.itemTypes.race?.[0];
     if (!raceItem) {
-      ui.notifications.error(game.i18n.localize('torgeternity.notifications.noRaceToDelete'));
+      ui.notifications.error(_loc('torgeternity.notifications.noRaceToDelete'));
       return;
     }
     if (await DialogV2.confirm({
       window: { title: 'torgeternity.dialogWindow.raceDeletion.title' },
-      content: game.i18n.localize('torgeternity.dialogWindow.raceDeletion.content'),
+      content: _loc('torgeternity.dialogWindow.raceDeletion.content'),
       // Prompt in same window as Actor sheet
       renderOptions: { window: { windowId: this.window.windowId } }
     })) {

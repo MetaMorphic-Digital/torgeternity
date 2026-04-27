@@ -82,7 +82,7 @@ export default class TorgeternityItemSheet extends foundry.applications.api.Hand
   }
 
   get title() {
-    return `${game.i18n.localize(CONFIG.Item.typeLabels[this.item.type])}: ${this.item.name}`
+    return `${_loc(CONFIG.Item.typeLabels[this.item.type])}: ${this.item.name}`
   }
 
   /** @inheritdoc */
@@ -125,8 +125,8 @@ export default class TorgeternityItemSheet extends foundry.applications.api.Hand
       if (item.type === 'race') return;
 
       if (item.type === 'perk' && item.system.category !== 'racial')
-        return ui.notifications.error(game.i18n.format('torgeternity.notifications.notAPerkItem',
-          { a: game.i18n.localize('torgeternity.perkTypes.' + item.system.category) })
+        return ui.notifications.error(_loc('torgeternity.notifications.notAPerkItem',
+          { a: _loc('torgeternity.perkTypes.' + item.system.category) })
         );
     }
 
@@ -198,7 +198,7 @@ export default class TorgeternityItemSheet extends foundry.applications.api.Hand
   static #onConvertRsa(event, button) {
     this.item.update({
       type: 'specialability-rollable',
-      "==system": this.item.system
+      system: _replace(this.item.system)
     });
   }
 
@@ -374,7 +374,7 @@ export default class TorgeternityItemSheet extends foundry.applications.api.Hand
 
     context.effects = prepareActiveEffectCategories(this.document.effects);
     context.item = context.document;
-    context.typeLabel = game.i18n.localize(CONFIG.Item.typeLabels[context.document.type]);
+    context.typeLabel = _loc(CONFIG.Item.typeLabels[context.document.type]);
     const best = context.item.system.bestowedBy
     context.bestowingItem = best ? context.item.parent?.items.get(best) : null;
 
@@ -386,7 +386,7 @@ export default class TorgeternityItemSheet extends foundry.applications.api.Hand
     for (const item of context.itemsToBestow) {
       item.description = await foundry.applications.ux.TextEditor.enrichHTML(item.system.description, { secrets: item.isOwner ?? true });
       if (!item.system.traits) item.system.traits = [];
-      item.traitDesc = Array.from(item.system.traits.map(trait => game.i18n.localize(`torgeternity.traits.${trait}`))).join(' / ');
+      item.traitDesc = Array.from(item.system.traits.map(trait => _loc(`torgeternity.traits.${trait}`))).join(' / ');
     }
     context.itemsToBestow = Array.from(context.itemsToBestow);
     // Can the user modify the list of bestowed items on this item?
@@ -488,13 +488,13 @@ export async function reloadAmmo(actor, weapon, ammoItem, ignoreUsage) {
     if (ammoItem && weapon.system.loadedAmmo != ammoItem.id) {
       await weapon.update({ 'system.loadedAmmo': ammoItem.id });
       return ChatMessage.create({
-        content: `${game.i18n.format('torgeternity.chatText.changeAmmoType', { weapon: weapon.name, ammo: ammoItem.name })}`,
+        content: `${_loc('torgeternity.chatText.changeAmmoType', { weapon: weapon.name, ammo: ammoItem.name })}`,
         speaker,
       });
 
     } else {
       return ChatMessage.create({
-        content: `${game.i18n.format('torgeternity.chatText.ammoFull', { a: weapon.name })}`,
+        content: `${_loc('torgeternity.chatText.ammoFull', { a: weapon.name })}`,
         speaker,
       });
     }
@@ -505,7 +505,7 @@ export async function reloadAmmo(actor, weapon, ammoItem, ignoreUsage) {
     const ammoArray = actor.itemTypes.ammunition;
     if (ammoArray.length === 0) {
       return ChatMessage.create({
-        content: `${game.i18n.localize('torgeternity.chatText.noSpareAmmo')}`,
+        content: `${_loc('torgeternity.chatText.noSpareAmmo')}`,
         speaker,
       });
     }
@@ -515,7 +515,7 @@ export async function reloadAmmo(actor, weapon, ammoItem, ignoreUsage) {
     } else {
       let dialogContent =
         '<p>' +
-        game.i18n.localize('torgeternity.dialogWindow.chooseAmmo.maintext') +
+        _loc('torgeternity.dialogWindow.chooseAmmo.maintext') +
         '</p><form style="margin-bottom: 1rem"><div style="display:flex;flex-direction: column; list-style: none; align-items:center; gap=3px">';
 
       for (const ammo of ammoArray) {
@@ -530,7 +530,7 @@ export async function reloadAmmo(actor, weapon, ammoItem, ignoreUsage) {
         window: { title: 'torgeternity.dialogWindow.chooseAmmo.windowTitle' },
         content: dialogContent,
         yes: {
-          label: `${game.i18n.localize('torgeternity.submit.OK')}`,
+          label: `${_loc('torgeternity.submit.OK')}`,
           default: true,
           callback: (event, button, dialog) => {
             const checked = dialog.element.querySelector('input:checked');
@@ -538,7 +538,7 @@ export async function reloadAmmo(actor, weapon, ammoItem, ignoreUsage) {
           },
         },
         no: {
-          label: `${game.i18n.localize('torgeternity.submit.cancel')}`,
+          label: `${_loc('torgeternity.submit.cancel')}`,
         },
       });
 
@@ -548,12 +548,12 @@ export async function reloadAmmo(actor, weapon, ammoItem, ignoreUsage) {
   }
 
   if (!ignoreUsage && ammoItem.system.quantity <= 0) {
-    ui.notifications.error(game.i18n.localize('torgeternity.notifications.clipEmpty'));
+    ui.notifications.error(_loc('torgeternity.notifications.clipEmpty'));
     return;
   }
   if (weapon.system.loadedAmmo != ammoItem.id) {
     await ChatMessage.create({
-      content: `${game.i18n.format('torgeternity.chatText.changeAmmoType', { weapon: weapon.name, ammo: ammoItem.name })}`,
+      content: `${_loc('torgeternity.chatText.changeAmmoType', { weapon: weapon.name, ammo: ammoItem.name })}`,
       speaker,
     });
   }
@@ -567,7 +567,7 @@ export async function reloadAmmo(actor, weapon, ammoItem, ignoreUsage) {
   }
 
   await ChatMessage.create({
-    content: game.i18n.format('torgeternity.chatText.reloaded', { a: weapon.name }),
+    content: _loc('torgeternity.chatText.reloaded', { a: weapon.name }),
     speaker,
   });
 }

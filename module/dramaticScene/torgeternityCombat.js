@@ -186,7 +186,7 @@ export default class TorgCombat extends Combat {
       await dramaActive.cards.contents[0].pass(dramaDiscard, game.torgeternity.cardChatOptions);
 
     if (!dramaDeck?.availableCards.length) {
-      ui.notifications.info(game.i18n.localize('torgeternity.notifications.dramaDeckEmpty'));
+      ui.notifications.info(_loc('torgeternity.notifications.dramaDeckEmpty'));
       return;
     }
 
@@ -224,33 +224,33 @@ export default class TorgCombat extends Combat {
     const card = this.currentDrama;
     if (!card) return "No Drama Card Active";
 
-    const lookup = (a) => game.i18n.localize(CONFIG.torgeternity.dramaConflicts[a]);
-    const H = game.i18n.localize('torgeternity.dramaCard.heroesConflict');
-    const V = game.i18n.localize('torgeternity.dramaCard.villainsConflict');
+    const lookup = (a) => _loc(CONFIG.torgeternity.dramaConflicts[a]);
+    const H = _loc('torgeternity.dramaCard.heroesConflict');
+    const V = _loc('torgeternity.dramaCard.villainsConflict');
     if (this.isDramatic) {
       if (card.system.heroesFirstDramatic)
-        return `${game.i18n.localize('torgeternity.dramaCard.dramatic')}: ${H} ${lookup(card.system.heroesConditionsDramatic)}   ${V} ${lookup(card.system.villainsConditionsDramatic)}`
+        return `${_loc('torgeternity.dramaCard.dramatic')}: ${H} ${lookup(card.system.heroesConditionsDramatic)}   ${V} ${lookup(card.system.villainsConditionsDramatic)}`
       else
-        return `${game.i18n.localize('torgeternity.dramaCard.dramatic')}: ${V} ${lookup(card.system.villainsConditionsDramatic)}   ${H} ${lookup(card.system.heroesConditionsDramatic)}`
+        return `${_loc('torgeternity.dramaCard.dramatic')}: ${V} ${lookup(card.system.villainsConditionsDramatic)}   ${H} ${lookup(card.system.heroesConditionsDramatic)}`
     } else {
       if (card.system.heroesFirstStandard)
-        return `${game.i18n.localize('torgeternity.dramaCard.standard')}: ${H} ${lookup(card.system.heroesConditionsStandard)}   ${V} ${lookup(card.system.villainsConditionsStandard)}`
+        return `${_loc('torgeternity.dramaCard.standard')}: ${H} ${lookup(card.system.heroesConditionsStandard)}   ${V} ${lookup(card.system.villainsConditionsStandard)}`
       else
-        return `${game.i18n.localize('torgeternity.dramaCard.standard')}: ${V} ${lookup(card.system.villainsConditionsStandard)}   ${H} ${lookup(card.system.heroesConditionsStandard)}`
+        return `${_loc('torgeternity.dramaCard.standard')}: ${V} ${lookup(card.system.villainsConditionsStandard)}   ${H} ${lookup(card.system.heroesConditionsStandard)}`
     }
   }
 
   get approvedActionsText() {
     const card = this.currentDrama;
     if (!card) return "No Drama Card Active";
-    return this.approvedActions.map(one => game.i18n.localize(CONFIG.torgeternity.dramaActions[one])).join('/');
+    return this.approvedActions.map(one => _loc(CONFIG.torgeternity.dramaActions[one])).join('/');
   }
 
   get dsrText() {
     const dsr = this.currentDrama?.system.dsrLine;
     if (!dsr) return "No Drama Card Active";
     const first = dsr.at(0);
-    return (first === first.toUpperCase()) ? dsr.split('').join(' ') : game.i18n.localize(CONFIG.torgeternity.dramaActions[dsr]);
+    return (first === first.toUpperCase()) ? dsr.split('').join(' ') : _loc(CONFIG.torgeternity.dramaActions[dsr]);
   }
 
   get dramaRule() {
@@ -278,8 +278,7 @@ export default class TorgCombat extends Combat {
     await this.drawDramaCard();
 
     // deactivate active defense when the combat round is progressed. End of combat is in the hook above, 'deleteCombat'
-    if (game.release.generation < 14)
-      await this.#deleteActiveDefense();
+    //await this.#deleteActiveDefense();
 
     // Perform end-of-faction's turn processing
     return this.nextRoundKeep();
@@ -330,8 +329,8 @@ export default class TorgCombat extends Combat {
   async #sendDramaChat(action, faction) {
     return ChatMessage.create({
       speaker: ChatMessage.getSpeaker({ alias: game.user.name }),
-      content: game.i18n.format(`torgeternity.drama.${action}Desc`,
-        { faction: game.i18n.localize(`torgeternity.combat.${faction}`) })
+      content: _loc(`torgeternity.drama.${action}Desc`,
+        { faction: _loc(`torgeternity.combat.${faction}`) })
     });
   }
 
@@ -358,18 +357,18 @@ export default class TorgCombat extends Combat {
     await this.#sendDramaChat('inspiration', faction);
 
     // immediately recover 2 shock (see macros.js:reviveShock)
-    let chatOutput = `<h2>${game.i18n.localize('torgeternity.macros.reviveMacroChatHeadline')}</h2>
-      <p>${game.i18n.localize('torgeternity.macros.reviveMacroFirst')}<p><ul>`;
+    let chatOutput = `<h2>${_loc('torgeternity.macros.reviveMacroChatHeadline')}</h2>
+      <p>${_loc('torgeternity.macros.reviveMacroFirst')}<p><ul>`;
 
     for (const actor of this.getFactionActors(faction)) {
       const shock = actor.system.shock?.value;
       if (!shock || !actor.system?.other?.inspiration) continue;
       const reviveAmount = Math.min(shock, actor.system.other.inspiration);
       await actor.update({ 'system.shock.value': shock - reviveAmount });
-      chatOutput += `<li>${actor.name} ${game.i18n.localize('torgeternity.macros.reviveMacroCharPartyRevived')}${reviveAmount}`;
+      chatOutput += `<li>${actor.name} ${_loc('torgeternity.macros.reviveMacroCharPartyRevived')}${reviveAmount}`;
       if (actor.hasStatusEffect('unconscious')) {
         await actor.toggleStatusEffect('unconscious', { active: false });
-        chatOutput += `<br>${game.i18n.localize('torgeternity.macros.reviveMacroCharDeKOed')} ${actor.name}`;
+        chatOutput += `<br>${_loc('torgeternity.macros.reviveMacroCharDeKOed')} ${actor.name}`;
       }
       chatOutput += '</ul>';
     }
@@ -417,7 +416,7 @@ export default class TorgCombat extends Combat {
 
     const scene = this.scene ?? game.scenes.active;
 
-    let chatOutput = `<h2>${game.i18n.localize('torgeternity.drama.surge')}!</h2><ul>`;
+    let chatOutput = `<h2>${_loc('torgeternity.drama.surge')}!</h2><ul>`;
     for (const actor of this.getFactionActors(faction)) {
       // Any character who is not from that reality,
       // or has something foreign to that reality on their person.
@@ -427,17 +426,17 @@ export default class TorgCombat extends Combat {
 
       chatOutput += `<li class="contradiction-roll"><strong>${actor.name}:</strong> `
       if (actor.isDisconnected) {
-        chatOutput += ` ${game.i18n.localize('torgeternity.chatText.contradiction.alreadyDisconnected')}`;
+        chatOutput += ` ${_loc('torgeternity.chatText.contradiction.alreadyDisconnected')}`;
       } else if (!highestContradiction) {
         // axioms of cosm === axioms of actor
-        chatOutput += ` ${game.i18n.localize('torgeternity.chatText.contradiction.noContradiction')}`;
+        chatOutput += ` ${_loc('torgeternity.chatText.contradiction.noContradiction')}`;
       } else {
-        chatOutput += ` ${game.i18n.localize('torgeternity.chatText.contradiction.possibleContradiction')} `;
+        chatOutput += ` ${_loc('torgeternity.chatText.contradiction.possibleContradiction')} `;
         chatOutput += foundry.applications.ux.TextEditor.createAnchor({
           dataset: {
             limit: highestContradiction,
             uuid: actor.uuid,
-            tooltip: game.i18n.format('torgeternity.chatText.contradiction.checkTooltip', { name: actor.name })
+            tooltip: _loc('torgeternity.chatText.contradiction.checkTooltip', { name: actor.name })
           },
           name: (highestContradiction > 1) ? `{1-${highestContradiction}}` : '{1}',
           classes: ['torg-inline-contradiction'],
@@ -460,20 +459,20 @@ export default class TorgCombat extends Combat {
       const actor = combatant.actor;
       if (!actor) return;
 
-      let chatOutput = `<h2>${game.i18n.localize(
+      let chatOutput = `<h2>${_loc(
         'torgeternity.sheetLabels.fatigue'
-      )}!</h2><p>${game.i18n.localize('torgeternity.macros.fatigueMacroDealtDamage')}</p><ul>`;
+      )}!</h2><p>${_loc('torgeternity.macros.fatigueMacroDealtDamage')}</p><ul>`;
 
       if (actor.hasStatusEffect('unconscious')) {
-        chatOutput += `<li>${actor.name} ${game.i18n.localize('torgeternity.macros.fatigueMacroCharAlreadyKO')}</li>`;
+        chatOutput += `<li>${actor.name} ${_loc('torgeternity.macros.fatigueMacroCharAlreadyKO')}</li>`;
       }
 
       const shockIncrease = actor.system.fatigue;
       const applyResult = actor.applyDamages(/*shock*/ shockIncrease, /*wounds*/ 0);
 
-      chatOutput += `<li>${actor.name}: ${shockIncrease} ${game.i18n.localize('torgeternity.sheetLabels.shock')}`;
+      chatOutput += `<li>${actor.name}: ${shockIncrease} ${_loc('torgeternity.sheetLabels.shock')}`;
       if (applyResult.shockExceeded) {
-        chatOutput += `<br><strong>${actor.name}${game.i18n.localize('torgeternity.macros.fatigueMacroCharKO')}</strong>`;
+        chatOutput += `<br><strong>${actor.name}${_loc('torgeternity.macros.fatigueMacroCharKO')}</strong>`;
       }
       chatOutput += '</li>';
 
@@ -541,7 +540,7 @@ export default class TorgCombat extends Combat {
     if (actor.isDisconnected) {
       return ChatMessage.create({
         speaker: ChatMessage.getSpeaker({ actor }),
-        content: `<p class="contradiction-roll">${actor.name} ${game.i18n.localize('torgeternity.chatText.contradiction.alreadyDisconnected')}</p>`
+        content: `<p class="contradiction-roll">${actor.name} ${_loc('torgeternity.chatText.contradiction.alreadyDisconnected')}</p>`
       })
     }
 
@@ -555,12 +554,12 @@ export default class TorgCombat extends Combat {
     if (!success) {
       if (game.settings.get('torgeternity', 'autoDisconnect'))
         await actor.toggleStatusEffect('disconnected', { active: true });
-      result = game.i18n.localize('torgeternity.chatText.contradiction.hasDisconnected');
+      result = _loc('torgeternity.chatText.contradiction.hasDisconnected');
     } else {
-      result = game.i18n.localize('torgeternity.chatText.contradiction.notDisconnected');
+      result = _loc('torgeternity.chatText.contradiction.notDisconnected');
     }
     const dieNum = roll.dice[0].values[0];
-    const content = `<h2>${game.i18n.localize('torgeternity.chatText.contradiction.contradictionCheck')}</h2>
+    const content = `<h2>${_loc('torgeternity.chatText.contradiction.contradictionCheck')}</h2>
       <p class="contradiction-roll ${success ? '' : 'disconnection'}">${actor.name} ${result}</p>
       <div class="dice-roll-torg">
           <div class="dice-result">

@@ -105,7 +105,7 @@ items:
     _stats:
       systemId: null
       systemVersion: null
-      coreVersion: '13.348'
+      coreVersion: '14.360'
       createdTime: null
       modifiedTime: 1758492432213
       lastModifiedBy: l8SVzn2293lAwvMC
@@ -217,7 +217,7 @@ items:
     _stats:
       systemId: null
       systemVersion: null
-      coreVersion: '13.348'
+      coreVersion: '14.360'
       createdTime: null
       modifiedTime: 1758492428920
       lastModifiedBy: l8SVzn2293lAwvMC
@@ -245,7 +245,7 @@ items:
     _stats:
       systemId: null
       systemVersion: null
-      coreVersion: '13.348'
+      coreVersion: '14.360'
       createdTime: null
       modifiedTime: 1758492917535
       lastModifiedBy: l8SVzn2293lAwvMC
@@ -273,7 +273,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 13.10.0
-      coreVersion: '13.348'
+      coreVersion: '14.360'
       createdTime: null
       modifiedTime: 1758492910725
       lastModifiedBy: l8SVzn2293lAwvMC
@@ -301,7 +301,7 @@ items:
     _stats:
       systemId: null
       systemVersion: null
-      coreVersion: '13.348'
+      coreVersion: '14.360'
       createdTime: null
       modifiedTime: 1758492907421
       lastModifiedBy: l8SVzn2293lAwvMC
@@ -332,7 +332,7 @@ items:
     _stats:
       systemId: null
       systemVersion: null
-      coreVersion: '13.348'
+      coreVersion: '14.360'
       createdTime: null
       modifiedTime: 1758492903932
       lastModifiedBy: l8SVzn2293lAwvMC
@@ -360,7 +360,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 13.10.0
-      coreVersion: '13.348'
+      coreVersion: '14.360'
       createdTime: null
       modifiedTime: 1758492913965
       lastModifiedBy: l8SVzn2293lAwvMC
@@ -399,7 +399,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 13.13.2
-      coreVersion: '13.351'
+      coreVersion: '14.360'
       createdTime: null
       modifiedTime: 1764002415773
       lastModifiedBy: e1DB4TK9SbDuMDS3
@@ -440,7 +440,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 13.15.0
-      coreVersion: '13.351'
+      coreVersion: '14.360'
       createdTime: null
       modifiedTime: 1771934176237
       lastModifiedBy: BMvGTGfheqDXarjN
@@ -486,7 +486,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 13.15.0
-      coreVersion: '13.351'
+      coreVersion: '14.360'
       createdTime: null
       modifiedTime: 1771934177788
       lastModifiedBy: BMvGTGfheqDXarjN
@@ -515,7 +515,7 @@ items:
     _stats:
       systemId: null
       systemVersion: null
-      coreVersion: '13.345'
+      coreVersion: '14.360'
       createdTime: null
       modifiedTime: null
       lastModifiedBy: null
@@ -562,7 +562,7 @@ items:
       compendiumSource: Item.BFGjhDetVDm1xiku
       duplicateSource: null
       exportSource: null
-      coreVersion: '13.348'
+      coreVersion: '14.360'
       systemId: torgeternity
       systemVersion: 13.10.0
       createdTime: 1758491119555
@@ -1062,9 +1062,6 @@ prototypeToken:
     tint: '#ffffff'
     scaleX: 1
     scaleY: 1
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
     anchorX: 0.5
     anchorY: 0.5
     fit: contain
@@ -1081,7 +1078,7 @@ prototypeToken:
     color: null
   appendNumber: false
   prependAdjective: false
-  detectionModes: []
+  detectionModes: {}
   occludable:
     radius: 0
   ring:
@@ -1099,10 +1096,11 @@ prototypeToken:
     src: null
     disposition: false
   movementAction: null
+  depth: 1
 _stats:
   systemId: torgeternity
   systemVersion: 13.27.0
-  coreVersion: '13.351'
+  coreVersion: '14.360'
   createdTime: 1716827809742
   modifiedTime: 1774467243693
   lastModifiedBy: BMvGTGfheqDXarjN

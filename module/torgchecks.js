@@ -43,7 +43,7 @@ export async function renderSkillChat(test, origChatMessage) {
   // Check for targeting a vehicle which doesn't have an operator.
   for (const target of test.targets) {
     if (target.type === 'vehicle' && isNaN(target.defenses.dodge)) {
-      ui.notifications.error(game.i18n.format('torgeternity.notifications.noVehicleOperator', { a: target.targetName }));
+      ui.notifications.error(_loc('torgeternity.notifications.noVehicleOperator', { a: target.targetName }));
       return;
     }
   }
@@ -143,7 +143,7 @@ export async function renderSkillChat(test, origChatMessage) {
       if (test.isFav && test.disfavored) {
         test.isFav = false;
         test.disfavored = false;
-        test.chatNote += game.i18n.localize('torgeternity.sheetLabels.favDis');
+        test.chatNote += _loc('torgeternity.sheetLabels.favDis');
       }
       if (!test.isFav) test.hideFavButton = true;
       if (test.disfavored) {
@@ -152,7 +152,7 @@ export async function renderSkillChat(test, origChatMessage) {
         if (test.diceroll.dice[0].results.length > 1) {
           // => explosion occured, so remove disfavored
           test.disfavored = false;
-          test.chatNote += game.i18n.localize('torgeternity.sheetLabels.explosionCancelled');
+          test.chatNote += _loc('torgeternity.sheetLabels.explosionCancelled');
         }
       } else test.rollTotal = test.diceroll.total;
 
@@ -165,9 +165,9 @@ export async function renderSkillChat(test, origChatMessage) {
             if (!failures) return null;
             const result = []
             for (const failure of failures)
-              result.push(game.i18n.format(`torgeternity.chatText.disconnection.${label}`, {
-                axiom: game.i18n.localize(CONFIG.torgeternity.axioms[failure.axiom]),
-                actorType: game.i18n.localize(CONFIG.Actor.typeLabels[testActor.type]),
+              result.push(_loc(`torgeternity.chatText.disconnection.${label}`, {
+                axiom: _loc(CONFIG.torgeternity.axioms[failure.axiom]),
+                actorType: _loc(CONFIG.Actor.typeLabels[testActor.type]),
                 itemName: testItem.name,
                 itemAxiom: failure.item,
                 [axiomField]: failure.max
@@ -175,7 +175,7 @@ export async function renderSkillChat(test, origChatMessage) {
             return result;
           }
 
-          test.disconnection = game.i18n.format('torgeternity.chatText.disconnection.base', {
+          test.disconnection = _loc('torgeternity.chatText.disconnection.base', {
             diceTotal: test.rollTotal,
             itemName: testItem.name,
           })
@@ -226,7 +226,7 @@ export async function renderSkillChat(test, origChatMessage) {
     }
 
     function modifierString(label, value) {
-      let result = game.i18n.localize(label);
+      let result = _loc(label);
       if (typeof value === 'number') result += ` (${value.signedString()})`
       return result;
     }
@@ -395,8 +395,8 @@ export async function renderSkillChat(test, origChatMessage) {
     const rollResult = test.skillValue + test.bonus + test.modifiers;
 
     // Handle numeric value in DNDescriptor
-    let actionTotalContent = `${game.i18n.localize('torgeternity.chatText.check.result.actionTotal')} ${rollResult} vs. ${test.DN} `;
-    if (isNaN(Number(test.DNDescriptor))) actionTotalContent += game.i18n.localize('torgeternity.dnTypes.' + test.DNDescriptor);
+    let actionTotalContent = `${_loc('torgeternity.chatText.check.result.actionTotal')} ${rollResult} vs. ${test.DN} `;
+    if (isNaN(Number(test.DNDescriptor))) actionTotalContent += _loc('torgeternity.dnTypes.' + test.DNDescriptor);
     if (singleResult)
       test.actionTotalContent = actionTotalContent;
     else
@@ -411,27 +411,27 @@ export async function renderSkillChat(test, origChatMessage) {
       !(test.testType === 'activeDefenseUpdate' || test.testType === 'activeDefense')
     ) {
       // Roll 1 and not defense = Mishap
-      test.resultText = game.i18n.localize('torgeternity.chatText.check.result.mishap');
+      test.resultText = _loc('torgeternity.chatText.check.result.mishap');
       test.result = TestResult.MISHAP;
       if (test.testType === 'soak') target.soakWounds = 0;
       if (test.testType === 'power') test.showBacklashButtons = true;
     } else if (testDifference < 0) {
-      test.resultText = game.i18n.localize('torgeternity.chatText.check.result.failure');
+      test.resultText = _loc('torgeternity.chatText.check.result.failure');
       test.result = TestResult.FAILURE;
       if (test.testType === 'soak') target.soakWounds = 0;
       if (test.testType === 'power') test.showBacklashButtons = true;
     } else if (testDifference < 5) {
-      test.resultText = game.i18n.localize('torgeternity.chatText.check.result.standardSuccess');
+      test.resultText = _loc('torgeternity.chatText.check.result.standardSuccess');
       test.result = TestResult.STANDARD;
       if (test.testType === 'soak') target.soakWounds = 1;
       if (testItem?.system?.standard) test.extraResult = testItem.system.standard;
     } else if (testDifference < 10) {
-      test.resultText = game.i18n.localize('torgeternity.chatText.check.result.goodSuccess');
+      test.resultText = _loc('torgeternity.chatText.check.result.goodSuccess');
       test.result = TestResult.GOOD;
       if (test.testType === 'soak') target.soakWounds = 2;
       if (testItem?.system?.good) test.extraResult = testItem.system.good;
     } else {
-      test.resultText = game.i18n.localize('torgeternity.chatText.check.result.outstandingSuccess');
+      test.resultText = _loc('torgeternity.chatText.check.result.outstandingSuccess');
       test.result = TestResult.OUTSTANDING;
       if (test.testType === 'soak') target.soakWounds = 'all';
       if (testItem?.system?.outstanding) test.extraResult = testItem.system.outstanding;
@@ -476,7 +476,7 @@ export async function renderSkillChat(test, origChatMessage) {
       test.concentratingId = (await testActor.addConcentration(testItem))?.uuid;
       ChatMessage.create({
         speaker: ChatMessage.getSpeaker({ actor: testActor }),
-        content: game.i18n.format('torgeternity.chatText.concentration.start', { itemName: testItem.name })
+        content: _loc('torgeternity.chatText.concentration.start', { itemName: testItem.name })
       })
     }
 
@@ -492,28 +492,28 @@ export async function renderSkillChat(test, origChatMessage) {
 
     if (test.result === TestResult.MISHAP) {
       if (test.attackTraits?.includes('fragile')) {
-        test.extraResult = game.i18n.format('torgeternity.chatText.check.result.fragileBroken', { itemName: testItem.name });
+        test.extraResult = _loc('torgeternity.chatText.check.result.fragileBroken', { itemName: testItem.name });
       }
       test.skillRollMenuStyle = 'hidden';
       if (test.testType === 'soak')
         test.chatNote =
-          game.i18n.localize('torgeternity.sheetLabels.soakNull') +
-          game.i18n.localize('torgeternity.sheetLabels.possSpent');
+          _loc('torgeternity.sheetLabels.soakNull') +
+          _loc('torgeternity.sheetLabels.possSpent');
 
     } else if (test.testType === 'soak') {
       if (target.soakWounds > 0) {
         test.chatNote =
           `${target.soakWounds} ` +
-          game.i18n.localize('torgeternity.sheetLabels.soakValue') +
-          game.i18n.localize('torgeternity.sheetLabels.possSpent');
+          _loc('torgeternity.sheetLabels.soakValue') +
+          _loc('torgeternity.sheetLabels.possSpent');
       } else if (target.soakWounds === 'all') {
         test.chatNote =
-          game.i18n.localize('torgeternity.sheetLabels.soakAll') +
-          game.i18n.localize('torgeternity.sheetLabels.possSpent');
+          _loc('torgeternity.sheetLabels.soakAll') +
+          _loc('torgeternity.sheetLabels.possSpent');
       } else {
         test.chatNote =
-          game.i18n.localize('torgeternity.sheetLabels.soakNull') +
-          game.i18n.localize('torgeternity.sheetLabels.possSpent');
+          _loc('torgeternity.sheetLabels.soakNull') +
+          _loc('torgeternity.sheetLabels.possSpent');
       }
       // Create and Manage Active Effect if SK is Actively Defending (thanks Durak!)
 
@@ -526,7 +526,7 @@ export async function renderSkillChat(test, origChatMessage) {
         return ChatMessage.create({
           // Simple chat message for information
           speaker: ChatMessage.getSpeaker({ actor: testActor }),
-          content: game.i18n.localize('torgeternity.chatText.check.result.resetDefense'), // Need to be implemented if incorporated
+          content: _loc('torgeternity.chatText.check.result.resetDefense'), // Need to be implemented if incorporated
         });
       } else {
         await testActor.setActiveDefense(test.bonus);
@@ -579,12 +579,12 @@ export async function renderSkillChat(test, origChatMessage) {
 
         // Generate damage description and damage sublabel
         if (test.result < TestResult.STANDARD) {
-          target.damageDescription = game.i18n.localize('torgeternity.chatText.check.result.noDamage');
-          target.damageSubDescription = game.i18n.localize('torgeternity.chatText.check.result.attackMissed');
+          target.damageDescription = _loc('torgeternity.chatText.check.result.noDamage');
+          target.damageSubDescription = _loc('torgeternity.chatText.check.result.attackMissed');
           target.showApplyDamage = false;
           //target.showBD = false;  // hidden by default (and should remain undefined so it can be set to True if the test is improved to a Success)
           if (test.attackTraits?.includes('unwieldy')) {
-            target.damageDescription += ` (${game.i18n.localize('torgeternity.traits.unwieldy')})`;
+            target.damageDescription += ` (${_loc('torgeternity.traits.unwieldy')})`;
             test.showActorApplyVeryVulnerable = true;
           }
 
@@ -632,7 +632,7 @@ export async function renderSkillChat(test, origChatMessage) {
           target.showApplyDamage = (damage.wounds || damage.shocks);
           target.damageDescription = damage.label;
           target.damageSubDescription =
-            `${game.i18n.localize('torgeternity.chatText.check.result.damage')} ${adjustedDamage} vs. ${target.targetAdjustedToughness} ${game.i18n.localize('torgeternity.chatText.check.result.toughness')}`;
+            `${_loc('torgeternity.chatText.check.result.damage')} ${adjustedDamage} vs. ${target.targetAdjustedToughness} ${_loc('torgeternity.chatText.check.result.toughness')}`;
 
           // 'stagger' trait on a weapon inflicts STYMIED after any damage is dealt.
           if ((damage.shocks > 0 || damage.wounds > 0) && test.attackTraits?.includes('stagger')) {
@@ -641,7 +641,7 @@ export async function renderSkillChat(test, origChatMessage) {
         }
       } else {
         // Roll with no targets
-        target.damageDescription = `${adjustedDamage} ${game.i18n.localize('torgeternity.chatText.check.result.damage')}`;
+        target.damageDescription = `${adjustedDamage} ${_loc('torgeternity.chatText.check.result.damage')}`;
       }
     } else if (test.isDefeatTest) {
       if (test.result === TestResult.STANDARD)
@@ -650,8 +650,8 @@ export async function renderSkillChat(test, origChatMessage) {
         test.defeatInjury = 'temporary';
 
       // Use non-translated strings to lookup key
-      test.defeatMain = game.i18n.format(`torgeternity.defeat.${TestResultKey[test.result]}.main`, { name: testActor.name });
-      test.defeatSub = game.i18n.format(`torgeternity.defeat.${TestResultKey[test.result]}.sub`, { name: testActor.name });
+      test.defeatMain = _loc(`torgeternity.defeat.${TestResultKey[test.result]}.main`, { name: testActor.name });
+      test.defeatSub = _loc(`torgeternity.defeat.${TestResultKey[test.result]}.sub`, { name: testActor.name });
     }
 
     // Label as Skill vs. Attribute Test and turn on BD option if needed
@@ -663,17 +663,17 @@ export async function renderSkillChat(test, origChatMessage) {
       test.testType === 'stunt' ||
       test.testType === 'vehicleBase'
     ) {
-      test.typeLabel = game.i18n.localize('torgeternity.chatText.skillTestLabel');
+      test.typeLabel = _loc('torgeternity.chatText.skillTestLabel');
     } else if (test.testType === 'attack') {
-      test.typeLabel = game.i18n.localize('torgeternity.chatText.skillTestLabel');
+      test.typeLabel = _loc('torgeternity.chatText.skillTestLabel');
     } else if (test.testType === 'power') {
-      test.typeLabel = game.i18n.localize('torgeternity.chatText.skillTestLabel');
+      test.typeLabel = _loc('torgeternity.chatText.skillTestLabel');
     } else if (test.testType === 'custom') {
-      test.typeLabel = game.i18n.localize('torgeternity.chatText.skillTestLabel');
+      test.typeLabel = _loc('torgeternity.chatText.skillTestLabel');
       test.resultTextClass = 'hidden';
       test.upClass = 'hidden';
     } else {
-      test.typeLabel = game.i18n.localize('torgeternity.chatText.attributeTestLabel');
+      test.typeLabel = _loc('torgeternity.chatText.attributeTestLabel');
     }
     test.typeLabel += ' ';
 
@@ -718,16 +718,8 @@ export async function renderSkillChat(test, origChatMessage) {
   const newroll = test.diceroll;
   delete test.diceroll;
 
-  let flavor, options;
-  if (game.release.generation < 14) {
-    const rollMode = game.settings.get("core", "rollMode");
-    options = { rollMode };
-    flavor = (rollMode === 'publicroll') ? '' : game.i18n.localize(CONFIG.Dice.rollModes[rollMode].label);
-  } else {
-    const messageMode = game.settings.get("core", "messageMode");
-    options = { messageMode };
-    flavor = (messageMode === 'public') ? '' : game.i18n.localize(CONFIG.ChatMessage.modes[messageMode].label);
-  }
+  const messageMode = game.settings.get("core", "messageMode");
+  const flavor = (messageMode === 'public') ? '' : _loc(CONFIG.ChatMessage.modes[messageMode].label);
   let message;
   if (origChatMessage) {
     const rolls = dicerolled ? origChatMessage.rolls.concat(dicerolled) : origChatMessage.rolls;
@@ -756,7 +748,7 @@ export async function renderSkillChat(test, origChatMessage) {
         },
       },
     },
-      options);
+      { messageMode });
   }
 
   if (game.settings.get('torgeternity', 'unTarget')) {
@@ -819,27 +811,15 @@ export function applyNumericChange(value, change) {
   const delta = parseInt(change.value);
   if (isNaN(delta)) return value;  // value MUST be a number
 
-  if (game.release.generation < 14) {
-    switch (change.mode) {
-      case CONST.ACTIVE_EFFECT_MODES.ADD: return value + delta;
-      case CONST.ACTIVE_EFFECT_MODES.MULTIPLY: return value * delta;
-      case CONST.ACTIVE_EFFECT_MODES.OVERRIDE: return delta;
-      case CONST.ACTIVE_EFFECT_MODES.UPGRADE: return Math.max(value, delta);
-      case CONST.ACTIVE_EFFECT_MODES.DOWNGRADE: return Math.min(value, delta);
-      default: // custom 
-        return value;
-    }
-  } else {
-    switch (change.type) {
-      case "add": return value + delta;
-      case "subtract": return value - delta;
-      case "multiply": return value * delta;
-      case "override": return delta;
-      case "upgrade": return Math.max(value, delta);
-      case "downgrade": return Math.min(value, delta);
-      default:  // custom
-        return value;
-    }
+  switch (change.type) {
+    case "add": return value + delta;
+    case "subtract": return value - delta;
+    case "multiply": return value * delta;
+    case "override": return delta;
+    case "upgrade": return Math.max(value, delta);
+    case "downgrade": return Math.min(value, delta);
+    default:  // custom
+      return value;
   }
 }
 
@@ -888,33 +868,33 @@ export function torgDamageModifiers(result, options) {
   }
 
   if (result.wounds > 0 && traits?.includes('dazing')) {
-    flags.push(game.i18n.localize('torgeternity.traits.dazing'));
+    flags.push(_loc('torgeternity.traits.dazing'));
     result.wounds -= 1;
     result.shocks += 3;
   }
   if (result.shocks > 0 && traits?.includes('painful')) {
-    flags.push(game.i18n.localize('torgeternity.traits.painful'));
+    flags.push(_loc('torgeternity.traits.painful'));
     result.shocks += 1;
   }
   if (result.wounds > 0 && traits?.includes('ignoreWounds')) {
-    flags.push(game.i18n.localize('torgeternity.traits.ignoreWounds'));
+    flags.push(_loc('torgeternity.traits.ignoreWounds'));
     result.wounds = 0;
   }
   if (result.shocks > 0 && traits?.includes('ignoreShock')) {
-    flags.push(game.i18n.localize('torgeternity.traits.ignoreShock'));
+    flags.push(_loc('torgeternity.traits.ignoreShock'));
     result.shocks = 0;
   }
 
   if (result.shocks > 0 || result.wounds > 0) {
-    result.label = (result.wounds > 0) ? `${result.wounds} ${game.i18n.localize('torgeternity.stats.wounds')}` : '';
+    result.label = (result.wounds > 0) ? `${result.wounds} ${_loc('torgeternity.stats.wounds')}` : '';
 
     if (result.shocks > 0) {
       if (result.label.length) result.label += ' + ';
-      result.label += `${result.shocks} ${game.i18n.localize('torgeternity.stats.shock')}`;
+      result.label += `${result.shocks} ${_loc('torgeternity.stats.shock')}`;
     }
-    if (traits?.includes('stagger')) flags.push(game.i18n.localize('torgeternity.traits.stagger'));
+    if (traits?.includes('stagger')) flags.push(_loc('torgeternity.traits.stagger'));
   } else {
-    result.label = game.i18n.localize('torgeternity.chatText.check.result.noDamage');
+    result.label = _loc('torgeternity.chatText.check.result.noDamage');
   }
   if (flags.length) result.label += ` (${flags.join(', ')})`;
 
@@ -1025,11 +1005,11 @@ function individualDN(test, target) {
     base += getExtraProtection(test.attackTraits, target.defenses, 'Defense');
     if (onTarget === 'vehicleDefense')
       return target.defenses?.vehicle ?? 0;
-    if (target.attributes && Object.hasOwn(target.attributes, onTarget))
+    if (foundry.utils.hasProperty(target.attributes, onTarget))
       return target.attributes[onTarget] + base;
-    if (target.defenses && Object.hasOwn(target.defenses, onTarget))
+    if (foundry.utils.hasProperty(target.defenses, onTarget))
       return target.defenses[onTarget] + base;
-    if (target.skills && Object.hasOwn(target.skills, onTarget)) {
+    if (foundry.utils.hasProperty(target.skills, onTarget)) {
       const skill = target.skills[onTarget];
       return base + ((skill.value && skill.value !== '-')
         ? (skill.value + skill.defenseMod)
@@ -1101,7 +1081,7 @@ export async function rollAttack(actor, item, options = {}) {
   let attributes;
 
   if (item?.weaponWithAmmo && !item.hasAmmo) {
-    ui.notifications.warn(game.i18n.localize('torgeternity.chatText.noAmmo'));
+    ui.notifications.warn(_loc('torgeternity.chatText.noAmmo'));
     return;
   }
 
@@ -1255,7 +1235,7 @@ export async function rollSkill(actor, skillName, options = {}) {
     testType = 'reconnect';
     const confirmed = await DialogV2.confirm({
       window: { title: 'torgeternity.dialogWindow.realityCheck.title' },
-      content: game.i18n.localize('torgeternity.dialogWindow.realityCheck.content'),
+      content: _loc('torgeternity.dialogWindow.realityCheck.content'),
     });
 
     if (!confirmed) {
@@ -1263,7 +1243,7 @@ export async function rollSkill(actor, skillName, options = {}) {
       foundry.applications.handlebars.renderTemplate(
         './systems/torgeternity/templates/chat/skill-error-card.hbs',
         {
-          message: game.i18n.localize('torgeternity.chatText.check.cantUseRealityWhileDisconnected'),
+          message: _loc('torgeternity.chatText.check.cantUseRealityWhileDisconnected'),
           actor: actor.uuid,
           actorPic: actor.img,
           actorName: actor.name,
@@ -1377,7 +1357,7 @@ export async function rollTapping(actor, item, options = {}) {
     return foundry.applications.handlebars.renderTemplate(
       './systems/torgeternity/templates/chat/skill-error-card.hbs',
       {
-        message: game.i18n.localize('torgeternity.chatText.check.cantUseRealityWhileDisconnected'),
+        message: _loc('torgeternity.chatText.check.cantUseRealityWhileDisconnected'),
         actor: actor.uuid,
         actorPic: actor.img,
         actorName: actor.name,
@@ -1399,7 +1379,7 @@ export async function rollTapping(actor, item, options = {}) {
       actor.system.attributes?.[skillName].isFav,
     skillName: skillName,
     skillValue: skillValue,
-    chatTitle: game.i18n.localize('torgeternity.chatText.tapping'),
+    chatTitle: _loc('torgeternity.chatText.tapping'),
     DNDescriptor: 'fixedNumber',
     DNfixed: dn
   }, options);
@@ -1478,7 +1458,7 @@ export function checkUnskilled(skillValue, skillName, actor) {
   foundry.applications.handlebars.renderTemplate(
     './systems/torgeternity/templates/chat/skill-error-card.hbs',
     {
-      message: game.i18n.localize('torgeternity.skills.' + skillName) + ' ' + game.i18n.localize('torgeternity.chatText.check.cantUseUntrained'),
+      message: _loc('torgeternity.skills.' + skillName) + ' ' + _loc('torgeternity.chatText.check.cantUseUntrained'),
       actor: actor.uuid,
       actorPic: actor.img,
       actorName: actor.name,

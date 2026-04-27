@@ -52,7 +52,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 13.15.0
-      coreVersion: '13.351'
+      coreVersion: '14.360'
       createdTime: 1694866227322
       modifiedTime: 1771936129146
       lastModifiedBy: BMvGTGfheqDXarjN
@@ -101,7 +101,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 13.2.2
-      coreVersion: '13.346'
+      coreVersion: '14.360'
       createdTime: 1694866234201
       modifiedTime: 1753598726089
       lastModifiedBy: W32Zl65V9atvPk8o
@@ -134,7 +134,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 12.2.0
-      coreVersion: '13.345'
+      coreVersion: '14.360'
       createdTime: 1694866242946
       modifiedTime: 1722164710484
       lastModifiedBy: 93AMwcGe6H37rcPA
@@ -148,20 +148,12 @@ items:
     img: systems/torgeternity/images/icons/gear-icon.webp
     effects:
       - _id: UBMPRmdexcJIvmed
-        changes:
-          - key: system.skills.maneuver.isFav
-            mode: 5
-            value: '1'
-            priority: null
         disabled: false
         duration:
-          startTime: null
-          seconds: null
-          combat: null
-          rounds: null
-          turns: null
-          startRound: null
-          startTurn: null
+          value: null
+          units: seconds
+          expiry: null
+          expired: false
         origin: Compendium.te001-core-rulebook.grw-de-ausruestung.GPs2FHE83EfpBIfZ
         transfer: false
         flags: {}
@@ -170,7 +162,7 @@ items:
         description: ''
         statuses: []
         _stats:
-          coreVersion: '13.351'
+          coreVersion: '14.360'
           systemId: torgeternity
           systemVersion: 13.24.1
           createdTime: null
@@ -183,7 +175,15 @@ items:
         type: base
         system:
           transferOnOutcome: anySuccess
+          changes:
+            - key: system.skills.maneuver.isFav
+              value: true
+              priority: null
+              type: override
         sort: 0
+        start: null
+        showIcon: 1
+        folder: null
         _key: >-
           !actors.items.effects!4maHTlnkLTHmuYpB.GLGvMUxF3Aydcn8g.UBMPRmdexcJIvmed
     folder: null
@@ -211,7 +211,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 12.2.0
-      coreVersion: '13.345'
+      coreVersion: '14.360'
       createdTime: 1694866252810
       modifiedTime: 1722164702036
       lastModifiedBy: 93AMwcGe6H37rcPA
@@ -253,10 +253,11 @@ items:
     ownership:
       ZuS1Anc9ORZov40T: 3
       CtisFurQNe9h7ABb: 3
+      default: 0
     _stats:
       systemId: torgeternity
       systemVersion: 13.2.2
-      coreVersion: '13.346'
+      coreVersion: '14.360'
       createdTime: 1711562366100
       modifiedTime: 1753598711842
       lastModifiedBy: W32Zl65V9atvPk8o
@@ -293,7 +294,7 @@ items:
     _stats:
       compendiumSource: Compendium.te001-core-rulebook.grw-de-ausruestung.Item.kiWS8lQLXbtS6FYE
       duplicateSource: null
-      coreVersion: '13.345'
+      coreVersion: '14.360'
       systemId: torgeternity
       systemVersion: 12.2.0
       createdTime: 1722164695803
@@ -308,24 +309,21 @@ items:
     effects:
       - origin: Item.jrbssxZ0HSmDCIH0
         duration:
-          rounds: null
-          startTime: null
-          seconds: null
-          combat: null
-          turns: null
-          startRound: null
-          startTurn: null
+          value: null
+          units: seconds
+          expiry: null
+          expired: false
         disabled: false
         name: Riesenstärke (+2)
         img: systems/torgeternity/images/icons/reality-icon.webp
         _id: SzDN8V4WPZxKsfKs
         type: base
-        system: {}
-        changes:
-          - key: system.attributes.strength.value
-            mode: 2
-            value: '2'
-            priority: null
+        system:
+          changes:
+            - key: system.attributes.strength.value
+              value: 2
+              priority: null
+              type: add
         description: ''
         tint: '#ffffff'
         transfer: true
@@ -335,15 +333,82 @@ items:
         _stats:
           compendiumSource: null
           duplicateSource: null
-          coreVersion: '13.351'
+          coreVersion: '14.360'
           systemId: torgeternity
           systemVersion: 12.2.0
           createdTime: null
           modifiedTime: 1774460821962
           lastModifiedBy: BMvGTGfheqDXarjN
           exportSource: null
+        start: null
+        showIcon: 1
+        folder: null
         _key: >-
           !actors.items.effects!4maHTlnkLTHmuYpB.rWgkIw6gm37tEUAA.SzDN8V4WPZxKsfKs
+      - name: Dragon Scales (Armor vs. Fire)
+        origin: Compendium.te001-core-rulebook.Items.Item.eItDWecF1ue7Hvp0
+        duration:
+          value: null
+          units: seconds
+          expiry: null
+          expired: false
+        disabled: false
+        img: systems/torgeternity/images/icons/reality-icon.webp
+        _id: GFVwedISXXsBSYXB
+        type: base
+        system:
+          applyIfAttackTrait: []
+          applyIfDefendTrait: []
+          transferOnOutcome: ''
+          defendAgainstTrait:
+            - fireDamage
+          changes:
+            - key: system.defenses.armor
+              value: 6
+              priority: null
+              type: add
+              phase: initial
+          applyOnOutcome: ''
+          transferTo: target
+          activeIfTrait: []
+          applyIfAttackTraitCombine: or
+          applyIfDefendTraitCombine: or
+          defendAgainstTraitCombine: or
+          itemsToBestow: []
+          combatToggle: false
+          concentratingId: null
+          emanation:
+            radius: null
+            color: '#000040'
+            disposition: 1
+            visibility: 4
+        description: ''
+        tint: '#ffffff'
+        transfer: true
+        statuses: []
+        sort: 0
+        flags: {}
+        _stats:
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+          coreVersion: '14.360'
+          systemId: torgeternity
+          systemVersion: 14.0.0
+          lastModifiedBy: iOcCVm1cmrYXOubH
+          modifiedTime: 1777328556168
+          createdTime: 1777328556168
+        start:
+          combat: null
+          round: null
+          time: 0
+          turn: null
+          combatant: null
+          initiative: null
+        showIcon: 1
+        folder: null
+        _key: >-
+          !actors.items.effects!4maHTlnkLTHmuYpB.rWgkIw6gm37tEUAA.GFVwedISXXsBSYXB
     folder: null
     sort: 200000
     flags: {}
@@ -488,7 +553,7 @@ items:
     _stats:
       compendiumSource: Compendium.te001-core-rulebook.grw-de-vorzuverb.Item.nFFJqamKJz86Yrig
       duplicateSource: null
-      coreVersion: '13.346'
+      coreVersion: '14.360'
       systemId: torgeternity
       systemVersion: 13.1.1
       createdTime: null
@@ -808,7 +873,7 @@ items:
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-      coreVersion: '13.351'
+      coreVersion: '14.360'
       systemId: torgeternity
       systemVersion: 13.15.0
       createdTime: 1768218570117
@@ -927,7 +992,7 @@ items:
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-      coreVersion: '13.351'
+      coreVersion: '14.360'
       systemId: torgeternity
       systemVersion: 13.15.0
       createdTime: 1768218570117
@@ -945,13 +1010,10 @@ items:
       - name: Dunkelsicht
         origin: Compendium.te001-core-rulebook.grw-de-vorzuverb.Item.ZatdKThAEeXYAA9r
         duration:
-          startTime: 590
-          combat: null
-          seconds: null
-          rounds: null
-          turns: null
-          startRound: null
-          startTurn: null
+          value: null
+          units: seconds
+          expiry: null
+          expired: false
         disabled: false
         img: systems/torgeternity/images/icons/reality-icon.webp
         _id: VYPmk5fqyqurFKB4
@@ -961,11 +1023,11 @@ items:
           applyIfAttackTrait: []
           applyIfDefendTrait: []
           transferOnOutcome: 0
-        changes:
-          - key: targetModifiers.darkness
-            mode: 2
-            value: '4'
-            priority: null
+          changes:
+            - key: targetModifiers.darkness
+              value: 4
+              priority: null
+              type: add
         description: ''
         tint: '#ffffff'
         transfer: true
@@ -976,11 +1038,21 @@ items:
           compendiumSource: null
           duplicateSource: null
           exportSource: null
-          coreVersion: '13.351'
+          coreVersion: '14.360'
           systemId: torgeternity
           systemVersion: 13.15.0
           lastModifiedBy: BMvGTGfheqDXarjN
           modifiedTime: 1774460844904
+          createdTime: null
+        start:
+          combat: null
+          round: null
+          time: 590
+          turn: null
+          combatant: null
+          initiative: null
+        showIcon: 1
+        folder: null
         _key: >-
           !actors.items.effects!4maHTlnkLTHmuYpB.YiMjiR1RpwRIBq0c.VYPmk5fqyqurFKB4
     folder: icqFu6DFcYQQKoSN
@@ -1086,7 +1158,7 @@ items:
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-      coreVersion: '13.351'
+      coreVersion: '14.360'
       systemId: torgeternity
       systemVersion: 13.15.0
       createdTime: 1768218570117
@@ -1506,9 +1578,6 @@ prototypeToken:
     tint: '#ffffff'
     scaleX: 1
     scaleY: 1
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
     anchorX: 0.5
     anchorY: 0.5
     fit: contain
@@ -1525,7 +1594,7 @@ prototypeToken:
     color: null
   appendNumber: false
   prependAdjective: false
-  detectionModes: []
+  detectionModes: {}
   occludable:
     radius: 0
   ring:
@@ -1543,10 +1612,11 @@ prototypeToken:
     src: null
     disposition: false
   movementAction: null
+  depth: 1
 _stats:
   systemId: torgeternity
   systemVersion: 13.27.0
-  coreVersion: '13.351'
+  coreVersion: '14.360'
   createdTime: 1694866052812
   modifiedTime: 1773001234689
   lastModifiedBy: BMvGTGfheqDXarjN

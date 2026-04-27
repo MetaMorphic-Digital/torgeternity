@@ -25,7 +25,7 @@ export class TorgControlButtons extends HandlebarsApplicationMixin(ApplicationV2
         type: 'toggle',
         callback: (button, active) => {
           const hand = TorgeternityActor.getControlledActor()?.getDefaultHand();
-          if (!hand) return ui.notifications.error(game.i18n.localize('torgeternity.notifications.noHands'));
+          if (!hand) return ui.notifications.error(_loc('torgeternity.notifications.noHands'));
           setWindowState(hand.sheet, active);
         },
       },

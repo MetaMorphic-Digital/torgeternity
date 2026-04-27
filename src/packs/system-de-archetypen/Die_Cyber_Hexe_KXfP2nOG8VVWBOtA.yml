@@ -41,7 +41,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 3.1.1
-      coreVersion: '13.345'
+      coreVersion: '14.360'
       createdTime: 1694865946306
       modifiedTime: 1694865946306
       lastModifiedBy: CtisFurQNe9h7ABb
@@ -96,7 +96,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 13.15.0
-      coreVersion: '13.351'
+      coreVersion: '14.360'
       createdTime: 1694865974402
       modifiedTime: 1771933798500
       lastModifiedBy: BMvGTGfheqDXarjN
@@ -129,7 +129,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 12.2.0
-      coreVersion: '13.345'
+      coreVersion: '14.360'
       createdTime: 1694865991923
       modifiedTime: 1722164249047
       lastModifiedBy: 93AMwcGe6H37rcPA
@@ -163,7 +163,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 12.2.0
-      coreVersion: '13.345'
+      coreVersion: '14.360'
       createdTime: 1694865998659
       modifiedTime: 1722164218338
       lastModifiedBy: 93AMwcGe6H37rcPA
@@ -270,7 +270,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 12.2.0
-      coreVersion: '13.345'
+      coreVersion: '14.360'
       createdTime: 1694866008612
       modifiedTime: 1722164209815
       lastModifiedBy: 93AMwcGe6H37rcPA
@@ -314,7 +314,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 12.2.0
-      coreVersion: '13.345'
+      coreVersion: '14.360'
       createdTime: 1711562366100
       modifiedTime: 1722164235328
       lastModifiedBy: 93AMwcGe6H37rcPA
@@ -423,7 +423,7 @@ items:
     _stats:
       compendiumSource: Compendium.te001-core-rulebook.grw-de-vorzuverb.Item.96Uk1RoSQ6jUkoK6
       duplicateSource: null
-      coreVersion: '13.345'
+      coreVersion: '14.360'
       systemId: torgeternity
       systemVersion: 12.2.0
       createdTime: null
@@ -458,7 +458,7 @@ items:
     _stats:
       compendiumSource: Compendium.te001-core-rulebook.grw-de-vorzuverb.Item.33iJGyN9gPsr4jr6
       duplicateSource: null
-      coreVersion: '13.345'
+      coreVersion: '14.360'
       systemId: torgeternity
       systemVersion: 12.3.0
       createdTime: 1729599409623
@@ -534,7 +534,7 @@ items:
       compendiumSource: Compendium.te001-core-rulebook.grw-de-kraefte.Item.373rRZieSUiFDMNo
       duplicateSource: null
       exportSource: null
-      coreVersion: '13.351'
+      coreVersion: '14.360'
       systemId: torgeternity
       systemVersion: 13.33.0
       createdTime: 1774460751046
@@ -607,7 +607,7 @@ items:
       compendiumSource: Compendium.te001-core-rulebook.grw-de-kraefte.Item.dnvTmgrdRgrEjvo9
       duplicateSource: null
       exportSource: null
-      coreVersion: '13.351'
+      coreVersion: '14.360'
       systemId: torgeternity
       systemVersion: 13.33.0
       createdTime: 1774460785852
@@ -1024,9 +1024,6 @@ prototypeToken:
     tint: '#ffffff'
     scaleX: 1
     scaleY: 1
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
     anchorX: 0.5
     anchorY: 0.5
     fit: contain
@@ -1043,7 +1040,7 @@ prototypeToken:
     color: null
   appendNumber: false
   prependAdjective: false
-  detectionModes: []
+  detectionModes: {}
   occludable:
     radius: 0
   ring:
@@ -1061,10 +1058,11 @@ prototypeToken:
     src: null
     disposition: false
   movementAction: null
+  depth: 1
 _stats:
   systemId: torgeternity
   systemVersion: 13.27.0
-  coreVersion: '13.351'
+  coreVersion: '14.360'
   createdTime: 1694865921702
   modifiedTime: 1773001234696
   lastModifiedBy: BMvGTGfheqDXarjN

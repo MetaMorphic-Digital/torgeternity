@@ -41,7 +41,7 @@ items:
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-      coreVersion: '13.348'
+      coreVersion: '14.360'
       systemId: torgeternity
       systemVersion: 13.10.0
       createdTime: 1758491119834
@@ -52,27 +52,24 @@ effects:
   - name: Bewegung +4
     origin: Compendium.torgeternity.system-de-archetypen.Actor.SVU3O0osXn4bPoTn
     duration:
-      startTime: 0
-      combat: null
-      seconds: null
-      rounds: null
-      turns: null
-      startRound: null
-      startTurn: null
+      value: null
+      units: seconds
+      expiry: null
+      expired: false
     disabled: false
     img: systems/torgeternity/images/characters/sabre_tooth_cat.Avatar.webp
     _id: sMpSTzJccoRqzict
     type: base
-    system: {}
-    changes:
-      - key: system.other.moveMod
-        mode: 2
-        value: '4'
-        priority: null
-      - key: system.other.runMod
-        mode: 2
-        value: '12'
-        priority: null
+    system:
+      changes:
+        - key: system.other.moveMod
+          value: 4
+          priority: null
+          type: add
+        - key: system.other.runMod
+          value: 12
+          priority: null
+          type: add
     description: ''
     tint: '#ffffff'
     transfer: false
@@ -83,12 +80,21 @@ effects:
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-      coreVersion: '13.351'
+      coreVersion: '14.360'
       systemId: torgeternity
       systemVersion: 13.1.1
       createdTime: 1753104588971
       modifiedTime: 1774466157408
       lastModifiedBy: BMvGTGfheqDXarjN
+    start:
+      combat: null
+      round: null
+      time: 0
+      turn: null
+      combatant: null
+      initiative: null
+    showIcon: 1
+    folder: null
     _key: '!actors.effects!SVU3O0osXn4bPoTn.sMpSTzJccoRqzict'
 folder: null
 sort: 0
@@ -499,9 +505,6 @@ prototypeToken:
     tint: '#ffffff'
     scaleX: 1
     scaleY: 1
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
     anchorX: 0.5
     anchorY: 0.5
     fit: contain
@@ -518,7 +521,7 @@ prototypeToken:
     color: null
   appendNumber: false
   prependAdjective: false
-  detectionModes: []
+  detectionModes: {}
   occludable:
     radius: 0
   ring:
@@ -536,10 +539,11 @@ prototypeToken:
     src: null
     disposition: false
   movementAction: null
+  depth: 1
 _stats:
   systemId: torgeternity
   systemVersion: 13.27.0
-  coreVersion: '13.351'
+  coreVersion: '14.360'
   createdTime: 1694860904413
   modifiedTime: 1773001234700
   lastModifiedBy: BMvGTGfheqDXarjN

@@ -25,7 +25,7 @@ export async function torgMigration() {
     }
     // show a UI warning
     ui.notifications.warn(
-      game.i18n.localize('torgeternity.notifications.beginningMigration') + currentVersion
+      _loc('torgeternity.notifications.beginningMigration') + currentVersion
     );
 
     // migrations up to 2.4.0
@@ -167,7 +167,7 @@ export async function torgMigration() {
         if (actor.type !== 'stormknight' && actor.system?.details.race !== 'human') continue;
         const raceItem = new TorgeternityItem({
           type: 'race',
-          name: game.i18n.localize('torgeternity.perkTypes.human'),
+          name: _loc('torgeternity.perkTypes.human'),
         });
 
         await actor.createEmbeddedDocuments('Item', [raceItem]);

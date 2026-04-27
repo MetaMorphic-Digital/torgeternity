@@ -99,7 +99,7 @@ items:
     _stats:
       systemId: null
       systemVersion: null
-      coreVersion: '13.348'
+      coreVersion: '14.360'
       createdTime: null
       modifiedTime: 1758492341463
       lastModifiedBy: l8SVzn2293lAwvMC
@@ -204,7 +204,7 @@ items:
     _stats:
       systemId: null
       systemVersion: null
-      coreVersion: '13.348'
+      coreVersion: '14.360'
       createdTime: null
       modifiedTime: 1758492345257
       lastModifiedBy: l8SVzn2293lAwvMC
@@ -236,7 +236,7 @@ items:
     _stats:
       systemId: null
       systemVersion: null
-      coreVersion: '13.348'
+      coreVersion: '14.360'
       createdTime: null
       modifiedTime: 1758492695983
       lastModifiedBy: l8SVzn2293lAwvMC
@@ -272,7 +272,7 @@ items:
     _stats:
       systemId: null
       systemVersion: null
-      coreVersion: '13.348'
+      coreVersion: '14.360'
       createdTime: null
       modifiedTime: 1758492718182
       lastModifiedBy: l8SVzn2293lAwvMC
@@ -292,13 +292,10 @@ items:
         origin: >-
           Compendium.torgeternity.archetypes-fr.Actor.tbqGzMeQeCA3n1Mt.Item.PdWFjwZntFEHyhTf
         duration:
-          startTime: null
-          combat: null
-          seconds: null
-          rounds: null
-          turns: null
-          startRound: null
-          startTurn: null
+          value: null
+          units: seconds
+          expiry: null
+          expired: false
         disabled: false
         img: systems/torgeternity/images/icons/reality-icon.webp
         _id: i5YAMkeTD86kWUN8
@@ -308,11 +305,11 @@ items:
           applyIfAttackTrait: []
           applyIfDefendTrait: []
           transferOnOutcome: 0
-        changes:
-          - key: system.skills.survival.isFav
-            mode: 5
-            value: 'true'
-            priority: null
+          changes:
+            - key: system.skills.survival.isFav
+              value: true
+              priority: null
+              type: override
         description: ''
         tint: '#ffffff'
         transfer: true
@@ -323,12 +320,15 @@ items:
           compendiumSource: null
           duplicateSource: null
           exportSource: null
-          coreVersion: '13.351'
+          coreVersion: '14.360'
           systemId: torgeternity
           systemVersion: 13.13.2
           createdTime: 1764004226150
           modifiedTime: 1774467344545
           lastModifiedBy: BMvGTGfheqDXarjN
+        start: null
+        showIcon: 1
+        folder: null
         _key: >-
           !actors.items.effects!tbqGzMeQeCA3n1Mt.PdWFjwZntFEHyhTf.i5YAMkeTD86kWUN8
     folder: null
@@ -360,7 +360,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 13.15.0
-      coreVersion: '13.351'
+      coreVersion: '14.360'
       createdTime: null
       modifiedTime: 1771934016691
       lastModifiedBy: BMvGTGfheqDXarjN
@@ -407,7 +407,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 13.15.0
-      coreVersion: '13.351'
+      coreVersion: '14.360'
       createdTime: null
       modifiedTime: 1771934041951
       lastModifiedBy: BMvGTGfheqDXarjN
@@ -452,7 +452,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 13.15.0
-      coreVersion: '13.351'
+      coreVersion: '14.360'
       createdTime: null
       modifiedTime: 1771934028008
       lastModifiedBy: BMvGTGfheqDXarjN
@@ -487,7 +487,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 13.10.0
-      coreVersion: '13.348'
+      coreVersion: '14.360'
       createdTime: null
       modifiedTime: 1758493415198
       lastModifiedBy: l8SVzn2293lAwvMC
@@ -516,7 +516,7 @@ items:
     _stats:
       systemId: null
       systemVersion: null
-      coreVersion: '13.348'
+      coreVersion: '14.360'
       createdTime: null
       modifiedTime: 1758492707154
       lastModifiedBy: l8SVzn2293lAwvMC
@@ -545,7 +545,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 13.10.0
-      coreVersion: '13.348'
+      coreVersion: '14.360'
       createdTime: null
       modifiedTime: 1758492703467
       lastModifiedBy: l8SVzn2293lAwvMC
@@ -574,7 +574,7 @@ items:
     _stats:
       systemId: null
       systemVersion: null
-      coreVersion: '13.348'
+      coreVersion: '14.360'
       createdTime: null
       modifiedTime: 1758492710503
       lastModifiedBy: l8SVzn2293lAwvMC
@@ -605,7 +605,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 13.10.0
-      coreVersion: '13.348'
+      coreVersion: '14.360'
       createdTime: null
       modifiedTime: 1758492724775
       lastModifiedBy: l8SVzn2293lAwvMC
@@ -634,7 +634,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 13.10.0
-      coreVersion: '13.348'
+      coreVersion: '14.360'
       createdTime: null
       modifiedTime: 1758492699577
       lastModifiedBy: l8SVzn2293lAwvMC
@@ -669,7 +669,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 13.10.0
-      coreVersion: '13.348'
+      coreVersion: '14.360'
       createdTime: null
       modifiedTime: 1758492729450
       lastModifiedBy: l8SVzn2293lAwvMC
@@ -716,7 +716,7 @@ items:
       compendiumSource: Item.BFGjhDetVDm1xiku
       duplicateSource: null
       exportSource: null
-      coreVersion: '13.348'
+      coreVersion: '14.360'
       systemId: torgeternity
       systemVersion: 13.10.0
       createdTime: 1758491119608
@@ -1132,9 +1132,6 @@ prototypeToken:
     tint: '#ffffff'
     scaleX: 1
     scaleY: 1
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
     anchorX: 0.5
     anchorY: 0.5
     fit: contain
@@ -1151,7 +1148,7 @@ prototypeToken:
     color: null
   appendNumber: false
   prependAdjective: false
-  detectionModes: []
+  detectionModes: {}
   occludable:
     radius: 0
   ring:
@@ -1169,10 +1166,11 @@ prototypeToken:
     src: null
     disposition: false
   movementAction: null
+  depth: 1
 _stats:
   systemId: torgeternity
   systemVersion: 13.27.0
-  coreVersion: '13.351'
+  coreVersion: '14.360'
   createdTime: 1716827809839
   modifiedTime: 1774467216389
   lastModifiedBy: BMvGTGfheqDXarjN

@@ -9,16 +9,14 @@ export default class TorgEternityTokenDocument extends foundry.documents.TokenDo
     if (this.texture.src.includes('systems/torgeternity/images/characters/threat')) {
       const cosm = canvas.scene.torg.cosm;
       // not cosmTypes, because that includes 'none'
-      if (cosm && Object.hasOwn(CONFIG.torgeternity.cosmDecks, cosm))
+      if (foundry.utils.hasProperty(CONFIG.torgeternity.cosmDecks, cosm))
         this.updateSource({ 'texture.src': 'systems/torgeternity/images/characters/threat-' + cosm + '.Token.webp' });
     }
   }
 
   _onCreate(data, options, userId) {
     super._onCreate(data, options, userId);
-    if (game.user.id !== userId) return;
-
-    if (game.release.generation > 13 && game.user.isActiveGM) this.updateEffectRegions();
+    if (game.user.isActiveGM) this.updateEffectRegions();
   }
 
   updateEffectRegions = foundry.utils.debounce(this.#updateEffectRegions.bind(this), 100);

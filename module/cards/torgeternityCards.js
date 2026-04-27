@@ -17,7 +17,7 @@ export class torgeternityCards extends Cards {
         speaker: ChatMessage.getSpeaker({ actor: game.actors.get(this.flags.torgeternity.defaultHand) }),
         content: `<div class="card-draw flexrow"><span class="card-chat-tooltip">
         <img class="card-face" src="${destinyDeck.img}"/><span><img src="${destinyDeck.img}"></span></span>
-        <h4 class="card-name">${game.i18n.localize('torgeternity.chatText.drawsCard')} ${destinyDeck.name}.</h4></div>`
+        <h4 class="card-name">${_loc('torgeternity.chatText.drawsCard')} ${destinyDeck.name}.</h4></div>`
       });
     }
     return this.draw(destinyDeck, 1, { face: 1, ...game.torgeternity.cardChatOptions });
@@ -35,7 +35,7 @@ export class torgeternityCards extends Cards {
       card.toMessage({
         content: `<div class="card-draw flexrow"><span class="card-chat-tooltip"><img class="card-face" src="${cosmDeck.img
           }"/><span><img src="${cosmDeck.img
-          }"></span></span><h4 class="card-name">${game.i18n.localize(
+          }"></span></span><h4 class="card-name">${_loc(
             'torgeternity.chatText.drawsCard'
           )} ${cosmDeck.name}.</h4></div>`,
       });

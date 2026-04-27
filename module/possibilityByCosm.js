@@ -58,9 +58,9 @@ export class PossibilityByCosm extends foundry.applications.api.HandlebarsApplic
     for (const cosm in CONFIG.torgeternity.cosmTypes) {
       if (cosm === 'none') continue;
       cosms[cosm] = {
-        name: game.i18n.localize(`torgeternity.cosms.${cosm}`),
-        uuid: game.i18n.localize(`torgeternity.cosms.${cosm}PossLink`),
-        hash: game.i18n.localize(`torgeternity.cosms.${cosm}PossLink2`),
+        name: _loc(`torgeternity.cosms.${cosm}`),
+        uuid: _loc(`torgeternity.cosms.${cosm}PossLink`),
+        hash: _loc(`torgeternity.cosms.${cosm}PossLink2`),
         icon: CONFIG.torgeternity.cosmPossyIcons[cosm],
         largeIcon: CONFIG.torgeternity.cosmPossyLargeIcons[cosm],
         actorField: `${cosm}Poss`
@@ -84,7 +84,7 @@ export class PossibilityByCosm extends foundry.applications.api.HandlebarsApplic
    */
   static async #onTestActiveModule(event) {
     const tes = await fromUuid(event.target.dataset.uuid, { strict: false });
-    if (!tes) ui.notifications.warn(game.i18n.localize('torgeternity.notifications.moduleNotActive'));
+    if (!tes) ui.notifications.warn(_loc('torgeternity.notifications.moduleNotActive'));
   }
 
   /**

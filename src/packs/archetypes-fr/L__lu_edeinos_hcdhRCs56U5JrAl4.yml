@@ -103,7 +103,7 @@ items:
     _stats:
       systemId: null
       systemVersion: null
-      coreVersion: '13.348'
+      coreVersion: '14.360'
       createdTime: null
       modifiedTime: 1758492300384
       lastModifiedBy: l8SVzn2293lAwvMC
@@ -123,13 +123,10 @@ items:
         origin: >-
           Compendium.torgeternity.archetypes-fr.Actor.hcdhRCs56U5JrAl4.Item.fjKbGNOzANmk1Ncb
         duration:
-          startTime: null
-          combat: null
-          seconds: null
-          rounds: null
-          turns: null
-          startRound: null
-          startTurn: null
+          value: null
+          units: seconds
+          expiry: null
+          expired: false
         disabled: false
         img: systems/torgeternity/images/icons/reality-icon.webp
         _id: YlzQKhx2yw74JyOK
@@ -139,11 +136,11 @@ items:
           applyIfAttackTrait: []
           applyIfDefendTrait: []
           transferOnOutcome: 0
-        changes:
-          - key: ystem.skills.unarmedCombat.isFav
-            mode: 5
-            value: 'true'
-            priority: null
+          changes:
+            - key: ystem.skills.unarmedCombat.isFav
+              value: true
+              priority: null
+              type: override
         description: ''
         tint: '#ffffff'
         transfer: true
@@ -154,12 +151,15 @@ items:
           compendiumSource: null
           duplicateSource: null
           exportSource: null
-          coreVersion: '13.351'
+          coreVersion: '14.360'
           systemId: torgeternity
           systemVersion: 13.13.2
           createdTime: 1764003738542
           modifiedTime: 1774467320781
           lastModifiedBy: BMvGTGfheqDXarjN
+        start: null
+        showIcon: 1
+        folder: null
         _key: >-
           !actors.items.effects!hcdhRCs56U5JrAl4.fjKbGNOzANmk1Ncb.YlzQKhx2yw74JyOK
     folder: null
@@ -253,7 +253,7 @@ items:
     _stats:
       systemId: null
       systemVersion: null
-      coreVersion: '13.348'
+      coreVersion: '14.360'
       createdTime: null
       modifiedTime: 1758492296233
       lastModifiedBy: l8SVzn2293lAwvMC
@@ -281,7 +281,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 13.10.0
-      coreVersion: '13.348'
+      coreVersion: '14.360'
       createdTime: null
       modifiedTime: 1758492588664
       lastModifiedBy: l8SVzn2293lAwvMC
@@ -322,7 +322,7 @@ items:
     _stats:
       systemId: null
       systemVersion: null
-      coreVersion: '13.348'
+      coreVersion: '14.360'
       createdTime: null
       modifiedTime: 1758492653359
       lastModifiedBy: l8SVzn2293lAwvMC
@@ -366,7 +366,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 13.15.0
-      coreVersion: '13.351'
+      coreVersion: '14.360'
       createdTime: null
       modifiedTime: 1771933965387
       lastModifiedBy: BMvGTGfheqDXarjN
@@ -426,7 +426,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 13.8.1
-      coreVersion: '13.348'
+      coreVersion: '14.360'
       createdTime: null
       modifiedTime: 1758492093800
       lastModifiedBy: l8SVzn2293lAwvMC
@@ -543,7 +543,7 @@ items:
     _stats:
       systemId: null
       systemVersion: null
-      coreVersion: '13.348'
+      coreVersion: '14.360'
       createdTime: null
       modifiedTime: 1758492308581
       lastModifiedBy: l8SVzn2293lAwvMC
@@ -581,7 +581,7 @@ items:
     _stats:
       systemId: null
       systemVersion: null
-      coreVersion: '13.345'
+      coreVersion: '14.360'
       createdTime: null
       modifiedTime: null
       lastModifiedBy: null
@@ -642,7 +642,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 13.8.1
-      coreVersion: '13.348'
+      coreVersion: '14.360'
       createdTime: null
       modifiedTime: 1758492098989
       lastModifiedBy: l8SVzn2293lAwvMC
@@ -662,13 +662,10 @@ items:
         origin: >-
           Compendium.torgeternity.archetypes-fr.Actor.YzRwn4OIYPYBIPJH.Item.sMpIpI7t3K7B4ZYp
         duration:
-          startTime: null
-          combat: null
-          seconds: null
-          rounds: null
-          turns: null
-          startRound: null
-          startTurn: null
+          value: null
+          units: seconds
+          expiry: null
+          expired: false
         disabled: false
         img: icons/svg/aura.svg
         _id: oCkSdHARo9OvqD0p
@@ -693,11 +690,11 @@ items:
           itemsToBestow: []
           combatToggle: false
           concentratingId: null
-        changes:
-          - key: system.defenses.all.mod
-            mode: 2
-            value: '1'
-            priority: null
+          changes:
+            - key: system.defenses.all.mod
+              value: 1
+              priority: null
+              type: add
         description: ''
         tint: '#ffffff'
         transfer: false
@@ -708,23 +705,25 @@ items:
           compendiumSource: null
           duplicateSource: null
           exportSource: null
-          coreVersion: '13.351'
+          coreVersion: '14.360'
           systemId: torgeternity
           systemVersion: 13.33.0
           lastModifiedBy: null
+          createdTime: null
+          modifiedTime: null
+        start: null
+        showIcon: 1
+        folder: null
         _key: >-
           !actors.items.effects!hcdhRCs56U5JrAl4.sMpIpI7t3K7B4ZYp.oCkSdHARo9OvqD0p
       - name: Defense +2 vs. S.Evil
         origin: >-
           Compendium.torgeternity.archetypes-fr.Actor.YzRwn4OIYPYBIPJH.Item.sMpIpI7t3K7B4ZYp
         duration:
-          startTime: null
-          combat: null
-          seconds: null
-          rounds: null
-          turns: null
-          startRound: null
-          startTurn: null
+          value: null
+          units: seconds
+          expiry: null
+          expired: false
         disabled: false
         img: icons/svg/aura.svg
         _id: 7bGGDUxfuIIfWvPP
@@ -749,11 +748,11 @@ items:
           itemsToBestow: []
           combatToggle: false
           concentratingId: null
-        changes:
-          - key: system.defenses.all.mod
-            mode: 2
-            value: '2'
-            priority: null
+          changes:
+            - key: system.defenses.all.mod
+              value: 2
+              priority: null
+              type: add
         description: ''
         tint: '#ffffff'
         transfer: false
@@ -764,23 +763,25 @@ items:
           compendiumSource: null
           duplicateSource: null
           exportSource: null
-          coreVersion: '13.351'
+          coreVersion: '14.360'
           systemId: torgeternity
           systemVersion: 13.33.0
           lastModifiedBy: null
+          createdTime: null
+          modifiedTime: null
+        start: null
+        showIcon: 1
+        folder: null
         _key: >-
           !actors.items.effects!hcdhRCs56U5JrAl4.sMpIpI7t3K7B4ZYp.7bGGDUxfuIIfWvPP
       - name: Defense +2 vs. S.Evil
         origin: >-
           Compendium.torgeternity.archetypes-fr.Actor.YzRwn4OIYPYBIPJH.Item.sMpIpI7t3K7B4ZYp
         duration:
-          startTime: 1340
-          combat: null
-          seconds: null
-          rounds: null
-          turns: null
-          startRound: 30
-          startTurn: 0
+          value: null
+          units: seconds
+          expiry: null
+          expired: false
         disabled: false
         img: icons/svg/aura.svg
         _id: HNpzcMefIwvWcGVi
@@ -805,11 +806,11 @@ items:
           itemsToBestow: []
           combatToggle: false
           concentratingId: null
-        changes:
-          - key: system.defenses.all.mod
-            mode: 2
-            value: '2'
-            priority: null
+          changes:
+            - key: system.defenses.all.mod
+              value: 2
+              priority: null
+              type: add
         description: ''
         tint: '#ffffff'
         transfer: true
@@ -820,10 +821,21 @@ items:
           compendiumSource: null
           duplicateSource: null
           exportSource: null
-          coreVersion: '13.351'
+          coreVersion: '14.360'
           systemId: torgeternity
           systemVersion: 13.33.0
           lastModifiedBy: null
+          createdTime: null
+          modifiedTime: null
+        start:
+          combat: null
+          round: 30
+          time: 1340
+          turn: 0
+          combatant: null
+          initiative: null
+        showIcon: 1
+        folder: null
         _key: >-
           !actors.items.effects!hcdhRCs56U5JrAl4.sMpIpI7t3K7B4ZYp.HNpzcMefIwvWcGVi
     folder: null
@@ -866,7 +878,7 @@ items:
         Compendium.torgeternity.archetypes-fr.Actor.YzRwn4OIYPYBIPJH.Item.sMpIpI7t3K7B4ZYp
       duplicateSource: null
       exportSource: null
-      coreVersion: '13.351'
+      coreVersion: '14.360'
       systemId: torgeternity
       systemVersion: 13.33.0
       createdTime: 1775992521605
@@ -1282,9 +1294,6 @@ prototypeToken:
     tint: '#ffffff'
     scaleX: 1
     scaleY: 1
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
     anchorX: 0.5
     anchorY: 0.5
     fit: contain
@@ -1301,7 +1310,7 @@ prototypeToken:
     color: null
   appendNumber: false
   prependAdjective: false
-  detectionModes: []
+  detectionModes: {}
   occludable:
     radius: 0
   ring:
@@ -1319,10 +1328,11 @@ prototypeToken:
     src: null
     disposition: false
   movementAction: null
+  depth: 1
 _stats:
   systemId: torgeternity
   systemVersion: 13.27.0
-  coreVersion: '13.351'
+  coreVersion: '14.360'
   createdTime: 1716827809684
   modifiedTime: 1774467202306
   lastModifiedBy: BMvGTGfheqDXarjN

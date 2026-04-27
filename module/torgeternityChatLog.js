@@ -88,8 +88,8 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
           content: `<div class="testInspector scrollable">
           <table>
           <thead><tr>
-          <th>${game.i18n.localize('torgeternity.testInspector.field')}</th>
-          <th>${game.i18n.localize('torgeternity.testInspector.value')}</th>
+          <th>${_loc('torgeternity.testInspector.field')}</th>
+          <th>${_loc('torgeternity.testInspector.value')}</th>
           </tr></thead>
           <tbody>${content}</tbody></table></div>`,
         });
@@ -126,7 +126,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     const cosmposs = actor.flags?.torgeternity?.possibilityByCosm;
     for (const key of Object.keys(cosmposs || {})) {
       if (key === "coreEarthPoss" || !cosmposs[key]) continue;
-      const label = game.i18n.localize(`torgeternity.cosms.${key.slice(0, -4)}`);
+      const label = _loc(`torgeternity.cosms.${key.slice(0, -4)}`);
       content += `<p><label><input type="radio" name="choice" value="${key}" ${checked && "checked"}>${label} (${cosmposs[key]})</label>`;
       checked = false;
     }
@@ -139,7 +139,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     if (!content) return null;
 
     // Maybe no minimum 10?
-    content += `<hr><p><label><input type="checkbox" name="noMin10">${game.i18n.localize('torgeternity.chatText.possibilityNoMin10')}</label>`
+    content += `<hr><p><label><input type="checkbox" name="noMin10">${_loc('torgeternity.chatText.possibilityNoMin10')}</label>`
 
     return DialogV2.wait({
       window: { title: "torgeternity.chatText.possibilityChoiceTitle" },
@@ -267,7 +267,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     }
     // 0 => if GM ask for confirm, or return message "no poss"
     if (possPool <= 0 && !game.user.isGM) {
-      ui.notifications.warn(game.i18n.localize('torgeternity.sheetLabels.noPoss'));
+      ui.notifications.warn(_loc('torgeternity.sheetLabels.noPoss'));
       return;
     }
 
@@ -276,19 +276,19 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     if (possPool === 1) {
       const confirm = await DialogV2.confirm({
         window: { title: 'torgeternity.sheetLabels.lastPoss' },
-        content: game.i18n.localize('torgeternity.sheetLabels.lastPossMess'),
+        content: _loc('torgeternity.sheetLabels.lastPossMess'),
       });
       if (!confirm) return;
-      test.chatNote += game.i18n.localize('torgeternity.sheetLabels.lastSpent');
+      test.chatNote += _loc('torgeternity.sheetLabels.lastSpent');
     } // GM can grant an on the fly possibilty if he does the roll
     else if (possPool === 0 && game.user.isGM) {
       const confirm = await DialogV2.confirm({
         window: { title: 'torgeternity.sheetLabels.noPoss' },
-        content: game.i18n.localize('torgeternity.sheetLabels.noPossFree'),
+        content: _loc('torgeternity.sheetLabels.noPossFree'),
       });
       if (!confirm) return;
       possPool += 1;
-      test.chatNote += game.i18n.localize('torgeternity.sheetLabels.freePoss');
+      test.chatNote += _loc('torgeternity.sheetLabels.freePoss');
     }
     if (!possOwner)
       game.user.isGM ? game.user.setFlag('torgeternity', 'GMpossibilities', possPool - 1) : {};
@@ -327,7 +327,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     if (test.disfavored) {
       test.possibilityTotal = 0.1;
       test.disfavored = false;
-      test.chatNote += game.i18n.localize('torgeternity.sheetLabels.explosionCancelled');
+      test.chatNote += _loc('torgeternity.sheetLabels.explosionCancelled');
     } else if (!noMin10) {
       // Standardly, a possibility has a minimum of 10 on the dice.
       // Certain circumstances break that rule, so holding SHIFT will not apply min 10.
@@ -340,9 +340,9 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     if (possShard)
       test.chatNote = possShard.name + ' ';
     else if (possCosm)
-      test.chatNote += game.i18n.localize(`torgeternity.cosms.${possCosm.slice(0, -4)}`) + ' ';
-    test.chatNote += game.i18n.localize('torgeternity.sheetLabels.possSpent');
-    if (noMin10) test.chatNote += game.i18n.localize('torgeternity.sheetLabels.noMin10');
+      test.chatNote += _loc(`torgeternity.cosms.${possCosm.slice(0, -4)}`) + ' ';
+    test.chatNote += _loc('torgeternity.sheetLabels.possSpent');
+    if (noMin10) test.chatNote += _loc('torgeternity.sheetLabels.noMin10');
 
     return renderSkillChat(test, chatMessage);
   }
@@ -369,7 +369,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     if (test.disfavored) {
       test.upTotal = 0.1;
       test.disfavored = false;
-      test.chatNote += game.i18n.localize('torgeternity.sheetLabels.explosionCancelled');
+      test.chatNote += _loc('torgeternity.sheetLabels.explosionCancelled');
     } else {
       test.upTotal = test.diceroll.total;
     }
@@ -401,7 +401,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     if (test.disfavored) {
       test.heroTotal = 0.1;
       test.disfavored = false;
-      test.chatNote += game.i18n.localize('torgeternity.sheetLabels.explosionCancelled');
+      test.chatNote += _loc('torgeternity.sheetLabels.explosionCancelled');
     } else if (test.diceroll.total < 10) {
       test.heroTotal = 10;
     } else {
@@ -435,7 +435,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     if (test.disfavored) {
       test.dramaTotal = 0.1;
       test.disfavored = false;
-      test.chatNote += game.i18n.localize('torgeternity.sheetLabels.explosionCancelled');
+      test.chatNote += _loc('torgeternity.sheetLabels.explosionCancelled');
     } else if (test.diceroll.total < 10) {
       test.dramaTotal = 10;
     } else {
@@ -578,14 +578,14 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     if (targetActor.isDisconnected) {
       return ChatMessage.create({
         speaker: ChatMessage.getSpeaker({ actor: targetActor }),
-        content: game.i18n.localize('torgeternity.chatText.check.cantUseRealityWhileDisconnected'),
+        content: _loc('torgeternity.chatText.check.cantUseRealityWhileDisconnected'),
       });
     }
     //
     let possPool = targetActor.system.other.possibilities.value;
     // 0 => if GM ask for confirm, or return message "no poss"
     if (possPool <= 0 && !game.user.isGM) {
-      ui.notifications.warn(game.i18n.localize('torgeternity.sheetLabels.noPoss'));
+      ui.notifications.warn(_loc('torgeternity.sheetLabels.noPoss'));
       return;
     }
 
@@ -593,17 +593,17 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     if (possPool === 1) {
       const confirm = await DialogV2.confirm({
         window: { title: 'torgeternity.sheetLabels.lastPoss' },
-        content: game.i18n.localize('torgeternity.sheetLabels.lastPossMess'),
+        content: _loc('torgeternity.sheetLabels.lastPossMess'),
       });
       if (!confirm) return;
     } // GM can grant an on the fly possibilty if he does the roll
     else if (possPool === 0 && game.user.isGM) {
       const confirm = await DialogV2.confirm({
         window: { title: 'torgeternity.sheetLabels.noPoss' },
-        content: game.i18n.localize('torgeternity.sheetLabels.noPossFree'),
+        content: _loc('torgeternity.sheetLabels.noPossFree'),
       });
       if (!confirm) return;
-      ui.notifications.warn(game.i18n.localize('torgeternity.sheetLabels.possGrant'));
+      ui.notifications.warn(_loc('torgeternity.sheetLabels.possGrant'));
       possPool += 1;
     }
 
@@ -639,7 +639,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     origtarget.showBD = false;
     origtest.diceroll = null;  // use existing roll number
     // Display soak information, WITHOUT the footnote about possibility spent
-    origtarget.soakDescription = soaktest.chatNote.slice(0, -game.i18n.localize('torgeternity.sheetLabels.possSpent').length);
+    origtarget.soakDescription = soaktest.chatNote.slice(0, -_loc('torgeternity.sheetLabels.possSpent').length);
 
     // Hide "apply soak" button in the soak test (as well the buttons which affect the action total)
     this.updateChatMessage(chatMessage, {
@@ -675,16 +675,16 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
 
     const fields = foundry.applications.fields;
     const woundsGroup = fields.createFormGroup({
-      label: game.i18n.localize('torgeternity.sheetLabels.modifyWounds'),
+      label: _loc('torgeternity.sheetLabels.modifyWounds'),
       input: fields.createNumberInput({ name: 'numWounds', value: newDamage.wounds, initial: 0 }),
     });
 
     const shockGroup = fields.createFormGroup({
-      label: game.i18n.localize('torgeternity.sheetLabels.modifyShocks'),
+      label: _loc('torgeternity.sheetLabels.modifyShocks'),
       input: fields.createNumberInput({ name: 'numShock', value: newDamage.shocks, initial: 0 }),
     })
 
-    const content = `<p>${game.i18n.localize('torgeternity.sheetLabels.modifyDamage')}</p> <hr>
+    const content = `<p>${_loc('torgeternity.sheetLabels.modifyDamage')}</p> <hr>
     ${woundsGroup.outerHTML}${shockGroup.outerHTML}`;
 
     const chatLog = this;  // To use inside callback
@@ -892,19 +892,19 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     const skill = actor.system.skills.willpower;
     const attrib = actor.system.attributes.spirit;
 
-    const html = `<p>${game.i18n.format('torgeternity.chatText.concentration.makeCheck', { actor: actor.name })}
+    const html = `<p>${_loc('torgeternity.chatText.concentration.makeCheck', { actor: actor.name })}
     <div class="skill-roll-menu">
      <a class="button roll-button roll-defeat ${!hasAdds && 'notPreferred'}"
      data-actor-uuid="${actor.uuid}" data-action="testConcentration" data-test-type="skill", 
      data-skill-name="willpower" data-skill-adds="${skill.adds}" data-skill-value="${skill.value}" 
      data-is-fav="${skill.isFav}" data-unskilled-use="${skill.unskilledUse}">
-     ${game.i18n.localize('torgeternity.skills.willpower')}
+     ${_loc('torgeternity.skills.willpower')}
      </a>
      <a class="button roll-button roll-defeat ${hasAdds && 'notPreferred'}" 
      data-actor-uuid="${actor.uuid}" data-action="testConcentration" data-test-type="attribute", 
      data-skill-name="spirit" data-skill-adds="0" data-skill-value="${attrib.value}" 
      data-is-fav="${actor.system.attributes.spiritIsFav ?? 0}" data-unskilled-use="1">
-     ${game.i18n.localize('torgeternity.attributes.spirit')}
+     ${_loc('torgeternity.attributes.spirit')}
      </a>
      </div>`;
 
@@ -944,7 +944,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
 
       ChatMessage.create({
         speaker: chatMessage.speaker,
-        content: `<p>${game.i18n.format('torgeternity.chatText.concentration.broken', { actor: actor.name })}</p><ul>${list.join('')}</ul>`
+        content: `<p>${_loc('torgeternity.chatText.concentration.broken', { actor: actor.name })}</p><ul>${list.join('')}</ul>`
       })
       actor.deleteEmbeddedDocuments('ActiveEffect', failed.map(ef => ef.id));
     }
@@ -1003,7 +1003,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
 
     const selection = await foundry.applications.api.DialogV2.prompt({
       window: {
-        title: game.i18n.localize('torgeternity.defeat.chooseAttribute')
+        title: _loc('torgeternity.defeat.chooseAttribute')
       },
       content: foundry.applications.fields.createSelectInput({
         options: Object.entries(CONFIG.torgeternity.attributeTypes).map(attr => { return { value: attr[0], label: attr[1] } }),
@@ -1017,14 +1017,14 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     });
 
     if (selection) {
-      const localAttr = game.i18n.localize(CONFIG.torgeternity.attributeTypes[selection]);
+      const localAttr = _loc(CONFIG.torgeternity.attributeTypes[selection]);
 
       await actor.toggleStatusEffect('unconscious', { active: true, overlay: true });
       if (result === TestResult.STANDARD) {
         await ChatMessage.create({
           speaker: ChatMessage.getSpeaker({ actor }),
           owner: actor,
-          content: game.i18n.format('torgeternity.defeat.permInjury', { attribute: localAttr })
+          content: _loc('torgeternity.defeat.permInjury', { attribute: localAttr })
         })
         // Permanent: Reduce attribute directly
         return actor.update({
@@ -1036,16 +1036,16 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
         await ChatMessage.create({
           speaker: ChatMessage.getSpeaker({ actor }),
           owner: actor,
-          content: game.i18n.format('torgeternity.defeat.tempInjury', { attribute: localAttr })
+          content: _loc('torgeternity.defeat.tempInjury', { attribute: localAttr })
         })
         return actor?.createEmbeddedDocuments('ActiveEffect', [{
-          name: `${game.i18n.localize('torgeternity.defeat.good.effectName')} (${localAttr})`,
+          name: `${_loc('torgeternity.defeat.good.effectName')} (${localAttr})`,
           icon: 'icons/svg/downgrade.svg',
           changes: [
             {
               key: `system.attributes.${selection}.value`,
-              value: -1,
-              mode: CONST.ACTIVE_EFFECT_MODES.ADD,
+              value: 1,
+              type: 'subtract',
             }
           ],
         }]);
@@ -1076,7 +1076,7 @@ function getChatActor(button) {
   if (!test) return null;
   const actor = fromUuidSync(test.actor, { strict: false });
   if (actor) return { actor, ...msg };
-  ui.notifications.warn(game.i18n.localize('torgeternity.notifications.noTarget'));
+  ui.notifications.warn(_loc('torgeternity.notifications.noTarget'));
   return null;
 }
 
@@ -1092,6 +1092,6 @@ function getChatTarget(button) {
   const targetActor = fromUuidSync(button.closest('.skill-roll-target')?.dataset.tokenUuid, { strict: false })?.actor;
   const testTarget = test?.targets.find(target => target.dummyTarget || target.actorUuid === targetActor.uuid);
   if (testTarget) return { targetActor, testTarget, ...msg };
-  ui.notifications.warn(game.i18n.localize('torgeternity.notifications.noTarget'));
+  ui.notifications.warn(_loc('torgeternity.notifications.noTarget'));
   return null;
 }

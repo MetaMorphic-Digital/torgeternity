@@ -945,10 +945,6 @@
         "hint": "Si coché, affiche une liste des Effets en cours sur le Token sélectionné.",
         "name": "Afficher le panneau des Effets"
       },
-      "effectsPanelOnlyTemporary": {
-        "hint": "Si coché, le panneau des Effets ne montrera que les Effets temporaires (Effets passifs cachés).",
-        "name": "N'afficher que les Effets temporaires"
-      },
       "welcome": {
         "hint": "Si sélectionné, le message de bienvenue apparaîtra au chargement",
         "name": "Afficher le message de bienvenue"

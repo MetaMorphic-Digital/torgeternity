@@ -102,7 +102,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 12.2.0
-      coreVersion: '13.345'
+      coreVersion: '14.360'
       createdTime: 1693914389548
       modifiedTime: 1722153652301
       lastModifiedBy: 93AMwcGe6H37rcPA
@@ -119,13 +119,10 @@ items:
         origin: >-
           Compendium.torgeternity.archetypes.Actor.ys0MhNx2uIG2ORAD.Item.fF3wo6bNS33bnk31
         duration:
-          startTime: null
-          combat: null
-          seconds: null
-          rounds: null
-          turns: null
-          startRound: null
-          startTurn: null
+          value: null
+          units: seconds
+          expiry: null
+          expired: false
         disabled: false
         img: systems/torgeternity/images/icons/reality-icon.webp
         _id: 7Mcmgqzvq3kXpXAG
@@ -145,11 +142,11 @@ items:
           itemsToBestow: []
           combatToggle: false
           concentratingId: null
-        changes:
-          - key: test.targetsModifier
-            mode: 2
-            value: '2'
-            priority: null
+          changes:
+            - key: test.targetsModifier
+              value: 2
+              priority: null
+              type: add
         description: ''
         tint: '#ffffff'
         transfer: true
@@ -160,12 +157,15 @@ items:
           compendiumSource: null
           duplicateSource: null
           exportSource: null
-          coreVersion: '13.351'
+          coreVersion: '14.360'
           systemId: torgeternity
           systemVersion: 13.27.0
           createdTime: 1774459168128
           modifiedTime: 1774459205328
           lastModifiedBy: BMvGTGfheqDXarjN
+        start: null
+        showIcon: 1
+        folder: null
         _key: >-
           !actors.items.effects!ys0MhNx2uIG2ORAD.fF3wo6bNS33bnk31.7Mcmgqzvq3kXpXAG
     folder: null
@@ -262,7 +262,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 12.2.0
-      coreVersion: '13.345'
+      coreVersion: '14.360'
       createdTime: 1693914394476
       modifiedTime: 1722153640878
       lastModifiedBy: 93AMwcGe6H37rcPA
@@ -309,7 +309,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 13.15.0
-      coreVersion: '13.351'
+      coreVersion: '14.360'
       createdTime: 1693914415715
       modifiedTime: 1771936056549
       lastModifiedBy: BMvGTGfheqDXarjN
@@ -356,7 +356,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 13.2.2
-      coreVersion: '13.346'
+      coreVersion: '14.360'
       createdTime: 1693914426740
       modifiedTime: 1753599415707
       lastModifiedBy: W32Zl65V9atvPk8o
@@ -389,7 +389,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 12.2.0
-      coreVersion: '13.345'
+      coreVersion: '14.360'
       createdTime: 1693914445650
       modifiedTime: 1722158284036
       lastModifiedBy: 93AMwcGe6H37rcPA
@@ -422,7 +422,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 12.2.0
-      coreVersion: '13.345'
+      coreVersion: '14.360'
       createdTime: 1693914453148
       modifiedTime: 1722158293548
       lastModifiedBy: 93AMwcGe6H37rcPA
@@ -455,7 +455,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 12.2.0
-      coreVersion: '13.345'
+      coreVersion: '14.360'
       createdTime: 1693914458276
       modifiedTime: 1722158307107
       lastModifiedBy: 93AMwcGe6H37rcPA
@@ -489,7 +489,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 12.2.0
-      coreVersion: '13.345'
+      coreVersion: '14.360'
       createdTime: 1693914511570
       modifiedTime: 1722158258204
       lastModifiedBy: 93AMwcGe6H37rcPA
@@ -527,7 +527,7 @@ items:
     _stats:
       compendiumSource: Compendium.te001-core-rulebook.Items.Item.xu2Vjk8W6NDhkSTv
       duplicateSource: null
-      coreVersion: '13.345'
+      coreVersion: '14.360'
       systemId: torgeternity
       systemVersion: 12.3.0
       createdTime: 1729582232723
@@ -544,14 +544,11 @@ items:
     effects:
       - origin: Compendium.te001-core-rulebook.Items.Item.wP7vzluooDeOtebZ
         duration:
-          rounds: null
-          startTime: null
-          seconds: null
-          combat: null
-          turns: null
-          startRound: null
-          startTurn: null
-        disabled: true
+          value: null
+          units: seconds
+          expiry: null
+          expired: false
+        disabled: false
         name: Bonus to Dodge vs. Energy Weapons
         img: systems/torgeternity/images/icons/armor-icon.webp
         _id: zizP1pYEc83Frk6M
@@ -563,18 +560,19 @@ items:
           activeIfTrait: []
           applyIfAttackTrait: []
           applyIfDefendTrait: []
-          defendAgainstTrait: []
+          defendAgainstTrait:
+            - energyDamage
           applyIfAttackTraitCombine: or
           applyIfDefendTraitCombine: or
           defendAgainstTraitCombine: or
           itemsToBestow: []
           combatToggle: false
           concentratingId: null
-        changes:
-          - key: system.defenses.dodge.mod
-            mode: 2
-            value: '3'
-            priority: null
+          changes:
+            - key: system.defenses.dodge.mod
+              value: 3
+              priority: null
+              type: add
         description: ''
         tint: '#ffffff'
         transfer: true
@@ -585,11 +583,15 @@ items:
           compendiumSource: null
           duplicateSource: null
           exportSource: null
-          coreVersion: '13.351'
+          coreVersion: '14.360'
           systemId: torgeternity
-          systemVersion: 13.27.0
-          lastModifiedBy: BMvGTGfheqDXarjN
-          modifiedTime: 1774459301418
+          systemVersion: 14.0.0
+          lastModifiedBy: iOcCVm1cmrYXOubH
+          modifiedTime: 1777324468977
+          createdTime: 1777324452543
+        start: null
+        showIcon: 1
+        folder: null
         _key: >-
           !actors.items.effects!ys0MhNx2uIG2ORAD.wP7vzluooDeOtebZ.zizP1pYEc83Frk6M
     folder: tZ3LOHRA8fIl0tpt
@@ -634,7 +636,7 @@ items:
       compendiumSource: Compendium.te001-core-rulebook.Items.Item.wP7vzluooDeOtebZ
       duplicateSource: null
       exportSource: null
-      coreVersion: '13.351'
+      coreVersion: '14.360'
       systemId: torgeternity
       systemVersion: 13.27.0
       createdTime: 1774459256138
@@ -648,21 +650,13 @@ items:
     effects:
       - origin: Compendium.te001-core-rulebook.Items.Item.eqLYuyoAdwVRcQrQ
         duration:
-          startTime: 1310
-          seconds: null
-          combat: null
-          rounds: null
-          turns: null
-          startRound: 27
-          startTurn: 0
+          value: null
+          units: seconds
+          expiry: null
+          expired: false
         disabled: false
         name: Strength +2 (Arm)
         _id: s54ZUGzEFPQA738r
-        changes:
-          - key: system.attributes.strength.value
-            mode: 2
-            value: '2'
-            priority: null
         description: ''
         transfer: true
         statuses: []
@@ -672,10 +666,12 @@ items:
           compendiumSource: null
           duplicateSource: null
           exportSource: null
-          coreVersion: '13.351'
+          coreVersion: '14.360'
           systemId: torgeternity
           systemVersion: 13.27.0
           lastModifiedBy: null
+          createdTime: null
+          modifiedTime: null
         img: systems/torgeternity/images/icons/occultech-icon.webp
         type: base
         system:
@@ -692,26 +688,32 @@ items:
           itemsToBestow: []
           combatToggle: false
           concentratingId: null
+          changes:
+            - key: system.attributes.strength.value
+              value: 2
+              priority: null
+              type: add
         sort: 0
+        start:
+          combat: null
+          round: 27
+          time: 1310
+          turn: 0
+          combatant: null
+          initiative: null
+        showIcon: 1
+        folder: null
         _key: >-
           !actors.items.effects!ys0MhNx2uIG2ORAD.eqLYuyoAdwVRcQrQ.s54ZUGzEFPQA738r
       - origin: Compendium.te001-core-rulebook.Items.Item.eqLYuyoAdwVRcQrQ
         duration:
-          startTime: 1310
-          seconds: null
-          combat: null
-          rounds: null
-          turns: null
-          startRound: 27
-          startTurn: 0
+          value: null
+          units: seconds
+          expiry: null
+          expired: false
         disabled: true
         name: Armor +3 (Arm)
         _id: eGIx1t0KxFgIS48I
-        changes:
-          - key: system.defenses.armor
-            mode: 2
-            value: '3'
-            priority: null
         description: ''
         transfer: true
         statuses: []
@@ -721,11 +723,12 @@ items:
           compendiumSource: null
           duplicateSource: null
           exportSource: null
-          coreVersion: '13.351'
+          coreVersion: '14.360'
           systemId: torgeternity
           systemVersion: 13.33.0
           lastModifiedBy: BMvGTGfheqDXarjN
           modifiedTime: 1775990871824
+          createdTime: null
         img: systems/torgeternity/images/icons/occultech-icon.webp
         type: base
         system:
@@ -742,7 +745,21 @@ items:
           itemsToBestow: []
           combatToggle: true
           concentratingId: null
+          changes:
+            - key: system.defenses.armor
+              value: 3
+              priority: null
+              type: add
         sort: 0
+        start:
+          combat: null
+          round: 27
+          time: 1310
+          turn: 0
+          combatant: null
+          initiative: null
+        showIcon: 1
+        folder: null
         _key: >-
           !actors.items.effects!ys0MhNx2uIG2ORAD.eqLYuyoAdwVRcQrQ.eGIx1t0KxFgIS48I
     folder: mRO2lDXnlZfbymrz
@@ -778,7 +795,7 @@ items:
       compendiumSource: Compendium.te001-core-rulebook.Items.Item.eqLYuyoAdwVRcQrQ
       duplicateSource: null
       exportSource: null
-      coreVersion: '13.351'
+      coreVersion: '14.360'
       systemId: torgeternity
       systemVersion: 13.27.0
       createdTime: 1774459351960
@@ -1275,9 +1292,6 @@ prototypeToken:
     tint: '#ffffff'
     scaleX: 1
     scaleY: 1
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
     anchorX: 0.5
     anchorY: 0.5
     fit: contain
@@ -1294,7 +1308,7 @@ prototypeToken:
     color: null
   appendNumber: false
   prependAdjective: false
-  detectionModes: []
+  detectionModes: {}
   occludable:
     radius: 0
   ring:
@@ -1312,10 +1326,11 @@ prototypeToken:
     src: null
     disposition: false
   movementAction: null
+  depth: 1
 _stats:
   systemId: torgeternity
   systemVersion: 13.27.0
-  coreVersion: '13.351'
+  coreVersion: '14.360'
   createdTime: 1693914389548
   modifiedTime: 1773001234548
   lastModifiedBy: BMvGTGfheqDXarjN

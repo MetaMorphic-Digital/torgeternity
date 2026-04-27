@@ -27,7 +27,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 12.2.0
-      coreVersion: '13.345'
+      coreVersion: '14.360'
       createdTime: null
       modifiedTime: 1722161959410
       lastModifiedBy: 93AMwcGe6H37rcPA
@@ -59,7 +59,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 12.2.0
-      coreVersion: '13.345'
+      coreVersion: '14.360'
       createdTime: null
       modifiedTime: 1722162008122
       lastModifiedBy: 93AMwcGe6H37rcPA
@@ -96,7 +96,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 12.2.0
-      coreVersion: '13.345'
+      coreVersion: '14.360'
       createdTime: null
       modifiedTime: 1722162012666
       lastModifiedBy: 93AMwcGe6H37rcPA
@@ -130,7 +130,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 12.2.0
-      coreVersion: '13.345'
+      coreVersion: '14.360'
       createdTime: null
       modifiedTime: 1722162016154
       lastModifiedBy: 93AMwcGe6H37rcPA
@@ -182,7 +182,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 13.15.0
-      coreVersion: '13.351'
+      coreVersion: '14.360'
       createdTime: 1694867881572
       modifiedTime: 1771933702542
       lastModifiedBy: BMvGTGfheqDXarjN
@@ -224,7 +224,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 13.2.2
-      coreVersion: '13.346'
+      coreVersion: '14.360'
       createdTime: 1711562366229
       modifiedTime: 1753598537107
       lastModifiedBy: W32Zl65V9atvPk8o
@@ -264,7 +264,7 @@ items:
     _stats:
       compendiumSource: Item.TptgnUCwWM2QZCaK
       duplicateSource: Item.KRYQ71jof26XeGEv
-      coreVersion: '13.345'
+      coreVersion: '14.360'
       systemId: torgeternity
       systemVersion: 12.2.0
       createdTime: 1722161972831
@@ -280,21 +280,13 @@ items:
     effects:
       - origin: Item.NP52D0TMUBVKQK7d
         duration:
-          startTime: null
-          seconds: null
-          combat: null
-          rounds: null
-          turns: null
-          startRound: null
-          startTurn: null
+          value: null
+          units: seconds
+          expiry: null
+          expired: false
         disabled: false
         name: Einschüchtern +2
         _id: 1VTOsm0M13fBNOeh
-        changes:
-          - key: system.skills.intimidation.adds
-            mode: 2
-            value: '2'
-            priority: null
         description: ''
         transfer: true
         statuses: []
@@ -303,7 +295,7 @@ items:
         _stats:
           compendiumSource: null
           duplicateSource: null
-          coreVersion: '13.351'
+          coreVersion: '14.360'
           systemId: torgeternity
           systemVersion: 12.2.0
           createdTime: null
@@ -312,30 +304,35 @@ items:
           exportSource: null
         img: systems/torgeternity/images/icons/reality-icon.webp
         type: base
-        system: {}
+        system:
+          changes:
+            - key: system.skills.intimidation.adds
+              value: 2
+              priority: null
+              type: add
         sort: 0
+        start: null
+        showIcon: 1
+        folder: null
         _key: >-
           !actors.items.effects!92W36cwQtstg8MQ3.DmmM7o5UHBdJ8zzW.1VTOsm0M13fBNOeh
       - origin: Item.Myu6hZG5b1X1vkR6
         duration:
-          rounds: null
-          startTime: null
-          seconds: null
-          combat: null
-          turns: null
-          startRound: null
-          startTurn: null
+          value: null
+          units: seconds
+          expiry: null
+          expired: false
         disabled: false
         name: Einschüchtern begünstigt
         img: systems/torgeternity/images/icons/reality-icon.webp
         _id: SODFj28k0zgdMyCx
         type: base
-        system: {}
-        changes:
-          - key: system.skills.intimidation.isFav
-            mode: 5
-            value: 'true'
-            priority: null
+        system:
+          changes:
+            - key: system.skills.intimidation.isFav
+              value: true
+              priority: null
+              type: override
         description: ''
         tint: '#ffffff'
         transfer: true
@@ -345,13 +342,16 @@ items:
         _stats:
           compendiumSource: null
           duplicateSource: null
-          coreVersion: '13.351'
+          coreVersion: '14.360'
           systemId: torgeternity
           systemVersion: 12.2.0
           createdTime: null
           modifiedTime: 1774460446909
           lastModifiedBy: BMvGTGfheqDXarjN
           exportSource: null
+        start: null
+        showIcon: 1
+        folder: null
         _key: >-
           !actors.items.effects!92W36cwQtstg8MQ3.DmmM7o5UHBdJ8zzW.SODFj28k0zgdMyCx
     folder: WDvJC2MufxrqwbzV
@@ -449,7 +449,7 @@ items:
     _stats:
       compendiumSource: Compendium.te001-core-rulebook.Items.ohmish0RVlju7Qbk
       duplicateSource: null
-      coreVersion: '13.345'
+      coreVersion: '14.360'
       systemId: torgeternity
       systemVersion: 12.2.0
       createdTime: null
@@ -484,7 +484,7 @@ items:
     _stats:
       compendiumSource: Compendium.te001-core-rulebook.grw-de-vorzuverb.Item.33iJGyN9gPsr4jr6
       duplicateSource: null
-      coreVersion: '13.345'
+      coreVersion: '14.360'
       systemId: torgeternity
       systemVersion: 12.3.0
       createdTime: 1729599393896
@@ -536,7 +536,7 @@ items:
       compendiumSource: Item.w4b7qWApQXkghQXE
       duplicateSource: null
       exportSource: null
-      coreVersion: '13.348'
+      coreVersion: '14.360'
       systemId: torgeternity
       systemVersion: 13.10.0
       createdTime: 1758491119734
@@ -550,13 +550,10 @@ items:
     effects:
       - origin: Compendium.te001-core-rulebook.grw-de-vorzuverb.Item.sWRXWBwLHBCcTUOJ
         duration:
-          rounds: null
-          startTime: 1310
-          seconds: null
-          combat: null
-          turns: null
-          startRound: 27
-          startTurn: 0
+          value: null
+          units: seconds
+          expiry: null
+          expired: false
         disabled: false
         name: Waffenloser Schaden +2
         img: systems/torgeternity/images/icons/reality-icon.webp
@@ -576,11 +573,11 @@ items:
           itemsToBestow: []
           combatToggle: false
           concentratingId: null
-        changes:
-          - key: system.skills.unarmedCombat.damageMod
-            mode: 2
-            value: '2'
-            priority: null
+          changes:
+            - key: system.skills.unarmedCombat.damageMod
+              value: 2
+              priority: null
+              type: add
         description: ''
         tint: '#ffffff'
         transfer: true
@@ -591,10 +588,21 @@ items:
           compendiumSource: null
           duplicateSource: null
           exportSource: null
-          coreVersion: '13.351'
+          coreVersion: '14.360'
           systemId: torgeternity
           systemVersion: 13.27.0
           lastModifiedBy: null
+          createdTime: null
+          modifiedTime: null
+        start:
+          combat: null
+          round: 27
+          time: 1310
+          turn: 0
+          combatant: null
+          initiative: null
+        showIcon: 1
+        folder: null
         _key: >-
           !actors.items.effects!92W36cwQtstg8MQ3.sWRXWBwLHBCcTUOJ.npjXworufBhXEItQ
     folder: VBu411RBl0s7if8K
@@ -627,7 +635,7 @@ items:
       compendiumSource: Compendium.te001-core-rulebook.grw-de-vorzuverb.Item.sWRXWBwLHBCcTUOJ
       duplicateSource: null
       exportSource: null
-      coreVersion: '13.351'
+      coreVersion: '14.360'
       systemId: torgeternity
       systemVersion: 13.27.0
       createdTime: 1774466703103
@@ -1044,9 +1052,6 @@ prototypeToken:
     tint: '#ffffff'
     scaleX: 1
     scaleY: 1
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
     anchorX: 0.5
     anchorY: 0.5
     fit: contain
@@ -1063,7 +1068,7 @@ prototypeToken:
     color: null
   appendNumber: false
   prependAdjective: false
-  detectionModes: []
+  detectionModes: {}
   occludable:
     radius: 0
   ring:
@@ -1081,10 +1086,11 @@ prototypeToken:
     src: null
     disposition: false
   movementAction: null
+  depth: 1
 _stats:
   systemId: torgeternity
   systemVersion: 13.27.0
-  coreVersion: '13.351'
+  coreVersion: '14.360'
   createdTime: 1694867673206
   modifiedTime: 1773001234693
   lastModifiedBy: BMvGTGfheqDXarjN

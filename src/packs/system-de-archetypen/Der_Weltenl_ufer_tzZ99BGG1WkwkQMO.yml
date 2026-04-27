@@ -106,7 +106,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 12.2.0
-      coreVersion: '13.345'
+      coreVersion: '14.360'
       createdTime: 1694868513566
       modifiedTime: 1722163680855
       lastModifiedBy: 93AMwcGe6H37rcPA
@@ -165,7 +165,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 13.2.2
-      coreVersion: '13.346'
+      coreVersion: '14.360'
       createdTime: 1694868543565
       modifiedTime: 1753598665496
       lastModifiedBy: W32Zl65V9atvPk8o
@@ -217,7 +217,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 13.15.0
-      coreVersion: '13.351'
+      coreVersion: '14.360'
       createdTime: 1694868550013
       modifiedTime: 1771933776564
       lastModifiedBy: BMvGTGfheqDXarjN
@@ -250,7 +250,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 12.2.0
-      coreVersion: '13.345'
+      coreVersion: '14.360'
       createdTime: 1694868564181
       modifiedTime: 1722163750022
       lastModifiedBy: 93AMwcGe6H37rcPA
@@ -283,7 +283,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 12.2.0
-      coreVersion: '13.345'
+      coreVersion: '14.360'
       createdTime: 1694868568884
       modifiedTime: 1722163753174
       lastModifiedBy: 93AMwcGe6H37rcPA
@@ -319,7 +319,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 12.2.0
-      coreVersion: '13.345'
+      coreVersion: '14.360'
       createdTime: 1694868573414
       modifiedTime: 1722163826279
       lastModifiedBy: 93AMwcGe6H37rcPA
@@ -363,7 +363,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 13.2.2
-      coreVersion: '13.346'
+      coreVersion: '14.360'
       createdTime: 1711562366193
       modifiedTime: 1753598640848
       lastModifiedBy: W32Zl65V9atvPk8o
@@ -403,7 +403,7 @@ items:
     _stats:
       compendiumSource: Item.TptgnUCwWM2QZCaK
       duplicateSource: Item.KRYQ71jof26XeGEv
-      coreVersion: '13.345'
+      coreVersion: '14.360'
       systemId: torgeternity
       systemVersion: 12.2.0
       createdTime: 1722163712378
@@ -418,20 +418,12 @@ items:
     img: systems/torgeternity/images/icons/axe-icon.webp
     effects:
       - _id: sFPcVAMnyhyPeTzH
-        changes:
-          - key: system.skills.survival.isFav
-            mode: 5
-            value: 'true'
-            priority: null
         disabled: false
         duration:
-          startTime: null
-          seconds: null
-          combat: null
-          rounds: null
-          turns: null
-          startRound: null
-          startTurn: null
+          value: null
+          units: seconds
+          expiry: null
+          expired: false
         origin: Compendium.te001-core-rulebook.grw-de-ausruestung.b6nZOz177J3nWcLF
         transfer: true
         flags: {}
@@ -442,7 +434,7 @@ items:
         _stats:
           compendiumSource: null
           duplicateSource: null
-          coreVersion: '13.351'
+          coreVersion: '14.360'
           systemId: torgeternity
           systemVersion: 12.2.0
           createdTime: null
@@ -451,8 +443,16 @@ items:
           exportSource: null
         img: systems/torgeternity/images/icons/axe-icon.webp
         type: base
-        system: {}
+        system:
+          changes:
+            - key: system.skills.survival.isFav
+              value: true
+              priority: null
+              type: override
         sort: 0
+        start: null
+        showIcon: 1
+        folder: null
         _key: >-
           !actors.items.effects!tzZ99BGG1WkwkQMO.y1UR3kyIL5JTouJL.sFPcVAMnyhyPeTzH
     folder: WDvJC2MufxrqwbzV
@@ -490,7 +490,7 @@ items:
     _stats:
       compendiumSource: Compendium.te001-core-rulebook.grw-de-ausruestung.Item.b6nZOz177J3nWcLF
       duplicateSource: null
-      coreVersion: '13.346'
+      coreVersion: '14.360'
       systemId: torgeternity
       systemVersion: 13.2.2
       createdTime: null
@@ -525,7 +525,7 @@ items:
     _stats:
       compendiumSource: Compendium.te001-core-rulebook.grw-de-vorzuverb.Item.33iJGyN9gPsr4jr6
       duplicateSource: null
-      coreVersion: '13.345'
+      coreVersion: '14.360'
       systemId: torgeternity
       systemVersion: 12.3.0
       createdTime: 1729599405712
@@ -546,13 +546,10 @@ items:
       - name: Möglichkeit +1
         origin: Compendium.te001-core-rulebook.grw-de-vorzuverb.Item.5NH1DrMFKWCJIHKn
         duration:
-          startTime: 1310
-          combat: null
-          seconds: null
-          rounds: null
-          turns: null
-          startRound: 27
-          startTurn: 0
+          value: null
+          units: seconds
+          expiry: null
+          expired: false
         disabled: false
         img: systems/torgeternity/images/icons/reality-icon.webp
         _id: Ad22DYAU3JY2VT92
@@ -571,11 +568,11 @@ items:
           itemsToBestow: []
           combatToggle: false
           concentratingId: null
-        changes:
-          - key: system.other.possibilities.perAct
-            mode: 2
-            value: '1'
-            priority: null
+          changes:
+            - key: system.other.possibilities.perAct
+              value: 1
+              priority: null
+              type: add
         description: ''
         tint: '#ffffff'
         transfer: true
@@ -586,10 +583,21 @@ items:
           compendiumSource: null
           duplicateSource: null
           exportSource: null
-          coreVersion: '13.351'
+          coreVersion: '14.360'
           systemId: torgeternity
           systemVersion: 13.27.0
           lastModifiedBy: null
+          createdTime: null
+          modifiedTime: null
+        start:
+          combat: null
+          round: 27
+          time: 1310
+          turn: 0
+          combatant: null
+          initiative: null
+        showIcon: 1
+        folder: null
         _key: >-
           !actors.items.effects!tzZ99BGG1WkwkQMO.5NH1DrMFKWCJIHKn.Ad22DYAU3JY2VT92
     folder: T1fFDXRVIW0F1hZR
@@ -622,7 +630,7 @@ items:
       compendiumSource: Compendium.te001-core-rulebook.grw-de-vorzuverb.Item.5NH1DrMFKWCJIHKn
       duplicateSource: null
       exportSource: null
-      coreVersion: '13.351'
+      coreVersion: '14.360'
       systemId: torgeternity
       systemVersion: 13.27.0
       createdTime: 1774460656298
@@ -1039,9 +1047,6 @@ prototypeToken:
     tint: '#ffffff'
     scaleX: 1
     scaleY: 1
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
     anchorX: 0.5
     anchorY: 0.5
     fit: contain
@@ -1058,7 +1063,7 @@ prototypeToken:
     color: null
   appendNumber: false
   prependAdjective: false
-  detectionModes: []
+  detectionModes: {}
   occludable:
     radius: 0
   ring:
@@ -1076,10 +1081,11 @@ prototypeToken:
     src: null
     disposition: false
   movementAction: null
+  depth: 1
 _stats:
   systemId: torgeternity
   systemVersion: 13.27.0
-  coreVersion: '13.351'
+  coreVersion: '14.360'
   createdTime: 1694868498745
   modifiedTime: 1773001234706
   lastModifiedBy: BMvGTGfheqDXarjN

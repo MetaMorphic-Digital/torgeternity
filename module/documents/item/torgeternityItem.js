@@ -53,7 +53,7 @@ export default class TorgeternityItem extends foundry.documents.Item {
 
     for (const [key, value] of Object.entries(CONFIG.torgeternity.dnTypes)) {
       if (key === this.system?.dn) {
-        this.system.dnType = game.i18n.localize(value);
+        this.system.dnType = _loc(value);
         break;
       }
     }
@@ -121,7 +121,7 @@ export default class TorgeternityItem extends foundry.documents.Item {
     }
 
     if (data.type === 'race' && this.actor?.race) {
-      ui.notifications.error(game.i18n.localize('torgeternity.notifications.raceExistent'));
+      ui.notifications.error(_loc('torgeternity.notifications.raceExistent'));
       return false;
     }
 
@@ -171,7 +171,7 @@ export default class TorgeternityItem extends foundry.documents.Item {
       );
 
       ui.notifications.warn(
-        game.i18n.format('torgeternity.notifications.ammoValueExceedsMax', { a: this.name })
+        _loc('torgeternity.notifications.ammoValueExceedsMax', { a: this.name })
       );
     }
 

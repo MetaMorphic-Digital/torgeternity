@@ -345,7 +345,7 @@ export default class torgeternityCombatTracker extends foundry.applications.side
     // DSR - check that the next step is approved by the current Drama Card
     const dsr = this.viewed?.currentDrama?.system.dsrLine;
     if (!force && dsr.length && dsr.length <= 4 && dsr.indexOf(newStep) === -1) {
-      ui.notifications.info(game.i18n.format(`torgeternity.chatText.notPermittedDSR`, { step: newStep }));
+      ui.notifications.info(_loc(`torgeternity.chatText.notPermittedDSR`, { step: newStep }));
       return;
     }
 
@@ -467,7 +467,7 @@ export default class torgeternityCombatTracker extends foundry.applications.side
     const group = this.viewed.groups.get(event.target.closest("[data-group-id]")?.dataset.groupId);
     if (!group) return;
     if (await foundry.applications.api.DialogV2.confirm({
-      content: game.i18n.format('torgeternity.CombatantGroup.reallyDelete', { group: group.name }),
+      content: _loc('torgeternity.CombatantGroup.reallyDelete', { group: group.name }),
       rejectClose: false,
       modal: true
     }))

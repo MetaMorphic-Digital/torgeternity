@@ -2,6 +2,17 @@
 
 - Translations by Durak (French), Helmut (German), and Teotimus (Spanish).
 
+## 14.0.0 - Foundry V14 exclusive
+- Remove legacy code that supported Foundry 13
+
+### Bug Fixes
+- Passive Active Effects can be created on Actors and Items once again.
+- All other Active Effects should also be getting created with the correct duration.
+- 30 minute timer set correctly on the Unconscious status generated when max shock exceeded.
+- Hand Ownership will now match the Ownership of the corresponding Actor (OWNER or OBSERVER)
+- Active Effects will no longer be duplicated (such as Hard as Nails).
+- Get SK hand selection displayed correctly in the "Default Card Deck Configuration" window.
+
 ## 13.35.0 - Unique & Attunable Items
 - Add new item traits in a new "other" traits group: Arcane, Holy, Magic, Sacred, Artifact, Implement, Attunable, Consumable.
 - Add game setting to define your own custom traits which are added to the "other" traits group.
@@ -15,13 +26,15 @@
   - Attunable items which are NOT attuned, are marked as failing itemUniqueness.
   - If more than this number of "attunable" items are marked as attuned, then they are all marked as failing itemUniqueness.
 - Add "equip" icon for Gear, Implants and Eternity Shards (to match all other Items).
+- Add a new **Wiki** button to the game settings, Torg Eternity banner button.
 - A `@Condition` enricher will display a circle-minus if the condition is being switched off (and the existing circle-plus for all other situations).
+- The `@Damage` enricher will show a broken heart (damage) or a whole heart (healing) in the inline enriched content. (The chat message will still report damage, even if you've set negative wounds/shock to actually perform healing.)
+- The format of the various `CONFIG.torgeternity.xxxTraits` objects have changed - so any custom changes will need to use the new format.
 
 ### Bug Fixes
 - Ensure that an Active Effect change of **isFav** is converted properly if not already a boolean
   - **(Existing isFav changes will need to be modified to use `true` again)**
 - Prevent console error on Foundry 14 when creating an Active Effect on an Item that isn't owned by an Actor.
-- The `@Damage` enricher will show a broken heart (damage) or a whole heart (healing) in the inline enriched content. (The chat message will still report damage, even if you've set negative wounds/shock to actually perform healing.)
   
 ## 13.34.2 - Prevent scene axiom error with Token Attacher
 - Update Scene to use _initializeSource instead of migrateData to initialize undefined axioms.

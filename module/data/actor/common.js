@@ -116,7 +116,7 @@ export class CommonActorData extends BaseActorData {
       }
     }
 
-    if (source.other && Object.hasOwn(source.other, "possibilities") && typeof source.other.possibilities === 'number') {
+    if (foundry.utils.hasProperty(source.other, "possibilities") && typeof source.other.possibilities === 'number') {
       source.other.possibilities = { value: source.other.possibilities }
     }
     return super.migrateData(source);

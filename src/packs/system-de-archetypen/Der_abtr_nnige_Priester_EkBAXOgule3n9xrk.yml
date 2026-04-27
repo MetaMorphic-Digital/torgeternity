@@ -27,7 +27,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 12.2.0
-      coreVersion: '13.345'
+      coreVersion: '14.360'
       createdTime: null
       modifiedTime: 1722161572718
       lastModifiedBy: 93AMwcGe6H37rcPA
@@ -134,7 +134,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 12.2.0
-      coreVersion: '13.345'
+      coreVersion: '14.360'
       createdTime: 1694867208350
       modifiedTime: 1722161703606
       lastModifiedBy: 93AMwcGe6H37rcPA
@@ -177,7 +177,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 3.1.1
-      coreVersion: '13.345'
+      coreVersion: '14.360'
       createdTime: 1694867462972
       modifiedTime: 1694867462972
       lastModifiedBy: CtisFurQNe9h7ABb
@@ -221,7 +221,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 12.2.0
-      coreVersion: '13.345'
+      coreVersion: '14.360'
       createdTime: 1711562366100
       modifiedTime: 1722161563270
       lastModifiedBy: 93AMwcGe6H37rcPA
@@ -341,7 +341,7 @@ items:
     _stats:
       compendiumSource: Compendium.te001-core-rulebook.grw-de-vorzuverb.Item.D1RJR3lXmVGDsPJr
       duplicateSource: null
-      coreVersion: '13.345'
+      coreVersion: '14.360'
       systemId: torgeternity
       systemVersion: 12.2.0
       createdTime: null
@@ -384,7 +384,7 @@ items:
     _stats:
       compendiumSource: Compendium.te001-core-rulebook.grw-de-kraefte.Item.d6IEaim5SKRR6wFV
       duplicateSource: null
-      coreVersion: '13.345'
+      coreVersion: '14.360'
       systemId: torgeternity
       systemVersion: 12.2.0
       createdTime: null
@@ -419,7 +419,7 @@ items:
     _stats:
       compendiumSource: Compendium.te001-core-rulebook.grw-de-vorzuverb.Item.33iJGyN9gPsr4jr6
       duplicateSource: null
-      coreVersion: '13.345'
+      coreVersion: '14.360'
       systemId: torgeternity
       systemVersion: 12.3.0
       createdTime: 1729599320841
@@ -493,7 +493,7 @@ items:
       compendiumSource: Compendium.te001-core-rulebook.grw-de-ausruestung.Item.fuYQYaZohFwwXDTS
       duplicateSource: null
       exportSource: null
-      coreVersion: '13.351'
+      coreVersion: '14.360'
       systemId: torgeternity
       systemVersion: 13.27.0
       createdTime: 1774460125551
@@ -506,20 +506,12 @@ items:
     img: systems/torgeternity/images/icons/gear-icon.webp
     effects:
       - _id: o5sjmDFrx8EZlbZO
-        changes:
-          - key: system.skills.computers.isFav
-            mode: 5
-            value: 'true'
-            priority: null
         disabled: false
         duration:
-          startTime: 1310
-          seconds: null
-          combat: null
-          rounds: null
-          turns: null
-          startRound: 27
-          startTurn: 0
+          value: null
+          units: seconds
+          expiry: null
+          expired: false
         origin: Compendium.te001-core-rulebook.grw-de-ausruestung.zlGOImY7hLQOLIeY
         transfer: true
         flags: {}
@@ -531,10 +523,12 @@ items:
           compendiumSource: null
           duplicateSource: null
           exportSource: null
-          coreVersion: '13.351'
+          coreVersion: '14.360'
           systemId: torgeternity
           systemVersion: 13.27.0
           lastModifiedBy: null
+          createdTime: null
+          modifiedTime: null
         img: systems/torgeternity/images/icons/gear-icon.webp
         type: base
         system:
@@ -551,7 +545,21 @@ items:
           itemsToBestow: []
           combatToggle: false
           concentratingId: null
+          changes:
+            - key: system.skills.computers.isFav
+              value: true
+              priority: null
+              type: override
         sort: 0
+        start:
+          combat: null
+          round: 27
+          time: 1310
+          turn: 0
+          combatant: null
+          initiative: null
+        showIcon: 1
+        folder: null
         _key: >-
           !actors.items.effects!EkBAXOgule3n9xrk.zlGOImY7hLQOLIeY.o5sjmDFrx8EZlbZO
     folder: aEq4I8joiXiDiFOY
@@ -590,7 +598,7 @@ items:
       compendiumSource: Compendium.te001-core-rulebook.grw-de-ausruestung.Item.zlGOImY7hLQOLIeY
       duplicateSource: null
       exportSource: null
-      coreVersion: '13.351'
+      coreVersion: '14.360'
       systemId: torgeternity
       systemVersion: 13.27.0
       createdTime: 1774460149666
@@ -605,13 +613,10 @@ items:
       - origin: >-
           Compendium.te001-core-rulebook.grw-de-ausruestung.Item.fn5nBz7AZXCDDKeB
         duration:
-          rounds: null
-          startTime: 1310
-          seconds: null
-          combat: null
-          turns: null
-          startRound: 27
-          startTurn: 0
+          value: null
+          units: seconds
+          expiry: null
+          expired: false
         disabled: false
         name: Finden/Spurenlesen Begünstigt
         img: systems/torgeternity/images/icons/cyberware-icon.webp
@@ -631,15 +636,15 @@ items:
           itemsToBestow: []
           combatToggle: false
           concentratingId: null
-        changes:
-          - key: system.skills.find.isFav
-            mode: 5
-            value: 'true'
-            priority: null
-          - key: system.skills.tracking.isFav
-            mode: 5
-            value: 'true'
-            priority: null
+          changes:
+            - key: system.skills.find.isFav
+              value: true
+              priority: null
+              type: override
+            - key: system.skills.tracking.isFav
+              value: true
+              priority: null
+              type: override
         description: ''
         tint: '#ffffff'
         transfer: true
@@ -650,10 +655,21 @@ items:
           compendiumSource: null
           duplicateSource: null
           exportSource: null
-          coreVersion: '13.351'
+          coreVersion: '14.360'
           systemId: torgeternity
           systemVersion: 13.27.0
           lastModifiedBy: null
+          createdTime: null
+          modifiedTime: null
+        start:
+          combat: null
+          round: 27
+          time: 1310
+          turn: 0
+          combatant: null
+          initiative: null
+        showIcon: 1
+        folder: null
         _key: >-
           !actors.items.effects!EkBAXOgule3n9xrk.fn5nBz7AZXCDDKeB.E5AukEsWExBLuvMO
     folder: Mi0xVgl3rrxM1LsS
@@ -699,7 +715,7 @@ items:
       compendiumSource: Compendium.te001-core-rulebook.grw-de-ausruestung.Item.fn5nBz7AZXCDDKeB
       duplicateSource: null
       exportSource: null
-      coreVersion: '13.351'
+      coreVersion: '14.360'
       systemId: torgeternity
       systemVersion: 13.27.0
       createdTime: 1774460158454
@@ -714,13 +730,10 @@ items:
         origin: >-
           Compendium.te001-core-rulebook.grw-de-ausruestung.Item.e785pkoh3UmWeaCE
         duration:
-          startTime: 1310
-          combat: null
-          seconds: null
-          rounds: null
-          turns: null
-          startRound: 27
-          startTurn: 0
+          value: null
+          units: seconds
+          expiry: null
+          expired: false
         disabled: false
         img: systems/torgeternity/images/icons/cyberware-icon.webp
         _id: OuhYHWVCyHpMNdqO
@@ -739,11 +752,11 @@ items:
           itemsToBestow: []
           combatToggle: false
           concentratingId: null
-        changes:
-          - key: system.targetModifiers.darkness
-            mode: 2
-            value: '2'
-            priority: null
+          changes:
+            - key: system.targetModifiers.darkness
+              value: 2
+              priority: null
+              type: add
         description: ''
         tint: '#ffffff'
         transfer: true
@@ -754,10 +767,21 @@ items:
           compendiumSource: null
           duplicateSource: null
           exportSource: null
-          coreVersion: '13.351'
+          coreVersion: '14.360'
           systemId: torgeternity
           systemVersion: 13.27.0
           lastModifiedBy: null
+          createdTime: null
+          modifiedTime: null
+        start:
+          combat: null
+          round: 27
+          time: 1310
+          turn: 0
+          combatant: null
+          initiative: null
+        showIcon: 1
+        folder: null
         _key: >-
           !actors.items.effects!EkBAXOgule3n9xrk.e785pkoh3UmWeaCE.OuhYHWVCyHpMNdqO
     folder: Mi0xVgl3rrxM1LsS
@@ -794,7 +818,7 @@ items:
       compendiumSource: Compendium.te001-core-rulebook.grw-de-ausruestung.Item.e785pkoh3UmWeaCE
       duplicateSource: null
       exportSource: null
-      coreVersion: '13.351'
+      coreVersion: '14.360'
       systemId: torgeternity
       systemVersion: 13.27.0
       createdTime: 1774460173302
@@ -806,20 +830,12 @@ items:
     img: systems/torgeternity/images/icons/cyberware-icon.webp
     effects:
       - _id: zZNHP1gJvx6wNmWu
-        changes:
-          - key: system.attributes.strength.value
-            mode: 2
-            value: '1'
-            priority: null
         disabled: false
         duration:
-          startTime: 1310
-          seconds: null
-          combat: null
-          rounds: null
-          turns: null
-          startRound: 27
-          startTurn: 0
+          value: null
+          units: seconds
+          expiry: null
+          expired: false
         origin: Item.GRUaPeFH1H1WwUGo
         transfer: true
         flags: {}
@@ -831,10 +847,12 @@ items:
           compendiumSource: null
           duplicateSource: null
           exportSource: null
-          coreVersion: '13.351'
+          coreVersion: '14.360'
           systemId: torgeternity
           systemVersion: 13.27.0
           lastModifiedBy: null
+          createdTime: null
+          modifiedTime: null
         img: systems/torgeternity/images/icons/cyberware-icon.webp
         type: base
         system:
@@ -851,27 +869,33 @@ items:
           itemsToBestow: []
           combatToggle: false
           concentratingId: null
+          changes:
+            - key: system.attributes.strength.value
+              value: 1
+              priority: null
+              type: add
         sort: 0
+        start:
+          combat: null
+          round: 27
+          time: 1310
+          turn: 0
+          combatant: null
+          initiative: null
+        showIcon: 1
+        folder: null
         _key: >-
           !actors.items.effects!EkBAXOgule3n9xrk.NuiosxP2lpF0vndA.zZNHP1gJvx6wNmWu
       - origin: >-
           Compendium.te001-core-rulebook.grw-de-ausruestung.Item.NuiosxP2lpF0vndA
         duration:
-          startTime: 1310
-          seconds: null
-          combat: null
-          rounds: null
-          turns: null
-          startRound: 27
-          startTurn: 0
+          value: null
+          units: seconds
+          expiry: null
+          expired: false
         disabled: true
         name: Rüstung +2 (Arm)
         _id: 6Iq4frcerIOpvBfT
-        changes:
-          - key: system.defenses.armor
-            mode: 2
-            value: '2'
-            priority: null
         description: ''
         transfer: true
         statuses: []
@@ -881,10 +905,12 @@ items:
           compendiumSource: null
           duplicateSource: null
           exportSource: null
-          coreVersion: '13.351'
+          coreVersion: '14.360'
           systemId: torgeternity
           systemVersion: 13.27.0
           lastModifiedBy: null
+          createdTime: null
+          modifiedTime: null
         img: systems/torgeternity/images/icons/cyberware-icon.webp
         type: base
         system:
@@ -901,7 +927,21 @@ items:
           itemsToBestow: []
           combatToggle: false
           concentratingId: null
+          changes:
+            - key: system.defenses.armor
+              value: 2
+              priority: null
+              type: add
         sort: 0
+        start:
+          combat: null
+          round: 27
+          time: 1310
+          turn: 0
+          combatant: null
+          initiative: null
+        showIcon: 1
+        folder: null
         _key: >-
           !actors.items.effects!EkBAXOgule3n9xrk.NuiosxP2lpF0vndA.6Iq4frcerIOpvBfT
     folder: Mi0xVgl3rrxM1LsS
@@ -946,7 +986,7 @@ items:
       compendiumSource: Compendium.te001-core-rulebook.grw-de-ausruestung.Item.NuiosxP2lpF0vndA
       duplicateSource: null
       exportSource: null
-      coreVersion: '13.351'
+      coreVersion: '14.360'
       systemId: torgeternity
       systemVersion: 13.27.0
       createdTime: 1774460183246
@@ -999,7 +1039,7 @@ items:
       compendiumSource: Compendium.te001-core-rulebook.grw-de-ausruestung.Item.biTp8hxSCHaeTnpA
       duplicateSource: null
       exportSource: null
-      coreVersion: '13.351'
+      coreVersion: '14.360'
       systemId: torgeternity
       systemVersion: 13.27.0
       createdTime: 1774460193476
@@ -1012,20 +1052,12 @@ items:
     img: systems/torgeternity/images/icons/miracles-icon.webp
     effects:
       - _id: ecbVOFBMML58Ojlw
-        changes:
-          - key: system.defenses.all.mod
-            mode: 2
-            value: '1'
-            priority: null
         disabled: false
         duration:
-          startTime: null
-          seconds: null
-          combat: null
-          rounds: null
-          turns: null
-          startRound: null
-          startTurn: null
+          value: null
+          units: seconds
+          expiry: null
+          expired: false
         origin: Compendium.te001-core-rulebook.grw-de-kraefte.geTWA7krOqHuXpxk
         transfer: false
         flags: {}
@@ -1037,10 +1069,12 @@ items:
           compendiumSource: null
           duplicateSource: null
           exportSource: null
-          coreVersion: '13.351'
+          coreVersion: '14.360'
           systemId: torgeternity
           systemVersion: 13.27.0
           lastModifiedBy: null
+          createdTime: null
+          modifiedTime: null
         img: systems/torgeternity/images/icons/miracles-icon.webp
         type: base
         system:
@@ -1060,24 +1094,24 @@ items:
           concentratingId: null
           emanation:
             radius: 5
+          changes:
+            - key: system.defenses.all.mod
+              value: 1
+              priority: null
+              type: add
         sort: 0
+        start: null
+        showIcon: 1
+        folder: null
         _key: >-
           !actors.items.effects!EkBAXOgule3n9xrk.geTWA7krOqHuXpxk.ecbVOFBMML58Ojlw
       - _id: RiLW8E5gMhnrThkX
-        changes:
-          - key: system.defenses.all.mod
-            mode: 2
-            value: '2'
-            priority: null
         disabled: false
         duration:
-          startTime: null
-          seconds: null
-          combat: null
-          rounds: null
-          turns: null
-          startRound: null
-          startTurn: null
+          value: null
+          units: seconds
+          expiry: null
+          expired: false
         origin: Compendium.te001-core-rulebook.grw-de-kraefte.geTWA7krOqHuXpxk
         transfer: false
         flags: {}
@@ -1089,10 +1123,12 @@ items:
           compendiumSource: null
           duplicateSource: null
           exportSource: null
-          coreVersion: '13.351'
+          coreVersion: '14.360'
           systemId: torgeternity
           systemVersion: 13.27.0
           lastModifiedBy: null
+          createdTime: null
+          modifiedTime: null
         img: systems/torgeternity/images/icons/miracles-icon.webp
         type: base
         system:
@@ -1112,19 +1148,24 @@ items:
           concentratingId: null
           emanation:
             radius: 5
+          changes:
+            - key: system.defenses.all.mod
+              value: 2
+              priority: null
+              type: add
         sort: 0
+        start: null
+        showIcon: 1
+        folder: null
         _key: >-
           !actors.items.effects!EkBAXOgule3n9xrk.geTWA7krOqHuXpxk.RiLW8E5gMhnrThkX
       - name: Feind abwehren Hervorragend
         origin: Compendium.te001-core-rulebook.grw-de-kraefte.Item.geTWA7krOqHuXpxk
         duration:
-          startTime: null
-          combat: null
-          seconds: null
-          rounds: null
-          turns: null
-          startRound: null
-          startTurn: null
+          value: null
+          units: seconds
+          expiry: null
+          expired: false
         disabled: false
         img: systems/torgeternity/images/icons/miracles-icon.webp
         _id: p1X7QSpmDO4ED1pY
@@ -1146,11 +1187,11 @@ items:
           concentratingId: null
           emanation:
             radius: 5
-        changes:
-          - key: system.defenses.all.mod
-            mode: 2
-            value: '2'
-            priority: null
+          changes:
+            - key: system.defenses.all.mod
+              value: 2
+              priority: null
+              type: add
         description: ''
         tint: '#ffffff'
         transfer: false
@@ -1161,10 +1202,15 @@ items:
           compendiumSource: null
           duplicateSource: null
           exportSource: null
-          coreVersion: '13.351'
+          coreVersion: '14.360'
           systemId: torgeternity
           systemVersion: 13.27.0
           lastModifiedBy: null
+          createdTime: null
+          modifiedTime: null
+        start: null
+        showIcon: 1
+        folder: null
         _key: >-
           !actors.items.effects!EkBAXOgule3n9xrk.geTWA7krOqHuXpxk.p1X7QSpmDO4ED1pY
     folder: wTUqpByLYHH04MSY
@@ -1210,7 +1256,7 @@ items:
       compendiumSource: Compendium.te001-core-rulebook.grw-de-kraefte.Item.geTWA7krOqHuXpxk
       duplicateSource: null
       exportSource: null
-      coreVersion: '13.351'
+      coreVersion: '14.360'
       systemId: torgeternity
       systemVersion: 13.27.0
       createdTime: 1774460207449
@@ -1627,9 +1673,6 @@ prototypeToken:
     tint: '#ffffff'
     scaleX: 1
     scaleY: 1
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
     anchorX: 0.5
     anchorY: 0.5
     fit: contain
@@ -1646,7 +1689,7 @@ prototypeToken:
     color: null
   appendNumber: false
   prependAdjective: false
-  detectionModes: []
+  detectionModes: {}
   occludable:
     radius: 0
   ring:
@@ -1664,10 +1707,11 @@ prototypeToken:
     src: null
     disposition: false
   movementAction: null
+  depth: 1
 _stats:
   systemId: torgeternity
   systemVersion: 13.27.0
-  coreVersion: '13.351'
+  coreVersion: '14.360'
   createdTime: 1694867208350
   modifiedTime: 1773001234694
   lastModifiedBy: BMvGTGfheqDXarjN

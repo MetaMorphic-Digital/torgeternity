@@ -100,7 +100,7 @@ export default class TorgeternityActor extends foundry.documents.Actor {
           if (changedAttribute.base > clampedAttribute) {
             changedAttribute.base = clampedAttribute;
             ui.notifications.error(
-              game.i18n.localize('torgeternity.notifications.reachedMaximumAttr')
+              _loc('torgeternity.notifications.reachedMaximumAttr')
             );
           }
         }
@@ -135,7 +135,7 @@ export default class TorgeternityActor extends foundry.documents.Actor {
     if (this.type === 'stormknight') {
       const hand = this.getDefaultHand();
       // If the update includes permissions, sync them to the hand
-      if (hand && changed['==ownership'] && game.userId === userId) {
+      if (hand && changed.ownership && game.userId === userId) {
         // DO NOT PUT ANYTHING ELSE IN THIS UPDATE! diff:false, recursive:false can easily nuke stuff
         hand.update({ ownership: this.getHandOwnership() }, { diff: false, recursive: false });
       }
@@ -158,11 +158,11 @@ export default class TorgeternityActor extends foundry.documents.Actor {
         this.toggleStatusEffect('unconscious', {
           active: true,
           overlay: true,
-          duration: {
-            startTime: game.time.worldTime,
-            seconds: 30 * 60 // 30 minutes
-          }
-        });
+        }).then(effect => effect.update({
+          start: { time: game.time.worldTime },
+          duration: { value: 30, units: 'minutes' }
+
+        }))
       }
 
       if (options.woundsExceeded || options.shockExceeded) {
@@ -180,17 +180,9 @@ export default class TorgeternityActor extends foundry.documents.Actor {
     }
   }
 
-  _onEmbeddedDocumentChange() {
-    // Ensure after a Disconnect (or other status change) that all visible things are updated
-    this._safePrepareData();
-    if (this.apps)
-      Object.values(this.apps).forEach(app => app.render());
-    super._onEmbeddedDocumentChange();
-  }
-
   applyActiveEffects(phase) {
     super.applyActiveEffects(phase);
-    if (phase === 'final' && game.release.generation > 13 && game.user.isActiveGM)
+    if (phase === 'final' && game.user.isActiveGM)
       this.getActiveSceneTokens().forEach(token => token?.document?.updateEffectRegions());
   }
 
@@ -384,15 +376,15 @@ export default class TorgeternityActor extends foundry.documents.Actor {
   async notifyDefeat() {
     const attribute = (this.system.attributes.spirit.value < this.system.attributes.strength.value) ? 'spirit' : 'strength';
 
-    const html = `<p>${game.i18n.format('torgeternity.defeat.prompt', { name: this.name })}
+    const html = `<p>${_loc('torgeternity.defeat.prompt', { name: this.name })}
     <div class="skill-roll-menu">
      <a class="button roll-button roll-defeat ${(attribute === 'strength') && 'notPreferred'}"
      data-action="testDefeat" data-control="spirit" }>
-     ${game.i18n.localize('torgeternity.attributes.spirit')}
+     ${_loc('torgeternity.attributes.spirit')}
      </a>
      <a class="button roll-button roll-defeat ${(attribute === 'spirit') && 'notPreferred'}" 
      data-action="testDefeat" data-control="strength" >
-     ${game.i18n.localize('torgeternity.attributes.strength')}
+     ${_loc('torgeternity.attributes.strength')}
      </a>
      </div>`;
 
@@ -414,7 +406,7 @@ export default class TorgeternityActor extends foundry.documents.Actor {
       let eff = await this.toggleStatusEffect('veryStymied', { active: true });
       eff.update({
         origin: originid,
-        duration: { rounds: duration, turns: duration, expiry: 'turnEnd' }
+        duration: { value: duration, units: 'rounds', expiry: 'turnEnd' }
       })
     }
   }
@@ -431,7 +423,7 @@ export default class TorgeternityActor extends foundry.documents.Actor {
       effect = await this.toggleStatusEffect('veryVulnerable', { active: true });
     }
     // If no origin, then it is being self-applied so needs to last to after this actor's next turn
-    effect.update({ origin, duration: { rounds: duration, turns: duration, expiry: 'turnEnd' } })
+    effect.update({ origin, duration: { value: duration, units: 'rounds', expiry: 'turnEnd' } })
   }
 
   async increaseStymied(origin, duration = 1) {
@@ -450,7 +442,7 @@ export default class TorgeternityActor extends foundry.documents.Actor {
       const effect = await this.toggleStatusEffect(statusId, { active: true });
       effect.update({
         origin,
-        duration: { rounds: duration, turns: duration, expiry: 'turnEnd' }
+        duration: { value: duration, units: 'rounds', expiry: 'turnEnd' }
       })
     }
   }
@@ -474,7 +466,7 @@ export default class TorgeternityActor extends foundry.documents.Actor {
       const effect = await this.toggleStatusEffect(statusId, { active: true });
       effect.update({
         origin: originid,
-        duration: { rounds: duration, turns: duration, expiry: 'turnEnd' }
+        duration: { value: duration, units: 'rounds', expiry: 'turnEnd' }
       })
     }
   }
@@ -489,24 +481,24 @@ export default class TorgeternityActor extends foundry.documents.Actor {
     let shieldBonus = (equippedShield && !this.hasStatusEffect('vulnerable') && !this.hasStatusEffect('veryVulnerable')) ? equippedShield.system.bonus : 0
 
     return this.createEmbeddedDocuments('ActiveEffect', [{
-      name: 'ActiveDefense', // Add an icon to remind the defense, bigger ? Change color of Defense ?
+      name: 'ActiveDefense',
       img: 'icons/equipment/shield/heater-crystal-blue.webp', // To change I think, taken in Core, should have a dedicated file
-      duration: { rounds: 1, value: 0, units: "rounds", expiry: 'roundEnd' },
+      duration: { value: 0, units: 'rounds', expiry: 'roundEnd' },
       origin: this.uuid,
       changes: [
         {
           // Modify all existing "basic" defense in block
           key: 'system.defenses.activeDefense', // Should need other work for defense vs powers
+          type: 'add',
           value: bonus, // that don't target xxDefense
           priority: 20, // Create a data.ADB that store the bonus ?
-          mode: CONST.ACTIVE_EFFECT_MODES.ADD,
         },
         {
           // SHIELD bonus to Toughness
           key: 'system.defenses.toughness',
+          type: 'add',
           value: shieldBonus,
           priority: 20,
-          mode: CONST.ACTIVE_EFFECT_MODES.ADD,
         },
       ],
       disabled: false,
@@ -558,29 +550,14 @@ export default class TorgeternityActor extends foundry.documents.Actor {
   decayEffects() {
     const toUpdate = [];
     const toDelete = [];
-    if (game.release.generation < 14) {
-      for (const effect of this.effects.filter((e) => e.duration.type === 'turns')) {
-        if (effect.name === 'ActiveDefense') continue;
-        if (effect.duration.turns <= 1 && effect.duration.rounds <= 1)
-          toDelete.push(effect.id)
-        else
-          toUpdate.push({
-            _id: effect.id,
-            'duration.turns': Math.max(0, effect.duration.turns - 1),
-            'duration.rounds': Math.max(0, effect.duration.rounds - 1),
-          });
-      }
-    } else {
-      for (const effect of this.effects.filter((e) => e.duration.expiry === 'turnEnd')) {
-        if (effect.name === 'ActiveDefense') continue;
-        if (effect.duration.value <= 1)
-          toDelete.push(effect.id)
-        else
-          toUpdate.push({
-            _id: effect.id,
-            'duration.value': Math.max(0, effect.duration.value - 1),
-          });
-      }
+    for (const effect of this.effects.filter((e) => e.duration.expiry === 'turnEnd')) {
+      if (effect.duration.value <= 1)
+        toDelete.push(effect.id)
+      else
+        toUpdate.push({
+          _id: effect.id,
+          'duration.value': Math.max(0, effect.duration.value - 1),
+        });
     }
     const promises = [];
     if (toUpdate.length) promises.push(this.updateEmbeddedDocuments('ActiveEffect', toUpdate));
@@ -589,7 +566,7 @@ export default class TorgeternityActor extends foundry.documents.Actor {
   }
 
   /**
-   * Returns either the AE for the Active Defense currently on the target, or undefined.
+   * @returns {TorgActiveEffect|undefined} Either the AE for the Active Defense currently on the target, or undefined.
    */
   get activeDefense() {
     return this.effects.find(ef => ef.name === 'ActiveDefense')
@@ -605,12 +582,12 @@ export default class TorgeternityActor extends foundry.documents.Actor {
     const effect = (await ActiveEffect.fromStatusEffect('concentrating')).toObject();
     Object.assign(effect,
       {
-        name: game.i18n.format('torgeternity.chatText.concentration.AEname', { item: item.name }),
+        name: _loc('torgeternity.chatText.concentration.AEname', { item: item.name }),
         origin: item.uuid,
-        description: game.i18n.format('torgeternity.chatText.concentration.AEdescription', {
+        description: _loc('torgeternity.chatText.concentration.AEdescription', {
           actor: this.name,
           itemName: item.name,
-          itemType: game.i18n.localize(CONFIG.Item.typeLabels[item.type])
+          itemType: _loc(CONFIG.Item.typeLabels[item.type])
         })
       })
     return ActiveEffect.implementation.create(effect, { parent: this });
@@ -720,7 +697,6 @@ export default class TorgeternityActor extends foundry.documents.Actor {
 
   /* ITEM UNIQUNESS HANDLING */
   checkItemUniqueness(crud) {
-    console.log(`checkItemUniqueness: ${this.name} - ${crud}`);
     this.items.forEach(item => item.tooMany = false);
     for (const [key, value] of Object.entries(CONFIG.torgeternity.itemUniqueness)) {
       const items = this.items.filter(item => !item.isDropped && item.system.traits.has(key));

@@ -49,7 +49,7 @@ export default class DeckSettingMenu extends HandlebarsApplicationMixin(Applicat
     const cosms = {};
     for (const cosm in CONFIG.torgeternity.cosmTypes) {
       if (cosm === 'none' || cosm === 'other') continue;
-      cosms[cosm] = { name: game.i18n.localize(`torgeternity.cosmDecks.${cosm}`) };
+      cosms[cosm] = { name: _loc(`torgeternity.cosmDecks.${cosm}`) };
     }
 
     const data = {
@@ -83,7 +83,7 @@ export default class DeckSettingMenu extends HandlebarsApplicationMixin(Applicat
       ]
     };
     for (const sk of data.stormknights) {
-      data.stormknights[sk.id] = sk.getDefaultHand()?.id;
+      sk.handid = sk.getDefaultHand()?.id;
     }
     return foundry.utils.mergeObject(await super._prepareContext(options), data);
   }

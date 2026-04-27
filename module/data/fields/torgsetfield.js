@@ -31,7 +31,7 @@ class TorgHTMLStringTagsElement extends foundry.applications.elements.HTMLString
       const datalist = document.createElement('datalist');
       datalist.id = foundry.utils.randomID();
       for (const [key, lang] of Object.entries(choices)) {
-        datalist.appendChild(new Option(game.i18n.localize(lang), key))
+        datalist.appendChild(new Option(_loc(lang), key))
       }
       this._primaryInput.appendChild(datalist);
       this._primaryInput.setAttribute('list', datalist.id);

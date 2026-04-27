@@ -28,7 +28,7 @@ export default function createTorgShortcuts() {
     onDown: () => ui.GMScreen.toggleRender(),
   });
   game.keybindings.register('torgeternity', 'openCosmPoss', {
-    name: 'Possibility by cosm', // game.i18n.localize("torgeternity.gmScreen.toggle"),
+    name: 'Possibility by cosm', // _loc("torgeternity.gmScreen.toggle"),
     editable: [{ key: 'KeyP', },],
     onDown: (context) => {
       const actor = TorgeternityActor.getControlledActor();

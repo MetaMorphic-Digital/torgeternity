@@ -66,37 +66,17 @@ export default class EffectsPanel extends HandlebarsApplicationMixin(Application
     context.disabledEffects = [];
     // Ignore events which are suppressed programatically.
     if (actor) {
-      if (game.release.generation < 14) {
-        const showAll = !game.settings.get('torgeternity', 'effectsPanelOnlyTemporary');
-        if (showAll) context.activeEffects = [];
-        for (const effect of actor.allApplicableEffects()) {
-          //if (effect.isSuppressed) continue;
-          if (effect.isTemporary) {
-            if (effect.disabled)
-              context.disabledEffects.push(effect)
-            else
-              context.temporaryEffects.push(effect)
-          } else if (showAll) {
-            // get active() => !this.disabled && !this.isSuppressed;
-            if (effect.disabled)
-              context.disabledEffects.push(effect)
-            else
-              context.activeEffects.push(effect)
-          }
+      // same rule as in TokenDocument._drawEffects
+      // but we need the disabled ones too.
+      const SHOW_ICON = CONST.ACTIVE_EFFECT_SHOW_ICON;
+      for (const effect of actor.allApplicableEffects())
+        if (effect.showIcon === SHOW_ICON.ALWAYS ||
+          (effect.showIcon === SHOW_ICON.CONDITIONAL && effect.isTemporary)) {
+          if (effect.disabled)
+            context.disabledEffects.push(effect)
+          else
+            context.temporaryEffects.push(effect)
         }
-      } else {
-        // same rule as in TokenDocument._drawEffects
-        // but we need the disabled ones too.
-        const SHOW_ICON = CONST.ACTIVE_EFFECT_SHOW_ICON;
-        for (const effect of actor.allApplicableEffects())
-          if (effect.showIcon === SHOW_ICON.ALWAYS ||
-            (effect.showIcon === SHOW_ICON.CONDITIONAL && effect.isTemporary)) {
-            if (effect.disabled)
-              context.disabledEffects.push(effect)
-            else
-              context.temporaryEffects.push(effect)
-          }
-      }
     }
 
     return context;

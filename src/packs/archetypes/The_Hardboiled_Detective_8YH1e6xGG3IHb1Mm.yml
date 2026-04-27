@@ -26,7 +26,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 12.2.0
-      coreVersion: '13.345'
+      coreVersion: '14.360'
       createdTime: null
       modifiedTime: 1722156316072
       lastModifiedBy: 93AMwcGe6H37rcPA
@@ -57,7 +57,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 12.2.0
-      coreVersion: '13.345'
+      coreVersion: '14.360'
       createdTime: null
       modifiedTime: 1722156306520
       lastModifiedBy: 93AMwcGe6H37rcPA
@@ -88,7 +88,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 12.2.0
-      coreVersion: '13.345'
+      coreVersion: '14.360'
       createdTime: null
       modifiedTime: 1722156320023
       lastModifiedBy: 93AMwcGe6H37rcPA
@@ -119,7 +119,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 12.2.0
-      coreVersion: '13.345'
+      coreVersion: '14.360'
       createdTime: null
       modifiedTime: 1722156331367
       lastModifiedBy: 93AMwcGe6H37rcPA
@@ -150,7 +150,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 12.2.0
-      coreVersion: '13.345'
+      coreVersion: '14.360'
       createdTime: null
       modifiedTime: 1722156335680
       lastModifiedBy: 93AMwcGe6H37rcPA
@@ -181,7 +181,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 12.2.0
-      coreVersion: '13.345'
+      coreVersion: '14.360'
       createdTime: null
       modifiedTime: 1722156311392
       lastModifiedBy: 93AMwcGe6H37rcPA
@@ -288,7 +288,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 12.2.0
-      coreVersion: '13.345'
+      coreVersion: '14.360'
       createdTime: 1693910524596
       modifiedTime: 1722153046441
       lastModifiedBy: 93AMwcGe6H37rcPA
@@ -336,7 +336,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 13.15.0
-      coreVersion: '13.351'
+      coreVersion: '14.360'
       createdTime: 1693910723284
       modifiedTime: 1771930600286
       lastModifiedBy: BMvGTGfheqDXarjN
@@ -384,7 +384,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 13.15.0
-      coreVersion: '13.351'
+      coreVersion: '14.360'
       createdTime: 1693910724556
       modifiedTime: 1771930601735
       lastModifiedBy: BMvGTGfheqDXarjN
@@ -426,7 +426,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 13.2.2
-      coreVersion: '13.346'
+      coreVersion: '14.360'
       createdTime: 1711551146690
       modifiedTime: 1753599172867
       lastModifiedBy: W32Zl65V9atvPk8o
@@ -467,7 +467,7 @@ items:
     _stats:
       compendiumSource: Item.KRYQ71jof26XeGEv
       duplicateSource: null
-      coreVersion: '13.345'
+      coreVersion: '14.360'
       systemId: torgeternity
       systemVersion: 12.2.0
       createdTime: 1722108966625
@@ -505,7 +505,7 @@ items:
     _stats:
       compendiumSource: Compendium.te001-core-rulebook.Items.Item.xu2Vjk8W6NDhkSTv
       duplicateSource: null
-      coreVersion: '13.345'
+      coreVersion: '14.360'
       systemId: torgeternity
       systemVersion: 12.3.0
       createdTime: 1729582204316
@@ -553,7 +553,7 @@ items:
       compendiumSource: Item.ewfPYWfFRJSZ1FOs
       duplicateSource: null
       exportSource: null
-      coreVersion: '13.348'
+      coreVersion: '14.360'
       systemId: torgeternity
       systemVersion: 13.10.0
       createdTime: 1758491118772
@@ -567,13 +567,10 @@ items:
     effects:
       - origin: Compendium.te001-core-rulebook.Items.Item.8DjcKPmDCOTdObL6
         duration:
-          rounds: null
-          startTime: 1310
-          seconds: null
-          combat: null
-          turns: null
-          startRound: 27
-          startTurn: 0
+          value: null
+          units: seconds
+          expiry: null
+          expired: false
         disabled: false
         name: Unarmed damage +2
         img: systems/torgeternity/images/icons/reality-icon.webp
@@ -593,11 +590,11 @@ items:
           itemsToBestow: []
           combatToggle: false
           concentratingId: null
-        changes:
-          - key: system.skills.unarmedCombat.damageMod
-            mode: 2
-            value: '2'
-            priority: null
+          changes:
+            - key: system.skills.unarmedCombat.damageMod
+              value: 2
+              priority: null
+              type: add
         description: ''
         tint: '#ffffff'
         transfer: true
@@ -608,10 +605,21 @@ items:
           compendiumSource: null
           duplicateSource: null
           exportSource: null
-          coreVersion: '13.351'
+          coreVersion: '14.360'
           systemId: torgeternity
           systemVersion: 13.27.0
           lastModifiedBy: null
+          createdTime: null
+          modifiedTime: null
+        start:
+          combat: null
+          round: 27
+          time: 1310
+          turn: 0
+          combatant: null
+          initiative: null
+        showIcon: 1
+        folder: null
         _key: >-
           !actors.items.effects!8YH1e6xGG3IHb1Mm.8DjcKPmDCOTdObL6.oE9GsXbAWU66p180
     folder: 37oSaJ0SLuRamX4z
@@ -645,7 +653,7 @@ items:
       compendiumSource: Compendium.te001-core-rulebook.Items.Item.8DjcKPmDCOTdObL6
       duplicateSource: null
       exportSource: null
-      coreVersion: '13.351'
+      coreVersion: '14.360'
       systemId: torgeternity
       systemVersion: 13.27.0
       createdTime: 1774458603437
@@ -1144,9 +1152,6 @@ prototypeToken:
     tint: '#ffffff'
     scaleX: 1
     scaleY: 1
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
     anchorX: 0.5
     anchorY: 0.5
     fit: contain
@@ -1163,7 +1168,7 @@ prototypeToken:
     color: null
   appendNumber: false
   prependAdjective: false
-  detectionModes: []
+  detectionModes: {}
   occludable:
     radius: 0
   ring:
@@ -1181,10 +1186,11 @@ prototypeToken:
     src: null
     disposition: false
   movementAction: null
+  depth: 1
 _stats:
   systemId: torgeternity
   systemVersion: 13.27.0
-  coreVersion: '13.351'
+  coreVersion: '14.360'
   createdTime: 1693910524596
   modifiedTime: 1773001234536
   lastModifiedBy: BMvGTGfheqDXarjN

@@ -203,7 +203,7 @@ items:
     _stats:
       systemId: null
       systemVersion: null
-      coreVersion: '13.348'
+      coreVersion: '14.360'
       createdTime: null
       modifiedTime: 1758492490250
       lastModifiedBy: l8SVzn2293lAwvMC
@@ -313,7 +313,7 @@ items:
     _stats:
       systemId: null
       systemVersion: null
-      coreVersion: '13.348'
+      coreVersion: '14.360'
       createdTime: null
       modifiedTime: 1758492487102
       lastModifiedBy: l8SVzn2293lAwvMC
@@ -345,7 +345,7 @@ items:
     _stats:
       systemId: null
       systemVersion: null
-      coreVersion: '13.348'
+      coreVersion: '14.360'
       createdTime: null
       modifiedTime: 1758493012552
       lastModifiedBy: l8SVzn2293lAwvMC
@@ -379,7 +379,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 13.13.2
-      coreVersion: '13.351'
+      coreVersion: '14.360'
       createdTime: null
       modifiedTime: 1764002500744
       lastModifiedBy: e1DB4TK9SbDuMDS3
@@ -426,7 +426,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 13.27.0
-      coreVersion: '13.351'
+      coreVersion: '14.360'
       createdTime: null
       modifiedTime: 1774466881023
       lastModifiedBy: BMvGTGfheqDXarjN
@@ -471,7 +471,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 13.15.0
-      coreVersion: '13.351'
+      coreVersion: '14.360'
       createdTime: null
       modifiedTime: 1771934298709
       lastModifiedBy: BMvGTGfheqDXarjN
@@ -518,7 +518,7 @@ items:
       compendiumSource: Item.BFGjhDetVDm1xiku
       duplicateSource: null
       exportSource: null
-      coreVersion: '13.348'
+      coreVersion: '14.360'
       systemId: torgeternity
       systemVersion: 13.10.0
       createdTime: 1758491119394
@@ -934,9 +934,6 @@ prototypeToken:
     tint: '#ffffff'
     scaleX: 1
     scaleY: 1
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
     anchorX: 0.5
     anchorY: 0.5
     fit: contain
@@ -953,7 +950,7 @@ prototypeToken:
     color: null
   appendNumber: false
   prependAdjective: false
-  detectionModes: []
+  detectionModes: {}
   occludable:
     radius: 0
   ring:
@@ -971,10 +968,11 @@ prototypeToken:
     src: null
     disposition: false
   movementAction: null
+  depth: 1
 _stats:
   systemId: torgeternity
   systemVersion: 13.27.0
-  coreVersion: '13.351'
+  coreVersion: '14.360'
   createdTime: 1716827809333
   modifiedTime: 1774467270378
   lastModifiedBy: BMvGTGfheqDXarjN

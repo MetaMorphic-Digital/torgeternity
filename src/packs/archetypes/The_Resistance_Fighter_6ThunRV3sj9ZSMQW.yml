@@ -102,7 +102,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 12.2.0
-      coreVersion: '13.345'
+      coreVersion: '14.360'
       createdTime: 1693913842164
       modifiedTime: 1722153610438
       lastModifiedBy: 93AMwcGe6H37rcPA
@@ -151,7 +151,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 13.27.0
-      coreVersion: '13.351'
+      coreVersion: '14.360'
       createdTime: 1693913890908
       modifiedTime: 1774459104115
       lastModifiedBy: BMvGTGfheqDXarjN
@@ -184,7 +184,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 12.2.0
-      coreVersion: '13.345'
+      coreVersion: '14.360'
       createdTime: 1693913935699
       modifiedTime: 1722357053902
       lastModifiedBy: 93AMwcGe6H37rcPA
@@ -228,7 +228,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 13.8.1
-      coreVersion: '13.348'
+      coreVersion: '14.360'
       createdTime: 1693913984781
       modifiedTime: 1756563877002
       lastModifiedBy: l8SVzn2293lAwvMC
@@ -269,7 +269,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 13.2.2
-      coreVersion: '13.346'
+      coreVersion: '14.360'
       createdTime: 1711551146747
       modifiedTime: 1753599395583
       lastModifiedBy: W32Zl65V9atvPk8o
@@ -308,7 +308,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 13.2.2
-      coreVersion: '13.346'
+      coreVersion: '14.360'
       createdTime: 1711551146690
       modifiedTime: 1753599395583
       lastModifiedBy: W32Zl65V9atvPk8o
@@ -349,7 +349,7 @@ items:
     _stats:
       compendiumSource: Item.KRYQ71jof26XeGEv
       duplicateSource: null
-      coreVersion: '13.345'
+      coreVersion: '14.360'
       systemId: torgeternity
       systemVersion: 12.2.0
       createdTime: 1722109312435
@@ -457,7 +457,7 @@ items:
     _stats:
       compendiumSource: Compendium.te001-core-rulebook.Items.Item.4ZtIS4h8WRGarKIV
       duplicateSource: null
-      coreVersion: '13.345'
+      coreVersion: '14.360'
       systemId: torgeternity
       systemVersion: 12.2.0
       createdTime: null
@@ -490,7 +490,7 @@ items:
     _stats:
       compendiumSource: Compendium.te001-core-rulebook.Items.Item.1yvr2buYP58FJnE3
       duplicateSource: null
-      coreVersion: '13.345'
+      coreVersion: '14.360'
       systemId: torgeternity
       systemVersion: 12.2.0
       createdTime: null
@@ -537,7 +537,7 @@ items:
     _stats:
       compendiumSource: Compendium.te001-core-rulebook.Items.3Z6PGIn3g8uZmqxl
       duplicateSource: null
-      coreVersion: '13.348'
+      coreVersion: '14.360'
       systemId: torgeternity
       systemVersion: 13.8.1
       createdTime: null
@@ -552,21 +552,13 @@ items:
     effects:
       - origin: Compendium.te001-core-rulebook.Items.Item.KKJPrdjO5sFkhZzF
         duration:
-          startTime: null
-          seconds: null
-          combat: null
-          rounds: null
-          turns: null
-          startRound: null
-          startTurn: null
+          value: null
+          units: seconds
+          expiry: null
+          expired: false
         disabled: false
         name: Maneuver Fav
         _id: qNNSmAnRkG0Ot2Yf
-        changes:
-          - key: system.skills.maneuver.isFav
-            mode: 5
-            value: '1'
-            priority: null
         description: ''
         transfer: false
         statuses: []
@@ -575,7 +567,7 @@ items:
         _stats:
           compendiumSource: null
           duplicateSource: null
-          coreVersion: '13.351'
+          coreVersion: '14.360'
           systemId: torgeternity
           systemVersion: 13.24.1
           createdTime: null
@@ -587,7 +579,15 @@ items:
         system:
           transferOnAttack: true
           transferOnOutcome: anySuccess
+          changes:
+            - key: system.skills.maneuver.isFav
+              value: true
+              priority: null
+              type: override
         sort: 0
+        start: null
+        showIcon: 1
+        folder: null
         _key: >-
           !actors.items.effects!6ThunRV3sj9ZSMQW.16w2fwrhuFzIJGuv.qNNSmAnRkG0Ot2Yf
     folder: gjZiCPX5knOIpsHd
@@ -611,7 +611,7 @@ items:
     _stats:
       compendiumSource: Compendium.te001-core-rulebook.Items.Item.KKJPrdjO5sFkhZzF
       duplicateSource: null
-      coreVersion: '13.345'
+      coreVersion: '14.360'
       systemId: torgeternity
       systemVersion: 12.2.0
       createdTime: 1722357050918
@@ -649,7 +649,7 @@ items:
     _stats:
       compendiumSource: Compendium.te001-core-rulebook.Items.Item.xu2Vjk8W6NDhkSTv
       duplicateSource: null
-      coreVersion: '13.345'
+      coreVersion: '14.360'
       systemId: torgeternity
       systemVersion: 12.3.0
       createdTime: 1729582228755
@@ -699,7 +699,7 @@ items:
       compendiumSource: Compendium.te001-core-rulebook.grw-de-ausruestung.vBsXbuQHBLGfECPi
       duplicateSource: null
       exportSource: null
-      coreVersion: '13.348'
+      coreVersion: '14.360'
       systemId: torgeternity
       systemVersion: 13.10.0
       createdTime: 1758491118723
@@ -765,7 +765,7 @@ items:
       compendiumSource: Compendium.te001-core-rulebook.Items.Item.E1aOVDM9yrPzXa4p
       duplicateSource: null
       exportSource: null
-      coreVersion: '13.351'
+      coreVersion: '14.360'
       systemId: torgeternity
       systemVersion: 13.33.0
       createdTime: 1763999567779
@@ -1267,9 +1267,6 @@ prototypeToken:
     tint: '#ffffff'
     scaleX: 1
     scaleY: 1
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
     anchorX: 0.5
     anchorY: 0.5
     fit: contain
@@ -1286,7 +1283,7 @@ prototypeToken:
     color: null
   appendNumber: false
   prependAdjective: false
-  detectionModes: []
+  detectionModes: {}
   occludable:
     radius: 0
   ring:
@@ -1304,10 +1301,11 @@ prototypeToken:
     src: null
     disposition: false
   movementAction: null
+  depth: 1
 _stats:
   systemId: torgeternity
   systemVersion: 13.27.0
-  coreVersion: '13.351'
+  coreVersion: '14.360'
   createdTime: 1693913842164
   modifiedTime: 1773001234534
   lastModifiedBy: BMvGTGfheqDXarjN

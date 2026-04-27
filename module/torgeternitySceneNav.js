@@ -27,10 +27,10 @@ export default class TorgeternitySceneNav extends foundry.applications.ui.SceneN
         dominant: `torgeternity.cosms.dominant`,
       }
       // Add extra torg data into each scene
-      const cosm1name = (torg.cosm !== 'other') ? game.i18n.localize(CONFIG.torgeternity.cosmTypes[torg.cosm]) : torg.otherName1;
-      const cosm2name = torg.cosm2 && ((torg.cosm2 !== 'other') ? game.i18n.localize(CONFIG.torgeternity.cosmTypes[torg.cosm2]) : torg.otherName2);
+      const cosm1name = (torg.cosm !== 'other') ? _loc(CONFIG.torgeternity.cosmTypes[torg.cosm]) : torg.otherName1;
+      const cosm2name = torg.cosm2 && ((torg.cosm2 !== 'other') ? _loc(CONFIG.torgeternity.cosmTypes[torg.cosm2]) : torg.otherName2);
 
-      let cosms = `${game.i18n.localize(zoneType[torg.zone])}: ${cosm1name}`
+      let cosms = `${_loc(zoneType[torg.zone])}: ${cosm1name}`
       if (torg.cosm2) cosms += ` + ${cosm2name}`;
 
       let tooltip = data.tooltip ? `<p>${data.tooltip}</p>` : '';
@@ -38,10 +38,10 @@ export default class TorgeternitySceneNav extends foundry.applications.ui.SceneN
         tooltip += `<p>${cosms}</p>
       <table class="cosm-axioms">
         <thead>
-          <td class="axiom-label">${game.i18n.localize('torgeternity.sheetLabels.magic')}</td>
-          <td class="axiom-label">${game.i18n.localize('torgeternity.sheetLabels.social')}</td>
-          <td class="axiom-label">${game.i18n.localize('torgeternity.sheetLabels.spirit')}</td>
-          <td class="axiom-label">${game.i18n.localize('torgeternity.sheetLabels.tech')}</td>
+          <td class="axiom-label">${_loc('torgeternity.sheetLabels.magic')}</td>
+          <td class="axiom-label">${_loc('torgeternity.sheetLabels.social')}</td>
+          <td class="axiom-label">${_loc('torgeternity.sheetLabels.spirit')}</td>
+          <td class="axiom-label">${_loc('torgeternity.sheetLabels.tech')}</td>
         </thead>
         <tbody>
           <td class="axiom-value">${torg.axioms.magic}</td>

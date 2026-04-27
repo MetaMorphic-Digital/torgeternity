@@ -40,7 +40,7 @@ export default class torgeternityPlayerHand extends foundry.applications.sheets.
     const context = await super._prepareContext(options);
     context.disablePlay = context?.document.getFlag('torgeternity', 'disablePlayCards');
     for (const card of context?.document.cards) {
-      card.typeLoc = game.i18n.localize(`torgeternity.cardTypes.${card.type}`);
+      card.typeLoc = _loc(`torgeternity.cardTypes.${card.type}`);
     }
     context.buttons = this._prepareButtons();
     return context;
@@ -75,7 +75,7 @@ export default class torgeternityPlayerHand extends foundry.applications.sheets.
 
     const newNode = document.createElement("span");
     newNode.classList.add('handdesign');
-    newNode.innerHTML = game.i18n.localize('torgeternity.dialogPrompts.lifelike');
+    newNode.innerHTML = _loc('torgeternity.dialogPrompts.lifelike');
     const input = foundry.applications.fields.createCheckboxInput({
       name: 'flags.torgeternity.lifelike',
       value: this.document.flags.torgeternity.lifelike,
@@ -212,7 +212,7 @@ export default class torgeternityPlayerHand extends foundry.applications.sheets.
           card.toMessage({
             content: `<div class="card-draw flexrow"><span class="card-chat-tooltip">
             <img class="card-face" src="${card.img}"/><span><img src="${card.img}"></span></span>
-            <span class="card-name">${game.i18n.localize('torgeternity.chatText.discardsCard')} ${card.name}</span>
+            <span class="card-name">${_loc('torgeternity.chatText.discardsCard')} ${card.name}</span>
             </div>`,
           });
           break;
@@ -227,7 +227,7 @@ export default class torgeternityPlayerHand extends foundry.applications.sheets.
           card.toMessage({
             content: `<div class="card-draw flexrow"><span class="card-chat-tooltip">
             <img class="card-face" src="${card.img}"/><span><img src="${card.img}"></span></span>
-            <span class="card-name">${game.i18n.localize('torgeternity.chatText.playsCard')} ${card.name}</span>
+            <span class="card-name">${_loc('torgeternity.chatText.playsCard')} ${card.name}</span>
             </div>`,
           });
 
@@ -246,19 +246,19 @@ export default class torgeternityPlayerHand extends foundry.applications.sheets.
               const shock = actor.system.shock?.value;
               if (!shock) {
                 return ChatMessage.create({
-                  content: game.i18n.format('torgeternity.destinyCard.notify.secondWindNoShock', { name: actor.name })
+                  content: _loc('torgeternity.destinyCard.notify.secondWindNoShock', { name: actor.name })
                 });
               }
               const recovery = Math.min(shock, 5);
               await actor.update({ 'system.shock.value': shock - recovery });
               let extra = '';
               if (actor.hasStatusEffect('unconscious')) {
-                extra = game.i18n.localize('torgeternity.destinyCard.notify.secondWindNotKO');
+                extra = _loc('torgeternity.destinyCard.notify.secondWindNotKO');
                 actor.toggleStatusEffect('unconscious', { active: false });
               }
 
               return ChatMessage.create({
-                content: game.i18n.format('torgeternity.destinyCard.notify.secondWindRecovery', {
+                content: _loc('torgeternity.destinyCard.notify.secondWindRecovery', {
                   name: actor.name,
                   shock: recovery,
                   extra,
@@ -424,7 +424,7 @@ export default class torgeternityPlayerHand extends foundry.applications.sheets.
       window: { title: 'torgeternity.dialogPrompts.playerPassTitle' },
       content: html,
       ok: {
-        label: game.i18n.localize('torgeternity.dialogPrompts.playerPassLabel'),
+        label: _loc('torgeternity.dialogPrompts.playerPassLabel'),
         callback: async (event, button, dialog) => {
           const form = dialog.element.querySelector('form');
           const fd = new foundry.applications.ux.FormDataExtended(form).object;
@@ -433,8 +433,8 @@ export default class torgeternityPlayerHand extends foundry.applications.sheets.
           card.toMessage({
             content: `<div class="card-draw flexrow"><span class="card-chat-tooltip"><img class="card-face" 
             src="${card.img}"/><span><img src="${card.img}"></span></span><h4 class="card-name">
-              ${game.i18n.localize('torgeternity.chatText.passesCard1')} 
-              ${card.name} ${game.i18n.localize('torgeternity.chatText.passesCard2')}
+              ${_loc('torgeternity.chatText.passesCard1')} 
+              ${card.name} ${_loc('torgeternity.chatText.passesCard2')}
                ${toName}.</h4></div>`,
           });
           return card.pass(to, game.torgeternity.cardChatOptions).catch((err) => {
@@ -468,7 +468,7 @@ export default class torgeternityPlayerHand extends foundry.applications.sheets.
       window: { title: 'torgeternity.dialogPrompts.cosmDialogTitle' },
       content: html,
       ok: {
-        label: game.i18n.localize('torgeternity.dialogPrompts.cosmDeckDialogLabel'),
+        label: _loc('torgeternity.dialogPrompts.cosmDeckDialogLabel'),
         callback: (event, button, dialog) => {
           const form = dialog.element.querySelector('form');
           const fd = new foundry.applications.ux.FormDataExtended(form).object;

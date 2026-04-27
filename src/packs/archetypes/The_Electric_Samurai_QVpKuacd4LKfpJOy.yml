@@ -26,7 +26,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 12.2.0
-      coreVersion: '13.345'
+      coreVersion: '14.360'
       createdTime: null
       modifiedTime: 1722156084472
       lastModifiedBy: 93AMwcGe6H37rcPA
@@ -133,7 +133,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 12.2.0
-      coreVersion: '13.345'
+      coreVersion: '14.360'
       createdTime: 1693909771387
       modifiedTime: 1722152912839
       lastModifiedBy: 93AMwcGe6H37rcPA
@@ -177,7 +177,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 13.27.0
-      coreVersion: '13.351'
+      coreVersion: '14.360'
       createdTime: 1693909861972
       modifiedTime: 1774458524269
       lastModifiedBy: BMvGTGfheqDXarjN
@@ -223,7 +223,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 13.2.2
-      coreVersion: '13.346'
+      coreVersion: '14.360'
       createdTime: 1693909870243
       modifiedTime: 1753599119019
       lastModifiedBy: W32Zl65V9atvPk8o
@@ -388,7 +388,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 12.2.0
-      coreVersion: '13.345'
+      coreVersion: '14.360'
       createdTime: 1675505758859
       modifiedTime: 1722152889992
       lastModifiedBy: 93AMwcGe6H37rcPA
@@ -441,7 +441,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 13.2.2
-      coreVersion: '13.346'
+      coreVersion: '14.360'
       createdTime: 1711551146690
       modifiedTime: 1753599128118
       lastModifiedBy: W32Zl65V9atvPk8o
@@ -479,7 +479,7 @@ items:
     _stats:
       compendiumSource: Compendium.te001-core-rulebook.Items.Item.xu2Vjk8W6NDhkSTv
       duplicateSource: null
-      coreVersion: '13.345'
+      coreVersion: '14.360'
       systemId: torgeternity
       systemVersion: 12.3.0
       createdTime: 1729582153082
@@ -898,9 +898,6 @@ prototypeToken:
     tint: '#ffffff'
     scaleX: 1
     scaleY: 1
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
     anchorX: 0.5
     anchorY: 0.5
     fit: contain
@@ -917,7 +914,7 @@ prototypeToken:
     color: null
   appendNumber: false
   prependAdjective: false
-  detectionModes: []
+  detectionModes: {}
   occludable:
     radius: 0
   ring:
@@ -935,10 +932,11 @@ prototypeToken:
     src: null
     disposition: false
   movementAction: null
+  depth: 1
 _stats:
   systemId: torgeternity
   systemVersion: 13.27.0
-  coreVersion: '13.351'
+  coreVersion: '14.360'
   createdTime: 1693909765954
   modifiedTime: 1773001234539
   lastModifiedBy: BMvGTGfheqDXarjN

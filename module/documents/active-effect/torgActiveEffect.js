@@ -90,8 +90,8 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
     const allowed = await super._preCreate(data, options, user);
     if (allowed === false) return false;
 
-    if (game.release.generation >= 14 && this.actor) {
-      const combatant = game.combat?.getCombatantsByActor(this.actor ?? "")?.[0];
+    if (this.actor) {
+      const combatant = game.combat?.getCombatantsByActor(this.actor)?.[0];
       this.updateSource({
         start: {
           combatant: combatant?.id ?? null,
@@ -105,13 +105,13 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
    * Our own version, since this.origin might not point to the correct thing.
    */
   get sourceName() {
-    if (!this.origin || !this.parent) return game.i18n.localize("None");
+    if (!this.origin || !this.parent) return _loc("None");
     const origindoc = fromUuidSync(this.origin, { strict: false });
-    if (!origindoc) return game.i18n.localize("None");
+    if (!origindoc) return _loc("None");
 
     // Special handling for effects directly on an actor (e.g. status effects and transferred effects)
     if (this.parent instanceof Actor) {
-      if (origindoc === this.parent) return game.i18n.localize("None");
+      if (origindoc === this.parent) return _loc("None");
       if (this.statuses.has('concentrating') && this.origin) {
         // The spell being concentrated on.
         return origindoc.name;
@@ -127,7 +127,7 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
       if (origindoc instanceof foundry.documents.RegionBehavior)
         return origindoc.name;
     }
-    return this.parent?.name ?? game.i18n.localize("None");
+    return this.parent?.name ?? _loc("None");
   }
 
   get modifiesActor() {

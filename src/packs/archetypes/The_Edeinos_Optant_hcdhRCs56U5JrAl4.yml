@@ -28,7 +28,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 12.2.0
-      coreVersion: '13.345'
+      coreVersion: '14.360'
       createdTime: 1693909398173
       modifiedTime: 1722155751457
       lastModifiedBy: 93AMwcGe6H37rcPA
@@ -71,7 +71,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 3.1.1
-      coreVersion: '13.345'
+      coreVersion: '14.360'
       createdTime: 1693909676811
       modifiedTime: 1693909676811
       lastModifiedBy: CtisFurQNe9h7ABb
@@ -114,7 +114,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 3.1.1
-      coreVersion: '13.345'
+      coreVersion: '14.360'
       createdTime: 1693909681228
       modifiedTime: 1693909681228
       lastModifiedBy: CtisFurQNe9h7ABb
@@ -155,7 +155,7 @@ items:
     _stats:
       systemId: torgeternity
       systemVersion: 13.2.2
-      coreVersion: '13.346'
+      coreVersion: '14.360'
       createdTime: 1711551146924
       modifiedTime: 1753599091182
       lastModifiedBy: W32Zl65V9atvPk8o
@@ -263,7 +263,7 @@ items:
     _stats:
       compendiumSource: Compendium.te001-core-rulebook.Items.Item.W6HcoYyOqi6pGGfD
       duplicateSource: null
-      coreVersion: '13.345'
+      coreVersion: '14.360'
       systemId: torgeternity
       systemVersion: 12.2.0
       createdTime: null
@@ -278,13 +278,10 @@ items:
     effects:
       - origin: Compendium.te001-core-rulebook.Items.Item.MLrktsSHLMM5n7g9
         duration:
-          rounds: null
-          startTime: null
-          seconds: null
-          combat: null
-          turns: null
-          startRound: null
-          startTurn: null
+          value: null
+          units: seconds
+          expiry: null
+          expired: false
         disabled: false
         name: Unarmed Combat is Fav
         img: systems/torgeternity/images/icons/reality-icon.webp
@@ -292,11 +289,11 @@ items:
         type: base
         system:
           transferOnOutcome: 0
-        changes:
-          - key: ystem.skills.unarmedCombat.isFav
-            mode: 5
-            value: 'true'
-            priority: null
+          changes:
+            - key: ystem.skills.unarmedCombat.isFav
+              value: true
+              priority: null
+              type: override
         description: ''
         tint: '#ffffff'
         transfer: true
@@ -306,13 +303,16 @@ items:
         _stats:
           compendiumSource: null
           duplicateSource: null
-          coreVersion: '13.351'
+          coreVersion: '14.360'
           systemId: torgeternity
           systemVersion: 13.13.2
           createdTime: null
           modifiedTime: 1774459517017
           lastModifiedBy: BMvGTGfheqDXarjN
           exportSource: null
+        start: null
+        showIcon: 1
+        folder: null
         _key: >-
           !actors.items.effects!hcdhRCs56U5JrAl4.yAe9TWoKpqHEnno9.050BsL6MF5PErpeT
     folder: gjZiCPX5knOIpsHd
@@ -410,7 +410,7 @@ items:
     _stats:
       compendiumSource: Compendium.te001-core-rulebook.Items.Item.MLrktsSHLMM5n7g9
       duplicateSource: null
-      coreVersion: '13.345'
+      coreVersion: '14.360'
       systemId: torgeternity
       systemVersion: 12.2.0
       createdTime: null
@@ -463,7 +463,7 @@ items:
       compendiumSource: Compendium.te001-core-rulebook.Items.Item.ammMtd4GDTZAbVQx
       duplicateSource: null
       exportSource: null
-      coreVersion: '13.351'
+      coreVersion: '14.360'
       systemId: torgeternity
       systemVersion: 13.27.0
       createdTime: 1774458024570
@@ -519,7 +519,7 @@ items:
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-      coreVersion: '13.351'
+      coreVersion: '14.360'
       systemId: torgeternity
       systemVersion: 13.27.0
       createdTime: 1774458024587
@@ -581,7 +581,7 @@ items:
       compendiumSource: Compendium.te001-core-rulebook.Items.Item.R7iwjAD49l0zullR
       duplicateSource: null
       exportSource: null
-      coreVersion: '13.351'
+      coreVersion: '14.360'
       systemId: torgeternity
       systemVersion: 13.27.0
       createdTime: 1774458327185
@@ -631,7 +631,7 @@ items:
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-      coreVersion: '13.351'
+      coreVersion: '14.360'
       systemId: torgeternity
       systemVersion: 13.27.0
       createdTime: 1774458327215
@@ -675,7 +675,7 @@ items:
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-      coreVersion: '13.351'
+      coreVersion: '14.360'
       systemId: torgeternity
       systemVersion: 13.27.0
       createdTime: 1774458327215
@@ -693,13 +693,10 @@ items:
       - name: Ward Enemy Standard
         origin: Compendium.te001-core-rulebook.Items.Item.u8AtVmCMnPyP3Ewx
         duration:
-          startTime: null
-          combat: null
-          seconds: null
-          rounds: null
-          turns: null
-          startRound: null
-          startTurn: null
+          value: null
+          units: seconds
+          expiry: null
+          expired: false
         disabled: false
         img: systems/torgeternity/images/icons/miracles-icon.webp
         _id: GSvs51kXblsK9vbL
@@ -721,11 +718,11 @@ items:
           concentratingId: null
           emanation:
             radius: 5
-        changes:
-          - key: system.defenses.all.mod
-            mode: 2
-            value: '1'
-            priority: null
+          changes:
+            - key: system.defenses.all.mod
+              value: 1
+              priority: null
+              type: add
         description: ''
         tint: '#ffffff'
         transfer: false
@@ -736,22 +733,24 @@ items:
           compendiumSource: null
           duplicateSource: null
           exportSource: null
-          coreVersion: '13.351'
+          coreVersion: '14.360'
           systemId: torgeternity
           systemVersion: 13.27.0
           lastModifiedBy: null
+          createdTime: null
+          modifiedTime: null
+        start: null
+        showIcon: 1
+        folder: null
         _key: >-
           !actors.items.effects!hcdhRCs56U5JrAl4.u8AtVmCMnPyP3Ewx.GSvs51kXblsK9vbL
       - name: Ward Enemy Good
         origin: Compendium.te001-core-rulebook.Items.Item.u8AtVmCMnPyP3Ewx
         duration:
-          startTime: null
-          combat: null
-          seconds: null
-          rounds: null
-          turns: null
-          startRound: null
-          startTurn: null
+          value: null
+          units: seconds
+          expiry: null
+          expired: false
         disabled: false
         img: systems/torgeternity/images/icons/miracles-icon.webp
         _id: 1sFNCaYPVnPw3WR5
@@ -773,11 +772,11 @@ items:
           concentratingId: null
           emanation:
             radius: 5
-        changes:
-          - key: system.defenses.all.mod
-            mode: 2
-            value: '2'
-            priority: null
+          changes:
+            - key: system.defenses.all.mod
+              value: 2
+              priority: null
+              type: add
         description: ''
         tint: '#ffffff'
         transfer: false
@@ -788,22 +787,24 @@ items:
           compendiumSource: null
           duplicateSource: null
           exportSource: null
-          coreVersion: '13.351'
+          coreVersion: '14.360'
           systemId: torgeternity
           systemVersion: 13.27.0
           lastModifiedBy: null
+          createdTime: null
+          modifiedTime: null
+        start: null
+        showIcon: 1
+        folder: null
         _key: >-
           !actors.items.effects!hcdhRCs56U5JrAl4.u8AtVmCMnPyP3Ewx.1sFNCaYPVnPw3WR5
       - name: Ward Enemy Outstanding
         origin: Compendium.te001-core-rulebook.Items.Item.u8AtVmCMnPyP3Ewx
         duration:
-          startTime: null
-          combat: null
-          seconds: null
-          rounds: null
-          turns: null
-          startRound: null
-          startTurn: null
+          value: null
+          units: seconds
+          expiry: null
+          expired: false
         disabled: false
         img: systems/torgeternity/images/icons/miracles-icon.webp
         _id: Q4EwGwJpK6XnZZGM
@@ -825,11 +826,11 @@ items:
           concentratingId: null
           emanation:
             radius: 5
-        changes:
-          - key: system.defenses.all.mod
-            mode: 2
-            value: '2'
-            priority: null
+          changes:
+            - key: system.defenses.all.mod
+              value: 2
+              priority: null
+              type: add
         description: ''
         tint: '#ffffff'
         transfer: false
@@ -840,10 +841,15 @@ items:
           compendiumSource: null
           duplicateSource: null
           exportSource: null
-          coreVersion: '13.351'
+          coreVersion: '14.360'
           systemId: torgeternity
           systemVersion: 13.27.0
           lastModifiedBy: null
+          createdTime: null
+          modifiedTime: null
+        start: null
+        showIcon: 1
+        folder: null
         _key: >-
           !actors.items.effects!hcdhRCs56U5JrAl4.u8AtVmCMnPyP3Ewx.Q4EwGwJpK6XnZZGM
     folder: 1nWuSow2h5hzSie4
@@ -890,7 +896,7 @@ items:
       compendiumSource: Compendium.te001-core-rulebook.Items.Item.u8AtVmCMnPyP3Ewx
       duplicateSource: null
       exportSource: null
-      coreVersion: '13.351'
+      coreVersion: '14.360'
       systemId: torgeternity
       systemVersion: 13.27.0
       createdTime: 1774458442375
@@ -1390,9 +1396,6 @@ prototypeToken:
     tint: '#ffffff'
     scaleX: 1
     scaleY: 1
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
     anchorX: 0.5
     anchorY: 0.5
     fit: contain
@@ -1409,7 +1412,7 @@ prototypeToken:
     color: null
   appendNumber: false
   prependAdjective: false
-  detectionModes: []
+  detectionModes: {}
   occludable:
     radius: 0
   ring:
@@ -1427,10 +1430,11 @@ prototypeToken:
     src: null
     disposition: false
   movementAction: null
+  depth: 1
 _stats:
   systemId: torgeternity
   systemVersion: 13.27.0
-  coreVersion: '13.351'
+  coreVersion: '14.360'
   createdTime: 1693901456910
   modifiedTime: 1774458357649
   lastModifiedBy: BMvGTGfheqDXarjN

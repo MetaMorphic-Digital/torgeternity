@@ -40,13 +40,13 @@ export default class torgeternitySceneConfig extends foundry.applications.sheets
       this.torgFields = new fields.SchemaField({
         dimLightThreshold: new fields.AlphaField({
           initial: 0.05, min: 0.05, max: 0.9,
-          label: game.i18n.localize("SCENE.FIELDS.flags.torgeternity.dimLightThreshold.name"),
-          hint: game.i18n.localize("SCENE.FIELDS.flags.torgeternity.dimLightThreshold.hint"),
+          label: _loc("SCENE.FIELDS.flags.torgeternity.dimLightThreshold.name"),
+          hint: _loc("SCENE.FIELDS.flags.torgeternity.dimLightThreshold.hint"),
         }),
         darkThreshold: new fields.AlphaField({
           initial: 0.9, min: 0.1, max: 0.95,
-          label: game.i18n.localize("SCENE.FIELDS.flags.torgeternity.darkThreshold.name"),
-          hint: game.i18n.localize("SCENE.FIELDS.flags.torgeternity.darkThreshold.hint"),
+          label: _loc("SCENE.FIELDS.flags.torgeternity.darkThreshold.name"),
+          hint: _loc("SCENE.FIELDS.flags.torgeternity.darkThreshold.hint"),
         }),
       })
 
@@ -98,8 +98,8 @@ export default class torgeternitySceneConfig extends foundry.applications.sheets
     // Change label and hint of darkness
     const maxDarkness = tab.querySelector('div.form-group:has(range-picker[name="environment.globalLight.darkness.max"]');
     if (maxDarkness) {
-      maxDarkness.querySelector('label').innerText = game.i18n.localize('SCENE.FIELDS.flags.torgeternity.pitchBlackThreshold.label');
-      maxDarkness.querySelector('p.hint').innerText = game.i18n.localize('SCENE.FIELDS.flags.torgeternity.pitchBlackThreshold.hint');
+      maxDarkness.querySelector('label').innerText = _loc('SCENE.FIELDS.flags.torgeternity.pitchBlackThreshold.label');
+      maxDarkness.querySelector('p.hint').innerText = _loc('SCENE.FIELDS.flags.torgeternity.pitchBlackThreshold.hint');
     }
     return rendered;
   }

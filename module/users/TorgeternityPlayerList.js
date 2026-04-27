@@ -92,7 +92,7 @@ export default class TorgeternityPlayerList extends foundry.applications.ui.Play
       window: {
         title: 'torgeternity.possibilitiesReset.name',
       },
-      content: `<div><span>${game.i18n.localize('torgeternity.possibilitiesReset.hint')}
+      content: `<div><span>${_loc('torgeternity.possibilitiesReset.hint')}
             <input id="possibilitiesValue" value="3" type="number"/>
             </span></div>`,
       buttons: [
