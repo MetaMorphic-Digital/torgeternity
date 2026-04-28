@@ -180,14 +180,6 @@ export default class TorgeternityActor extends foundry.documents.Actor {
     }
   }
 
-  _onEmbeddedDocumentChange() {
-    // Ensure after a Disconnect (or other status change) that all visible things are updated
-    this._safePrepareData();
-    if (this.apps)
-      Object.values(this.apps).forEach(app => app.render());
-    super._onEmbeddedDocumentChange();
-  }
-
   applyActiveEffects(phase) {
     super.applyActiveEffects(phase);
     if (phase === 'final' && game.release.generation > 13 && game.user.isActiveGM)
