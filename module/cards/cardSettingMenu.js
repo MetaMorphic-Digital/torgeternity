@@ -83,7 +83,7 @@ export default class DeckSettingMenu extends HandlebarsApplicationMixin(Applicat
       ]
     };
     for (const sk of data.stormknights) {
-      data.stormknights[sk.id] = sk.getDefaultHand()?.id;
+      sk.handid = sk.getDefaultHand()?.id;
     }
     return foundry.utils.mergeObject(await super._prepareContext(options), data);
   }
