@@ -31,6 +31,7 @@ export default class PartySheet extends HandlebarsApplicationMixin(ApplicationV2
   async _prepareContext(options) {
     const context = await super._prepareContext(options);
     const showAll = !this.options.activeActors;
+    context.CONFIG = CONFIG;
     context.users = game.users.filter(user => !user.isGM && (showAll || user.active));
 
     for (const user of context.users) {

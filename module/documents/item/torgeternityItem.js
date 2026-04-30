@@ -188,6 +188,9 @@ export default class TorgeternityItem extends foundry.documents.Item {
     return this.system.equipped?.carryType === 'dropped';
   }
 
+  /**
+   * NOTE: Don't call from prepareBaseData since the disconnected state could be changed by actor.applyActiveEffects
+   */
   get isEquipped() {
     return this.system.isEquipped && !this.isDisconnected;
   }
@@ -353,13 +356,14 @@ export default class TorgeternityItem extends foundry.documents.Item {
   /**
    * Returns true if the item exceeds the current scene's axioms whilst on a disconnected actor,
    * or is a Starred Perk when the Item is not inside the correct cosm.
+   * NOTE: Don't call during prepareBaseData, since applyActiveEffects might change the disconnected state.
   */
   get isDisconnected() {
     // If not embedded, then it isn't disconnected
     if (!this.parent?.isDisconnected) return false;
 
     const scene = game.scenes.active;
-    if (!scene || scene.torg.cosm === 'none') return false;
+    if (!scene?.torg || scene.torg.cosm === 'none') return false;
 
     // Some Perks just don't work outside their own COSM while disconnected
     if (this.isGeneralContradiction(scene)) return true;

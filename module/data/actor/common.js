@@ -127,7 +127,6 @@ export class CommonActorData extends BaseActorData {
    */
   prepareBaseData() {
     super.prepareBaseData();
-    const actor = this.parent;
 
     // register value of attributes so we can work further with this
     for (const attribute of Object.keys(this.attributes)) {
@@ -147,7 +146,26 @@ export class CommonActorData extends BaseActorData {
     this.other.possibilities.perAct = CONFIG.torgeternity.possibilitiesPerAct;
     this.other.inspiration = CONFIG.torgeternity.shockPerInspiration;
 
+    // TODO: If we allow more than 1 wornArmor and an array is to be expected, then we need to change that here.
+    // 'value' of each field is set in prepareDerivedData
+    Object.assign(this.defenses, {
+      all: { mod: 0 },
+      interaction: { mod: 0 },
+      physical: { mod: 0 },
+      unarmedCombat: { value: 0, mod: 0 },
+      intimidation: { value: 0, mod: 0 },
+      maneuver: { value: 0, mod: 0 },
+      taunt: { value: 0, mod: 0 },
+      trick: { value: 0, mod: 0 },
+      toughness: this.attributes.strength.value,
+    });
+  }
+
+  prepareEquippedData() {
     // initialize the worn armor and shield bonus
+    // TODO: can't called item.isEquipped during prepareBaseData,
+    // since disconnected might be changed when applyActiveEffects is called later (by core Foundry)
+    const actor = this.parent;
     const wornArmor = actor.itemTypes.armor.find((a) => a.isEquipped);
     const heldShield = actor.itemTypes.shield.find((a) => a.isEquipped);
     const shieldBonus = heldShield?.system?.bonus ?? 0;
@@ -160,23 +178,12 @@ export class CommonActorData extends BaseActorData {
       heldShield?.system?.minStrength ?? 0,
       highestMinStrWeapons);
 
-    // TODO: If we allow more than 1 wornArmor and an array is to be expected, then we need to change that here.
-    // 'value' of each field is set in prepareDerivedData
     Object.assign(this.defenses, {
-      all: { mod: 0 },
-      interaction: { mod: 0 },
-      physical: { mod: 0 },
       dodge: { value: 0, mod: shieldBonus },
       meleeWeapons: { value: 0, mod: shieldBonus },
-      unarmedCombat: { value: 0, mod: 0 },
-      intimidation: { value: 0, mod: 0 },
-      maneuver: { value: 0, mod: 0 },
-      taunt: { value: 0, mod: 0 },
-      trick: { value: 0, mod: 0 },
-      toughness: this.attributes.strength.value,
       armor: wornArmor?.system?.bonus ?? 0,
       shield: shieldBonus
-    });
+    })
   }
 
   /**

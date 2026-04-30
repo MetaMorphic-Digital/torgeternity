@@ -2,6 +2,16 @@
 
 - Translations by Durak (French), Helmut (German), and Teotimus (Spanish).
 
+## 14.0.1
+### Bug Fixes
+- Ensure that a Willpower card (+3 mental) auto-applies properly.
+- Ensure 'disconnected' status is set early enough to allow (equipped) armor, shields and weapons to affect Actor stats.
+- **Party Sheet** - show localized item types & move attributes up alongside defenses.
+- **Player List**
+  - Fix position of icons (Player Sheet & Reset Possibilities) at bottom of player list.
+  - Don't have name overlap the possibility number.
+  - Enforce a minimum of 0 Possibilities.
+
 ## 14.0.0 - Foundry V14 exclusive
 - Remove legacy code that supported Foundry 13
 
@@ -10,6 +20,10 @@
 - All other Active Effects should also be getting created with the correct duration.
 - 30 minute timer set correctly on the Unconscious status generated when max shock exceeded.
 - Hand Ownership will now match the Ownership of the corresponding Actor (OWNER or OBSERVER)
+- Active Effects will no longer be duplicated (such as Hard as Nails).
+- Get SK hand selection displayed correctly in the "Default Card Deck Configuration" window.
+
+## 13.35.1
 - Active Effects will no longer be duplicated (such as Hard as Nails).
 - Get SK hand selection displayed correctly in the "Default Card Deck Configuration" window.
 

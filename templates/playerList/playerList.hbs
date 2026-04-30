@@ -7,9 +7,8 @@
         style="--player-color:{{player.color}}; --player-border:{{player.border}}">
         <span class="player-name ellipsis">{{player.name}}</span>
 
-        <span class="possibilities"
-          data-tooltip="{{#if player.isGM}}torgeternity.iconeTitles.GMPoss{{else}}torgeternity.iconeTitles.SKPoss{{/if}}">
-
+        <span class="possibilities flex0"
+          data-tooltip="torgeternity.iconeTitles.{{#if player.isGM}}GMPoss{{else}}SKPoss{{/if}}">
           <em class="possValue">
             {{#if player.isGM}} {{../GMpossibilities}}
             {{else}}
@@ -36,14 +35,13 @@
 
   <ol class="players-list plain flexcol" data-tooltip-direction="RIGHT">
     {{#each active as |player|}}
-      <li class="player flexrow {{player.cssClass}} {{#if player.inactive}}inactivePlayer{{/if}}"
+      <li class="player flexrow {{player.cssClass}}"
         data-user-id="{{player.id}}" data-tooltip-text="{{player.tooltip}}"
         style="--player-color:{{player.color}}; --player-border:{{player.border}}">
         <span class="player-name ellipsis">{{player.name}}</span>
 
-        <span class="possibilities"
-          data-tooltip="{{#if player.isGM}}torgeternity.iconeTitles.GMPoss{{else}}torgeternity.iconeTitles.SKPoss{{/if}}">
-
+        <span class="possibilities flex0"
+          data-tooltip="torgeternity.iconeTitles.{{#if player.isGM}}GMPoss{{else}}SKPoss{{/if}}">
           <em class="possValue">
             {{#if player.isGM}} {{../GMpossibilities}} {{else}}
               {{#if player.character}} {{player.characterPossibilities}} {{/if}}
@@ -65,10 +63,11 @@
   </ol>
 
   {{#if self.isGM}}
-    <p class=" flexrow">
-      <i class="players-popout far fa-window-restore" data-action="partySheet"
+    <p class="flexrow">
+      <i class="players-popout far fa-window-restore flex0" data-action="partySheet"
         data-tooltip="torgeternity.iconeTitles.openParty"></i>
-      <i class="fas fa-bolt possReset" data-action="possReset"
+      <span></span>
+      <i class="fas fa-bolt possReset flex0" data-action="possReset"
         data-tooltip="torgeternity.iconeTitles.resetPossibilities"></i>
     </p>
   {{/if}}

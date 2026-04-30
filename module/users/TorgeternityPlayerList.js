@@ -66,7 +66,8 @@ export default class TorgeternityPlayerList extends foundry.applications.ui.Play
    */
   static async #onMinusPossibility(event, button) {
     const targetActor = game.actors.get(button.dataset.targetId);
-    return targetActor.update({ "system.other.possibilities.value": targetActor.system.other.possibilities.value - 1, });
+    if (targetActor.system.other.possibilities.value > 0)
+      return targetActor.update({ "system.other.possibilities.value": targetActor.system.other.possibilities.value - 1, });
   }
 
   /**
@@ -77,8 +78,9 @@ export default class TorgeternityPlayerList extends foundry.applications.ui.Play
  */
   static async #onMinusPossibilityGM(event, button) {
     const gmuser = game.users.activeGM;
-    const newVal = gmuser.getFlag('torgeternity', 'GMpossibilities') - 1;
-    gmuser.setFlag('torgeternity', 'GMpossibilities', newVal);
+    const curVal = gmuser.getFlag('torgeternity', 'GMpossibilities');
+    if (curVal > 0)
+      return gmuser.setFlag('torgeternity', 'GMpossibilities', curVal - 1);
   }
 
   /**

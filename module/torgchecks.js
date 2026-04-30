@@ -104,9 +104,11 @@ export async function renderSkillChat(test, origChatMessage) {
         case 'mind':
         case 'spirit':
           test.plus3type = 'mental';
+          break;
         case 'strength':
         case 'dexterity':
           test.plus3type = 'physical';
+          break;
       }
     }
   }

@@ -335,6 +335,9 @@ export default class TorgeternityActor extends foundry.documents.Actor {
     return effects;
   }
 
+  /**
+   * NOTE: Don't call during prepareBaseData, since applyActiveEffects might change the disconnected state.
+   */
   get isDisconnected() {
     return this.statuses.has('disconnected') ?? false;
   }
@@ -711,6 +714,29 @@ export default class TorgeternityActor extends foundry.documents.Actor {
       attunedItems.forEach(item => item.tooMany = true);
     const notAttuned = this.items.filter(item => item.system.traits.has('attunable') && !item.system.attuned);
     notAttuned.forEach(item => item.tooMany = true);
+  }
+
+  /**
+   * @inheritDoc 
+   * NOTE: Needs to set "disconnected" state before applying active effects or setting base data for armor/shield.
+   * */
+  prepareEmbeddedDocuments() {
+    if (this.isLazyDelta) return; // Don't trigger ActorDelta preparation
+    //super.prepareEmbeddedDocuments();  // call grandparent
+    // START TORG
+    // super.super.prepareEmbeddedDocuments()
+    for (const collectionName of Object.keys(this.constructor.hierarchy || {})) {
+      for (const e of this.getEmbeddedCollection(collectionName)) {
+        e._safePrepareData();
+      }
+    }
+    // Ensure the "disconnected" state is set BEFORE we set up the BaseData based on equipped armour/weapons.
+    for (const effect of this.allApplicableEffects())
+      if (effect.active && effect.statuses.has('disconnected'))
+        this.statuses.add('disconnected');
+    this.system.prepareEquippedData?.();
+    // END TORG
+    this.applyActiveEffects("initial");
   }
 
   prepareDerivedData() {
