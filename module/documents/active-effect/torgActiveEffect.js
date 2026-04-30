@@ -136,6 +136,11 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
     return this.target instanceof foundry.documents.Actor;
   }
 
+  get isSuppressed() {
+    // Check for owning item being disconnected.
+    return super.isSuppressed || ((this.parent instanceof foundry.documents.Item) && this.parent.isDisconnected);
+  }
+
   /**
    * Return if this effect modifies the target of the test rather than the owner of the AE.
    * @type {boolean}

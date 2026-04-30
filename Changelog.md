@@ -2,6 +2,9 @@
 
 - Translations by Durak (French), Helmut (German), and Teotimus (Spanish).
 
+## 14.0.2
+- Active Effects on disconnected Items should be suppressed.
+
 ## 14.0.1
 ### Bug Fixes
 - Ensure that a Willpower card (+3 mental) auto-applies properly.
