@@ -246,7 +246,11 @@
               data-tooltip="{{this.targetName}}" data-action="openSheet" data-actor="{{this.id}}" /> -->
             <div class="target-details">
               {{#if this.actionTotalContent}}
-                <p class="skill-roll-action-label actionTotalContent">{{this.actionTotalContent}}</p>
+                <p class="skill-roll-action-label actionTotalContent">{{this.actionTotalContent}}
+                  {{#if this.modifierText}}
+                    <i class="fa-solid fa-circle-info" data-tooltip-html="{{this.modifierText}}"> </i>
+                  {{/if}}
+                </p>
               {{/if}}
               {{#if this.bdDamageSum}}
                 <div class="bonusDie dice-roll-torg">

@@ -22,6 +22,7 @@ export class BaseActorData extends foundry.abstract.TypeDataModel {
      */
     this.targetModifiers = {
       darkness: 0,    // e.g. For Darkvision, this should be 4
+      range: 0,
     };
 
     /**

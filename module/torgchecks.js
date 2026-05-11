@@ -113,12 +113,19 @@ export async function renderSkillChat(test, origChatMessage) {
     }
   }
 
+  // Apply targetRangeModifier only once to the chat message (not on chat message updates)
+  const commonRange = useHighestDN || test.targets.length === 1;
+  if (commonRange && !origChatMessage)
+    test.rangeModifier = Math.min(0, (test.rangeModifier ?? 0) + (test.targetRangeModifier ?? 0));
+
   const useColorBlind = game.settings.get('torgeternity', 'useColorBlindnessColors');
   let first = true;
   for (const target of test.targets) {
     test.sizeModifier = target.sizeModifier ?? 0;
     test.vulnerableModifier = target.vulnerableModifier ?? 0;
     test.darknessModifier = Math.min(0, (target.darknessModifier ?? 0) + (test.targetDarknessModifier ?? 0));
+    if (!commonRange)
+      test.rangeModifier = Math.min(0, (target.rangeModifier ?? 0) + (test.targetRangeModifier ?? 0));
 
     //
     // Check to see if we already have a chat title from a chat card roll. If not, Set title for Chat Message in test.chatTitle //
@@ -240,6 +247,7 @@ export async function renderSkillChat(test, origChatMessage) {
     if (test.testType === 'soak') {
       test.vulnerableModifier = 0;
       test.darknessModifier = 0;
+      test.rangeModifier = 0;
     }
 
     if (test.woundModifier < 0) {
@@ -360,6 +368,11 @@ export async function renderSkillChat(test, origChatMessage) {
       modifiers.push(modifierString('torgeternity.chatText.check.modifier.targetConcealment', test.concealmentModifier));
     }
 
+    if (test.rangeModifier) {
+      test.modifiers += test.rangeModifier;
+      modifiers.push(modifierString('torgeternity.chatText.check.modifier.targetRange', test.rangeModifier));
+    }
+
     if (test.testType === 'power' && test.powerModifier) {
       test.modifiers += test.powerModifier;
       modifiers.push(modifierString('torgeternity.chatText.check.modifier.powerModifier', test.powerModifier));
@@ -387,6 +400,7 @@ export async function renderSkillChat(test, origChatMessage) {
 
     if (modifiers.length) {
       test.modifierText = `<p>${modifiers.sort().join('<br>')}</p>`;
+      if (!singleResult && test.targets.length > 1) target.modifierText = test.modifierText;
     }
 
     // Add +3 cards to bonus

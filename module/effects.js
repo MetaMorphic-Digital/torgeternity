@@ -31,7 +31,7 @@ export async function onManageActiveEffect(event, button, owner) {
       return effect.sheet.render({ force: true });
     case 'delete':
       if (!effect) return;
-      return effect.delete();
+      return effect.deleteDialog();
     case 'toggle':
       if (!effect) return;
       return effect.update({ disabled: !effect.disabled });

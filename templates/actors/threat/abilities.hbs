@@ -14,6 +14,11 @@
       {{localize 'torgeternity.itemSheetDescriptions.specialability' }}">
           <i class="fas fa-plus"></i>
         </a>
+        <a class="list-control item-create" data-action="itemCreate" data-itemtype="customAttack"
+          data-tooltip="{{localize 'torgeternity.sheetLabels.add'}} : 
+      {{localize 'torgeternity.itemSheetDescriptions.customAttack' }}">
+          <i class="fas fa-plus"></i>
+        </a>
       </div>
     {{/if}}
   </div>
@@ -57,6 +62,42 @@
   {{#if specialabilityRollable }}
     <ol class="item-list">
       {{#each specialabilityRollable as |item id|}}
+        <li class="item draggable" data-item-id="{{item._id}}">
+          <div class="item-row flexrow">
+            <img src="{{item.img}}" data-tooltip="{{item.name}}" />
+            <a class="item-name {{TorgDisconnected item}}{{#if item.tooMany}} item-tooMany{{/if}}"
+              data-action="itemName">{{item.name}}
+              <span class="contradiction">{{item.contradictionCase}}</span>
+            </a>
+            <div class="item-controls">
+              <a class="item-control item-attackRoll" data-action="itemAttackRoll" {{disabled (not @root.editable)}}
+                data-tooltip="{{localize 'torgeternity.iconeTitles.attackRoll'}}">
+                <i class="fas fa-dice-d20"></i>
+              </a>
+              <a class="item-control item-edit" data-action="itemEdit"
+                data-tooltip="{{localize 'torgeternity.iconeTitles.edit'}}">
+                <i class="fas fa-edit"></i>
+              </a>
+              <a class="item-control item-delete" data-action="itemDelete"
+                {{disabled (or (not @root.editable) item.system.bestowedBy)}}
+                data-tooltip="{{localize 'torgeternity.iconeTitles.delete'}}">
+                <i class="fas fa-trash"></i>
+              </a>
+            </div>
+          </div>
+          <div class="item-detail">
+            <div class="item-dropdown-description">
+              {{{item.description}}}
+            </div>
+          </div>
+        </li>
+      {{/each}}
+    </ol>
+  {{/if}}
+
+  {{#if customAttack }}
+    <ol class="item-list">
+      {{#each customAttack as |item id|}}
         <li class="item draggable" data-item-id="{{item._id}}">
           <div class="item-row flexrow">
             <img src="{{item.img}}" data-tooltip="{{item.name}}" />

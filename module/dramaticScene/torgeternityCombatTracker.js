@@ -184,25 +184,25 @@ export default class torgeternityCombatTracker extends foundry.applications.side
     const options = super._getCombatContextOptions().filter(
       opt => opt.name !== 'COMBAT.InitiativeReset');
     options.unshift({
-      name: "torgeternity.dramaCard.replaceDrama",
+      label: "torgeternity.dramaCard.replaceDrama",
       icon: '<i class="fa-solid fa-rotate-right"></i>',
-      condition: () => game.user.isGM && !!this.viewed,
-      callback: () => this.viewed.drawDramaCard()
+      visible: () => game.user.isGM && !!this.viewed,
+      onClick: () => this.viewed.drawDramaCard()
     }, {
-      name: "torgeternity.dramaCard.getPreviousDrama",
+      label: "torgeternity.dramaCard.getPreviousDrama",
       icon: '<i class="fa-solid fa-up-down"></i>',
-      condition: () => game.user.isGM && !!this.viewed,
-      callback: () => this.viewed.restorePreviousDrama()
+      visible: () => game.user.isGM && !!this.viewed,
+      onClick: () => this.viewed.restorePreviousDrama()
     }, {
-      name: "torgeternity.dramaCard.shuffleDeck",
+      label: "torgeternity.dramaCard.shuffleDeck",
       icon: '<i class="fa-solid fa-random"></i>',
-      condition: () => game.user.isGM && !!this.viewed,
-      callback: () => this.viewed.resetDramaDeck()
+      visible: () => game.user.isGM && !!this.viewed,
+      onClick: () => this.viewed.resetDramaDeck()
     }, {
-      name: "torgeternity.CombatantGroup.newGroup",
+      label: "torgeternity.CombatantGroup.newGroup",
       icon: '<i class="fa-solid fa-random"></i>',
-      condition: () => game.user.isGM && !!this.viewed,
-      callback: async () => {
+      visible: () => game.user.isGM && !!this.viewed,
+      onClick: async () => {
         const groupName = await foundry.applications.api.DialogV2.prompt({
           window: { title: "Combatant Group Creation" },
           content: '<input name="groupName" type="string" autofocus>',
@@ -230,22 +230,22 @@ export default class torgeternityCombatTracker extends foundry.applications.side
 
     options.push(
       {
-        name: "torgeternity.CombatantGroup.removeFromGroup",
+        label: "torgeternity.CombatantGroup.removeFromGroup",
         icon: '<i class="fa-solid fa-xmark"></i>',
-        condition: li => game.user.isGM && !!this.viewed && getCombatant(li).group,
-        callback: async li => getCombatant(li)?.update({ group: null }),
+        visible: li => game.user.isGM && !!this.viewed && getCombatant(li).group,
+        onClick: async (event, li) => getCombatant(li)?.update({ group: null }),
       },
       {
-        name: "torgeternity.CombatantGroup.addToGroup",
+        label: "torgeternity.CombatantGroup.addToGroup",
         icon: '<i class="fa-solid google-plus"></i>',
-        condition: li => game.user.isGM && !!this.viewed && canAddToGroup(li),
-        callback: torgeternityCombatTracker.#askAddToGroup.bind(this, false),
+        visible: li => game.user.isGM && !!this.viewed && canAddToGroup(li),
+        onClick: (event, li) => this.#askAddToGroup(false, li),
       },
       {
-        name: "torgeternity.CombatantGroup.addAllToGroup",
+        label: "torgeternity.CombatantGroup.addAllToGroup",
         icon: '<i class="fa-solid google-plus"></i>',
-        condition: li => game.user.isGM && !!this.viewed && canAddToGroup(li),
-        callback: torgeternityCombatTracker.#askAddToGroup.bind(this, true),
+        visible: li => game.user.isGM && !!this.viewed && canAddToGroup(li),
+        onClick: (event, li) => this.#askAddToGroup(true, li),
       })
 
     return options;
@@ -531,7 +531,7 @@ export default class torgeternityCombatTracker extends foundry.applications.side
     return Promise.all(group.members.map(combatant => combatant.actor?.toggleStatusEffect('waiting')))
   }
 
-  static async #askAddToGroup(askAll, li) {
+  async #askAddToGroup(askAll, li) {
     const combat = this.viewed;
     const combatant = combat.combatants.get(li.dataset.combatantId); // getCombatant(li)
     let combatants;
@@ -539,10 +539,10 @@ export default class torgeternityCombatTracker extends foundry.applications.side
       const actor = combatant.actor;
       if (!actor) return;// The Actor has been deleted.
       if (actor.type === 'stormknight') {
-        combatants = combat.combatants.filter(combatant => actor.type === 'stormknight');
+        combatants = combat.combatants.filter(combatant => combatant.actor.type === 'stormknight');
       } else {
         const matchid = actor._source._id;
-        combatants = combat.combatants.filter(combatant => actor._source._id === matchid);
+        combatants = combat.combatants.filter(combatant => combatant.actor._source._id === matchid);
       }
     } else
       combatants = [combatant];

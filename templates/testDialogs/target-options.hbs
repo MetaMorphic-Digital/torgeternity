@@ -1,15 +1,25 @@
-<fieldset class="flexrow half-width">
+<fieldset class="flexcol">
   <legend>{{localize 'torgeternity.sheetLabels.targetOptions'}}</legend>
-  <div class="skill-check-options flexrow flex1">
-    <fieldset>
+
+  <div class="flexrow" style="flex-wrap: nowrap; width: 100%">
+    <fieldset class="skill-check-options flexrow half-width">
       <legend>{{localize 'torgeternity.sheetLabels.concealment'}}:</legend>
       {{TorgRadioBoxesNumber "concealmentModifier" choices.concealment checked=test.concealmentModifier localize=true}}
     </fieldset>
-    <fieldset>
+    <fieldset class="skill-check-options flexrow half-width">
       <legend>{{localize 'torgeternity.sheetLabels.coverBonus'}}</legend>
       <input type="number" data-dtype="Number" id="cover" name="coverModifier"
         data-tooltip="{{localize 'torgeternity.sheetLabels.coverBonusTooltip'}}" placeholder="0"
         value={{test.coverModifier}} />
     </fieldset>
   </div>
+  {{#if showRangePenalty}}
+    <div class="flexrow flex1" style="flex-wrap: nowrap">
+      <fieldset class="skill-check-options flexrow half-width">
+        <legend>{{localize 'torgeternity.sheetLabels.range'}}:</legend>
+        {{TorgRadioBoxesNumber "rangeModifier" choices.ranges checked=test.rangeModifier localize=true tooltip=true}}
+      </fieldset>
+    </div>
+  {{/if}}
+
 </fieldset>

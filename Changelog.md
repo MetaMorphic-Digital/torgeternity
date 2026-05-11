@@ -2,6 +2,31 @@
 
 - Translations by Durak (French), Helmut (German), and Teotimus (Spanish).
 
+## 14.1.0 - Unarmored Trait + Range Penalty + more V14 compatibility fixes
+- Add auto-generation of **Unarmored** trait when a defending actor has an armor value of 0 (e.g. for Hollow Point ammo).
+- Add the ability to add **Custom Attacks** to Threats.
+- Allow **Racial Perks** to be edited and deleted on SK Actor sheets (delete is still disabled if bestowed by a race perk).
+- Change default behavior of **right-click** on effect in Effects Panel to delete rather than disable.
+- Add **confirm delete** dialog when deleting an Effect from an Actor sheet or from the Effects Panel.
+- Add **Range** to the Check Dialog for ranged weapons (missiles, firearms & heavy weapons) for single targets:
+  - Range field of the weapon must be in the general format "25 / 30 / 45"  (number separated by "/") for short/medium/long range
+  - The range field will NOT be displayed if multiple targets are selected (the range to each individual target will be used)
+  - A range beyond the third number will be counted as extreme (no check is made for exceeding 2 * long range)
+  - Add `system.targetModifiers.range` for AEs to modify the range penalty for an Actor.
+  - On multi-target:
+    - If the individual DN game settings is enabled, then the range penalty for each target is applied separately.
+    - If individual DN is not set, the range penalty to the **furthest** target is selected by default.
+- In Chat Card when individual DN is being used against more than one target, an **INFO** button at the end of the action total for each target provides a tooltip showing the modifiers applied to that specific target.
+
+### Bug Fixes
+- Get **Add All To Group** in combat tracker to select only the correct actors.
+- Fix **Show character information** in Actor context menu.
+
+### V14 compatibility
+- Set **verified** to 14.361, and set **maximum** to 14.
+- Update tooltips in Combat Tracker to match core V14 translation keys.
+- Update context menus in Chat Log and Combat Tracker to use new V14 property names.
+
 ## 14.0.2
 - Active Effects on disconnected Items should be suppressed.
 

@@ -590,6 +590,7 @@ export function initConfig() {
 
   torgeternity.defenseTraits = Object.entries({
     'fatigues': 'torgeternity.traits.fatigues',
+    'unarmored': 'torgeternity.traits.unarmored',
     'fullBody': 'torgeternity.traits.fullBody',
     'torso': 'torgeternity.traits.torso',
     'softArmor': 'torgeternity.traits.softArmor',
@@ -767,6 +768,12 @@ export function initConfig() {
       [-2]: '2',
       [-4]: '3',
       [-6]: '4',
+    },
+    ranges: {
+      [0]: 'torgeternity.sheetLabels.ranges.short',
+      [-2]: 'torgeternity.sheetLabels.ranges.medium',
+      [-4]: 'torgeternity.sheetLabels.ranges.long',
+      [-8]: 'torgeternity.sheetLabels.ranges.extreme',
     },
     targets: {
       [0]: '1',

@@ -103,10 +103,14 @@ export default class EffectsPanel extends HandlebarsApplicationMixin(Application
     const effect = fromUuidSync(button.dataset.uuid);
     if (!effect || !effect.isEmbedded) return;
     if (event.shiftKey) {
-      if (effect.parent instanceof foundry.documents.Actor)
-        await effect.delete();
-    } else
+      // Toggle disabled
       await effect.update({ disabled: !effect.disabled });
+    } else {
+      // Delete (with confirmation)
+      if (effect.parent instanceof foundry.documents.Actor)
+        await effect.deleteDialog();
+    }
+
     // Render with the new list of effects
     this.render();
   }

@@ -73,6 +73,14 @@ export default class TorgEternityToken extends foundry.canvas.placeables.Token {
     if (this === TorgEternityToken.#hoverToken) this.updateLabel();
   }
 
+  distanceToToken(otherToken) {
+    // Determine the distance from the origin to this token.
+    let distance = canvas.grid.measurePath([otherToken.center, this.center]).distance;
+    // Account for distance needing to be from edge to edge of token, with touching tokens having a distance of 1.
+    distance -= (otherToken.document.height + this.document.height) / 2 - 1;
+    return Math.max(0, distance);
+  }
+
   updateLabel() {
     // Token was made hidden while the hover was already active.
     if (!this.visible) {
@@ -101,10 +109,7 @@ export default class TorgEternityToken extends foundry.canvas.placeables.Token {
     if (!label.parent) document.querySelector("#hud #measurement")?.appendChild(label);
 
     // Determine the distance from the origin to this token.
-    let distance = canvas.grid.measurePath([TorgEternityToken.#originToken.object.center, this.center]).distance;
-    // Account for distance needing to be from edge to edge of token, with touching tokens having a distance of 1.
-    distance -= (TorgEternityToken.#originToken.height + this.document.height) / 2 - 1;
-    if (distance < 0) distance = 0;
+    const distance = this.distanceToToken(TorgEternityToken.#originToken.object);
 
     // Create the label HTML
     const distLabel = distance.toNearest(0.1).toLocaleString(game.i18n.lang);

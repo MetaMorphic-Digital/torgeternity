@@ -47,14 +47,14 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
   _getEntryContextOptions() {
     const options = super._getEntryContextOptions();
     options.push({
-      name: 'torgeternity.testInspector.title',
+      label: 'torgeternity.testInspector.title',
       icon: '<i class="fa-solid fa-magnifying-glass"></i>',
-      condition: li => {
+      visible: li => {
         if (!game.user.isGM) return false;
         const message = game.messages.get(li.dataset.messageId);
         return message.flags?.torgeternity?.test;
       },
-      callback: async li => {
+      onClick: async (event, li) => {
         const message = game.messages.get(li.dataset.messageId);
         const test = message.flags?.torgeternity?.test;
         let entries = [];

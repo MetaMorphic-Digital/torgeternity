@@ -2,6 +2,8 @@ import { TorgeternityMacros } from './macros.js';
 import { rollAttack, rollPower } from './torgchecks.js';
 import { TestDialog } from './test-dialog.js';
 
+const { DialogV2 } = foundry.applications.api;
+
 export function initHotbarMacros() {
   game.torgeternity = {
     rollItemMacro,
@@ -299,9 +301,9 @@ async function rollSkillMacro(skillName, attributeName, isInteractionAttack, DND
 Hooks.on('getActorContextOptions', async (actorDir, menuItems) => {
 
   menuItems.unshift({
-    name: 'torgeternity.contextMenu.characterInfo.contextMenuTitle',
+    label: 'torgeternity.contextMenu.characterInfo.contextMenuTitle',
     icon: '<i class="fa-regular fa-circle-info"></i>',
-    callback: async (li) => {
+    onClick: async (event, li) => {
       const actor = actorDir.collection.get(li.dataset.entryId);
 
       let description = actor.system.details.background ?? actor.system.details.description ?? actor.system.description ?? '';

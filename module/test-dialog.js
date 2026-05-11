@@ -1,6 +1,7 @@
 import { renderSkillChat } from './torgchecks.js';
 import TorgeternityActor from './documents/actor/torgeternityActor.js';
 import { applyNumericEffects, applyNumericChange } from './torgchecks.js';
+import { MissileWeaponItemData } from './data/item/missileweapon.js';
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api
 
 function toCamelCase(from) {
@@ -55,6 +56,7 @@ const DEFAULT_TEST = {
   woundModifier: 0,
   sizeModifier: 0,
   speedModifier: 0,
+  rangeModifier: 0,
   maneuverModifier: 0,
   coverModifier: 0,
   // sheet flags
@@ -190,6 +192,7 @@ export class TestDialog extends HandlebarsApplicationMixin(ApplicationV2) {
     context.test.stymiedModifier = myActor.system.statusModifiers.stymied;
     context.test.waitingModifier = myActor.system.statusModifiers.waiting;
     context.test.targetDarknessModifier = myActor.system.targetModifiers.darkness;
+    context.test.targetRangeModifier = myActor.system.targetModifiers.range;
 
     // Concentrating modifier applies in Concentration Checks and specific skills
     if (context.test.isConcentrationCheck ||
@@ -228,17 +231,21 @@ export class TestDialog extends HandlebarsApplicationMixin(ApplicationV2) {
     context.test.targetsModifier ||= MULTITARGET[testItem?.hasBlastTrait ? 1 : targets.length] ?? 0;
     context.test.combinedAction.participants ??= game.canvas?.tokens?.controlled?.length || 1;
 
+    context.test.rangeModifier = 0;
     if (context.test.targetPresent && context.test.testType !== 'soak') {
-      context.test.targets = targets.map(token => oneTestTarget(token, this.test.applySize, this.test.attackTraits, myActor.defenseTraits, context.test.skillName));
+      context.test.targets = targets.map(token => oneTestTarget(token, this.test.applySize, this.test.attackTraits, myActor.defenseTraits, context.test.skillName, myActor.getActiveTokens()?.[0], testItem));
       context.test.sizeModifier = Math.max(...context.test.targets.map(target => target.sizeModifier));
       context.test.vulnerableModifier = Math.max(...context.test.targets.map(target => target.vulnerableModifier));
       context.test.darknessModifier = Math.min(0, Math.min(...context.test.targets.map(target => target.darknessModifier)) + context.test.targetDarknessModifier);
+      context.test.rangeModifier = Math.min(...context.test.targets.map(target => target.rangeModifier));
     } else {
       context.test.targets = dummyTestTargets();
       context.test.sizeModifier = 0;
       context.test.vulnerableModifier = 0;
       context.test.darknessModifier = 0;
     }
+    // Do not show range penalty for multi-target.
+    context.showRangePenalty = (!testItem || testItem.system instanceof MissileWeaponItemData) && targets.length < 2;
 
     // Maybe there is an explicit amount of damage
     for (const target of context.test.targets)
@@ -370,7 +377,7 @@ export function dummyTestTargets() {
  * @param {Set[String]} defenseTraits defenseTraits of the attacker (if any)
  * @returns 
  */
-export function oneTestTarget(token, applySize, attackTraits, defenseTraits, testSkill) {
+export function oneTestTarget(token, applySize, attackTraits, defenseTraits, testSkill, actingToken, actingItem) {
   const actor = token.actor;
 
   let sizeModifier;
@@ -390,6 +397,10 @@ export function oneTestTarget(token, applySize, attackTraits, defenseTraits, tes
     .filter(([_key, value]) => value)
     .reduce((acc, [key, value]) => (acc[key] = value, acc), {})
 
+  let rangeModifier = 0;
+  if (actingToken && actingItem?.system?.rangePenalty)
+    rangeModifier = actingItem.system.rangePenalty(token.distanceToToken(actingToken));
+
   // Set vehicle defense if needed
   switch (actor.type) {
     case 'vehicle':
@@ -403,7 +414,8 @@ export function oneTestTarget(token, applySize, attackTraits, defenseTraits, tes
         sizeModifier: sizeModifier,
         toughness: actor.system.defenses.toughness,
         armor: actor.system.defenses.armor,
-        armorTraits: [],
+        defenseTraits: actor.defenseTraits,
+        rangeModifier,
         amountBD: 0,
         bdDamageSum: 0,
         // then vehicle specifics
@@ -435,6 +447,7 @@ export function oneTestTarget(token, applySize, attackTraits, defenseTraits, tes
           toughness: actor.system.defenses.toughness,
           armor: actor.system.defenses.armor,
           defenseTraits: actor.defenseTraits,
+          rangeModifier,
           // then non-vehicle changes
           skills: actor.itemTypes.customSkill.reduce((acc, skill) => {
             acc[toCamelCase(skill.name)] = { value: skill.system.value, defenseMod: skill.system.defenseMod, baseAttribute: skill.system.baseAttribute };

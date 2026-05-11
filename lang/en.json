@@ -178,6 +178,7 @@
           "shortBurst": "Short Burst",
           "stymied": "Stymied",
           "targetConcealment": "Target Concealment",
+          "targetRange": "Target Range",
           "targetSize": "Target Size",
           "targetVeryVulnerable": "Target Very Vulnerable",
           "targetVulnerable": "Target Vulnerable",
@@ -1194,6 +1195,12 @@
       "race": "Race",
       "racialPerks": "Racial Perks",
       "range": "Range",
+      "ranges": {
+        "short": "Short",
+        "medium": "Medium",
+        "long": "Long",
+        "extreme": "Extreme"
+      },
       "realitySurge": "Reality Surge",
       "reconnect": "Reconnect",
       "reconnectTooltip": "Remove Disconnected condition",
@@ -1460,6 +1467,7 @@
       "softArmor": "Soft Armor",
       "stagger": "Stagger",
       "supernaturalEvil": "Supernatural Evil",
+      "unarmored": "Unarmored",
       "thrown": "Thrown",
       "torso": "Torso",
       "twoHanded": "Two-Handed",

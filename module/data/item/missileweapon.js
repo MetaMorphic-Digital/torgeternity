@@ -54,4 +54,21 @@ export class MissileWeaponItemData extends BaseWeaponItemData {
     return super.isEquipped &&
       (this.traits.has('thrown') || this.equipped.handsHeld === 2);
   }
+
+  /**
+   * Returns the range penalty for the given distance.
+   * @param {*} distance 
+   * @returns {Number}
+   */
+  rangePenalty(distance) {
+    let modifier = 0;
+    for (const bracket of this.range.split('/')) {
+      if (!Number.isNumeric(bracket)) continue;
+      if (distance <= bracket) break;
+      modifier -= 2;
+    }
+    // Extreme range is -8 (not -6)
+    if (modifier < -4) modifier = -8;
+    return modifier;
+  }
 }
