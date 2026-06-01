@@ -96,6 +96,7 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
         start: {
           combatant: combatant?.id ?? null,
           turn: null,
+          time: game.time.worldTime,
         }
       })
     }

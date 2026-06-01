@@ -473,7 +473,7 @@ export async function renderSkillChat(test, origChatMessage) {
     target.showApplyEffects = !!test.effects.map(fx => fromUuidSync(fx)).find(fx => fx.transfersToTarget);
 
     // Approved Action Processing
-    test.successfulDefendApprovedAction = false;
+    target.successfulDefendApprovedAction = false;
     test.successfulApprovedAction = false;
     if (test.result < TestResult.STANDARD) {
       // "Defend is successful once an attack or interaction misses the hero."
@@ -481,7 +481,7 @@ export async function renderSkillChat(test, origChatMessage) {
         (test.testType === 'attack' || test.testType === 'interactionAttack') &&
         game.combat?.approvedActions?.includes('defend') &&
         target.defenses.activeDefense)
-        test.successfulDefendApprovedAction = true;
+        target.successfulDefendApprovedAction = true;
     } else {
       if (testActor.type === 'stormknight' && isApprovedAction(test))
         test.successfulApprovedAction = true;

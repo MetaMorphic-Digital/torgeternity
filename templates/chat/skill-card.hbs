@@ -32,14 +32,6 @@
         {{/each}}
       </ul>
     {{/if}}
-    {{#if successfulDefendApprovedAction}}
-      <p class="skill-roll-approved-action">
-        {{localize 'torgeternity.chatText.check.isApprovedDefend' name=target.targetName}}
-        <a class="button roll-button drawDestiny" data-action="drawDestiny" data-actor="{{target.id}}">
-          <i class="fa-solid fa-cards-blank"></i>
-          &nbsp;{{localize 'torgeternity.dialogPrompts.drawDestiny'}}</a>
-      </p>
-    {{/if}}
     {{#if successfulApprovedAction}}
       <p class="skill-roll-approved-action">{{localize 'torgeternity.chatText.check.isApprovedAction'}}
         <a class="button roll-button drawDestiny" data-action="drawDestiny" data-actor="{{actor}}">
@@ -245,6 +237,14 @@
             <!-- <img class="target-icon" src="{{this.targetPic}}"
               data-tooltip="{{this.targetName}}" data-action="openSheet" data-actor="{{this.id}}" /> -->
             <div class="target-details">
+              {{#if this.successfulDefendApprovedAction}}
+                <p class="skill-roll-approved-action">
+                  {{localize 'torgeternity.chatText.check.isApprovedDefend' name=this.targetName}}
+                  <a class="button roll-button drawDestiny" data-action="drawDestiny" data-actor="{{this.id}}">
+                    <i class="fa-solid fa-cards-blank"></i>
+                    &nbsp;{{localize 'torgeternity.dialogPrompts.drawDestiny'}}</a>
+                </p>
+              {{/if}}
               {{#if this.actionTotalContent}}
                 <p class="skill-roll-action-label actionTotalContent">{{this.actionTotalContent}}
                   {{#if this.modifierText}}

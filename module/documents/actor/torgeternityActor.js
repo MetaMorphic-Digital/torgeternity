@@ -86,9 +86,9 @@ export default class TorgeternityActor extends foundry.documents.Actor {
       }
       if (updateToken) {
         if (this.isToken)
-          this.token.update({ texture: { src: changed.img } });
+          this.token.update({ "texture.src": changed.img });
         else
-          this.updateSource({ prototypeToken: { texture: { src: changed.img } } })
+          this.updateSource({ "prototypeToken.texture.src": changed.img })
       }
     }
     // Apply attribute maximums

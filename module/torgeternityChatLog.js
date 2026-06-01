@@ -616,7 +616,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
    * @param {HTMLButtonElement} button 
  * @this {TorgeternityChatLog}
  */
-  static #applySoak(event, button) {
+  static async #applySoak(event, button) {
     event.preventDefault();
     const { test: soaktest, chatMessage } = getMessage(button);
     const testTarget = soaktest.targets[0];
@@ -637,12 +637,12 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     }
     origtarget.soakWounds = testTarget.soakWounds;
     origtarget.showBD = false;
-    origtest.diceroll = null;  // use existing roll number
+    origtest.dicerolled = null;  // use existing roll number
     // Display soak information, WITHOUT the footnote about possibility spent
     origtarget.soakDescription = soaktest.chatNote.slice(0, -_loc('torgeternity.sheetLabels.possSpent').length);
 
     // Hide "apply soak" button in the soak test (as well the buttons which affect the action total)
-    this.updateChatMessage(chatMessage, {
+    await this.updateChatMessage(chatMessage, {
       'flags.torgeternity.test.showApplySoak': false,
       'flags.torgeternity.test.skillRollMenuStyle': 'hidden',
     });
