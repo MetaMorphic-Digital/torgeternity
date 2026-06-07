@@ -4302,6 +4302,13 @@ document-embed .generalHeader {
   }
 }
 
+.handsManager>.cardList:last-child {
+  &:hover span {
+    left: unset;
+    right: 0px;
+  }
+}
+
 .pool-list {
   font-family: Palatino;
   font-size: 12px;

@@ -152,7 +152,7 @@ export function initConfig() {
   torgeternity.cosmPossyLargeIcons = {};
   Object.keys(torgeternity.axiomByCosm).forEach(cosm => {
     torgeternity.cosmPossyIcons[cosm] = `systems/torgeternity/images/possy${(cosm === 'coreEarth') ? 'token' : '_' + cosm.toLowerCase()}.webp`;
-    torgeternity.cosmPossyLargeIcons[cosm] = (cosm !== 'other') && `systems/torgeternity/images/cosm-icons/${cosm.toLowerCase()}.webp`;
+    torgeternity.cosmPossyLargeIcons[cosm] = (cosm !== 'other') && `systems/torgeternity/images/cosm-icons/${cosm}.webp`;
   });
 
   Hooks.callAll('torgSetupCosms', torgeternity);
@@ -461,6 +461,11 @@ export function initConfig() {
     cyberware: 'torgeternity.perkTypes.cyberware',
     occultech: 'torgeternity.perkTypes.occultech',
     geneMod: 'torgeternity.perkTypes.biotech',
+  }
+
+  torgeternity.attributeSkills = {
+    ...Object.entries(torgeternity.attributeTypes).reduce((acc, ent) => { acc[ent[0]] = { label: ent[1], group: 'torgeternity.sheetLabels.attributes' }; return acc }, {}),
+    ...Object.entries(torgeternity.skills).reduce((acc, ent) => { acc[ent[0]] = { label: ent[1], group: 'torgeternity.sheetLabels.skills' }; return acc }, {}),
   }
 
   torgeternity.statusEffects = [

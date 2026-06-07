@@ -10,7 +10,7 @@ export default class TorgCombatant extends Combatant {
   }
 
   get turnTaken() {
-    return this.system.turnTaken;
+    return this.system.turnTaken || (this.combat?.settings.skipDefeated && this.isDefeated);
   }
 
   get isWaiting() {

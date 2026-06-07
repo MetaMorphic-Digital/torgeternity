@@ -588,7 +588,9 @@ export async function renderSkillChat(test, origChatMessage) {
         target.targetAdjustedToughness = target.toughness - target.armor;
         // If armor and cover can assist, adjust toughness based on AP effects and cover modifier
         if (test.applyArmor) {
-          const armor = target.armor + getExtraProtection(test.attackTraits, target.defenses, 'Armor');
+          // "lowestArmor" trait on attack means armor with "torso" trait is ignored.
+          const armor = ((test.attackTraits.includes('lowestArmor') && !target.defenseTraits.includes('fullBody')) ? 0 : target.armor) +
+            getExtraProtection(test.attackTraits, target.defenses, 'Armor');
           const weaponAP = applyNumericEffects('test.weaponAP', test.weaponAP, effects);
           target.targetAdjustedToughness += Math.max(0, armor - weaponAP) + test.coverModifier;
         }
@@ -924,8 +926,10 @@ export async function soakDamages(soaker, origMessageId, options = {}) {
   const skillName = 'reality';
   const skillValue = soaker.system.skills[skillName].value;
 
-  // Before calculating roll, check to see if it can be attempted unskilled; exit test if actor doesn't have required skill
-  if (checkUnskilled(skillValue, skillName, soaker)) return;
+  // Before calculating roll, check to see if it can be attempted unskilled; exit test if actor doesn't have required skill.
+  // Stormknights must always have at least 1 rank in Reality.
+  // Threats are managed by the GM, so the GM can decide if the Threat is allowed to spend a Possibility even when it doesn't have any adds.
+  //if (checkUnskilled(skillValue, skillName, soaker)) return;
 
   return TestDialog.wait({
     testType: 'soak',
@@ -1232,10 +1236,10 @@ export async function rollAttribute(actor, attributeName, options = {}) {
     actor: actor,
     skillName: attributeName,
     skillValue: actor.system.attributes[attributeName].value,
-    isFav: actor.system.attributes[attributeName].isFav
+    isFav: actor.system.attributes[attributeName].isFav,
+    itemId: options.item?.id,
   }, { useTargets: true, ...options });
 }
-
 
 export async function rollSkill(actor, skillName, options = {}) {
 
@@ -1283,6 +1287,7 @@ export async function rollSkill(actor, skillName, options = {}) {
     isFav: skillData.isFav,
     skillName: skillName,
     skillValue: skillData.value,
+    itemId: options.item?.id,
   }, { useTargets: (testType === 'skill'), ...options });
 }
 

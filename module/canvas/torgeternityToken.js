@@ -83,9 +83,10 @@ export default class TorgEternityToken extends foundry.canvas.placeables.Token {
 
   updateLabel() {
     // Token was made hidden while the hover was already active.
-    if (!this.visible) {
+    if (!this.visible || !TorgEternityToken.#originToken?.visible || !TorgEternityToken.#originToken.object) {
       TorgEternityToken.#label?.classList.toggle('hidden', true);
       TorgEternityToken.#hoverToken = null;
+      TorgEternityToken.#originToken = null;
       return;
     }
 

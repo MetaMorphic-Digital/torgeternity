@@ -50,7 +50,7 @@ export class HandsManager extends HandlebarsApplicationMixin(ApplicationV2) {
   async _onFirstRender(context, options) {
     await super._onFirstRender(context, options);
 
-    for (const hand of game.users.map(user => !user.isGM && user.character?.getDefaultHand()))
+    for (const hand of game.users.map(user => !user.isGM && !user.isBanned && user.character?.getDefaultHand()))
       if (hand) hand.apps[this.id] = this;
 
     const settings = game.settings.get('torgeternity', 'deckSetting');
@@ -93,7 +93,7 @@ export class HandsManager extends HandlebarsApplicationMixin(ApplicationV2) {
 
     switch (partId) {
       case 'body':
-        partContext.hands = game.users.filter(user => !user.isGM && user.character).map(user => {
+        partContext.hands = game.users.filter(user => !user.isGM && !user.isBanned && user.character).map(user => {
           const hand = user.character.getDefaultHand();
           return {
             user: user,

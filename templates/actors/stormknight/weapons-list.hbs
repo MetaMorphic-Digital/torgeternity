@@ -87,7 +87,8 @@
       </li>
     {{/each}}
   </div>
-{{/if}} {{#if missileweapon}}
+{{/if}}
+{{#if missileweapon}}
   <h3>{{localize 'torgeternity.sheetLabels.missileWeapons'}}</h3>
   <div class="item-list">
     {{#each missileweapon as |item id|}}
@@ -123,7 +124,8 @@
       </li>
     {{/each}}
   </div>
-{{/if}} {{#if firearm}}
+{{/if}}
+{{#if firearm}}
   <h3>{{localize 'torgeternity.sheetLabels.firearms'}}</h3>
   <div class="item-list">
     {{#each firearm as |item id|}}
@@ -159,7 +161,8 @@
       </li>
     {{/each}}
   </div>
-{{/if}} {{#if heavyweapon}}
+{{/if}}
+{{#if heavyweapon}}
   <h3>{{localize 'torgeternity.sheetLabels.heavyWeapons'}}</h3>
   <div class="item-list">
     {{#each heavyweapon as |item id|}}
@@ -195,8 +198,8 @@
       </li>
     {{/each}}
   </div>
-
-{{/if}} {{#if spell}}
+{{/if}}
+{{#if spell}}
   <h3>{{localize 'torgeternity.sheetLabels.spells'}}</h3>
   <div class="item-list">
     {{#each spell as |item id|}}
@@ -226,7 +229,8 @@
       </li>
     {{/each}}
   </div>
-{{/if}} {{#if miracle}}
+{{/if}}
+{{#if miracle}}
   <h3>{{localize 'torgeternity.sheetLabels.miracles'}}</h3>
   <div class="item-list">
     {{#each miracle as |item id|}}
@@ -256,8 +260,8 @@
       </li>
     {{/each}}
   </div>
-
-{{/if}} {{#if psionicpower}}
+{{/if}}
+{{#if psionicpower}}
   <h3>{{localize 'torgeternity.sheetLabels.psionicPowers'}}</h3>
   <div class="item-list">
     {{#each psionicpower as |item id|}}
@@ -287,7 +291,8 @@
       </li>
     {{/each}}
   </div>
-{{/if}} {{#if customAttack}}
+{{/if}}
+{{#if customAttack}}
   <h3>{{localize 'torgeternity.sheetLabels.otherAttacks'}}</h3>
   <div class="item-list">
     {{#each customAttack as |item id|}}
@@ -302,6 +307,37 @@
           <a
             class="item-control item-attackRoll" data-action="itemAttackRoll" {{disabled (not @root.editable)}}
             data-tooltip='{{localize "torgeternity.iconeTitles.attackRoll"}}'>
+            <i class="fas fa-dice-d20"></i>
+          </a>
+          <a class="item-control item-edit" data-action="itemEdit"
+            data-tooltip='{{localize "torgeternity.iconeTitles.edit"}}'>
+            <i class="fas fa-edit"></i>
+          </a>
+          <a class="item-control item-delete" data-action="itemDelete"
+            {{disabled (or (not @root.editable) item.system.bestowedBy)}}
+            data-tooltip='{{localize "torgeternity.iconeTitles.delete"}}'>
+            <i class="fas fa-trash"></i>
+          </a>
+        </div>
+      </li>
+    {{/each}}
+  </div>
+{{/if}}
+{{#if specialabilityRollable}}
+  <h3>{{localize 'torgeternity.sheetLabels.specialabilities'}}</h3>
+  <div class="item-list">
+    {{#each specialabilityRollable as |item id|}}
+      <li class="item draggable" data-item-id="{{item._id}}">
+        <div>
+          <img src="{{item.img}}" data-tooltip="{{item.name}}" />
+        </div>
+        <span class="item-name {{TorgDisconnected item}}{{#if item.tooMany}} item-tooMany{{/if}}"
+          data-action="itemName">{{item.name}}
+          <span class="contradiction">{{item.contradictionCase}}</span></span>
+        <div class="item-controls">
+          <a
+            class="item-control item-attackRoll" data-action="itemRoll" {{disabled (not @root.editable)}}
+            data-tooltip='{{localize "torgeternity.sheetLabels.baseRoll"}}'>
             <i class="fas fa-dice-d20"></i>
           </a>
           <a class="item-control item-edit" data-action="itemEdit"

@@ -38,6 +38,7 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
       itemToChat: TorgeternityActorSheet.#onItemChat,
       itemAttune: TorgeternityActorSheet.#onItemAttune,
       itemAttackRoll: TorgeternityActorSheet.#onAttackRoll,
+      itemRoll: TorgeternityActorSheet.#onItemRoll,
       itemTappingRoll: TorgeternityActorSheet.#onTappingRoll,
       interactionAttack: TorgeternityActorSheet.#onInteractionAttack,
       unarmedAttack: TorgeternityActorSheet.#onUnarmedAttack,
@@ -913,6 +914,16 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
     const item = this.actor.items.get(button.closest('.item').dataset.itemId);
     if (!item) return ui.notifications.info(`Failed to find Item for button`);
     rollAttack(this.actor, item, { /*window: { windowId: this.window.windowId }*/ });
+  }
+
+  static #onItemRoll(event, button) {
+    const item = this.actor.items.get(button.closest('.item').dataset.itemId);
+    if (!item) return ui.notifications.info(`Failed to find Item for button`);
+    const skillorattribute = item.system.attackWith ?? item.system.skill;
+    if (Object.hasOwn(CONFIG.attributeTypes, skillorattribute))
+      rollAttribute(this.actor, skillorattribute, { item: item, /*window: { windowId: this.window.windowId }*/ });
+    else
+      rollSkill(this.actor, skillorattribute, { item: item, /*window: { windowId: this.window.windowId }*/ });
   }
 
   static async #onTappingRoll(event, button) {
