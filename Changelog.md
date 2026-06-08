@@ -2,6 +2,10 @@
 
 - Translations by Durak (French), Helmut (German), and Teotimus (Spanish).
 
+## NEXT
+- Add new `system.attributes.XXX.noReroll20` and `system.skill.XXX.noReroll20` fields which can be set by an Active Effect to prevent rerolling on a natural 20 (such as for the Diminish Spell).
+  - Setting `system.attributes.XXX.noReroll20` will also apply to all skill tests that use that attribute (unless overridden by a specific `system.skill.XXX.noReroll20`)
+
 ## 14.2.0 - Small Improvements
 - Don't prevent a **SOAK test** if the Actor is unskilled in Reality (SKs must always have at least 1 add, and Threats are managed by the GM).
 - An attack with 'lowestArmor' trait (e.g. Fireball) ignores armor without the 'fullBody' trait.

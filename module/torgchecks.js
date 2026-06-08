@@ -77,6 +77,11 @@ export async function renderSkillChat(test, origChatMessage) {
     !test.customSkill &&
     !testActor.system.skills[test.skillName].adds);
 
+  // Maybe an AE wants to override rerolling on 20
+  const noReroll20 =
+    (Object.hasOwn(testActor.system.skills, test.skillName) && testActor.system.skills[test.skillName].noReroll20) ||
+    (Object.hasOwn(testActor.system.attributes, test.skillName) && testActor.system.attributes[test.skillName].noReroll20);
+
   if (!test.plus3Type) {
     let attribute;
     switch (test.testType) {
@@ -145,7 +150,7 @@ export async function renderSkillChat(test, origChatMessage) {
     // Generate roll, if needed
     if (test.rollTotal === 0 && !test.explicitBonus) {
       // Generate dice roll
-      const dice = test.unskilledTest ? '1d20x10' : '1d20x10x20';
+      const dice = (test.unskilledTest || noReroll20) ? '1d20x10' : '1d20x10x20';
 
       test.diceroll = await foundry.dice.Roll.create(dice).evaluate();
       dicerolled.push(test.diceroll);

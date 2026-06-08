@@ -207,6 +207,8 @@ export class CommonActorData extends BaseActorData {
     for (const [name, skill] of Object.entries(this.skills)) {
       const trained = skill.unskilledUse || this._source.skills[name].adds;
       skill.value = trained ? this.attributes[skill.baseAttribute].value + skill.adds + (skill.mod ?? 0) : '';
+      if (!Object.hasOwn(skill, "noReroll20") && Object.hasOwn(this.attributes[skill.baseAttribute], "noReroll20"))
+        skill.noReroll20 = this.attributes[skill.baseAttribute].noReroll20;
     }
 
     // calculate final toughness
