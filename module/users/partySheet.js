@@ -32,7 +32,7 @@ export default class PartySheet extends HandlebarsApplicationMixin(ApplicationV2
     const context = await super._prepareContext(options);
     const showAll = !this.options.activeActors;
     context.CONFIG = CONFIG;
-    context.users = game.users.filter(user => !user.isGM && (showAll || user.active));
+    context.users = game.users.filter(user => !user.isGM && !user.isBanned && (showAll || user.active));
 
     for (const user of context.users) {
       if (user.role === CONST.USER_ROLES.GAMEMASTER || !user.character) continue;

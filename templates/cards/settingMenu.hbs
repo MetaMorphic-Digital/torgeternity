@@ -1,33 +1,37 @@
 <div class="flexrow scrollable">
   <div>
-    <h2>{{localize "TYPES.Cards.deck"}} {{localize "torgeternity.cardTypes.destiny"}}</h2>
+    <h2 data-deck-name="destinyDeck" data-action="showDeck">{{localize "TYPES.Cards.deck"}}
+      {{localize "torgeternity.cardTypes.destiny"}}
+    </h2>
 
     <div class="form-group">
-      <select name="destinyDeck" class="selectDeck">
+      <select name="destinyDeck" class="selectDeck" data-action="showDeck">
         {{selectOptions decks selected=object.destinyDeck sort=true}}
       </select>
     </div>
     <div class="form-group">
-      <label for="destinyDiscard">{{localize "torgeternity.cardTypes.discardPile"}}</label>
+      <label for="destinyDiscard" data-action="showDeck">{{localize "torgeternity.cardTypes.discardPile"}}</label>
       <select name="destinyDiscard" class="selectDeck">
         {{selectOptions piles selected=object.destinyDiscard sort=true}}
       </select>
     </div>
 
-    <h2>{{localize "TYPES.Cards.deck"}} {{localize "torgeternity.cardTypes.drama"}}</h2>
+    <h2 data-deck-name="dramaDeck" data-action="showDeck">{{localize "TYPES.Cards.deck"}}
+      {{localize "torgeternity.cardTypes.drama"}}
+    </h2>
     <div class="form-group">
       <select name="dramaDeck" class="selectDeck">
         {{selectOptions decks selected=object.dramaDeck sort=true}}
       </select>
     </div>
     <div class="form-group">
-      <label for="dramaDiscard">{{localize "torgeternity.cardTypes.discardPile"}}</label>
+      <label for="dramaDiscard" data-action="showDeck">{{localize "torgeternity.cardTypes.discardPile"}}</label>
       <select name="dramaDiscard" class="selectDeck">
         {{selectOptions piles selected=object.dramaDiscard sort=true}}
       </select>
     </div>
     <div class="form-group">
-      <label for="dramaActive">{{localize "torgeternity.cardTypes.activeDrama"}}</label>
+      <label for="dramaActive" data-action="showDeck">{{localize "torgeternity.cardTypes.activeDrama"}}</label>
       <select name="dramaActive" class="selectDeck">
         {{selectOptions piles selected=object.dramaActive sort=true}}
       </select>
@@ -37,7 +41,7 @@
     <h2>{{localize "TYPES.Cards.deck"}} {{localize "torgeternity.cardTypes.cosm"}}</h2>
 
     <div class="form-group">
-      <label>{{localize "torgeternity.cardTypes.discardPile"}}</label>
+      <label data-action="showDeck">{{localize "torgeternity.cardTypes.discardPile"}}</label>
       <select name="cosmDiscard" data-type="String" class="selectDeck formFields">
         {{selectOptions piles selected=object.cosmDiscard sort=true}}
       </select>
@@ -45,7 +49,7 @@
 
     {{#each cosms as |cosm cosmId|}}
       <div class="form-group">
-        <label>{{cosm.name}}</label>
+        <label data-action="showDeck">{{cosm.name}}</label>
         <select name="{{cosmId}}" data-type="String" class="selectDeck formFields">
           {{selectOptions @root.decks selected=(lookup @root.object cosmId) sort=true}}
         </select>
@@ -58,7 +62,7 @@
     <div class="stormknight-list">
       {{#each stormknights as |stormknight index|}} {{#if stormknight.isOwner}}
           <div class="formFields flexrow">
-            <label>{{stormknight.name}}</label>
+            <label data-action="showDeck">{{stormknight.name}}</label>
             <select
               data-actor-id="{{stormknight.id}}"
               data-type="String"

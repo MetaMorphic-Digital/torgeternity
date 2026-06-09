@@ -23,7 +23,8 @@ export default class DeckSettingMenu extends HandlebarsApplicationMixin(Applicat
       left: 500,
     },
     actions: {
-      createCards: DeckSettingMenu.#onCreateCards
+      createCards: DeckSettingMenu.#onCreateCards,
+      showDeck: this.#onShowDeck,
     }
   }
 
@@ -221,5 +222,12 @@ export default class DeckSettingMenu extends HandlebarsApplicationMixin(Applicat
         select.classList.remove('doubled');
       }
     }
+  }
+
+  static async #onShowDeck(event, target) {
+    const deckid = target.dataset.deckName ?
+      this.element.querySelector(`select[name=${target.dataset.deckName}]`)?.value :
+      target.parentElement.querySelector(`select`)?.value;
+    if (deckid) await game.cards.get(deckid)?.sheet?.render({ force: true });
   }
 }
