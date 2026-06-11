@@ -2,6 +2,10 @@
 
 - Translations by Durak (French), Helmut (German), and Teotimus (Spanish).
 
+## 14.2.3 - Fix rolling skills from Vehicle sheets
+- **Party Sheet** updates whenever the displayed Actors is modified, or the user's selected character is changed.
+- Fix bug that prevented skill checks being made from Vehicle sheets.
+
 ## 14.2.2 - Override Test Parameters
 - Add new `system.testOverride.<testType>.<field>` support for rolling tests, e.g.
   - To make Soak tests always Favored, create an Active Effect with the change: `system.testOverride.soak.isFav` OVERRIDE true
@@ -15,7 +19,7 @@
 
 ## 14.2.0 - Small Improvements
 - Don't prevent a **SOAK test** if the Actor is unskilled in Reality (SKs must always have at least 1 add, and Threats are managed by the GM).
-- An attack with 'lowestArmor' trait (e.g. Fireball) ignores armor without the 'fullBody' trait.
+- An attack with 'lowestArmor' trait (e.g. Fireball) ignores armor without the `fullBody` trait.
 - Prevent locking up canvas when deleting selected tokens while hovering over another token.
 - When **Skip Defeated** is checked in a combat's settings, any defeated combatant is marked as having taken their turn (making it quicker to put the turn marker under the second faction on each turn).
 - Large Possibility Icons (for the PossibiltyByCosm dialog) have their filenames in mixed case, not all lower case.

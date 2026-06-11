@@ -50,6 +50,22 @@ export default class PartySheet extends HandlebarsApplicationMixin(ApplicationV2
     return context;
   }
 
+  async _onFirstRender(context, options) {
+    await super._onFirstRender(context, options);
+    for (const user of game.users) {
+      user.apps[this.id] = this;
+      if (user.character) user.character.apps[this.id] = this;
+    }
+  }
+
+  _onClose(options) {
+    super._onClose(options);
+    for (const user of game.users) {
+      delete user.apps[this.id];
+      if (user.character) delete user.character.apps[this.id];
+    }
+  }
+
   /**
    *
    * @param {Event} event 

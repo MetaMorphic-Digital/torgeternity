@@ -77,10 +77,10 @@ export async function renderSkillChat(test, origChatMessage) {
     !test.customSkill &&
     !testActor.system.skills[test.skillName].adds);
 
-  // Maybe an AE wants to override rerolling on 20
+  // Maybe an AE wants to override rerolling on 20 (vehicles don't have skills or attributes)
   const noReroll20 =
-    (Object.hasOwn(testActor.system.skills, test.skillName) && testActor.system.skills[test.skillName].noReroll20) ||
-    (Object.hasOwn(testActor.system.attributes, test.skillName) && testActor.system.attributes[test.skillName].noReroll20);
+    foundry.utils.getProperty(testActor.system, `skills.${test.skillName}.noReroll20`) ||
+    foundry.utils.getProperty(testActor.system, `attributes.${test.skillName}.noReroll20`);
 
   if (!test.plus3Type) {
     let attribute;
