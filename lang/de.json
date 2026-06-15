@@ -759,6 +759,7 @@
       "decks": "torgeternity.system-de-grundkarten"
     },
     "partySheet": {
+      "title": "Party Sheet",
       "chooseParty": "<h3>Wenn du \"Ja\" auswählst, öffnet sich die Anzeige mit allen Charakteren.<br>Bei \"Nein\" werden dir nur die Spieler angezeigt, die auch online sind.</h3>",
       "noCharacter": "Dieser Spieler hat keinen zugeteilten Charakter",
       "openParty": "Wähle die Gruppenanzeige",

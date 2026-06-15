@@ -753,6 +753,7 @@
       "decks": "torgeternity.core-card-set"
     },
     "partySheet": {
+      "title": "Party Sheet",
       "chooseParty": "<h3>Choose whether you want to see ALL players, or only the ACTIVE players</h3>",
       "noCharacter": "This user doesn't own any actor",
       "openParty": "Choose the party sheet",

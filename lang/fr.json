@@ -762,6 +762,7 @@
       "decks": "torgeternity.core-card-set-fr"
     },
     "partySheet": {
+      "title": "Party Sheet",
       "chooseParty": "<h3>Choisir OUI affiche TOUS les acteurs.<br>Choisir NON n'affiche que les actifs.</h3>",
       "noCharacter": "Cet utilisateur ne possède pas de personnage",
       "openParty": "Choisir qui afficher",

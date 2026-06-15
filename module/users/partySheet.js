@@ -13,6 +13,7 @@ export default class PartySheet extends HandlebarsApplicationMixin(ApplicationV2
   static DEFAULT_OPTIONS = {
     classes: ['torgeternity', 'party-sheet', 'themed', 'theme-dark'],   // "faded-ui" removed by _initializeApplicationOptions
     window: {
+      title: 'torgeternity.partySheet.title',
       contentClasses: ['standard-form'],
       resizable: true,
     },

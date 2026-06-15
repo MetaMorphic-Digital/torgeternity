@@ -759,6 +759,7 @@
       "decks": "torgeternity.core-card-set"
     },
     "partySheet": {
+      "title": "Party Sheet",
       "chooseParty": "<h3>Si eliges SÍ, abrirá todos los personajes.<br>Si eliges NO, solo abrirá los personajes activos.</h3>",
       "noCharacter": "Este usuario no posee ningún actor",
       "openParty": "Elige la hoja de grupo",
