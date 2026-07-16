@@ -481,19 +481,19 @@ export default class TorgeternityItemSheet extends foundry.applications.api.Hand
  */
 export async function reloadAmmo(actor, weapon, ammoItem, ignoreUsage) {
 
-  const speaker = ChatMessage.getSpeaker({ actor });
+  const speaker = ChatMessage.implementation.getSpeaker({ actor });
 
   if (weapon.system.ammo.value === weapon.system.ammo.max && !ignoreUsage) {
 
     if (ammoItem && weapon.system.loadedAmmo != ammoItem.id) {
       await weapon.update({ 'system.loadedAmmo': ammoItem.id });
-      return ChatMessage.create({
+      return ChatMessage.implementation.create({
         content: `${_loc('torgeternity.chatText.changeAmmoType', { weapon: weapon.name, ammo: ammoItem.name })}`,
         speaker,
       });
 
     } else {
-      return ChatMessage.create({
+      return ChatMessage.implementation.create({
         content: `${_loc('torgeternity.chatText.ammoFull', { a: weapon.name })}`,
         speaker,
       });
@@ -504,7 +504,7 @@ export async function reloadAmmo(actor, weapon, ammoItem, ignoreUsage) {
     // called from the main actor sheet, it's not known what ammo item is used.
     const ammoArray = actor.itemTypes.ammunition;
     if (ammoArray.length === 0) {
-      return ChatMessage.create({
+      return ChatMessage.implementation.create({
         content: `${_loc('torgeternity.chatText.noSpareAmmo')}`,
         speaker,
       });
@@ -552,7 +552,7 @@ export async function reloadAmmo(actor, weapon, ammoItem, ignoreUsage) {
     return;
   }
   if (weapon.system.loadedAmmo != ammoItem.id) {
-    await ChatMessage.create({
+    await ChatMessage.implementation.create({
       content: `${_loc('torgeternity.chatText.changeAmmoType', { weapon: weapon.name, ammo: ammoItem.name })}`,
       speaker,
     });
@@ -566,7 +566,7 @@ export async function reloadAmmo(actor, weapon, ammoItem, ignoreUsage) {
     await ammoItem.update({ 'system.quantity': ammoItem.system.quantity - 1 });
   }
 
-  await ChatMessage.create({
+  await ChatMessage.implementation.create({
     content: _loc('torgeternity.chatText.reloaded', { a: weapon.name }),
     speaker,
   });

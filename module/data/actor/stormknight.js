@@ -16,8 +16,7 @@ export class StormKnightData extends CommonActorData {
    * @returns {object} Schema for a Storm Knight
    */
   static defineSchema() {
-    return {
-      ...super.defineSchema(),
+    return foundry.utils.mergeObject(super.defineSchema(), {
       axioms: makeAxiomsField(),
       details: new fields.SchemaField({
         background: new fields.HTMLField({ initial: '', textSearch: true }),
@@ -27,6 +26,8 @@ export class StormKnightData extends CommonActorData {
           choices: Object.keys(CONFIG.torgeternity.sizes),
           required: true,
         }),
+        clearance: new fields.StringField({ persisted: false }),
+        race: new fields.StringField({ persisted: false }),
       }),
       zone: new fields.SchemaField({
         axiomOverride: makeAxiomsField(/*nullable*/true),
@@ -36,7 +37,7 @@ export class StormKnightData extends CommonActorData {
         earned: new fields.NumberField({ initial: 0, integer: true, nullable: false }),
         unspent: new fields.NumberField({ initial: 0, integer: true, nullable: false }),
       }),
-    };
+    });
   }
 
   /**

@@ -21,13 +21,14 @@ export default class torgeternityCombatTracker extends foundry.applications.side
   static DEFAULT_OPTIONS = {
     // token-effects ignore the themed setting below.
     classes: ['torgeternity', 'themed', 'theme-dark'],
+    window: { resizable: true }, // for when detached
     actions: {
       'toggleDramatic': torgeternityCombatTracker.#toggleDramatic,
       'hasPlayed': torgeternityCombatTracker.#onHasPlayed,
       'hasPlayedGroup': torgeternityCombatTracker.#onHasPlayedGroup,
       'toggleWaiting': torgeternityCombatTracker.#onToggleWaiting,
-      'dsrCounter': torgeternityCombatTracker.#incStage,
-      'playerDsrCounter': torgeternityCombatTracker.#incPlayerStage,
+      'dsrCounter': torgeternityCombatTracker.#onIncStage,
+      'playerDsrCounter': torgeternityCombatTracker.#onIncPlayerStage,
       'hasFinished': torgeternityCombatTracker.#onHasFinished,
       "dramaFlurry": torgeternityCombatTracker.#onDramaFlurry,
       "dramaInspiration": torgeternityCombatTracker.#onDramaInspiration,
@@ -37,7 +38,7 @@ export default class torgeternityCombatTracker extends foundry.applications.side
       "dramaSetback": torgeternityCombatTracker.#onDramaSetback,
       "dramaStymied": torgeternityCombatTracker.#onDramaStymied,
       "dramaSurge": torgeternityCombatTracker.#onDramaSurge,
-      "deleteGroup": torgeternityCombatTracker.#askDeleteGroup,
+      "deleteGroup": torgeternityCombatTracker.#onAskDeleteGroup,
       "toggleGroup": torgeternityCombatTracker.#onToggleGroup,
       "toggleHiddenGroup": torgeternityCombatTracker.#onToggleHiddenGroup,
       "toggleDefeatedGroup": torgeternityCombatTracker.#onToggleDefeatedGroup,
@@ -359,7 +360,7 @@ export default class torgeternityCombatTracker extends foundry.applications.side
    * @param {Event} event 
    * @param {HTMLButtonElement} button 
    */
-  static async #incStage(event, button) {
+  static async #onIncStage(event, button) {
     if (!this.viewed || !this.viewed?.currentDrama) return;
     event.preventDefault();
     this.updateStage(this.viewed, event.shiftKey);
@@ -370,7 +371,7 @@ export default class torgeternityCombatTracker extends foundry.applications.side
    * @param {Event} event 
    * @param {HTMLButtonElement} button 
    */
-  static async #incPlayerStage(event, button) {
+  static async #onIncPlayerStage(event, button) {
     const { combatantId } = button.closest("[data-combatant-id]")?.dataset ?? {};
     const combatant = this.viewed?.combatants.get(combatantId);
     if (!combatant || !this.viewed?.currentDrama) return;
@@ -465,7 +466,7 @@ export default class torgeternityCombatTracker extends foundry.applications.side
     if (group) return group.update({ name: event.target.value });
   }
 
-  static async #askDeleteGroup(event, button) {
+  static async #onAskDeleteGroup(event, button) {
     const group = this.viewed.groups.get(event.target.closest("[data-group-id]")?.dataset.groupId);
     if (!group) return;
     if (await foundry.applications.api.DialogV2.confirm({

@@ -1,5 +1,5 @@
 import { TestDialog } from './test-dialog.js';
-import { torgDamage, torgDamageModifiers, checkUnskilled } from './torgchecks.js';
+import { torgDamage, torgDamageModifiers } from './torgchecks.js';
 
 function sanitizeNumbers(obj) {
   for (const [key, value] of Object.entries(obj))
@@ -92,7 +92,7 @@ const interactionAttacks = ['unarmed', 'intimidation', 'maneuver', 'taunt', 'kic
 function _onClickInlineCheck(event) {
   // Firstly check for clicking on the "post to chat" button
   if (event.target.dataset.original) {
-    return ChatMessage.create({ content: event.target.dataset.original })
+    return ChatMessage.implementation.create({ content: event.target.dataset.original })
   }
 
   const target = event.target.closest('a.torg-inline-check');
@@ -100,10 +100,8 @@ function _onClickInlineCheck(event) {
   sanitizeNumbers(test);
 
   // Same test as in 'rollSkillMacro'
-  let actor = null;
-  const speaker = ChatMessage.getSpeaker();
-  if (speaker.token) actor = game.actors.tokens[speaker.token];
-  if (!actor) actor = game.actors.get(speaker.actor);
+  const speaker = ChatMessage.implementation.getSpeaker();
+  const actor = ChatMessage.implementation.getSpeakerActor(speaker);
   if (!actor) return ui.notifications.warn(_loc('torgeternity.notifications.noTokenNorActor'));
 
   if (test.dn) {
@@ -153,7 +151,7 @@ function _onClickInlineCheck(event) {
       skillValue += Math.max(skill.value, attribute.value);
     const isInteractionAttack = (test.attack || interactionAttacks.includes(skillName));
 
-    if (!test.unskilledUse && checkUnskilled(skill.value, skillName, actor)) return;
+    if (!test.unskilledUse && actor.checkUnskilled(skill.value, skillName)) return;
 
     foundry.utils.mergeObject(test, {
       testType: isInteractionAttack ? 'interactionAttack' : 'skill',
@@ -242,7 +240,7 @@ async function _onClickInlineCondition(event) {
   const target = event.target.closest('a.torg-inline-condition');
   // Firstly check for clicking on the "post to chat" button
   if (event.target.dataset.original) {
-    return ChatMessage.create({ content: event.target.dataset.original })
+    return ChatMessage.implementation.create({ content: event.target.dataset.original })
   }
 
   const data = { ...target.dataset };
@@ -366,7 +364,7 @@ async function _onClickInlineBuff(event) {
   const target = event.target.closest('a.torg-inline-buff');
   // Firstly check for clicking on the "post to chat" button
   if (event.target.dataset.original) {
-    return ChatMessage.create({ content: event.target.dataset.original })
+    return ChatMessage.implementation.create({ content: event.target.dataset.original })
   }
 
   // Convert dataset into a set of active effect rules
@@ -375,7 +373,9 @@ async function _onClickInlineBuff(event) {
     img: 'icons/svg/aura.svg',
     //disabled: false,
     //transfer: false,  // Placed directly on Actor, so not transferred
-    changes: []
+    system: {
+      changes: []
+    }
   };
 
   function getType(v) {
@@ -386,13 +386,13 @@ async function _onClickInlineBuff(event) {
   }
   for (const [key, value] of Object.entries({ ...target.dataset })) {
     if (key.startsWith('skill'))
-      effectdata.changes.push({
+      effectdata.system.changes.push({
         key: `system.skills.${key.slice(5)}.adds`,
         type: getType(value),
         value: value
       });
     else if (key.startsWith('attribute'))
-      effectdata.changes.push({
+      effectdata.system.changes.push({
         key: `system.attributes.${key.slice(9)}.value`,
         type: getType(value),
         value: value
@@ -435,10 +435,6 @@ function InlineDamageEnricher(match, options) {
     else if (key === 'damage' || key === _loc('torgeternity.chatText.damage'))
       dataset.damage = value;
     else if (key === 'traits') {
-      if (!dataset.damage) {
-        console.warn(`'traits' only valid with 'damage' in ${match[0]}`);
-        continue;
-      }
       dataset.traits = value;
     }
     else
@@ -498,7 +494,7 @@ async function _onClickInlineDamage(event) {
 
   // Firstly check for clicking on the "post to chat" button
   if (event.target.dataset.original) {
-    return ChatMessage.create({ content: event.target.dataset.original })
+    return ChatMessage.implementation.create({ content: event.target.dataset.original })
   }
 
   // Firstly check for clicking on the "post to chat" button
@@ -524,26 +520,27 @@ async function _onClickInlineDamage(event) {
     const damage = dataset.damage ?
       torgDamage(dataset.damage, toughness, { attackTraits, defenseTraits }) :
       torgDamageModifiers({
-        shocks: dataset.shock && Number(dataset.shock),
-        wounds: dataset.wounds && Number(dataset.wounds)
+        shocks: (dataset.shock && Number(dataset.shock)) ?? 0,
+        wounds: (dataset.wounds && Number(dataset.wounds)) ?? 0
       }, { attackTraits, defenseTraits });
-    const wasKO = damage.shocks && actor.hasStatusEffect('unconscious');
-    const applyResult = actor.applyDamages(damage.shocks, damage.wounds);
+    const wasKO = actor.hasStatusEffect('unconscious');
+    const applyResult = actor.applyDamages(damage.shocks, damage.wounds, { nonLethal: attackTraits?.includes('nonLethal') });
 
     // Chat Message
 
     chatOutput += `<li>${actor.name}: `;
     const chatParts = [];
     chatParts.push(damage.label);
-    if (damage.shocks && wasKO) {
-      chatParts.push(`${_loc('torgeternity.macros.fatigueMacroCharAlreadyKO')}`);
-    } else if (applyResult.shockExceeded) {
-      chatParts.push(`<br><strong>${actor.name}${_loc('torgeternity.macros.fatigueMacroCharKO')}</strong>`);
+    if (applyResult.shockExceeded || applyResult.woundsExceeded) {
+      if (wasKO)
+        chatParts.push(`${_loc('torgeternity.macros.fatigueMacroCharAlreadyKO')}`);
+      else
+        chatParts.push(`<br><strong>${actor.name}${_loc('torgeternity.macros.fatigueMacroCharKO')}</strong>`);
     }
     chatOutput += chatParts.join(', ') + '</li>';
   }
   chatOutput += '</ul>';
-  return ChatMessage.create({ content: chatOutput });
+  return ChatMessage.implementation.create({ content: chatOutput });
 }
 
 /**

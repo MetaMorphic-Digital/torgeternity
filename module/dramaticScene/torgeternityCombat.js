@@ -327,8 +327,8 @@ export default class TorgCombat extends Combat {
   }
 
   async #sendDramaChat(action, faction) {
-    return ChatMessage.create({
-      speaker: ChatMessage.getSpeaker({ alias: game.user.name }),
+    return ChatMessage.implementation.create({
+      speaker: ChatMessage.implementation.getSpeaker({ alias: game.user.name }),
       content: _loc(`torgeternity.drama.${action}Desc`,
         { faction: _loc(`torgeternity.combat.${faction}`) })
     });
@@ -372,7 +372,7 @@ export default class TorgCombat extends Combat {
       }
       chatOutput += '</ul>';
     }
-    return ChatMessage.create({ content: chatOutput });
+    return ChatMessage.implementation.create({ content: chatOutput });
   }
 
   async dramaUp(faction) {
@@ -448,7 +448,7 @@ export default class TorgCombat extends Combat {
     }
 
     chatOutput += `</ul>`;
-    return ChatMessage.create({ content: chatOutput });
+    return ChatMessage.implementation.create({ content: chatOutput });
   }
 
   /**
@@ -477,7 +477,7 @@ export default class TorgCombat extends Combat {
       chatOutput += '</li>';
 
       chatOutput += '</ul>';
-      return ChatMessage.create({ content: chatOutput });
+      return ChatMessage.implementation.create({ content: chatOutput });
     }
   }
   /**
@@ -538,8 +538,8 @@ export default class TorgCombat extends Combat {
 
     // Special case of the actor NOW being disconnected
     if (actor.isDisconnected) {
-      return ChatMessage.create({
-        speaker: ChatMessage.getSpeaker({ actor }),
+      return ChatMessage.implementation.create({
+        speaker: ChatMessage.implementation.getSpeaker({ actor }),
         content: `<p class="contradiction-roll">${actor.name} ${_loc('torgeternity.chatText.contradiction.alreadyDisconnected')}</p>`
       })
     }
@@ -577,8 +577,8 @@ export default class TorgCombat extends Combat {
         </div> 
       </div> `;
 
-    return ChatMessage.create({
-      speaker: ChatMessage.getSpeaker({ actor }),
+    return ChatMessage.implementation.create({
+      speaker: ChatMessage.implementation.getSpeaker({ actor }),
       rolls: roll,
       content
     })

@@ -1,5 +1,7 @@
 import { getTorgValue } from '../torgchecks.js';
 
+const fields = foundry.data.fields;
+
 /**
  *
  * @param {boolean} unskilledUse Can the skill be used unskilled?
@@ -8,7 +10,6 @@ import { getTorgValue } from '../torgchecks.js';
  * @returns {object} Schema for a skill
  */
 export function makeSkillFields(unskilledUse, baseAttribute, groupName) {
-  const fields = foundry.data.fields;
   return new fields.SchemaField({
     adds: new fields.NumberField({ initial: 0, integer: true }),  // if null then untrained/not allowed
     baseAttribute: new fields.StringField({ initial: baseAttribute, choices: CONFIG.torgeternity.attributeTypes }),
@@ -17,11 +18,23 @@ export function makeSkillFields(unskilledUse, baseAttribute, groupName) {
     isThreatSkill: new fields.BooleanField({ initial: false }),
     defenseOnly: new fields.BooleanField({ initial: false }),
     unskilledUse: new fields.BooleanField({ initial: unskilledUse }),
+    // Not persisted fields
+    mod: notPersistedNumber(),
+    isFav: notPersistedBoolean(),
+    damageMod: notPersistedNumber(),
+    defenseMod: notPersistedNumber(),
   });
 }
 
+export function notPersistedNumber(initial = 0) {
+  return new fields.NumberField({ initial: initial, integer: true, nullable: false, persisted: false });
+}
+
+export function notPersistedBoolean(initial = false) {
+  return new fields.BooleanField({ initial: initial, integer: true, nullable: false, persisted: false });
+}
+
 export function makeAxiomsField(nullable = false) {
-  const fields = foundry.data.fields;
   const initial = nullable ? null : 0;
 
   return new fields.SchemaField({

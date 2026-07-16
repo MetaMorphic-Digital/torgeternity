@@ -261,7 +261,7 @@ export class TestDialog extends HandlebarsApplicationMixin(ApplicationV2) {
     let changed = false;
     for (const effect of myActor.allApplicableEffects())
       if (effect.active || (!effect.disabled && !effect.isTransferrable && effect.system.activeIfTrait.has(context.test.skillName)))
-        for (const change of effect.changes)
+        for (const change of effect.system.changes)
           if (change.key.startsWith('test.') && change.key.endsWith('Modifier')) {
             const key = change.key.slice(5);
             if (foundry.utils.hasProperty(context.test, key)) {
@@ -497,7 +497,7 @@ export function oneTestTarget(token, applySize, attackTraits, defenseTraits, tes
               if (found === required) effects.push(effect);
             }
           }
-          const changekeys = effects.map(effect => effect.changes).flat().reduce((set, change) => set.add(change.key), new Set());
+          const changekeys = effects.map(effect => effect.system.changes).flat().reduce((set, change) => set.add(change.key), new Set());
           for (const changekey of changekeys) {
             if (changekey === 'system.defenses.all.mod') {
               for (const field of ['defenses.dodge', 'defenses.unarmedCombat', 'defenses.meleeWeapons', 'defenses.intimidation', 'defenses.maneuver', 'defenses.taunt', 'defenses.trick']) {

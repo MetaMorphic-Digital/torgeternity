@@ -151,10 +151,10 @@ export async function torgMigration() {
           armor.delete();
           armorData.effects = armorData.effects
             .map((effect) => {
-              effect.changes = effect.changes.filter((c) => !badArmorKeys.includes(c.key));
+              effect.system.changes = effect.system.changes.filter((c) => !badArmorKeys.includes(c.key));
               return effect;
             })
-            .filter((effect) => effect.changes.length > 0);
+            .filter((effect) => effect.system.changes.length > 0);
           await actor.createEmbeddedDocuments('Item', [armorData]);
         }
       }

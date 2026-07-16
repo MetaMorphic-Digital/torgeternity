@@ -9,7 +9,7 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
    * @returns {object} the migrated data object
    */
   static migrateData(source) {
-    if (Object.hasOwn(source, 'changes')) {
+    if (foundry.utils.hasProperty(source, 'system.changes')) {
       const needSystemPrefix = [
         'statusModifiers.',
         'targetModifiers.',
@@ -50,15 +50,13 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
         'system.attributes.maxDex': 'system.other.maxDex',
         'system.other.possibilities': 'system.other.possibilities.perAct',
       };
-      for (const change of source.changes) {
+      for (const change of source.system.changes) {
         if (needSystemPrefix.find(prefix => change.key.startsWith(prefix)))
           change.key = `system.${change.key}`;
         else if (Object.hasOwn(migrationDictionary, change.key))
           change.key = migrationDictionary[change.key];
         else if (change.key.endsWith('IsFav'))
           change.key = change.key.replace(/IsFav$/, '.isFav');
-      }
-      for (const change of source.changes) {
         if (change.key.endsWith('.isFav') && typeof change.value !== 'boolean') {
           change.value = (change.value === '1' || change.value === 'True' || change.value === 'true') ? 'true' : 'false'
         }

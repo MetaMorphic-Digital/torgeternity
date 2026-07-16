@@ -1,4 +1,3 @@
-import { rollAttack, rollPower, rollAttribute, rollSkill, rollUnarmedAttack, rollInteractionAttack, rollTapping } from '../torgchecks.js';
 import { prepareActiveEffectCategories } from '../effects.js';
 
 // LEFT CLICK to perform ACTION
@@ -96,6 +95,12 @@ export default async function setupTokenActionHud(coreModule) {
     }
 
     async #getSkills(actor, tokenId, parent) {
+      function skillAction(skill, key) {
+        if (skill.groupName === 'interaction') return ACTION_ATTACK_INTERACTION;
+        //if (skill.groupName === 'combat') return ACTION_ATTACK;
+        if (key === 'unarmedCombat') return ACTION_ATTACK_INTERACTION;
+        return ACTION_SKILL;
+      }
       const showUskilled = game.settings.get('torgeternity', 'tahShowUnskilled');
       const allSkills = Object.entries(actor.system.skills)
         .filter(([key, skill]) => showUskilled || (skill.adds))
@@ -104,7 +109,7 @@ export default async function setupTokenActionHud(coreModule) {
             id: key,
             name: _loc(`torgeternity.skills.${key}`) + (skill.isFav ? FAVOURED : '') + ` (${skill.value || '-'})`,
             groupName: skill.groupName, // for local filtering
-            encodedValue: [ACTION_SKILL, actor.id, tokenId, key].join(this.delimiter),
+            encodedValue: [skillAction(skill, key), actor.id, tokenId, key].join(this.delimiter),
             //img: 'systems/torgeternity/images/icons/custom-skills.webp',
             //img: coreModule.api.Utils.getImage(skill),
             //tooltip: { content: skill.system.description },
@@ -193,7 +198,7 @@ export default async function setupTokenActionHud(coreModule) {
       await this.#createList(parent, actor, tokenId, ACTION_ATTACK, actor.itemTypes.missileweapon, 'missileWeapons');
       await this.#createList(parent, actor, tokenId, ACTION_ATTACK, actor.itemTypes.firearm, 'firearms');
       await this.#createList(parent, actor, tokenId, ACTION_ATTACK, actor.itemTypes.heavyweapon, 'heavyWeapons');
-      await this.#createList(parent, actor, tokenId, ACTION_ATTACK, actor.itemTypes["specialability-rollable"], 'specialabilities');
+      await this.#createList(parent, actor, tokenId, ACTION_GEAR, actor.itemTypes["specialability-rollable"], 'specialabilities');
       await this.#createList(parent, actor, tokenId, ACTION_ATTACK, actor.itemTypes.customAttack, 'customAttacks');
     }
 
@@ -255,6 +260,7 @@ export default async function setupTokenActionHud(coreModule) {
         if (tooltip) result.tooltip = { content: tooltip };
         return result;
       })
+      actions.sort((a, b) => a.name.localeCompare(b.name));
       const subcat = { id: `${parent.id}-${CONDITION_ID}`, name: coreModule.api.Utils.i18n('torgeternity.sheetLabels.conditions') };
       this.addGroup(subcat, parent);
       this.addActions(actions, subcat);
@@ -288,32 +294,32 @@ export default async function setupTokenActionHud(coreModule) {
         case ACTION_ATTRIBUTE:
           // ActorSheet: skillRoll
           if (this.isRenderItem()) return; // nothing to render
-          rollAttribute(this.actor, actionId);
+          this.actor.rollAttribute(actionId);
           break;
 
         case ACTION_SKILL:
           // ActorSheet: skillRoll
           if (this.isRenderItem()) return; // nothing to render
-          rollSkill(this.actor, actionId);
+          this.actor.rollSkill(actionId);
           break;
 
         case ACTION_POWER:
           if (this.isRenderItem()) return this.renderItem(actor, actionId);
-          rollPower(actor, actor.items.get(actionId));
+          actor.rollPower(actor.items.get(actionId));
           break;
 
         case ACTION_ATTACK:
           // Sheet: onAttackRoll
           if (this.isRenderItem()) return this.renderItem(actor, actionId);
-          rollAttack(actor, actor.items.get(actionId));
+          actor.rollAttack(actor.items.get(actionId));
           break;
 
         case ACTION_ATTACK_INTERACTION:
           if (this.isRenderItem()) return; // nothing to render
           if (actionId === 'unarmedCombat')
-            rollUnarmedAttack(this.actor, actionId);
+            this.actor.rollUnarmedAttack(actionId);
           else
-            rollInteractionAttack(this.actor, actionId);
+            this.actor.rollInteractionAttack(actionId);
           break;
 
         case ACTION_GEAR:
@@ -322,7 +328,16 @@ export default async function setupTokenActionHud(coreModule) {
             const item = actor.items.get(actionId);
             switch (item.type) {
               case 'eternityshard':
-                return rollTapping(this.actor, item);
+                return this.actor.rollTapping(item);
+              default:
+                {
+                  const skillorattribute = item.system.attackWith ?? item.system.skill;
+                  if (!skillorattribute) return;
+                  if (Object.hasOwn(CONFIG.attributeTypes, skillorattribute))
+                    return actor.rollAttribute(skillorattribute, item /*, {window: { windowId: this.window.windowId }}*/);
+                  else
+                    return actor.rollSkill(skillorattribute, item /*, {window: { windowId: this.window.windowId }}*/);
+                }
             }
           }
           break;
@@ -512,7 +527,7 @@ export default async function setupTokenActionHud(coreModule) {
 
   const module = game.system;
   module.api = {
-    requiredCoreModuleVersion: "2.0",
+    requiredCoreModuleVersion: "2",
     SystemManager: MySystemManager
   }
 

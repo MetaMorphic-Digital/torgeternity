@@ -1,7 +1,5 @@
-import { renderSkillChat, rollAttack, rollPower, rollAttribute, rollSkill, rollUnarmedAttack, rollInteractionAttack, rollTapping } from '../torgchecks.js';
+import { renderSkillChat } from '../torgchecks.js';
 import { onManageActiveEffect, prepareActiveEffectCategories } from '../effects.js';
-import { TestDialog } from '../test-dialog.js';
-import TorgeternityItem from '../documents/item/torgeternityItem.js';
 import { reloadAmmo } from './torgeternityItemSheet.js';
 import { PossibilityByCosm } from '../possibilityByCosm.js';
 
@@ -544,8 +542,8 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
         if (currency) {
           // It appears that 'await currency.update' prevents super._onDrop from working
           await super._onDropItem(event, item);
-          ChatMessage.create({
-            speaker: ChatMessage.getSpeaker({ actor }),
+          ChatMessage.implementation.create({
+            speaker: ChatMessage.implementation.getSpeaker({ actor }),
             owner: actor,
             content: _loc('torgeternity.chatText.itemPurchase', {
               item: item.name,
@@ -735,9 +733,9 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
    */
   static async #onSkillRoll(event, button) {
     if (button.dataset.testtype === 'attribute')
-      return rollAttribute(this.actor, button.dataset.name, Number(button.dataset.value), { /*window: { windowId: this.window.windowId }*/ })
+      return this.actor.rollAttribute(button.dataset.name, /*, undefined, {window: { windowId: this.window.windowId }}*/)
     else
-      return rollSkill(this.actor, button.dataset.name, { /*window: { windowId: this.window.windowId }*/ })
+      return this.actor.rollSkill(button.dataset.name, /*, undefined, {window: { windowId: this.window.windowId }}*/)
   }
 
   /**
@@ -751,16 +749,8 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
       ui.notifications.info(_loc('torgeternity.chatText.check.noTracker'));
       return;
     }
-
-    return TestDialog.wait({
-      testType: 'chase',
-      actor: this.actor,
-      skillName: 'Vehicle Chase',
-      skillValue: Number(button.dataset.skillValue),
-      DNDescriptor: 'highestSpeed',
-      vehicleSpeed: Number(button.dataset.speed),
-      maneuverModifier: Number(button.dataset.maneuver),
-    }, { useTargets: true, /*window: { windowId: this.window.windowId }*/ });
+    return this.actor.rollVehicleChase(Number(button.dataset.skillValue), Number(button.dataset.speed), Number(button.dataset.maneuver,
+      /*window: { windowId: this.window.windowId }*/));
   }
 
   /**
@@ -770,14 +760,8 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
    * @this {TorgeternityActorSheet}
    */
   static async #onBaseRoll(event, button) {
-    return TestDialog.wait({
-      testType: 'vehicleBase',
-      actor: this.actor,
-      skillName: 'Vehicle Operation',
-      skillValue: Number(button.dataset.skillValue),
-      vehicleSpeed: Number(button.dataset.speed),
-      maneuverModifier: Number(button.dataset.maneuver),
-    }, { useTargets: true, /*window: { windowId: this.window.windowId }*/ });
+    return this.actor.rollVehicleOperation(Number(button.dataset.skillValue), Number(button.dataset.speed), Number(button.dataset.maneuver),
+    /*window: { windowId: this.window.windowId }*/);
   }
 
   /**
@@ -787,18 +771,12 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
    * @this {TorgeternityActorSheet}
    */
   static async #onStuntRoll(event, button) {
-    const dnDescriptor = (game.user.targets.first()?.actor.type === 'vehicle')
-      ? 'targetVehicleDefense' : 'standard';
-
-    return TestDialog.wait({
-      testType: 'stunt',
-      actor: this.actor,
-      skillName: 'Vehicle Stunt',
-      skillValue: Number(button.dataset.skillValue),
-      DNDescriptor: dnDescriptor,
-      vehicleSpeed: Number(button.dataset.speed),
-      maneuverModifier: Number(button.dataset.maneuver),
-    }, { useTargets: true, /*window: { windowId: this.window.windowId }*/ });
+    return this.actor.rollVehicleStunt(
+      (game.user.targets.first()?.actor.type === 'vehicle') ? 'targetVehicleDefense' : 'standard',
+      Number(button.dataset.skillValue),
+      Number(button.dataset.speed),
+      Number(button.dataset.maneuver),
+      /*window: { windowId: this.window.windowId }*/);
   }
 
   /**
@@ -808,7 +786,7 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
    * @this {TorgeternityActorSheet}
    */
   static #onInteractionAttack(event, button) {
-    return rollInteractionAttack(this.actor, button.dataset.name, { /*window: { windowId: this.window.windowId }*/ });
+    return this.actor.rollInteractionAttack(button.dataset.name, { /*window: { windowId: this.window.windowId }*/ });
   }
 
   /**
@@ -818,7 +796,7 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
    * @this {TorgeternityActorSheet}
    */
   static #onUnarmedAttack(event, button) {
-    return rollUnarmedAttack(this.actor, button.dataset.name, { /*window: { windowId: this.window.windowId }*/ });
+    return this.actor.rollUnarmedAttack(button.dataset.name, { /*window: { windowId: this.window.windowId }*/ });
   }
 
   /**
@@ -840,17 +818,7 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
    * @this {TorgeternityActorSheet}
    */
   static #onActiveDefenseRoll(event, button) {
-
-    return TestDialog.wait({
-      testType: 'activeDefense',
-      activelyDefending: false,
-      actor: this.actor,
-      isActiveDefenseRoll: true,
-      skillName: 'activeDefense',
-      skillValue: null,
-      unskilledUse: true,
-      type: 'activeDefense',
-    }, { useTargets: false, /*window: { windowId: this.window.windowId }*/ });
+    return this.actor.rollActiveDefense(/*window: { windowId: this.window.windowId }*/);
   }
 
   /**
@@ -914,7 +882,7 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
   static #onAttackRoll(event, button) {
     const item = this.actor.items.get(button.closest('.item').dataset.itemId);
     if (!item) return ui.notifications.info(`Failed to find Item for button`);
-    rollAttack(this.actor, item, { /*window: { windowId: this.window.windowId }*/ });
+    this.actor.rollAttack(item, { /*window: { windowId: this.window.windowId }*/ });
   }
 
   static #onItemRoll(event, button) {
@@ -922,15 +890,15 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
     if (!item) return ui.notifications.info(`Failed to find Item for button`);
     const skillorattribute = item.system.attackWith ?? item.system.skill;
     if (Object.hasOwn(CONFIG.attributeTypes, skillorattribute))
-      rollAttribute(this.actor, skillorattribute, { item: item, /*window: { windowId: this.window.windowId }*/ });
+      this.actor.rollAttribute(skillorattribute, item, /*, {window: { windowId: this.window.windowId }}*/);
     else
-      rollSkill(this.actor, skillorattribute, { item: item, /*window: { windowId: this.window.windowId }*/ });
+      this.actor.rollSkill(skillorattribute, item /*, {window: { windowId: this.window.windowId }}*/);
   }
 
   static async #onTappingRoll(event, button) {
     const item = this.actor.items.get(button.closest('.item').dataset.itemId);
     if (!item) return ui.notifications.info(`Failed to find Item for button`);
-    rollTapping(this.actor, item, { /*window: { windowId: this.window.windowId }*/ });
+    this.actor.rollTapping(item, { /*window: { windowId: this.window.windowId }*/ });
   }
 
   /**
@@ -942,7 +910,7 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
   static #onPowerRoll(event, button) {
     const item = this.actor.items.get(button.closest('.item').dataset.itemId);
     if (!item) return ui.notifications.info(`Failed to find Item for button`);
-    rollPower(this.actor, item, { /*window: { windowId: this.window.windowId }*/ });
+    this.actor.rollPower(item, { /*window: { windowId: this.window.windowId }*/ });
   }
 
   /**

@@ -5,8 +5,8 @@ export class ReplaceAxiomsRegionBehaviorType extends foundry.data.regionBehavior
   static LOCALIZATION_PREFIXES = ["Torgeternity.BEHAVIOR.TYPES.replaceAxioms", "BEHAVIOR.TYPES.base"];
 
   static events = {
-    [CONST.REGION_EVENTS.TOKEN_ENTER]: this.#tokenEnter,
-    [CONST.REGION_EVENTS.TOKEN_EXIT]: this.#tokenExit,
+    [CONST.REGION_EVENTS.TOKEN_ENTER]: this.#onTokenEnter,
+    [CONST.REGION_EVENTS.TOKEN_EXIT]: this.#onTokenExit,
   };
 
   static defineSchema() {
@@ -20,11 +20,11 @@ export class ReplaceAxiomsRegionBehaviorType extends foundry.data.regionBehavior
    * @param {RegionEvent} event 
    * @returns 
    */
-  static async #tokenEnter(event) {
+  static async #onTokenEnter(event) {
     event.data.token.actor.reset();
   }
 
-  static async #tokenExit(event) {
+  static async #onTokenExit(event) {
     event.data.token.actor.reset();
   }
 

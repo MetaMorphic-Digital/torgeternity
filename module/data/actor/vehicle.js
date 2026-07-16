@@ -1,6 +1,6 @@
 import { getTorgValue } from '../../torgchecks.js';
 import TorgeternityActor from '../../documents/actor/torgeternityActor.js'
-import { calcPriceValue } from '../shared.js';
+import { calcPriceValue, notPersistedNumber } from '../shared.js';
 import { BaseActorData } from './base.js';
 import { makeAxiomsField } from '../shared.js';
 
@@ -14,7 +14,7 @@ export class VehicleData extends BaseActorData {
    * @returns {object} Schema fragment for a Storm Knight or Threat
    */
   static defineSchema() {
-    return {
+    return foundry.utils.mergeObject(super.defineSchema(), {
       details: new fields.SchemaField({
         sizeBonus: new fields.StringField({
           initial: 'normal',
@@ -35,6 +35,8 @@ export class VehicleData extends BaseActorData {
       }),
       topSpeed: new fields.SchemaField({
         kph: new fields.NumberField({ initial: 100, integer: true, nullable: false }),
+        //value: notPersistedNumber(),    -- set during prepareDerivedData
+        //penalty: notPersistedNumber(),  -- set during prepareDerivedData
       }),
       toughness: new fields.NumberField({ initial: 5, integer: true, nullable: false }),
       type: new fields.StringField({ initial: 'land', textSearch: true }),
@@ -42,7 +44,7 @@ export class VehicleData extends BaseActorData {
         value: new fields.NumberField({ initial: 0, integer: true, nullable: false }),
         max: new fields.NumberField({ initial: 3, integer: true, nullable: false }),
       }),
-    };
+    });
   }
 
   /**

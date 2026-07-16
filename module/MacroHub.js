@@ -17,7 +17,7 @@ export default class MacroHub extends HandlebarsApplicationMixin(ApplicationV2) 
       //center: true,
     },
     actions: {
-      executeMacro: MacroHub.#executeMacro
+      executeMacro: MacroHub.#onExecuteMacro
     }
   }
 
@@ -62,7 +62,7 @@ export default class MacroHub extends HandlebarsApplicationMixin(ApplicationV2) 
   /** 
    * @this {MacroHub}
   */
-  static async #executeMacro(event) {
+  static async #onExecuteMacro(event) {
     const macroPack = game.packs.get('torgeternity.macros');
     const macroId = event.target.closest('.macroHubSpan').dataset.macroId;
     return macroPack.getDocument(macroId).then((m) => m.execute());

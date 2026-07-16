@@ -759,7 +759,7 @@
       "decks": "torgeternity.system-de-grundkarten"
     },
     "partySheet": {
-      "title": "Party Sheet",
+      "title": "Gruppenbogen",
       "chooseParty": "<h3>Wenn du \"Ja\" auswählst, öffnet sich die Anzeige mit allen Charakteren.<br>Bei \"Nein\" werden dir nur die Spieler angezeigt, die auch online sind.</h3>",
       "noCharacter": "Dieser Spieler hat keinen zugeteilten Charakter",
       "openParty": "Wähle die Gruppenanzeige",
@@ -1542,7 +1542,7 @@
       "commonMacroNoChatMessageFound": "Es konnte keine Chatnachricht abgefangen werden, die weitere Verarbeitung wird abgegbrochen.",
       "fatigueMacroDealtDamage": "Folgenden Charakteren wurden Schock zugefügt:",
       "fatigueMacroCharKO": " ist damit K.O.!",
-      "fatigueMacroCharAlreadyKO": " ist bereits K.O.! Mehr Schock geht nicht.",
+      "fatigueMacroCharAlreadyKO": " ist bereits K.O.!",
       "reviveMacroChatHeadline": "Schock-Erholung!",
       "reviveMacroWindowLabel1": "Wie viel Schock soll zurückgewonnen werden?",
       "reviveMacroError1": "In das Feld für die Menge wurde nichts eingegeben und auch das Kontrollkästchen war nicht aktiviert. Was soll ich tun? Abbruch.",

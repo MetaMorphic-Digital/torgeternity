@@ -1,57 +1,58 @@
+import { notPersistedBoolean, notPersistedNumber } from '../shared.js';
+
+const fields = foundry.data.fields;
+
 export class BaseActorData extends foundry.abstract.TypeDataModel {
 
-  // Common to all Torg Actor classes
-  prepareBaseData() {
-    super.prepareBaseData();
-
-    /**
-     * Actual modifiers from the various game statuses
-     * @public
-     */
-    this.statusModifiers = {
-      stymied: 0,
-      vulnerable: 0,
-      darkness: 0,
-      waiting: 0,
-      concentrating: 0,
-    };
-
-    /** 
-     * How this Actor modifies the statusModifiers of the target.
-     * @public
-     */
-    this.targetModifiers = {
-      darkness: 0,    // e.g. For Darkvision, this should be 4
-      range: 0,
-    };
-
-    /**
-     * The various defensive values on this Actor.
-     * @public
-     */
-    this.defenses = {
-      activeDefense: 0,
-      damageTraits: {
-        // Armor: addition armor of the defender when damage is of the indicated type
-        energyArmor: 0,
-        fireArmor: 0,
-        forceArmor: 0,
-        iceArmor: 0,
-        lightningArmor: 0,
-        // Defense: increases the Defense skill of the defender when damage is of the indicated type
-        energyDefense: 0,
-        fireDefense: 0,
-        forceDefense: 0,
-        iceDefense: 0,
-        lightningDefense: 0
-      }
+  static defineSchema() {
+    return {
+      statusModifiers: new fields.SchemaField({
+        /**
+         * Actual modifiers from the various game statuses
+         * @public
+         */
+        stymied: notPersistedNumber(),
+        vulnerable: notPersistedNumber(),
+        darkness: notPersistedNumber(),
+        waiting: notPersistedNumber(),
+        concentrating: notPersistedNumber(),
+      }, { persisted: false }),
+      targetModifiers: new fields.SchemaField({
+        /** 
+         * How this Actor modifies the statusModifiers of the target.
+         * @public
+         */
+        darkness: notPersistedNumber(),  // e.g. For Darkvision, this should be 4
+        range: notPersistedNumber(),
+      }, { persisted: false }),
+      defenses: new fields.SchemaField({
+        /**
+         * The various defensive values on this Actor.
+         * @public
+         */
+        activeDefense: notPersistedNumber(),
+        damageTraits: new fields.SchemaField({
+          // Armor: addition armor of the defender when damage is of the indicated type
+          energyArmor: notPersistedNumber(),
+          fireArmor: notPersistedNumber(),
+          forceArmor: notPersistedNumber(),
+          iceArmor: notPersistedNumber(),
+          lightningArmor: notPersistedNumber(),
+          // Defense: increases the Defense skill of the defender when damage is of the indicated type
+          energyDefense: notPersistedNumber(),
+          fireDefense: notPersistedNumber(),
+          forceDefense: notPersistedNumber(),
+          iceDefense: notPersistedNumber(),
+          lightningDefense: notPersistedNumber(),
+        }, { persisted: false }),
+      }, { persisted: false }),
+      // How many "attunable" items can be attuned at the same time.
+      maxAttunable: notPersistedNumber(1),
+      // Traits added by Active Effects
+      extraTraits: new fields.SetField(
+        new fields.StringField({ blank: false, choices: () => CONFIG.torgeternity.allItemTraits }),
+        { persisted: false }),
     }
-
-    // How many "attunable" items can be attuned at the same time.
-    this.maxAttunable = 1;
-
-    // Traits added by Active Effects
-    this.extraTraits = [];
   }
 
   prepareDerivedData() {

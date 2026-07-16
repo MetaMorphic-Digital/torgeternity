@@ -11,8 +11,7 @@ export class ThreatData extends CommonActorData {
    * @returns {object} Schema for a Threat
    */
   static defineSchema() {
-    return {
-      ...super.defineSchema(),
+    return foundry.utils.mergeObject(super.defineSchema(), {
       details: new fields.SchemaField({
         description: new fields.HTMLField({ initial: '', textSearch: true }),
         sizeBonus: new fields.StringField({
@@ -32,7 +31,7 @@ export class ThreatData extends CommonActorData {
           blank: false,
         }),
       }),
-    };
+    });
   }
 
   /**
@@ -56,8 +55,9 @@ export class ThreatData extends CommonActorData {
    */
   prepareDerivedData() {
     super.prepareDerivedData();
+    // Any skills with adds are automatically considered "threat skills" (some might also be manually marked by the GM)
     for (const skill of Object.values(this.skills)) {
-      skill.isThreatSkill = skill.isThreatSkill || skill.adds !== 0;
+      skill.isThreatSkill ||= skill.adds !== 0;
     }
   }
 }

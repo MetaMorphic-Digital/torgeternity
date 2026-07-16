@@ -1,7 +1,7 @@
 import { renderSkillChat } from './torgchecks.js';
 import { rollBonusDie } from './torgchecks.js';
 import { torgDamage } from './torgchecks.js';
-import { TestResult, soakDamages } from './torgchecks.js';
+import { TestResult } from './torgchecks.js';
 import { TestDialog } from './test-dialog.js';
 import TorgeternityActor from './documents/actor/torgeternityActor.js';
 
@@ -13,7 +13,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
 
   static DEFAULT_OPTIONS = {
     actions: {
-      'openSheet': TorgeternityChatLog.#openSheet,
+      'openSheet': TorgeternityChatLog.#onOpenSheet,
       'rollFav': TorgeternityChatLog.#onFavored,
       'rollPossibility': TorgeternityChatLog.#onPossibility,
       'rollUp': TorgeternityChatLog.#onUp,
@@ -22,25 +22,25 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
       'addPlus3': TorgeternityChatLog.#onPlus3,
       'addBd': TorgeternityChatLog.#onBd,
       'modifierLabel': TorgeternityChatLog.#onModifier,
-      'applyDam': TorgeternityChatLog.#applyDamage,
-      'soakDam': TorgeternityChatLog.#soakDamage,
-      'applySoak': TorgeternityChatLog.#applySoak,
-      'applyEffectsActor': TorgeternityChatLog.#applyEffectsActor,
-      'applyEffectsTarget': TorgeternityChatLog.#applyEffectsTarget,
-      'applyItemEffect': TorgeternityChatLog.#applyItemEffect,
-      'applyStymied': TorgeternityChatLog.#applyStymied,
-      'applyVulnerable': TorgeternityChatLog.#applyTargetVulnerable,
-      'applyActorVulnerable': TorgeternityChatLog.#applyActorVulnerable,
-      'backlash1': TorgeternityChatLog.#applyBacklash1,
-      'backlash2': TorgeternityChatLog.#applyBacklash2,
-      'backlash3': TorgeternityChatLog.#applyBacklash3,
-      'testDefeat': TorgeternityChatLog.#testDefeat,
-      'testConcentration': TorgeternityChatLog.#testConcentration,
-      'applyDefeat': TorgeternityChatLog.#applyDefeat,
-      'drawDestiny': TorgeternityChatLog.#drawDestiny,
-      'pingTarget': TorgeternityChatLog.#pingTarget,
-      "panToTarget": TorgeternityChatLog.#panToTarget,
-      "reconnect": TorgeternityChatLog.#reconnect,
+      'applyDam': TorgeternityChatLog.#onApplyDamage,
+      'soakDam': TorgeternityChatLog.#onSoakDamage,
+      'applySoak': TorgeternityChatLog.#onApplySoak,
+      'applyEffectsActor': TorgeternityChatLog.#onApplyEffectsActor,
+      'applyEffectsTarget': TorgeternityChatLog.#onApplyEffectsTarget,
+      'applyItemEffect': TorgeternityChatLog.#onApplyItemEffect,
+      'applyStymied': TorgeternityChatLog.#onApplyStymied,
+      'applyVulnerable': TorgeternityChatLog.#onApplyTargetVulnerable,
+      'applyActorVulnerable': TorgeternityChatLog.#onApplyActorVulnerable,
+      'backlash1': TorgeternityChatLog.#onApplyBacklash1,
+      'backlash2': TorgeternityChatLog.#onApplyBacklash2,
+      'backlash3': TorgeternityChatLog.#onApplyBacklash3,
+      'testDefeat': TorgeternityChatLog.#onTestDefeat,
+      'testConcentration': TorgeternityChatLog.#onTestConcentration,
+      'applyDefeat': TorgeternityChatLog.#onApplyDefeat,
+      'drawDestiny': TorgeternityChatLog.#onDrawDestiny,
+      'pingTarget': TorgeternityChatLog.#onPingTarget,
+      "panToTarget": TorgeternityChatLog.#onPanToTarget,
+      "reconnect": TorgeternityChatLog.#onReconnect,
     }
   }
 
@@ -181,7 +181,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
    * @param {HTMLButtonElement} button 
   * @this {TorgeternityChatLog}
  */
-  static async #pingTarget(event, button) {
+  static async #onPingTarget(event, button) {
     const { testTarget } = getChatTarget(button);
     const token = fromUuidSync(testTarget.uuid)?.object;
     if (!token || !canvas.ready) return;
@@ -193,7 +193,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
    * @param {HTMLButtonElement} button 
    * @this {TorgeternityChatLog}
  */
-  static async #panToTarget(event, button) {
+  static async #onPanToTarget(event, button) {
     const { testTarget } = getChatTarget(button);
     const token = fromUuidSync(testTarget.uuid)?.object;
     if (!token || !canvas.ready || !token.visible) return;
@@ -219,7 +219,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
    * @param {HTMLButtonElement} button 
    * @this {TorgeternityChatLog}
    */
-  static async #reconnect(_event, button) {
+  static async #onReconnect(_event, button) {
     const { chatMessage, actor } = getChatActor(button);
     await actor.toggleStatusEffect('disconnected', { active: false });
     this.updateChatMessage(chatMessage, {
@@ -536,7 +536,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
    * 
    * @this {TorgeternityChatLog}
    */
-  static async #applyDamage(event, button) {
+  static async #onApplyDamage(event, button) {
     event.preventDefault();
     if (event.shiftKey) return this.#adjustDamage(event);
     const { test, targetActor, testTarget, chatMessage } = getChatTarget(button);
@@ -550,7 +550,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
   }
 
   async #inflictDamage(chatMessage, test, testTarget, targetActor, damage) {
-    targetActor.applyDamages(damage.shocks, damage.wounds);
+    targetActor.applyDamages(damage.shocks, damage.wounds, { nonLethal: test.attackTraits.includes('nonLethal') });
     if (targetActor.isConcentrating) {
       this.promptConcentration(targetActor);
     }
@@ -567,7 +567,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
    * @param {HTMLButtonElement} button 
  * @this {TorgeternityChatLog}
  */
-  static async #soakDamage(event, button) {
+  static async #onSoakDamage(event, button) {
     event.preventDefault();
     const { targetActor, chatMessage } = getChatTarget(button);
     if (!targetActor) return;
@@ -576,8 +576,8 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
       return;
     }
     if (targetActor.isDisconnected) {
-      return ChatMessage.create({
-        speaker: ChatMessage.getSpeaker({ actor: targetActor }),
+      return ChatMessage.implementation.create({
+        speaker: ChatMessage.implementation.getSpeaker({ actor: targetActor }),
         content: _loc('torgeternity.chatText.check.cantUseRealityWhileDisconnected'),
       });
     }
@@ -607,7 +607,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
       possPool += 1;
     }
 
-    await soakDamages(targetActor, chatMessage.id, { /*window: { windowId: this.window.windowId }*/ });
+    await targetActor.soakDamage(chatMessage.id, { /*window: { windowId: this.window.windowId }*/ });
     await targetActor.update({ 'system.other.possibilities.value': possPool - 1 });
   }
 
@@ -616,7 +616,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
    * @param {HTMLButtonElement} button 
  * @this {TorgeternityChatLog}
  */
-  static async #applySoak(event, button) {
+  static async #onApplySoak(event, button) {
     event.preventDefault();
     const { test: soaktest, chatMessage } = getMessage(button);
     const testTarget = soaktest.targets[0];
@@ -715,7 +715,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
    * @param {HTMLButtonElement} button 
    * @this {TorgeternityChatLog}
    */
-  static async #applyEffectsActor(event, button) {
+  static async #onApplyEffectsActor(event, button) {
     const { test, actor } = getChatActor(button);
     return this.addEffectsToActor(event, actor, test, (event) => event.transfersToActor);
   }
@@ -726,7 +726,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
    * @param {HTMLButtonElement} button 
    * @this {TorgeternityChatLog}
    */
-  static async #applyEffectsTarget(event, button) {
+  static async #onApplyEffectsTarget(event, button) {
     const { test, targetActor: actor } = getChatTarget(button);
     return this.addEffectsToActor(event, actor, test, (event) => event.transfersToTarget);
   }
@@ -749,7 +749,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
    * @param {HTMLButtonElement} button 
  * @this {TorgeternityChatLog}
  */
-  static async #applyItemEffect(event, button) {
+  static async #onApplyItemEffect(event, button) {
     event.preventDefault();
     const origEffect = fromUuidSync(button.dataset.uuid, { strict: false });
     if (!origEffect) return;
@@ -764,7 +764,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
    * @param {HTMLButtonElement} button 
  * @this {TorgeternityChatLog}
  */
-  static async #applyStymied(event, button) {
+  static async #onApplyStymied(event, button) {
     event.preventDefault();
     const { test, targetActor, chatMessage, testTarget } = getChatTarget(button);
     if (targetActor) {
@@ -789,7 +789,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
    * @param {HTMLButtonElement} button 
  * @this {TorgeternityChatLog}
  */
-  static async #applyTargetVulnerable(event, button) {
+  static async #onApplyTargetVulnerable(event, button) {
     event.preventDefault();
     const { test, targetActor, chatMessage, testTarget } = getChatTarget(button);
     if (targetActor) {
@@ -814,7 +814,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
    * @param {HTMLButtonElement} button 
  * @this {TorgeternityChatLog}
  */
-  static async #applyActorVulnerable(event, button) {
+  static async #onApplyActorVulnerable(event, button) {
     event.preventDefault();
     const { test, actor } = getChatActor(button);
     // Presumably it is this actor's turn, so ensure vulnerable state stays until
@@ -829,7 +829,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
    * @param {HTMLButtonElement} button 
    * @this {TorgeternityChatLog}
    */
-  static async #applyBacklash1(event, button) {
+  static async #onApplyBacklash1(event, button) {
     event.preventDefault();
     const { actor } = getChatActor(button);
     if (actor) actor.applyDamages(/*shock*/ 2, /*wounds*/ 0);
@@ -841,7 +841,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
    * @param {HTMLButtonElement} button 
    * @this {TorgeternityChatLog}
    */
-  static async #applyBacklash2(event, button) {
+  static async #onApplyBacklash2(event, button) {
     event.preventDefault();
     const { actor } = getChatActor(button);
     if (actor) actor.applyDamages(/*shock*/ 1, /*wounds*/ 0);
@@ -853,7 +853,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
    * @param {HTMLButtonElement} button 
    * @this {TorgeternityChatLog}
    */
-  static async #applyBacklash3(event, button) {
+  static async #onApplyBacklash3(event, button) {
     event.preventDefault();
     const { actor } = getChatActor(button);
     if (actor) actor.setVeryStymied(actor.uuid, 2);  // duration decrements at the end of this actor's turn
@@ -864,22 +864,13 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
    * @param {HTMLButtonElement} button 
  * @this {TorgeternityChatLog}
  */
-  static async #testDefeat(event, button) {
+  static async #onTestDefeat(event, button) {
     event.preventDefault();
     // No test in the chat message that display Defeat prompt
-    const { chatMessage } = getMessage(button);
     const attribute = button.dataset.control;
-    const actor = game.actors.get(chatMessage.speaker.actor);
+    const actor = getMessage(button).chatMessage.speakerActor();
 
-    return TestDialog.wait({
-      DNDescriptor: 'standard',
-      actor: actor,
-      testType: 'attribute',
-      skillName: attribute,
-      skillValue: actor.system.attributes[attribute].value,
-      isDefeatTest: true,
-    }, { /*window: { windowId: this.window.windowId }*/ });
-
+    return actor.testDefeat(attribute);
     // Wait for manual addition of results, when applyDefeat is invoked.
   }
 
@@ -908,8 +899,8 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
      </a>
      </div>`;
 
-    return ChatMessage.create({
-      speaker: ChatMessage.getSpeaker({ actor }),
+    return ChatMessage.implementation.create({
+      speaker: ChatMessage.implementation.getSpeaker({ actor }),
       content: html
     })
   }
@@ -917,45 +908,22 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
   /**
    * @param {Event} event 
    * @param {HTMLButtonElement} button 
-* @this {TorgeternityChatLog}
-*/
-  static async #testConcentration(event, button) {
+   * @this {TorgeternityChatLog}
+   */
+  static async #onTestConcentration(event, button) {
     event.preventDefault();
     // No test in the chat message that display Defeat prompt
     const { chatMessage } = getMessage(button);
-    const actor = game.actors.get(chatMessage.speaker.actor);
-
-    // Convert strings to the correct type(s)
-    const test = {
-      DNDescriptor: 'standard',
-      actor,
-      ...button.dataset
-    };
-    test.isFav = !!test.isFav;
-    test.unskilledUse = !!test.unSkilledUse;
-    test.skillValue = Number(test.skillValue);
-    test.isConcentrationCheck = true;
-
-    const result = await TestDialog.wait(test, { /*window: { windowId: this.window.windowId }*/ });
-
-    if (result.flags.torgeternity.test.result < TestResult.STANDARD) {
-      const failed = actor.effects.filter(ef => ef.statuses.has('concentrating'));
-      const list = failed.map(ef => `<li>${fromUuidSync(ef.origin).name}</li>`);
-
-      ChatMessage.create({
-        speaker: chatMessage.speaker,
-        content: `<p>${_loc('torgeternity.chatText.concentration.broken', { actor: actor.name })}</p><ul>${list.join('')}</ul>`
-      })
-      actor.deleteEmbeddedDocuments('ActiveEffect', failed.map(ef => ef.id));
-    }
+    const actor = chatMessage.speakerActor();
+    return actor.testConcentration(chatMessage.speaker, button.dataset /*, { window: { windowId: this.window.windowId }}*/);
   }
 
   /**
    * @param {Event} event 
    * @param {HTMLButtonElement} button 
-* @this {TorgeternityChatLog}
-*/
-  static async #drawDestiny(event, button) {
+   * @this {TorgeternityChatLog}
+   */
+  static async #onDrawDestiny(event, button) {
     let id = button.dataset.actor;
     if (id.startsWith('Actor.')) id = id.slice(6);
     let actor = game.actors.get(id);
@@ -971,7 +939,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
    * @param {HTMLButtonElement} button 
 * @this {TorgeternityChatLog}
 */
-  static async #openSheet(event, button) {
+  static async #onOpenSheet(event, button) {
     let id = button.dataset.actor;
     if (id.startsWith('Actor.')) id = id.slice(6);
     let actor = game.actors.get(id);
@@ -985,7 +953,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
    * @param {HTMLButtonElement} button 
    * @this {TorgeternityChatLog}
    */
-  static async #applyDefeat(event, button) {
+  static async #onApplyDefeat(event, button) {
     const { actor } = getChatActor(button);
     if (!actor) return console.error(`applyDefeat: failed to find actor`)
     const result = parseInt(button.dataset.result);
@@ -1021,8 +989,8 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
 
       await actor.toggleStatusEffect('unconscious', { active: true, overlay: true });
       if (result === TestResult.STANDARD) {
-        await ChatMessage.create({
-          speaker: ChatMessage.getSpeaker({ actor }),
+        await ChatMessage.implementation.create({
+          speaker: ChatMessage.implementation.getSpeaker({ actor }),
           owner: actor,
           content: _loc('torgeternity.defeat.permInjury', { attribute: localAttr })
         })
@@ -1033,8 +1001,8 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
 
       } else {
         // Temporary: Add AE to reduce until cleared
-        await ChatMessage.create({
-          speaker: ChatMessage.getSpeaker({ actor }),
+        await ChatMessage.implementation.create({
+          speaker: ChatMessage.implementation.getSpeaker({ actor }),
           owner: actor,
           content: _loc('torgeternity.defeat.tempInjury', { attribute: localAttr })
         })

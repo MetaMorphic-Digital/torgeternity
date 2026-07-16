@@ -245,7 +245,7 @@ export default class torgeternityPlayerHand extends foundry.applications.sheets.
               if (!actor) return;
               const shock = actor.system.shock?.value;
               if (!shock) {
-                return ChatMessage.create({
+                return ChatMessage.implementation.create({
                   content: _loc('torgeternity.destinyCard.notify.secondWindNoShock', { name: actor.name })
                 });
               }
@@ -257,7 +257,7 @@ export default class torgeternityPlayerHand extends foundry.applications.sheets.
                 actor.toggleStatusEffect('unconscious', { active: false });
               }
 
-              return ChatMessage.create({
+              return ChatMessage.implementation.create({
                 content: _loc('torgeternity.destinyCard.notify.secondWindRecovery', {
                   name: actor.name,
                   shock: recovery,

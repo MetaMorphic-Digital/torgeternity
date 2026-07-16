@@ -1,4 +1,4 @@
-import { TestResult, renderSkillChat, torgDamage } from './torgchecks.js';
+import { renderSkillChat, torgDamage } from './torgchecks.js';
 import { oneTestTarget, TestDialog } from './test-dialog.js';
 
 const { DialogV2 } = foundry.applications.api;
@@ -51,7 +51,7 @@ export class TorgeternityMacros {
         chatOutput += '</ul>';
       }
 
-      return ChatMessage.create({ content: chatOutput });
+      return ChatMessage.implementation.create({ content: chatOutput });
     } catch (e) {
       ui.notifications.error(e.message);
     }
@@ -92,7 +92,7 @@ export class TorgeternityMacros {
     }
     chatOutput += '</ul>';
 
-    return ChatMessage.create({ content: chatOutput });
+    return ChatMessage.implementation.create({ content: chatOutput });
   }
   // #region Revive Shock
   /**
@@ -179,7 +179,7 @@ export class TorgeternityMacros {
       }
       chatOutput += '</ul>';
 
-      return ChatMessage.create({ content: chatOutput });
+      return ChatMessage.implementation.create({ content: chatOutput });
     } catch (e) {
       ui.notifications.error(e.message);
     }
@@ -235,7 +235,7 @@ export class TorgeternityMacros {
       if (game.user.targets.size === 0) {
         chatOutput += `<p>${_loc('torgeternity.macros.bonusDieMacroNoTokenTargeted')}</p>`;
         console.log('No targets, creating chat Message, leaving Macro.');
-        return ChatMessage.create({
+        return ChatMessage.implementation.create({
           content: chatOutput,
           rolls: diceroll
         });
@@ -253,7 +253,7 @@ export class TorgeternityMacros {
       }
       chatOutput += '</ul>';
 
-      return ChatMessage.create({
+      return ChatMessage.implementation.create({
         content: chatOutput,
         rolls: diceroll
       });
@@ -351,7 +351,7 @@ export class TorgeternityMacros {
                 </div>`;
             };
             chatOutput.content += `</div>`;
-            return ChatMessage.create(chatOutput);
+            return ChatMessage.implementation.create(chatOutput);
           }
         }
       ],

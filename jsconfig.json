@@ -19,7 +19,7 @@
     "module/torgeternity.js",
     "foundry/client/client.mjs",
     "foundry/client/global.d.mts",
-    "foundry/common/primitives/global.d.mts"
+    "foundry/common/global.d.mts"
   ],
   "typeAcquisition": {
     "include": [

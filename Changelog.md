@@ -2,13 +2,31 @@
 
 - Translations by Durak (French), Helmut (German), and Teotimus (Spanish).
 
-## 14.2.4
-- Add title to Party Sheet window
-- Prevent error from Actor sheet when zoneAxioms is undefined for an Actor.
-
 ## TRANSLATIONS
 "torgeternity.partySheet.title": "Party Sheet"
 
+## 14.3.0
+- Fix migration of old AE change keys such as "system.dodgeDefenseMod" which were broken in Foundry V14.
+- A detached **Combat Tracker** is now resizable, it gets around Foundry otherwise forcing a 502x502 size on the window.
+- An attack with an Item with the **nonLethal** trait will not prompt for a Defeat test for Stormknights, and will ensure the target has the `unconscious` condition.
+- The **Send to Chat** button is available on Actor sheets even when the Actor is not editable by the user.
+
+### Internal Refactoring
+- Define all non-persistent Actor data in the actor DataModel, so that Foundry can perform proper validation.
+- All actor dice rolls moved from torgchecks.js to TorgEternityActor.
+- Ensure that all action handler names start with "on".
+- Prefer use of `ChatMessage.implementation.getSpeakerActor` and `ChatMessage.speakerActor`
+- Remove use of `game.scenes.current` since it is also available as `canvas.scene`, this clarifies the code in `getTokenDarknessPenalty` to not return a value if called for other than the current scene.
+
+### Token Action HUD
+- Set `requiredCoreModuleVersion` to `2`
+- Fix skill 'Unarmed Combat' and the Interaction entries in the Skills menu to roll against the selected targets (to match behavior of choosing those skills directly from the Actor sheet)
+- Entries in the "Special Abilities" section of the "Attacks and Powers" menu will now roll correctly.
+- Sort the Conditions alphabetically (after localization).
+
+## 14.2.4
+- Add title to Party Sheet window
+- Prevent error from Actor sheet when zoneAxioms is undefined for an Actor.
 
 ## 14.2.3 - Fix rolling skills from Vehicle sheets
 - **Party Sheet** updates whenever the displayed Actors is modified, or the user's selected character is changed.

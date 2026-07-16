@@ -1,4 +1,10 @@
 import TorgActiveEffect from '../active-effect/torgActiveEffect.js';
+import { TestDialog } from '../../test-dialog.js';
+import { TestResult } from '../../torgchecks.js';
+import TorgeternityItem from '../item/torgeternityItem.js';
+
+const { DialogV2 } = foundry.applications.api;
+
 /**
  *
  */
@@ -144,26 +150,30 @@ export default class TorgeternityActor extends foundry.documents.Actor {
     // Skip most of the rest if we didn't make the update
     // although we need to update the player list after all other changes if possibilities have changed.
     if (game.userId === userId) {
-
       /* Check for exceeding shock and/or wounds */
+      let setUnconscious;
 
       if (options.woundsExceeded) {
-        if (this.type === 'stormknight')
-          this.notifyDefeat();
-        else if (game.settings.get('torgeternity', 'autoWound'))
+        if (this.type === 'stormknight') {
+          if (options.nonLethal) // nonLethal damage won't require a Defeat Test for SKs
+            setUnconscious = true;
+          else
+            this.notifyDefeat();
+        } else if (game.settings.get('torgeternity', 'autoWound'))
           this.toggleStatusEffect('dead', { active: true, overlay: true });
       }
 
-      if (options.shockExceeded && !this.hasStatusEffect('dead') && game.settings.get('torgeternity', 'autoShock')) {
+      if (options.shockExceeded && game.settings.get('torgeternity', 'autoShock'))
+        setUnconscious = true;
+
+      if (setUnconscious && !this.hasStatusEffect('dead') && !this.hasStatusEffect('unconscious'))
         this.toggleStatusEffect('unconscious', {
           active: true,
           overlay: true,
         }).then(effect => effect.update({
           start: { time: game.time.worldTime },
           duration: { value: 30, units: 'minutes' }
-
         }))
-      }
 
       if (options.woundsExceeded || options.shockExceeded) {
         const updates = {};
@@ -358,7 +368,7 @@ export default class TorgeternityActor extends foundry.documents.Actor {
    * @param {number} wounds The number of wounds to inflict on this actor.
    * @returns {Promise<this>}
    */
-  applyDamages(shock, wounds) {
+  applyDamages(shock, wounds, options = {}) {
     let updates = {};
     let result = {};
     // No clamping of values
@@ -372,7 +382,7 @@ export default class TorgeternityActor extends foundry.documents.Actor {
       if (newvalue > this.system.wounds.max) result.woundsExceeded = true;
       updates['system.wounds.value'] = this.system.wounds.value + wounds;
     }
-    this.update(updates);
+    this.update(updates, options);
     return result;
   }
 
@@ -391,8 +401,8 @@ export default class TorgeternityActor extends foundry.documents.Actor {
      </a>
      </div>`;
 
-    return ChatMessage.create({
-      speaker: ChatMessage.getSpeaker({ actor: this }),
+    return ChatMessage.implementation.create({
+      speaker: ChatMessage.implementation.getSpeaker({ actor: this }),
       content: html
     })
   }
@@ -745,6 +755,552 @@ export default class TorgeternityActor extends foundry.documents.Actor {
     super.prepareDerivedData();
     this.checkItemUniqueness('prepareDerivedData');
   }
+
+  //
+  // Various ROLL actions
+  //
+
+  /**
+   * Roll an Attack test
+   * @param {TorgeternityItem} item The item being used for the attack.
+   * @param {Object} options Extra options for TestDialog
+   * @returns 
+   */
+  async rollAttack(item, options = {}) {
+    const weaponData = item.system;
+    const attackWith = weaponData.attackWith;
+    let skillValue;
+    let skillData;
+    let attributes;
+
+    if (item?.weaponWithAmmo && !item.hasAmmo) {
+      ui.notifications.warn(_loc('torgeternity.chatText.noAmmo'));
+      return;
+    }
+
+    if (this.type === 'vehicle') {
+      skillData = item.system.gunnerSkill;
+      skillValue = skillData?.value ?? '-';
+      attributes = item.system.gunner?.system.attributes ?? 0;
+    } else {
+      skillData = this.system.skills[attackWith];
+      skillValue = skillData.value;
+      attributes = this.system.attributes;
+      if (isNaN(skillValue)) {
+        skillValue = skillData.unskilledUse ? attributes[skillData.baseAttribute].value : '-';
+      }
+    }
+
+    if (this.checkUnskilled(skillValue, attackWith)) return;
+
+    let dnDescriptor = 'standard';
+
+    if (game.user.targets.size) {
+      const firstTarget = game.user.targets.find(token => token.actor.type !== 'vehicle')?.actor ||
+        game.user.targets.first().actor;
+
+      if (firstTarget.type === 'vehicle') {
+        dnDescriptor = 'targetVehicleDefense';
+      } else {
+        switch (attackWith) {
+          case 'meleeWeapons':
+          case 'unarmedCombat':
+            dnDescriptor = firstTarget.equippedMelee ? 'targetMeleeWeapons' : 'targetUnarmedCombat';
+            break;
+          case 'fireCombat':
+          case 'energyWeapons':
+          case 'heavyWeapons':
+          case 'missileWeapons':
+            dnDescriptor = 'targetDodge';
+            break;
+          default:
+            dnDescriptor = 'targetMeleeWeapons';
+        }
+      }
+    }
+
+    // Calculate damage caused by this weapon
+    let adjustedDamage = parseInt(weaponData.damage) + (skillData.damageMod ?? 0);
+    switch (weaponData.damageType) {
+      case 'flat':
+        break;
+      case 'strengthPlus':
+        adjustedDamage += attributes.strength.value + attributes.strength.damageMod;
+        break;
+      case 'charismaPlus':
+        adjustedDamage += attributes.charisma.value + attributes.charisma.damageMod;
+        break;
+      case 'dexterityPlus':
+        adjustedDamage += attributes.dexterity.value + attributes.dexterity.damageMod;
+        break;
+      case 'mindPlus':
+        adjustedDamage += attributes.mind.value + attributes.mind.damageMod;
+        break;
+      case 'spiritPlus':
+        adjustedDamage += attributes.spirit.value + attributes.spirit.damageMod;
+        break;
+    }
+    let weaponAP = weaponData.ap;
+
+    const ammo = weaponData.loadedAmmo && this.items.get(weaponData.loadedAmmo)?.system;
+    if (ammo) {
+      if (ammo.damageMod) adjustedDamage += ammo.damageMod;
+      if (ammo.apMod) weaponAP += ammo.apMod;
+    }
+
+    return TestDialog.wait({
+      testType: 'attack',
+      DNDescriptor: dnDescriptor,
+      actor: this,
+      itemId: item.id,
+      amountBD: 0,
+      isAttack: true,
+      isFav: skillData?.isFav || false,
+      skillName: attackWith,
+      skillValue: Math.max(skillValue, attributes[skillData?.baseAttribute]?.value || 0),
+      unskilledUse: true,
+      damage: adjustedDamage,
+      weaponAP: weaponAP,
+      applyArmor: true,
+      applySize: true,
+      attackOptions: true,
+      chatNote: weaponData.chatNote,
+      bdDamageSum: 0,
+    }, { useTargets: true, ...options });
+  }
+
+  /**
+   * Make a check for the use of a Power
+   * @param {TorgeternityItem} item The power being tested
+   * @param {Object} options Extra options for TestDialog
+   * @returns 
+   */
+  async rollPower(item, options = {}) {
+    const powerData = item.system;
+    const skillName = powerData.skill;
+    const skillData = this.system.skills[skillName];
+
+    // Set modifier for this power
+    const powerModifier = item.system.modifier || 0;
+
+    if (this.checkUnskilled(skillData.value, skillName)) return;
+
+    return TestDialog.wait({
+      testType: 'power',
+      DNDescriptor: powerData.dn,
+      actor: this,
+      itemId: item.id,
+      powerName: item.name,
+      powerModifier: powerModifier,
+      isAttack: powerData.isAttack,
+      isFav: skillData.isFav,
+      skillName: skillName,
+      skillValue: Math.max(skillData.value, this.system.attributes[skillData.baseAttribute].value),
+      unskilledUse: false,
+      damage: powerData.damage + this.system.attributes[skillData.baseAttribute].damageMod + (skillData.damageMod ?? 0),
+      weaponAP: powerData.ap,
+      applyArmor: powerData.applyArmor,
+      applySize: powerData.applySize,
+      attackOptions: true,
+      amountBD: 0,
+      bdDamageSum: 0,
+    }, { useTargets: true, ...options });
+  }
+
+  /**
+   * Roll an attribute test.
+   * @param {String} attributeName The internal name of the attribute being tested.
+   * @param {TorgeternityItem} item An optional item involved in the attribute test.
+   * @param {Object} options Extra options for TestDialog
+   * @returns 
+   */
+  async rollAttribute(attributeName, item, options = {}) {
+    return TestDialog.wait({
+      testType: 'attribute',
+      actor: this,
+      itemId: item?.id,
+      skillName: attributeName,
+      skillValue: this.system.attributes[attributeName].value,
+      isFav: this.system.attributes[attributeName].isFav,
+    }, { useTargets: true, ...options });
+  }
+
+  /**
+   * Roll a skill test
+   * @param {String} skillName The internal name of the skill being tested.
+   * @param {*} item An optional item for which the test is being made.
+   * @param {Object} options Extra options for TestDialog
+   * @returns 
+   */
+  async rollSkill(skillName, item, options = {}) {
+
+    const skillData = this.system.skills[skillName] ?? this.items.get(skillName)?.system;
+    if (!skillData) return;
+
+    // Before calculating roll, check to see if it can be attempted unskilled; exit test if actor doesn't have required skill
+    if (this.checkUnskilled(skillData.value, skillName)) return;
+    let testType = 'skill';
+
+    // Check if character is trying to roll on reality while disconnected- must be allowed if reconnection-roll
+    if (skillName === 'reality' && this.isDisconnected) {
+      testType = 'reconnect';
+      const confirmed = await DialogV2.confirm({
+        window: { title: 'torgeternity.dialogWindow.realityCheck.title' },
+        content: _loc('torgeternity.dialogWindow.realityCheck.content'),
+      });
+
+      if (!confirmed) {
+
+        foundry.applications.handlebars.renderTemplate(
+          './systems/torgeternity/templates/chat/skill-error-card.hbs',
+          {
+            message: _loc('torgeternity.chatText.check.cantUseRealityWhileDisconnected'),
+            actor: this.uuid,
+            actorPic: this.img,
+            actorName: this.name,
+          }
+        ).then(content =>
+          ChatMessage.implementation.create({
+            speaker: ChatMessage.implementation.getSpeaker({ actor: this }),
+            owner: this,
+            content: content
+          })
+        )
+        // Don't wait for chat message to finish posting
+        return;
+      }
+    }
+
+    return TestDialog.wait({
+      testType: testType,
+      actor: this,
+      itemId: item?.id,
+      customSkill: !this.system.skills[skillName],
+      isFav: skillData.isFav,
+      skillName: skillName,
+      skillValue: skillData.value,
+    }, { useTargets: (testType === 'skill'), ...options });
+  }
+
+  /**
+   * Roll an Unarmed Attack
+   * @param {String} skillName The internal name of the skill being used for the unarmed attack
+   * @param {Object} options Extra options for TestDialog
+   * @returns 
+   */
+  async rollUnarmedAttack(skillName, options = {}) {
+    let dnDescriptor = 'standard';
+    if (game.user.targets.size) {
+      const firstTarget = game.user.targets.find(token => token.actor.type !== 'vehicle')?.actor ||
+        game.user.targets.first().actor;
+
+      if (firstTarget.type === 'vehicle')
+        dnDescriptor = 'targetVehicleDefense';
+      else
+        dnDescriptor = firstTarget.equippedMelee ? 'targetMeleeWeapons' : 'targetUnarmedCombat';
+    }
+
+    // Almost the same as rollAttack
+    return TestDialog.wait({
+      testType: 'attack',
+      DNDescriptor: dnDescriptor,
+      actor: this,
+      amountBD: 0,
+      isAttack: true,
+      isFav: this.system.skills[skillName]?.isFav,
+      skillName: skillName,
+      skillValue: this.system.skills[skillName]?.value ?? this.system.attributes.dexterity.value,
+      unskilledUse: true,
+      damage: this.system.unarmedDamage,
+      weaponAP: 0,
+      applyArmor: true,
+      applySize: true,
+      attackOptions: true,
+      //chatNote: '',
+      bdDamageSum: 0,
+      // itemId - no item
+    }, { useTargets: true, ...options });
+  }
+
+  /**
+   * Roll an interaction attack.
+   * @param {String} skillName The name of the skill being used for the interaction attack
+   * @param {Object} options Extra options for TestDialog
+   * @returns 
+   */
+  async rollInteractionAttack(skillName, options = {}) {
+    const skillData = this.system.skills[skillName];
+
+    let dnDescriptor = 'standard';
+    if (game.user.targets.size) {
+      switch (skillName) {
+        case 'intimidation':
+          dnDescriptor = 'targetIntimidation';
+          break;
+        case 'maneuver':
+          dnDescriptor = 'targetManeuver';
+          break;
+        case 'taunt':
+          dnDescriptor = 'targetTaunt';
+          break;
+        case 'trick':
+          dnDescriptor = 'targetTrick';
+          break;
+        default:
+          dnDescriptor = 'standard';
+      }
+    } else {
+      dnDescriptor = 'standard';
+    }
+
+    return TestDialog.wait({
+      testType: 'interactionAttack',
+      DNDescriptor: dnDescriptor,
+      actor: this,
+      skillName: skillName,
+      skillValue: Number(skillData.value),
+      isFav: this.system.skills[skillName].isFav,
+      unskilledUse: true,
+    }, { useTargets: true, ...options });
+  }
+
+  /**
+   * Roll a Tapping attempt for an Eternity Shard
+   * @param {TorgeternityItem} item The item being tested
+   * @param {Object} options Extra options for TestDialog
+   * @returns 
+   */
+  async rollTapping(item, options = {}) {
+    const dn = item.system?.tappingDifficulty;
+    if (!dn) return ui.notifications.info(`Item does not have a Tapping Difficulty`);
+
+    const skillName = 'reality';
+    const skillData = this.system?.skills[skillName];
+    if (!skillData) return ui.notifications.info(`Actor does not have the skill ${skillName}`);
+    //const attributeName = skillData.baseAttribute;
+    const skillValue = Number(skillData.value);
+
+    // Can't use reality while disconnected
+    if (this.isDisconnected) {
+      return foundry.applications.handlebars.renderTemplate(
+        './systems/torgeternity/templates/chat/skill-error-card.hbs',
+        {
+          message: _loc('torgeternity.chatText.check.cantUseRealityWhileDisconnected'),
+          actor: this.uuid,
+          actorPic: this.img,
+          actorName: this.name,
+        }
+      ).then(content =>
+        ChatMessage.implementation.create({
+          speaker: ChatMessage.implementation.getSpeaker({ actor: this }),
+          owner: this,
+          content: content
+        })
+      )
+    }
+
+    return TestDialog.wait({
+      testType: 'skill',
+      DNDescriptor: 'fixedNumber',
+      DNfixed: dn,
+      actor: this,
+      isFav:
+        this.system.skills[skillName]?.isFav ||
+        this.system.attributes[skillName]?.isFav ||
+        false,
+      skillName: skillName,
+      skillValue: skillValue,
+      chatTitle: _loc('torgeternity.chatText.tapping'),
+    }, options);
+  }
+
+  /**
+   * Roll a soak test
+   * @param {*} origMessageId The original chat message for which the soak is being applied.
+   * @param {Object} options Extra options for TestDialog
+   * @returns 
+   */
+  async soakDamage(origMessageId, options = {}) {
+    const skillName = 'reality';
+    const skillValue = this.system.skills[skillName].value;
+
+    // Before calculating roll, check to see if it can be attempted unskilled; exit test if actor doesn't have required skill.
+    // Stormknights must always have at least 1 rank in Reality.
+    // Threats are managed by the GM, so the GM can decide if the Threat is allowed to spend a Possibility even when it doesn't have any adds.
+    //if (this.checkUnskilled(skillValue, skillName)) return;
+
+    return TestDialog.wait({
+      testType: 'soak',
+      actor: this,
+      //actorType: soaker.system.type,
+      isFav:
+        this.system.skills[skillName]?.isFav ||
+        this.system.attributes[skillName]?.isFav ||
+        false,
+      skillName: skillName,
+      skillValue: skillValue,
+      soakingMessage: origMessageId,
+    }, { useTargets: false, ...options });
+    // do reality roll
+  }
+
+  // VEHICLE SPECIFIC ROLLS
+
+  /**
+   * Roll a Vehicle Chase test
+   * @param {Number} skillValue The value of the skill being used for the test
+   * @param {Number} vehicleSpeed The speed of the vehicle involved in the test
+   * @param {Number} maneuverModifier The modifiers of the vehicle involved in the test
+   * @param {Object} options Extra options for TestDialog
+   * @returns 
+   */
+  async rollVehicleChase(skillValue, vehicleSpeed, maneuverModifier, options = {}) {
+    return TestDialog.wait({
+      testType: 'chase',
+      DNDescriptor: 'highestSpeed',
+      actor: this,
+      skillName: 'Vehicle Chase',
+      skillValue,
+      vehicleSpeed,
+      maneuverModifier,
+    }, { useTargets: true, ...options });
+  }
+
+  /**
+   * Roll a Vehicle Operation test
+   * @param {Number} skillValue The value of the skill being used for the test
+   * @param {Number} vehicleSpeed The speed of the vehicle involved in the test
+   * @param {Number} maneuverModifier The modifiers of the vehicle involved in the test
+   * @param {Object} options Extra options for TestDialog
+   * @returns 
+   */
+  async rollVehicleOperation(skillValue, vehicleSpeed, maneuverModifier, options = {}) {
+    return TestDialog.wait({
+      testType: 'vehicleBase',
+      actor: this,
+      skillName: 'Vehicle Operation',
+      skillValue,
+      vehicleSpeed,
+      maneuverModifier,
+    }, { useTargets: true, ...options });
+  }
+
+  /**
+   * Roll a Vehicle Stunt test
+   * @param {Number} skillValue The value of the skill being used for the test
+   * @param {Number} vehicleSpeed The speed of the vehicle involved in the test
+   * @param {Number} maneuverModifier The modifiers of the vehicle involved in the test
+   * @param {Object} options Extra options for TestDialog
+   * @returns 
+   */
+  async rollVehicleStunt(dnDescriptor, skillValue, vehicleSpeed, maneuverModifier, options = {}) {
+    return TestDialog.wait({
+      testType: 'stunt',
+      DNDescriptor: dnDescriptor,
+      actor: this,
+      skillName: 'Vehicle Stunt',
+      skillValue,
+      vehicleSpeed,
+      maneuverModifier,
+    }, { useTargets: true, ...options });
+  }
+
+  /**
+   * Roll for an Active Defense
+   * @param {Object} options Extra options for TestDialog
+   * @returns 
+   */
+  async rollActiveDefense(options = {}) {
+    return TestDialog.wait({
+      testType: 'activeDefense',
+      actor: this,
+      activelyDefending: false,
+      isActiveDefenseRoll: true,
+      skillName: 'activeDefense',
+      skillValue: null,
+      unskilledUse: true,
+    }, { useTargets: false, ...options });
+  }
+
+  /**
+   * Roll for a Defeat test
+   * @param {String} attribute The internal name of the attribute being used for the test
+   * @param {Object} options Extra options for TestDialog
+   * @returns 
+   */
+  async testDefeat(attribute, options = {}) {
+    return TestDialog.wait({
+      testType: 'attribute',
+      DNDescriptor: 'standard',
+      actor: this,
+      skillName: attribute,
+      skillValue: this.system.attributes[attribute].value,
+      isDefeatTest: true,
+    }, options);
+  }
+
+  /**
+   * Roll a concentration check
+   * @param {Object} speaker The chat message speaker making the roll
+   * @param {Object} testdata The test that is involved in the concentration check
+   * @param {Object} options Extra options for TestDialog
+   */
+  async testConcentration(speaker, testdata, options = {}) {
+    // Convert strings to the correct type(s)
+    const test = {
+      // could be attribute (Spirit) or skill (Willpower) check
+      DNDescriptor: 'standard',
+      actor: this,
+      ...testdata,
+    };
+    test.isFav = !!test.isFav;
+    test.unskilledUse = !!test.unSkilledUse;
+    test.skillAdds = Number(test.skillAdds);
+    test.skillValue = Number(test.skillValue);
+    test.isConcentrationCheck = true;
+
+    const result = await TestDialog.wait(test, options);
+
+    if (result.flags.torgeternity.test.result < TestResult.STANDARD) {
+      const failed = this.effects.filter(ef => ef.statuses.has('concentrating'));
+      const list = failed.map(ef => `<li>${fromUuidSync(ef.origin).name}</li>`);
+
+      ChatMessage.implementation.create({
+        speaker,
+        content: `<p>${_loc('torgeternity.chatText.concentration.broken', { actor: this.name })}</p><ul>${list.join('')}</ul>`
+      })
+      this.deleteEmbeddedDocuments('ActiveEffect', failed.map(ef => ef.id));
+    }
+  }
+
+  /**
+   * Checks to see if the given skill is actually unskilled for the indicated actor.
+   * If unskilled, a message is sent to the chat log.
+   * @param {String} skillValue The value of the skill being checked
+   * @param {Number} skillName The name of the skill being checked
+   * @returns {Boolean} Returns true if the actor is UNSKILLED at 'skillName'
+   */
+  checkUnskilled(skillValue, skillName) {
+    if (skillValue) return false;
+
+    foundry.applications.handlebars.renderTemplate(
+      './systems/torgeternity/templates/chat/skill-error-card.hbs',
+      {
+        message: _loc('torgeternity.skills.' + skillName) + ' ' + _loc('torgeternity.chatText.check.cantUseUntrained'),
+        actor: this.uuid,
+        actorPic: this.img,
+        actorName: this.name,
+      }).then(content =>
+        ChatMessage.implementation.create({
+          speaker: ChatMessage.implementation.getSpeaker({ actor: this }),
+          owner: this,
+          content: content
+        })
+      )
+
+    return true;
+  }
+
 }
 
 /**

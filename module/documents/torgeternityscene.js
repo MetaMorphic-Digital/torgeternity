@@ -80,16 +80,16 @@ export default class TorgeternityScene extends foundry.documents.Scene {
    * Update the various darkness penalty statuses on the token based on the scene's darkness level and any nearby light sources.
    * 
    * Derived from https://github.com/kristianserrano/swade-illuminator
-   * @param {Token} token 
+   * @param {foundry.canvas.placeables.Token} token 
    * @returns either null or one of the keys from CONFIG.torgeternity.darknessModifiers (none, dim, dark, pitchBlack)
    */
   getTokenDarknessPenalty(token) {
-    if (!token || !game.scenes.current?.tokenVision) return null;
+    if (!token || !this?.tokenVision || canvas.scene !== this) return null;
 
     // Get the scene's thresholds for Dim Light, Darkness, and Pitch Dark (Global Illumination Threshold in FVTT terms).
-    const pitchBlackLevel = game.scenes.current.environment.globalLight.darkness.max;
-    const dimLevel = Number(game.scenes.current.flags?.torgeternity?.dimLightThreshold ?? 0);
-    const darkLevel = Number(game.scenes.current.flags?.torgeternity?.darkThreshold ?? 0);
+    const pitchBlackLevel = this.environment.globalLight.darkness.max;
+    const dimLevel = Number(this.flags?.torgeternity?.dimLightThreshold ?? 0);
+    const darkLevel = Number(this.flags?.torgeternity?.darkThreshold ?? 0);
 
     // Get scene darkness level at the given point (ignoring light sources).
     let pointDarknessLevel = canvas.effects.getDarknessLevel(token.position);

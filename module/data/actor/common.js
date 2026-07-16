@@ -1,8 +1,21 @@
-import { migrateCosm, makeSkillFields } from '../shared.js';
+import { migrateCosm, makeSkillFields, notPersistedNumber, notPersistedBoolean } from '../shared.js';
 import { BaseActorData } from './base.js';
 import { applyNumericEffects } from '../../torgchecks.js';
 
 const fields = foundry.data.fields;
+
+function newAttributeField() {
+  return new fields.SchemaField({
+    base: new fields.NumberField({ initial: 8, integer: true, nullable: false }), // base: The base attribute what is raised with ep and such
+    isFav: notPersistedBoolean(),
+    noReroll20: new fields.BooleanField({ initial: null, nullable: true, persisted: false }),
+    damageMod: notPersistedNumber(),
+    defenseMod: notPersistedNumber(),
+    value: notPersistedNumber(), // prepareBaseData sets this to this.base
+    maximum: new fields.NumberField({ integer: true, persisted: false, nullable: true }),  // only relevant for Stormknights
+  });
+}
+
 /**
  * class for shared actor data between Threats and Storm Knights
  */
@@ -12,34 +25,27 @@ export class CommonActorData extends BaseActorData {
    * @returns {object} Schema fragment for a Storm Knight or Threat
    */
   static defineSchema() {
-    return {
+    return foundry.utils.mergeObject(super.defineSchema(), {
       attributes: new fields.SchemaField({
-        charisma: new fields.SchemaField({
-          base: new fields.NumberField({ initial: 8, integer: true, nullable: false }), // base: The base attribute what is raised with ep and such
-        }),
-        dexterity: new fields.SchemaField({
-          base: new fields.NumberField({ initial: 8, integer: true, nullable: false }),
-        }),
-        mind: new fields.SchemaField({
-          base: new fields.NumberField({ initial: 8, integer: true, nullable: false }),
-        }),
-        spirit: new fields.SchemaField({
-          base: new fields.NumberField({ initial: 8, integer: true, nullable: false }),
-        }),
-        strength: new fields.SchemaField({
-          base: new fields.NumberField({ initial: 8, integer: true, nullable: false }),
-        }),
+        // base: The base attribute what is raised with ep and such
+        charisma: newAttributeField(),
+        dexterity: newAttributeField(),
+        mind: newAttributeField(),
+        spirit: newAttributeField(),
+        strength: newAttributeField(),
       }),
       other: new fields.SchemaField({
         cosm: new fields.StringField({ initial: 'none', choices: CONFIG.torgeternity.cosmTypes, textSearch: true, required: true, blank: false, nullable: false }),
         possibilities: new fields.SchemaField({
           value: new fields.NumberField({ initial: 3, integer: true, nullable: false }),
           // perAct is a derived value, modifiable by Active Effects
+          perAct: notPersistedNumber(() => CONFIG.torgeternity.possibilitiesPerAct),
         }),
         piety: new fields.NumberField({ initial: 0, integer: true, nullable: false }),
+        inspiration: notPersistedNumber(() => CONFIG.torgeternity.shockPerInspiration),
       }),
       shock: new fields.SchemaField({
-        max: new fields.NumberField({ initial: 8, integer: true }),
+        max: notPersistedNumber(),
         value: new fields.NumberField({ initial: 0, integer: true, nullable: false }),
       }),
       skills: new fields.SchemaField({
@@ -89,7 +95,27 @@ export class CommonActorData extends BaseActorData {
         value: new fields.NumberField({ initial: 0, integer: true }),
       }),
       editstate: new fields.BooleanField({ initial: true }),
-    };
+      // not persisted
+      defenses: new fields.SchemaField({
+        all: new fields.SchemaField({ mod: notPersistedNumber() },
+          { persisted: false }),
+        interaction: new fields.SchemaField({ mod: notPersistedNumber() },
+          { persisted: false }),
+        physical: new fields.SchemaField({ mod: notPersistedNumber() },
+          { persisted: false }),
+        unarmedCombat: new fields.SchemaField({ value: notPersistedNumber(), mod: notPersistedNumber() },
+          { persisted: false }),
+        intimidation: new fields.SchemaField({ value: notPersistedNumber(), mod: notPersistedNumber() },
+          { persisted: false }),
+        maneuver: new fields.SchemaField({ value: notPersistedNumber(), mod: notPersistedNumber() },
+          { persisted: false }),
+        taunt: new fields.SchemaField({ value: notPersistedNumber(), mod: notPersistedNumber() },
+          { persisted: false }),
+        trick: new fields.SchemaField({ value: notPersistedNumber(), mod: notPersistedNumber() },
+          { persisted: false }),
+        toughness: notPersistedNumber(),
+      }, { persisted: false }),
+    });
   }
 
   /**
@@ -131,34 +157,11 @@ export class CommonActorData extends BaseActorData {
     // register value of attributes so we can work further with this
     for (const attribute of Object.keys(this.attributes)) {
       this.attributes[attribute].value = this.attributes[attribute].base;
-      this.attributes[attribute].isFav = false;
-      this.attributes[attribute].damageMod = 0;
-      this.attributes[attribute].defenseMod = 0;
     }
-    for (const [_name, skill] of Object.entries(this.skills)) {
-      skill.mod = 0;
-      skill.isFav = false;
-      skill.damageMod = 0;
-      skill.defenseMod = 0;
-    }
-
     this.shock.max = this.attributes.spirit.value;
-    this.other.possibilities.perAct = CONFIG.torgeternity.possibilitiesPerAct;
-    this.other.inspiration = CONFIG.torgeternity.shockPerInspiration;
-
+    this.defenses.toughness = this.attributes.strength.value;
     // TODO: If we allow more than 1 wornArmor and an array is to be expected, then we need to change that here.
     // 'value' of each field is set in prepareDerivedData
-    Object.assign(this.defenses, {
-      all: { mod: 0 },
-      interaction: { mod: 0 },
-      physical: { mod: 0 },
-      unarmedCombat: { value: 0, mod: 0 },
-      intimidation: { value: 0, mod: 0 },
-      maneuver: { value: 0, mod: 0 },
-      taunt: { value: 0, mod: 0 },
-      trick: { value: 0, mod: 0 },
-      toughness: this.attributes.strength.value,
-    });
   }
 
   prepareEquippedData() {
@@ -207,8 +210,7 @@ export class CommonActorData extends BaseActorData {
     for (const [name, skill] of Object.entries(this.skills)) {
       const trained = skill.unskilledUse || this._source.skills[name].adds;
       skill.value = trained ? this.attributes[skill.baseAttribute].value + skill.adds + (skill.mod ?? 0) : '';
-      if (!Object.hasOwn(skill, "noReroll20") && Object.hasOwn(this.attributes[skill.baseAttribute], "noReroll20"))
-        skill.noReroll20 = this.attributes[skill.baseAttribute].noReroll20;
+      skill.noReroll20 ??= this.attributes[skill.baseAttribute].noReroll20;
     }
 
     // calculate final toughness

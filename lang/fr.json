@@ -762,7 +762,7 @@
       "decks": "torgeternity.core-card-set-fr"
     },
     "partySheet": {
-      "title": "Party Sheet",
+      "title": "Fiche d'équipe",
       "chooseParty": "<h3>Choisir OUI affiche TOUS les acteurs.<br>Choisir NON n'affiche que les actifs.</h3>",
       "noCharacter": "Cet utilisateur ne possède pas de personnage",
       "openParty": "Choisir qui afficher",
@@ -1545,7 +1545,7 @@
       "commonMacroNoChatMessageFound": "Aucun message de chat n'a pu être intercepté, la suite du traitement sera interrompue.",
       "fatigueMacroDealtDamage": "Les personnages suivants ont subi des points de Chocs:",
       "fatigueMacroCharKO": "assommé !",
-      "fatigueMacroCharAlreadyKO": "est déjà KO ! Pas de points de Chocs supplémentaires.",
+      "fatigueMacroCharAlreadyKO": "est déjà KO !",
       "reviveMacroChatHeadline": "Récupération après avoir subi des points de Chocs !",
       "reviveMacroWindowLabel1": "Quelle quantité de points de Chocs faut-il récupérer ?",
       "reviveMacroError1": "Rien n'a été renseigné dans le champ quantité et la case n'a pas été cochée. Que dois-je faire ? Annuler.",

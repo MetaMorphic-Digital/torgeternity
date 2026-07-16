@@ -68,7 +68,7 @@ export class TorgControlButtons extends HandlebarsApplicationMixin(ApplicationV2
         callback: async (button, active) => {
           const diceroll = await foundry.dice.Roll.create('1d20x10x20').evaluate();
 
-          return ChatMessage.create({
+          return ChatMessage.implementation.create({
             rolls: diceroll
           })
         }

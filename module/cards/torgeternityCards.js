@@ -14,7 +14,7 @@ export class torgeternityCards extends Cards {
       const [firstCardKey] = destinyDeck.cards.keys(); // need to grab a card to get toMessage access
       const card = destinyDeck.cards.get(firstCardKey);
       card.toMessage({
-        speaker: ChatMessage.getSpeaker({ actor: game.actors.get(this.flags.torgeternity.defaultHand) }),
+        speaker: ChatMessage.implementation.getSpeaker({ actor: game.actors.get(this.flags.torgeternity.defaultHand) }),
         content: `<div class="card-draw flexrow"><span class="card-chat-tooltip">
         <img class="card-face" src="${destinyDeck.img}"/><span><img src="${destinyDeck.img}"></span></span>
         <h4 class="card-name">${_loc('torgeternity.chatText.drawsCard')} ${destinyDeck.name}.</h4></div>`

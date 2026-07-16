@@ -1,5 +1,3 @@
-import { TestResult } from './torgchecks.js';
-
 export function initConfig() {
 
   const torgeternity = {};

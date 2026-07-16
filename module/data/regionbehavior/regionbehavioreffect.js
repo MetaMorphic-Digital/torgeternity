@@ -11,8 +11,8 @@ export class TorgApplyEffectRegionBehaviorType extends foundry.data.regionBehavi
   static LOCALIZATION_PREFIXES = ["BEHAVIOR.TYPES.torgActiveEffect", "BEHAVIOR.TYPES.base"];
 
   static events = {
-    [CONST.REGION_EVENTS.TOKEN_ENTER]: this.#tokenEnter,
-    [CONST.REGION_EVENTS.TOKEN_EXIT]: this.#tokenExit,
+    [CONST.REGION_EVENTS.TOKEN_ENTER]: this.#onTokenEnter,
+    [CONST.REGION_EVENTS.TOKEN_EXIT]: this.#onTokenExit,
   };
 
   static NO_DISPOSITION = 100;
@@ -36,7 +36,7 @@ export class TorgApplyEffectRegionBehaviorType extends foundry.data.regionBehavi
    * @param {RegionEvent} event 
    * @returns 
    */
-  static async #tokenEnter(event) {
+  static async #onTokenEnter(event) {
     if (!event.user.isSelf) return;
     const { token, movement } = event.data;
     if (this.disposition != TorgApplyEffectRegionBehaviorType.NO_DISPOSITION &&
@@ -64,7 +64,7 @@ export class TorgApplyEffectRegionBehaviorType extends foundry.data.regionBehavi
     }
   }
 
-  static async #tokenExit(event) {
+  static async #onTokenExit(event) {
     if (!event.user.isSelf) return;
     const { token, movement } = event.data;
     const actor = token?.actor;

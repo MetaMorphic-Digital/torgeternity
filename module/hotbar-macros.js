@@ -1,5 +1,4 @@
 import { TorgeternityMacros } from './macros.js';
-import { rollAttack, rollPower } from './torgchecks.js';
 import { TestDialog } from './test-dialog.js';
 
 const { DialogV2 } = foundry.applications.api;
@@ -108,16 +107,14 @@ async function createTorgEternityMacro(dropData, slot) {
  * @returns {Promise}
  */
 async function rollItemMacro(itemName, itemType) {
-  const speaker = ChatMessage.getSpeaker();
-  let actor = game.actors.get(speaker.actor) ?? game.actors.tokens[speaker.token];
+  const speaker = ChatMessage.implementation.getSpeaker();
+  let actor = ChatMessage.implementation.getSpeakerActor(speaker);
   let item = actor ? actor.items.find(item => item.name === itemName && (!itemType || item.type === itemType)) : null;
   if (!item) {
     // Maybe a UUID was passed in?
     item = fromUuidSync(itemName, { strict: false });
-    if (item)
-      actor = item.parent;
-    else
-      return ui.notifications.warn(_loc('torgeternity.notifications.noItemNamed') + itemName);
+    if (!item) return ui.notifications.warn(_loc('torgeternity.notifications.noItemNamed') + itemName);
+    actor = item.parent;
   }
 
   // Trigger the item roll
@@ -128,14 +125,12 @@ async function rollItemMacro(itemName, itemType) {
     case 'firearm':
     case 'heavyweapon':
     case 'specialability-rollable':
-      rollAttack(actor, item);
-      break;
+      return actor.rollAttack(item);
 
     case 'psionicpower':
     case 'miracle':
     case 'spell':
-      rollPower(actor, item);
-      break;
+      return actor.rollPower(item);
 
     default:
       // this will cause the item to be printed to the chat
@@ -165,8 +160,8 @@ async function rollSkillMacro(skillName, attributeName, isInteractionAttack, DND
   }
 
   let customSkill;
-  const speaker = ChatMessage.getSpeaker();
-  const actor = game.actors.get(speaker.actor) ?? game.actors.tokens[speaker.token];
+  const speaker = ChatMessage.implementation.getSpeaker();
+  const actor = ChatMessage.implementation.getSpeakerActor(speaker);
   const isAttributeTest = skillName === attributeName;
   const isUnarmed = skillName === 'unarmedCombat';
   let skill = null;
@@ -329,7 +324,7 @@ Hooks.on('getActorContextOptions', async (actorDir, menuItems) => {
             action: 'showAllPlayers',
             label: 'torgeternity.dialogPrompts.showToPlayers',
             callback: (event, button, dialog) => {
-              ChatMessage.create({
+              ChatMessage.implementation.create({
                 content: dialog.element.querySelector('.charInfoOutput').outerHTML,
               });
             },

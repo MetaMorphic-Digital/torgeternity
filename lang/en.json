@@ -1536,7 +1536,7 @@
       "commonMacroNoChatMessageFound": "No chatmessage-card found. Abort computing.",
       "fatigueMacroDealtDamage": "Dealt damage to the following characters:",
       "fatigueMacroCharKO": " is therefore K.O.!",
-      "fatigueMacroCharAlreadyKO": " is already K.O.! There is no more shock to add.",
+      "fatigueMacroCharAlreadyKO": " is already K.O.!",
       "reviveMacroChatHeadline": "Shock recovery!",
       "reviveMacroWindowLabel1": "How much shock should be recovered?",
       "reviveMacroError1": "There was no input in the amount-field and also the checkbox wasn't checked. What should I do? Aborting.",

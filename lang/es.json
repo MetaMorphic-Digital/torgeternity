@@ -759,7 +759,7 @@
       "decks": "torgeternity.core-card-set"
     },
     "partySheet": {
-      "title": "Party Sheet",
+      "title": "Hoja de grupo",
       "chooseParty": "<h3>Si eliges SÍ, abrirá todos los personajes.<br>Si eliges NO, solo abrirá los personajes activos.</h3>",
       "noCharacter": "Este usuario no posee ningún actor",
       "openParty": "Elige la hoja de grupo",
@@ -1542,7 +1542,7 @@
       "commonMacroNoChatMessageFound": "No se ha encontrado ninguna tarjeta de chat, se cancela el procesamiento.",
       "fatigueMacroDealtDamage": "Los siguientes personajes han sufrido daño:",
       "fatigueMacroCharKO": " está por lo tanto noqueado",
-      "fatigueMacroCharAlreadyKO": " ¡ya está noqueado! No puede sufrir más Shock.",
+      "fatigueMacroCharAlreadyKO": " ¡ya está noqueado!",
       "reviveMacroChatHeadline": "¡Shock recuperado!",
       "reviveMacroWindowLabel1": "¿Cuánto Shock debe recuperarse?",
       "reviveMacroError1": "No se ha introducido nada en el campo de cantidad y la casilla de verificación no está marcada. ¿Qué debo hacer? Cancelado.",
