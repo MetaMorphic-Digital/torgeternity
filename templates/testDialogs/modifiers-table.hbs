@@ -5,17 +5,17 @@
   <label for="other1-modifier-text">{{localize "torgeternity.sheetLabels.effect"}}</label>
 
   <input type="text" id="other1-description-text" data-dtype="String" name="other1Description"
-    value="{{#if test.isOther1}}{{test.other1Description}}{{/if}}">
+    value="{{#if test.other1Modifier}}{{test.other1Description}}{{/if}}">
   <input type="number" id="other1-modifier-text" data-dtype="Number" name="other1Modifier"
-    value={{#if test.isOther1}}{{test.other1Modifier}}{{else}}0{{/if}}>
+    value={{#if test.other1Modifier}}{{test.other1Modifier}}{{else}}0{{/if}}>
 
   <input type="text" id="other2-description-text" data-dtype="String" name="other2Description"
-    value="{{#if test.isOther2}}{{test.other2Description}}{{/if}}">
+    value="{{#if test.other2Modifier}}{{test.other2Description}}{{/if}}">
   <input type="number" id="other2-modifier-text" data-dtype="Number" name="other2Modifier"
-    value={{#if test.isOther2}}{{test.other2Modifier}}{{else}}0{{/if}}>
+    value={{#if test.other2Modifier}}{{test.other2Modifier}}{{else}}0{{/if}}>
 
   <input type="text" id="other3-description-text" data-dtype="String" name="other3Description"
-    value="{{#if test.isOther3}}{{test.other3Description}}{{/if}}">
+    value="{{#if test.other3Modifier}}{{test.other3Description}}{{/if}}">
   <input type="number" id="other3-modifier-text" data-dtype="Number" name="other3Modifier"
-    value={{#if test.isOther3}}{{test.other3Modifier}}{{else}}0{{/if}}>
+    value={{#if test.other3Modifier}}{{test.other3Modifier}}{{else}}0{{/if}}>
 </fieldset>

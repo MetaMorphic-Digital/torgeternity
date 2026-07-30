@@ -30,7 +30,7 @@ export default function activateSocketListeners() {
               chatMessage.test.targets.find(target => target.uuid === socketMessage.targetUuid);
             if (target) {
               Object.assign(target, foundry.utils.expandObject(socketMessage.updates));
-              return chatMessage.update({ 'flags.torgeternity.test.targets': test.targets });
+              return chatMessage.update({ 'system.targets': test.targets });
             }
           }
           break;

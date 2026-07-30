@@ -1213,6 +1213,7 @@ export default class TorgeternityActor extends foundry.documents.Actor {
   async rollActiveDefense(options = {}) {
     return TestDialog.wait({
       testType: 'activeDefense',
+      DNDescriptor: 'standard',
       actor: this,
       activelyDefending: false,
       isActiveDefenseRoll: true,
@@ -1261,7 +1262,7 @@ export default class TorgeternityActor extends foundry.documents.Actor {
 
     const result = await TestDialog.wait(test, options);
 
-    if (result.flags.torgeternity.test.result < TestResult.STANDARD) {
+    if (result.system.result < TestResult.STANDARD) {
       const failed = this.effects.filter(ef => ef.statuses.has('concentrating'));
       const list = failed.map(ef => `<li>${fromUuidSync(ef.origin).name}</li>`);
 

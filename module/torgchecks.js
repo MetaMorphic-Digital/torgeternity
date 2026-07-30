@@ -1,4 +1,6 @@
 import { TestDialogLabel, dummyTestTargets } from './test-dialog.js';
+import { ActionCheckData } from './data/action-check-data.js';
+import { appliesToTest, rollBonusDie, torgDamage, applyNumericEffects, getTorgValue } from './torgutils.js';
 
 export const TestResult = {
   UNKNOWN: 0,
@@ -21,21 +23,16 @@ export const TestResultKey = { // with .main or .sub
 /**
  * On entry, `test.diceroll` might contain an additional dice roll made for this test (such as BD) which need to be added
  * to the list of dice rolled for this test (the value of the roll isn't used in this routine).
- * @param test
+ * @param {ActionCheckData} testin
+ * @param {TorgChatMessage|null} origChatMessage
  */
 export async function renderSkillChat(test, origChatMessage) {
 
   if (CONFIG.debug.torgtestrender) console.debug('renderSkillChat', test);
 
+  // Note: test.diceroll and test.dicerolled are purely input fields to this function,
+  // they are not kept in the final test object.
   const dicerolled = test.dicerolled ? test.dicerolled : test.diceroll ? [test.diceroll] : [];
-
-  for (const [key, value] of Object.entries(test)) {
-    if (typeof value !== 'string' || !value.length) continue;
-    const num = Number(value);
-    if (isNaN(num)) continue;
-    console.error(`renderSkillChat passed a number as a String! (${key} = ${value})`)
-    test[key] = num;
-  }
 
   // Check for targeting a vehicle which doesn't have an operator.
   for (const target of test.targets) {
@@ -123,11 +120,14 @@ export async function renderSkillChat(test, origChatMessage) {
   const useColorBlind = game.settings.get('torgeternity', 'useColorBlindnessColors');
   let first = true;
   for (const target of test.targets) {
-    test.sizeModifier = target.sizeModifier ?? 0;
-    test.vulnerableModifier = target.vulnerableModifier ?? 0;
-    test.darknessModifier = Math.min(0, (target.darknessModifier ?? 0) + (test.targetDarknessModifier ?? 0));
-    if (!commonRange)
-      test.rangeModifier = Math.min(0, (target.rangeModifier ?? 0) + (test.targetRangeModifier ?? 0));
+    // Update test temporarily to hold modifiers just for this target
+    if (!test.ignoreModifiers) {
+      test.sizeModifier = target.sizeModifier ?? 0;
+      test.vulnerableModifier = target.vulnerableModifier ?? 0;
+      test.darknessModifier = Math.min(0, (target.darknessModifier ?? 0) + (test.targetDarknessModifier ?? 0));
+      if (!commonRange)
+        test.rangeModifier = Math.min(0, (target.rangeModifier ?? 0) + (test.targetRangeModifier ?? 0));
+    }
 
     //
     // Check to see if we already have a chat title from a chat card roll. If not, Set title for Chat Message in test.chatTitle //
@@ -139,7 +139,7 @@ export async function renderSkillChat(test, origChatMessage) {
     //
     // Establish DN for this test based on test.DNDescriptor //
     //
-    test.DN = useHighestDN ?? individualDN(test, target);
+    const DN = useHighestDN ?? individualDN(test, target);
 
     //
     // -----------------------Determine Bonus---------------------------- //
@@ -297,17 +297,17 @@ export async function renderSkillChat(test, origChatMessage) {
       test.modifiers += test.targetsModifier;
     }
 
-    if (test.isOther1) {
+    if (test.other1Modifier) {
       modifiers.push(modifierString(test.other1Description, test.other1Modifier));
       test.modifiers += test.other1Modifier;
     }
 
-    if (test.isOther2) {
+    if (test.other2Modifier) {
       modifiers.push(modifierString(test.other2Description, test.other2Modifier));
       test.modifiers += test.other2Modifier;
     }
 
-    if (test.isOther3) {
+    if (test.other3Modifier) {
       modifiers.push(modifierString(test.other3Description, test.other3Modifier));
       test.modifiers += test.other3Modifier;
     }
@@ -413,7 +413,7 @@ export async function renderSkillChat(test, origChatMessage) {
     const rollResult = test.skillValue + test.bonus + test.modifiers;
 
     // Handle numeric value in DNDescriptor
-    let actionTotalContent = `${_loc('torgeternity.chatText.check.result.actionTotal')} ${rollResult} vs. ${test.DN} `;
+    let actionTotalContent = `${_loc('torgeternity.chatText.check.result.actionTotal')} ${rollResult} vs. ${DN} `;
     if (isNaN(Number(test.DNDescriptor))) actionTotalContent += _loc('torgeternity.dnTypes.' + test.DNDescriptor);
     if (singleResult)
       test.actionTotalContent = actionTotalContent;
@@ -422,7 +422,7 @@ export async function renderSkillChat(test, origChatMessage) {
 
     // Determine Outcome
     let outcomeColor;
-    const testDifference = rollResult - test.DN;
+    const testDifference = rollResult - DN;
 
     if (
       test.rollTotal === 1 &&
@@ -567,7 +567,7 @@ export async function renderSkillChat(test, origChatMessage) {
     // If an attack, calculate and display damage
     if (test.isAttack) {
       // Add damage modifier for vital area hits, if necessary
-      let adjustedDamage = target.damage;
+      let adjustedDamage = target.damage ?? 0;
       if (test.vitalAreaDamageModifier) {
         adjustedDamage = target.damage + test.vitalAreaDamageModifier;
       }
@@ -746,9 +746,9 @@ export async function renderSkillChat(test, origChatMessage) {
     message = origChatMessage.update({
       rolls,
       flavor,
+      system: test,
       flags: {
         torgeternity: {
-          test,
           itemId: test.itemId,  // for Automated Animations module
           template: 'systems/torgeternity/templates/chat/skill-card.hbs',
         },
@@ -756,13 +756,14 @@ export async function renderSkillChat(test, origChatMessage) {
     })
   } else {
     message = ChatMessage.implementation.create({
+      type: 'action',
+      system: test,
       speaker: ChatMessage.implementation.getSpeaker({ actor: testActor }),
       owner: test.actor,  // actually UUID
       rolls: dicerolled,
       flavor,
       flags: {
         torgeternity: {
-          test,
           itemId: test.itemId,  // for Automated Animations module
           template: 'systems/torgeternity/templates/chat/skill-card.hbs',
         },

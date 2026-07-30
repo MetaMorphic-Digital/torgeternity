@@ -57,6 +57,7 @@ import { initHandlebarsHelpers } from './hb-helpers.js';
 import { initHotbarMacros } from './hotbar-macros.js';
 import { rollBonusDie } from './torgchecks.js';
 import { HandsManager } from './cards/handsmanager.js';
+import { ActionCheckData } from './data/action-check-data.js';
 
 const { DialogV2 } = foundry.applications.api;
 
@@ -113,6 +114,7 @@ Hooks.once('init', async function () {
   CONFIG.Combatant.dataModels.base = TorgCombatantData;
   CONFIG.CombatantGroup.documentClass = TorgCombatantGroup;
   CONFIG.ChatMessage.documentClass = ChatMessageTorg;
+  CONFIG.ChatMessage.dataModels.action = ActionCheckData;
 
   // ----scenes
   // CONFIG.Scene.sheetClass = torgeternitySceneConfig;
