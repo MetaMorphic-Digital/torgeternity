@@ -153,7 +153,7 @@ export class HandsManager extends HandlebarsApplicationMixin(ApplicationV2) {
     // event.dataTransfer isn't available/reliable on dragover event, so we store the card separately
     event.stopPropagation();
     if (!this.dragcard) return;
-    const stack = game.cards.get(event.srcElement.closest('div.cardList:not(.offline) div.list')?.dataset.stackId);
+    const stack = game.cards.get(event.target.closest('div.cardList:not(.offline) div.list')?.dataset.stackId);
     if (!stack) return;
     if (stack.type === 'pile') {
       const settings = game.settings.get('torgeternity', 'deckSetting');

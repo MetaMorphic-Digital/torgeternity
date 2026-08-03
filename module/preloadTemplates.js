@@ -56,7 +56,6 @@ export const preloadTemplates = async function () {
     'systems/torgeternity/templates/parts/active-effects.hbs',
 
     // chatCards
-    'systems/torgeternity/templates/chat/activeDefense-card.hbs',
     'systems/torgeternity/templates/chat/armor-card.hbs',
     'systems/torgeternity/templates/chat/attack-card.hbs',
     'systems/torgeternity/templates/chat/currency-card.hbs',

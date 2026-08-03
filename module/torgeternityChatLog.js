@@ -36,6 +36,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
       'backlash3': TorgeternityChatLog.#onApplyBacklash3,
       'testDefeat': TorgeternityChatLog.#onTestDefeat,
       'testConcentration': TorgeternityChatLog.#onTestConcentration,
+      "cancelConcentration": TorgeternityChatLog.#onCancelConcentration,
       'applyDefeat': TorgeternityChatLog.#onApplyDefeat,
       'drawDestiny': TorgeternityChatLog.#onDrawDestiny,
       'pingTarget': TorgeternityChatLog.#onPingTarget,
@@ -49,53 +50,51 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     options.push({
       label: 'torgeternity.testInspector.title',
       icon: '<i class="fa-solid fa-magnifying-glass"></i>',
-      visible: li => {
-        if (!game.user.isGM) return false;
-        const message = game.messages.get(li.dataset.messageId);
-        return message.flags?.torgeternity?.test;
-      },
-      onClick: async (event, li) => {
-        const message = game.messages.get(li.dataset.messageId);
-        const test = message.flags?.torgeternity?.test;
-        let entries = [];
-        function doField(key, field) {
-          if (Array.isArray(field)) {
-            for (const [subkey, value] of Object.entries(field)) {
-              doField(`${key}[${subkey}]`, value);
-            }
-          } else if (field && typeof field === 'object') {
-            const prefix = key ? `${key}.` : '';
-            for (const [subkey, value] of Object.entries(foundry.utils.flattenObject(field))) {
-              doField(`${prefix}${subkey}`, value);
-            }
-          } else if (typeof value === 'string')
-            entries.push({ key, value: `"${field}"` });
-          else
-            entries.push({ key, value: field })
+      visible: li => game.user.isGM && !foundry.utils.isEmpty(game.messages.get(li.dataset.messageId)?.system),
+      onClick: this.#showInspector,
+    })
+    return options;
+  }
+
+  async #showInspector(event, li) {
+    const test = game.messages.get(li.dataset.messageId)?.system;
+    if (!test) return;
+    let entries = [];
+    function doField(key, field) {
+      if (Array.isArray(field)) {
+        for (const [subkey, value] of Object.entries(field)) {
+          doField(`${key}[${subkey}]`, value);
         }
-        doField('', test);
+      } else if (field && typeof field === 'object') {
+        const prefix = key ? `${key}.` : '';
+        for (const [subkey, value] of Object.entries(foundry.utils.flattenObject(field))) {
+          doField(`${prefix}${subkey}`, value);
+        }
+      } else if (typeof value === 'string')
+        entries.push({ key, value: `"${field}"` });
+      else
+        entries.push({ key, value: field })
+    }
+    doField('', test);
 
-        const content = entries.sort((a, b) => a.key.localeCompare(b.key))
-          .map(obj => `<tr><td>${obj.key}</td><td>${obj.value}</td></tr>`).join('\n');
+    const content = entries.sort((a, b) => a.key.localeCompare(b.key))
+      .map(obj => `<tr><td>${obj.key}</td><td>${obj.value}</td></tr>`).join('\n');
 
-        await DialogV2.prompt({
-          classes: ['torgeternity', 'themed', 'theme-dark'],
-          window: {
-            title: 'torgeternity.testInspector.title',
-            resizable: true
-          },
-          position: { width: 800 },
-          content: `<div class="testInspector scrollable">
+    await DialogV2.prompt({
+      classes: ['torgeternity', 'themed', 'theme-dark'],
+      window: {
+        title: 'torgeternity.testInspector.title',
+        resizable: true
+      },
+      position: { width: 800 },
+      content: `<div class="testInspector scrollable">
           <table>
           <thead><tr>
           <th>${_loc('torgeternity.testInspector.field')}</th>
           <th>${_loc('torgeternity.testInspector.value')}</th>
           </tr></thead>
           <tbody>${content}</tbody></table></div>`,
-        });
-      }
-    })
-    return options;
+    });
   }
 
   /**
@@ -223,8 +222,8 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     const { chatMessage, actor } = getChatActor(button);
     await actor.toggleStatusEffect('disconnected', { active: false });
     this.updateChatMessage(chatMessage, {
-      "flags.torgeternity.test.showReconnect": false,
-      "flags.torgeternity.test.skillRollMenuStyle": 'hidden',
+      "system.showReconnect": false,
+      "system.skillRollMenuStyle": 'hidden',
     });
   }
 
@@ -557,8 +556,8 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     testTarget.showApplyDamage = false;
     testTarget.showBD = false;
     return this.updateChatMessage(chatMessage, {
-      'flags.torgeternity.test.skillRollMenuStyle': 'hidden',
-      'flags.torgeternity.test.targets': test.targets,
+      'system.skillRollMenuStyle': 'hidden',
+      'system.targets': test.targets,
     });
   }
 
@@ -628,7 +627,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
 
     // Update the original chat card to show the new damage.
 
-    const origtest = origmsg.flags?.torgeternity?.test;
+    const origtest = origmsg.system;
     const origtarget = origtest?.targets.find(target => target.dummyTarget || target.actorUuid === soaktest.actor);
 
     if (!origtest || !testTarget || !origtarget) {
@@ -643,8 +642,8 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
 
     // Hide "apply soak" button in the soak test (as well the buttons which affect the action total)
     await this.updateChatMessage(chatMessage, {
-      'flags.torgeternity.test.showApplySoak': false,
-      'flags.torgeternity.test.skillRollMenuStyle': 'hidden',
+      'system.showApplySoak': false,
+      'system.skillRollMenuStyle': 'hidden',
     });
 
     if (origmsg.isOwner) {
@@ -727,8 +726,8 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
    * @this {TorgeternityChatLog}
    */
   static async #onApplyEffectsTarget(event, button) {
-    const { test, targetActor: actor } = getChatTarget(button);
-    return this.addEffectsToActor(event, actor, test, (event) => event.transfersToTarget);
+    const { test, targetActor } = getChatTarget(button);
+    return this.addEffectsToActor(event, targetActor, test, (event) => event.transfersToTarget);
   }
 
   async addEffectsToActor(event, actor, test, transfersTo) {
@@ -776,7 +775,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
       // Don't hide Stymied button, in case of Good or better result
       //testTarget.showApplyStymied = false;
       //this.updateChatMessage(chatMessage, {
-      //  'flags.torgeternity.test.targets': test.targets  // TODO : potential clash, since entire array updated
+      //  'system.targets': test.targets  // TODO : potential clash, since entire array updated
       //})
 
       if (test.testType === 'interactionAttack' && targetActor.isConcentrating)
@@ -801,7 +800,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
       // Better results might allow it to be pressed more than once
       //testTarget.showApplyVulnerable = false;
       //this.updateChatMessage(chatMessage, {
-      //  'flags.torgeternity.test.targets': test.targets  // TODO : potential clash, since entire array updated
+      //  'system.targets': test.targets  // TODO : potential clash, since entire array updated
       //})
 
       if (test.testType === 'interactionAttack' && targetActor.isConcentrating)
@@ -868,7 +867,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     event.preventDefault();
     // No test in the chat message that display Defeat prompt
     const attribute = button.dataset.control;
-    const actor = getMessage(button).chatMessage.speakerActor();
+    const actor = getMessage(button).chatMessage.speakerActor;
 
     return actor.testDefeat(attribute);
     // Wait for manual addition of results, when applyDefeat is invoked.
@@ -914,8 +913,14 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     event.preventDefault();
     // No test in the chat message that display Defeat prompt
     const { chatMessage } = getMessage(button);
-    const actor = chatMessage.speakerActor();
+    const actor = chatMessage.speakerActor;
     return actor.testConcentration(chatMessage.speaker, button.dataset /*, { window: { windowId: this.window.windowId }}*/);
+  }
+
+  static async #onCancelConcentration(event, button) {
+    event.preventDefault();
+    const { actor } = getChatActor(button);
+    return actor && actor.cancelConcentration();
   }
 
   /**
@@ -991,7 +996,6 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
       if (result === TestResult.STANDARD) {
         await ChatMessage.implementation.create({
           speaker: ChatMessage.implementation.getSpeaker({ actor }),
-          owner: actor,
           content: _loc('torgeternity.defeat.permInjury', { attribute: localAttr })
         })
         // Permanent: Reduce attribute directly
@@ -1003,7 +1007,6 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
         // Temporary: Add AE to reduce until cleared
         await ChatMessage.implementation.create({
           speaker: ChatMessage.implementation.getSpeaker({ actor }),
-          owner: actor,
           content: _loc('torgeternity.defeat.tempInjury', { attribute: localAttr })
         })
         return actor?.createEmbeddedDocuments('ActiveEffect', [{
@@ -1029,7 +1032,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
  */
 function getMessage(button) {
   const chatMessage = game.messages.get(button.closest('.chat-message').dataset.messageId);
-  const test = chatMessage?.flags?.torgeternity?.test;
+  const test = chatMessage?.system;
   return { chatMessage, test };
 }
 
@@ -1039,11 +1042,10 @@ function getMessage(button) {
  * @returns {Actor} The actor that initiated this chat message
  */
 function getChatActor(button) {
-  const msg = getMessage(button);
-  const test = msg?.test;
+  const { chatMessage, test } = getMessage(button);
   if (!test) return null;
   const actor = fromUuidSync(test.actor, { strict: false });
-  if (actor) return { actor, ...msg };
+  if (actor) return { actor, chatMessage, test };
   ui.notifications.warn(_loc('torgeternity.notifications.noTarget'));
   return null;
 }
@@ -1054,12 +1056,11 @@ function getChatActor(button) {
  * @returns {Actor} The Actor of the target token of this chat message.
  */
 function getChatTarget(button) {
-  const msg = getMessage(button);
-  const test = msg?.test;
+  const { chatMessage, test } = getMessage(button);
   if (!test) return null;
   const targetActor = fromUuidSync(button.closest('.skill-roll-target')?.dataset.tokenUuid, { strict: false })?.actor;
   const testTarget = test?.targets.find(target => target.dummyTarget || target.actorUuid === targetActor.uuid);
-  if (testTarget) return { targetActor, testTarget, ...msg };
+  if (testTarget) return { targetActor, testTarget, chatMessage, test };
   ui.notifications.warn(_loc('torgeternity.notifications.noTarget'));
   return null;
 }

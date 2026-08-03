@@ -465,41 +465,6 @@ items:
       lastModifiedBy: null
       exportSource: null
     _key: '!actors.items!6ThunRV3sj9ZSMQW.jMfjA1rvFH5x3A9Z'
-  - name: Pain Gauntlet
-    type: gear
-    img: systems/torgeternity/images/icons/axe-icon.webp
-    effects: []
-    folder: null
-    flags:
-      core: {}
-    system:
-      cosm: tharkold
-      description: "<p>Attack with @UUID[Compendium.te001-core-rulebook.Items.Item.hEeV2HOI4tQoeczr]{Pain Gauntlet (Attack)}</p>\n<p>@UUID[Compendium.te001-core-rulebook.rules.pwneQ55M0nnDH0Us.JournalEntryPage.qKdamp4rrcX6TTt0#painful:]{Painful}</p>\n<p>@UUID[Compendium.te001-core-rulebook.rules.pwneQ55M0nnDH0Us.JournalEntryPage.qKdamp4rrcX6TTt0#stagger:]{Stagger}</p>\n<p>An armored glove laced with technodemon technology. Once an opponent is restrained the gauntlet deals damage every round automatically. Attacking with the gauntlet uses <em>unarmed combat</em>.</p>\n<p>\_</p>\n<p>Found in <strong>Core Rules</strong></p>"
-      price: '100'
-      techlevel: 25
-      value: 10
-      secondaryAxiom:
-        selected: none
-        value: null
-    ownership:
-      default: 0
-      9Q0XnqFwko7hRlvL: 3
-      CtisFurQNe9h7ABb: 3
-      VAnYow5sWS9EJzo0: 3
-      93AMwcGe6H37rcPA: 3
-    _stats:
-      compendiumSource: Compendium.te001-core-rulebook.Items.Item.1yvr2buYP58FJnE3
-      duplicateSource: null
-      coreVersion: '14.360'
-      systemId: torgeternity
-      systemVersion: 12.2.0
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      exportSource: null
-    _id: kTd6nbSynTup5qkZ
-    sort: 3400000
-    _key: '!actors.items!6ThunRV3sj9ZSMQW.kTd6nbSynTup5qkZ'
   - _id: jVVPxqxbRFvMFqHr
     name: Telekinetic Barrier
     type: psionicpower
@@ -659,53 +624,6 @@ items:
     _id: 4XelAqgy7s6Z1mNx
     sort: 100000
     _key: '!actors.items!6ThunRV3sj9ZSMQW.4XelAqgy7s6Z1mNx'
-  - _id: Uv3ApXgF1UfEH3ay
-    name: Pain Gauntlet (Attack)
-    type: customAttack
-    img: systems/torgeternity/images/icons/axe-icon.webp
-    effects: []
-    folder: null
-    sort: 0
-    flags:
-      core: {}
-    system:
-      ap: 0
-      attackWith: unarmedCombat
-      chatNote: ''
-      damage: 1
-      damageType: strengthPlus
-      description: "<p>@UUID[Compendium.te001-core-rulebook.rules.pwneQ55M0nnDH0Us.JournalEntryPage.qKdamp4rrcX6TTt0#painful:]{Painful}</p>\n<p>@UUID[Compendium.te001-core-rulebook.rules.pwneQ55M0nnDH0Us.JournalEntryPage.qKdamp4rrcX6TTt0#stagger:]{Stagger}</p>\n<p>An armored glove laced with technodemon technology. Once an opponent is restrained the gauntlet deals damage every round automatically. Attacking with the gauntlet uses <em>unarmed combat</em>.</p>\n<p>\_</p>\n<p>Found in <strong>Core Rules</strong></p>"
-      notes: Painful, Stagger
-      cosm: none
-      traits: []
-      axioms:
-        magic: 0
-        social: 0
-        spirit: 0
-        tech: 0
-      price: ''
-      value: 0
-      secondaryAxiom: none
-      bonus: 2
-      equipped: false
-      minStrength: null
-      transferenceID: Uv3ApXgF1UfEH3ay
-    ownership:
-      default: 0
-      ZuS1Anc9ORZov40T: 3
-      CtisFurQNe9h7ABb: 3
-      l8SVzn2293lAwvMC: 3
-    _stats:
-      compendiumSource: Compendium.te001-core-rulebook.grw-de-ausruestung.vBsXbuQHBLGfECPi
-      duplicateSource: null
-      exportSource: null
-      coreVersion: '14.360'
-      systemId: torgeternity
-      systemVersion: 13.10.0
-      createdTime: 1758491118723
-      modifiedTime: 1758491118723
-      lastModifiedBy: l8SVzn2293lAwvMC
-    _key: '!actors.items!6ThunRV3sj9ZSMQW.Uv3ApXgF1UfEH3ay'
   - _id: E1aOVDM9yrPzXa4p
     name: Energize
     type: psionicpower
@@ -772,6 +690,58 @@ items:
       modifiedTime: 1775990729589
       lastModifiedBy: BMvGTGfheqDXarjN
     _key: '!actors.items!6ThunRV3sj9ZSMQW.E1aOVDM9yrPzXa4p'
+  - name: Pain Gauntlet
+    type: meleeweapon
+    img: systems/torgeternity/images/icons/axe-icon.webp
+    effects: []
+    flags:
+      core: {}
+    system:
+      cosm: tharkold
+      description: "<p>@UUID[Compendium.te001-core-rulebook.rules.pwneQ55M0nnDH0Us.JournalEntryPage.qKdamp4rrcX6TTt0#painful:]{Painful}</p><p>@UUID[Compendium.te001-core-rulebook.rules.pwneQ55M0nnDH0Us.JournalEntryPage.qKdamp4rrcX6TTt0#stagger:]{Stagger}</p><p>An armored glove laced with technodemon technology. Once an opponent is restrained the gauntlet deals damage every round automatically. Attacking with the gauntlet uses <em>unarmed combat</em>.</p><p>\_</p><p>Found in <strong>Core Rules</strong></p>"
+      price:
+        dollars: '100'
+      ap: 0
+      attackWith: unarmedCombat
+      bonus: 2
+      chatNote: ''
+      damage: 1
+      damageType: strengthPlus
+      equipped:
+        carryType: stowed
+        handsHeld: 0
+      notes: Painful, Stagger
+      traits:
+        - painful
+        - stagger
+      secondaryAxiom: none
+      minStrength: null
+      axioms:
+        tech: 25
+        magic: 0
+        social: 0
+        spirit: 0
+      itemsToBestow: []
+      bestowedBy: null
+      attuned: false
+      quantity: 1
+    _stats:
+      systemId: torgeternity
+      systemVersion: 14.0.0
+      coreVersion: '14.365'
+      createdTime: 1785771087061
+      modifiedTime: 1785771087061
+      lastModifiedBy: iOcCVm1cmrYXOubH
+      compendiumSource: Compendium.te001-core-rulebook.Items.Item.1yvr2buYP58FJnE3
+      duplicateSource: null
+      exportSource: null
+    _id: 1yvr2buYP58FJnE3
+    ownership:
+      default: 0
+      iOcCVm1cmrYXOubH: 3
+    folder: null
+    sort: 0
+    _key: '!actors.items!6ThunRV3sj9ZSMQW.1yvr2buYP58FJnE3'
 effects: []
 folder: null
 sort: 100001

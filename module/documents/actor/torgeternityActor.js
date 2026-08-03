@@ -768,7 +768,7 @@ export default class TorgeternityActor extends foundry.documents.Actor {
    */
   async rollAttack(item, options = {}) {
     const weaponData = item.system;
-    const attackWith = weaponData.attackWith;
+    const skillName = weaponData.attackWith;
     let skillValue;
     let skillData;
     let attributes;
@@ -783,7 +783,7 @@ export default class TorgeternityActor extends foundry.documents.Actor {
       skillValue = skillData?.value ?? '-';
       attributes = item.system.gunner?.system.attributes ?? 0;
     } else {
-      skillData = this.system.skills[attackWith];
+      skillData = this.system.skills[skillName];
       skillValue = skillData.value;
       attributes = this.system.attributes;
       if (isNaN(skillValue)) {
@@ -791,7 +791,7 @@ export default class TorgeternityActor extends foundry.documents.Actor {
       }
     }
 
-    if (this.checkUnskilled(skillValue, attackWith)) return;
+    if (this.preventUnskilled(skillValue, skillName)) return;
 
     let dnDescriptor = 'standard';
 
@@ -802,7 +802,7 @@ export default class TorgeternityActor extends foundry.documents.Actor {
       if (firstTarget.type === 'vehicle') {
         dnDescriptor = 'targetVehicleDefense';
       } else {
-        switch (attackWith) {
+        switch (skillName) {
           case 'meleeWeapons':
           case 'unarmedCombat':
             dnDescriptor = firstTarget.equippedMelee ? 'targetMeleeWeapons' : 'targetUnarmedCombat';
@@ -856,7 +856,7 @@ export default class TorgeternityActor extends foundry.documents.Actor {
       amountBD: 0,
       isAttack: true,
       isFav: skillData?.isFav || false,
-      skillName: attackWith,
+      skillName: skillName,
       skillValue: Math.max(skillValue, attributes[skillData?.baseAttribute]?.value || 0),
       unskilledUse: true,
       damage: adjustedDamage,
@@ -883,7 +883,7 @@ export default class TorgeternityActor extends foundry.documents.Actor {
     // Set modifier for this power
     const powerModifier = item.system.modifier || 0;
 
-    if (this.checkUnskilled(skillData.value, skillName)) return;
+    if (this.preventUnskilled(skillData.value, skillName)) return;
 
     return TestDialog.wait({
       testType: 'power',
@@ -938,7 +938,7 @@ export default class TorgeternityActor extends foundry.documents.Actor {
     if (!skillData) return;
 
     // Before calculating roll, check to see if it can be attempted unskilled; exit test if actor doesn't have required skill
-    if (this.checkUnskilled(skillData.value, skillName)) return;
+    if (this.preventUnskilled(skillData.value, skillName)) return;
     let testType = 'skill';
 
     // Check if character is trying to roll on reality while disconnected- must be allowed if reconnection-roll
@@ -962,7 +962,6 @@ export default class TorgeternityActor extends foundry.documents.Actor {
         ).then(content =>
           ChatMessage.implementation.create({
             speaker: ChatMessage.implementation.getSpeaker({ actor: this }),
-            owner: this,
             content: content
           })
         )
@@ -1093,7 +1092,6 @@ export default class TorgeternityActor extends foundry.documents.Actor {
       ).then(content =>
         ChatMessage.implementation.create({
           speaker: ChatMessage.implementation.getSpeaker({ actor: this }),
-          owner: this,
           content: content
         })
       )
@@ -1127,7 +1125,7 @@ export default class TorgeternityActor extends foundry.documents.Actor {
     // Before calculating roll, check to see if it can be attempted unskilled; exit test if actor doesn't have required skill.
     // Stormknights must always have at least 1 rank in Reality.
     // Threats are managed by the GM, so the GM can decide if the Threat is allowed to spend a Possibility even when it doesn't have any adds.
-    //if (this.checkUnskilled(skillValue, skillName)) return;
+    //if (this.preventUnskilled(skillValue, skillName)) return;
 
     return TestDialog.wait({
       testType: 'soak',
@@ -1213,6 +1211,7 @@ export default class TorgeternityActor extends foundry.documents.Actor {
   async rollActiveDefense(options = {}) {
     return TestDialog.wait({
       testType: 'activeDefense',
+      DNDescriptor: 'standard',
       actor: this,
       activelyDefending: false,
       isActiveDefenseRoll: true,
@@ -1259,18 +1258,19 @@ export default class TorgeternityActor extends foundry.documents.Actor {
     test.skillValue = Number(test.skillValue);
     test.isConcentrationCheck = true;
 
-    const result = await TestDialog.wait(test, options);
+    // Failure will prompt the user to trigger `this.cancelConcentration`
+    return TestDialog.wait(test, options);
+  }
 
-    if (result.flags.torgeternity.test.result < TestResult.STANDARD) {
-      const failed = this.effects.filter(ef => ef.statuses.has('concentrating'));
-      const list = failed.map(ef => `<li>${fromUuidSync(ef.origin).name}</li>`);
+  async cancelConcentration() {
+    const failed = this.effects.filter(ef => ef.statuses.has('concentrating'));
+    const list = failed.map(ef => `<li>${fromUuidSync(ef.origin).name}</li>`);
 
-      ChatMessage.implementation.create({
-        speaker,
-        content: `<p>${_loc('torgeternity.chatText.concentration.broken', { actor: this.name })}</p><ul>${list.join('')}</ul>`
-      })
-      this.deleteEmbeddedDocuments('ActiveEffect', failed.map(ef => ef.id));
-    }
+    ChatMessage.implementation.create({
+      speaker: ChatMessage.implementation.getSpeaker({ actor: this }),
+      content: `<p>${_loc('torgeternity.chatText.concentration.broken', { actor: this.name })}</p><ul>${list.join('')}</ul>`
+    })
+    this.deleteEmbeddedDocuments('ActiveEffect', failed.map(ef => ef.id));
   }
 
   /**
@@ -1280,7 +1280,7 @@ export default class TorgeternityActor extends foundry.documents.Actor {
    * @param {Number} skillName The name of the skill being checked
    * @returns {Boolean} Returns true if the actor is UNSKILLED at 'skillName'
    */
-  checkUnskilled(skillValue, skillName) {
+  preventUnskilled(skillValue, skillName) {
     if (skillValue) return false;
 
     foundry.applications.handlebars.renderTemplate(
@@ -1293,7 +1293,6 @@ export default class TorgeternityActor extends foundry.documents.Actor {
       }).then(content =>
         ChatMessage.implementation.create({
           speaker: ChatMessage.implementation.getSpeaker({ actor: this }),
-          owner: this,
           content: content
         })
       )

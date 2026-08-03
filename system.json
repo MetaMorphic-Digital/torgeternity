@@ -27,7 +27,7 @@
   "version": "14.0.0",
   "compatibility": {
     "minimum": 14,
-    "verified": 14.364,
+    "verified": 14.365,
     "maximum": 14
   },
   "esmodules": [
@@ -299,6 +299,9 @@
       "cosm": {},
       "destiny": {},
       "drama": {}
+    },
+    "ChatMessage": {
+      "action": {}
     },
     "Item": {
       "ammunition": {

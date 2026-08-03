@@ -155,7 +155,7 @@ async function rollSkillMacro(skillName, attributeName, isInteractionAttack, DND
   }
 
   if (DNDescriptor && !Object.hasOwn(CONFIG.torgeternity.dnTypes, DNDescriptor)) {
-    ui.notifications.error('The DN-Descriptor is wrong. Exiting the macro.');
+    ui.notifications.error('The DN-Descriptor is invalid (see `CONFIG.torgeternity.dnTypes`). Exiting the macro.');
     return;
   }
 

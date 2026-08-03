@@ -1286,6 +1286,8 @@
       "backlash2Tooltip": "Apply 1 shock",
       "backlash3Tooltip": "Apply Very Stymied",
       "additionalDamage": "Additional damage preset",
+      "cancelConcentration": "Cancel Concentration",
+      "cancelConcentrationTooltip": "Cancel Concentration after a failed Concentration Check",
       "bonusDice": "Rolled Bonus-Dice in advance"
     },
     "sizes": {

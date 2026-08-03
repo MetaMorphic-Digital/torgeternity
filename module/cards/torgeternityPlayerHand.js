@@ -268,14 +268,9 @@ export default class torgeternityPlayerHand extends foundry.applications.sheets.
 
             // Reverse search through messages for first owned message
             const actorUuid = `Actor.${actorId}`;
-            let idx = game.messages.size;
-            let chatMessage;
-            while (idx-- > 0) {
-              chatMessage = game.messages.contents[idx];
-              if (chatMessage.flags?.torgeternity?.test?.actor === actorUuid) break;
-            }
+            const chatMessage = game.messages.contents.findLast(msg => msg.type === 'action' && msg.system?.actor === actorUuid);
             if (!chatMessage) break;
-            const test = chatMessage.flags.torgeternity?.test;
+            const test = chatMessage.system;
             if (!test) return ui.notifications.info('torgeternity.destinyCard.notify.noTestAvailable', { localize: true });
 
             switch (special) {

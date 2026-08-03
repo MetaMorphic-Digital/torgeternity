@@ -139,7 +139,7 @@ export async function renderSkillChat(test, origChatMessage) {
     //
     // Establish DN for this test based on test.DNDescriptor //
     //
-    test.DN = useHighestDN ?? individualDN(test, target);
+    const DN = useHighestDN ?? individualDN(test, target);
 
     //
     // -----------------------Determine Bonus---------------------------- //
@@ -297,17 +297,17 @@ export async function renderSkillChat(test, origChatMessage) {
       test.modifiers += test.targetsModifier;
     }
 
-    if (test.isOther1) {
+    if (test.other1Modifier) {
       modifiers.push(modifierString(test.other1Description, test.other1Modifier));
       test.modifiers += test.other1Modifier;
     }
 
-    if (test.isOther2) {
+    if (test.other2Modifier) {
       modifiers.push(modifierString(test.other2Description, test.other2Modifier));
       test.modifiers += test.other2Modifier;
     }
 
-    if (test.isOther3) {
+    if (test.other3Modifier) {
       modifiers.push(modifierString(test.other3Description, test.other3Modifier));
       test.modifiers += test.other3Modifier;
     }
@@ -413,7 +413,7 @@ export async function renderSkillChat(test, origChatMessage) {
     const rollResult = test.skillValue + test.bonus + test.modifiers;
 
     // Handle numeric value in DNDescriptor
-    let actionTotalContent = `${_loc('torgeternity.chatText.check.result.actionTotal')} ${rollResult} vs. ${test.DN} `;
+    let actionTotalContent = `${_loc('torgeternity.chatText.check.result.actionTotal')} ${rollResult} vs. ${DN} `;
     if (isNaN(Number(test.DNDescriptor))) actionTotalContent += _loc('torgeternity.dnTypes.' + test.DNDescriptor);
     if (singleResult)
       test.actionTotalContent = actionTotalContent;
@@ -422,7 +422,9 @@ export async function renderSkillChat(test, origChatMessage) {
 
     // Determine Outcome
     let outcomeColor;
-    const testDifference = rollResult - test.DN;
+    const testDifference = rollResult - DN;
+
+    if (test.testType === 'power') test.showBacklashButtons = (testDifference < 0);
 
     if (
       test.rollTotal === 1 &&
@@ -432,12 +434,10 @@ export async function renderSkillChat(test, origChatMessage) {
       test.resultText = _loc('torgeternity.chatText.check.result.mishap');
       test.result = TestResult.MISHAP;
       if (test.testType === 'soak') target.soakWounds = 0;
-      if (test.testType === 'power') test.showBacklashButtons = true;
     } else if (testDifference < 0) {
       test.resultText = _loc('torgeternity.chatText.check.result.failure');
       test.result = TestResult.FAILURE;
       if (test.testType === 'soak') target.soakWounds = 0;
-      if (test.testType === 'power') test.showBacklashButtons = true;
     } else if (testDifference < 5) {
       test.resultText = _loc('torgeternity.chatText.check.result.standardSuccess');
       test.result = TestResult.STANDARD;
@@ -567,7 +567,7 @@ export async function renderSkillChat(test, origChatMessage) {
     // If an attack, calculate and display damage
     if (test.isAttack) {
       // Add damage modifier for vital area hits, if necessary
-      let adjustedDamage = target.damage;
+      let adjustedDamage = target.damage ?? 0;
       if (test.vitalAreaDamageModifier) {
         adjustedDamage = target.damage + test.vitalAreaDamageModifier;
       }
@@ -672,6 +672,8 @@ export async function renderSkillChat(test, origChatMessage) {
       // Use non-translated strings to lookup key
       test.defeatMain = _loc(`torgeternity.defeat.${TestResultKey[test.result]}.main`, { name: testActor.name });
       test.defeatSub = _loc(`torgeternity.defeat.${TestResultKey[test.result]}.sub`, { name: testActor.name });
+    } else if (test.isConcentrationCheck) {
+      test.showCancelConcentration = (test.result < TestResult.STANDARD);
     }
 
     // Label as Skill vs. Attribute Test and turn on BD option if needed
@@ -742,31 +744,20 @@ export async function renderSkillChat(test, origChatMessage) {
   const flavor = (messageMode === 'public') ? '' : _loc(CONFIG.ChatMessage.modes[messageMode].label);
   let message;
   if (origChatMessage) {
-    const rolls = dicerolled ? origChatMessage.rolls.concat(dicerolled) : origChatMessage.rolls;
     message = origChatMessage.update({
-      rolls,
+      rolls: dicerolled ? origChatMessage.rolls.concat(dicerolled) : origChatMessage.rolls,
       flavor,
-      flags: {
-        torgeternity: {
-          test,
-          itemId: test.itemId,  // for Automated Animations module
-          template: 'systems/torgeternity/templates/chat/skill-card.hbs',
-        },
-      },
+      system: test,
+      // Don't overwrite the flags field, since modules might have added their own stuff.
     })
   } else {
     message = ChatMessage.implementation.create({
       speaker: ChatMessage.implementation.getSpeaker({ actor: testActor }),
-      owner: test.actor,  // actually UUID
+      type: 'action',
       rolls: dicerolled,
       flavor,
-      flags: {
-        torgeternity: {
-          test,
-          itemId: test.itemId,  // for Automated Animations module
-          template: 'systems/torgeternity/templates/chat/skill-card.hbs',
-        },
-      },
+      flags: test.itemId ? { torgeternity: { itemId: test.itemId } } : {}, // for Automated Animations module 
+      system: test,
     },
       { messageMode });
   }

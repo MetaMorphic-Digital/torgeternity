@@ -173,7 +173,7 @@
         </div>
       {{/unless}}
 
-      {{#if (and ownsActor (or showApplySoak showReconnect showActorApplyVeryVulnerable showBacklashButtons showApplyEffects))}}
+      {{#if (and ownsActor (or showApplySoak showReconnect showActorApplyVeryVulnerable showBacklashButtons showApplyEffects showCancelConcentration))}}
         <p class="applyButtons">
           {{#if showApplySoak}}
             <a class="button roll-button" data-action="applySoak"
@@ -210,6 +210,12 @@
               data-tooltip="{{localize 'torgeternity.sheetLabels.applyEffectsActorTooltip'}}">
               <i class="fa-solid fa-person-rays"></i>
               {{localize 'torgeternity.sheetLabels.applyEffects'}}</a>
+          {{/if}}
+          {{#if showCancelConcentration}}
+            <a class="button roll-button" data-action="cancelConcentration"
+              data-tooltip="{{localize 'torgeternity.sheetLabels.cancelConcentrationTooltip'}}">
+              <i class="fa-solid fa-person-rays"></i>
+              {{localize 'torgeternity.sheetLabels.cancelConcentration'}}</a>
           {{/if}}
         </p>
       {{/if}}

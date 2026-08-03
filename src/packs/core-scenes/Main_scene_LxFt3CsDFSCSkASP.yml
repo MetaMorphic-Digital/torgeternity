@@ -49,7 +49,7 @@ journalEntryPage: null
 _stats:
   systemId: torgeternity
   systemVersion: 13.24.1
-  coreVersion: '14.360'
+  coreVersion: '14.364'
   createdTime: 1716827808907
   modifiedTime: 1772552548667
   lastModifiedBy: CPwBNCoOtt6eU6Hc
@@ -109,7 +109,6 @@ levels:
       alphaThreshold: 0.75
     fog:
       src: null
-      tint: '#ffffff'
     textures:
       anchorX: 0.5
       anchorY: 0.5

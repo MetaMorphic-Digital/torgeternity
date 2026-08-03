@@ -260,7 +260,7 @@ export class TestDialog extends HandlebarsApplicationMixin(ApplicationV2) {
     // TODO - we need to check others fields too, at this point?  (so 'test.damage' shouldn't get set here)
     let changed = false;
     for (const effect of myActor.allApplicableEffects())
-      if (effect.active || (!effect.disabled && !effect.isTransferrable && effect.system.activeIfTrait.has(context.test.skillName)))
+      if (effect.active || (!effect.disabled && !effect.isTransferable && effect.system.activeIfTrait.has(context.test.skillName)))
         for (const change of effect.system.changes)
           if (change.key.startsWith('test.') && change.key.endsWith('Modifier')) {
             const key = change.key.slice(5);
@@ -323,9 +323,6 @@ export class TestDialog extends HandlebarsApplicationMixin(ApplicationV2) {
     foundry.utils.mergeObject(this.test, fields, { inplace: true });
 
     this.test.explicitBonus = fields.bonus !== null;
-    this.test.isOther1 = !!fields.other1Modifier;
-    this.test.isOther2 = !!fields.other2Modifier;
-    this.test.isOther3 = !!fields.other3Modifier;
 
     if (this.mode !== 'update') {
 

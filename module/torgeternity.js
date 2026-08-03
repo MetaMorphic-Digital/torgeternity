@@ -113,6 +113,7 @@ Hooks.once('init', async function () {
   CONFIG.Combatant.dataModels.base = TorgCombatantData;
   CONFIG.CombatantGroup.documentClass = TorgCombatantGroup;
   CONFIG.ChatMessage.documentClass = ChatMessageTorg;
+  //CONFIG.ChatMessage.dataModels.action = ActionCheckData;  // TODO
 
   // ----scenes
   // CONFIG.Scene.sheetClass = torgeternitySceneConfig;

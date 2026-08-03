@@ -544,7 +544,6 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
           await super._onDropItem(event, item);
           ChatMessage.implementation.create({
             speaker: ChatMessage.implementation.getSpeaker({ actor }),
-            owner: actor,
             content: _loc('torgeternity.chatText.itemPurchase', {
               item: item.name,
               price,

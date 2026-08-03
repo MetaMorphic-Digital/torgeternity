@@ -114,7 +114,7 @@ export class TorgActiveEffectData extends foundry.data.ActiveEffectTypeDataModel
   }
 
   /**
-   * Suppress the ActiveEffect if it is transferrable to the target.
+   * Suppress the ActiveEffect if it is transferable to the target.
    * @type {boolean}
    */
   get isSuppressed() {

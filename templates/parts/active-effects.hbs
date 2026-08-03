@@ -41,6 +41,10 @@
             <div class="effect-name flexrow">
               <img class="effect-item-image" src="{{effect.img}}" />
               {{effect.name}}
+              {{#if effect.system.applyOnOutcome}}<i class="fas fa-bullseye"
+                  data-tooltip="{{localize 'torgeternity.activeEffect.FIELDS.applyOnOutcome.hint'}}"></i>{{/if}}
+              {{#if effect.system.transferOnOutcome}}<i class="fas fa-share"
+                  data-tooltip="{{localize 'torgeternity.activeEffect.FIELDS.transferOnOutcome.hint'}}"></i>{{/if}}
             </div>
             <div class="effect-source">{{effect.sourceName}}</div>
             <div class="effect-duration">{{effect.duration.label}}</div>

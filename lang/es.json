@@ -1292,6 +1292,8 @@
       "backlash2Tooltip": "Sufres 1 Shock",
       "backlash3Tooltip": "Quedas Muy Impedido",
       "additionalDamage": "Daño adicional preestablecido",
+      "cancelConcentration": "Anular concentración",
+      "cancelConcentrationTooltip": "Anula la concenetración tras una prueba de Concentración fallada",
       "bonusDice": "Dados de bonificación tirados por adelantado"
     },
     "sizes": {

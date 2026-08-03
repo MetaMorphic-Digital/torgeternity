@@ -19,12 +19,10 @@ export default class TorgeternityPlayerList extends foundry.applications.ui.Play
     }
   }
   static PARTS = {
-    players: {
-      root: true,
-      // override core "templates/ui/players.hbs"
-      template: 'systems/torgeternity/templates/playerList/playerList.hbs'
-    }
+    // override core "templates/ui/players.hbs"
+    players: { root: true, template: 'systems/torgeternity/templates/playerList/playerList.hbs' }
   }
+
   /**
    *
    */

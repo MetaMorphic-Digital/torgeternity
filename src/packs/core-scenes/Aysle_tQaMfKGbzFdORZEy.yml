@@ -44,7 +44,7 @@ _stats:
   compendiumSource: null
   duplicateSource: null
   exportSource: null
-  coreVersion: '14.360'
+  coreVersion: '14.364'
   systemId: torgeternity
   systemVersion: 13.24.1
   createdTime: 1772552465957
@@ -110,7 +110,6 @@ levels:
       alphaThreshold: 0.75
     fog:
       src: null
-      tint: '#ffffff'
     textures:
       anchorX: 0.5
       anchorY: 0.5

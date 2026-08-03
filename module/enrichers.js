@@ -151,7 +151,7 @@ function _onClickInlineCheck(event) {
       skillValue += Math.max(skill.value, attribute.value);
     const isInteractionAttack = (test.attack || interactionAttacks.includes(skillName));
 
-    if (!test.unskilledUse && actor.checkUnskilled(skill.value, skillName)) return;
+    if (!test.unskilledUse && actor.preventUnskilled(skill.value, skillName)) return;
 
     foundry.utils.mergeObject(test, {
       testType: isInteractionAttack ? 'interactionAttack' : 'skill',

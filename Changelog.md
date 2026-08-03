@@ -2,8 +2,16 @@
 
 - Translations by Durak (French), Helmut (German), and Teotimus (Spanish).
 
-## TRANSLATIONS
-"torgeternity.partySheet.title": "Party Sheet"
+## 14.4.0 - Concentration and others
+- When using the automation of **special destiny cards** being played, the last "action" chat card for the actor is used, rather than finding the most recent chat card of any type (which might not be an actual action).
+- Allow modifications to the Action Total on a **Concentration Check** (and provide a manual 'Cancel Concentration' button to remove concentration on a failure).
+- Update the **Effects Tab** of Actors and Items to have an icon indicating effects which are either "Apply on Outcome" (bullseye) or "Transfer on Outcome" (share).
+- Hide **Backlash** buttons if a power action failure is converted to a success.
+- **Resistance Fighter** system archetype now has a **Pain Gauntlet** weapon rather than a special type of gear.
+
+### Internal Refactoring
+- All Action chat cards are now given the type `action` and store the test data in `message.system` rather than `message.flags.torgeternity.test`.
+- Simplifying/Refactoring creation of Skill Chat Cards.
 
 ## 14.3.0
 - Fix migration of old AE change keys such as "system.dodgeDefenseMod" which were broken in Foundry V14.

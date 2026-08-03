@@ -390,6 +390,14 @@ export class TorgeternityMacros {
       mixed: 0,
     };
 
+    const modifier = game.scenes.active && game.scenes.active.torg.cosm !== 'none' && difficultyRecon[game.scenes.active.flags.torgeternity.zone];
+    if (!modifier) {
+      await DialogV2.prompt({
+        window: { title: 'torgeternity.macros.reconnectMacroZoneModifierNotDetectedTitle' },
+        content: `<p>${_loc('torgeternity.macros.reconnectMacroZoneModifierNotDetected')}</p>`,
+      });
+    }
+
     const test = {
       actor: _actor,
       skillName: 'reality',
@@ -403,17 +411,9 @@ export class TorgeternityMacros {
       vulnerableModifier: _actor.system.statusModifiers.vulnerable,
       waitingModifier: _actor.system.statusModifiers.waiting,
       type: 'skill',
-      isOther1: game.scenes.active && game.scenes.active.torg.cosm !== 'none',
       other1Description: _loc('torgeternity.macros.reconnectMacroZoneModifier'),
-      other1Modifier: game.scenes.active && difficultyRecon[game.scenes.active.flags.torgeternity.zone],
+      other1Modifier: modifier,
     };
-
-    if (!test.isOther1) {
-      await DialogV2.prompt({
-        window: { title: 'torgeternity.macros.reconnectMacroZoneModifierNotDetectedTitle' },
-        content: `<p>${_loc('torgeternity.macros.reconnectMacroZoneModifierNotDetected')}</p>`,
-      });
-    }
 
     return TestDialog.wait(test, { useTargets: false, ...options });
   }
@@ -751,35 +751,36 @@ export class TorgeternityMacros {
       actorPic: 'systems/torgeternity/images/tokens/vulnerable.webp',
       actorName: 'Quid',
       actorType: 'threat',
+      // Ensure a dice result of 10 vs DN of 10 is a success
+      DNDescriptor: 'standard',
+      skillValue: 10,
+      rollTotal: 11,
+      diceList: [10],
+      combinedRollTotal: 10,
+      bonus: 0,
+      attackTraits: [],
       addBDs: parseInt(info[2]),
       amountBD: 0,
       isAttack: true,
       skillName: info[0],
-      skillValue: 10,
       isFav: false,
       unskilledUse: true,
       damage: parseInt(info[1]),
       weaponAP: parseInt(info[4]),
       applyArmor: info[3],
       darknessModifier: 0,
-      DNDescriptor: 'standard',
       type: 'attack',
       applySize: false,
       attackOptions: true,
-      rollTotal: 11,
       chatNote: '',
       bdDamageSum: 0,
       hasModifiers: false,
       targets,
-      bonus: 0,
       possibilityClass: 'hidden',
       coverModifier: 0,
       chatTitle: '',
-      DN: 9,
       hideFavButton: true,
       unskilledTest: false,
-      diceList: [10],
-      combinedRollTotal: 10,
       combinedAction: { participants: 1 },
       modifiers: 0,
       modifierText: '',
