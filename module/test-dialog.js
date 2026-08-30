@@ -162,6 +162,18 @@ export class TestDialog extends HandlebarsApplicationMixin(ApplicationV2) {
         foundry.utils.mergeObject(this.test, overrides, { overwrite: true, inplace: true });
     }
 
+    // Set skill's attribute, if not specified explicitly
+    if (this.test.actorType !== 'vehicle' && !foundry.utils.hasProperty(this.test, 'attribute')) {
+      const actor = fromUuidSync(this.test.actor);
+      if (actor.system.attributes[this.test.skillName]) {
+        this.test.attribute = this.test.skillName;
+      } else {
+        // maybe a custom skill
+        let skill = actor.system.skills[this.test.skillName] ?? actor.itemTypes.customSkill.find(item => item.name === this.test.skillName);
+        this.test.attribute = skill?.baseAttribute ?? '';
+      }
+    }
+
     // Ensure all relevant fields are Number
     for (const key of Object.keys(DEFAULT_TEST))
       if (typeof DEFAULT_TEST[key] === 'number' && typeof this.test[key] !== 'number')
@@ -320,9 +332,32 @@ export class TestDialog extends HandlebarsApplicationMixin(ApplicationV2) {
    */
   static async #onRoll(event, form, formData) {
     const fields = formData.object;
+    const oldattr = this.test.attribute;
     foundry.utils.mergeObject(this.test, fields, { inplace: true });
 
     this.test.explicitBonus = fields.bonus !== null;
+    const myActor = fromUuidSync(this.test.actor);
+
+    // Perhaps the choice of skill has changed.
+    if (this.test.actorType !== 'vehicle' && this.test.attribute !== oldattr) {
+      const skill = myActor.system.skills?.[this.test.skillName];
+      const attr = myActor.system.attributes?.[this.test.attribute];
+      if (skill && attr) {
+        this.test.skillValue = skill.value;
+        // Need to keep any modifications to the skill as well as the adds
+        if (skill.baseAttribute !== this.test.attribute)
+          this.test.skillValue += (attr.value - myActor.system.attributes[skill.baseAttribute].value)
+      } else if (attr && this.test.skillName === this.test.attribute) {
+        // No skill, so must be a test that relies only on attribute?
+        this.test.skillValue = attr.value;
+      }
+    }
+    // Don't store separate attribute if it matches the default for the skill.
+    if (this.test.attribute) {
+      const skill = myActor.system.skills?.[this.test.skillName];
+      if (skill && skill.baseAttribute === this.test.attribute)
+        delete this.test.attribute;
+    }
 
     if (this.mode !== 'update') {
 
@@ -334,7 +369,6 @@ export class TestDialog extends HandlebarsApplicationMixin(ApplicationV2) {
       //
       if (this.test.attackOptions) {
 
-        const myActor = fromUuidSync(this.test.actor);
         const myItem = this.test.itemId && myActor.items.get(this.test.itemId);
         if (
           myItem?.weaponWithAmmo &&

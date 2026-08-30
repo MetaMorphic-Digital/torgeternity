@@ -114,6 +114,8 @@ export class CommonActorData extends BaseActorData {
         trick: new fields.SchemaField({ value: notPersistedNumber(), mod: notPersistedNumber() },
           { persisted: false }),
         toughness: notPersistedNumber(),
+        shock: new fields.SchemaField({ mod: notPersistedNumber() }, { persisted: false }),
+        wounds: new fields.SchemaField({ mod: notPersistedNumber() }, { persisted: false }),
       }, { persisted: false }),
     });
   }

@@ -1,0 +1,9 @@
+<fieldset class="half-width">
+  <legend>{{localize "torgeternity.sheetLabels.actorOptions"}}</legend>
+
+  <div class="skill-check-options flexrow">
+    <select name="attribute" data-dtype="String">
+      {{selectOptions (ifThen test.attribute config.attributeTypes config.attributeChoices) selected=test.attribute localize=true}}
+    </select>
+  </div>
+</fieldset>

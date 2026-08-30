@@ -2,6 +2,11 @@
 
 - Translations by Durak (French), Helmut (German), and Teotimus (Spanish).
 
+## 14.5.0 - QOL improvements
+- **Non-Lethal vs Threats**: Non-lethal damage will no longer mark Threats (or vehicles) as dead, but will mark them as Unconscious.
+- **Modify Wounds/Shock received from all sources**: Add two new data fields to the Actor data model, which will modify the number of wounds/shock received by the Actor from any source:  `system.defenses.shock.mod` and `system.defenses.wounds.mod`  (the `mod` is ADDED to the number of shock/wounds inflicted, so use an AE with SUBTRACT change if the shock/wounds should be reduced [can't be reduced below 0]).
+- **Modify Attribute used for a Skill Test**: Add new `Attribute` field to the Test Dialog, to allow the attribute being used for a Skill test to be modified away from the default attribute set on the Actor sheet. This is useful for one-off changes to the skill's relevant attribute. The use of a non-default attribute is shown in the Skill Value box of the test's chat message. (Doesn't work for skill checks triggered from vehicles)
+
 ## 14.4.0 - Concentration and others
 - When using the automation of **special destiny cards** being played, the last "action" chat card for the actor is used, rather than finding the most recent chat card of any type (which might not be an actual action).
 - Allow modifications to the Action Total on a **Concentration Check** (and provide a manual 'Cancel Concentration' button to remove concentration on a failure).

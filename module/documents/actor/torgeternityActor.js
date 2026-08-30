@@ -154,12 +154,11 @@ export default class TorgeternityActor extends foundry.documents.Actor {
       let setUnconscious;
 
       if (options.woundsExceeded) {
-        if (this.type === 'stormknight') {
-          if (options.nonLethal) // nonLethal damage won't require a Defeat Test for SKs
-            setUnconscious = true;
-          else
-            this.notifyDefeat();
-        } else if (game.settings.get('torgeternity', 'autoWound'))
+        if (options.nonLethal) // nonLethal damage will only KO, not kill (no defeat test for SKs)
+          setUnconscious = true;
+        else if (this.type === 'stormknight')
+          this.notifyDefeat();
+        else if (game.settings.get('torgeternity', 'autoWound'))
           this.toggleStatusEffect('dead', { active: true, overlay: true });
       }
 
@@ -371,16 +370,17 @@ export default class TorgeternityActor extends foundry.documents.Actor {
   applyDamages(shock, wounds, options = {}) {
     let updates = {};
     let result = {};
+    // Possibly modify by any AEs on the base Actor
     // No clamping of values
     if (shock && this.type !== 'vehicle') {
-      const newvalue = this.system.shock.value + shock;
+      const newvalue = this.system.shock.value + Math.max(0, shock + this.system.defenses.shock.mod);
       if (newvalue > this.system.shock.max) result.shockExceeded = true;
-      updates['system.shock.value'] = this.system.shock.value + shock;
+      updates['system.shock.value'] = newvalue;
     }
     if (wounds) {
-      const newvalue = this.system.wounds.value + wounds;
+      const newvalue = this.system.wounds.value + Math.max(0, wounds + this.system.defenses.wounds.mod);
       if (newvalue > this.system.wounds.max) result.woundsExceeded = true;
-      updates['system.wounds.value'] = this.system.wounds.value + wounds;
+      updates['system.wounds.value'] = newvalue;
     }
     this.update(updates, options);
     return result;

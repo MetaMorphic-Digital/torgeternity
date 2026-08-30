@@ -27,6 +27,7 @@ export class ChatMessageTorg extends foundry.documents.ChatMessage {
       const context = { ...this.system }; // make copy
       context.isOpen = game.settings.get('torgeternity', 'showCheckDetails') ? "open" : "";
       context.ownsActor = fromUuidSync(context.actor)?.isOwner;
+      context.attributeLabel = (context.attribute && context.skillName !== context.attribute) ? `(${_loc('torgeternity.attributes.' + context.attribute)})` : '';
       for (const target of context.targets)
         if (!target.dummyTarget && fromUuidSync(target.uuid, { strict: false })?.isOwner) target.ownsTarget = true;
 

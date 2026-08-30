@@ -40,6 +40,7 @@ export const preloadTemplates = async function () {
     'systems/torgeternity/templates/actors/vehicle/background.hbs',
 
     // Test Dialogs
+    'systems/torgeternity/templates/testDialogs/actor-options.hbs',
     'systems/torgeternity/templates/testDialogs/attack-options.hbs',
     'systems/torgeternity/templates/testDialogs/bonus-selector.hbs',
     'systems/torgeternity/templates/testDialogs/difficulty-selector.hbs',

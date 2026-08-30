@@ -65,6 +65,11 @@ export function initConfig() {
     strength: 'torgeternity.attributes.strength',
   };
 
+  torgeternity.attributeChoices = {
+    [""]: '',
+    ...torgeternity.attributeTypes
+  }
+
   torgeternity.zones = {
     pure: 'torgeternity.cosms.pure',
     dominant: 'torgeternity.cosms.dominant',
