@@ -449,7 +449,7 @@
                 data-unskilleduse="0"
                 {{disabled (not @root.editable)}}
                 {{#if skill.system.isFav}}data-isfav="true" {{/if}}
-                data-name="{{skill.name}}">
+                data-name="{{ifThen skill.system.slug skill.system.slug skill.name}}">
                 {{skill.name}}
               </a>
               {{#if skill.system.isFav}}

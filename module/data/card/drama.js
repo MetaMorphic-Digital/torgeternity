@@ -3,13 +3,8 @@ const fields = foundry.data.fields;
  * @inheritdoc
  */
 export class DramaCardData extends foundry.abstract.TypeDataModel {
-  /**
-   *
-   * @returns {object} Schema fragment for a Storm Knight or Threat
-   */
-  static conditionField(label) {
-    return new fields.StringField({ initial: 'none', choices: CONFIG.torgeternity.dramaConflicts, label: `torgeternity.dramaCard.${label}`, required: true, blank: false, nullable: false })
-  }
+
+  static LOCALIZATION_PREFIXES = ["CARD", "CARD.DRAMA"];
 
   static defineSchema() {
     return {
@@ -26,6 +21,15 @@ export class DramaCardData extends foundry.abstract.TypeDataModel {
       rule: new fields.StringField({ initial: '', label: 'torgeternity.dramaCard.rule' }),
       villainsConditionsDramatic: DramaCardData.conditionField('villainsConflict'),
       villainsConditionsStandard: DramaCardData.conditionField('villainsConflict'),
+      macro: new fields.DocumentUUIDField({ type: "Macro" }), // triggered when the card is played
     };
+  }
+
+  /**
+   *
+   * @returns {object} Schema fragment for a Storm Knight or Threat
+   */
+  static conditionField(label) {
+    return new fields.StringField({ initial: 'none', choices: CONFIG.torgeternity.dramaConflicts, label: `torgeternity.dramaCard.${label}`, required: true, blank: false, nullable: false })
   }
 }

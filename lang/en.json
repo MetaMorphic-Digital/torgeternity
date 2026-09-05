@@ -119,7 +119,8 @@
       "dexterity": "Dexterity",
       "mind": "Mind",
       "spirit": "Spirit",
-      "strength": "Strength"
+      "strength": "Strength",
+      "zero": "---"
     },
     "axioms": {
       "magic": "Magic",
@@ -1606,6 +1607,10 @@
   },
   "CARD.FIELDS": {
     "number.label": "Number",
+    "macro": {
+      "label": "On Play Macro",
+      "hint": "This macro will be invoked when the card is played"
+    },
     "system.special": "Special Ability"
   },
   "CONTROLS": {

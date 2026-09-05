@@ -519,7 +519,7 @@ export default class TorgCombat extends Combat {
     this.#currentDisposition = firstNotTaken?.token?.disposition ?? CONST.TOKEN_DISPOSITIONS.SECRET;
 
     // Combat.updateTurnMarkers won't add new ones!
-    if (this.#currentDisposition != old)
+    if (this.#currentDisposition !== old)
       for (const combatant of this.turns)
         if (combatant.token?.rendered)
           combatant.token?.object?.renderFlags.set({ refreshTurnMarker: true });

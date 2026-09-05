@@ -2,6 +2,25 @@
 
 - Translations by Durak (French), Helmut (German), and Teotimus (Spanish).
 
+## 14.6.0 - Skills, Perks & Cards
+- **Effects button** in skill check chat cards, the "+Effects" button's tooltip now lists the Active Effcts which will be transferred.
+- **Periculum macro** should not use any modifiers in the pseudo-test chat message result.
+- **Active Effects: Source** will now display only "xxx" not "xxx (xxx)" if "xxx" and "(xxx)" are the same string (typically if the source was directly from an Actor rather than an Item).
+- **Trigger Macro from Card usage**: Allow any card in any deck to have a Macro attached to it, which will be triggered when that card is played or discarded from a player's hand. Variables passed to the macro are:
+  - `operation` - `play` or `discard` (might be expanded in the future to include 'draw', 'pass', etc.)
+  - `actor` - the Actor who played the card
+  - `card` - the Card that is being played
+(The playing user's permissions is used for what the Macro is able to achieve.)
+- **No attribute option for skills**: Allow skills to have no attribute defined for their use. It allows non-standard custom skills to be used on Actors.
+- **Perks**
+  - Each Enhancement and Limitation can be deleted separately, it no longer deletes only the last entry in the list.
+  - Dropping an item into the Enhancements tab of a Perk will create an additional Enhancement entry from that item (and include a link to the original dropped item).
+  - (**Note**: Items to be inherited via the Inheritance tab, must now be dropped onto the Perk while the Inheritance tab is selected.)
+- **Custom Skill Improvements**
+  - **Active Effects**: A custom skill can be modified by an Active Effect by using the key `system.customSkills.<slug>.mod` where `<slug>` is the slugified version of the custom skill's name. (e.g. The skill "Pop Tart" will have a slug of `pop-tart`)
+  - **@Check[customskillslug]**: Allow the slug of a custom skill name to appear in an `@Check` inline enricher.
+  - The `slug` for a custom skill is displayed in the tooltip of the name in the custom skill item card.
+
 ## 14.5.0 - QOL improvements
 - **Non-Lethal vs Threats**: Non-lethal damage will no longer mark Threats (or vehicles) as dead, but will mark them as Unconscious.
 - **Modify Wounds/Shock received from all sources**: Add two new data fields to the Actor data model, which will modify the number of wounds/shock received by the Actor from any source:  `system.defenses.shock.mod` and `system.defenses.wounds.mod`  (the `mod` is ADDED to the number of shock/wounds inflicted, so use an AE with SUBTRACT change if the shock/wounds should be reduced [can't be reduced below 0]).

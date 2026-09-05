@@ -39,7 +39,7 @@ export class TorgApplyEffectRegionBehaviorType extends foundry.data.regionBehavi
   static async #onTokenEnter(event) {
     if (!event.user.isSelf) return;
     const { token, movement } = event.data;
-    if (this.disposition != TorgApplyEffectRegionBehaviorType.NO_DISPOSITION &&
+    if (this.disposition !== TorgApplyEffectRegionBehaviorType.NO_DISPOSITION &&
       token.disposition !== this.disposition) return;
     const actor = token?.actor;
     if (!actor) return;

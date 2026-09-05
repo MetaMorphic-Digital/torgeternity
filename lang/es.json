@@ -125,7 +125,8 @@
       "dexterity": "Destreza",
       "mind": "Mente",
       "spirit": "Espíritu",
-      "strength": "Fuerza"
+      "strength": "Fuerza",
+      "zero": "---"
     },
     "axioms": {
       "magic": "Mágico",
@@ -1612,6 +1613,10 @@
   },
   "CARD.FIELDS": {
     "number.label": "Número",
+    "macro": {
+      "label": "Macro al jugar carta",
+      "hint": "Esta macro se activará cuando se juegue la carta"
+    },
     "system.special": "Acción especial"
   },
   "CONTROLS": {

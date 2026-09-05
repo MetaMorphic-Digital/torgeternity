@@ -207,7 +207,7 @@
           {{/if}}
           {{#if showApplyEffects}}
             <a class="button roll-button" data-action="applyEffectsActor"
-              data-tooltip="{{localize 'torgeternity.sheetLabels.applyEffectsActorTooltip'}}">
+              data-tooltip-html="{{localize 'torgeternity.sheetLabels.applyEffectsActorTooltip'}}:<ul>{{#each showApplyEffects}}<li>{{this}}</li>{{/each}}</ul>">
               <i class="fa-solid fa-person-rays"></i>
               {{localize 'torgeternity.sheetLabels.applyEffects'}}</a>
           {{/if}}
@@ -306,7 +306,7 @@
                     {{/if}}
                     {{#if this.showApplyEffects}}
                       <a class="button roll-button" data-action="applyEffectsTarget"
-                        data-tooltip="{{localize 'torgeternity.sheetLabels.applyEffectsTargetTooltip'}}">
+                        data-tooltip-html="{{localize 'torgeternity.sheetLabels.applyEffectsTargetTooltip'}}:<ul>{{#each this.showApplyEffects}}<li>{{this}}</li>{{/each}}</ul>">
                         <i class="fa-solid fa-person-rays"></i>
                         {{localize 'torgeternity.sheetLabels.applyEffects'}}</a>
                     {{/if}}

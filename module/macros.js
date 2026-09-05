@@ -740,10 +740,13 @@ export class TorgeternityMacros {
       },
     });
 
+    let [skillName, damage, addBDs, applyArmor, weaponAP] = info;
+    damage = parseInt(damage);
+    addBDs = parseInt(addBDs);
+    weaponAP = parseInt(weaponAP);
+
     const targets = Array.from(game.user.targets).map(token => oneTestTarget(token));
-    for (const target of targets) {
-      target.damage = parseInt(info[1]);
-    }
+    targets.forEach(target => target.damage = damage);
 
     return renderSkillChat({
       testType: 'custom',
@@ -753,21 +756,22 @@ export class TorgeternityMacros {
       actorType: 'threat',
       // Ensure a dice result of 10 vs DN of 10 is a success
       DNDescriptor: 'standard',
+      ignoreModifiers: true,
       skillValue: 10,
       rollTotal: 11,
       diceList: [10],
       combinedRollTotal: 10,
       bonus: 0,
       attackTraits: [],
-      addBDs: parseInt(info[2]),
+      addBDs,
       amountBD: 0,
       isAttack: true,
-      skillName: info[0],
+      skillName,
       isFav: false,
       unskilledUse: true,
-      damage: parseInt(info[1]),
-      weaponAP: parseInt(info[4]),
-      applyArmor: info[3],
+      damage,
+      weaponAP,
+      applyArmor,
       darknessModifier: 0,
       type: 'attack',
       applySize: false,

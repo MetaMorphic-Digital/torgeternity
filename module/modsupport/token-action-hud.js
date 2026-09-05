@@ -82,7 +82,7 @@ export default async function setupTokenActionHud(coreModule) {
     }
 
     async #getAttributes(actor, tokenId, parent) {
-      const actions = Object.entries(actor.system.attributes).map(([key, attribute]) => {
+      const actions = Object.entries(actor.system.attributes).filter(([key]) => key !== 'zero').map(([key, attribute]) => {
         return {
           id: key,
           name: _loc(`torgeternity.attributes.${key}`) + ` (${attribute.value})`,
@@ -118,10 +118,10 @@ export default async function setupTokenActionHud(coreModule) {
           }
         }).concat(actor.itemTypes.customSkill.map(skill => {
           return {
-            id: skill.id,
+            id: skill.system.slug,
             name: skill.name + (skill.system.isFav ? FAVOURED : '') + ` (${skill.system.value || '-'})`,  // already in the local language
             groupName: 'other', // for local filtering
-            encodedValue: [ACTION_SKILL, actor.id, tokenId, skill.id].join(this.delimiter),
+            encodedValue: [ACTION_SKILL, actor.id, tokenId, skill.system.slug].join(this.delimiter),
             system: skill
           }
         }));
@@ -281,7 +281,7 @@ export default async function setupTokenActionHud(coreModule) {
     async handleActionClick(event, encodedValue) {
       let payload = encodedValue.split(this.delimiter);
 
-      if (payload.length != 4) {
+      if (payload.length !== 4) {
         super.throwInvalidValueErr();
       }
 

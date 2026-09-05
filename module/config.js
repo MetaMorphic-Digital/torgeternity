@@ -63,6 +63,7 @@ export function initConfig() {
     mind: 'torgeternity.attributes.mind',
     spirit: 'torgeternity.attributes.spirit',
     strength: 'torgeternity.attributes.strength',
+    zero: 'torgeternity.attributes.zero',
   };
 
   torgeternity.attributeChoices = {

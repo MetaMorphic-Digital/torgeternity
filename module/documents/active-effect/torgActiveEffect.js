@@ -120,7 +120,7 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
         const parts = this.origin.split('.');
         const originActor = game.actors.get(parts[1]);
         if (originActor === this.parent) return origindoc.name;
-        if (origindoc.name === this.name) return originActor.name;  // don't duplicate entry name in AE list
+        if (origindoc.name === this.name || origindoc.name === originActor.name) return originActor.name;  // don't duplicate entry name in AE list
         return `${origindoc.name} (${originActor.name})`;
       }
       if (origindoc instanceof foundry.documents.RegionBehavior)

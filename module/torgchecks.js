@@ -243,166 +243,171 @@ export async function renderSkillChat(test, origChatMessage) {
     }
 
     // Set Modifiers and Chat Content Relating to Modifiers
-    let modifiers = [];
     test.modifiers = 0;
     test.modifierText = '';
-    if (test.testType === 'soak') {
-      test.vulnerableModifier = 0;
-      test.darknessModifier = 0;
-      test.rangeModifier = 0;
-    }
 
-    if (test.woundModifier < 0) {
-      modifiers.push(modifierString('torgeternity.chatText.check.modifier.wounds', test.woundModifier));
-      test.modifiers += test.woundModifier;
-    }
+    // No modifiers apply to custom rolls (i.e. Periculum)
+    if (!test.ignoreModifiers) {
+      let modifiers = [];
 
-    if (test.stymiedModifier < 0) {
-      if (test.stymiedModifier === -2) {
-        modifiers.push(modifierString('torgeternity.chatText.check.modifier.stymied', -2));
+      if (test.testType === 'soak') {
+        test.vulnerableModifier = 0;
+        test.darknessModifier = 0;
+        test.rangeModifier = 0;
+      }
+
+      if (test.woundModifier < 0) {
+        modifiers.push(modifierString('torgeternity.chatText.check.modifier.wounds', test.woundModifier));
+        test.modifiers += test.woundModifier;
+      }
+
+      if (test.stymiedModifier < 0) {
+        if (test.stymiedModifier === -2) {
+          modifiers.push(modifierString('torgeternity.chatText.check.modifier.stymied', -2));
+          test.modifiers += -2;
+        } else if (test.stymiedModifier === -4) {
+          modifiers.push(modifierString('torgeternity.chatText.check.modifier.veryStymied', -4));
+          test.modifiers += -4;
+        }
+      }
+
+      // Only apply concentration modifier if a relevant skill (or a concentration check)
+      if (test.concentratingModifier < 0) {
+        modifiers.push(modifierString('torgeternity.chatText.check.modifier.concentrating', test.concentratingModifier));
+        test.modifiers += test.concentratingModifier;
+      }
+      if (test.darknessModifier < 0) {
+        modifiers.push(modifierString('torgeternity.chatText.check.modifier.darkness', test.darknessModifier));
+        test.modifiers += test.darknessModifier;
+      }
+
+      if (test.waitingModifier < 0) {
+        modifiers.push(modifierString('torgeternity.chatText.check.modifier.waiting', test.waitingModifier));
+        test.modifiers += test.waitingModifier;
+      }
+
+      if (test.movementModifier < 0) {
+        modifiers.push(modifierString('torgeternity.chatText.check.modifier.running', test.movementModifier));
         test.modifiers += -2;
-      } else if (test.stymiedModifier === -4) {
-        modifiers.push(modifierString('torgeternity.chatText.check.modifier.veryStymied', -4));
-        test.modifiers += -4;
-      }
-    }
-
-    // Only apply concentration modifier if a relevant skill (or a concentration check)
-    if (test.concentratingModifier < 0) {
-      modifiers.push(modifierString('torgeternity.chatText.check.modifier.concentrating', test.concentratingModifier));
-      test.modifiers += test.concentratingModifier;
-    }
-    if (test.darknessModifier < 0) {
-      modifiers.push(modifierString('torgeternity.chatText.check.modifier.darkness', test.darknessModifier));
-      test.modifiers += test.darknessModifier;
-    }
-
-    if (test.waitingModifier < 0) {
-      modifiers.push(modifierString('torgeternity.chatText.check.modifier.waiting', test.waitingModifier));
-      test.modifiers += test.waitingModifier;
-    }
-
-    if (test.movementModifier < 0) {
-      modifiers.push(modifierString('torgeternity.chatText.check.modifier.running', test.movementModifier));
-      test.modifiers += -2;
-    }
-
-    if (test.multiModifier < 0) {
-      modifiers.push(modifierString('torgeternity.chatText.check.modifier.multiAction', test.multiModifier));
-      test.modifiers += test.multiModifier;
-    }
-
-    if (test.targetsModifier < 0) {
-      modifiers.push(modifierString('torgeternity.chatText.check.modifier.multiTarget', test.targetsModifier));
-      test.modifiers += test.targetsModifier;
-    }
-
-    if (test.other1Modifier) {
-      modifiers.push(modifierString(test.other1Description, test.other1Modifier));
-      test.modifiers += test.other1Modifier;
-    }
-
-    if (test.other2Modifier) {
-      modifiers.push(modifierString(test.other2Description, test.other2Modifier));
-      test.modifiers += test.other2Modifier;
-    }
-
-    if (test.other3Modifier) {
-      modifiers.push(modifierString(test.other3Description, test.other3Modifier));
-      test.modifiers += test.other3Modifier;
-    }
-
-    // Apply target-related modifiers
-    if (!target.dummyTarget) {
-      // Apply the size modifier in appropriate circumstances
-      if (test.applySize && test.sizeModifier) {
-        test.modifiers += test.sizeModifier;
-        modifiers.push(modifierString('torgeternity.chatText.check.modifier.targetSize', test.sizeModifier));
       }
 
-      // Apply target vulnerability modifier
-      if (test.vulnerableModifier === 2) {
-        test.modifiers += test.vulnerableModifier;
-        modifiers.push(modifierString('torgeternity.chatText.check.modifier.targetVulnerable', test.vulnerableModifier));
-      } else if (test.vulnerableModifier === 4) {
-        test.modifiers += test.vulnerableModifier;
-        modifiers.push(modifierString('torgeternity.chatText.check.modifier.targetVeryVulnerable', test.vulnerableModifier));
+      if (test.multiModifier < 0) {
+        modifiers.push(modifierString('torgeternity.chatText.check.modifier.multiAction', test.multiModifier));
+        test.modifiers += test.multiModifier;
       }
-    }
 
-    if (test.calledShotModifier) {
-      test.modifiers += test.calledShotModifier;
-      modifiers.push(modifierString('torgeternity.chatText.check.modifier.calledShot', test.calledShotModifier));
-    }
-
-    if (test.burstModifier) {
-      test.modifiers += test.burstModifier;
-      if (test.burstModifier === 2) {
-        modifiers.push(modifierString('torgeternity.chatText.check.modifier.shortBurst', test.burstModifier));
-      } else if (test.burstModifier === 4) {
-        modifiers.push(modifierString('torgeternity.chatText.check.modifier.longBurst', test.burstModifier));
-      } else if (test.burstModifier === 6) {
-        modifiers.push(modifierString('torgeternity.chatText.check.modifier.heavyBurst', test.burstModifier));
+      if (test.targetsModifier < 0) {
+        modifiers.push(modifierString('torgeternity.chatText.check.modifier.multiTarget', test.targetsModifier));
+        test.modifiers += test.targetsModifier;
       }
-    }
 
-    if (test.allOutFlag) {
-      test.modifiers += 4;
-      modifiers.push(modifierString('torgeternity.chatText.check.modifier.allOutAttack', 4));
-
-      // if it's an all-out-attack, apply very vulnerable to attacker
-      // duration = 2 since it is testActor's current turn, and the duration decreases at the END of each turn
-      if (first) await testActor.setVeryVulnerable(testActor.uuid, 2);
-    }
-
-    if (test.aimedFlag) {
-      test.modifiers += 4;
-      modifiers.push(modifierString('torgeternity.chatText.check.modifier.aimedShot', 4));
-    }
-
-    if (test.blindFireFlag) {
-      test.modifiers += -6;
-      modifiers.push(modifierString('torgeternity.chatText.check.modifier.blindFire', -6));
-    }
-
-    if (test.concealmentModifier) {
-      test.modifiers += test.concealmentModifier;
-      modifiers.push(modifierString('torgeternity.chatText.check.modifier.targetConcealment', test.concealmentModifier));
-    }
-
-    if (test.rangeModifier) {
-      test.modifiers += test.rangeModifier;
-      modifiers.push(modifierString('torgeternity.chatText.check.modifier.targetRange', test.rangeModifier));
-    }
-
-    if (test.testType === 'power' && test.powerModifier) {
-      test.modifiers += test.powerModifier;
-      modifiers.push(modifierString('torgeternity.chatText.check.modifier.powerModifier', test.powerModifier));
-    }
-
-    // Apply vehicle-related modifiers
-    if (test.testType === 'chase' || test.testType === 'stunt' || test.testType === 'vehicleBase') {
-      if (test.maneuverModifier) {
-        test.modifiers += test.maneuverModifier;
-        modifiers.push(modifierString('torgeternity.stats.maneuverModifier', test.maneuverModifier));
+      if (test.other1Modifier) {
+        modifiers.push(modifierString(test.other1Description, test.other1Modifier));
+        test.modifiers += test.other1Modifier;
       }
-    }
 
-    if (test.testType === 'chase' && test.speedModifier) {
-      test.modifiers += test.speedModifier;
-      modifiers.push(modifierString('torgeternity.stats.speedModifier', test.speedModifier));
-    }
+      if (test.other2Modifier) {
+        modifiers.push(modifierString(test.other2Description, test.other2Modifier));
+        test.modifiers += test.other2Modifier;
+      }
 
-    if (!test.combinedAction) test.combinedAction = {};
-    test.combinedAction.torgBonus = getTorgValue(test.combinedAction.participants ?? 1);
-    if (test.combinedAction.torgBonus > 0) {
-      test.modifiers += test.combinedAction.torgBonus;
-      modifiers.push(modifierString('torgeternity.chatText.check.modifier.combinedAction', test.combinedAction.torgBonus));
-    }
+      if (test.other3Modifier) {
+        modifiers.push(modifierString(test.other3Description, test.other3Modifier));
+        test.modifiers += test.other3Modifier;
+      }
 
-    if (modifiers.length) {
-      test.modifierText = `<p>${modifiers.sort().join('<br>')}</p>`;
-      if (!singleResult && test.targets.length > 1) target.modifierText = test.modifierText;
+      // Apply target-related modifiers
+      if (!target.dummyTarget) {
+        // Apply the size modifier in appropriate circumstances
+        if (test.applySize && test.sizeModifier) {
+          test.modifiers += test.sizeModifier;
+          modifiers.push(modifierString('torgeternity.chatText.check.modifier.targetSize', test.sizeModifier));
+        }
+
+        // Apply target vulnerability modifier
+        if (test.vulnerableModifier === 2) {
+          test.modifiers += test.vulnerableModifier;
+          modifiers.push(modifierString('torgeternity.chatText.check.modifier.targetVulnerable', test.vulnerableModifier));
+        } else if (test.vulnerableModifier === 4) {
+          test.modifiers += test.vulnerableModifier;
+          modifiers.push(modifierString('torgeternity.chatText.check.modifier.targetVeryVulnerable', test.vulnerableModifier));
+        }
+      }
+
+      if (test.calledShotModifier) {
+        test.modifiers += test.calledShotModifier;
+        modifiers.push(modifierString('torgeternity.chatText.check.modifier.calledShot', test.calledShotModifier));
+      }
+
+      if (test.burstModifier) {
+        test.modifiers += test.burstModifier;
+        if (test.burstModifier === 2) {
+          modifiers.push(modifierString('torgeternity.chatText.check.modifier.shortBurst', test.burstModifier));
+        } else if (test.burstModifier === 4) {
+          modifiers.push(modifierString('torgeternity.chatText.check.modifier.longBurst', test.burstModifier));
+        } else if (test.burstModifier === 6) {
+          modifiers.push(modifierString('torgeternity.chatText.check.modifier.heavyBurst', test.burstModifier));
+        }
+      }
+
+      if (test.allOutFlag) {
+        test.modifiers += 4;
+        modifiers.push(modifierString('torgeternity.chatText.check.modifier.allOutAttack', 4));
+
+        // if it's an all-out-attack, apply very vulnerable to attacker
+        // duration = 2 since it is testActor's current turn, and the duration decreases at the END of each turn
+        if (first) await testActor.setVeryVulnerable(testActor.uuid, 2);
+      }
+
+      if (test.aimedFlag) {
+        test.modifiers += 4;
+        modifiers.push(modifierString('torgeternity.chatText.check.modifier.aimedShot', 4));
+      }
+
+      if (test.blindFireFlag) {
+        test.modifiers += -6;
+        modifiers.push(modifierString('torgeternity.chatText.check.modifier.blindFire', -6));
+      }
+
+      if (test.concealmentModifier) {
+        test.modifiers += test.concealmentModifier;
+        modifiers.push(modifierString('torgeternity.chatText.check.modifier.targetConcealment', test.concealmentModifier));
+      }
+
+      if (test.rangeModifier) {
+        test.modifiers += test.rangeModifier;
+        modifiers.push(modifierString('torgeternity.chatText.check.modifier.targetRange', test.rangeModifier));
+      }
+
+      if (test.testType === 'power' && test.powerModifier) {
+        test.modifiers += test.powerModifier;
+        modifiers.push(modifierString('torgeternity.chatText.check.modifier.powerModifier', test.powerModifier));
+      }
+
+      // Apply vehicle-related modifiers
+      if (test.testType === 'chase' || test.testType === 'stunt' || test.testType === 'vehicleBase') {
+        if (test.maneuverModifier) {
+          test.modifiers += test.maneuverModifier;
+          modifiers.push(modifierString('torgeternity.stats.maneuverModifier', test.maneuverModifier));
+        }
+      }
+
+      if (test.testType === 'chase' && test.speedModifier) {
+        test.modifiers += test.speedModifier;
+        modifiers.push(modifierString('torgeternity.stats.speedModifier', test.speedModifier));
+      }
+
+      if (!test.combinedAction) test.combinedAction = {};
+      test.combinedAction.torgBonus = getTorgValue(test.combinedAction.participants ?? 1);
+      if (test.combinedAction.torgBonus > 0) {
+        test.modifiers += test.combinedAction.torgBonus;
+        modifiers.push(modifierString('torgeternity.chatText.check.modifier.combinedAction', test.combinedAction.torgBonus));
+      }
+
+      if (modifiers.length) {
+        test.modifierText = `<p>${modifiers.sort().join('<br>')}</p>`;
+        if (!singleResult && test.targets.length > 1) target.modifierText = test.modifierText;
+      }
     }
 
     // Add +3 cards to bonus
@@ -471,8 +476,8 @@ export async function renderSkillChat(test, origChatMessage) {
         if (ammo) test.effects.push(...ammo.effects.filter(ef => appliesToTest(ef, test, target)).map(ef => ef.uuid));
       }
     }
-    test.showApplyEffects = !!test.effects.map(fx => fromUuidSync(fx)).find(fx => fx.transfersToActor);
-    target.showApplyEffects = !!test.effects.map(fx => fromUuidSync(fx)).find(fx => fx.transfersToTarget);
+    test.showApplyEffects = test.effects.map(fx => fromUuidSync(fx)).filter(fx => fx.transfersToActor).map(fx => fx.name);
+    target.showApplyEffects = test.effects.map(fx => fromUuidSync(fx)).filter(fx => fx.transfersToTarget).map(fx => fx.name);
 
     // Approved Action Processing
     target.successfulDefendApprovedAction = false;
@@ -587,14 +592,14 @@ export async function renderSkillChat(test, origChatMessage) {
           adjustedDamage = applyNumericEffects('test.damage', adjustedDamage, effects);
         }
         // NOTE: target.toughness already includes target.armour
-        target.targetAdjustedToughness = target.toughness - target.armor;
+        target.adjustedToughness = target.toughness - target.armor;
         // If armor and cover can assist, adjust toughness based on AP effects and cover modifier
         if (test.applyArmor) {
           // "lowestArmor" trait on attack means armor with "torso" trait is ignored.
           const armor = ((test.attackTraits.includes('lowestArmor') && !target.defenseTraits.includes('fullBody')) ? 0 : target.armor) +
             getExtraProtection(test.attackTraits, target.defenses, 'Armor');
           const weaponAP = applyNumericEffects('test.weaponAP', test.weaponAP, effects);
-          target.targetAdjustedToughness += Math.max(0, armor - weaponAP) + test.coverModifier;
+          target.adjustedToughness += Math.max(0, armor - weaponAP) + test.coverModifier;
         }
 
         // Generate damage description and damage sublabel
@@ -642,7 +647,7 @@ export async function renderSkillChat(test, origChatMessage) {
           }
           // adjustedDamage is already computed from test.damage
           // then modify test.damage for following future computation, and modify the adjustedDamage
-          const damage = torgDamage(adjustedDamage, target.targetAdjustedToughness, {
+          const damage = torgDamage(adjustedDamage, target.adjustedToughness, {
             attackTraits: test.attackTraits,
             defenseTraits: target?.defenseTraits,
             soakWounds: target.soakWounds,
@@ -652,7 +657,7 @@ export async function renderSkillChat(test, origChatMessage) {
           target.showApplyDamage = (damage.wounds || damage.shocks);
           target.damageDescription = damage.label;
           target.damageSubDescription =
-            `${_loc('torgeternity.chatText.check.result.damage')} ${adjustedDamage} vs. ${target.targetAdjustedToughness} ${_loc('torgeternity.chatText.check.result.toughness')}`;
+            `${_loc('torgeternity.chatText.check.result.damage')} ${adjustedDamage} vs. ${target.adjustedToughness} ${_loc('torgeternity.chatText.check.result.toughness')}`;
 
           // 'stagger' trait on a weapon inflicts STYMIED after any damage is dealt.
           if ((damage.shocks > 0 || damage.wounds > 0) && test.attackTraits?.includes('stagger')) {
@@ -709,7 +714,7 @@ export async function renderSkillChat(test, origChatMessage) {
     // get disposition from prototype Token if there's no real token.
     const token = testActor.getActiveTokens(false, true)?.[0] || testActor.prototypeToken;  // (linked, document [rather than PlaceableObject])
     if (game.combat?.active && token &&
-      ((token.disposition == CONST.TOKEN_DISPOSITIONS.FRIENDLY && game.combat.heroConflict === 'up') ||
+      ((token.disposition === CONST.TOKEN_DISPOSITIONS.FRIENDLY && game.combat.heroConflict === 'up') ||
         (token.disposition === CONST.TOKEN_DISPOSITIONS.HOSTILE && game.combat.villainConflict === 'up')))
       test.upClass = 'drama-up';
 

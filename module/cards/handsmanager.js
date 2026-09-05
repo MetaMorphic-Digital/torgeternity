@@ -450,7 +450,7 @@ export class HandsManager extends HandlebarsApplicationMixin(ApplicationV2) {
 
 // Pooled cards appear before non-pooled cards
 function sortPooled(a, b) {
-  if (a.system.pooled != b.system.pooled) return a.system.pooled ? -1 : 1;
+  if (a.system.pooled !== b.system.pooled) return a.system.pooled ? -1 : 1;
   return ((a.sort ?? -Infinity) - (b.sort ?? -Infinity)) || 0;
 }
 

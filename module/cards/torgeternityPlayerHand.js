@@ -152,6 +152,7 @@ export default class torgeternityPlayerHand extends foundry.applications.sheets.
     const li = button.closest("li[data-card-id]");
     const stack = this.document;
     const card = stack.cards.get(li?.dataset.cardId);
+    const actorId = this.document?.flags?.torgeternity?.defaultHand;
 
     // Save any pending change to the form
     await this.submit({ operation: { render: false } });
@@ -159,182 +160,38 @@ export default class torgeternityPlayerHand extends foundry.applications.sheets.
     // Handle the control action
     switch (button.dataset.control) {
       case 'pass':
-        await this.playerPassDialog(card);
-        break;
+        return await this.playerPassDialog(card);
       case 'create':
-        getDocumentClass('Card').createDialog({}, { parent: this.object, pack: this.document.pack });
-        break;
+        return getDocumentClass('Card').createDialog({}, { parent: this.object, pack: this.document.pack });
       case 'edit':
-        card.sheet.render({ force: true });
-        break;
+        return card.sheet.render({ force: true });
       case 'delete':
-        card.deleteDialog();
-        break;
+        return card.deleteDialog();
       case 'deal':
-        this.document.dealDialog();
-        break;
+        return this.document.dealDialog();
       case 'draw':
-        this.document.drawDialog();
-        break;
+        return this.document.drawDialog();
       case 'pass':
-        this.document.passDialog();
-        break;
+        return this.document.passDialog();
       case 'reset':
         this._prepareCards('standard');
         this.document.recall();
         break
       case 'nextFace':
-        card.update({ face: card.face === null ? 0 : card.face + 1 });
-        break
+        return card.update({ face: card.face === null ? 0 : card.face + 1 });
       case 'prevFace':
-        card.update({ face: card.face === 0 ? null : card.face - 1 });
-        break
+        return card.update({ face: card.face === 0 ? null : card.face - 1 });
       case 'display':
         const image1 = new foundry.applications.apps.ImagePopout({ src: card.img, window: { title: card.name } });
         image1.render({ force: true }, { width: 425, height: 650 });
-        image1.shareImage();
-        break;
+        return image1.shareImage();
       case 'view':
         const image2 = new foundry.applications.apps.ImagePopout({ src: card.img, window: { title: card.name } });
-        image2.render({ force: true }, { width: 425, height: 650 });
-        break;
+        return image2.render({ force: true }, { width: 425, height: 650 });
       case 'discard':
-        {
-          if (event.shiftKey) {
-            card.recall();
-            break;
-          }
-          await card.update({ "system.pooled": false });
-          const settings = game.settings.get('torgeternity', 'deckSetting');
-          const discardPile = game.cards.get((card.type === 'destiny') ? settings.destinyDiscard : settings.cosmDiscard);
-          if (!discardPile) break;
-          await card.pass(discardPile, game.torgeternity.cardChatOptions);
-          card.toMessage({
-            content: `<div class="card-draw flexrow"><span class="card-chat-tooltip">
-            <img class="card-face" src="${card.img}"/><span><img src="${card.img}"></span></span>
-            <span class="card-name">${_loc('torgeternity.chatText.discardsCard')} ${card.name}</span>
-            </div>`,
-          });
-          break;
-        }
+        return event.shiftKey ? card.recall() : card.discard(actorId);
       case 'play':
-        {
-          await card.update({ "system.pooled": false });
-          const settings = game.settings.get('torgeternity', 'deckSetting');
-          const discardPile = game.cards.get((card.type === 'destiny') ? settings.destinyDiscard : settings.cosmDiscard);
-          if (!discardPile) break;
-          await card.pass(discardPile, game.torgeternity.cardChatOptions);
-          card.toMessage({
-            content: `<div class="card-draw flexrow"><span class="card-chat-tooltip">
-            <img class="card-face" src="${card.img}"/><span><img src="${card.img}"></span></span>
-            <span class="card-name">${_loc('torgeternity.chatText.playsCard')} ${card.name}</span>
-            </div>`,
-          });
-
-          // Update the owner's most recent chat card if a Drama, Hero or +3 card
-          const special = card.system?.special;
-          if (special &&
-            game.settings.get('torgeternity', 'autoApplyDestinyCard') &&
-            !event.shiftKey) {
-
-            const actorId = this.document?.flags?.torgeternity?.defaultHand;
-
-            // Some don't require a previous chat card
-            if (special === 'secondWind') {
-              const actor = game.actors.get(actorId);
-              if (!actor) return;
-              const shock = actor.system.shock?.value;
-              if (!shock) {
-                return ChatMessage.implementation.create({
-                  content: _loc('torgeternity.destinyCard.notify.secondWindNoShock', { name: actor.name })
-                });
-              }
-              const recovery = Math.min(shock, 5);
-              await actor.update({ 'system.shock.value': shock - recovery });
-              let extra = '';
-              if (actor.hasStatusEffect('unconscious')) {
-                extra = _loc('torgeternity.destinyCard.notify.secondWindNotKO');
-                actor.toggleStatusEffect('unconscious', { active: false });
-              }
-
-              return ChatMessage.implementation.create({
-                content: _loc('torgeternity.destinyCard.notify.secondWindRecovery', {
-                  name: actor.name,
-                  shock: recovery,
-                  extra,
-                })
-              });
-            }
-
-            // Reverse search through messages for first owned message
-            const actorUuid = `Actor.${actorId}`;
-            const chatMessage = game.messages.contents.findLast(msg => msg.type === 'action' && msg.system?.actor === actorUuid);
-            if (!chatMessage) break;
-            const test = chatMessage.system;
-            if (!test) return ui.notifications.info('torgeternity.destinyCard.notify.noTestAvailable', { localize: true });
-
-            switch (special) {
-              case 'plus3':  // TorgeternityChatLog#onPlus3
-              case 'plus3physical':
-              case 'plus3mental':
-                switch (special) {
-                  case 'plus3physical':
-                    if (test.plus3type && test.plus3type !== 'physical')
-                      return ui.notifications.info('torgeternity.destinyCard.notify.plus3notPhysical', { localize: true });
-                    break;
-                  case 'plus3mental':
-                    if (test.plus3type && test.plus3type !== 'mental')
-                      return ui.notifications.info('torgeternity.destinyCard.notify.plus3notMental', { localize: true });
-                    break;
-                }
-                // Check for MENTAL or PHYSICAL (test.attribute)
-                if (test.skillRollMenuStyle === 'hidden')
-                  return ui.notifications.info('torgeternity.destinyCard.notify.noLongerModifyActionTotal', { localize: true })
-                return TorgeternityChatLog.doPlus3(test, chatMessage);
-
-              case 'plus3other':
-                console.debug(`Destiny card '${special}' not automated yet`)
-                break;
-
-              case 'hero': // TorgeternityChatLog#onHero
-                if (test.skillRollMenuStyle === 'hidden')
-                  return ui.notifications.info('torgeternity.destinyCard.notify.noLongerModifyActionTotal', { localize: true });
-                if (test.heroTotal || test.skillRollMenuStyle === 'hidden')
-                  return ui.notifications.info('torgeternity.destinyCard.notify.alreadyPlayedHero', { localize: true });
-                return TorgeternityChatLog.doHero(test, chatMessage);
-
-              case 'drama': // TorgeternityChatLog#onDrama
-                if (test.skillRollMenuStyle === 'hidden')
-                  return ui.notifications.info('torgeternity.destinyCard.notify.noLongerModifyActionTotal', { localize: true });
-                if (test.dramaTotal || test.skillRollMenuStyle === 'hidden')
-                  return ui.notifications.info('torgeternity.destinyCard.notify.alreadyPlayedDrama', { localize: true });
-                return TorgeternityChatLog.doDrama(test, chatMessage);
-
-              case 'bd': // TorgeternityChatLog#onBd
-                {
-                  if (test.targets.length > 1)
-                    return ui.notifications.info('torgeternity.destinyCard.notify.tooManyTargets', { localize: true });
-                  const target = test.targets[0];
-                  if (target.showBD === false)
-                    return ui.notifications.info('torgeternity.destinyCard.notify.tooLateForBD', { localize: true });
-                  return TorgeternityChatLog.doBd(test, chatMessage, target);
-                }
-
-              case 'secondWind': // already handled
-                break;
-
-              case 'seizeInitiative':
-                // PROMPT: keep drama card for another round, or draw a new drama card immediately
-                console.debug(`Destiny card '${special}' not automated yet`)
-                break;
-
-              default:
-                console.debug(`Destiny card '${special}' unknown`)
-                break;
-            }
-          }
-          break;
-        }
+        return card.play(!event.shiftKey, actorId);
     }
   }
 

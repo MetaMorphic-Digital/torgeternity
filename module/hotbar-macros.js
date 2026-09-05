@@ -168,10 +168,7 @@ async function rollSkillMacro(skillName, attributeName, isInteractionAttack, DND
   if (!isAttributeTest) {
     const skillNameKey = skillName; // .toLowerCase(); // skillName required to be internal value
     // would be nice to use display value as an input instead but we can't translate from i18n to internal values
-    skill =
-      actor && Object.keys(actor.system.skills).includes(skillNameKey)
-        ? actor.system.skills[skillNameKey]
-        : null;
+    skill = actor?.system.skills?.[skillNameKey] ?? actor?.system.customSkills?.[skillNameKey];
     // Maybe a custom skill?
     if (!skill && actor) {
       skill = actor.itemTypes.customSkill?.find(it => it.name === skillName)?.system;

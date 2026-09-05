@@ -540,7 +540,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     if (event.shiftKey) return this.#adjustDamage(event);
     const { test, targetActor, testTarget, chatMessage } = getChatTarget(button);
     if (!targetActor || !testTarget) return;
-    const damage = torgDamage(testTarget.damage, testTarget.targetAdjustedToughness, {
+    const damage = torgDamage(testTarget.damage, testTarget.adjustedToughness, {
       attackTraits: test.attackTraits,
       defenseTraits: testTarget.defenseTraits,
       soakWounds: testTarget.soakWounds
@@ -665,7 +665,7 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     const { test, targetActor, testTarget, chatMessage } = getChatTarget(event.target);
     if (!targetActor || !testTarget) return;
 
-    const newDamage = torgDamage(testTarget.damage, testTarget.targetAdjustedToughness,
+    const newDamage = torgDamage(testTarget.damage, testTarget.adjustedToughness,
       {
         attackTraits: test.attackTraits,
         defenseTraits: testTarget.defenseTraits,

@@ -4,16 +4,16 @@ import { applyNumericEffects } from '../../torgchecks.js';
 
 const fields = foundry.data.fields;
 
-function newAttributeField() {
+function newAttributeField(initial = 8, options = {}) {
   return new fields.SchemaField({
-    base: new fields.NumberField({ initial: 8, integer: true, nullable: false }), // base: The base attribute what is raised with ep and such
+    base: new fields.NumberField({ initial, integer: true, nullable: false }), // base: The base attribute what is raised with ep and such
     isFav: notPersistedBoolean(),
     noReroll20: new fields.BooleanField({ initial: null, nullable: true, persisted: false }),
     damageMod: notPersistedNumber(),
     defenseMod: notPersistedNumber(),
     value: notPersistedNumber(), // prepareBaseData sets this to this.base
     maximum: new fields.NumberField({ integer: true, persisted: false, nullable: true }),  // only relevant for Stormknights
-  });
+  }, options);
 }
 
 /**
@@ -33,6 +33,7 @@ export class CommonActorData extends BaseActorData {
         mind: newAttributeField(),
         spirit: newAttributeField(),
         strength: newAttributeField(),
+        zero: newAttributeField(0, { persisted: false }),
       }),
       other: new fields.SchemaField({
         cosm: new fields.StringField({ initial: 'none', choices: CONFIG.torgeternity.cosmTypes, textSearch: true, required: true, blank: false, nullable: false }),

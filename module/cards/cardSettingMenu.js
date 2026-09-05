@@ -35,15 +35,6 @@ export default class DeckSettingMenu extends HandlebarsApplicationMixin(Applicat
 
   /**
    *
-   * @param {object} settings - The settings object.
-   */
-  constructor(settings) {
-    super();
-    this.doubledValues = [];
-  }
-
-  /**
-   *
    * @inheritDoc
    */
   async _prepareContext(options) {
@@ -151,13 +142,6 @@ export default class DeckSettingMenu extends HandlebarsApplicationMixin(Applicat
     // checking if other select/options have same value
     this.#checkDoubled();
 
-    // checking if other select are not doubled anymore
-    for (const select of html.querySelectorAll('select')) {
-      if (this.doubledValues.indexOf(select.value) === -1) {
-        select.classList.remove('doubled');
-      }
-    }
-
     // allowing submit if no doubled value
     this.element.querySelectorAll('button[type="submit"]')[0].disabled = (this.element.querySelectorAll('.doubled').length > 0);
   }
@@ -196,31 +180,21 @@ export default class DeckSettingMenu extends HandlebarsApplicationMixin(Applicat
    */
   #checkDoubled() {
     const selectedValues = [];
+    const selectelems = this.element.querySelectorAll('select')
 
-    for (const select of this.element.querySelectorAll('select')) {
-      const value = select.options[select.selectedIndex].value;
-      if (value === NOT_SELECTED_LABEL) continue;
-
-      selectedValues.push(value);
-      const valueCount = selectedValues.filter((val) => val === value).length;
-
-      if (valueCount > 1) {
-        this.doubledValues.push(value);
-      } else {
-        if (this.doubledValues.indexOf(value) > -1) {
-          this.doubledValues = this.doubledValues.filter((val) => val != value);
-        }
-      }
+    for (const select of selectelems) {
+      const value = select.value;
+      if (value !== NOT_SELECTED_LABEL) selectedValues.push(value);
     }
-    for (const select of this.element.querySelectorAll('select')) {
-      const value = select.options[select.selectedIndex].value;
+
+    for (const select of selectelems) {
+      const value = select.value;
       if (value === NOT_SELECTED_LABEL) continue;
 
-      if (this.doubledValues.indexOf(value) > -1) {
+      if (selectedValues.filter(val => val === value).length > 1)
         select.classList.add('doubled');
-      } else {
+      else
         select.classList.remove('doubled');
-      }
     }
   }
 
