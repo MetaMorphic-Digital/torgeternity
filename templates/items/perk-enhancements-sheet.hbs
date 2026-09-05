@@ -5,9 +5,6 @@
       {{localize "torgeternity.sheetLabels.enhancements"}}
     </span>
     <div class="enhancements-controls">
-      <a class="remove-enhancement" data-action="removeEnhancement"
-        data-tooltip="{{localize 'torgeternity.sheetLabels.enhancementRemoveTooltip'}}"><i
-          class="fas fa-minus"></i></a>
       <a class="add-enhancement" data-action="addEnhancement"
         data-tooltip="{{localize 'torgeternity.sheetLabels.enhancementAddTooltip'}}"><i
           class="fas fa-plus"></i></a>
@@ -28,9 +25,17 @@
               {{checked taken}} data-tooltip="{{localize 'torgeternity.sheetLabels.enhancementTooltip'}}">
           </div>
           <div class="item-name enhancement-content">
-            <input type="text" name="system.enhancements.{{@index}}.title" value="{{title}}" />
+            <div class="flexrow">
+              <input class="flex1" type="text" name="system.enhancements.{{@index}}.title" value="{{title}}" />
+              <a class="flex0 item-control item-delete" data-action="removeEnhancement" data-enhance-index="{{@index}}"
+                {{disabled (not @root.editable)}}data-tooltip="{{localize 'torgeternity.iconeTitles.delete'}}">
+                <i class="fas fa-trash"></i> </a>
+            </div>
             <textarea name="system.enhancements.{{@index}}.description"
               class="pulp-description">{{description}}</textarea>
+            {{#if uuidlink}}
+              <p>{{{uuidlink}}}</p>
+            {{/if}}
           </div>
         </div>
       </li>

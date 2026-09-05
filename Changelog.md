@@ -22,6 +22,10 @@
   - `card` - the Card that is being played
 (The playing user's permissions is used for what the Macro is able to achieve.)
 - **No attribute option for skills**: Allow skills to have no attribute defined for their use. It allows non-standard custom skills to be used on Actors.
+- **Perks**
+  - Each Enhancement and Limitation can be deleted separately, it no longer deletes only the last entry in the list.
+  - Dragging an item into the Enhancements tab of a Perk will create an additional Enhancement entry from that item.
+  - (**Note**: Items to be inherited, via the Inheritance tab, must now be dragged onto the Perk while the Inheritance tab is visible.)
 - **Custom Skill Improvements**
   - **Active Effects**: A custom skill can be modified by an Active Effect by using the key `system.customSkills.<slug>.mod` where `<slug>` is the slugified version of the custom skill's name. (e.g. The skill "Pop Tart" will have a slug of `pop-tart`)
   - **@Check[customskillslug]**: Allow the slug of a custom skill name to appear in an `@Check` inline enricher.

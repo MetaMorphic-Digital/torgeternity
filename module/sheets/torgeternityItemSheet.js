@@ -131,14 +131,28 @@ export default class TorgeternityItemSheet extends foundry.applications.api.Hand
     }
 
     // Add the dropped item to the list of bestowed items for this item
-    const itemsToBestow = Array.from(this.item.system.itemsToBestow);
-
     const itemdata = item.toCompendium(/*pack*/ null, { keepId: true });
     if (!itemdata)
       return ui.notifications.info(`Failed to convert ${item.name} into bestowed item`)
 
-    itemsToBestow.push(itemdata);
-    return this.item.update({ 'system.itemsToBestow': itemsToBestow });
+    if (this.tabGroups.primary === 'inheritance') {
+      const itemsToBestow = Array.from(this.item.system.itemsToBestow);
+      itemsToBestow.push(itemdata);
+      return this.item.update({ 'system.itemsToBestow': itemsToBestow });
+    } else if (this.tabGroups.primary === 'perkEnhancements') {
+      const enhancements = Array.from(this.item.system.enhancements);
+      // Remove HTML tags from the description
+      const elem = document.createElement("DIV");
+      elem.innerHTML = (await foundry.applications.ux.TextEditor.enrichHTML(item.system.description)).replaceAll('</p><p>', '\n');;
+      const desc = elem.innerText || "";
+      enhancements.push({
+        uuid: item.uuid,
+        title: item.name,
+        description: desc,
+        taken: false,
+      })
+      return this.item.update({ 'system.enhancements': enhancements });
+    }
   }
 
   async #onDropActiveEffect(effect) {
@@ -221,8 +235,9 @@ export default class TorgeternityItemSheet extends foundry.applications.api.Hand
    * @this {TorgeternityItemSheet}
    */
   static #onRemoveEnhancement(event, button) {
-    const newEnhancements = foundry.utils.duplicate(this.item.system.enhancements);
-    newEnhancements.pop();
+    const newEnhancements = Array.from(this.item.system.enhancements);
+    const index = button.dataset.enhanceIndex;
+    newEnhancements.splice(index, 1)
     this.item.update({ 'system.enhancements': newEnhancements });
   }
 
@@ -245,8 +260,9 @@ export default class TorgeternityItemSheet extends foundry.applications.api.Hand
  * @this {TorgeternityItemSheet}
  */
   static #onRemoveLimitation(event, button) {
-    const newLimitations = foundry.utils.duplicate(this.item.system.limitations);
-    newLimitations.pop();
+    const newLimitations = Array.from(this.item.system.limitations);
+    const index = button.dataset.limitationIndex;
+    newLimitations.splice(index, 1);
     this.item.update({ 'system.limitations': newLimitations });
   }
 
@@ -378,6 +394,12 @@ export default class TorgeternityItemSheet extends foundry.applications.api.Hand
     context.typeLabel = _loc(CONFIG.Item.typeLabels[context.document.type]);
     const best = context.item.system.bestowedBy
     context.bestowingItem = best ? context.item.parent?.items.get(best) : null;
+
+    if (context.item.system.enhancements) {
+      for (const enhance of context.item.system.enhancements) {
+        if (enhance.uuid) enhance.uuidlink = (await fromUuid(enhance.uuid)).toAnchor().outerHTML;
+      }
+    }
 
     // Once copied to an Actor, `item.system.itemsToBestow` is empty.
     context.itemsToBestow = (context.item.parent instanceof foundry.documents.Actor)

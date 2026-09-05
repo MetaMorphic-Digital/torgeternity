@@ -19,6 +19,7 @@ export class PerkItemData extends BaseItemData {
         description: new fields.StringField({ initial: '' }),
         taken: new fields.BooleanField({ initial: false }),
         title: new fields.StringField({ initial: '' }),
+        uuid: new fields.DocumentUUIDField(),
       })),
       limitations: new fields.ArrayField(new fields.StringField({ initial: '' })),
       timestaken: new fields.StringField({ initial: '' }),
