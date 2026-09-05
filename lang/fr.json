@@ -1617,8 +1617,8 @@
   "CARD.FIELDS": {
     "number.label": "Nombre",
     "macro": {
-      "label": "On Play Macro",
-      "hint": "This macro will be invoked when the card is played"
+      "label": "Macro à lancer",
+      "hint": "Cette Macro sera automatiquement activée quand la carte sera jouée"
     },
     "system.special": "Action spéciale"
   },
