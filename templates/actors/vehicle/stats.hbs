@@ -164,7 +164,7 @@
         {{/if}}
         <div class="range">{{item.system.range}}</div>
         <div class="damage">{{item.system.damage}} ( {{item.system.ap}} )</div>
-        <div class="controls">
+        <div class="item-controls">
           <a
             class="item-control item-attackRoll" data-action="itemAttackRoll" {{disabled (not @root.editable)}}
             data-tooltip="{{localize 'torgeternity.iconeTitles.attackRoll'}}">
@@ -218,7 +218,7 @@
           <span class="contradiction">{{item.contradictionCase}}</span>
         </div>
         <div class="add-on-description">{{item.system.short-description}}</div>
-        <div class="controls">
+        <div class="item-controls">
           <a
             class="item-control item-tochat" data-action="itemToChat"
             data-tooltip="{{localize 'torgeternity.iconeTitles.sendToChat'}}">
