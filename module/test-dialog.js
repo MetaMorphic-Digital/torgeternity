@@ -599,7 +599,7 @@ export function TestDialogLabel(test, multiline) {
         result = `${_loc('torgeternity.attributes.' + test.skillName)} ${_loc('torgeternity.chatText.test')} `;
       break;
     case 'skill':
-      result = (test.customSkill ? (fromUuidSync(test.actor)?.items.get(test.skillName)?.name ?? _loc('torgeternity.itemSheetDescriptions.customSkill')) :
+      result = (test.customSkill ? (fromUuidSync(test.actor)?.system.customSkills[test.skillName]?.parent.name ?? _loc('torgeternity.itemSheetDescriptions.customSkill')) :
         _loc('torgeternity.skills.' + test.skillName)) +
         ' ' + _loc('torgeternity.chatText.test');
       break;
@@ -629,6 +629,7 @@ export function TestDialogLabel(test, multiline) {
       result = test.skillName;
       break;
     default:
+      // Possibly an enricher for a custom skill that doesn't exist on the Actor
       console.log(`--TestDialogLabel: Unknown Test type: ${test.testType}`);
       result = `${test.skillName} ${_loc('torgeternity.chatText.test')}  `;
   }

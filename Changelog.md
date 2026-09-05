@@ -23,6 +23,7 @@
 (The playing user's permissions is used for what the Macro is able to achieve.)
 - **No attribute option for skills**: Allow skills to have no attribute defined for their use. It allows non-standard custom skills to be used on Actors.
 - **Active Effects on Custom Skills**: A custom skill can be modified by an Active Effect by using the key `system.customSkills.<slug>.mod` where `<slug>` is the slugified version of the custom skill's name. (e.g. The skill "Pop Tart" will have a slug of `pop-tart`)
+- **@Check[customskillslug]**: Allow the slug of a custom skill name to appear in an `@Check` inline enricher.
 
 ## 14.5.0 - QOL improvements
 - **Non-Lethal vs Threats**: Non-lethal damage will no longer mark Threats (or vehicles) as dead, but will mark them as Unconscious.
