@@ -28,7 +28,7 @@
             <div class="flexrow">
               <input class="flex1" type="text" name="system.enhancements.{{@index}}.title" value="{{title}}" />
               <a class="flex0 item-control item-delete" data-action="removeEnhancement" data-enhance-index="{{@index}}"
-                {{disabled (not @root.editable)}}data-tooltip="{{localize 'torgeternity.iconeTitles.delete'}}">
+                {{disabled (not @root.editable)}} data-tooltip="{{localize 'torgeternity.iconeTitles.delete'}}">
                 <i class="fas fa-trash"></i> </a>
             </div>
             <textarea name="system.enhancements.{{@index}}.description"
