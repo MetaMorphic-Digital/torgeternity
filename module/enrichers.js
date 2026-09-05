@@ -139,7 +139,7 @@ function _onClickInlineCheck(event) {
   if (actor.system?.skills?.[test.testType] || actor.system?.customSkills?.[test.testType]) {
     // skill test
     const skillName = test.testType;
-    const skill = actor.system.skills[skillName] ?? actor.system?.customSkills?.[test.testType];
+    const skill = actor.system.skills[skillName] ?? actor.system?.customSkills?.[skillName];
     if (!skill) return ui.notifications.warn(_loc('torgeternity.notifications.noSkillNamed') + skillName);
     const attribute = actor.system.attributes[test.attribute ?? skill.baseAttribute];
     if (!attribute) return ui.notifications.warn(_loc('torgeternity.notifications.noItemNamed'));
@@ -158,7 +158,7 @@ function _onClickInlineCheck(event) {
       skillName: skillName,
       skillValue: skillValue,
       isFav: skill.isFav,
-      customSkill: !!actor.system?.customSkills?.[test.testType],
+      customSkill: !!actor.system?.customSkills?.[skillName],
       unskilledUse: skill.unskilledUse || isInteractionAttack,
     }, { inplace: true })
 

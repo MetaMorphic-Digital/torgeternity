@@ -390,7 +390,6 @@ export default class TorgeternityItemSheet extends foundry.applications.api.Hand
 
     context.effects = prepareActiveEffectCategories(this.document.effects);
     context.item = context.document;
-    if (context.item.type === 'customSkill') context.nameslug = context.item.name.slugify();
     context.typeLabel = _loc(CONFIG.Item.typeLabels[context.document.type]);
     const best = context.item.system.bestowedBy
     context.bestowingItem = best ? context.item.parent?.items.get(best) : null;
