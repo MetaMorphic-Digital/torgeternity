@@ -28,4 +28,8 @@ export class CustomSkillItemData extends BaseItemData {
     if (actor instanceof Actor)
       this.value += (actor.system.attributes[this.baseAttribute]?.value ?? 0);
   }
+
+  get slug() {
+    return this.parent.name.slugify();
+  }
 }

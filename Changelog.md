@@ -12,7 +12,7 @@
   }
 ```
 
-## NEXT - Custom Skills, Play Card Macros
+## NEXT - Skills, Perks & Cards
 - **Effects button** in skill check chat card now lists the AE's which will be transferred in the button's tooltip.
 - **Periculum macro** should not use any modifiers in the pseudo-test chat message result.
 - **Active Effects: Source** will not display only "xxx" not "xxx (xxx)" if "xxx" and "(xxx)" are the same string (typically if the source was directly from an Actor rather than an Item).
@@ -24,8 +24,8 @@
 - **No attribute option for skills**: Allow skills to have no attribute defined for their use. It allows non-standard custom skills to be used on Actors.
 - **Perks**
   - Each Enhancement and Limitation can be deleted separately, it no longer deletes only the last entry in the list.
-  - Dragging an item into the Enhancements tab of a Perk will create an additional Enhancement entry from that item.
-  - (**Note**: Items to be inherited, via the Inheritance tab, must now be dragged onto the Perk while the Inheritance tab is visible.)
+  - Dragging an item into the Enhancements tab of a Perk will create an additional Enhancement entry from that item (and include a link to the original dropped item).
+  - (**Note**: Items to be inherited via the Inheritance tab, must now be dragged onto the Perk while the Inheritance tab is selected.)
 - **Custom Skill Improvements**
   - **Active Effects**: A custom skill can be modified by an Active Effect by using the key `system.customSkills.<slug>.mod` where `<slug>` is the slugified version of the custom skill's name. (e.g. The skill "Pop Tart" will have a slug of `pop-tart`)
   - **@Check[customskillslug]**: Allow the slug of a custom skill name to appear in an `@Check` inline enricher.

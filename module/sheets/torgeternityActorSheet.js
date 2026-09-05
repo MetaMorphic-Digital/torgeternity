@@ -268,7 +268,7 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
       .filter(skill => skill.groupName === 'other')
       .concat(context.customSkill.map(skill => {
         return {
-          id: skill.id,
+          id: skill.system.slug,
           ...skill.system,
           localName: skill.name,  // already in the local language
           isCustom: true,
@@ -365,7 +365,7 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
     const skillAttrData = {
       type: data.testtype,
       data: {
-        name: data.customskill ? this.actor.items.get(data.name).name : data.name,
+        name: data.name,
         customskill: (data.customskill === 'true'),
         attribute: data.baseAttribute,
         adds: Number(data.adds),

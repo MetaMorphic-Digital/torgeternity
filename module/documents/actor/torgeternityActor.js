@@ -946,7 +946,7 @@ export default class TorgeternityActor extends foundry.documents.Actor {
    */
   async rollSkill(skillName, item, options = {}) {
 
-    const skillData = this.system.skills[skillName] ?? this.items.get(skillName)?.system;
+    const skillData = this.system.skills[skillName] ?? this.system.customSkills[skillName] ?? this.items.get(skillName)?.system;
     if (!skillData) return;
 
     // Before calculating roll, check to see if it can be attempted unskilled; exit test if actor doesn't have required skill

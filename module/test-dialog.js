@@ -169,7 +169,7 @@ export class TestDialog extends HandlebarsApplicationMixin(ApplicationV2) {
         this.test.attribute = this.test.skillName;
       } else {
         // maybe a custom skill
-        let skill = actor.system.skills[this.test.skillName] ?? actor.itemTypes.customSkill.find(item => item.name === this.test.skillName);
+        let skill = actor.system.skills[this.test.skillName] ?? actor.system.customSkills[this.test.skillName] ?? actor.itemTypes.customSkill.find(item => item.name === this.test.skillName);
         this.test.attribute = skill?.baseAttribute ?? '';
       }
     }
