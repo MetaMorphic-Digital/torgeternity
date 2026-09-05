@@ -9,7 +9,9 @@
         <i class="fa-solid fa-image sa-fw"></i></a>
     </div>
     <div class="flexcol">
-      <h1><input name="name" type="text" value="{{item.name}}" placeholder="{{item.type}} Name" /></h1>
+      <h1><input name="name" type="text" value="{{item.name}}" placeholder="{{item.type}} Name"
+          {{#if nameslug}}data-tooltip-html="{{nameslug}}" {{/if}} />
+      </h1>
       <div class="flexrow">
         {{formGroup systemFields.traits value=item.system.traits localize=true hint="" editable=editable id="traits" sort=true}}
         {{#if editable}}

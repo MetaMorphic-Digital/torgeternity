@@ -15,15 +15,17 @@
 ## NEXT - Custom Skills, Play Card Macros
 - **Effects button** in skill check chat card now lists the AE's which will be transferred in the button's tooltip.
 - **Periculum macro** should not use any modifiers in the pseudo-test chat message result.
-- **Active Effects: Source** will not display only "xxx" not "xxx (yyy)" if xxx and yyy are the same string (typically if the source was directly from an Actor rather than an Item).
+- **Active Effects: Source** will not display only "xxx" not "xxx (xxx)" if "xxx" and "(xxx)" are the same string (typically if the source was directly from an Actor rather than an Item).
 - **Trigger Macro from Card usage**: Allow any card in any deck to have a Macro attached to it, which will be triggered when that card is played from a player's hand. Variables passed to the macro are:
-  - `operation` - 'play' or 'discard' (might be expanded in the future to include 'draw', 'pass', etc.)
+  - `operation` - `play` or `discard` (might be expanded in the future to include 'draw', 'pass', etc.)
   - `actor` - the Actor who played the card
   - `card` - the Card that is being played
 (The playing user's permissions is used for what the Macro is able to achieve.)
 - **No attribute option for skills**: Allow skills to have no attribute defined for their use. It allows non-standard custom skills to be used on Actors.
-- **Active Effects on Custom Skills**: A custom skill can be modified by an Active Effect by using the key `system.customSkills.<slug>.mod` where `<slug>` is the slugified version of the custom skill's name. (e.g. The skill "Pop Tart" will have a slug of `pop-tart`)
-- **@Check[customskillslug]**: Allow the slug of a custom skill name to appear in an `@Check` inline enricher.
+- **Custom Skill Improvements**
+  - **Active Effects**: A custom skill can be modified by an Active Effect by using the key `system.customSkills.<slug>.mod` where `<slug>` is the slugified version of the custom skill's name. (e.g. The skill "Pop Tart" will have a slug of `pop-tart`)
+  - **@Check[customskillslug]**: Allow the slug of a custom skill name to appear in an `@Check` inline enricher.
+  - The `slug` for a custom skill is displayed in the tooltip of the name in the custom skill item card.
 
 ## 14.5.0 - QOL improvements
 - **Non-Lethal vs Threats**: Non-lethal damage will no longer mark Threats (or vehicles) as dead, but will mark them as Unconscious.
