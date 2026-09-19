@@ -13,7 +13,7 @@
 },
 ```
 
-## 14.7.0 - Skills, Cards, Default Items & Encounters
+## 14.7.0 - Skills, Cards, Fatigue, Default Items & Encounters
 - Triggering a Skill Test from the **Macro Hotbar** should use the correct skill value if the skill has a "mod" applied to it.
 - Custom Skills with 0 adds will be treated as Unskilled.
 - Attributes dragged to the Macro Hotbar have the correct parameters set in the call to `rollSkillMacro`.
@@ -27,9 +27,8 @@
 - An Actor with a perk or special ability with the "Ignore Shock" trait will take no shock damage from Fatigue (either from a Drama card or the Fatigue macro.)
 - Add support for the **Uncanny Dodge** perk:
   - Set an Active Effect on Uncanny Dodge with `system.defenses.soak.shock` OVERRIDE `2`
-  - When you attempt to soak, you will be prompted to either spend the configured amount of shock (the "2" value) or to use a Possibility to fund the Soak.
+  - When you attempt to soak, you will be prompted to either spend the configured amount of shock (the "2" value) or to use a Possibility to fund the Soak (if the Actor has the "Ignore Shock" trait then it won't be offered this choice.)
   - Tick the "Display as Combat Toggle" option on the Active Effect so that a toggle is displayed on the STATS tab of the Actor sheet (so it can be disabled when not allowed).
-
 - Allow StormKnight to be created with a default set of items (such as Currency):
   - Set `CONFIG.torgernity.SKdefaultItems` to an array of objects which define the `uuid` and optionally the `quantity` of each item to be added to a newly created Stormknight.
   - For example, if `Item.pkBXF8U96DlGaB6u` is the UUID for a currency item, the following will add that item to the SK with the quantity set to 150.

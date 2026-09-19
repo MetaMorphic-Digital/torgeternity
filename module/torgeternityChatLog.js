@@ -583,7 +583,9 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
 
     // Check to see if we should ask about soaking with Shock instead of a Possibility (Uncanny Dodge)
     let soakWithShock = false;
-    if (targetActor.system.defenses?.soak?.shock && targetActor.system.shock.value + targetActor.system.defenses.soak.shock <= targetActor.system.shock.max) {
+    if (targetActor.system.defenses?.soak?.shock &&
+      !targetActor.defenseTraits.includes('ignoreShock') &&
+      targetActor.system.shock.value + targetActor.system.defenses.soak.shock <= targetActor.system.shock.max) {
       soakWithShock = await DialogV2.confirm({
         window: { title: 'torgeternity.sheetLabels.soakWithShock.title' },
         content: _loc('torgeternity.sheetLabels.soakWithShock.content'),
