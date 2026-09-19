@@ -306,6 +306,7 @@
     },
     "combat": {
       "cantStart": "Eine andere Begegnung ist bereits gestartet",
+      "deleteStarted": "Another Encounter is already in progress.<br>Do you want to delete THAT encounter so that you can start THIS encounter?",
       "dramaBack": "systems/torgeternity/images/cards/drama-back.webp",
       "toggleDramatic": "Zwischen Standard- und dramatischer Szene umschalten",
       "toggleWaiting": "Warten-Zustand für diesen Kämpfer umschalten",
