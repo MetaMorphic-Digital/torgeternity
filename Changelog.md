@@ -30,14 +30,9 @@
   - When you attempt to soak, you will be prompted to either spend the configured amount of shock (the "2" value) or to use a Possibility to fund the Soak (if the Actor has the "Ignore Shock" trait then it won't be offered this choice.)
   - Tick the "Display as Combat Toggle" option on the Active Effect so that a toggle is displayed on the STATS tab of the Actor sheet (so it can be disabled when not allowed).
 - Allow StormKnight to be created with a default set of items (such as Currency):
-  - Set `CONFIG.torgernity.SKdefaultItems` to an array of objects which define the `uuid` and optionally the `quantity` of each item to be added to a newly created Stormknight.
+  - Set `CONFIG.torgernity.SKdefaultItems` to an array of objects which define the `uuid` and optionally the `quantity` of each item to be added to a newly created Stormknight Actor.
   - For example, if `Item.pkBXF8U96DlGaB6u` is the UUID for a currency item, the following will add that item to the SK with the quantity set to 150.
-```
-  CONFIG.torgeternity.SKdefaultItems = [{ 
-  uuid : 'Item.pkBXF8U96DlGaB6u',
-  quantity: 150
-}]
-```
+  `CONFIG.torgeternity.SKdefaultItems = [{ uuid : 'Item.pkBXF8U96DlGaB6u', quantity: 150 }]`
 
 ## 14.6.0 - Skills, Perks & Cards
 - **Effects button** in skill check chat cards, the "+Effects" button's tooltip now lists the Active Effcts which will be transferred.
