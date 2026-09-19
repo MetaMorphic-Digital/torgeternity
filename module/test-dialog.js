@@ -149,6 +149,7 @@ export class TestDialog extends HandlebarsApplicationMixin(ApplicationV2) {
         if (ammo) this.test.attackTraits.push(...Array.from(ammo.system.traits));
       }
       this.test.attackTraits.push(...Array.from(actor.statuses), ...Array.from(actor.system.extraTraits));
+      if (item) this.test.attackTraits.push(item.type);
 
       const combatant = game.combat?.getCombatantsByActor(actor)?.shift();
       if (combatant) {
