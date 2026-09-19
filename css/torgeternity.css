@@ -4690,6 +4690,11 @@ div#interface.theme-dark .sidebar-tab {
   background-image: url(../images/thunder.webp);
 }
 
+.cards-sidebar .stack-type {
+  flex: 0;
+  margin-right: 0.5em;
+}
+
 dialog.externalLinks {
   button i {
     font-size: 24px;

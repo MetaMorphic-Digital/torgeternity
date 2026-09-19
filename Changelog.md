@@ -9,13 +9,15 @@
 "torgeternity.combat.deleteStarted": "Another Encounter is already in progress.<br>Do you want to end THAT encounter so that you can start THIS encounter?"
 ```
 
-## NEXT
-- Triggering a Skill Test from the Macro Hotbar should use the correct skill value if the skill has a "mod" applied to it.
+## 14.7.0 - Skills, Cards & Encounters
+- Triggering a Skill Test from the **Macro Hotbar** should use the correct skill value if the skill has a "mod" applied to it.
 - Custom Skills with 0 adds will be treated as Unskilled.
 - Attributes dragged to the Macro Hotbar have the correct parameters set in the call to `rollSkillMacro`.
 - Add `Actor.getSkillData(skillNameOrSlug)` to put checking for normal/custom skills all in one place.
-- If a different Encounter is already started and "Start Combat" is selected for another Encounter, then a prompt will be displayed asking if you want to delete the Encounter currently in progress. (After deletion, the "Start Combat" button will need to be pressed again to start the new encounter.)
+- If an Encounter is already started and "Start Combat" is selected for another Encounter, then a prompt will be displayed asking if you want to delete the Encounter currently in progress. (After deletion, the "Start Combat" button will need to be pressed again to start the new encounter.)
+  - The current Drama Card is only displayed on the encounter which has been started.
 - Improved layout of columns in Player Hand and Deck Config dialogs.
+- Add spacing to the Deck/Player icons in the Card Stacks sidebar.
 
 ## 14.6.0 - Skills, Perks & Cards
 - **Effects button** in skill check chat cards, the "+Effects" button's tooltip now lists the Active Effcts which will be transferred.
