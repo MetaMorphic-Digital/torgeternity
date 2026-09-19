@@ -80,6 +80,10 @@ export class TorgeternityMacros {
         chatOutput += `<li>${token.actor.name} ${_loc('torgeternity.macros.fatigueMacroCharAlreadyKO')}</li>`;
         continue;
       }
+      if (actor.defenseTraits.includes('ignoreShock')) {
+        chatOutput += `<li>${actor.name}: ${_loc('torgeternity.traits.ignoreShock')}`;
+        continue;
+      }
 
       const shockIncrease = actor.system.fatigue;
       const applyResult = token.actor.applyDamages(/*shock*/ shockIncrease, /*wounds*/ 0);

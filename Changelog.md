@@ -24,6 +24,7 @@
 - Add spacing to the Deck/Player icons in the Card Stacks sidebar.
 - When the Player Hand is in a detached window, resize that window when cards are added/removed from the hand.
 - When a Test is performed using an item, the item's type is added to the list of `attackTraits`.
+- An Actor with a perk or special ability with the "Ignore Shock" trait will take no shock damage from Fatigue (either from a Drama card or the Fatigue macro.)
 - Add support for the **Uncanny Dodge** perk:
   - Set an Active Effect on Uncanny Dodge with `system.defenses.soak.shock` OVERRIDE `2`
   - When you attempt to soak, you will be prompted to either spend the configured amount of shock (the "2" value) or to use a Possibility to fund the Soak.

@@ -1003,6 +1003,7 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
  * @this {TorgeternityActorSheet}
  */
   static #onApplyFatigue(event, button) {
+    if (this.actor.defenseTraits.includes('ignoreShock')) return;
     const newShock = this.actor.system.shock.value + parseInt(button.dataset.fatigue);
     this.actor.update({ 'system.shock.value': newShock });
   }

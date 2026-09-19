@@ -467,9 +467,10 @@ export default class TorgCombat extends Combat {
    * General end-of-character turn processing
    */
   dramaEndOfTurn(combatant) {
-    if (this.getFlag('torgeternity', FATIGUED_FACTION_FLAG) === this.getCombatantFaction(combatant)) {
-      const actor = combatant.actor;
-      if (!actor) return;
+    const actor = combatant.actor;
+    if (!actor) return;
+    if (this.getFlag('torgeternity', FATIGUED_FACTION_FLAG) === this.getCombatantFaction(combatant) &&
+      !actor.defenseTraits.includes('ignoreShock')) {
 
       let chatOutput = `<h2>${_loc(
         'torgeternity.sheetLabels.fatigue'
