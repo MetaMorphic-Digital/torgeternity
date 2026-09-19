@@ -18,6 +18,7 @@
   - The current Drama Card is only displayed on the encounter which has been started.
 - Improved layout of columns in Player Hand and Deck Config dialogs.
 - Add spacing to the Deck/Player icons in the Card Stacks sidebar.
+- When the Player Hand is in a detached window, resize that window when cards are added/removed from the hand.
 
 ## 14.6.0 - Skills, Perks & Cards
 - **Effects button** in skill check chat cards, the "+Effects" button's tooltip now lists the Active Effcts which will be transferred.
