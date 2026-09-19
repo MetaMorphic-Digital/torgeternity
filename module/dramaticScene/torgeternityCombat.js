@@ -103,6 +103,7 @@ export default class TorgCombat extends Combat {
   }
 
   get currentDrama() {
+    if (!this.started) return null;
     const dramaActive = game.cards.get(game.settings.get('torgeternity', 'deckSetting').dramaActive);
     return dramaActive.cards.size ? dramaActive.cards.contents[0] : null;
   }
