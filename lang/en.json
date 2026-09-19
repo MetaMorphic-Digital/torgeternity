@@ -1251,6 +1251,10 @@
       "soakNull": "You will soak nothing.",
       "soakRoll": "Reality soaking",
       "soakValue": " wounds soaked, and all shock.",
+      "soakWithShock": {
+        "title": "Soak Options",
+        "content": "Do you want to soak using Shock or Possibilities?"
+      },
       "social": "Social",
       "source": "Source",
       "specialabilities": "Special Abilities",

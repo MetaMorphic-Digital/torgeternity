@@ -580,34 +580,52 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
         content: _loc('torgeternity.chatText.check.cantUseRealityWhileDisconnected'),
       });
     }
-    //
-    let possPool = targetActor.system.other.possibilities.value;
-    // 0 => if GM ask for confirm, or return message "no poss"
-    if (possPool <= 0 && !game.user.isGM) {
-      ui.notifications.warn(_loc('torgeternity.sheetLabels.noPoss'));
-      return;
+
+    // Check to see if we should ask about soaking with Shock instead of a Possibility (Uncanny Dodge)
+    let soakWithShock = false;
+    if (targetActor.system.defenses?.soak?.shock && targetActor.system.shock.value + targetActor.system.defenses.soak.shock <= targetActor.system.shock.max) {
+      soakWithShock = await DialogV2.confirm({
+        window: { title: 'torgeternity.sheetLabels.soakWithShock.title' },
+        content: _loc('torgeternity.sheetLabels.soakWithShock.content'),
+        yes: { label: _loc('torgeternity.sheetLabels.shock') },
+        no: { label: _loc('torgeternity.sheetLabels.possibilities') },
+      });
     }
 
-    // 1=> pop up warning, confirm "spend last poss?"
-    if (possPool === 1) {
-      const confirm = await DialogV2.confirm({
-        window: { title: 'torgeternity.sheetLabels.lastPoss' },
-        content: _loc('torgeternity.sheetLabels.lastPossMess'),
-      });
-      if (!confirm) return;
-    } // GM can grant an on the fly possibilty if he does the roll
-    else if (possPool === 0 && game.user.isGM) {
-      const confirm = await DialogV2.confirm({
-        window: { title: 'torgeternity.sheetLabels.noPoss' },
-        content: _loc('torgeternity.sheetLabels.noPossFree'),
-      });
-      if (!confirm) return;
-      ui.notifications.warn(_loc('torgeternity.sheetLabels.possGrant'));
-      possPool += 1;
+    //
+    let possPool = targetActor.system.other.possibilities.value;
+    if (!soakWithShock) {
+      // 0 => if GM ask for confirm, or return message "no poss"
+      if (possPool <= 0 && !game.user.isGM) {
+        ui.notifications.warn(_loc('torgeternity.sheetLabels.noPoss'));
+        return;
+      }
+
+      // 1=> pop up warning, confirm "spend last poss?"
+      if (possPool === 1) {
+        const confirm = await DialogV2.confirm({
+          window: { title: 'torgeternity.sheetLabels.lastPoss' },
+          content: _loc('torgeternity.sheetLabels.lastPossMess'),
+        });
+        if (!confirm) return;
+      } // GM can grant an on the fly possibilty if he does the roll
+      else if (possPool === 0 && game.user.isGM) {
+        const confirm = await DialogV2.confirm({
+          window: { title: 'torgeternity.sheetLabels.noPoss' },
+          content: _loc('torgeternity.sheetLabels.noPossFree'),
+        });
+        if (!confirm) return;
+        ui.notifications.warn(_loc('torgeternity.sheetLabels.possGrant'));
+        possPool += 1;
+      }
     }
 
     await targetActor.soakDamage(chatMessage.id, { /*window: { windowId: this.window.windowId }*/ });
-    await targetActor.update({ 'system.other.possibilities.value': possPool - 1 });
+
+    if (soakWithShock)
+      await targetActor.update({ 'system.shock.value': targetActor.system.shock.value + targetActor.system.defenses.soak.shock });
+    else
+      await targetActor.update({ 'system.other.possibilities.value': possPool - 1 });
   }
 
   /**
