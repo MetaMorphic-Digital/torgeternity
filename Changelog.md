@@ -6,7 +6,7 @@
 ```
 "CARD.FIELDS.name.label": "Card Name"
 "CARDS.ACTIONS.Add": "Add"
-"torgeternity.combat.deleteStarted": "Another Encounter is already in progress.<br>Do you want to delete THAT encounter so that you can start THIS encounter?"
+"torgeternity.combat.deleteStarted": "Another Encounter is already in progress.<br>Do you want to end THAT encounter so that you can start THIS encounter?"
 ```
 
 ## NEXT

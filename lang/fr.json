@@ -309,7 +309,7 @@
     },
     "combat": {
       "cantStart": "Une rencontre est déjà en cours",
-      "deleteStarted": "Another Encounter is already in progress.<br>Do you want to delete THAT encounter so that you can start THIS encounter?",
+      "deleteStarted": "Une autre Rencontre est déjà en cours.<br>Voulez vous la terminer pour démarrer cette nouvelle Rencontre ?",
       "dramaBack": "systems/torgeternity/images/cards/drama-back-fr.webp",
       "toggleDramatic": "Bascule le combat entre une scène Normale et une scène Dramatique",
       "toggleWaiting": "Active l'état Attendre de ce combattant",

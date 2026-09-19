@@ -7,13 +7,13 @@
         "label": "Macro beim Ausspielen",
         "hint": "Dieses Macro wird ausgeführt sobald die Karte ausgespielt wird"
       },
-      "name.label": "Card Name",
+      "name.label": "Kartenname",
       "number.label": "Nummer",
       "system.special": "Spezialaktion"
     }
   },
   "CARDS.ACTIONS": {
-    "Add": "Add"
+    "Add": "Hinzufügen"
   },
   "EFFECT": {
     "TABS": {
@@ -306,7 +306,7 @@
     },
     "combat": {
       "cantStart": "Eine andere Begegnung ist bereits gestartet",
-      "deleteStarted": "Another Encounter is already in progress.<br>Do you want to delete THAT encounter so that you can start THIS encounter?",
+      "deleteStarted": "Eine andere Begegnung ist gerade aktiv.<br>Möchtest du die ANDEREN Begegnung beenden um DIESEN zu starten?",
       "dramaBack": "systems/torgeternity/images/cards/drama-back.webp",
       "toggleDramatic": "Zwischen Standard- und dramatischer Szene umschalten",
       "toggleWaiting": "Warten-Zustand für diesen Kämpfer umschalten",
