@@ -300,7 +300,7 @@
     },
     "combat": {
       "cantStart": "Another Encounter is already in progress",
-      "deleteStarted": "Another Encounter is already in progress.<br>Do you want to delete THAT encounter so that you can start THIS encounter?",
+      "deleteStarted": "Another Encounter is already in progress.<br>Do you want to end THAT encounter so that you can start THIS encounter?",
       "dramaBack": "systems/torgeternity/images/cards/drama-back.webp",
       "toggleDramatic": "Toggle between Standard and Dramatic Combat Resolution",
       "toggleWaiting": "Toggle the Waiting state of this combatant",
