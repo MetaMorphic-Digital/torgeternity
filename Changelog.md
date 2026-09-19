@@ -24,7 +24,11 @@
 - Add spacing to the Deck/Player icons in the Card Stacks sidebar.
 - When the Player Hand is in a detached window, resize that window when cards are added/removed from the hand.
 - When a Test is performed using an item, the item's type is added to the list of `attackTraits`.
-- For those SK with **Uncanny Dodge**, if you set an Active Effect on Uncanny Dodge with `system.defenses.soak.shock` OVERRIDE `2` then you will be prompted to either spend Soak (the "2" value) or to use a Possibility to fund the Soak.
+- Add support for the **Uncanny Dodge** perk:
+  - Set an Active Effect on Uncanny Dodge with `system.defenses.soak.shock` OVERRIDE `2`
+  - When you attempt to soak, you will be prompted to either spend the configured amount of shock (the "2" value) or to use a Possibility to fund the Soak.
+  - Tick the "Display as Combat Toggle" option on the Active Effect so that a toggle is displayed on the STATS tab of the Actor sheet (so it can be disabled when not allowed).
+
 - Allow StormKnight to be created with a default set of items (such as Currency):
   - Set `CONFIG.torgernity.SKdefaultItems` to an array of objects which define the `uuid` and optionally the `quantity` of each item to be added to a newly created Stormknight.
   - For example, if `Item.pkBXF8U96DlGaB6u` is the UUID for a currency item, the following will add that item to the SK with the quantity set to 150.
