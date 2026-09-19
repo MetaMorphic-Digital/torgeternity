@@ -15,6 +15,7 @@
 - Attributes dragged to the Macro Hotbar have the correct parameters set in the call to `rollSkillMacro`.
 - Add `Actor.getSkillData(skillNameOrSlug)` to put checking for normal/custom skills all in one place.
 - If a different Encounter is already started and "Start Combat" is selected for another Encounter, then a prompt will be displayed asking if you want to delete the Encounter currently in progress. (After deletion, the "Start Combat" button will need to be pressed again to start the new encounter.)
+- Improved layout of columns in Player Hand and Deck Config dialogs.
 
 ## 14.6.0 - Skills, Perks & Cards
 - **Effects button** in skill check chat cards, the "+Effects" button's tooltip now lists the Active Effcts which will be transferred.
