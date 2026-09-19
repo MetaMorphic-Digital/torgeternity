@@ -27,7 +27,7 @@
   "version": "14.0.0",
   "compatibility": {
     "minimum": 14,
-    "verified": 14.367,
+    "verified": 14.368,
     "maximum": 14
   },
   "esmodules": [
