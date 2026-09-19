@@ -52,8 +52,23 @@ export default class TorgeternityActor extends foundry.documents.Actor {
     super._onCreate(data, options, userId);
     // by default creating a  hand for each stormknight
     if (this.type === 'stormknight' && game.user.isActiveGM) {
+      if (CONFIG.torgeternity.SKdefaultItems)
+        this.#addDefaultItems(CONFIG.torgeternity.SKdefaultItems);
       this.createDefaultHand();
     }
+  }
+
+  async #addDefaultItems(defaultItems) {
+    const items = [];
+    for (const info of defaultItems) {
+      const item = await fromUuid(info.uuid);
+      if (item) {
+        const itemdata = game.items.fromCompendium(item);
+        itemdata.system.quantity = info.quantity ?? 1;
+        items.push(itemdata);
+      }
+    };
+    if (items.length) this.createEmbeddedDocuments('Item', items);
   }
 
   /**
