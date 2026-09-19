@@ -1260,6 +1260,10 @@
       "soakNull": "Vous n'annulez aucun dommage.",
       "soakRoll": "Test de Réalité/Annulation des dommages",
       "soakValue": " blessure(s) annulée(s), et tout les points de Chocs.",
+      "soakWithShock": {
+        "title": "Option d'Annulation des dommages",
+        "content": "Voulez-vous Annuler les dommages en dépensant des points de Chocs ou des Possibilités ?"
+      },
       "social": "Social",
       "source": "Origine",
       "specialabilities": "Capacités spéciales",

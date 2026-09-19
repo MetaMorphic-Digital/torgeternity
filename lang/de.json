@@ -1257,6 +1257,10 @@
       "soakNull": "Du steckst nichts weg.",
       "soakRoll": "Wegstecken",
       "soakValue": " Wunden und allen Schock weggesteckt.",
+      "soakWithShock": {
+        "title": "Wegstecken Optionen",
+        "content": "Möchtest du Schock oder Möglichkeiten nutzen um Schaden wegzustecken?"
+      },
       "social": "Sozial",
       "source": "Quelle",
       "specialabilities": "Spezielle Fähigkeiten",

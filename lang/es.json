@@ -306,7 +306,7 @@
     },
     "combat": {
       "cantStart": "Ya hay otro encuentro en marcha",
-      "deleteStarted": "Another Encounter is already in progress.<br>Do you want to delete THAT encounter so that you can start THIS encounter?",
+      "deleteStarted": "Another Encounter is already in progress.<br>Do you want to end THAT encounter so that you can start THIS encounter?",
       "dramaBack": "systems/torgeternity/images/cards/drama-back.webp",
       "toggleDramatic": "Alternar entre resolución de combate convencional y Escena Dramática",
       "toggleWaiting": "Cambiar el estado de Espera de este combatiente",
@@ -1257,6 +1257,10 @@
       "soakNull": "No absorbes naa.",
       "soakRoll": "Absorción por Realidad",
       "soakValue": " Heridas absorbidas, y todo el Shock.",
+      "soakWithShock": {
+        "title": "Soak Options",
+        "content": "Do you want to soak using Shock or Possibilities?"
+      },
       "social": "Social",
       "source": "Fuente",
       "specialabilities": "Habilidades Especiales",
