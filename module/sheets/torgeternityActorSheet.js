@@ -638,15 +638,16 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
     // - Prevent the AE-modified value from being submitted back to the data model
     // - A change of a numeric field should write the unmodified-by-AE value back to the data model
     const overrides = foundry.utils.flattenObject(this.actor.overrides);
-    for (const key in overrides) {
+    for (const key of Object.keys(overrides)) {
       const newvalue = foundry.utils.getProperty(submitted, key);
       if (newvalue === undefined) continue;
-      if (newvalue === overrides[key])
-        // Unchanged on the sheet, so don't submit the AE-modifier value for updating the data model
-        delete formData.object[key];
-      else if (typeof overrides[key] === 'number')
+      if (typeof overrides[key] === 'number' && newvalue !== overrides[key])
         // Remove the modified value provided by the AE.
         formData.object[key] = newvalue - (overrides[key] - foundry.utils.getProperty(this.actor._source, key));
+      else
+        // Don't allow any other AE-modified value to be changed on the sheet.
+        // (Very similar to ActorSheet(V1)._getSubmitData )
+        delete formData.object[key];
     }
 
     // Now normal ActorSheet form.handler
