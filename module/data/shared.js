@@ -20,7 +20,6 @@ export function makeSkillFields(unskilledUse, baseAttribute, groupName) {
     unskilledUse: new fields.BooleanField({ initial: unskilledUse }),
     // Not persisted fields
     mod: notPersistedNumber(),
-    isFav: notPersistedBoolean(),
     damageMod: notPersistedNumber(),
     defenseMod: notPersistedNumber(),
   });

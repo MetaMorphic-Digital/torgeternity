@@ -634,7 +634,7 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
       const updates = Object.entries(submitted.items).map(([itemid, fields]) => { return { _id: itemid, ...fields } });
       await this.actor.updateEmbeddedDocuments('Item', updates);
     }
-    // TODO: Ignore Active Effects on the skill 'adds' values
+    // TODO: Ignore Active Effects on the skill 'adds' and 'isFav' values
     if (submitted.system?.skills) {
       for (const skill of Object.keys(submitted.system.skills)) {
         if (Object.hasOwn(submitted.system.skills[skill], "adds")) {
@@ -642,6 +642,12 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
           if (AEchange) {
             formData.object[`system.skills.${skill}.adds`] = submitted.system.skills[skill].adds - AEchange;
           }
+        }
+        // Don't allow skill.isFav to be overwritten by the value supplied by an Active Effect
+        if (Object.hasOwn(submitted.system.skills[skill], "isFav") &&
+          foundry.utils.hasProperty(this.actor.overrides, `system.skills.${skill}.isFav`) &&
+          submitted.system.skills[skill].isFav === this.actor.overrides.system.skills[skill].isFav) {
+          delete formData.object[`system.skills.${skill}.isFav`];
         }
       }
     }

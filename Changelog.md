@@ -14,6 +14,7 @@
 ```
 
 ## 14.7.0 - Skills, Cards, Fatigue, Default Items & Encounters
+- Allow **Favored** skills to be marked manually on Actor sheets once again.
 - Triggering a Skill Test from the **Macro Hotbar** should use the correct skill value if the skill has a "mod" applied to it.
 - Custom Skills with 0 adds will be treated as Unskilled.
 - Attributes dragged to the Macro Hotbar have the correct parameters set in the call to `rollSkillMacro`.
