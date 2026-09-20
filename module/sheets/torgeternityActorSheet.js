@@ -634,22 +634,19 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
       const updates = Object.entries(submitted.items).map(([itemid, fields]) => { return { _id: itemid, ...fields } });
       await this.actor.updateEmbeddedDocuments('Item', updates);
     }
-    // TODO: Ignore Active Effects on the skill 'adds' and 'isFav' values
-    if (submitted.system?.skills) {
-      for (const skill of Object.keys(submitted.system.skills)) {
-        if (Object.hasOwn(submitted.system.skills[skill], "adds")) {
-          const AEchange = this.actor.system.skills[skill].adds - this.actor._source.system.skills[skill].adds;
-          if (AEchange) {
-            formData.object[`system.skills.${skill}.adds`] = submitted.system.skills[skill].adds - AEchange;
-          }
-        }
-        // Don't allow skill.isFav to be overwritten by the value supplied by an Active Effect
-        if (Object.hasOwn(submitted.system.skills[skill], "isFav") &&
-          foundry.utils.hasProperty(this.actor.overrides, `system.skills.${skill}.isFav`) &&
-          submitted.system.skills[skill].isFav === this.actor.overrides.system.skills[skill].isFav) {
-          delete formData.object[`system.skills.${skill}.isFav`];
-        }
-      }
+    // Handle fields which might have been overridden by an Active Effect:
+    // - Prevent the AE-modified value from being submitted back to the data model
+    // - A change of a numeric field should write the unmodified-by-AE value back to the data model
+    const overrides = foundry.utils.flattenObject(this.actor.overrides);
+    for (const key in overrides) {
+      const newvalue = foundry.utils.getProperty(submitted, key);
+      if (newvalue === undefined) continue;
+      if (newvalue === overrides[key])
+        // Unchanged on the sheet, so don't submit the AE-modifier value for updating the data model
+        delete formData.object[key];
+      else if (typeof overrides[key] === 'number')
+        // Remove the modified value provided by the AE.
+        formData.object[key] = newvalue - (overrides[key] - foundry.utils.getProperty(this.actor._source, key));
     }
 
     // Now normal ActorSheet form.handler
