@@ -1,7 +1,19 @@
 {
   "CARD": {
     "discard": "Descarte",
-    "display": "Mostrar carta jugadores"
+    "display": "Mostrar carta jugadores",
+    "FIELDS": {
+      "macro": {
+        "label": "Macro al jugar carta",
+        "hint": "Esta macro se activará cuando se juegue la carta"
+      },
+      "name.label": "Nombre de la carta",
+      "number.label": "Número",
+      "system.special": "Acción especial"
+    }
+  },
+  "CARDS.ACTIONS": {
+    "Add": "Añadir"
   },
   "EFFECT": {
     "TABS": {
@@ -294,6 +306,7 @@
     },
     "combat": {
       "cantStart": "Ya hay otro encuentro en marcha",
+      "deleteStarted": "Ya hay otro encuentro en marcha.<br>¿Quieres terminar ESE encuentro para que puedas iniciar ESTE encuentro?",
       "dramaBack": "systems/torgeternity/images/cards/drama-back.webp",
       "toggleDramatic": "Alternar entre resolución de combate convencional y Escena Dramática",
       "toggleWaiting": "Cambiar el estado de Espera de este combatiente",
@@ -1244,6 +1257,10 @@
       "soakNull": "No absorbes naa.",
       "soakRoll": "Absorción por Realidad",
       "soakValue": " Heridas absorbidas, y todo el Shock.",
+      "soakWithShock": {
+        "title": "Opciones de Absorción",
+        "content": "¿Quienes absorber usando Shock o Posibilidades?"
+      },
       "social": "Social",
       "source": "Fuente",
       "specialabilities": "Habilidades Especiales",
@@ -1610,14 +1627,6 @@
         "hint": "Un umbral de oscuridad entre 0,15 y 1. Cuando el nivel de oscuridad de la escena supera este umbral, se considera que la iluminación global es de negrura total a la hora de determinar las penalizaciones por oscuridad."
       }
     }
-  },
-  "CARD.FIELDS": {
-    "number.label": "Número",
-    "macro": {
-      "label": "Macro al jugar carta",
-      "hint": "Esta macro se activará cuando se juegue la carta"
-    },
-    "system.special": "Acción especial"
   },
   "CONTROLS": {
     "LightDim": "Transición a luz tenue",

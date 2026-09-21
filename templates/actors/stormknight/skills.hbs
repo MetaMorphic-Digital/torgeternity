@@ -9,11 +9,11 @@
         <a
           class="skill-roll draggable" data-action="{{action}}"
           data-tooltip="torgeternity.sheetLabels.skillRollHint"
-          data-testtype="{{type}}"
+          data-test-type="{{type}}"
           data-base-attribute="{{skill.baseAttribute}}"
           data-adds="{{skill.adds}}"
           data-value="{{skill.value}}"
-          data-unskilleduse="{{skill.unskilledUse}}"
+          data-unskilled-use="{{skill.unskilledUse}}"
           {{disabled (not @root.editable)}}
           data-name="{{skill.id}}">
           {{skill.localName}}
@@ -52,12 +52,12 @@
         <a
           class="skill-roll draggable" data-action="{{action}}"
           data-tooltip="torgeternity.sheetLabels.skillRollHint"
-          data-testtype="{{type}}"
+          data-test-type="{{type}}"
           data-customskill="true"
           data-base-attribute="{{skill.baseAttribute}}"
           data-adds="{{skill.adds}}"
           data-value="{{skill.value}}"
-          data-unskilleduse="0"
+          data-unskilled-use="0"
           {{disabled (not @root.editable)}}
           {{#if skill.isFav}}data-isfav="true" {{/if}}
           data-name="{{skill.slug}}">

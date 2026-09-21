@@ -4,12 +4,9 @@
   </header>
   <div>
     <header class="cards-header flexrow">
-      <span class="card-faces">{{localize "CARD.FIELDS.face.label"}}</span>
-      <a class="card-control sort-mode" data-tooltip="{{localize 'CARDS.ACTIONS.ToggleSortMode'}}"
-        data-action="toggleSort">
-        <i class="fas fa-sort fa-fw"></i>
-      </a>
-      <strong class="card-name">{{localize "CARD.FIELDS.face.label"}}</strong>
+      <span class="card-control faces sort-mode"></span>
+      <span class="card-tooltip">{{localize "CARD.FIELDS.face.label"}}</span>
+      <strong class="card-name">{{localize "CARD.FIELDS.name.label"}}</strong>
       <span class="card-type">{{localize "DOCUMENT.FIELDS.type.label"}}</span>
       <strong class="card-pooled">{{localize "torgeternity.dialogPrompts.cardPooled"}}</strong>
       <div class="torg-card-controls controls">
@@ -19,7 +16,7 @@
     <ol class="cards scrollable" data-cards>
       {{#each cards as |card|}}
         <li class="card flexrow" data-card-id="{{card.id}}">
-          <div class="card-faces flexcol">
+          <div class="faces flexcol">
             <a class="card-control" data-tooltip="{{localize 'CARDS.ACTIONS.NextFace'}}" data-action="controlCard"
               data-control="nextFace"
               {{disabled (not card.hasNextFace)}}><i class="fas fa-caret-up"></i>

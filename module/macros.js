@@ -77,18 +77,19 @@ export class TorgeternityMacros {
       const actor = token.actor;
 
       if (actor.hasStatusEffect('unconscious')) {
-        chatOutput += `<li>${token.actor.name} ${_loc('torgeternity.macros.fatigueMacroCharAlreadyKO')}</li>`;
-        continue;
-      }
+        chatOutput += `<li>${actor.name} ${_loc('torgeternity.macros.fatigueMacroCharAlreadyKO')}</li>`;
+      } else if (actor.defenseTraits.includes('ignoreShock')) {
+        chatOutput += `<li>${actor.name}: ${_loc('torgeternity.traits.ignoreShock')}</li>`;
+      } else {
+        const shockIncrease = actor.system.fatigue;
+        const applyResult = token.actor.applyDamages(/*shock*/ shockIncrease, /*wounds*/ 0);
 
-      const shockIncrease = actor.system.fatigue;
-      const applyResult = token.actor.applyDamages(/*shock*/ shockIncrease, /*wounds*/ 0);
-
-      chatOutput += `<li>${actor.name}: ${shockIncrease} ${_loc('torgeternity.sheetLabels.shock')}`;
-      if (applyResult.shockExceeded) {
-        chatOutput += `<br><strong>${actor.name}${_loc('torgeternity.macros.fatigueMacroCharKO')}</strong>`;
+        chatOutput += `<li>${actor.name}: ${shockIncrease} ${_loc('torgeternity.sheetLabels.shock')}`;
+        if (applyResult.shockExceeded) {
+          chatOutput += `<br><strong>${actor.name}${_loc('torgeternity.macros.fatigueMacroCharKO')}</strong>`;
+        }
+        chatOutput += '</li>';
       }
-      chatOutput += '</li>';
     }
     chatOutput += '</ul>';
 

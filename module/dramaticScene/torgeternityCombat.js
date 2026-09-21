@@ -57,7 +57,7 @@ export default class TorgCombat extends Combat {
    * @param userId
    */
   _onUpdate(changed, options, userId) {
-    if (game.user.isActiveGM) {
+    if (game.user.isActiveGM && this.started) {
       const dramaActive = game.cards.get(game.settings.get('torgeternity', 'deckSetting')?.dramaActive);
       this.setFlag('torgeternity', 'activeCard', (dramaActive?.cards.size > 0) ? dramaActive.cards.contents[0].faces[0].img : '');
     }
@@ -103,6 +103,7 @@ export default class TorgCombat extends Combat {
   }
 
   get currentDrama() {
+    if (!this.started) return null;
     const dramaActive = game.cards.get(game.settings.get('torgeternity', 'deckSetting').dramaActive);
     return dramaActive.cards.size ? dramaActive.cards.contents[0] : null;
   }
@@ -262,8 +263,19 @@ export default class TorgCombat extends Combat {
    */
   async startCombat() {
     // Don't allow a second combat to be started
-    if (game.combats.find(c => c.started))
-      return ui.notifications.warn('torgeternity.combat.cantStart', { localize: true })
+    if (game.combats.find(c => c.started)) {
+      // See if the GM wants to cancel the other combats.
+      const stopOther = await foundry.applications.api.DialogV2.confirm({
+        content: _loc('torgeternity.combat.deleteStarted'),
+        rejectClose: false,
+        modal: true
+      });
+      if (stopOther)
+        for (const combat of game.combats.filter(c => c.started))
+          return combat.delete();
+      else
+        return ui.notifications.warn('torgeternity.combat.cantStart', { localize: true })
+    }
 
     // Active GM draws the next available drama card
     if (game.user.isActiveGM) await this.drawDramaCard();
@@ -455,9 +467,10 @@ export default class TorgCombat extends Combat {
    * General end-of-character turn processing
    */
   dramaEndOfTurn(combatant) {
-    if (this.getFlag('torgeternity', FATIGUED_FACTION_FLAG) === this.getCombatantFaction(combatant)) {
-      const actor = combatant.actor;
-      if (!actor) return;
+    const actor = combatant.actor;
+    if (!actor) return;
+    if (this.getFlag('torgeternity', FATIGUED_FACTION_FLAG) === this.getCombatantFaction(combatant) &&
+      !actor.defenseTraits.includes('ignoreShock')) {
 
       let chatOutput = `<h2>${_loc(
         'torgeternity.sheetLabels.fatigue'

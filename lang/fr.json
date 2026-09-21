@@ -1,7 +1,19 @@
 {
   "CARD": {
     "discard": "Défausser",
-    "display": "Montrer cette carte aux joueurs"
+    "display": "Montrer cette carte aux joueurs",
+    "FIELDS": {
+      "macro": {
+        "label": "Macro à lancer",
+        "hint": "Cette Macro sera automatiquement activée quand la carte sera jouée"
+      },
+      "name.label": "Nom de la carte",
+      "number.label": "Numéro",
+      "system.special": "Action spéciale"
+    }
+  },
+  "CARDS.ACTIONS": {
+    "Add": "Créer"
   },
   "COMBAT": {
     "End": "Fin"
@@ -297,6 +309,7 @@
     },
     "combat": {
       "cantStart": "Une rencontre est déjà en cours",
+      "deleteStarted": "Une autre Rencontre est déjà en cours.<br>Voulez vous la terminer pour démarrer cette nouvelle Rencontre ?",
       "dramaBack": "systems/torgeternity/images/cards/drama-back-fr.webp",
       "toggleDramatic": "Bascule le combat entre une scène Normale et une scène Dramatique",
       "toggleWaiting": "Active l'état Attendre de ce combattant",
@@ -1247,6 +1260,10 @@
       "soakNull": "Vous n'annulez aucun dommage.",
       "soakRoll": "Test de Réalité/Annulation des dommages",
       "soakValue": " blessure(s) annulée(s), et tout les points de Chocs.",
+      "soakWithShock": {
+        "title": "Option d'Annulation des dommages",
+        "content": "Voulez-vous Annuler les dommages en dépensant des points de Chocs ou des Possibilités ?"
+      },
       "social": "Social",
       "source": "Origine",
       "specialabilities": "Capacités spéciales",
@@ -1613,14 +1630,6 @@
         "hint": "Un niveau d'obscurité entre 0,15 and 1, supérieur au palier de Sombre. Quand le niveau d'obscurité dépasse ce seuil, l'Illumination Globale considére que l'état 'Noir complet' est appliqué comme pénalité de luminosité."
       }
     }
-  },
-  "CARD.FIELDS": {
-    "number.label": "Nombre",
-    "macro": {
-      "label": "Macro à lancer",
-      "hint": "Cette Macro sera automatiquement activée quand la carte sera jouée"
-    },
-    "system.special": "Action spéciale"
   },
   "CONTROLS": {
     "LightDim": "Transition vers Pénombre",

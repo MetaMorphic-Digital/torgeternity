@@ -1,7 +1,19 @@
 {
   "CARD": {
     "discard": "Abwerfen",
-    "display": "Herzeigen"
+    "display": "Herzeigen",
+    "FIELDS": {
+      "macro": {
+        "label": "Macro beim Ausspielen",
+        "hint": "Dieses Macro wird ausgeführt sobald die Karte ausgespielt wird"
+      },
+      "name.label": "Kartenname",
+      "number.label": "Nummer",
+      "system.special": "Spezialaktion"
+    }
+  },
+  "CARDS.ACTIONS": {
+    "Add": "Karte"
   },
   "EFFECT": {
     "TABS": {
@@ -294,6 +306,7 @@
     },
     "combat": {
       "cantStart": "Eine andere Begegnung ist bereits gestartet",
+      "deleteStarted": "Eine andere Begegnung ist gerade aktiv.<br>Möchtest du die ANDEREN Begegnung beenden um DIESEN zu starten?",
       "dramaBack": "systems/torgeternity/images/cards/drama-back.webp",
       "toggleDramatic": "Zwischen Standard- und dramatischer Szene umschalten",
       "toggleWaiting": "Warten-Zustand für diesen Kämpfer umschalten",
@@ -1244,6 +1257,10 @@
       "soakNull": "Du steckst nichts weg.",
       "soakRoll": "Wegstecken",
       "soakValue": " Wunden und allen Schock weggesteckt.",
+      "soakWithShock": {
+        "title": "Wegstecken Optionen",
+        "content": "Möchtest du Schock oder Möglichkeiten nutzen um Schaden wegzustecken?"
+      },
       "social": "Sozial",
       "source": "Quelle",
       "specialabilities": "Spezielle Fähigkeiten",
@@ -1610,14 +1627,6 @@
         "hint": "Ein Dunkelheitsschwellenwert zwischen 0,15 und 1. Sobald der Dunkelheitswert dieser Szene diesen Schwellenwert überschreitet, wird die allgemeine Beleuchtung mindestens als Pechschwarze Dunkelheit für Dunkelheitsmalusse angenommen."
       }
     }
-  },
-  "CARD.FIELDS": {
-    "number.label": "Nummer",
-    "macro": {
-      "label": "Macro beim Ausspielen",
-      "hint": "Dieses Macro wird ausgeführt sobald die Karte ausgespielt wird"
-    },
-    "system.special": "Spezialaktion"
   },
   "CONTROLS": {
     "LightDay": "Übergang zu taghellen Lichtverhältnissen",

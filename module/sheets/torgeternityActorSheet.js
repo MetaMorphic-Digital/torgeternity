@@ -364,14 +364,14 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
   _onDragStartSkill(event) {
     const data = event.target.dataset;
     const skillAttrData = {
-      type: data.testtype,
+      type: data.testType,
       data: {
         name: data.name,
         customskill: (data.customskill === 'true'),
         attribute: data.baseAttribute,
         adds: Number(data.adds),
         value: Number(data.value),
-        unskilledUse: data.unskilleduse,
+        unskilledUse: data.unskilledUse,
         DNDescriptor: 'standard',
       },
     };
@@ -634,16 +634,20 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
       const updates = Object.entries(submitted.items).map(([itemid, fields]) => { return { _id: itemid, ...fields } });
       await this.actor.updateEmbeddedDocuments('Item', updates);
     }
-    // TODO: Ignore Active Effects on the skill 'adds' values
-    if (submitted.system?.skills) {
-      for (const skill of Object.keys(submitted.system.skills)) {
-        if (Object.hasOwn(submitted.system.skills[skill], "adds")) {
-          const AEchange = this.actor.system.skills[skill].adds - this.actor._source.system.skills[skill].adds;
-          if (AEchange) {
-            formData.object[`system.skills.${skill}.adds`] = submitted.system.skills[skill].adds - AEchange;
-          }
-        }
-      }
+    // Handle fields which might have been overridden by an Active Effect:
+    // - Prevent the AE-modified value from being submitted back to the data model
+    // - A change of a numeric field should write the unmodified-by-AE value back to the data model
+    const overrides = foundry.utils.flattenObject(this.actor.overrides);
+    for (const key of Object.keys(overrides)) {
+      const newvalue = foundry.utils.getProperty(submitted, key);
+      if (newvalue === undefined) continue;
+      if (typeof overrides[key] === 'number' && newvalue !== overrides[key])
+        // Remove the modified value provided by the AE.
+        formData.object[key] = newvalue - (overrides[key] - foundry.utils.getProperty(this.actor._source, key));
+      else
+        // Don't allow any other AE-modified value to be changed on the sheet.
+        // (Very similar to ActorSheet(V1)._getSubmitData )
+        delete formData.object[key];
     }
 
     // Now normal ActorSheet form.handler
@@ -733,7 +737,7 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
    * @this {TorgeternityActorSheet}
    */
   static async #onSkillRoll(event, button) {
-    if (button.dataset.testtype === 'attribute')
+    if (button.dataset.testType === 'attribute')
       return this.actor.rollAttribute(button.dataset.name, /*, undefined, {window: { windowId: this.window.windowId }}*/)
     else
       return this.actor.rollSkill(button.dataset.name, /*, undefined, {window: { windowId: this.window.windowId }}*/)
@@ -1003,6 +1007,7 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
  * @this {TorgeternityActorSheet}
  */
   static #onApplyFatigue(event, button) {
+    if (this.actor.defenseTraits.includes('ignoreShock')) return;
     const newShock = this.actor.system.shock.value + parseInt(button.dataset.fatigue);
     this.actor.update({ 'system.shock.value': newShock });
   }

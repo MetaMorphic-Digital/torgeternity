@@ -22,10 +22,10 @@
             <span>
               <a
                 class="skill-roll draggable" data-action="skillRoll"
-                data-testType="attribute"
+                data-test-type="attribute"
                 data-value="{{attrValue.value}}"
                 data-name="{{attrName}}"
-                data-baseAttribute="{{attrName}}"
+                data-base-attribute="{{attrName}}"
                 data-adds="0"
                 {{disabled (not @root.editable)}}
                 data-unskilledUse="1">
@@ -420,11 +420,11 @@
                 <a
                   class="skill-roll draggable" data-action="skillRoll"
                   data-tooltip="torgeternity.sheetLabels.skillRollHint"
-                  data-testtype="skill"
+                  data-test-type="skill"
                   data-base-attribute="{{skill.baseAttribute}}"
                   data-adds="{{skill.adds}}"
                   data-value="{{skill.value}}"
-                  data-unskilleduse="{{skill.unskilledUse}}"
+                  data-unskilled-use="{{skill.unskilledUse}}"
                   {{disabled (not @root.editable)}}
                   data-name="{{skill.id}}">
                   {{skill.localName}}
@@ -441,12 +441,12 @@
               <a
                 class="skill-roll draggable" data-action="skillRoll"
                 data-tooltip="torgeternity.sheetLabels.skillRollHint"
-                data-testtype="skill"
+                data-test-type="skill"
                 data-customskill="true"
                 data-base-attribute="{{skill.system.baseAttribute}}"
                 data-adds="{{skill.system.adds}}"
                 data-value="{{skill.system.value}}"
-                data-unskilleduse="0"
+                data-unskilled-use="0"
                 {{disabled (not @root.editable)}}
                 {{#if skill.system.isFav}}data-isfav="true" {{/if}}
                 data-name="{{ifThen skill.system.slug skill.system.slug skill.name}}">
@@ -469,11 +469,11 @@
                 <span
                   style="position: relative"
                   class="skill-list" data-action="toggleThreatSkill"
-                  data-testtype="skill"
+                  data-test-type="skill"
                   data-base-attribute="{{skill.baseAttribute}}"
                   data-adds="{{skill.adds}}"
                   data-value="{{skill.value}}"
-                  data-unskilleduse="{{skill.unskilledUse}}"
+                  data-unskilled-use="{{skill.unskilledUse}}"
                   data-name="{{skill.id}}"
                   data-tooltip='{{localize "torgeternity.sheetLabels.toolTipClickToAdd"}}'>
                   {{skill.localName}}

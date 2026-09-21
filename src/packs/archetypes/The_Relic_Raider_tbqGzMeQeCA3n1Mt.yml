@@ -69,7 +69,71 @@ items:
     name: Indomitable
     type: perk
     img: systems/torgeternity/images/icons/reality-icon.webp
-    effects: []
+    effects:
+      - name: Favored Active Defense
+        img: systems/torgeternity/images/icons/reality-icon.webp
+        origin: >-
+          Compendium.torgeternity.archetypes.Actor.tbqGzMeQeCA3n1Mt.Item.PgRaIRVyGkjrtSoO
+        duration:
+          value: null
+          units: seconds
+          expiry: null
+          expired: false
+        disabled: false
+        _id: 2o3yMASFxKwycuQe
+        type: base
+        system:
+          changes:
+            - key: system.testOverride.activeDefense.isFav
+              type: override
+              value: true
+              phase: initial
+              priority: null
+          applyOnOutcome: ''
+          transferOnOutcome: ''
+          transferTo: target
+          activeIfTrait: []
+          applyIfAttackTrait: []
+          applyIfDefendTrait: []
+          defendAgainstTrait: []
+          applyIfAttackTraitCombine: or
+          applyIfDefendTraitCombine: or
+          defendAgainstTraitCombine: or
+          itemsToBestow: []
+          combatToggle: false
+          concentratingId: null
+          emanation:
+            radius: null
+            color: '#000040'
+            disposition: 1
+            visibility: 4
+        start:
+          combatant: null
+          turn: null
+          time: 1680
+          combat: null
+          initiative: null
+          round: null
+        description: ''
+        tint: '#ffffff'
+        transfer: true
+        statuses: []
+        showIcon: 1
+        folder: null
+        sort: 0
+        flags: {}
+        _stats:
+          coreVersion: '14.368'
+          systemId: torgeternity
+          systemVersion: 14.0.0
+          createdTime: 1789999915626
+          modifiedTime: 1789999938029
+          lastModifiedBy: iOcCVm1cmrYXOubH
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        _key: >-
+          !actors.items.effects!tbqGzMeQeCA3n1Mt.PgRaIRVyGkjrtSoO.2o3yMASFxKwycuQe
     folder: null
     sort: 19000000
     flags:
@@ -176,7 +240,71 @@ items:
     name: Tenacious
     type: perk
     img: systems/torgeternity/images/icons/reality-icon.webp
-    effects: []
+    effects:
+      - name: Favored Soak
+        img: systems/torgeternity/images/icons/reality-icon.webp
+        origin: >-
+          Compendium.torgeternity.archetypes.Actor.tbqGzMeQeCA3n1Mt.Item.WNyng6MMW4TRC8gY
+        duration:
+          value: null
+          units: seconds
+          expiry: null
+          expired: false
+        disabled: false
+        _id: fVgA9FZanUqM8J0P
+        type: base
+        system:
+          changes:
+            - key: system.testOverride.soak.isFav
+              type: override
+              value: true
+              phase: initial
+              priority: null
+          applyOnOutcome: ''
+          transferOnOutcome: ''
+          transferTo: target
+          activeIfTrait: []
+          applyIfAttackTrait: []
+          applyIfDefendTrait: []
+          defendAgainstTrait: []
+          applyIfAttackTraitCombine: or
+          applyIfDefendTraitCombine: or
+          defendAgainstTraitCombine: or
+          itemsToBestow: []
+          combatToggle: false
+          concentratingId: null
+          emanation:
+            radius: null
+            color: '#000040'
+            disposition: 1
+            visibility: 4
+        start:
+          combatant: null
+          turn: null
+          time: 1680
+          combat: null
+          initiative: null
+          round: null
+        description: ''
+        tint: '#ffffff'
+        transfer: true
+        statuses: []
+        showIcon: 1
+        folder: null
+        sort: 0
+        flags: {}
+        _stats:
+          coreVersion: '14.368'
+          systemId: torgeternity
+          systemVersion: 14.0.0
+          createdTime: 1789999818625
+          modifiedTime: 1789999841601
+          lastModifiedBy: iOcCVm1cmrYXOubH
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        _key: >-
+          !actors.items.effects!tbqGzMeQeCA3n1Mt.WNyng6MMW4TRC8gY.fVgA9FZanUqM8J0P
     folder: null
     sort: 29400000
     flags:
@@ -1277,11 +1405,11 @@ prototypeToken:
   depth: 1
 _stats:
   systemId: torgeternity
-  systemVersion: 13.27.0
-  coreVersion: '14.360'
+  systemVersion: 14.7.0
+  coreVersion: '14.368'
   createdTime: 1693912855771
-  modifiedTime: 1773001234548
-  lastModifiedBy: BMvGTGfheqDXarjN
+  modifiedTime: 1790001654196
+  lastModifiedBy: iOcCVm1cmrYXOubH
   compendiumSource: null
   duplicateSource: null
   exportSource: null

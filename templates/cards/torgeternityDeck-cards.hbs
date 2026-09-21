@@ -1,19 +1,18 @@
 <!-- Cards Tab -->
 <section class="tab cards{{#if tab.active}} active{{/if}}" data-group="{{tab.group}}" data-tab="{{tab.id}}">
   <header class="cards-header flexrow">
-    <span class="card-faces">{{localize "CARD.FIELDS.face.label"}}</span>
-    <a class="card-control sort-mode" data-tooltip="{{localize 'CARDS.ACTIONS.ToggleSortMode'}}"
+    <a class="card-control faces sort-mode" data-tooltip="{{localize 'CARDS.ACTIONS.ToggleSortMode'}}"
       data-action="toggleSort">
       <i class="fas fa-sort fa-fw"></i>
     </a>
-    <strong class="card-name">{{localize "CARD.FIELDS.face.label"}}</strong>
+    <span class="card-tooltip">{{localize "CARD.FIELDS.face.label"}}</span>
+    <span class="card-name">{{localize "CARD.FIELDS.name.label"}}</span>
     <span class="card-type">{{localize "DOCUMENT.FIELDS.type.label"}}</span>
-    <span class="card-number">{{localize "CARD.FIELDS.number.label"}}</span>
+    <span class="card-number">{{localize "CARDS.Number"}}</span>
     <span class="card-drawn">{{localize "CARD.FIELDS.drawn.label"}}</span>
     <div class="card-controls">
       <a class="card-control" data-tooltip="{{localize 'CARDS.ACTIONS.Create'}}"
-        data-action="controlCard" data-control="create"><i
-          class="fas fa-plus"></i> {{localize "Add"}}</a>
+        data-action="controlCard" data-control="create"><i class="fas fa-plus"></i> {{localize "CARDS.ACTIONS.Add"}}</a>
     </div>
   </header>
   <ol class="cards scrollable" data-cards>

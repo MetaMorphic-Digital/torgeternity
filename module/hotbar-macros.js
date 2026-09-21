@@ -168,16 +168,10 @@ async function rollSkillMacro(skillName, attributeName, isInteractionAttack, DND
   if (!isAttributeTest) {
     const skillNameKey = skillName; // .toLowerCase(); // skillName required to be internal value
     // would be nice to use display value as an input instead but we can't translate from i18n to internal values
-    skill = actor?.system.skills?.[skillNameKey] ?? actor?.system.customSkills?.[skillNameKey];
+    skill = actor?.getSkillData(skillNameKey);
+    if (!skill) return ui.notifications.warn(_loc('torgeternity.notifications.noSkillNamed') + skillName);
     // Maybe a custom skill?
-    if (!skill && actor) {
-      skill = actor.itemTypes.customSkill?.find(it => it.name === skillName)?.system;
-      if (skill) customSkill = true;
-    }
-    if (!skill)
-      return ui.notifications.warn(
-        _loc('torgeternity.notifications.noSkillNamed') + skillName
-      );
+    if (!actor.system.skills[skillNameKey]) customSkill = true;
   }
 
   const attributeNameKey = attributeName.toLowerCase();
@@ -200,17 +194,15 @@ async function rollSkillMacro(skillName, attributeName, isInteractionAttack, DND
   }
 
   // calculate the value using the attribute and skill adds, as the attribute might be different
-  //    than the skill's current baseAttribute. This assumes the actor is a stormknight - different
-  //    logic is needed for threats, who don't have adds.
-  let skillValue = attribute.value;
-  if (!isAttributeTest) {
-    if (actor.type === 'stormknight') {
-      skillValue += skill.adds;
-    } else if (actor.type === 'threat') {
-      const otherAttribute = actor.system.attributes[skill.baseAttribute];
-      skillValue = Math.max(skill.value, otherAttribute.value);
-    }
-  }
+  let skillValue;
+  if (isAttributeTest)
+    skillValue = attribute.value;
+  else if (attributeNameKey !== skill.baseAttribute)
+    // Remove old attribute modifier and apply new attribute modifier (to cope with 'mod' on the skill)
+    skillValue = skill.value - (actor.system.attributes[skill.baseAttribute].value ?? 0) + attribute.value;
+  else
+    skillValue = skill.value
+
   // Trigger the skill roll
   // The following is copied/pasted/adjusted from _onSkillRoll and _onInteractionAttack in TorgeternityActorSheet
   // This code needs to be centrally located!!!

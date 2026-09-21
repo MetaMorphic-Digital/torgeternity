@@ -1,7 +1,19 @@
 {
   "CARD": {
     "discard": "Discard",
-    "display": "Show this card to players"
+    "display": "Show this card to players",
+    "FIELDS": {
+      "macro": {
+        "label": "On Play Macro",
+        "hint": "This macro will be invoked when the card is played"
+      },
+      "name.label": "Card Name",
+      "number.label": "Number",
+      "system.special": "Special Ability"
+    }
+  },
+  "CARDS.ACTIONS": {
+    "Add": "Add"
   },
   "EFFECT": {
     "TABS": {
@@ -288,6 +300,7 @@
     },
     "combat": {
       "cantStart": "Another Encounter is already in progress",
+      "deleteStarted": "Another Encounter is already in progress.<br>Do you want to end THAT encounter so that you can start THIS encounter?",
       "dramaBack": "systems/torgeternity/images/cards/drama-back.webp",
       "toggleDramatic": "Toggle between Standard and Dramatic Combat Resolution",
       "toggleWaiting": "Toggle the Waiting state of this combatant",
@@ -1238,6 +1251,10 @@
       "soakNull": "You will soak nothing.",
       "soakRoll": "Reality soaking",
       "soakValue": " wounds soaked, and all shock.",
+      "soakWithShock": {
+        "title": "Soak Options",
+        "content": "Do you want to soak using Shock or Possibilities?"
+      },
       "social": "Social",
       "source": "Source",
       "specialabilities": "Special Abilities",
@@ -1604,14 +1621,6 @@
         "hint": "A darkness threshold between 0.15 and 1. When the Scene darkness level exceeds this threshold Global Illumination is disabled and considered to be Pitch Black when determining Darkness penalties."
       }
     }
-  },
-  "CARD.FIELDS": {
-    "number.label": "Number",
-    "macro": {
-      "label": "On Play Macro",
-      "hint": "This macro will be invoked when the card is played"
-    },
-    "system.special": "Special Ability"
   },
   "CONTROLS": {
     "LightDim": "Transition to Dim Light",

@@ -2,6 +2,35 @@
 
 - Translations by Durak (French), Helmut (German), and Teotimus (Spanish).
 
+## 14.7.0 - Skills, Cards, Fatigue, Default Items & Encounters
+### New Features
+- An Actor with a perk or special ability with the **Ignore Shock** trait will take no shock damage from Fatigue (either from a Drama card or the Fatigue macro.)
+- Add support for the **Uncanny Dodge** perk:
+  - Set an Active Effect on Uncanny Dodge with `system.defenses.soak.shock` OVERRIDE `2`
+  - When you attempt to soak, you will be prompted to either spend the configured amount of shock (the "2" value) or to use a Possibility to fund the Soak (if the Actor has the "Ignore Shock" trait then it won't be offered this choice.)
+  - Tick the "Display as Combat Toggle" option on the Active Effect so that a toggle is displayed on the STATS tab of the Actor sheet (so it can be disabled when not allowed).
+- Allow StormKnight to be created with a default set of items (such as Currency):
+  - Set `CONFIG.torgernity.SKdefaultItems` to an array of objects which define the `uuid` and optionally the `quantity` of each item to be added to a newly created Stormknight Actor.
+  - For example, if `Item.pkBXF8U96DlGaB6u` is the UUID for a currency item, the following will add that item to the SK with the quantity set to 150.
+  `CONFIG.torgeternity.SKdefaultItems = [{ uuid : 'Item.pkBXF8U96DlGaB6u', quantity: 150 }]`
+### Improvements
+- When a Test is performed using an item, the item's type is added to the list of `attackTraits`.
+- Custom Skills with 0 adds will be treated as Unskilled.
+- Add `Actor.getSkillData(skillNameOrSlug)` to put checking for normal/custom skills all in one place.
+- If an Encounter is already started and "Start Combat" is selected for another Encounter, then a prompt will be displayed asking if you want to delete the Encounter currently in progress. (After deletion, the "Start Combat" button will need to be pressed again to start the new encounter.)
+  - The current Drama Card is only displayed on the encounter which has been started.
+- Improved layout of columns in Player Hand and Deck Config dialogs.
+- Add spacing to the Deck/Player icons in the Card Stacks sidebar.
+- When the Player Hand is in a detached window, resize that window when cards are added/removed from the hand.
+- Add more Active Effects to the Archetypes (as well as updating ALL of them to the latest data model schema):
+  - Relic Raider: Indomitable (Favored Active Defense) & Tenacious (Favored Soak)
+  - Resistance Fighter: Telekinetic Barrier
+### Bug Fixes
+- Prevent error/NaN if a Favored reroll is a natural "1".
+- Allow **Favored** skills to be marked manually on Actor sheets once again.
+- Triggering a Skill Test from the **Macro Hotbar** should use the correct skill value if the skill has a "mod" applied to it.
+- Attributes dragged to the Macro Hotbar have the correct parameters set in the call to `rollSkillMacro`.
+
 ## 14.6.0 - Skills, Perks & Cards
 - **Effects button** in skill check chat cards, the "+Effects" button's tooltip now lists the Active Effcts which will be transferred.
 - **Periculum macro** should not use any modifiers in the pseudo-test chat message result.
@@ -18,7 +47,7 @@
   - (**Note**: Items to be inherited via the Inheritance tab, must now be dropped onto the Perk while the Inheritance tab is selected.)
 - **Custom Skill Improvements**
   - **Active Effects**: A custom skill can be modified by an Active Effect by using the key `system.customSkills.<slug>.mod` where `<slug>` is the slugified version of the custom skill's name. (e.g. The skill "Pop Tart" will have a slug of `pop-tart`)
-  - **@Check[customskillslug]**: Allow the slug of a custom skill name to appear in an `@Check` inline enricher.
+  - **`@Check[customskillslug]`**: Allow the slug of a custom skill name to appear in an `@Check` inline enricher.
   - The `slug` for a custom skill is displayed in the tooltip of the name in the custom skill item card.
 
 ## 14.5.0 - QOL improvements

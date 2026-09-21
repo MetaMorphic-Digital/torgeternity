@@ -469,7 +469,71 @@ items:
     name: Telekinetic Barrier
     type: psionicpower
     img: systems/torgeternity/images/icons/psionicpower.webp
-    effects: []
+    effects:
+      - name: Telekinetic Barrier
+        img: systems/torgeternity/images/icons/psionicpower.webp
+        origin: >-
+          Compendium.torgeternity.archetypes.Actor.6ThunRV3sj9ZSMQW.Item.jVVPxqxbRFvMFqHr
+        duration:
+          value: null
+          units: seconds
+          expiry: null
+          expired: false
+        disabled: false
+        _id: M6mHwVkxIYYVNp7a
+        type: base
+        system:
+          changes:
+            - key: system.defenses.physical.mod
+              type: upgrade
+              value: 1
+              phase: initial
+              priority: null
+          applyOnOutcome: ''
+          transferOnOutcome: anySuccess
+          transferTo: actor
+          activeIfTrait: []
+          applyIfAttackTrait: []
+          applyIfDefendTrait: []
+          defendAgainstTrait: []
+          applyIfAttackTraitCombine: or
+          applyIfDefendTraitCombine: or
+          defendAgainstTraitCombine: or
+          itemsToBestow: []
+          combatToggle: false
+          concentratingId: null
+          emanation:
+            radius: null
+            color: '#000040'
+            disposition: 1
+            visibility: 4
+        start:
+          combatant: null
+          turn: null
+          time: 1680
+          combat: null
+          initiative: null
+          round: null
+        description: ''
+        tint: '#ffffff'
+        transfer: false
+        statuses: []
+        showIcon: 1
+        folder: null
+        sort: 0
+        flags: {}
+        _stats:
+          coreVersion: '14.368'
+          systemId: torgeternity
+          systemVersion: 14.0.0
+          createdTime: 1790000186249
+          modifiedTime: 1790000798848
+          lastModifiedBy: iOcCVm1cmrYXOubH
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        _key: >-
+          !actors.items.effects!6ThunRV3sj9ZSMQW.jVVPxqxbRFvMFqHr.M6mHwVkxIYYVNp7a
     folder: null
     sort: 200000
     flags:
@@ -1274,11 +1338,11 @@ prototypeToken:
   depth: 1
 _stats:
   systemId: torgeternity
-  systemVersion: 13.27.0
-  coreVersion: '14.360'
+  systemVersion: 14.7.0
+  coreVersion: '14.368'
   createdTime: 1693913842164
-  modifiedTime: 1773001234534
-  lastModifiedBy: BMvGTGfheqDXarjN
+  modifiedTime: 1790001648564
+  lastModifiedBy: iOcCVm1cmrYXOubH
   compendiumSource: null
   duplicateSource: null
   exportSource: null

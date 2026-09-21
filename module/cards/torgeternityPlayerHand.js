@@ -129,6 +129,8 @@ export default class torgeternityPlayerHand extends foundry.applications.sheets.
     }).bind(this.element);
 
     await super._onRender(context, options);
+    // Refit window to new size (in case number of cards has changed)
+    if (this.window.windowId) this._refit();
   }
 
   /**

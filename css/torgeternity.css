@@ -4423,9 +4423,19 @@ form.deckSetting .window-content {
 
 form.cards-config {
 
-  header .card-name,
-  ol.cards .card-name {
-    flex-grow: 3;
+  header,
+  ol.cards {
+    .card-name {
+      flex-grow: 3;
+    }
+
+    .card-type,
+    .card-number,
+    .card-drawn,
+    .card-controls,
+    .card-pooled {
+      text-align: center;
+    }
   }
 
   div.slim div.form-fields {
@@ -4678,6 +4688,11 @@ body {
 
 div#interface.theme-dark .sidebar-tab {
   background-image: url(../images/thunder.webp);
+}
+
+.cards-sidebar .stack-type {
+  flex: 0;
+  margin-right: 0.5em;
 }
 
 dialog.externalLinks {
