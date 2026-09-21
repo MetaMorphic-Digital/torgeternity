@@ -7,13 +7,13 @@
         "label": "Macro al jugar carta",
         "hint": "Esta macro se activará cuando se juegue la carta"
       },
-      "name.label": "Card Name",
+      "name.label": "Nombre de la carta",
       "number.label": "Número",
       "system.special": "Acción especial"
     }
   },
   "CARDS.ACTIONS": {
-    "Add": "Add"
+    "Add": "Añadir"
   },
   "EFFECT": {
     "TABS": {
@@ -306,7 +306,7 @@
     },
     "combat": {
       "cantStart": "Ya hay otro encuentro en marcha",
-      "deleteStarted": "Another Encounter is already in progress.<br>Do you want to end THAT encounter so that you can start THIS encounter?",
+      "deleteStarted": "Ya hay otro encuentro en marcha.<br>¿Quieres terminar ESE encuentro para que puedas iniciar ESTE encuentro?",
       "dramaBack": "systems/torgeternity/images/cards/drama-back.webp",
       "toggleDramatic": "Alternar entre resolución de combate convencional y Escena Dramática",
       "toggleWaiting": "Cambiar el estado de Espera de este combatiente",
@@ -1258,8 +1258,8 @@
       "soakRoll": "Absorción por Realidad",
       "soakValue": " Heridas absorbidas, y todo el Shock.",
       "soakWithShock": {
-        "title": "Soak Options",
-        "content": "Do you want to soak using Shock or Possibilities?"
+        "title": "Opciones de Absorción",
+        "content": "¿Quienes absorber usando Shock o Posibilidades?"
       },
       "social": "Social",
       "source": "Fuente",
