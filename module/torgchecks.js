@@ -782,7 +782,7 @@ function torgBonus(rollTotal) {
   const VALUES = [0,  // index 0 is inused
     -10, -8, -6, -6, -4, -4, -2, -2, -1, -1,
     0, 0, 1, 1, 2, 3, 4, 5, 6, 7];
-
+  rollTotal = Math.floor(rollTotal);  // Favored reroll sets minimum roll to 1.1 to avoid MISHAP
   return (rollTotal <= 20) ? VALUES[rollTotal] : (7 + Math.ceil((rollTotal - 20) / 5));
 }
 
