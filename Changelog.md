@@ -4,7 +4,7 @@
 
 ## 14.7.0 - Skills, Cards, Fatigue, Default Items & Encounters
 ### New Features
-- An Actor with a perk or special ability with the "Ignore Shock" trait will take no shock damage from Fatigue (either from a Drama card or the Fatigue macro.)
+- An Actor with a perk or special ability with the **Ignore Shock** trait will take no shock damage from Fatigue (either from a Drama card or the Fatigue macro.)
 - Add support for the **Uncanny Dodge** perk:
   - Set an Active Effect on Uncanny Dodge with `system.defenses.soak.shock` OVERRIDE `2`
   - When you attempt to soak, you will be prompted to either spend the configured amount of shock (the "2" value) or to use a Possibility to fund the Soak (if the Actor has the "Ignore Shock" trait then it won't be offered this choice.)
