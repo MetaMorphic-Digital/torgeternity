@@ -1615,11 +1615,11 @@ prototypeToken:
   depth: 1
 _stats:
   systemId: torgeternity
-  systemVersion: 13.27.0
-  coreVersion: '14.360'
+  systemVersion: 14.7.0
+  coreVersion: '14.368'
   createdTime: 1694866052812
-  modifiedTime: 1773001234689
-  lastModifiedBy: BMvGTGfheqDXarjN
+  modifiedTime: 1790001737542
+  lastModifiedBy: iOcCVm1cmrYXOubH
   compendiumSource: Compendium.torgeternity.archetypes.QsYmnq73AiR6BwhD
   duplicateSource: null
   exportSource: null

@@ -542,11 +542,11 @@ prototypeToken:
   depth: 1
 _stats:
   systemId: torgeternity
-  systemVersion: 13.27.0
-  coreVersion: '14.360'
+  systemVersion: 14.7.0
+  coreVersion: '14.368'
   createdTime: 1694860825482
-  modifiedTime: 1773001234695
-  lastModifiedBy: BMvGTGfheqDXarjN
+  modifiedTime: 1790001710181
+  lastModifiedBy: iOcCVm1cmrYXOubH
   compendiumSource: Compendium.te001-core-rulebook.Actors.fImZbwzh0jbEYGN5
   duplicateSource: null
   exportSource: null

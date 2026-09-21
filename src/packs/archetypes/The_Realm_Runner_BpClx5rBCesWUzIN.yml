@@ -1143,11 +1143,11 @@ prototypeToken:
   depth: 1
 _stats:
   systemId: torgeternity
-  systemVersion: 13.27.0
-  coreVersion: '14.360'
+  systemVersion: 14.7.0
+  coreVersion: '14.368'
   createdTime: 1693912355058
-  modifiedTime: 1774458892359
-  lastModifiedBy: BMvGTGfheqDXarjN
+  modifiedTime: 1790001657286
+  lastModifiedBy: iOcCVm1cmrYXOubH
   compendiumSource: null
   duplicateSource: null
   exportSource: null

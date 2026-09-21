@@ -611,12 +611,12 @@ items:
       compendiumSource: null
       duplicateSource: null
       exportSource: null
-      coreVersion: '14.360'
+      coreVersion: '14.368'
       systemId: torgeternity
-      systemVersion: 13.27.0
+      systemVersion: 14.0.0
       createdTime: 1774457879589
-      modifiedTime: 1774457879589
-      lastModifiedBy: BMvGTGfheqDXarjN
+      modifiedTime: 1789999355804
+      lastModifiedBy: iOcCVm1cmrYXOubH
     _id: FsTOcrw2vFahs1M2
     ownership:
       default: 0
@@ -1151,11 +1151,11 @@ prototypeToken:
   depth: 1
 _stats:
   systemId: torgeternity
-  systemVersion: 13.27.0
-  coreVersion: '14.360'
+  systemVersion: 14.7.0
+  coreVersion: '14.368'
   createdTime: 1693901061941
-  modifiedTime: 1773001234536
-  lastModifiedBy: BMvGTGfheqDXarjN
+  modifiedTime: 1790001681698
+  lastModifiedBy: iOcCVm1cmrYXOubH
   compendiumSource: null
   duplicateSource: null
   exportSource: null
