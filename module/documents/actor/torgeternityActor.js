@@ -154,6 +154,10 @@ export default class TorgeternityActor extends foundry.documents.Actor {
       } else if (changed.system.wounds.value < 0)
         changed.system.wounds.value = 0;
     }
+    if (options.wounding &&
+      (changed.system.shock.value > 0 || changed.system.wounds.value > 0)) {
+      options.applyWounding = true;
+    }
 
     return super._preUpdate(changed, options, user);
   }
@@ -203,6 +207,8 @@ export default class TorgeternityActor extends foundry.documents.Actor {
         if (options.shockExceeded) updates['system.shock.value'] = this.system.shock.max;
         if (options.woundsExceeded) updates['system.wounds.value'] = this.system.wounds.max;
         this.update(updates);
+      } else if (!setUnconscious && options.applyWounding) {
+        this.increaseVulnerable(this);
       }
     }
 

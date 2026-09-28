@@ -3265,7 +3265,6 @@ document-embed .generalHeader {
 }
 
 .chat-message {
-  margin: 5px;
   background-image: url("../images/bgparch.webp");
   background-size: cover;
   background-blend-mode: multiply;

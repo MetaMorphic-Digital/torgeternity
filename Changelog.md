@@ -2,6 +2,14 @@
 
 - Translations by Durak (French), Helmut (German), and Teotimus (Spanish).
 
+## 14.7.1 - Trait automation
+- When the `Public as Character` is chosen for Chat Messages, if no token is selected AND the user has no default character, then the message will be posted as a `Public as User` chat message.
+  - This will avoid having to keep switching between IC and OOC for GMs.
+- Trait Automation:
+  - `Ignores Armor` will cause any armour on the target to be ignored.
+  - `Quick` will make the attack Favored if the target is Stymied or Very stymied (if multi-targeting, ALL targets must be (Very) Stymied.)
+  - `Wounding` will add Vulnerable (stacking) to a target if any damage was inflicted (unless the target is KO'd or killed).
+
 ## 14.7.0 - Skills, Cards, Fatigue, Default Items & Encounters
 ### New Features
 - An Actor with a perk or special ability with the **Ignore Shock** trait will take no shock damage from Fatigue (either from a Drama card or the Fatigue macro.)
@@ -9,7 +17,7 @@
   - Set an Active Effect on Uncanny Dodge with `system.defenses.soak.shock` OVERRIDE `2`
   - When you attempt to soak, you will be prompted to either spend the configured amount of shock (the "2" value) or to use a Possibility to fund the Soak (if the Actor has the "Ignore Shock" trait then it won't be offered this choice.)
   - Tick the "Display as Combat Toggle" option on the Active Effect so that a toggle is displayed on the STATS tab of the Actor sheet (so it can be disabled when not allowed).
-- Allow StormKnight to be created with a default set of items (such as Currency):
+- Allow StormKnight to be created with a **default set of items** (such as Currency):
   - Set `CONFIG.torgernity.SKdefaultItems` to an array of objects which define the `uuid` and optionally the `quantity` of each item to be added to a newly created Stormknight Actor.
   - For example, if `Item.pkBXF8U96DlGaB6u` is the UUID for a currency item, the following will add that item to the SK with the quantity set to 150.
   `CONFIG.torgeternity.SKdefaultItems = [{ uuid : 'Item.pkBXF8U96DlGaB6u', quantity: 150 }]`

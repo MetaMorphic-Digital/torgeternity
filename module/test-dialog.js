@@ -255,6 +255,11 @@ export class TestDialog extends HandlebarsApplicationMixin(ApplicationV2) {
       context.test.vulnerableModifier = Math.max(...context.test.targets.map(target => target.vulnerableModifier));
       context.test.darknessModifier = Math.min(0, Math.min(...context.test.targets.map(target => target.darknessModifier)) + context.test.targetDarknessModifier);
       context.test.rangeModifier = Math.min(...context.test.targets.map(target => target.rangeModifier));
+      // "Quick" trait can only be determined AFTER the targets are (very) stymied
+      if (context.test.attackTraits.includes('quick') &&
+        !targets.find(target => !target.actor.statuses.has('stymied') && !target.actor.statuses.has('veryStymied'))) {
+        context.test.isFav = true;
+      }
     } else {
       context.test.targets = dummyTestTargets();
       context.test.sizeModifier = 0;
