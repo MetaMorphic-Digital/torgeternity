@@ -1633,9 +1633,6 @@
   "BEHAVIOR.TYPES.torgActiveEffect.FIELDS": {
     "disposition": {
       "label": "Token Verwendung"
-    },
-    "effects": {
-      "label": "Effekte"
     }
   }
 }

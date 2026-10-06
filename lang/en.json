@@ -1625,10 +1625,8 @@
   },
   "BEHAVIOR.TYPES.torgActiveEffect.FIELDS": {
     "disposition": {
-      "label": "Token Disposition"
-    },
-    "effects": {
-      "label": "Effects"
+      "label": "Token Disposition",
+      "hint": "The effects are only applied to Tokens with this Disposition"
     }
   }
 }

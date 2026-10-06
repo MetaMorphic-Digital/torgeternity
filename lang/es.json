@@ -1632,9 +1632,6 @@
   "BEHAVIOR.TYPES.torgActiveEffect.FIELDS": {
     "disposition": {
       "label": "Disposición de la ficha"
-    },
-    "effects": {
-      "label": "Efectos"
     }
   }
 }

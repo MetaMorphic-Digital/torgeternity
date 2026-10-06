@@ -2,7 +2,16 @@
 
 - Translations by Durak (French), Helmut (German), and Teotimus (Spanish).
 
-## 14.7.1 - Trait automation
+### Translations
+```
+  "BEHAVIOR.TYPES.torgActiveEffect.FIELDS": {
+    "disposition": {
+      "hint": "The effects are only applied to Tokens with this Disposition"
+    }
+  }
+```
+
+## 14.7.1 - Trait automation & IC/OOC chat
 - When the `Public as Character` is chosen for Chat Messages, if no token is selected AND the user has no default character, then the message will be posted as a `Public as User` chat message.
   - This will avoid having to keep switching between IC and OOC for GMs.
 - Trait Automation:

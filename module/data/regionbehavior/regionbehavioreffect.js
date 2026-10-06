@@ -8,7 +8,7 @@ const fields = foundry.data.fields;
 
 export class TorgApplyEffectRegionBehaviorType extends foundry.data.regionBehaviors.RegionBehaviorType {
 
-  static LOCALIZATION_PREFIXES = ["BEHAVIOR.TYPES.torgActiveEffect", "BEHAVIOR.TYPES.base"];
+  static LOCALIZATION_PREFIXES = ["BEHAVIOR.TYPES.torgActiveEffect", "BEHAVIOR.TYPES.applyActiveEffect", "BEHAVIOR.TYPES.base"];
 
   static events = {
     [CONST.REGION_EVENTS.TOKEN_ENTER]: this.#onTokenEnter,
