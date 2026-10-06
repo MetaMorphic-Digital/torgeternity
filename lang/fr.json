@@ -941,10 +941,6 @@
         "hint": "Validez pour masquer tous les compendiums qui ne sont pas en français.",
         "name": "Masquer les compendiums en langue étrangère"
       },
-      "pauseMedia": {
-        "hint": "Choisissez l'image affichée lorsque le jeu est en pause.",
-        "name": "Image de pause"
-      },
       "playerHandBottom": {
         "hint": "La main du joueur s'ouvre en bas à droite, et les cartes apparaitront au dessus de la fenêtre. Nécessite un rechargement(F5) pour être effectif.",
         "name": "Affichage haute de la main"

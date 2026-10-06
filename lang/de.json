@@ -938,10 +938,6 @@
         "hint": "Auswählen, um anderssprachige Kompendien auszublenden (funktioniert nicht mit Modul \"Compendium Folders\"",
         "name": "Anderssprachige Kompendien ausblenden"
       },
-      "pauseMedia": {
-        "hint": "Wähle das Bild, das angezeigt wird, wenn das Spiel pausiert.",
-        "name": "Pausenbild"
-      },
       "playerHandBottom": {
         "hint": "Die Hände der Spieler werden unten rechts auf dem Bildschirm geöffnet, und die Karten werden über dem Fenster mit den Spielerhänden angezeigt. Erfordert eine Bildschirmaktualisierung (F5), um wirksam zu werden.",
         "name": "Anzeige der Spielerhand am unteren Bildschirmrand"

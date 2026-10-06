@@ -938,10 +938,6 @@
         "hint": "Selecciona para ocultar todos los compendios en otros idiomas.",
         "name": "Ocultar compendios en otros idiomas"
       },
-      "pauseMedia": {
-        "hint": "Escoge la imagen que se mostrará cuando el juego esté en pausa.",
-        "name": "Imagen de pausa"
-      },
       "playerHandBottom": {
         "hint": "Las manos de los jugadores se abrirán en la esquina inferior derecha de la pantalla, y todas las cartas aparecerán por encima de la ventana de la mano del jugador. Requiere actualizar la aplicación (F5) para que tenga efecto.",
         "name": "Mostrar mano de jugador en la parte inferior"
