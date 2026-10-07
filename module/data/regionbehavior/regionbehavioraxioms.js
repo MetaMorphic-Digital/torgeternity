@@ -28,7 +28,8 @@ export class ReplaceAxiomsRegionBehaviorType extends foundry.data.regionBehavior
     event.data.token.actor.reset();
   }
 
-  _onUpdate(_changed, _options, _userId) {
+  _onUpdate(changed, options, userId) {
+    super._onUpdate(changed, options, userId);
     this.region.tokens.forEach(token => token.actor.reset());
   }
 }
