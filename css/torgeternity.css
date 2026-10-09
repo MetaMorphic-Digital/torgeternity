@@ -502,7 +502,7 @@ dialog.torgeternity:not(.actor, .item) .window-content,
         display: flex;
         flex-direction: column;
         position: relative;
-        margin: 5px;
+        margin: 4px;
         justify-content: space-between;
         border-top: 1px solid black;
 
@@ -529,8 +529,8 @@ dialog.torgeternity:not(.actor, .item) .window-content,
         }
 
         img {
-          max-width: 50px;
-          max-height: 50px;
+          max-width: 30px;
+          max-height: 30px;
           margin: 5px;
         }
 
