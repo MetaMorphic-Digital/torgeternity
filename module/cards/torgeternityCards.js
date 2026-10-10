@@ -23,6 +23,10 @@ export class torgeternityCards extends Cards {
     return this.draw(destinyDeck, 1, { face: 1, ...game.torgeternity.cardChatOptions });
   }
 
+  get destinyCount() {
+    return this.type === 'hand' && this.cards.filter(card => card.type === 'destiny').length;
+  }
+
   async discardRandomDestiny() {
     if (this.type !== 'hand') {
       console.error('torgeternityCards.drawDestiny called for a deck that is not a HAND')

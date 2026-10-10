@@ -16,7 +16,7 @@
 ### Improvements
 - Reinstate core Foundry label and hint for the Effects field of `Apply Active Effects (Torg)` region behaviour, and add hint for Token Disposition.
 - Remove excess padding from the item lists in the Perks, Gear, Powers tabs of Actor sheets.
-- Add button to Player Hand dialog to discard a random Destiny card.
+- Add button to Player Hand dialog to **discard a random Destiny card**.
 - Remove `pauseGame` translation key, since it isn't used.
 
 ### Bug Fixes
