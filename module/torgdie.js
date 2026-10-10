@@ -1,6 +1,9 @@
 /*
 initialy created by BadIdeasBureau in his module "chain-reaction" : https://github.com/BadIdeasBureau/chain-reaction
 thanks to him for letting us using his code
+
+core Foundry doesn't treats "d20x10x20" as reroll any 10s and then reroll any 20s, 
+so a roll of 20 followed by a 10 does NOT reroll the 10!
 */
 
 export class TorgDie extends foundry.dice.terms.Die {
