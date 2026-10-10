@@ -23,6 +23,7 @@ export default class torgeternityPlayerHand extends foundry.applications.sheets.
       focusCard: torgeternityPlayerHand.#onFocusCard,
       drawCosm: torgeternityPlayerHand.#onDrawCosm,
       drawDestiny: torgeternityPlayerHand.#onDrawDestiny,
+      discardRandomDestiny: torgeternityPlayerHand.#onDiscardRandomDestiny,
       lifelike: torgeternityPlayerHand.#onLifelike
     }
   }
@@ -62,8 +63,11 @@ export default class torgeternityPlayerHand extends foundry.applications.sheets.
   }
 
   _prepareButtons() {
+    const discardkey = 'torgeternity.dialogPrompts.discardRandomDestinyTooltip';
+    const discardtooltip = game.i18n.has(discardkey) && game.i18n.localize(discardkey);
     return [
       { type: 'button', icon: 'fas fa-plus', label: 'torgeternity.dialogPrompts.drawDestiny', cssClass: "card-control", action: "drawDestiny" },
+      { type: 'button', icon: 'fas fa-inbox', label: 'torgeternity.dialogPrompts.discardRandomDestiny', cssClass: "card-control", disabled: !this.document.destinyCount, action: "discardRandomDestiny", tooltip: discardtooltip },
       { type: 'button', icon: 'fas fa-plus', label: 'torgeternity.dialogPrompts.drawCosm', cssClass: "card-control", action: "drawCosm" },
     ]
   }
@@ -209,6 +213,13 @@ export default class torgeternityPlayerHand extends foundry.applications.sheets.
    */
   static #onDrawDestiny() {
     return this.document.drawDestiny();
+  }
+
+  /**
+   * @this {torgeternityPlayerHand}
+   */
+  static #onDiscardRandomDestiny() {
+    return this.document.discardRandomDestiny();
   }
 
   /**

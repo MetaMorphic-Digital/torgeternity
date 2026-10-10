@@ -503,13 +503,11 @@ export default class TorgeternityChatLog extends foundry.applications.sidebar.ta
     test.dicerolled = [];
 
     if (rollTwice) {
-      // How to show both rolls on chat card and DSN?
+      // How to show both rolls on chat card?
       const roll1 = await rollBonusDie(test.trademark);
       const roll2 = await rollBonusDie(test.trademark);
-      test.diceroll = (roll1.value > roll2.value) ? roll1 : roll2;
+      test.diceroll = (roll1.total > roll2.total) ? roll1 : roll2;
       test.dicerolled.push(roll1, roll2);
-      // if using DSN, we might fake rolling the dice for the lower result,
-      // since the higher result will be rolled when the chat card is displayed.
     } else {
       test.diceroll = await rollBonusDie(test.trademark);
       test.dicerolled.push(test.diceroll);

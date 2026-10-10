@@ -2,6 +2,7 @@
   <footer class="form-footer">
     {{#each buttons as |button|}}
       <button type="{{button.type}}" {{#if button.name}}name="{{button.name}}" {{/if}} class="{{button.cssClass}}"
+        {{#if button.tooltip}}data-tooltip="{{localize button.tooltip}}" {{/if}}
         {{#if button.action}}data-action="{{button.action}}" {{/if}} {{#if button.disabled}}disabled{{/if}}>
         {{#if button.icon}}<i class="{{button.icon}}" inert></i>{{/if}}
         {{#if button.label}}<span>{{localize button.label}}</span>{{/if}}

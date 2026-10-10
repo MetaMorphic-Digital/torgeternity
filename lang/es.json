@@ -413,6 +413,7 @@
       "cosmDeckDialogLabel": "Roba",
       "cosmDialogTitle": "Roba Carta de Cosmos",
       "discardCard": "Descartar (pulsar MAY para devolver a su mazo original)",
+      "discardRandomDestiny": "Descartar Destino al azar",
       "drawCosm": "Roba Cosmos",
       "drawDestiny": "Roba Destino",
       "lifelike": "Visor Mejorado",
@@ -937,10 +938,6 @@
       "hideForeignCompendium": {
         "hint": "Selecciona para ocultar todos los compendios en otros idiomas.",
         "name": "Ocultar compendios en otros idiomas"
-      },
-      "pauseMedia": {
-        "hint": "Escoge la imagen que se mostrará cuando el juego esté en pausa.",
-        "name": "Imagen de pausa"
       },
       "playerHandBottom": {
         "hint": "Las manos de los jugadores se abrirán en la esquina inferior derecha de la pantalla, y todas las cartas aparecerán por encima de la ventana de la mano del jugador. Requiere actualizar la aplicación (F5) para que tenga efecto.",
@@ -1635,10 +1632,8 @@
   },
   "BEHAVIOR.TYPES.torgActiveEffect.FIELDS": {
     "disposition": {
-      "label": "Disposición de la ficha"
-    },
-    "effects": {
-      "label": "Efectos"
+      "label": "Disposición de la ficha",
+      "hint": "Los efectos solo se aplican a fichas con esta disposición"
     }
   }
 }

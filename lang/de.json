@@ -413,6 +413,7 @@
       "cosmDeckDialogLabel": "Ziehe",
       "cosmDialogTitle": "Ziehe Cosm-Karte",
       "discardCard": "Abwerfen (halte SHIFT um ins Ursprungsdeck abzuwerfen)",
+      "discardRandomDestiny": "Zufällige Schicksalskarte abwerfen",
       "drawCosm": "Cosm-Karte ziehen",
       "drawDestiny": "Schicksalskarte ziehen",
       "lifelike": "realitätsnahe Darstellung",
@@ -937,10 +938,6 @@
       "hideForeignCompendium": {
         "hint": "Auswählen, um anderssprachige Kompendien auszublenden (funktioniert nicht mit Modul \"Compendium Folders\"",
         "name": "Anderssprachige Kompendien ausblenden"
-      },
-      "pauseMedia": {
-        "hint": "Wähle das Bild, das angezeigt wird, wenn das Spiel pausiert.",
-        "name": "Pausenbild"
       },
       "playerHandBottom": {
         "hint": "Die Hände der Spieler werden unten rechts auf dem Bildschirm geöffnet, und die Karten werden über dem Fenster mit den Spielerhänden angezeigt. Erfordert eine Bildschirmaktualisierung (F5), um wirksam zu werden.",
@@ -1636,10 +1633,8 @@
   },
   "BEHAVIOR.TYPES.torgActiveEffect.FIELDS": {
     "disposition": {
-      "label": "Token Verwendung"
-    },
-    "effects": {
-      "label": "Effekte"
+      "label": "Token Verwendung",
+      "hint": "Effekte werden nur auf Token mit dieser Bedingung angewandt"
     }
   }
 }

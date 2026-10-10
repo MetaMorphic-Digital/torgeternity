@@ -407,6 +407,7 @@
       "cosmDeckDialogLabel": "Draw",
       "cosmDialogTitle": "Draw Cosm Card",
       "discardCard": "Discard (hold SHIFT to return to original Deck)",
+      "discardRandomDestiny": "Discard random Destiny",
       "drawCosm": "Draw Cosm",
       "drawDestiny": "Draw Destiny",
       "lifelike": "Enhanced Display",
@@ -931,10 +932,6 @@
       "hideForeignCompendium": {
         "hint": "Select to hide all compendium in foreign language",
         "name": "Hide foreign Compendiums"
-      },
-      "pauseMedia": {
-        "hint": "Choose the image that is displayed when the game is paused.",
-        "name": "Pause Image Media"
       },
       "playerHandBottom": {
         "hint": "Player hands open at the bottom right of the screen, and cards will appear above the player hand window. Requires screen refresh (F5) to take effect.",
@@ -1629,10 +1626,8 @@
   },
   "BEHAVIOR.TYPES.torgActiveEffect.FIELDS": {
     "disposition": {
-      "label": "Token Disposition"
-    },
-    "effects": {
-      "label": "Effects"
+      "label": "Token Disposition",
+      "hint": "The effects are only applied to Tokens with this Disposition"
     }
   }
 }
