@@ -65,7 +65,7 @@ export default class torgeternityPlayerHand extends foundry.applications.sheets.
   _prepareButtons() {
     return [
       { type: 'button', icon: 'fas fa-plus', label: 'torgeternity.dialogPrompts.drawDestiny', cssClass: "card-control", action: "drawDestiny" },
-      { type: 'button', icon: 'fas fa-trash', label: 'torgeternity.dialogPrompts.discardRandomDestiny', cssClass: "card-control", action: "discardRandomDestiny" },
+      { type: 'button', icon: 'fas fa-inbox', label: 'torgeternity.dialogPrompts.discardRandomDestiny', cssClass: "card-control", action: "discardRandomDestiny" },
       { type: 'button', icon: 'fas fa-plus', label: 'torgeternity.dialogPrompts.drawCosm', cssClass: "card-control", action: "drawCosm" },
     ]
   }
