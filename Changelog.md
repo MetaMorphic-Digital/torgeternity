@@ -13,13 +13,17 @@
 ```
 
 ## NEXT
+### Improvements
 - Reinstate core Foundry label and hint for the Effects field of `Apply Active Effects (Torg)` region behaviour, and add hint for Token Disposition.
+- Remove excess padding from the item lists in the Perks, Gear, Powers tabs of Actor sheets.
+- Add button to Player Hand dialog to discard a random Destiny card.
 - Remove `pauseGame` translation key, since it isn't used.
+
+### Bug Fixes
 - Update `Apply Active Effects (Torg)` region behavior to be based on the latest core `Apply Active Effects` logic.
 - Update `Scene Navigation` HBS template to be based on the current core Foundry version (14.368).
-- Remove excess padding from the item lists in the Perks, Gear, Powers tabs of Actor sheets.
+- Don't show SOAK/DAMAGE buttons on a target if the player doesn't own that target.
 - Ensure that when rolling two BD and taking the highest, that the highest is actually chosen! (and fix "manual" indicator in those rolls)
-- Add button to Player Hand dialog to discard a random Destiny card.
 
 ## 14.7.1 - Trait automation & IC/OOC chat
 - When the `Public as Character` is chosen for Chat Messages, if no token is selected AND the user has no default character, then the message will be posted as a `Public as User` chat message.

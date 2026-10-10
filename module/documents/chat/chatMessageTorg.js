@@ -28,8 +28,9 @@ export class ChatMessageTorg extends foundry.documents.ChatMessage {
       context.isOpen = game.settings.get('torgeternity', 'showCheckDetails') ? "open" : "";
       context.ownsActor = fromUuidSync(context.actor)?.isOwner;
       context.attributeLabel = (context.attribute && context.skillName !== context.attribute) ? `(${_loc('torgeternity.attributes.' + context.attribute)})` : '';
+      // ownsTarget should be local to the context, but is currently stored in the ChatMessage object :-(
       for (const target of context.targets)
-        if (!target.dummyTarget && fromUuidSync(target.uuid, { strict: false })?.isOwner) target.ownsTarget = true;
+        target.ownsTarget = (!target.dummyTarget && fromUuidSync(target.uuid, { strict: false })?.isOwner);
 
       const renderedTemplate = await foundry.applications.handlebars.renderTemplate('systems/torgeternity/templates/chat/skill-card.hbs', context);
       html.querySelector('.message-content').innerHTML = await foundry.applications.ux.TextEditor.enrichHTML(renderedTemplate, { secrets: this.isOwner });
