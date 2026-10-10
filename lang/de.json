@@ -413,7 +413,7 @@
       "cosmDeckDialogLabel": "Ziehe",
       "cosmDialogTitle": "Ziehe Cosm-Karte",
       "discardCard": "Abwerfen (halte SHIFT um ins Ursprungsdeck abzuwerfen)",
-      "discardRandomDestiny": "Discard random Destiny",
+      "discardRandomDestiny": "Zufällige Schicksalskarte abwerfen",
       "drawCosm": "Cosm-Karte ziehen",
       "drawDestiny": "Schicksalskarte ziehen",
       "lifelike": "realitätsnahe Darstellung",
@@ -1633,7 +1633,8 @@
   },
   "BEHAVIOR.TYPES.torgActiveEffect.FIELDS": {
     "disposition": {
-      "label": "Token Verwendung"
+      "label": "Token Verwendung",
+      "hint": "Effekte werden nur auf Token mit dieser Bedingung angewandt"
     }
   }
 }

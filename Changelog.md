@@ -2,17 +2,7 @@
 
 - Translations by Durak (French), Helmut (German), and Teotimus (Spanish).
 
-### Translations
-```
-  "BEHAVIOR.TYPES.torgActiveEffect.FIELDS": {
-    "disposition": {
-      "hint": "The effects are only applied to Tokens with this Disposition"
-    }
-  },
-  "dialogPrompts.discardRandomDestiny" : "Discard random Destiny"
-```
-
-## NEXT
+## 14.7.2 - Minor UI tweaks
 ### Improvements
 - Reinstate core Foundry label and hint for the Effects field of `Apply Active Effects (Torg)` region behaviour, and add hint for Token Disposition.
 - Remove excess padding from the item lists in the Perks, Gear, Powers tabs of Actor sheets.

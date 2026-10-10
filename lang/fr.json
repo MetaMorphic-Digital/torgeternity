@@ -416,7 +416,8 @@
       "cosmDeckDialogLabel": "Piocher",
       "cosmDialogTitle": "Piocher une carte de Cosm",
       "discardCard": "Défausser (maintenir SHIFT pour renvoyer à son paquet d'origine)",
-      "discardRandomDestiny": "Discard random Destiny",
+      "discardRandomDestiny": "Défausse aléatoire",
+      "discardRandomDestinyTooltip": "Défausse aléatoire d'une carte Destin",
       "drawCosm": "Piocher une carte de Cosm",
       "drawDestiny": "Piocher une carte de Destin",
       "lifelike": "Affichage en éventail",
@@ -1635,7 +1636,8 @@
   },
   "BEHAVIOR.TYPES.torgActiveEffect.FIELDS": {
     "disposition": {
-      "label": "Disposition du Token"
+      "label": "Disposition du Token",
+      "hint": "Les effets ne seront appliqués qu'aux Tokens de cette faction"
     }
   }
 }

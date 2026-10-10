@@ -413,7 +413,7 @@
       "cosmDeckDialogLabel": "Roba",
       "cosmDialogTitle": "Roba Carta de Cosmos",
       "discardCard": "Descartar (pulsar MAY para devolver a su mazo original)",
-      "discardRandomDestiny": "Discard random Destiny",
+      "discardRandomDestiny": "Descartar Destino al azar",
       "drawCosm": "Roba Cosmos",
       "drawDestiny": "Roba Destino",
       "lifelike": "Visor Mejorado",
@@ -1632,7 +1632,8 @@
   },
   "BEHAVIOR.TYPES.torgActiveEffect.FIELDS": {
     "disposition": {
-      "label": "Disposición de la ficha"
+      "label": "Disposición de la ficha",
+      "hint": "Los efectos solo se aplican a fichas con esta disposición"
     }
   }
 }
