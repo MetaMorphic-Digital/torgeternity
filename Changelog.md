@@ -8,7 +8,8 @@
     "disposition": {
       "hint": "The effects are only applied to Tokens with this Disposition"
     }
-  }
+  },
+  "dialogPrompts.discardRandomDestiny" : "Discard random Destiny"
 ```
 
 ## NEXT
@@ -18,6 +19,7 @@
 - Update `Scene Navigation` HBS template to be based on the current core Foundry version (14.368).
 - Remove excess padding from the item lists in the Perks, Gear, Powers tabs of Actor sheets.
 - Ensure that when rolling two BD and taking the highest, that the highest is actually chosen! (and fix "manual" indicator in those rolls)
+- Add button to Player Hand dialog to discard a random Destiny card.
 
 ## 14.7.1 - Trait automation & IC/OOC chat
 - When the `Public as Character` is chosen for Chat Messages, if no token is selected AND the user has no default character, then the message will be posted as a `Public as User` chat message.

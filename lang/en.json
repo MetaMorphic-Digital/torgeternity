@@ -407,6 +407,7 @@
       "cosmDeckDialogLabel": "Draw",
       "cosmDialogTitle": "Draw Cosm Card",
       "discardCard": "Discard (hold SHIFT to return to original Deck)",
+      "discardRandomDestiny": "Discard random Destiny",
       "drawCosm": "Draw Cosm",
       "drawDestiny": "Draw Destiny",
       "lifelike": "Enhanced Display",
