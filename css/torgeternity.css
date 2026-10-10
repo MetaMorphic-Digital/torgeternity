@@ -3616,7 +3616,7 @@ document-embed .generalHeader {
   }
 }
 
-.dice-tooltip .dice-rolls {
+.message-content .dice-roll-torg {
   display: flex;
   flex-direction: row;
   justify-content: center;
