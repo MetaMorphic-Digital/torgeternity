@@ -344,6 +344,7 @@ export class TestDialog extends HandlebarsApplicationMixin(ApplicationV2) {
     foundry.utils.mergeObject(this.test, fields, { inplace: true });
 
     this.test.explicitBonus = fields.bonus !== null;
+    this.test.fixedBonus = fields.bonus;
     const myActor = fromUuidSync(this.test.actor);
 
     // Perhaps the choice of skill has changed.

@@ -1,17 +1,20 @@
 # TORG Eternity Changelog
 
-## 14.7.3 - Multi-Action handling & Power descriptions
+## 14.7.4 - Multi-Action handling & Power descriptions
 ### Multi-Action
-- When an **explicit bonus** is used in the test dialog (e.g. due to a multi-action), the die total modifier buttons are hidden in the generated chat card (since they can't modify the fixed bonus) - this affects the Favored, Possibilty, Up, Hero and Drama buttons (but not the +3 Card button since those cards modify the action total, not the the die-roll bonus).
+- When an **explicit bonus** is used in the test dialog (e.g. due to a multi-action), the die total modifier buttons are hidden in the generated chat card (since they can't modify the fixed bonus) - this affects the Favored, Possibilty, Up, Hero and Drama buttons (but not the +3 Card button).
 - When performing a **Multi-Action** the multi-action penalty will also be stored on the combatant (the generated bonus is already stored).
 - Added a game-system option to disable saving the **multi-action** bonus and modifier during combat (it is never saved outside of combat).
 - **IMPORTANT NOTE**: The use of the "+3 Card" button in the system has never been included in the bonus saved as part of the multi-action bonus. Thus when performing a multi-action with +3 cards, the player will have to use the "+3 Card" button on each action to update the final action total for that action. (`Adrenaline` and `Willpower` cards are more complicated to handle since they might only affect certain actions, rather than the `Action` cards which would affect all the actions.)
 
-## Other Improvements
+### Other Improvements
 - Update expanded spell descriptions on Actor Sheets to show all the spell's attributes, with field headings and in the same order as the rulebooks.
 - Grey-out the delete button on Effects which cannot be deleted from the Effects tab of Actor sheets.
-- Better detection of a new world to avoid triggering unnecessary data migration.
 - Update layout of the action card's "Modifiers" window to be more similar to base action dialog.
+
+### Bug Fixes
+- Using multiple "+3 Cards" on the second or later action of a multi-action will now update the bonus properly, rather than compounding the number of cards on each additional click of the button.
+- Better detection of a new world to avoid triggering unnecessary data migration.
 
 ## 14.7.2 - Minor UI tweaks
 ### Improvements
