@@ -914,6 +914,10 @@
         "hint": "Si está marcado, el Shock y las Heridas se aplican automáticamente si el jugador tiene seleccionado una ficha válida. ATENCIÓN: esta característica solo funciona con las tiradas de daño inicial. No actualizará correctamente las tiradas posteriores modificadas por Dados de Bonificación. Usar con cautela.",
         "name": "Aplicar daño automáticamente"
       },
+      "saveMultiAction": {
+        "hint": "Si está marcado, cuando se realiza una acción múltiple, la bonificación al dado generada y la penalización por acción múlitple se recordarán para los actores que están en el encuentro. Se reiniciará cuando se marque el turno del actor como completado en la ventana de combate.",
+        "name": "Guardar bonificación por acción múltiple"
+      },
       "deckSetting": {
         "hint": "Configurar los nombres que se usan para tus mazos de cartas y pilas de descartes.",
         "label": "Configuración de mazo de cartas por defecto",
@@ -1469,6 +1473,7 @@
       "fullBody": "Cuerpo entero",
       "grapple": "Forcejeo",
       "head": "Cabeza",
+      "trademark": "Arma Característica",
       "arcane": "Arcana",
       "holy": "Sagrado",
       "enchanted": "Encantado",

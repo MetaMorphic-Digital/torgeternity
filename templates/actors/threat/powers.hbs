@@ -46,19 +46,26 @@
           <div class="item-dropdown-description">
             {{{item.description}}}
             <div class="item-dropdown-extras">
-              {{localize (lookup @root.config.skills item.system.skill)}}
+              <strong>{{localize 'torgeternity.powers.axiom'}}</strong>:
+              {{localize 'torgeternity.sheetLabels.magic'}} {{item.system.axioms.magic}}
             </div>
             <div class="item-dropdown-extras">
+              <strong>{{localize 'torgeternity.powers.skill'}}</strong>:
+              <em>{{localize (lookup @root.config.skills item.system.skill)}}</em>
+              {{item.system.skilllevel}}
+            </div>
+            <div class="item-dropdown-extras">
+              <strong>{{localize 'torgeternity.powers.castingtime'}}</strong>: {{item.system.castingtime}}
+            </div>
+            <div class="item-dropdown-extras">
+              <strong>{{localize 'torgeternity.powers.dn'}}</strong>:
               {{localize (lookup @root.config.dnTypes item.system.dn)}}
             </div>
             <div class="item-dropdown-extras">
-              {{item.system.castingtime}}
+              <strong>{{localize 'torgeternity.powers.range'}}</strong>: {{item.system.range}}
             </div>
             <div class="item-dropdown-extras">
-              {{item.system.range}}
-            </div>
-            <div class="item-dropdown-extras">
-              {{item.system.duration}}
+              <strong>{{localize 'torgeternity.powers.duration'}}</strong>: {{item.system.duration}}
             </div>
           </div>
         </div>
@@ -111,19 +118,26 @@
           <div class="item-dropdown-description">
             {{{item.description}}}
             <div class="item-dropdown-extras">
-              {{localize (lookup @root.config.skills item.system.skill)}}
+              <strong>{{localize 'torgeternity.powers.axiom'}}</strong>:
+              {{localize 'torgeternity.sheetLabels.spirit'}} {{item.system.axioms.spirit}}
             </div>
             <div class="item-dropdown-extras">
+              <strong>{{localize 'torgeternity.powers.skill'}}</strong>:
+              <em>{{localize (lookup @root.config.skills item.system.skill)}}</em>
+              {{item.system.skilllevel}}
+            </div>
+            <div class="item-dropdown-extras">
+              <strong>{{localize 'torgeternity.powers.castingtime'}}</strong>: {{item.system.castingtime}}
+            </div>
+            <div class="item-dropdown-extras">
+              <strong>{{localize 'torgeternity.powers.dn'}}</strong>:
               {{localize (lookup @root.config.dnTypes item.system.dn)}}
             </div>
             <div class="item-dropdown-extras">
-              {{item.system.castingtime}}
+              <strong>{{localize 'torgeternity.powers.range'}}</strong>: {{item.system.range}}
             </div>
             <div class="item-dropdown-extras">
-              {{item.system.range}}
-            </div>
-            <div class="item-dropdown-extras">
-              {{item.system.duration}}
+              <strong>{{localize 'torgeternity.powers.duration'}}</strong>: {{item.system.duration}}
             </div>
           </div>
         </div>
@@ -154,7 +168,7 @@
           </a>
           <div class="item-controls">
             <a class="item-control item-powerRoll" data-action="itemPowerRoll" {{disabled (not @root.editable)}}
-              data-tooltip="{{localize 'torgeternity.iconeTitles.miracleRoll'}}">
+              data-tooltip="{{localize 'torgeternity.iconeTitles.psionicRoll'}}">
               <i class="fas fa-dice-d20"></i>
             </a>
             <a class="item-control item-tochat" data-action="itemToChat"
@@ -176,19 +190,26 @@
           <div class="item-dropdown-description">
             {{{item.description}}}
             <div class="item-dropdown-extras">
-              {{localize (lookup @root.config.skills item.system.skill)}}
+              <strong>{{localize 'torgeternity.powers.axiom'}}</strong>:
+              {{localize 'torgeternity.sheetLabels.social'}} {{item.system.axioms.social}}
             </div>
             <div class="item-dropdown-extras">
+              <strong>{{localize 'torgeternity.powers.skill'}}</strong>:
+              <em>{{localize (lookup @root.config.skills item.system.skill)}}</em>
+              {{item.system.skilllevel}}
+            </div>
+            <div class="item-dropdown-extras">
+              <strong>{{localize 'torgeternity.powers.castingtime'}}</strong>: {{item.system.castingtime}}
+            </div>
+            <div class="item-dropdown-extras">
+              <strong>{{localize 'torgeternity.powers.dn'}}</strong>:
               {{localize (lookup @root.config.dnTypes item.system.dn)}}
             </div>
             <div class="item-dropdown-extras">
-              {{item.system.castingtime}}
+              <strong>{{localize 'torgeternity.powers.range'}}</strong>: {{item.system.range}}
             </div>
             <div class="item-dropdown-extras">
-              {{item.system.range}}
-            </div>
-            <div class="item-dropdown-extras">
-              {{item.system.duration}}
+              <strong>{{localize 'torgeternity.powers.duration'}}</strong>: {{item.system.duration}}
             </div>
           </div>
         </div>

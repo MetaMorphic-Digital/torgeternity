@@ -918,6 +918,10 @@
         "hint": "Si coché, les points de Chocs et les Blessures seront automatiquement appliqués si le joueur a un Token cible valide.",
         "name": "Application des dommages automatiques"
       },
+      "saveMultiAction": {
+        "hint": "Si coché, lors d'une Actions multiples, le bonus du dé et la pénalité d'Actions multiples sont gardés pour les Acteurs participant à une rencontre. Ces valeurs sont réinitialisées quand le tour de l'Acteur est marqué comme terminé en combat.",
+        "name": "Mémoriser les modificateurs d'Actions multiples"
+      },
       "deckSetting": {
         "hint": "Configuration des paquets où piocher les différents type de cartes, ainsi que leurs défausses.",
         "label": "Configuration des paquets de cartes par défaut",
@@ -1473,6 +1477,7 @@
       "fullBody": "Intégrale",
       "grapple": "Lutte",
       "head": "Tête",
+      "trademark": "Arme de prédilection",
       "arcane": "Arcanique",
       "holy": "Sanctifié",
       "enchanted": "Enchanté",

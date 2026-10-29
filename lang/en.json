@@ -908,6 +908,10 @@
         "hint": "If checked, shock and wounds would be automatically apply if player has a valid target token. WARNING: This feature only works correctly with initial damage rolls. It will not correctly record subsequent bonus die rolls. Use with caution.",
         "name": "Apply damage automatically"
       },
+      "saveMultiAction": {
+        "hint": "If checked, when a Multi-Action is performed the generated dice bonus and multi-action penalty are remembered for Actors which are in an Encounter. It is cleared when the Actor's turn in the combat is marked as taken.",
+        "name": "Save Multi-Action Bonus"
+      },
       "deckSetting": {
         "hint": "Configure the names that are used for your card decks and discard piles.",
         "label": "Default card deck configuration",
@@ -1463,6 +1467,7 @@
       "fullBody": "Full Body",
       "grapple": "Grapple",
       "head": "Head",
+      "trademark": "Trademark Wpn",
       "arcane": "Arcane",
       "holy": "Holy",
       "enchanted": "Enchanted",

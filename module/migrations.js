@@ -17,12 +17,6 @@ export async function torgMigration() {
       ui.notifications.info('Premium Content Image Migration Complete');
     }
   } else {
-    // check for new worlds, which don't need migrating, and set their migration version accordingly
-    if (migrationVersion === '1.0.0' && isNewWorld()) {
-      await game.settings.set('torgeternity', 'migrationVersion', currentVersion);
-      console.log('Torg: New World Detected, skipping migration');
-      return;
-    }
     // show a UI warning
     ui.notifications.warn(
       _loc('torgeternity.notifications.beginningMigration') + currentVersion
@@ -32,8 +26,8 @@ export async function torgMigration() {
     if (foundry.utils.isNewerVersion('2.4.0', migrationVersion)) {
       // code to migrate missile weappon groupName
       game.actors.forEach(async (act) => {
-        if (act.data.data.skills.missileWeapons.groupName !== 'combat') {
-          await act.update({ 'data.skills.missileWeapons.groupName': 'combat' });
+        if (act.system.skills.missileWeapons.groupName !== 'combat') {
+          await act.update({ 'system.skills.missileWeapons.groupName': 'combat' });
           ui.notifications.info(act.name + ' : migrated');
         }
       });
@@ -347,13 +341,6 @@ export async function torgMigration() {
 
     ui.notifications.info('System Migration Complete');
   }
-}
-
-// Function to test if a world is a new world, to hude my hacky approach under a nice rug
-function isNewWorld() {
-  // See NewUserExperienceManager#initialize():
-  // If there are no documents, we can reasonably assume this is a new World.
-  return !(game.actors.size + game.scenes.size + game.items.size + game.journal.size);
 }
 
 async function migrateImagestoWebp(options = { system: true, modules: true }) {

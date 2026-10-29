@@ -153,8 +153,11 @@ export class TestDialog extends HandlebarsApplicationMixin(ApplicationV2) {
 
       const combatant = game.combat?.getCombatantsByActor(actor)?.shift();
       if (combatant) {
-        const bonus = combatant.currentBonus;
-        if (Number.isInteger(bonus)) this.test.bonus = bonus;
+        const bonus = combatant.system?.multiAction?.diceBonus;
+        if (Number.isInteger(bonus)) {
+          this.test.bonus = bonus;
+          this.test.multiModifier = combatant.system.multiAction?.multiModifier ?? 0;
+        }
       }
 
       // Actor has some overrides for this particular test (e.g. soak.isFav)

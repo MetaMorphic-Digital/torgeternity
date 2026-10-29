@@ -41,7 +41,12 @@
             <div class="item-dropdown-description">
               {{{item.description}}}
               <div class="item-dropdown-extras">
+                <strong>{{localize 'torgeternity.sheetLabels.cosm'}}</strong>:
                 {{localize (concat "torgeternity.cosms." item.system.cosm)}}
+              </div>
+              <div class="item-dropdown-extras">
+                <strong>{{localize 'torgeternity.perks.category'}}</strong>:
+                {{localize (concat 'torgeternity.perkTypes.' item.system.category)}}
               </div>
               {{#if item.traitDesc}}
                 <div class="item-dropdown-extras"> {{item.traitDesc}} </div>
@@ -84,13 +89,13 @@
                 data-tooltip="{{localize 'torgeternity.iconeTitles.delete'}}">
                 <i class="fas fa-trash"></i>
               </a>
-
             </div>
           </div>
           <div class="item-detail">
             <div class="item-dropdown-description">
               {{{item.description}}}
               <div class="item-dropdown-extras">
+                <strong>{{localize 'torgeternity.sheetLabels.cosm'}}</strong>:
                 {{localize (concat "torgeternity.cosms." item.system.cosm)}}
               </div>
               {{#if item.traitDesc}}

@@ -914,6 +914,10 @@
         "hint": "Wenn angehakt, werden Schock und Wunden automatisch auf das Ziel angewendet werden.",
         "name": "Schaden automatisch anwenden (BETA!)"
       },
+      "saveMultiAction": {
+        "hint": "Wenn eine Mehrfachaktion ausgeführt wird, bleiben der erzeugte Würfelbonus und Mehrfachaktions-Malus für Akteure einer Begegnung erhalten. Er wird erst zurückgesetzt, wenn der Zug des Akteurs als beendet markiert wurde.",
+        "name": "Mehrfachaktions-Bonus merken"
+      },
       "deckSetting": {
         "hint": "Konfiguriere hier die Standard-Decks, aus denen die Karten gezogen und abgelegt werden.",
         "label": "Standard-Kartendeck-Konfiguration",
@@ -1469,6 +1473,7 @@
       "fullBody": "Ganzkörper",
       "grapple": "Festhalten",
       "head": "Kopf",
+      "trademark": "Lieblingswaffe",
       "arcane": "Arkan",
       "holy": "Heilig",
       "enchanted": "Verzaubert",

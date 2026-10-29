@@ -146,32 +146,41 @@
     {{/if}}
 
     {{#if ownsActor}}
-      {{#unless (and hideFavButton hidePlus3 (eq possibilityClass 'hidden') (eq upClass 'hidden') (eq heroClass 'hidden') (eq dramaClass 'hidden') )}}
-        <div class="skill-roll-menu {{skillRollMenuStyle}}">
-          {{#unless hideFavButton}}
-            <a class="button roll-button" data-action="rollFav">
+      {{#if (not explicitBonus)}}
+        {{#unless (and hideFavButton hidePlus3  (eq possibilityClass 'hidden') (eq upClass 'hidden') (eq heroClass 'hidden') (eq dramaClass 'hidden') )}}
+          <div class="skill-roll-menu {{skillRollMenuStyle}}">
+            {{#unless hideFavButton}}
+              <a class="button roll-button" data-action="rollFav">
+                <i class="fa-solid fa-dice-d20"></i>
+                {{localize 'torgeternity.chatText.favored'}}</a>
+            {{/unless}}
+            <a class="button roll-button {{possibilityClass}}" data-action="rollPossibility"
+              data-tooltip="{{localize 'torgeternity.chatText.possibilityTooltip'}}">
               <i class="fa-solid fa-dice-d20"></i>
-              {{localize 'torgeternity.chatText.favored'}}</a>
-          {{/unless}}
-          <a class="button roll-button {{possibilityClass}}" data-action="rollPossibility"
-            data-tooltip="{{localize 'torgeternity.chatText.possibilityTooltip'}}">
-            <i class="fa-solid fa-dice-d20"></i>
-            {{localize 'torgeternity.chatText.possibility'}}</a>
-          <a class="button roll-button {{upClass}}"
-            data-action="rollUp"><i class="fa-solid fa-dice-d20"></i>
-            {{localize 'torgeternity.chatText.up'}}</a>
-          <a class="button roll-button {{heroClass}}"
-            data-action="rollHero"><i class="fa-solid fa-dice-d20"></i>
-            {{localize 'torgeternity.chatText.hero'}}</a>
-          <a class="button roll-button {{dramaClass}}"
-            data-action="rollDrama"><i class="fa-solid fa-dice-d20"></i>
-            {{localize 'torgeternity.chatText.drama'}}</a>
-          {{#unless hidePlus3}}
+              {{localize 'torgeternity.chatText.possibility'}}</a>
+            <a class="button roll-button {{upClass}}"
+              data-action="rollUp"><i class="fa-solid fa-dice-d20"></i>
+              {{localize 'torgeternity.chatText.up'}}</a>
+            <a class="button roll-button {{heroClass}}"
+              data-action="rollHero"><i class="fa-solid fa-dice-d20"></i>
+              {{localize 'torgeternity.chatText.hero'}}</a>
+            <a class="button roll-button {{dramaClass}}"
+              data-action="rollDrama"><i class="fa-solid fa-dice-d20"></i>
+              {{localize 'torgeternity.chatText.drama'}}</a>
+            {{#unless hidePlus3}}
+              <a class="button roll-button" data-action="addPlus3">
+                {{localize 'torgeternity.chatText.bonusCard'}}</a>
+            {{/unless}}
+          </div>
+        {{/unless}}
+      {{else}}
+        {{#unless hidePlus3}}
+          <div class="skill-roll-menu {{skillRollMenuStyle}}">
             <a class="button roll-button" data-action="addPlus3">
               {{localize 'torgeternity.chatText.bonusCard'}}</a>
-          {{/unless}}
-        </div>
-      {{/unless}}
+          </div>
+        {{/unless}}
+      {{/if}}
 
       {{#if (and ownsActor (or showApplySoak showReconnect showActorApplyVeryVulnerable showBacklashButtons showApplyEffects showCancelConcentration))}}
         <p class="applyButtons">

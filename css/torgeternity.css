@@ -1392,6 +1392,10 @@ dialog.torgeternity:not(.actor, .item) .window-content,
       .effect-edit,
       .effect-delete {
         padding: 5px;
+
+        &[disabled] {
+          color: gray
+        }
       }
     }
 

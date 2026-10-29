@@ -222,7 +222,7 @@ export async function renderSkillChat(test, origChatMessage) {
     if (!test.explicitBonus) {
       test.combinedRollTotal = test.rollTotal + test.upTotal + test.possibilityTotal + test.heroTotal + test.dramaTotal;
       test.bonus = torgBonus(test.combinedRollTotal);
-      if (test.multiModifier) game.combat?.getCombatantsByActor(testActor)?.shift()?.setCurrentBonus(test.bonus);
+      if (test.multiModifier && game.settings.get('torgeternity', 'saveMultiAction')) game.combat?.getCombatantsByActor(testActor)?.shift()?.setMultiAction(test.bonus, test.multiModifier);
       if (test.combinedRollTotal >= 60) test.possibleGlory = true;
     } else {
       test.rollTotal = undefined;
@@ -593,7 +593,7 @@ export async function renderSkillChat(test, origChatMessage) {
         target.adjustedToughness = target.toughness - target.armor;
         // If armor and cover can assist, adjust toughness based on AP effects and cover modifier
         if (test.applyArmor && !test.attackTraits.includes('ignoresArmor')) {
-          // "lowestArmor" trait on attack means armor with "torso" trait is ignored.
+          // "fullBody" armor still protects against an attack with the "lowestArmor" trait.
           const armor = ((test.attackTraits.includes('lowestArmor') && !target.defenseTraits.includes('fullBody')) ? 0 : target.armor) +
             getExtraProtection(test.attackTraits, target.defenses, 'Armor');
           const weaponAP = applyNumericEffects('test.weaponAP', test.weaponAP, effects);

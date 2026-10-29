@@ -133,6 +133,15 @@ export function registerTorgSettings() {
     default: false,
   });
 
+  game.settings.register('torgeternity', 'saveMultiAction', {
+    name: 'torgeternity.settingMenu.saveMultiAction.name', // Register a module setting with checkbox
+    hint: 'torgeternity.settingMenu.saveMultiAction.hint', // Description of the settings
+    scope: 'world',
+    config: true,
+    type: Boolean,
+    default: true,
+  });
+
   // the deck setting menu
   game.settings.registerMenu('torgeternity', 'cardDecks', {
     name: 'torgeternity.settingMenu.deckSetting.name',
@@ -192,7 +201,7 @@ export function registerTorgSettings() {
     scope: 'world',
     config: false,
     type: String,
-    default: '1.0.0',
+    default: game.system.version,  // in a new world, use the latest system version
   });
 
   // Hidden setting to determine whether module image updates are needed after migrating system images on intial update

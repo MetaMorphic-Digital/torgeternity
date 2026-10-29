@@ -43,22 +43,34 @@
           <div class="item-detail">
             <div class="item-dropdown-description">
               {{{item.description}}}
-              {{#if item.system.category}}
-                <div class="item-dropdown-extras">
-                  {{item.system.category}}
-                </div>
-              {{/if}}
-              {{#if item.system.cosm}}
-                <div class="item-dropdown-extras">{{localize (concat 'torgeternity.cosms.' item.system.cosm)}}</div>
-              {{/if}}
               {{#if item.traitDesc}}
-                <div class="item-dropdown-extras"> {{item.traitDesc}} </div>
-              {{/if}}
-              {{#if item.system.timestaken}}
                 <div class="item-dropdown-extras">
-                  {{item.system.timestaken}}x
+                  <strong>{{localize 'torgeternity.itemSheetDescriptions.traits'}}</strong>:
+                  {{item.traitDesc}}
                 </div>
               {{/if}}
+              <div class="item-dropdown-extras">
+                <strong>{{localize 'torgeternity.powers.axiom'}}</strong>:
+                {{localize 'torgeternity.sheetLabels.magic'}} {{item.system.axioms.magic}}
+              </div>
+              <div class="item-dropdown-extras">
+                <strong>{{localize 'torgeternity.powers.skill'}}</strong>:
+                <em>{{localize (lookup @root.config.skills item.system.skill)}}</em>
+                {{item.system.skilllevel}}
+              </div>
+              <div class="item-dropdown-extras">
+                <strong>{{localize 'torgeternity.powers.castingtime'}}</strong>: {{item.system.castingtime}}
+              </div>
+              <div class="item-dropdown-extras">
+                <strong>{{localize 'torgeternity.powers.dn'}}</strong>:
+                {{localize (lookup @root.config.dnTypes item.system.dn)}}
+              </div>
+              <div class="item-dropdown-extras">
+                <strong>{{localize 'torgeternity.powers.range'}}</strong>: {{item.system.range}}
+              </div>
+              <div class="item-dropdown-extras">
+                <strong>{{localize 'torgeternity.powers.duration'}}</strong>: {{item.system.duration}}
+              </div>
             </div>
           </div>
         </li>
@@ -109,22 +121,34 @@
           <div class="item-detail">
             <div class="item-dropdown-description">
               {{{item.description}}}
-              {{#if item.system.category}}
-                <div class="item-dropdown-extras">
-                  {{item.system.category}}
-                </div>
-              {{/if}}
-              {{#if item.system.cosm}}
-                <div class="item-dropdown-extras">{{localize (concat 'torgeternity.cosms.' item.system.cosm)}}</div>
-              {{/if}}
               {{#if item.traitDesc}}
-                <div class="item-dropdown-extras"> {{item.traitDesc}} </div>
-              {{/if}}
-              {{#if item.system.timestaken}}
                 <div class="item-dropdown-extras">
-                  {{item.system.timestaken}}x
+                  <strong>{{localize 'torgeternity.itemSheetDescriptions.traits'}}</strong>:
+                  {{item.traitDesc}}
                 </div>
               {{/if}}
+              <div class="item-dropdown-extras">
+                <strong>{{localize 'torgeternity.powers.axiom'}}</strong>:
+                {{localize 'torgeternity.sheetLabels.spirit'}} {{item.system.axioms.spirit}}
+              </div>
+              <div class="item-dropdown-extras">
+                <strong>{{localize 'torgeternity.powers.skill'}}</strong>:
+                <em>{{localize (lookup @root.config.skills item.system.skill)}}</em>
+                {{item.system.skilllevel}}
+              </div>
+              <div class="item-dropdown-extras">
+                <strong>{{localize 'torgeternity.powers.castingtime'}}</strong>: {{item.system.castingtime}}
+              </div>
+              <div class="item-dropdown-extras">
+                <strong>{{localize 'torgeternity.powers.dn'}}</strong>:
+                {{localize (lookup @root.config.dnTypes item.system.dn)}}
+              </div>
+              <div class="item-dropdown-extras">
+                <strong>{{localize 'torgeternity.powers.range'}}</strong>: {{item.system.range}}
+              </div>
+              <div class="item-dropdown-extras">
+                <strong>{{localize 'torgeternity.powers.duration'}}</strong>: {{item.system.duration}}
+              </div>
             </div>
           </div>
         </li>
@@ -181,17 +205,34 @@
                   {{item.system.category}}
                 </div>
               {{/if}}
-              {{#if item.system.cosm}}
-                <div class="item-dropdown-extras">{{localize (concat 'torgeternity.cosms.' item.system.cosm)}}</div>
-              {{/if}}
               {{#if item.traitDesc}}
-                <div class="item-dropdown-extras"> {{item.traitDesc}} </div>
-              {{/if}}
-              {{#if item.system.timestaken}}
                 <div class="item-dropdown-extras">
-                  {{item.system.timestaken}}x
+                  <strong>{{localize 'torgeternity.itemSheetDescriptions.traits'}}</strong>:
+                  {{item.traitDesc}}
                 </div>
               {{/if}}
+              <div class="item-dropdown-extras">
+                <strong>{{localize 'torgeternity.powers.axiom'}}</strong>:
+                {{localize 'torgeternity.sheetLabels.social'}} {{item.system.axioms.social}}
+              </div>
+              <div class="item-dropdown-extras">
+                <strong>{{localize 'torgeternity.powers.skill'}}</strong>:
+                <em>{{localize (lookup @root.config.skills item.system.skill)}}</em>
+                {{item.system.skilllevel}}
+              </div>
+              <div class="item-dropdown-extras">
+                <strong>{{localize 'torgeternity.powers.castingtime'}}</strong>: {{item.system.castingtime}}
+              </div>
+              <div class="item-dropdown-extras">
+                <strong>{{localize 'torgeternity.powers.dn'}}</strong>:
+                {{localize (lookup @root.config.dnTypes item.system.dn)}}
+              </div>
+              <div class="item-dropdown-extras">
+                <strong>{{localize 'torgeternity.powers.range'}}</strong>: {{item.system.range}}
+              </div>
+              <div class="item-dropdown-extras">
+                <strong>{{localize 'torgeternity.powers.duration'}}</strong>: {{item.system.duration}}
+              </div>
             </div>
           </div>
         </li>
