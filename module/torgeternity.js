@@ -61,7 +61,7 @@ import { HandsManager } from './cards/handsmanager.js';
 const { DialogV2 } = foundry.applications.api;
 
 Hooks.once('init', async function () {
-  console.log('torgeternity | Initializing Torg Eternity System');
+  console.log('Torg Eternity | Initializing Torg Eternity System');
 
   initConfig();
 
@@ -220,9 +220,12 @@ Hooks.once('init', async function () {
     vehicleAddOn: 'torgeternity.itemSheetDescriptions.vehicleAddOn',
     race: 'torgeternity.itemSheetDescriptions.race',
   };
+
+  console.log('Torg Eternity | Initializing Torg Eternity System finished');
 });
 
 Hooks.once('setup', async function () {
+  console.log('Torg Eternity | Setting up Torg Eternity System');
 
   // Choose the best document type for creation (minimise clicks)
   CONFIG.Actor.defaultType = (game.user.isGM) ? 'threat' : 'stormknight';
@@ -245,17 +248,20 @@ Hooks.once('setup', async function () {
   // Ensure all Actor & Item packs have the updated index contents
   for (const pack of game.packs) {
     if (pack.metadata.type === 'Actor' || pack.metadata.type === 'Item')
-      await pack.getIndex();
+      pack.getIndex();
   }
 
   (ui.torgControlButtons = new TorgControlButtons()).render({ force: true });
 
   if (game.settings.get('torgeternity', 'showEffectsPanel'))
     (ui.torgEffectsPanel = new EffectsPanel()).render({ force: true });
+
+  console.log('Torg Eternity | Setting up Torg Eternity System finished');
 });
 
 // -------------once everything ready
 Hooks.on('ready', async function () {
+  console.log('Torg Eternity | Getting Ready');
 
   // migration script
   if (game.user.isGM) torgMigration();
@@ -330,6 +336,8 @@ Hooks.on('ready', async function () {
 
   activateSocketListeners();
   game.settings.set('torgeternity', 'firstTime', false);
+
+  console.log('Torg Eternity | Getting Ready finished');
 });
 
 let externalLinks;
