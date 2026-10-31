@@ -1,5 +1,13 @@
 # TORG Eternity Changelog
 
+## NEXT
+### Improvement
+- Ensure the default "Main Scene" is created when a world is started for the first time.
+  - **NOTE** This might cause another "Main Scene" to be created the first time you launch a world with this version of Torg Eternity.
+
+### Internal
+- Add more logging during world startup.
+
 ## 14.7.4 - Multi-Action handling & Power descriptions
 ### Multi-Action
 - When an **explicit bonus** is used in the test dialog (e.g. due to a multi-action), the die total modifier buttons are hidden in the generated chat card (since they can't modify the fixed bonus) - this affects the Favored, Possibilty, Up, Hero and Drama buttons (but not the +3 Card button).
