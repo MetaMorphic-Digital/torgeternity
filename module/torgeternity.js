@@ -324,11 +324,12 @@ Hooks.on('ready', async function () {
     game.cards.forEach(deck => deck.cards.forEach(card => card.update({ face: 0 })));
 
   // activation of standard scene
-  if (game.scenes.size < 1) {
+  if (game.settings.get('torgeternity', 'firstTime')) {
     activateStandartScene();
   }
 
   activateSocketListeners();
+  game.settings.set('torgeternity', 'firstTime', false);
 });
 
 let externalLinks;

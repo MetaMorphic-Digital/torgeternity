@@ -7,6 +7,16 @@ export function registerTorgSettings() {
   // --------welcome message
   const fields = foundry.data.fields;
 
+  game.settings.register('torgeternity', 'firstTime', {
+    // game.setting.register("NameOfTheModule", "VariableName",
+    name: 'torgeternity.settingMenu.welcome.name', // Register a module setting with checkbox
+    hint: 'torgeternity.settingMenu.welcome.hint', // Description of the settings
+    scope: 'world', // This specifies a client-stored setting
+    config: false, // This specifies that the setting appears in the configuration view
+    type: Boolean,
+    default: true, // The default value for the setting
+  });
+
   game.settings.register('torgeternity', 'welcomeMessage', {
     // game.setting.register("NameOfTheModule", "VariableName",
     name: 'torgeternity.settingMenu.welcome.name', // Register a module setting with checkbox
