@@ -4,6 +4,9 @@
 ### Improvement
 - Ensure the default "Main Scene" is created when a world is started for the first time.
   - **NOTE** This might cause another "Main Scene" to be created the first time you launch a world with this version of Torg Eternity.
+### Bug Fix
+- Fix SOAK for a Threat which has Possibility points but no ADDS in Reality. It will use the base Spirit value in such a situation as the skill value for the Soak Test.
+- Ensure being Favored with Spirit will display the Favored button on Soak tests.
 
 ### Internal
 - Add more logging during world startup.
