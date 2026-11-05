@@ -1,12 +1,6 @@
 # TORG Eternity Changelog
 
-# Translations
-```
-"destinyHandSize": "Destiny Cards",
-"refillHand": "Refill Hand",
-```
-
-## NEXT
+## 14.7.5 - Hand Size & Soak
 ### Improvement
 - Ensure the default "Main Scene" is created when a world is started for the first time.
   - **NOTE** This might cause another "Main Scene" to be created the first time you launch a world with this version of Torg Eternity.
