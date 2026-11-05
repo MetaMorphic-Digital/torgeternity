@@ -1,5 +1,4 @@
 import torgeternityDeck from './torgeternityDeck.js';
-import TorgeternityChatLog from '../torgeternityChatLog.js';
 
 const { DialogV2 } = foundry.applications.api;
 
@@ -23,6 +22,7 @@ export default class torgeternityPlayerHand extends foundry.applications.sheets.
       focusCard: torgeternityPlayerHand.#onFocusCard,
       drawCosm: torgeternityPlayerHand.#onDrawCosm,
       drawDestiny: torgeternityPlayerHand.#onDrawDestiny,
+      refillHand: torgeternityPlayerHand.#onRefillHand,
       discardRandomDestiny: torgeternityPlayerHand.#onDiscardRandomDestiny,
       lifelike: torgeternityPlayerHand.#onLifelike
     }
@@ -67,6 +67,7 @@ export default class torgeternityPlayerHand extends foundry.applications.sheets.
     const discardtooltip = game.i18n.has(discardkey) && game.i18n.localize(discardkey);
     return [
       { type: 'button', icon: 'fas fa-plus', label: 'torgeternity.dialogPrompts.drawDestiny', cssClass: "card-control", action: "drawDestiny" },
+      { type: 'button', icon: 'fas fa-plus', label: 'torgeternity.dialogPrompts.refillHand', cssClass: "card-control", disabled: !this.canRefill, action: "refillHand" },
       { type: 'button', icon: 'fas fa-inbox', label: 'torgeternity.dialogPrompts.discardRandomDestiny', cssClass: "card-control", disabled: !this.document.destinyCount, action: "discardRandomDestiny", tooltip: discardtooltip },
       { type: 'button', icon: 'fas fa-plus', label: 'torgeternity.dialogPrompts.drawCosm', cssClass: "card-control", action: "drawCosm" },
     ]
@@ -213,6 +214,16 @@ export default class torgeternityPlayerHand extends foundry.applications.sheets.
    */
   static #onDrawDestiny() {
     return this.document.drawDestiny();
+  }
+
+  get canRefill() {
+    return this.document.destinyCount < this.document.handSize
+  }
+
+  static async #onRefillHand() {
+    let toDraw = this.document.handSize - this.document.destinyCount;
+    for (let i = 0; i < toDraw; i++)
+      await this.document.drawDestiny();
   }
 
   /**

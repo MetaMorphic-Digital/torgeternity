@@ -4,10 +4,14 @@
 ### Improvement
 - Ensure the default "Main Scene" is created when a world is started for the first time.
   - **NOTE** This might cause another "Main Scene" to be created the first time you launch a world with this version of Torg Eternity.
+- **Destiny Card Hand Size**
+  - Display the current destiny card count and hand size in the Player Hand window.
+  - Add a new button to refill the player's hand back up to the player's current hand size.
+  - Allow the hand size of an Actor to be configured by Active Effects by a change to `system.handSize`
+  - The default hand size (4) is defined in `CONFIG.torgeternity.defaultHandSize`
 ### Bug Fix
 - Fix SOAK for a Threat which has Possibility points but no ADDS in Reality. It will use the base Spirit value in such a situation as the skill value for the Soak Test.
 - Ensure being Favored with Spirit will display the Favored button on Soak tests.
-
 ### Internal
 - Add more logging during world startup.
 

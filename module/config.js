@@ -11,6 +11,7 @@ export function initConfig() {
   torgeternity.skillDialog = '';
   torgeternity.possibilitiesPerAct = 3;
   torgeternity.shockPerInspiration = 2;
+  torgeternity.defaultHandSize = 4;
 
   torgeternity.cardTypes = {
     drama: 'torgeternity.cardTypes.drama',

@@ -37,6 +37,7 @@ export class StormKnightData extends CommonActorData {
         earned: new fields.NumberField({ initial: 0, integer: true, nullable: false }),
         unspent: new fields.NumberField({ initial: 0, integer: true, nullable: false }),
       }),
+      handSize: new fields.NumberField({ initial: 0, integer: true, nullable: false, persisted: false })
     });
   }
 
@@ -84,6 +85,8 @@ export class StormKnightData extends CommonActorData {
     } else {
       this.details.clearance = 'omega';
     }
+
+    this.handSize = CONFIG.torgeternity.defaultHandSize;
 
     const race = this.parent.race;
     if (race) {

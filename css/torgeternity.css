@@ -4444,6 +4444,11 @@ form.cards-config {
   div.slim div.form-fields {
     flex-grow: 2;
   }
+
+  p.handSize {
+    text-align: right;
+    color: var(--color-text-secondary);
+  }
 }
 
 .interaction-attack-list {

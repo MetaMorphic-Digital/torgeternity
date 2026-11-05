@@ -27,6 +27,11 @@ export class torgeternityCards extends Cards {
     return this.type === 'hand' && this.cards.filter(card => card.type === 'destiny').length;
   }
 
+  get handSize() {
+    const actor = game.actors.get(this.flags.torgeternity?.defaultHand);
+    return actor?.system.handSize ?? CONFIG.torgeternity.defaultHandSize;
+  }
+
   async discardRandomDestiny() {
     if (this.type !== 'hand') {
       console.error('torgeternityCards.drawDestiny called for a deck that is not a HAND')
