@@ -1,5 +1,20 @@
 # TORG Eternity Changelog
 
+## 14.7.5 - Hand Size & Soak
+### Improvement
+- Ensure the default "Main Scene" is created when a world is started for the first time.
+  - **NOTE** This might cause another "Main Scene" to be created the first time you launch a world with this version of Torg Eternity.
+- **Player Hand Size**
+  - The default hand size (4) can be set by changing `CONFIG.torgeternity.defaultHandSize`
+  - Allow the hand size of an Actor to be configured by Active Effects by a change to `system.handSize`
+  - Display the current destiny card count and hand size in the Player Hand window.
+  - Add a new `Refill Hand` button to draw destiny cards to fill the player's hand.
+### Bug Fix
+- Fix SOAK for a Threat which has Possibility points but no ADDS in Reality. It will use the base Spirit value in such a situation as the skill value for the Soak Test.
+- Ensure being Favored with Spirit will display the Favored button on Soak tests.
+### Internal
+- Add more logging during world startup.
+
 ## 14.7.4 - Multi-Action handling & Power descriptions
 ### Multi-Action
 - When an **explicit bonus** is used in the test dialog (e.g. due to a multi-action), the die total modifier buttons are hidden in the generated chat card (since they can't modify the fixed bonus) - this affects the Favored, Possibilty, Up, Hero and Drama buttons (but not the +3 Card button).

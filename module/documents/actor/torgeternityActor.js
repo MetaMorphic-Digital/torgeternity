@@ -1153,7 +1153,12 @@ export default class TorgeternityActor extends foundry.documents.Actor {
    */
   async soakDamage(origMessageId, options = {}) {
     const skillName = 'reality';
-    const skillValue = this.system.skills[skillName].value;
+    const skillData = this.system.skills[skillName];
+    const attrData = this.system.attributes[skillData.baseAttribute];
+    let skillValue = skillData.value
+    // Some threats don't have a Reality score, even though they might have Possibility points to spend.
+    // (see torgchecks.js:individualDN where a similar test is done)
+    if (!skillValue || skillValue === '') skillValue = attrData.value;
 
     // Before calculating roll, check to see if it can be attempted unskilled; exit test if actor doesn't have required skill.
     // Stormknights must always have at least 1 rank in Reality.
@@ -1165,8 +1170,8 @@ export default class TorgeternityActor extends foundry.documents.Actor {
       actor: this,
       //actorType: soaker.system.type,
       isFav:
-        this.system.skills[skillName]?.isFav ||
-        this.system.attributes[skillName]?.isFav ||
+        skillData?.isFav ||
+        attrData?.isFav ||
         false,
       skillName: skillName,
       skillValue: skillValue,
