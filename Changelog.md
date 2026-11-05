@@ -1,5 +1,11 @@
 # TORG Eternity Changelog
 
+# Translations
+```
+"destinyHandSize": "Destiny Cards",
+"refillHand": "Refill Hand",
+```
+
 ## NEXT
 ### Improvement
 - Ensure the default "Main Scene" is created when a world is started for the first time.

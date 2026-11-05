@@ -26,9 +26,9 @@
   ],
   "version": "14.7.4",
   "compatibility": {
-    "minimum": 14,
-    "verified": 14.369,
-    "maximum": 14
+    "minimum": "14",
+    "verified": "14.370",
+    "maximum": "14"
   },
   "esmodules": [
     "module/torgeternity.js"
