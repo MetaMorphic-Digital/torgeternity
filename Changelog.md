@@ -1,5 +1,9 @@
 # TORG Eternity Changelog
 
+## NEXT
+### Bug Fix
+- The default "Dark Threshold" for scenes was being set to an invalid value, and so defaulted to 0.1. It will now default to the correct value of 0.7 (but that will only apply to NEW scenes).
+
 ## 14.7.5 - Hand Size & Soak
 ### Improvement
 - Ensure the default "Main Scene" is created when a world is started for the first time.
