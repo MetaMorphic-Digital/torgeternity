@@ -22,8 +22,7 @@ export default class TorgeternityScene extends foundry.documents.Scene {
     if (!Object.hasOwn(data.flags, "torgeternity"))
       data.flags.torgeternity = DEFAULT_TORG;
     else {
-      if (!data.flags.torgeternity.darkThreshold ||
-        data.flags.torgeternity.darkThreshold instanceof Object) {
+      if (!data.flags.torgeternity.dimLightThreshold) {
         data.flags.torgeternity.dimLightThreshold = DEFAULT_TORG.dimLightThreshold;
         data.flags.torgeternity.darkThreshold = DEFAULT_TORG.darkThreshold;
       }
