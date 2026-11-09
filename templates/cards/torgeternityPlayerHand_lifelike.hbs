@@ -9,6 +9,9 @@
       </button>
     {{/each}}
   </footer>
+  <p class="handSize enhanced">{{localize "torgeternity.dialogPrompts.destinyHandSize"}} :
+    {{document.destinyCount}}/{{document.handSize~}}
+  </p>
   <div id="handedCards">
     <ol class="cards destinyCards" data-cards>
       {{#each cards as |card|}}

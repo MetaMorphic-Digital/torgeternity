@@ -1,6 +1,8 @@
 # TORG Eternity Changelog
 
 ## NEXT
+### Improvements
+- Add the destiny card count/hand size to the "Enhanced Display" version of a Player Hand.
 ### Bug Fix
 - The default "Dark Threshold" for scenes was being set to an invalid value, and so defaulted to 0.1. It will now default to the correct value of 0.7 (but that will only apply to NEW scenes).
 
