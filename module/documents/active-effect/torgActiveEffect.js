@@ -105,11 +105,12 @@ export default class TorgActiveEffect extends foundry.documents.ActiveEffect {
    */
   get sourceName() {
     if (!this.origin || !this.parent) return _loc("None");
-    const origindoc = fromUuidSync(this.origin, { strict: false });
-    if (!origindoc) return _loc("None");
 
     // Special handling for effects directly on an actor (e.g. status effects and transferred effects)
     if (this.parent instanceof Actor) {
+      const origindoc = fromUuidSync(this.origin, { strict: false });
+      if (!origindoc) return _loc("None");
+
       if (origindoc === this.parent) return _loc("None");
       if (this.statuses.has('concentrating') && this.origin) {
         // The spell being concentrated on.

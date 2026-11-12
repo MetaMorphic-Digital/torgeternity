@@ -3,13 +3,17 @@
 ## NEXT
 ### Improvements
 - Add the destiny card count/hand size to the "Enhanced Display" version of a Player Hand.
-### English Archetype Updates
-- `The Dragon Warrior`: armour vs fire turned into a combat toggle; fix list of enhancements taken from Dragon Warrior perk.
+### Archetype Updates
+- `The Dragon Warrior`: fix list of enhancements taken from Dragon Warrior perk.
+- `The Elven Warrior`: moved favored Dex AE to be on the relevant perk.
 - `The Realm Runner`: now has an Active Effect on the `Realm Runner` perk that automatically grants +4 bonus on Reconnect attempts.
 - `The Renegade Priest` and `The Scrapper`: Bonus Strength and Armour from the Cyber Arm are now combat toggles on the front page of the Actor sheet.
-- `The Edeinos Optant`: the Whip Tail effect is now a combat toggle.
+- `The Renegade Priest`: The low-light implant now reduces dark penalties by 2. (On French version, remove the +2 vs Evil that was accidentally marked as "Transfer to Actor".)
+- `The Edeinos Optant`: the Whip Tail effect is now a combat toggle (for when the Tail isn't able to be used).
 ### Bug Fix
 - The default "Dark Threshold" for scenes was being set to an invalid value, and so defaulted to 0.1. It will now default to the correct value of 0.7 (but that will only apply to NEW scenes).
+- Fix the "Source" column of the Active Effects tab on Actors to display the correct source when inherited from Items.
+- Active Effects can be dragged from Items which are not editable.
 
 ## 14.7.5 - Hand Size & Soak
 ### Improvement
