@@ -3,6 +3,11 @@
 ## NEXT
 ### Improvements
 - Add the destiny card count/hand size to the "Enhanced Display" version of a Player Hand.
+### English Archetype Updates
+- `The Dragon Warrior`: armour vs fire turned into a combat toggle; fix list of enhancements taken from Dragon Warrior perk.
+- `The Realm Runner`: now has an Active Effect on the `Realm Runner` perk that automatically grants +4 bonus on Reconnect attempts.
+- `The Renegade Priest` and `The Scrapper`: Bonus Strength and Armour from the Cyber Arm are now combat toggles on the front page of the Actor sheet.
+- `The Edeinos Optant`: the Whip Tail effect is now a combat toggle.
 ### Bug Fix
 - The default "Dark Threshold" for scenes was being set to an invalid value, and so defaulted to 0.1. It will now default to the correct value of 0.7 (but that will only apply to NEW scenes).
 

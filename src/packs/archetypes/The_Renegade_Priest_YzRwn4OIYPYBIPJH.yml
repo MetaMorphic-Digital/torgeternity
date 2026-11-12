@@ -145,7 +145,71 @@ items:
     name: BelleView Low-Light MK II
     type: implant
     img: systems/torgeternity/images/icons/cyberware-icon.webp
-    effects: []
+    effects:
+      - name: Low-Light
+        img: systems/torgeternity/images/icons/cyberware-icon.webp
+        origin: >-
+          Compendium.torgeternity.archetypes.Actor.YzRwn4OIYPYBIPJH.Item.SCn5yulik1qI2JKh
+        duration:
+          value: null
+          units: seconds
+          expiry: null
+          expired: false
+        disabled: false
+        _id: 9WHTao9Yo7yFht3X
+        type: base
+        system:
+          changes:
+            - key: system.targetModifiers.darkness
+              type: add
+              value: 2
+              phase: initial
+              priority: null
+          applyOnOutcome: ''
+          transferOnOutcome: ''
+          transferTo: target
+          activeIfTrait: []
+          applyIfAttackTrait: []
+          applyIfDefendTrait: []
+          defendAgainstTrait: []
+          applyIfAttackTraitCombine: or
+          applyIfDefendTraitCombine: or
+          defendAgainstTraitCombine: or
+          itemsToBestow: []
+          combatToggle: false
+          concentratingId: null
+          emanation:
+            radius: null
+            color: '#000040'
+            disposition: 1
+            visibility: 4
+        start:
+          combatant: null
+          turn: null
+          time: 1680
+          combat: null
+          initiative: null
+          round: null
+        description: ''
+        tint: '#ffffff'
+        transfer: true
+        statuses: []
+        showIcon: 1
+        folder: null
+        sort: 0
+        flags: {}
+        _stats:
+          coreVersion: '14.370'
+          systemId: torgeternity
+          systemVersion: 14.7.4
+          createdTime: 1794503531994
+          modifiedTime: 1794503550463
+          lastModifiedBy: iOcCVm1cmrYXOubH
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        _key: >-
+          !actors.items.effects!YzRwn4OIYPYBIPJH.SCn5yulik1qI2JKh.9WHTao9Yo7yFht3X
     folder: null
     sort: 250000
     flags:
@@ -810,12 +874,12 @@ items:
           compendiumSource: null
           duplicateSource: null
           exportSource: null
-          coreVersion: '14.360'
+          coreVersion: '14.370'
           systemId: torgeternity
-          systemVersion: 13.27.0
-          lastModifiedBy: null
-          createdTime: null
-          modifiedTime: null
+          systemVersion: 14.7.4
+          lastModifiedBy: iOcCVm1cmrYXOubH
+          createdTime: 1794503775425
+          modifiedTime: 1794503779821
         img: systems/torgeternity/images/icons/cyberware-icon.webp
         type: base
         system:
@@ -830,7 +894,7 @@ items:
           applyIfDefendTraitCombine: or
           defendAgainstTraitCombine: or
           itemsToBestow: []
-          combatToggle: false
+          combatToggle: true
           concentratingId: null
           changes:
             - key: system.attributes.strength.value
@@ -867,12 +931,12 @@ items:
           compendiumSource: null
           duplicateSource: null
           exportSource: null
-          coreVersion: '14.360'
+          coreVersion: '14.370'
           systemId: torgeternity
-          systemVersion: 13.27.0
-          lastModifiedBy: null
-          createdTime: null
-          modifiedTime: null
+          systemVersion: 14.7.4
+          lastModifiedBy: iOcCVm1cmrYXOubH
+          createdTime: 1794503573628
+          modifiedTime: 1794503573628
         img: systems/torgeternity/images/icons/cyberware-icon.webp
         type: base
         system:
@@ -887,7 +951,7 @@ items:
           applyIfDefendTraitCombine: or
           defendAgainstTraitCombine: or
           itemsToBestow: []
-          combatToggle: false
+          combatToggle: true
           concentratingId: null
           changes:
             - key: system.defenses.armor
@@ -1700,10 +1764,10 @@ prototypeToken:
   depth: 1
 _stats:
   systemId: torgeternity
-  systemVersion: 14.7.0
-  coreVersion: '14.368'
+  systemVersion: 14.7.4
+  coreVersion: '14.370'
   createdTime: 1693913382916
-  modifiedTime: 1790001651568
+  modifiedTime: 1794503639582
   lastModifiedBy: iOcCVm1cmrYXOubH
   compendiumSource: null
   duplicateSource: null

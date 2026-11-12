@@ -60,14 +60,11 @@
           </li>
         {{/if}}
       {{/each}}
-
-
     </ol>
 
     <ol class="cards cosmCards" data-cards>
       {{#each cards as |card|}}
         {{#if (eq card.type "cosm")}}
-
           <li class="card flexrow" data-card-id="{{card.id}}">
             <img class="card-face" src="{{card.img}}" data-action="focusCard" alt="{{card.name}}" height="48">
             <div class="torg-card-controls controls flexcol">

@@ -7,7 +7,76 @@ items:
     name: Realm Runner
     type: perk
     img: systems/torgeternity/images/icons/reality-icon.webp
-    effects: []
+    effects:
+      - name: Reconnect +4
+        img: systems/torgeternity/images/icons/reality-icon.webp
+        origin: >-
+          Compendium.torgeternity.archetypes.Actor.BpClx5rBCesWUzIN.Item.uwfWU4r0b3wdHGiX
+        duration:
+          value: null
+          units: seconds
+          expiry: null
+          expired: false
+        disabled: false
+        _id: xRRTxLn37Z9syXTU
+        type: base
+        system:
+          changes:
+            - key: system.testOverride.reconnect.other1Description
+              type: override
+              value: Realm Runner
+              phase: initial
+              priority: null
+            - key: system.testOverride.reconnect.other1Modifier
+              type: override
+              value: 4
+              phase: initial
+              priority: null
+          applyOnOutcome: ''
+          transferOnOutcome: ''
+          transferTo: target
+          activeIfTrait: []
+          applyIfAttackTrait: []
+          applyIfDefendTrait: []
+          defendAgainstTrait: []
+          applyIfAttackTraitCombine: or
+          applyIfDefendTraitCombine: or
+          defendAgainstTraitCombine: or
+          itemsToBestow: []
+          combatToggle: false
+          concentratingId: null
+          emanation:
+            radius: null
+            color: '#000040'
+            disposition: 1
+            visibility: 4
+        start:
+          combatant: null
+          turn: null
+          time: 1680
+          combat: null
+          initiative: null
+          round: null
+        description: ''
+        tint: '#ffffff'
+        transfer: true
+        statuses: []
+        showIcon: 1
+        folder: null
+        sort: 0
+        flags: {}
+        _stats:
+          coreVersion: '14.370'
+          systemId: torgeternity
+          systemVersion: 14.7.4
+          createdTime: 1794502129218
+          modifiedTime: 1794503150818
+          lastModifiedBy: iOcCVm1cmrYXOubH
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        _key: >-
+          !actors.items.effects!BpClx5rBCesWUzIN.uwfWU4r0b3wdHGiX.xRRTxLn37Z9syXTU
     folder: null
     sort: 11600000
     flags:

@@ -93,7 +93,7 @@ items:
           units: seconds
           expiry: null
           expired: false
-        disabled: false
+        disabled: true
         img: systems/torgeternity/images/icons/reality-icon.webp
         _id: GFVwedISXXsBSYXB
         type: base
@@ -119,12 +119,12 @@ items:
           compendiumSource: null
           duplicateSource: null
           exportSource: null
-          coreVersion: '14.360'
+          coreVersion: '14.370'
           systemId: torgeternity
           systemVersion: 13.27.0
-          lastModifiedBy: BMvGTGfheqDXarjN
-          modifiedTime: 1774459468018
-          createdTime: null
+          lastModifiedBy: iOcCVm1cmrYXOubH
+          modifiedTime: 1794501583958
+          createdTime: 1794501583958
         start:
           combat: null
           round: null
@@ -314,7 +314,7 @@ items:
             The armor is enchanted with magical runes that grant it +10 Armor
             versus fire (instead of +4).
           uuid: null
-        - taken: false
+        - taken: true
           title: Giant Strength
           description: >-
             A series of pneumatic compressors take in air and channel it to the
@@ -348,11 +348,11 @@ items:
       compendiumSource: Compendium.te001-core-rulebook.Items.Item.eItDWecF1ue7Hvp0
       duplicateSource: null
       exportSource: null
-      coreVersion: '14.368'
+      coreVersion: '14.370'
       systemId: torgeternity
-      systemVersion: 14.0.0
+      systemVersion: 14.7.4
       createdTime: 1763999051578
-      modifiedTime: 1789999213873
+      modifiedTime: 1794501403745
       lastModifiedBy: iOcCVm1cmrYXOubH
     _key: '!actors.items!QsYmnq73AiR6BwhD.eItDWecF1ue7Hvp0'
   - _id: N6G6v7wgDhnpsIiQ

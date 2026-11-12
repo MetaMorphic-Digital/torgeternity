@@ -1044,7 +1044,70 @@ items:
       modifiedTime: 1768218267638
       lastModifiedBy: BMvGTGfheqDXarjN
     _id: XpxmerzLMvgf2jRC
-    effects: []
+    effects:
+      - origin: Compendium.te001-core-rulebook.Items.Item.CtSt1BehQYuA4kug
+        duration:
+          value: null
+          units: seconds
+          expiry: null
+          expired: false
+        disabled: false
+        name: Dexterity Favored
+        img: systems/torgeternity/images/icons/reality-icon.webp
+        _id: 3m6nfJmL2j7PUyxp
+        type: base
+        system:
+          changes:
+            - key: system.attributes.dexterity.isFav
+              value: true
+              priority: null
+              type: override
+              phase: initial
+          applyOnOutcome: ''
+          transferOnOutcome: ''
+          transferTo: target
+          activeIfTrait: []
+          applyIfAttackTrait: []
+          applyIfDefendTrait: []
+          defendAgainstTrait: []
+          applyIfAttackTraitCombine: or
+          applyIfDefendTraitCombine: or
+          defendAgainstTraitCombine: or
+          itemsToBestow: []
+          combatToggle: false
+          concentratingId: null
+          emanation:
+            radius: null
+            color: '#000040'
+            disposition: 1
+            visibility: 4
+        description: ''
+        tint: '#ffffff'
+        transfer: true
+        statuses: []
+        sort: 0
+        flags: {}
+        _stats:
+          compendiumSource: null
+          duplicateSource: null
+          coreVersion: '14.370'
+          systemId: torgeternity
+          systemVersion: 14.7.4
+          createdTime: 1794501726510
+          modifiedTime: 1794501726510
+          lastModifiedBy: iOcCVm1cmrYXOubH
+          exportSource: null
+        start:
+          combatant: null
+          turn: null
+          time: 1680
+          combat: null
+          initiative: null
+          round: null
+        showIcon: 1
+        folder: null
+        _key: >-
+          !actors.items.effects!cdSvyJHbG0GbFzkh.XpxmerzLMvgf2jRC.3m6nfJmL2j7PUyxp
     folder: null
     _key: '!actors.items!cdSvyJHbG0GbFzkh.XpxmerzLMvgf2jRC'
   - name: Magical Affinity (Elf)
@@ -1334,50 +1397,7 @@ items:
       modifiedTime: 1768218267650
       lastModifiedBy: BMvGTGfheqDXarjN
     _key: '!actors.items!cdSvyJHbG0GbFzkh.RcxFdGFN5eJTFOr7'
-effects:
-  - origin: Actor.cdSvyJHbG0GbFzkh.Item.yUrDm5bnBMSFn1e9
-    duration:
-      value: null
-      units: seconds
-      expiry: null
-      expired: false
-    disabled: false
-    name: Dexterity is Favored
-    img: systems/torgeternity/images/icons/reality-icon.webp
-    _id: 9R097xVyhquN9Z0X
-    type: base
-    system:
-      changes:
-        - key: system.attributes.dexterity.isFav
-          value: true
-          priority: null
-          type: override
-    description: ''
-    tint: '#ffffff'
-    transfer: false
-    statuses: []
-    sort: 0
-    flags: {}
-    _stats:
-      compendiumSource: null
-      duplicateSource: null
-      coreVersion: '14.360'
-      systemId: torgeternity
-      systemVersion: 12.2.0
-      createdTime: null
-      modifiedTime: 1774459556904
-      lastModifiedBy: BMvGTGfheqDXarjN
-      exportSource: null
-    start:
-      combat: null
-      round: null
-      time: 0
-      turn: null
-      combatant: null
-      initiative: null
-    showIcon: 1
-    folder: null
-    _key: '!actors.effects!cdSvyJHbG0GbFzkh.9R097xVyhquN9Z0X'
+effects: []
 folder: null
 sort: 100001
 flags:
