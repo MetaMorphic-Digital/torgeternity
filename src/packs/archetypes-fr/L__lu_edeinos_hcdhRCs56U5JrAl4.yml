@@ -141,6 +141,7 @@ items:
               value: true
               priority: null
               type: override
+          combatToggle: true
         description: ''
         tint: '#ffffff'
         transfer: true
@@ -151,12 +152,12 @@ items:
           compendiumSource: null
           duplicateSource: null
           exportSource: null
-          coreVersion: '14.360'
+          coreVersion: '14.370'
           systemId: torgeternity
-          systemVersion: 13.13.2
+          systemVersion: 14.7.4
           createdTime: 1764003738542
-          modifiedTime: 1774467320781
-          lastModifiedBy: BMvGTGfheqDXarjN
+          modifiedTime: 1794526515974
+          lastModifiedBy: iOcCVm1cmrYXOubH
         start: null
         showIcon: 1
         folder: null
@@ -813,7 +814,7 @@ items:
               type: add
         description: ''
         tint: '#ffffff'
-        transfer: true
+        transfer: false
         statuses: []
         sort: 0
         flags: {}
@@ -821,12 +822,12 @@ items:
           compendiumSource: null
           duplicateSource: null
           exportSource: null
-          coreVersion: '14.360'
+          coreVersion: '14.370'
           systemId: torgeternity
           systemVersion: 13.33.0
-          lastModifiedBy: null
-          createdTime: null
-          modifiedTime: null
+          lastModifiedBy: iOcCVm1cmrYXOubH
+          createdTime: 1794526689527
+          modifiedTime: 1794526689527
         start:
           combat: null
           round: 30

@@ -847,12 +847,12 @@ items:
           compendiumSource: null
           duplicateSource: null
           exportSource: null
-          coreVersion: '14.360'
+          coreVersion: '14.370'
           systemId: torgeternity
-          systemVersion: 13.27.0
-          lastModifiedBy: null
-          createdTime: null
-          modifiedTime: null
+          systemVersion: 14.7.4
+          lastModifiedBy: iOcCVm1cmrYXOubH
+          createdTime: 1794526160143
+          modifiedTime: 1794526160143
         img: systems/torgeternity/images/icons/cyberware-icon.webp
         type: base
         system:
@@ -867,7 +867,7 @@ items:
           applyIfDefendTraitCombine: or
           defendAgainstTraitCombine: or
           itemsToBestow: []
-          combatToggle: false
+          combatToggle: true
           concentratingId: null
           changes:
             - key: system.attributes.strength.value
@@ -905,12 +905,12 @@ items:
           compendiumSource: null
           duplicateSource: null
           exportSource: null
-          coreVersion: '14.360'
+          coreVersion: '14.370'
           systemId: torgeternity
-          systemVersion: 13.27.0
-          lastModifiedBy: null
-          createdTime: null
-          modifiedTime: null
+          systemVersion: 14.7.4
+          lastModifiedBy: iOcCVm1cmrYXOubH
+          createdTime: 1794526163456
+          modifiedTime: 1794526163456
         img: systems/torgeternity/images/icons/cyberware-icon.webp
         type: base
         system:
@@ -925,7 +925,7 @@ items:
           applyIfDefendTraitCombine: or
           defendAgainstTraitCombine: or
           itemsToBestow: []
-          combatToggle: false
+          combatToggle: true
           concentratingId: null
           changes:
             - key: system.defenses.armor

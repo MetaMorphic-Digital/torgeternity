@@ -93,7 +93,7 @@ items:
           units: seconds
           expiry: null
           expired: false
-        disabled: true
+        disabled: false
         img: systems/torgeternity/images/icons/reality-icon.webp
         _id: GFVwedISXXsBSYXB
         type: base
@@ -109,6 +109,7 @@ items:
               value: 6
               priority: null
               type: add
+          combatToggle: false
         description: ''
         tint: '#ffffff'
         transfer: true
@@ -121,9 +122,9 @@ items:
           exportSource: null
           coreVersion: '14.370'
           systemId: torgeternity
-          systemVersion: 13.27.0
+          systemVersion: 14.7.4
           lastModifiedBy: iOcCVm1cmrYXOubH
-          modifiedTime: 1794501583958
+          modifiedTime: 1794525578386
           createdTime: 1794501583958
         start:
           combat: null
