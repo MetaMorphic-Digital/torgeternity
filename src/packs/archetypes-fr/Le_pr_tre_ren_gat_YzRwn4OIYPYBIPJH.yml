@@ -208,7 +208,71 @@ items:
     flags:
       core: {}
     img: systems/torgeternity/images/icons/implant.webp
-    effects: []
+    effects:
+      - name: Low-Light
+        img: systems/torgeternity/images/icons/cyberware-icon.webp
+        origin: >-
+          Compendium.torgeternity.archetypes.Actor.YzRwn4OIYPYBIPJH.Item.SCn5yulik1qI2JKh
+        duration:
+          value: null
+          units: seconds
+          expiry: null
+          expired: false
+        disabled: false
+        _id: 9WHTao9Yo7yFht3X
+        type: base
+        system:
+          changes:
+            - key: system.targetModifiers.darkness
+              type: add
+              value: 2
+              phase: initial
+              priority: null
+          applyOnOutcome: ''
+          transferOnOutcome: ''
+          transferTo: target
+          activeIfTrait: []
+          applyIfAttackTrait: []
+          applyIfDefendTrait: []
+          defendAgainstTrait: []
+          applyIfAttackTraitCombine: or
+          applyIfDefendTraitCombine: or
+          defendAgainstTraitCombine: or
+          itemsToBestow: []
+          combatToggle: false
+          concentratingId: null
+          emanation:
+            radius: null
+            color: '#000040'
+            disposition: 1
+            visibility: 4
+        start:
+          combatant: null
+          turn: null
+          time: 1680
+          combat: null
+          initiative: null
+          round: null
+        description: ''
+        tint: '#ffffff'
+        transfer: true
+        statuses: []
+        showIcon: 1
+        folder: null
+        sort: 0
+        flags: {}
+        _stats:
+          coreVersion: '14.370'
+          systemId: torgeternity
+          systemVersion: 14.7.4
+          createdTime: 1794526230381
+          modifiedTime: 1794526230381
+          lastModifiedBy: iOcCVm1cmrYXOubH
+          compendiumSource: null
+          duplicateSource: null
+          exportSource: null
+        _key: >-
+          !actors.items.effects!YzRwn4OIYPYBIPJH.EHgbPjUs99WBMdIF.9WHTao9Yo7yFht3X
     folder: null
     system:
       cosm: Cyberpapauté
@@ -328,12 +392,12 @@ items:
         description: ''
         statuses: []
         _stats:
-          coreVersion: '14.360'
+          coreVersion: '14.370'
           systemId: torgeternity
-          systemVersion: 13.13.2
-          createdTime: null
-          modifiedTime: 1764005173990
-          lastModifiedBy: e1DB4TK9SbDuMDS3
+          systemVersion: 14.7.4
+          createdTime: 1794526184518
+          modifiedTime: 1794526184518
+          lastModifiedBy: iOcCVm1cmrYXOubH
           compendiumSource: null
           duplicateSource: null
           exportSource: null
@@ -346,6 +410,7 @@ items:
               value: 1
               priority: null
               type: add
+          combatToggle: true
         sort: 0
         start: null
         showIcon: 1
@@ -378,6 +443,7 @@ items:
               value: 2
               priority: null
               type: add
+          combatToggle: true
         description: ''
         tint: '#ffffff'
         transfer: true
@@ -388,12 +454,12 @@ items:
           compendiumSource: null
           duplicateSource: null
           exportSource: null
-          coreVersion: '14.360'
+          coreVersion: '14.370'
           systemId: torgeternity
-          systemVersion: 13.13.2
+          systemVersion: 14.7.4
           createdTime: 1764004389749
-          modifiedTime: 1764004408758
-          lastModifiedBy: e1DB4TK9SbDuMDS3
+          modifiedTime: 1794526179502
+          lastModifiedBy: iOcCVm1cmrYXOubH
         start: null
         showIcon: 1
         folder: null
@@ -735,7 +801,7 @@ items:
               type: add
         description: ''
         tint: '#ffffff'
-        transfer: true
+        transfer: false
         statuses: []
         sort: 0
         flags: {}
@@ -743,12 +809,12 @@ items:
           compendiumSource: null
           duplicateSource: null
           exportSource: null
-          coreVersion: '14.360'
+          coreVersion: '14.370'
           systemId: torgeternity
           systemVersion: 13.24.1
           createdTime: 1764005559439
-          modifiedTime: 1775991278002
-          lastModifiedBy: BMvGTGfheqDXarjN
+          modifiedTime: 1794526358718
+          lastModifiedBy: iOcCVm1cmrYXOubH
         start: null
         showIcon: 1
         folder: null

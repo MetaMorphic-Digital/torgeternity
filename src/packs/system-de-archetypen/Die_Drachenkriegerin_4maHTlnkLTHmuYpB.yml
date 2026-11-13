@@ -375,7 +375,7 @@ items:
           applyIfDefendTraitCombine: or
           defendAgainstTraitCombine: or
           itemsToBestow: []
-          combatToggle: false
+          combatToggle: true
           concentratingId: null
           emanation:
             radius: null
@@ -392,11 +392,11 @@ items:
           compendiumSource: null
           duplicateSource: null
           exportSource: null
-          coreVersion: '14.360'
+          coreVersion: '14.370'
           systemId: torgeternity
-          systemVersion: 14.0.0
+          systemVersion: 14.7.4
           lastModifiedBy: iOcCVm1cmrYXOubH
-          modifiedTime: 1777328556168
+          modifiedTime: 1794525560816
           createdTime: 1777328556168
         start:
           combat: null

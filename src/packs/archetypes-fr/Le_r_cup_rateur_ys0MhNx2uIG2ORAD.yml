@@ -534,6 +534,7 @@ items:
               value: 2
               priority: null
               type: add
+          combatToggle: true
         description: ''
         tint: '#ffffff'
         transfer: true
@@ -544,12 +545,12 @@ items:
           compendiumSource: null
           duplicateSource: null
           exportSource: null
-          coreVersion: '14.360'
+          coreVersion: '14.370'
           systemId: torgeternity
-          systemVersion: 13.13.2
+          systemVersion: 14.7.4
           createdTime: 1764001392076
-          modifiedTime: 1774467180454
-          lastModifiedBy: BMvGTGfheqDXarjN
+          modifiedTime: 1794526108135
+          lastModifiedBy: iOcCVm1cmrYXOubH
         start: null
         showIcon: 1
         folder: null

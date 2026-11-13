@@ -4448,6 +4448,10 @@ form.cards-config {
   p.handSize {
     text-align: right;
     color: var(--color-text-secondary);
+
+    &.enhanced {
+      text-align: center;
+    }
   }
 }
 

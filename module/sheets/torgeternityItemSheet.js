@@ -87,7 +87,7 @@ export default class TorgeternityItemSheet extends foundry.applications.api.Hand
 
   /** @inheritdoc */
   _canDragStart(selector) {
-    return this.isEditable;
+    return this.item.testUserPermission(game.user, "OBSERVER");
   }
 
   /** @inheritdoc */

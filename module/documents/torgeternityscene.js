@@ -24,7 +24,7 @@ export default class TorgeternityScene extends foundry.documents.Scene {
     else {
       if (!data.flags.torgeternity.dimLightThreshold) {
         data.flags.torgeternity.dimLightThreshold = DEFAULT_TORG.dimLightThreshold;
-        data.flags.torgeternity.darkThreshold = NO_AXIOMS;
+        data.flags.torgeternity.darkThreshold = DEFAULT_TORG.darkThreshold;
       }
       if (!data.flags.torgeternity.axioms)
         data.flags.torgeternity.axioms = DEFAULT_TORG.axioms;

@@ -294,6 +294,7 @@ items:
               value: true
               priority: null
               type: override
+          combatToggle: true
         description: ''
         tint: '#ffffff'
         transfer: true
@@ -303,12 +304,12 @@ items:
         _stats:
           compendiumSource: null
           duplicateSource: null
-          coreVersion: '14.360'
+          coreVersion: '14.370'
           systemId: torgeternity
-          systemVersion: 13.13.2
-          createdTime: null
-          modifiedTime: 1774459517017
-          lastModifiedBy: BMvGTGfheqDXarjN
+          systemVersion: 14.7.4
+          createdTime: 1794503885090
+          modifiedTime: 1794503885090
+          lastModifiedBy: iOcCVm1cmrYXOubH
           exportSource: null
         start: null
         showIcon: 1

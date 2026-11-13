@@ -917,7 +917,70 @@ items:
       modifiedTime: 1768218549271
       lastModifiedBy: BMvGTGfheqDXarjN
     _id: 6K9bJjNy7gsztsUc
-    effects: []
+    effects:
+      - origin: Actor.OB5I9LwFUwB5C3C4.Item.Sh5CR5qpJTAzjQsC
+        duration:
+          value: null
+          units: seconds
+          expiry: null
+          expired: false
+        disabled: false
+        name: Geschicklichkeit begünstigt
+        img: systems/torgeternity/images/icons/reality-icon.webp
+        _id: icZp6QEzyhsN4eCt
+        type: base
+        system:
+          changes:
+            - key: system.attributes.dexterity.isFav
+              value: true
+              priority: null
+              type: override
+              phase: initial
+          applyOnOutcome: ''
+          transferOnOutcome: ''
+          transferTo: target
+          activeIfTrait: []
+          applyIfAttackTrait: []
+          applyIfDefendTrait: []
+          defendAgainstTrait: []
+          applyIfAttackTraitCombine: or
+          applyIfDefendTraitCombine: or
+          defendAgainstTraitCombine: or
+          itemsToBestow: []
+          combatToggle: false
+          concentratingId: null
+          emanation:
+            radius: null
+            color: '#000040'
+            disposition: 1
+            visibility: 4
+        description: ''
+        tint: '#ffffff'
+        transfer: true
+        statuses: []
+        sort: 0
+        flags: {}
+        _stats:
+          compendiumSource: null
+          duplicateSource: null
+          coreVersion: '14.370'
+          systemId: torgeternity
+          systemVersion: 14.7.4
+          createdTime: 1794525744780
+          modifiedTime: 1794525812371
+          lastModifiedBy: iOcCVm1cmrYXOubH
+          exportSource: null
+        start:
+          combat: null
+          round: null
+          time: 1680
+          turn: null
+          combatant: null
+          initiative: null
+        showIcon: 1
+        folder: null
+        _key: >-
+          !actors.items.effects!OB5I9LwFUwB5C3C4.6K9bJjNy7gsztsUc.icZp6QEzyhsN4eCt
     folder: null
     _key: '!actors.items!OB5I9LwFUwB5C3C4.6K9bJjNy7gsztsUc'
   - name: Magische Verbundenheit (Elf)
@@ -1312,50 +1375,7 @@ items:
       modifiedTime: 1774465561170
       lastModifiedBy: BMvGTGfheqDXarjN
     _key: '!actors.items!OB5I9LwFUwB5C3C4.jgTek2ORzUYzW7VR'
-effects:
-  - origin: Actor.OB5I9LwFUwB5C3C4.Item.Sh5CR5qpJTAzjQsC
-    duration:
-      value: null
-      units: seconds
-      expiry: null
-      expired: false
-    disabled: false
-    name: Geschicklichkeit begünstigt
-    img: systems/torgeternity/images/icons/reality-icon.webp
-    _id: icZp6QEzyhsN4eCt
-    type: base
-    system:
-      changes:
-        - key: system.attributes.dexterity.isFav
-          value: true
-          priority: null
-          type: override
-    description: ''
-    tint: '#ffffff'
-    transfer: false
-    statuses: []
-    sort: 0
-    flags: {}
-    _stats:
-      compendiumSource: null
-      duplicateSource: null
-      coreVersion: '14.360'
-      systemId: torgeternity
-      systemVersion: 12.2.0
-      createdTime: null
-      modifiedTime: 1774465596861
-      lastModifiedBy: BMvGTGfheqDXarjN
-      exportSource: null
-    start:
-      combat: null
-      round: null
-      time: 0
-      turn: null
-      combatant: null
-      initiative: null
-    showIcon: 1
-    folder: null
-    _key: '!actors.effects!OB5I9LwFUwB5C3C4.icZp6QEzyhsN4eCt'
+effects: []
 folder: null
 sort: 0
 flags:
