@@ -17,14 +17,12 @@
     {
       "name": "Farling",
       "url": "https://github.com/farling42",
-      "email": "foundryvtt@amusingtime.uk",
       "discord": "farling",
       "ko-fi": "farling",
-      "patreon": "amusingtime",
-      "twitter": "@shambles42"
+      "patreon": "amusingtime"
     }
   ],
-  "version": "14.7.4",
+  "version": "14.7.5",
   "compatibility": {
     "minimum": "14",
     "verified": "14.370",
