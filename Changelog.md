@@ -1,6 +1,6 @@
 # TORG Eternity Changelog
 
-## NEXT - Archetype updates + Misc Fixes
+## 14.7.6 - Archetype updates + Misc Fixes
 ### Improvements
 - Add the destiny card count/hand size to the "Enhanced Display" version of a Player Hand.
 ### Archetype Updates
