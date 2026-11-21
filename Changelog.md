@@ -1,6 +1,6 @@
 # TORG Eternity Changelog
 
-## NEXT
+## 14.7.7 - Detached Combat Tracker
 ### Bug Fixes
 - Remove `resizable` flag from the CombatTracker so that it works properly when detached from the main Foundry window.
 
