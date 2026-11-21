@@ -1,5 +1,8 @@
 # TORG Eternity Changelog
 
+## NEXT
+- Set fixed height of drama card display in Combat Tracker to 260px to reduce flickering of Combat Tracker (particularly when detached) when new drama card drawn. (Height must be hard-coded in HBS file, won't work from CSS.)
+
 ## 14.7.7 - Detached Combat Tracker
 ### Bug Fixes
 - Remove `resizable` flag from the CombatTracker so that it works properly when detached from the main Foundry window.
