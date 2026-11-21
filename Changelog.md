@@ -3,6 +3,8 @@
 ## 14.7.7 - Detached Combat Tracker
 ### Bug Fixes
 - Remove `resizable` flag from the CombatTracker so that it works properly when detached from the main Foundry window.
+  - It now works the same as in dnd5e and other game systems, with the associated bugs/unwanted features.
+  - If detached while no combat is present, then it will need to be re-attached and detached again after combatants have been added in order for the tracker to be displayed with the correct height. (Foundry Bug)
 
 ## 14.7.6 - Archetype updates + Misc Fixes
 ### Improvements
