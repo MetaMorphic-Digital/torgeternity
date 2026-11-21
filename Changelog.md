@@ -1,5 +1,9 @@
 # TORG Eternity Changelog
 
+## NEXT
+### Bug Fixes
+- Remove `resizable` flag from the CombatTracker so that it works properly when detached from the main Foundry window.
+
 ## 14.7.6 - Archetype updates + Misc Fixes
 ### Improvements
 - Add the destiny card count/hand size to the "Enhanced Display" version of a Player Hand.

@@ -50,11 +50,10 @@
     </nav>
   {{/if}}
 
-  {{#if combat.flags.torgeternity.activeCard}}
-    <img src="{{combat.flags.torgeternity.activeCard}}" style="object-fit:contain">
-  {{else}}
-    <img src="{{localize 'torgeternity.combat.dramaBack'}}" style="object-fit:contain">
-  {{/if}}
+  <img
+    src="{{ifThen combat.flags.torgeternity.activeCard combat.flags.torgeternity.activeCard (localize 'torgeternity.combat.dramaBack')}}"
+    style="object-fit:contain">
+
   <nav class="encounters flexrow">
     <button type="button" class="toggleDramatic icon fa-solid {{ifThen isDramatic 'fa-people-robbery' 'fa-person'}}"
       data-action="toggleDramatic"
