@@ -21,7 +21,7 @@ export default class torgeternityCombatTracker extends foundry.applications.side
   static DEFAULT_OPTIONS = {
     // token-effects ignore the themed setting below.
     classes: ['torgeternity', 'themed', 'theme-dark'],
-    window: { resizable: true }, // for when detached
+    //window: { resizable: true }, // for when detached
     actions: {
       'toggleDramatic': torgeternityCombatTracker.#toggleDramatic,
       'hasPlayed': torgeternityCombatTracker.#onHasPlayed,
