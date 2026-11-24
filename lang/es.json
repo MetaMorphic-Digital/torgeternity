@@ -961,6 +961,10 @@
         "hint": "Si está activado, muestra una lista de efectos en la ficha seleccionada.",
         "name": "Mostrar panel de efectos"
       },
+      "threatCards": {
+        "hint": "If checked, having 'Limited' ownership of a Threat will display a Threat Card in the Actor sheet instead of the full Actor",
+        "name": "Show Threat Cards"
+      },
       "welcome": {
         "hint": "Activo: se mostrará el mensaje de bienvenida después de cargar el mundo.",
         "name": "Mostrar mensaje de bienvenida"
@@ -1284,6 +1288,7 @@
       "tech": "Tecno.",
       "tempEffects": "Efecto Temporal",
       "threat": "Amenaza",
+      "threatcard": "Threat Card",
       "titleDescription": "Título/Descripción",
       "toggleSkillDisplay": "Clic para cambiar listado de habilidades",
       "total": "Total",

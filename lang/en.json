@@ -955,6 +955,10 @@
         "hint": "If checked, displays a list of effects on the currently selected token.",
         "name": "Show Effects Panel"
       },
+      "threatCards": {
+        "hint": "If checked, having 'Limited' ownership of a Threat will display a Threat Card in the Actor sheet instead of the full Actor",
+        "name": "Show Threat Cards"
+      },
       "welcome": {
         "hint": "If checked, the welcome message will pop up after your world loads.",
         "name": "Display the Welcome Message"
@@ -1278,6 +1282,7 @@
       "tech": "Tech",
       "tempEffects": "Temporary Effects",
       "threat": "Threat",
+      "threatcard": "Threat Card",
       "titleDescription": "Title/Description",
       "toggleSkillDisplay": "Click to toggle Skills display",
       "total": "Total",

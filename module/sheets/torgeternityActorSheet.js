@@ -80,6 +80,7 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
     background: { template: "systems/torgeternity/templates/actors/stormknight/background.hbs", scrollable: [""] },
 
     threat: { template: `systems/torgeternity/templates/actors/threat/main.hbs`, scrollable: [".scrollable"] },
+    threatLimited: { template: `systems/torgeternity/templates/actors/threat/main-limited.hbs`, scrollable: [".scrollable"] },
     vehicle: { template: `systems/torgeternity/templates/actors/vehicle/main.hbs`, scrollable: [".scrollable"] }
   }
 
@@ -104,8 +105,16 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
         { id: 'powers', },
         { id: 'effects', }, // not scrollable
         { id: 'background', label: 'torgeternity.sheetLabels.notes' },
+        { id: 'threatcard', label: 'torgeternity.sheetLabels.threatcard' },
       ],
       initial: "stats",
+      labelPrefix: 'torgeternity.sheetLabels'
+    },
+    threatLimited: {
+      tabs: [
+        { id: 'threatcard', label: 'torgeternity.sheetLabels.threatcard' },
+      ],
+      initial: "threatcard",
       labelPrefix: 'torgeternity.sheetLabels'
     },
     vehicle: {
@@ -181,11 +190,16 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
         }
         break;
       case 'threat':
-        options.parts = [this.actor.type];
         if (options.isFirstRender) {
           options.position.width = 690;
           options.position.height = 645;
         }
+        if (game.settings.get('torgeternity', 'threatCards') && this.actor.permission === CONST.DOCUMENT_OWNERSHIP_LEVELS.LIMITED) {
+          options.parts = ["threatLimited"];
+          options.position.width = 450;
+          options.position.height = 750;
+        } else
+          options.parts = [this.actor.type];
         break;
     }
   }
@@ -202,7 +216,8 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
   async _prepareContext(options) {
     const context = await super._prepareContext(options);
 
-    context.tabs = this._prepareTabs(this.actor.type);
+    const useLimited = game.settings.get('torgeternity', 'threatCards') && options.parts[0] === "threatLimited";
+    context.tabs = this._prepareTabs(useLimited ? "threatLimited" : this.actor.type);
     context.systemFields = context.document.system.schema.fields;
     context.items = Array.from(context.document.items);
 

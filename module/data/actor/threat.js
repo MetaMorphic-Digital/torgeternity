@@ -30,6 +30,9 @@ export class ThreatData extends CommonActorData {
           required: true,
           blank: false,
         }),
+        threatcardbg: new fields.FilePathField({
+          categories: ["IMAGE"],
+        }),
       }),
     });
   }

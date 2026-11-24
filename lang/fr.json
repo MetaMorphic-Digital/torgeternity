@@ -965,6 +965,10 @@
         "hint": "Si coché, affiche une liste des Effets en cours sur le Token sélectionné.",
         "name": "Afficher le panneau des Effets"
       },
+      "threatCards": {
+        "hint": "If checked, having 'Limited' ownership of a Threat will display a Threat Card in the Actor sheet instead of the full Actor",
+        "name": "Show Threat Cards"
+      },
       "welcome": {
         "hint": "Si sélectionné, le message de bienvenue apparaîtra au chargement",
         "name": "Afficher le message de bienvenue"
@@ -1288,6 +1292,7 @@
       "tech": "Tech",
       "tempEffects": "Effets temporaires",
       "threat": "Menace",
+      "threatcard": "Threat Card",
       "titleDescription": "Titre/Description",
       "toggleSkillDisplay": "Afficher/masquer les compétences sans rang",
       "total": "Valeur",

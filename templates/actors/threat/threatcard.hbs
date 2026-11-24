@@ -1,0 +1,38 @@
+<section class="tab threatcard {{tabs.threatcard.cssClass}}" data-group="{{tabs.threatcard.group}}"
+  data-tab="{{tabs.threatcard.id}}">
+
+  {{#*inline "leftfield"}}
+    <div class="flexrow flex0 field leftfield {{name}}">
+      <p class="value flex0">{{value}}</p>
+      <p class="label flex1">{{localize label}}</p>
+    </div>
+  {{/inline}}
+  {{#*inline "rightfield"}}
+    <div class="flexrow flex0 field rightfield {{name}}">
+      <p class="label flex1">{{localize label}}</p>
+      <p class="value flex0">{{value}}</p>
+    </div>
+  {{/inline}}
+
+  <div class="flexrow">
+    <div class="flexcol flex0 left">
+      {{> leftfield name='intimidation' label='torgeternity.skills.intimidation' value=document.system.defenses.intimidation.value}}
+      {{> leftfield name='maneuver' label='torgeternity.skills.maneuver' value=document.system.defenses.maneuver.value}}
+      {{> leftfield name='taunt' label='torgeternity.skills.taunt' value=document.system.defenses.taunt.value}}
+      {{> leftfield name='trick' label='torgeternity.skills.trick' value=document.system.defenses.trick.value}}
+      <div class="flex1"></div>
+    </div>
+    <div class="flex1 centre">
+      <img src="{{document.system.details.threatcardbg}}" data-edit="system.details.threatcardbg"
+        {{#if editable}}data-action="editImage" {{/if}}>
+    </div>
+    <div class="flexcol flex0 right">
+      <div class="flex1"></div>
+      {{> rightfield name='melee' label='torgeternity.sheetLabels.melee' value=document.system.defenses.meleeWeapons.value}}
+      {{> rightfield name='dodge' label='torgeternity.skills.dodge' value=document.system.defenses.dodge.value}}
+      {{> rightfield name='unarmed' label='torgeternity.sheetLabels.unarmed' value=document.system.defenses.unarmedCombat.value}}
+      {{> rightfield name='toughness' label='torgeternity.sheetLabels.toughness'
+       value=(ifThen document.system.defenses.armor (concat document.system.defenses.toughness "&nbsp; &lpar;" document.system.defenses.armor "&rpar;") document.system.defenses.toughness)}}
+    </div>
+  </div>
+</section>
