@@ -962,8 +962,8 @@
         "name": "Zeige Effekt-Liste"
       },
       "threatCards": {
-        "hint": "If checked, having 'Limited' ownership of a Threat will display a Threat Card in the Actor sheet instead of the full Actor",
-        "name": "Show Threat Cards"
+        "hint": "Wenn gewählt, wird bei 'Beschränkten' Zugriffsrechten für eine Bedrohung anstelle des vollständigen Akteurs nur eine Bedrohungskarte angezeigt",
+        "name": "Zeige Bedrohungskarten"
       },
       "welcome": {
         "hint": "Wenn ausgewählt, erscheint beim Laden die Willkommensnachricht",
@@ -1288,6 +1288,7 @@
       "tech": "Tech",
       "tempEffects": "Vorrübergehende Effekte",
       "threat": "Bedrohung",
+      "threatcard": "Bedrohungskarte",
       "titleDescription": "Titel/Beschreibung",
       "toggleSkillDisplay": "Klicke hierauf, um die Anzeige der Fertigkeiten umzuschalten",
       "total": "Gesamt",

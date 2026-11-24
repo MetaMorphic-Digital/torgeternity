@@ -966,8 +966,8 @@
         "name": "Afficher le panneau des Effets"
       },
       "threatCards": {
-        "hint": "If checked, having 'Limited' ownership of a Threat will display a Threat Card in the Actor sheet instead of the full Actor",
-        "name": "Show Threat Cards"
+        "hint": "Si coché, un accès 'Limité' à un acteur Menace affichera sa carte en lieu et place de la feuille complète de l'acteur.",
+        "name": "Montrer la carte de la Menace"
       },
       "welcome": {
         "hint": "Si sélectionné, le message de bienvenue apparaîtra au chargement",
@@ -1292,7 +1292,7 @@
       "tech": "Tech",
       "tempEffects": "Effets temporaires",
       "threat": "Menace",
-      "threatcard": "Threat Card",
+      "threatcard": "Carte de Menace",
       "titleDescription": "Titre/Description",
       "toggleSkillDisplay": "Afficher/masquer les compétences sans rang",
       "total": "Valeur",
