@@ -3,12 +3,14 @@
 ## 14.7.8 - Threat Card on Limited view
 ### New Features
 - **Threat Card**
+  - For Threats and Vehicles
   - `Limited` ownership will display only the threat card tab to the Player (sized as 450x750) based on actual Actor data.
   - `Observer` and `Owner` ownership will show the usual threat Actor sheet along with an additional tab which shows what the threat card might look like (although the 'limited' ownership has a smaller fixed dimension).
-  - A new macro `+Set Threat Card BG` is available in the system neutral Macros compendium which will attempt to set the threat BG image automatically for premium module threats. It will look for a "-large.webp" version of the threat's image in the same module folder, otherwise it will use the threat's current image (which might look strange in the threat card).
+  - A new macro `+Set Threat Card BG` is available in the system neutral Macros compendium which will attempt to set the threat BG image automatically for premium module threats. It will look for a "-large.webp" version of the actor's image in the same module folder, otherwise it will use the actor's current image (which might look strange in the threat card).
   - This new feature can be disabled in the Torg Eternity Game System settings.
 ### Improvements
 - Set fixed height of drama card display in Combat Tracker to 260px to reduce flickering of Combat Tracker (particularly when detached) when new drama card drawn. (Height must be hard-coded in HBS file, won't work from CSS.)
+- Set a fixed size for Vehicle sheets, so that they don't vary in size when switching tabs.
 
 ## 14.7.7 - Detached Combat Tracker
 ### Bug Fixes
