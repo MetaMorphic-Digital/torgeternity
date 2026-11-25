@@ -961,6 +961,10 @@
         "hint": "Wenn diese Option aktiviert ist, wird eine Liste der Effekte für das ausgewählte Token angezeigt.",
         "name": "Zeige Effekt-Liste"
       },
+      "threatCards": {
+        "hint": "Wenn gewählt, wird bei 'Beschränkten' Zugriffsrechten für eine Bedrohung anstelle des vollständigen Akteurs nur eine Bedrohungskarte angezeigt",
+        "name": "Zeige Bedrohungskarten"
+      },
       "welcome": {
         "hint": "Wenn ausgewählt, erscheint beim Laden die Willkommensnachricht",
         "name": "Willkommensnachricht anzeigen"
@@ -1284,6 +1288,7 @@
       "tech": "Tech",
       "tempEffects": "Vorrübergehende Effekte",
       "threat": "Bedrohung",
+      "threatcard": "Bedrohungskarte",
       "titleDescription": "Titel/Beschreibung",
       "toggleSkillDisplay": "Klicke hierauf, um die Anzeige der Fertigkeiten umzuschalten",
       "total": "Gesamt",

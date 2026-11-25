@@ -965,6 +965,10 @@
         "hint": "Si coché, affiche une liste des Effets en cours sur le Token sélectionné.",
         "name": "Afficher le panneau des Effets"
       },
+      "threatCards": {
+        "hint": "Si coché, un accès 'Limité' à un acteur Menace affichera sa carte en lieu et place de la feuille complète de l'acteur.",
+        "name": "Montrer la carte de la Menace"
+      },
       "welcome": {
         "hint": "Si sélectionné, le message de bienvenue apparaîtra au chargement",
         "name": "Afficher le message de bienvenue"
@@ -1288,6 +1292,7 @@
       "tech": "Tech",
       "tempEffects": "Effets temporaires",
       "threat": "Menace",
+      "threatcard": "Carte de Menace",
       "titleDescription": "Titre/Description",
       "toggleSkillDisplay": "Afficher/masquer les compétences sans rang",
       "total": "Valeur",

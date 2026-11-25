@@ -21,6 +21,9 @@ export class VehicleData extends BaseActorData {
           choices: Object.keys(CONFIG.torgeternity.sizes),
           required: true,
         }),
+        threatcardbg: new fields.FilePathField({
+          categories: ["IMAGE"],
+        }),
       }),
       armor: new fields.NumberField({ initial: 0, integer: true, nullable: false }),
       axioms: makeAxiomsField(),

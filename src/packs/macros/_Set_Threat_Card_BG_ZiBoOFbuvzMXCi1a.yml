@@ -1,0 +1,49 @@
+name: +Set Threat Card BG
+type: script
+command: |-
+  for (const actor of game.actors) {
+    if (actor.type !== 'threat' && actor.type !== 'vehicle') continue;
+    // Some published modules have "?xxxxxx" on the end of the filename
+    const img = actor.img.replace(/\?\d*$/,'');
+    
+    if (actor.system.details.threatcardbg &&
+        actor.system.details.threatcardbg !== img) continue;
+    if (!img.startsWith('modules/te') && !img.startsWith('systems/torgeternity')) continue;
+
+    const toreplace = img.endsWith('.Avatar.webp') ? '.Avatar.webp' : '.webp';
+    let newimg = img;
+    let testimg = img.replace(toreplace, '-large.webp');
+    let resp = await fetch(testimg);
+    console.log(resp);
+    if (resp.ok)
+      newimg = testimg;
+    else {
+      testimg = img.replace(toreplace, '_large.webp');
+      resp = await fetch(testimg);
+      if (resp.ok)
+        newimg = testimg;
+    }
+    
+    await actor.update({'system.details.threatcardbg': newimg});
+  }
+img: icons/svg/dice-target.svg
+_id: ZiBoOFbuvzMXCi1a
+author: iOcCVm1cmrYXOubH
+scope: global
+folder: null
+ownership:
+  default: 0
+  iOcCVm1cmrYXOubH: 3
+flags: {}
+_stats:
+  coreVersion: '14.370'
+  systemId: torgeternity
+  systemVersion: 14.7.5
+  createdTime: 1795525984745
+  modifiedTime: 1795565225982
+  lastModifiedBy: iOcCVm1cmrYXOubH
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 200000
+_key: '!macros!ZiBoOFbuvzMXCi1a'

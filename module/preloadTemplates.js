@@ -24,6 +24,7 @@ export const preloadTemplates = async function () {
 
     // ACTOR--threats
     'systems/torgeternity/templates/actors/threat/main.hbs',
+    'systems/torgeternity/templates/actors/threat/main-limited.hbs',
     'systems/torgeternity/templates/actors/threat/header.hbs',
     'systems/torgeternity/templates/actors/threat/stat-tab.hbs',
     'systems/torgeternity/templates/actors/threat/abilities.hbs',
@@ -31,6 +32,7 @@ export const preloadTemplates = async function () {
     'systems/torgeternity/templates/actors/threat/powers.hbs',
     'systems/torgeternity/templates/actors/threat/sidebar.hbs',
     'systems/torgeternity/templates/actors/threat/background.hbs',
+    'systems/torgeternity/templates/actors/threat/threatcard.hbs',
 
     // ACTOR - vehicles
     'systems/torgeternity/templates/actors/vehicle/main.hbs',
@@ -38,6 +40,7 @@ export const preloadTemplates = async function () {
     'systems/torgeternity/templates/actors/vehicle/stats.hbs',
     'systems/torgeternity/templates/actors/vehicle/gear.hbs',
     'systems/torgeternity/templates/actors/vehicle/background.hbs',
+    'systems/torgeternity/templates/actors/vehicle/threatcard.hbs',
 
     // Test Dialogs
     'systems/torgeternity/templates/testDialogs/actor-options.hbs',

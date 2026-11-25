@@ -961,6 +961,10 @@
         "hint": "Si está activado, muestra una lista de efectos en la ficha seleccionada.",
         "name": "Mostrar panel de efectos"
       },
+      "threatCards": {
+        "hint": "Si está marcado, tener acceso limitado a una amenaza mostrará una carta de amenaza en la hoja del actor en lugar del actor al completo",
+        "name": "Mostrar cartas de amenaza"
+      },
       "welcome": {
         "hint": "Activo: se mostrará el mensaje de bienvenida después de cargar el mundo.",
         "name": "Mostrar mensaje de bienvenida"
@@ -1284,6 +1288,7 @@
       "tech": "Tecno.",
       "tempEffects": "Efecto Temporal",
       "threat": "Amenaza",
+      "threatcard": "Carta de amenaza",
       "titleDescription": "Título/Descripción",
       "toggleSkillDisplay": "Clic para cambiar listado de habilidades",
       "total": "Total",

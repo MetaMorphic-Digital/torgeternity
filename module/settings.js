@@ -390,4 +390,14 @@ export function registerTorgSettings() {
     type: new fields.ColorField(),
     default: 0xce0707  // --color-level-error
   });
+
+
+  game.settings.register('torgeternity', 'threatCards', {
+    name: 'torgeternity.settingMenu.threatCards.name',
+    hint: 'torgeternity.settingMenu.threatCards.hint',
+    scope: 'world',
+    config: true,
+    type: Boolean,
+    default: true
+  });
 }
