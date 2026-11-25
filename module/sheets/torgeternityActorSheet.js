@@ -81,7 +81,8 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
 
     threat: { template: `systems/torgeternity/templates/actors/threat/main.hbs`, scrollable: [".scrollable"] },
     threatLimited: { template: `systems/torgeternity/templates/actors/threat/main-limited.hbs`, scrollable: [".scrollable"] },
-    vehicle: { template: `systems/torgeternity/templates/actors/vehicle/main.hbs`, scrollable: [".scrollable"] }
+    vehicle: { template: `systems/torgeternity/templates/actors/vehicle/main.hbs`, scrollable: [".scrollable"] },
+    vehicleLimited: { template: `systems/torgeternity/templates/actors/vehicle/main-limited.hbs`, scrollable: [".scrollable"] },
   }
 
   static TABS = {
@@ -123,10 +124,18 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
         { id: 'gear', },
         { id: 'effects' },
         { id: 'background', label: 'torgeternity.sheetLabels.notes' },
+        { id: 'threatcard', label: 'torgeternity.sheetLabels.threatcard' },
       ],
       initial: "stats",
       labelPrefix: 'torgeternity.sheetLabels'
-    }
+    },
+    vehicleLimited: {
+      tabs: [
+        { id: 'threatcard', label: 'torgeternity.sheetLabels.threatcard' },
+      ],
+      initial: "threatcard",
+      labelPrefix: 'torgeternity.sheetLabels'
+    },
   }
 
   /**
@@ -184,10 +193,15 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
         }
         break;
       case 'vehicle':
-        options.parts = [this.actor.type];
         if (options.isFirstRender) {
-          options.position.height = "auto";
+          options.position.height = 650;
         }
+        if (game.settings.get('torgeternity', 'threatCards') && this.actor.permission === CONST.DOCUMENT_OWNERSHIP_LEVELS.LIMITED) {
+          options.parts = ["vehicleLimited"];
+          options.position.width = 450;
+          options.position.height = 750;
+        } else
+          options.parts = [this.actor.type];
         break;
       case 'threat':
         if (options.isFirstRender) {
@@ -216,8 +230,8 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
   async _prepareContext(options) {
     const context = await super._prepareContext(options);
 
-    const useLimited = game.settings.get('torgeternity', 'threatCards') && options.parts[0] === "threatLimited";
-    context.tabs = this._prepareTabs(useLimited ? "threatLimited" : this.actor.type);
+    const useLimited = game.settings.get('torgeternity', 'threatCards') && (options.parts[0].endsWith("Limited"));
+    context.tabs = this._prepareTabs(useLimited ? options.parts[0] : this.actor.type);
     context.systemFields = context.document.system.schema.fields;
     context.items = Array.from(context.document.items);
 

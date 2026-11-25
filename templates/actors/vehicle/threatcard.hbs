@@ -1,0 +1,37 @@
+<section class="tab threatcard {{tabs.threatcard.cssClass}}" data-group="{{tabs.threatcard.group}}"
+  data-tab="{{tabs.threatcard.id}}">
+
+  {{#*inline "leftfield"}}
+    <div class="flexrow flex0 field leftfield {{name}}">
+      <p class="value flex0">{{value}}</p>
+      <p class="label flex1">{{localize label}}</p>
+    </div>
+  {{/inline}}
+  {{#*inline "rightfield"}}
+    <div class="flexrow flex0 field rightfield {{name}}">
+      <p class="label flex1">{{localize label}}</p>
+      <p class="value flex0">{{value}}</p>
+    </div>
+  {{/inline}}
+
+  <div class="flexrow">
+    <div class="flexcol flex0 left">
+      {{> leftfield name='passengers' label='torgeternity.gear.passengers' value=document.system.passengers}}
+      {{> leftfield name='topSpeed' label='torgeternity.gear.topspeed' value=document.system.topSpeed.kph}}
+      {{> leftfield name='size' label='torgeternity.sheetLabels.size' value=(localize (concat 'torgeternity.sizes.' document.system.details.sizeBonus))}}
+      {{> leftfield name='maneuver' label='torgeternity.skills.maneuver' value=document.system.maneuver}}
+      <div class="flex1"></div>
+    </div>
+    <div class="flex1 centre">
+      <img src="{{document.system.details.threatcardbg}}" data-edit="system.details.threatcardbg"
+        {{#if editable}}data-action="editImage" {{/if}}>
+    </div>
+    <div class="flexcol flex0 right">
+      <div class="flex1"></div>
+      {{> rightfield name='tech' label='torgeternity.sheetLabels.tech' value=document.system.axioms.tech}}
+      {{> rightfield name='armor' label='torgeternity.sheetLabels.armor' value=(concat '&lpar;' document.system.armor '&rpar;')}}
+      {{> rightfield name='toughness' label='torgeternity.sheetLabels.toughness' value=document.system.toughness}}
+      {{> rightfield name='skill' label='torgeternity.sheetLabels.skill' value=(localize (concat 'torgeternity.vehicleTypes.' document.system.type))}}
+    </div>
+  </div>
+</section>

@@ -1767,60 +1767,6 @@ dialog.torgeternity:not(.actor, .item) .window-content,
       }
     }
 
-    .threatcard {
-      height: 100%;
-
-      &>div {
-        height: 100%;
-
-        &>div {
-          height: 100%
-        }
-
-        background: green;
-      }
-
-      position:relative;
-
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        z-index: 0;
-      }
-
-      .field {
-        flex-wrap: nowrap;
-        z-index: 1;
-      }
-
-      .label {
-        color: white;
-        text-shadow: 2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000, 1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
-      }
-
-      p {
-        text-wrap: nowrap;
-      }
-
-      .rightfield .label {
-        text-align: right;
-      }
-
-      .value {
-        /*border: 3px green solid;*/
-        margin: 1px;
-        padding: 15px 20px 15px 20px;
-        background: no-repeat border-box url("../images/button.webp");
-        background-size: 100% 100%;
-      }
-    }
-
     span.vital-box span.light {
       font-family: "Signika";
       font-size: 13px;
@@ -1934,6 +1880,70 @@ dialog.torgeternity:not(.actor, .item) .window-content,
     img.profile-img {
       max-width: 150px;
       max-height: 150px;
+    }
+  }
+
+  .threatcard {
+    height: 100%;
+
+    &>div {
+      height: 100%;
+
+      &>div {
+        height: 100%
+      }
+
+      background: green;
+    }
+
+    position:relative;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 0;
+    }
+
+    .field {
+      flex-wrap: nowrap;
+      z-index: 1;
+    }
+
+    .label {
+      color: white;
+      text-shadow: 2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000, 1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
+    }
+
+    p {
+      text-wrap: nowrap;
+    }
+
+    .rightfield .label {
+      text-align: right;
+    }
+
+    .value {
+      margin: 1px;
+      padding: 15px 20px 15px 20px;
+      background: no-repeat border-box url("../images/button.webp");
+      background-size: 100% 100%;
+      text-align: center;
+    }
+  }
+
+  &.vehicle .threatcard {
+    .field.skill .value {
+      min-width: 6em;
+    }
+
+    .value {
+      min-width: 4em;
     }
   }
 
