@@ -18,7 +18,7 @@
     <div class="flexcol flex0 left">
       {{> leftfield name='passengers' label='torgeternity.gear.passengers' value=document.system.passengers}}
       {{> leftfield name='topSpeed' label='torgeternity.gear.topspeed' value=document.system.topSpeed.kph}}
-      {{> leftfield name='size' label='torgeternity.sheetLabels.size' value=(localize (concat 'torgeternity.sizes.' document.system.details.sizeBonus))}}
+      {{> leftfield name='size' label='torgeternity.sheetLabels.size' value=(TorgInitials (localize (concat 'torgeternity.sizes.' document.system.details.sizeBonus)))}}
       {{> leftfield name='maneuver' label='torgeternity.skills.maneuver' value=document.system.maneuver}}
       <div class="flex1"></div>
     </div>

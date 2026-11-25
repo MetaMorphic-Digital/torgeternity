@@ -1943,7 +1943,7 @@ dialog.torgeternity:not(.actor, .item) .window-content,
     }
 
     .value {
-      min-width: 4em;
+      min-width: 5em;
     }
   }
 

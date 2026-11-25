@@ -5,6 +5,7 @@ export function initHandlebarsHelpers() {
   Handlebars.registerHelper({ TorgIsSvg })
   Handlebars.registerHelper({ TorgFormGroup })
   Handlebars.registerHelper({ TorgInSet })
+  Handlebars.registerHelper({ TorgInitials })
 }
 
 function TorgFormGroup(field, options) {
@@ -55,4 +56,10 @@ function TorgIsSvg(value) {
 
 function TorgInSet(theset, value) {
   return theset.has(value);
+}
+
+function TorgInitials(value) {
+  if (value instanceof Handlebars.SafeString) value = value.toString();
+  console.log(value);
+  return value.split(' ').map(e => e.at(0)).join('');
 }
