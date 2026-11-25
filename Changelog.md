@@ -1,14 +1,5 @@
 # TORG Eternity Changelog
 
-## New Translations
-```json
-  "threatcard": "Threat Card"
-  "threatCards": {
-    "hint": "If checked, having 'Limited' ownership of a Threat will display a Threat Card in the Actor sheet instead of the full Actor",
-    "name": "Show Threat Cards"
-  }
-```
-
 ## 14.7.8 - Threat Card on Limited view
 ### New Features
 - **Threat Card**
