@@ -1,5 +1,9 @@
 # TORG Eternity Changelog
 
+## 14.7.9 - Threat Card Improvements
+- Add a better default background to the Threat tab.
+- Provide a button in the top-right corner of the image to display it to all players.
+
 ## 14.7.8 - Threat Card on Limited view
 ### New Features
 - **Threat Card**

@@ -65,6 +65,7 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
       resetPoss: TorgeternityActorSheet.#onResetPoss,
       reduceShock: TorgeternityActorSheet.#onReduceShock,
       showImage: TorgeternityActorSheet.#onShowImage,
+      showThreatImage: TorgeternityActorSheet.#onShowThreatImage,
     }
   }
 
@@ -1225,6 +1226,20 @@ export default class TorgeternityActorSheet extends foundry.applications.api.Han
     const doc = this.document;
     return new foundry.applications.apps.ImagePopout({
       src: doc.img,
+      uuid: doc.uuid,
+      window: { title: doc.token?.name ?? doc.prototypeToken?.name ?? doc.name },
+    }).render({ force: true })
+  }
+  /**
+*
+* @param {Event} event
+* @param {HTMLButtonElement} button
+* @this {TorgeternityActorSheet}
+*/
+  static #onShowThreatImage(event, button) {
+    const doc = this.document;
+    return new foundry.applications.apps.ImagePopout({
+      src: doc.system.details.threatcardbg,
       uuid: doc.uuid,
       window: { title: doc.token?.name ?? doc.prototypeToken?.name ?? doc.name },
     }).render({ force: true })

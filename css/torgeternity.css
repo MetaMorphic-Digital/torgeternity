@@ -1893,6 +1893,16 @@ dialog.torgeternity:not(.actor, .item) .window-content,
         height: 100%
       }
 
+      .image-container {
+        position: static;
+
+        .hover-icon {
+          top: 2.5%;
+          right: 3%;
+          bottom: auto;
+        }
+      }
+
       background: center / 100% 100% url('../images/journal-background.webp');
     }
 
