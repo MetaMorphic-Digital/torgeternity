@@ -22,9 +22,11 @@
       {{> leftfield name='trick' label='torgeternity.skills.trick' value=document.system.defenses.trick.value}}
       <div class="flex1"></div>
     </div>
-    <div class="flex1 centre">
+    <div class="flex1 centre image-container">
       <img src="{{document.system.details.threatcardbg}}" data-edit="system.details.threatcardbg"
         {{#if editable}}data-action="editImage" {{/if}}>
+      <a class="hover-icon" data-action="showThreatImage" , data-tooltip="SIDEBAR.CharArt">
+        <i class="fa-solid fa-image sa-fw"></i></a>
     </div>
     <div class="flexcol flex0 right">
       <div class="flex1"></div>
