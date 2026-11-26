@@ -1,5 +1,8 @@
 # TORG Eternity Changelog
 
+## NEXT
+- Ensure "View Artwork" button is available on the Threat Card image even when the Actor is not editable.
+
 ## 14.7.9 - Threat Card Improvements
 - Add a better default background to the Threat tab.
 - Provide a button in the top-right corner of the image to display it to all players.

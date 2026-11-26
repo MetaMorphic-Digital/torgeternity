@@ -1893,6 +1893,11 @@ dialog.torgeternity:not(.actor, .item) .window-content,
         height: 100%
       }
 
+      div.left,
+      div.right {
+        pointer-events: none;
+      }
+
       .image-container {
         position: static;
 
@@ -1900,6 +1905,10 @@ dialog.torgeternity:not(.actor, .item) .window-content,
           top: 2.5%;
           right: 3%;
           bottom: auto;
+        }
+
+        img {
+          pointer-events: auto;
         }
       }
 
